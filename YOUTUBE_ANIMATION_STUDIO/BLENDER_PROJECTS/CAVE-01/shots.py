@@ -35,11 +35,11 @@ def S01(L, n):
     _deep(L, n, density=0.055)
     _bottom_set(L, n)
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (0.55, -3.4, 0.42), (0.02, -0.4, -0.42)), (n, (0.4, -2.35, 0.36), (0.02, -0.15, -0.36))],
+    C.aim_cam(cam, n, [(1, (0.55, -3.5, 1.0), (0.0, -0.2, -0.5)), (n, (0.4, -2.6, 0.85), (0.0, -0.1, -0.45))],
               shake=0.02, rot_shake=0.004, rate=0.5, fn=lambda x: x)
     # torch from off-screen left, sweeping left->right, settling on the shape
     tgt = L.link(bpy.data.objects.new("torch_tgt", None))
-    sp = L.spot((-2.2, -1.9, 1.35), (0, 0, 0), energy=2600, size_deg=25, blend=0.5, color=C.TORCH, name="torch",
+    sp = L.spot((-2.2, -1.9, 1.35), (0, 0, 0), energy=1300, size_deg=30, blend=0.5, color=C.TORCH, name="torch",
                 radius=0.03)
     con = sp.constraints.new("TRACK_TO")
     con.target = tgt
@@ -48,10 +48,10 @@ def S01(L, n):
     C.key_loc(tgt, [(1, (-2.6, 1.6, -0.2)), (14, (-1.6, 1.0, -0.1)), (34, (0.15, 0.05, 0.0)), (40, (0.0, 0.0, 0.0)),
                     (n, (0.05, 0.1, 0.0))])
     L.ease_all(tgt)
-    C.beam_cone(sp, length=5.5, strength=0.35, name="torch_beam")
+    C.beam_cone(sp, length=4.2, strength=0.22, name="torch_beam")
     # faint cyan from far above so the black isn't dead
-    L.spot((0.5, 1.0, 9), (0, 0, 0), energy=500, size_deg=60, blend=1.0, color=(0.3, 0.75, 0.8), name="cyanrim")
-    s = C.cloud((0, -0.6, 0.55), (4.5, 5, 1.3), count=2400, radius=0.0055, emit=0.03, seed=11)
+    L.spot((0.5, 1.0, 9), (0, 0, 0), energy=160, size_deg=60, blend=1.0, color=(0.3, 0.75, 0.8), name="cyanrim")
+    s = C.cloud((-0.4, 0.4, 0.6), (4.5, 3.6, 1.3), count=2200, radius=0.004, emit=0.05, seed=11)
     C.drift(s, n, (0.05, 0.02, 0.025))
     L.bake_static()
 

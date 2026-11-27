@@ -795,7 +795,7 @@
     "L11"
    ],
    "environment": "other:cipher grid on black",
-   "description": "MID-POINT TURN. The cipher grid returns, sharp. A white reading-arrow sweeps left-to-right along row 1, then stops, flashes red and shatters into fragments.",
+   "description": "METHOD TURN. The cipher grid returns, sharp. A white reading-arrow sweeps left-to-right along row 1, then stops, flashes red and shatters into fragments.",
    "camera": "frontal 50mm, quick push-in on row 1",
    "characters": [],
    "lighting": "cold top-light; red flash on the arrow break",
@@ -975,7 +975,7 @@
     "L15"
    ],
    "environment": "other:modern computer screen",
-   "description": "Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until TRYING TO CATCH ME reads clean, glowing red, while the rest of the line stays noise.",
+   "description": "MID-POINT TURN (unreadable becomes readable). Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until TRYING TO CATCH ME reads clean, glowing red, while the rest of the line stays noise.",
    "camera": "locked-off macro on the screen line, tiny push",
    "characters": [],
    "lighting": "red text glow dominates; monitor dim",

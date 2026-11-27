@@ -1,0 +1,68 @@
+# MURDER-04: Fact-check (Zodiac "340" cipher, solved December 2020)
+
+Checked 2026-11-27. **STATUS: PROVISIONAL. A live re-check is required before render or upload.**
+
+**Why provisional:** this turn's shared web-search budget ran out before any MURDER-04 search could run. The tool refused further WebSearch calls. Direct fetches are blocked in this container (`www.fbi.gov` and `en.wikipedia.org` fail DNS), so no MURDER-04 page could be opened either. As a result:
+- Each claim below is matched to the **source URLs already collected in research** (`VIDEO_IDEAS/MURDER_MYSTERY_20/concepts.json`, marked "verified (2 sources)" in CONCEPTS.md) and to the widely reported public record as the scriptwriter knows it.
+- Those URLs were **not re-opened in this session**.
+- Outlets named in the "To confirm" column (FBI San Francisco statement, AP, BBC, NYT, Guardian) are the places to confirm each claim. Their article URLs are **deliberately not written out**, so that no URL is fabricated.
+
+**Re-check task (about 8 searches):** see the "Re-check queue" at the bottom. Every line marked ⚠ must reach 2 confirmed sources or be cut or softened as specified. The script was written so that each ⚠ line can be cut or softened without breaking the structure.
+
+Source key (URLs from concepts.json research, not re-fetched this session):
+- **[WOLF]** Wolfram blog, "The Solution of the Zodiac Killer's 340-Character Cipher" (24 Mar 2021, detailed write-up of the solution): https://blog.wolfram.com/2021/03/24/the-solution-of-the-zodiac-killers-340-character-cipher/
+- **[ARX]** arXiv 2403.17350 (paper on the 340 solution and method): https://arxiv.org/abs/2403.17350v1
+- **[RS]** Rolling Stone, "Codebreakers crack Zodiac Killer's unsolved 340-character cipher" (Dec 2020): https://www.rollingstone.com/culture/culture-news/codebreakers-crack-zodiac-killer-unsolved-340-character-cipher-1102927/
+- **[POP]** Popular Science, Zodiac letter decode: https://www.popsci.com/technology/zodiac-letter-decode/
+
+## Claim-by-claim (line IDs as in script.json)
+
+| Line | Claim (narration / on-screen) | Status | Sources (research) | To confirm (live) |
+|---|---|---|---|---|
+| L01 | The Zodiac Killer mailed this; unreadable for 51 years (1969 to 2020) | ⚠ PROVISIONAL, high confidence. 1969 to Dec 2020 = 51 years. | [RS], [POP], [WOLF] | FBI San Francisco statement (11 Dec 2020); AP/BBC Dec 2020 |
+| L02 to L03 | 340 symbols, mailed to the San Francisco Chronicle, 1969 (on screen: "NOVEMBER 1969") | ⚠ PROVISIONAL, high confidence (postmarked 8 Nov 1969) | [WOLF], [RS], [ARX] | BBC / Guardian Dec 2020 |
+| L04 | The Zodiac killed at least five people in Northern California (on screen: 1968 to 1969) | ⚠ PROVISIONAL, high confidence. Five confirmed killed and two survived; he claimed more, which is not stated. Map points are deliberately **not** at the real sites. | [RS] (case background) | FBI / AP background paragraphs |
+| L05 | His first cipher was cracked in about a week (on screen: 408 symbols, mailed July 1969, solved by a Salinas couple) | ⚠ PROVISIONAL, high confidence (mailed 31 Jul 1969 in three parts; solved about 8 Aug 1969 by Donald and Bettye Harden). The Hardens are not named. | [WOLF], [ARX] | NYT / Guardian Dec 2020 background |
+| L06 | "This one didn't." (the 340 stayed unsolved) | ⚠ PROVISIONAL, follows from L01 | as L01 | as L01 |
+| L07 | December 2020: three amateurs broke it | ⚠ PROVISIONAL, high confidence. Breakthrough early Dec 2020; publicly announced 11 Dec 2020. "Amateurs" = not professional cryptanalysts; all three are long-time hobbyist codebreakers. | [RS], [POP], [WOLF] | AP, BBC |
+| L08 to L10 | Software developer in Virginia (David Oranchak); mathematician in Australia (Sam Blake); warehouse worker in Belgium (Jarl Van Eycke) | ⚠ PROVISIONAL. The solvers' roles are widely reported, but outlets word them differently: Oranchak "web designer" or "software engineer"; Blake "applied mathematician" (Melbourne); Van Eycke "warehouse operator" or "logistics worker". **If the re-check differs**, use the AP/FBI wording on cards and keep narration generic ("a programmer… a mathematician… a warehouse worker"). They are public figures in this context (they published their own solution). | [RS], [WOLF], [ARX] | AP; BBC |
+| L11 | Their key insight: it wasn't written left to right | ⚠ PROVISIONAL, high confidence (transposition before substitution) | [WOLF], [ARX], [POP] | |
+| L12 | Most of it ran diagonally: down one row, across two | ⚠ PROVISIONAL, medium-high confidence. Widely reported as a diagonal reading pattern (period-19 transposition) applied to the first two of three sections. The third section (last rows) was handled differently. **If unconfirmed**, cut "Down one row, across two" and keep "Most of it ran diagonally." | [WOLF], [ARX] | |
+| L13 | The mathematician tested hundreds of thousands of reading orders | ⚠ PROVISIONAL. Widely reported as about 650,000 simulated variations generated by Blake. Narration says "hundreds of thousands" and the screen shows no exact number. **If unconfirmed**, change to "huge numbers of reading orders". | [RS], [POP] | |
+| L14 | The warehouse worker's software attacked each one (on screen: "AZdecrypt, written by Van Eycke") | ⚠ PROVISIONAL, high confidence | [RS], [WOLF], [ARX], concepts.json subject line | |
+| L15 | Then the words "trying to catch me" surfaced | ⚠ PROVISIONAL, high confidence (Oranchak saw TRYING TO CATCH ME in a candidate output, around 3 Dec 2020) | [RS], [POP] | |
+| L16 | The FBI acknowledged the cipher had been solved (on screen: paraphrase, 11 Dec 2020, "solved by private citizens") | ⚠ PROVISIONAL, high confidence. FBI San Francisco publicly said it was aware the cipher had been solved by private citizens. Narration says "acknowledged", not "proved". The statement is paraphrased, not quoted. | [RS], [POP] | FBI SF statement; AP |
+| L17 | (question) So what did it say? | No claim | n/a | |
+| L18 | Decoded: "I hope you are having lots of fun in trying to catch me" | ⚠ PROVISIONAL, high confidence. First line of the published plaintext. Only the **non-graphic opening lines** are used. Later lines (gas chamber, "slaves" afterlife reference) are deliberately omitted. | [RS], [WOLF], [POP] | BBC / Guardian quote the plaintext |
+| L19 | Decoded: "That wasn't me on the TV show" | ⚠ PROVISIONAL, high confidence | [RS], [WOLF], [POP] | |
+| L20 | Probably a 1969 TV caller who claimed to be him (on screen: "Oct 1969: a caller to a live TV show claimed to be the Zodiac", labelled THEORY / "LIKELY REFERENCE") | ⚠ INTERPRETATION, labelled THEORY. The solvers and press link the line to a 22 Oct 1969 call-in to a San Francisco morning TV show (Jim Dunbar, KGO) by a man claiming to be the Zodiac. Narration says "Probably". Show and host are not named on screen. **If no source ties the line to that broadcast**, change narration to "Possibly a reference to a caller on a 1969 TV show." | [RS], [WOLF] | AP / NYT Dec 2020 |
+| L21 | 51 years of waiting, for a taunt | Editorial characterisation of L18 to L19 (no new fact) | n/a | |
+| L22 | No name; the killer has never been identified (on screen: "No one has been charged; status OPEN") | ⚠ PROVISIONAL, high confidence. The FBI said in Dec 2020 that the investigation remains ongoing. **No suspect is named anywhere.** Later private claims (e.g. Oct 2021 "Case Breakers") were not accepted by the FBI and are omitted. | [RS], [POP] | FBI SF statement |
+| L23 | Two shorter Zodiac ciphers remain unsolved (on screen: Z13 April 1970, Z32 June 1970) | ⚠ PROVISIONAL, high confidence. Meaning: no solution accepted by the FBI or the cryptology community. Many claimed solutions exist. **If wording is challenged**, change to "have no accepted solution". | [WOLF], [ARX] | |
+| L24 | One is 13 symbols; it follows the words "My name is" | ⚠ PROVISIONAL, high confidence (letter of 20 Apr 1970) | [WOLF], [ARX] | |
+| L25 | (question) Think you can read it? | No claim | n/a | |
+| S25 stamp | "In memory of the Zodiac's victims" | Respect card, no claim | n/a | |
+
+## Removed or softened during scripting
+
+- **"Here's how" / "three amateurs, a web developer, a mathematician and a warehouse worker"** (concept): "web developer" became "software developer" to match the more common description. The card carries the names. See the L08 to L10 re-check note.
+- **"FBI confirmed the solution"** (concept): became "acknowledged the cipher had been solved". The FBI's statement acknowledged that private citizens had solved it. It did not present an FBI verification.
+- **"650,000"**: not stated. "Hundreds of thousands" is used pending the re-check.
+- **The gas chamber / "slaves" / paradise lines** of the plaintext: **omitted**. They refer to the victims and are unnecessary.
+- **Number of victims the Zodiac claimed** (37 in a 1974 letter): **omitted** (unverifiable boast).
+- **Suspect names** (Arthur Leigh Allen and others; 2021 private claims): **never mentioned**. None was ever charged.
+- **Crime-scene locations and victims' names**: not shown. The map uses neutral points. A memorial stamp is on the final frame.
+- **The cipher glyphs**: stand-in glyphs, labelled in the storyboard as an approximation, not a reproduction. The decoded English shown on screen is the published plaintext.
+
+## Re-check queue (run before render; about 8 searches)
+
+1. "FBI San Francisco statement Zodiac 340 cipher solved private citizens December 11 2020" (L16, L07, L22)
+2. "Oranchak Blake Van Eycke occupations AP Zodiac cipher" (L08 to L10)
+3. "Zodiac 340 diagonal transposition down one row two columns sections" (L12)
+4. "Sam Blake 650,000 variations Zodiac 340" (L13)
+5. "Zodiac 340 'that wasn't me on the TV show' Jim Dunbar 1969 caller" (L20)
+6. "Zodiac 408 cipher solved Harden August 1969 week" (L05)
+7. "Zodiac 340 postmarked November 8 1969 San Francisco Chronicle" (L02 to L03)
+8. "Zodiac Z13 'my name is' April 1970 unsolved Z32" (L23 to L24)
+
+Owner of the re-check: the next scripting/QC pass. If any ⚠ item fails, apply the fallback wording given in its row. All fallbacks keep the line count and shot mapping unchanged.

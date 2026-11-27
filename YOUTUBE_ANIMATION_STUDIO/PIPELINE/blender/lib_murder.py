@@ -734,18 +734,18 @@ def hiker(name="hiker", color=(0.018, 0.02, 0.026), height=1.75, emit=None):
     return L.char_figure(name=name, color=color, height=height, coat=True, emit=emit)
 
 
-def seated_pose(parts, slump=0.35):
-    """Seated against a wall, legs out, head bowed (respectful, distant silhouette)."""
-    r = parts["root"]
+def seated_pose(parts, slump=0.35, lean=0.22):
+    """Seated against a wall, legs out, head bowed (respectful, distant silhouette). Figure faces +Y locally."""
     pel = parts["pelvis"]
-    pel.location.z = 0.12 * 1.0
-    pel.rotation_euler = (-0.25, 0, 0)   # torso leaning back against wall
+    pel.location.z = 0.13
+    pel.rotation_euler = (lean, 0, 0)  # torso leans back
     for t in ("L", "R"):
-        parts["hip" + t].rotation_euler = (math.radians(95), 0, (0.12 if t == "L" else -0.12))
-        parts["knee" + t].rotation_euler = (math.radians(-8), 0, 0)
-        parts["shoulder" + t].rotation_euler = (0.35, 0, (0.18 if t == "L" else -0.18))
-        parts["elbow" + t].rotation_euler = (0.5, 0, 0)
-    parts["neck"].rotation_euler = (0.55 + slump * 0.4, 0, 0.2)
+        parts["hip" + t].rotation_euler = (math.radians(92) - lean, 0, (0.1 if t == "L" else -0.1))
+        parts["knee" + t].rotation_euler = (math.radians(-6), 0, 0)
+        parts["shoulder" + t].rotation_euler = (0.3, 0, (0.15 if t == "L" else -0.15))
+        parts["elbow" + t].rotation_euler = (0.55, 0, 0)
+    parts["neck"].rotation_euler = (-0.45 - slump * 0.4, 0, 0.15)
+
 
 # ============================================================================ cross-section diagram
 
@@ -1253,31 +1253,54 @@ def tweezers(loc, rot=(0, 0, 0), name="tweezers", open_=0.01):
     return root
 
 
-def rolled_scrap(loc, length=0.045, radius=0.0035, rot_z=0.0, unroll=0.0, name="scrap", text=None):
-    """Tiny rolled paper strip. unroll 0..1 (keyframe parts['curl'] modifier? -> we build unrolled with SimpleDeform BEND)."""
+def rolled_scrap(loc, length=0.06, height=0.014, rot_z=0.0, turns=2.1, name="scrap", text="Tam\u00e1m Shud"):
+    """Tiny printed paper strip (text along +Y) rolled around local X by a SimpleDeform BEND modifier.
+    Animate unroll with bd.angle (keyframe on the object: modifiers["curl"].angle). Returns (root, paper_obj, bend_mod)."""
     root = empty(name, loc)
     root.rotation_euler = (0, 0, rot_z)
-    pm = mat_paper(name + "_m", (0.78, 0.74, 0.62))
-    w = 2 * math.pi * radius * 2.2
-    nx = 24
+    pm = mat_paper(name + "_m", (0.8, 0.76, 0.64))
+    ink = L.mat_principled(name + "_ink", (0.04, 0.035, 0.03), rough=0.6)
+    ny = 40
     verts, faces = [], []
-    for i in range(nx + 1):
-        u = i / nx
-        verts += [(-length / 2, u * w, 0), (length / 2, u * w, 0)]
-    for i in range(nx):
-        faces.append((2 * i, 2 * i + 1, 2 * i + 3, 2 * i + 2))
+    for j in range(ny + 1):
+        y = length * j / ny
+        verts += [(-height / 2, y, 0), (height / 2, y, 0)]
+    for j in range(ny):
+        faces.append((2 * j, 2 * j + 1, 2 * j + 3, 2 * j + 2))
     o = mesh_obj(name + "_p", verts, faces, mat=pm)
+    o.data.materials.append(ink)
+    if text:
+        t = L.text3d(text, loc=(0, length / 2, 0.0004), rot=(0, 0, math.pi / 2), size=height * 0.62, extrude=0, mat=ink, name=name + "_t")
+        t.data.font = _font(F_SERIF) or t.data.font
+        t.data.align_y = "CENTER"
+        t.data.resolution_u = 4
+        dg = bpy.context.evaluated_depsgraph_get()
+        tm = bpy.data.meshes.new_from_object(t.evaluated_get(dg))
+        tm.transform(t.matrix_world)
+        bm = bmesh.new()
+        bm.from_mesh(o.data)
+        off = len(bm.verts)
+        bm2 = bmesh.new()
+        bm2.from_mesh(tm)
+        # subdivide text faces along Y so they follow the bend
+        vmap = {}
+        for v in bm2.verts:
+            vmap[v.index] = bm.verts.new(v.co)
+        bm.verts.ensure_lookup_table()
+        for f in bm2.faces:
+            try:
+                nf = bm.faces.new([vmap[v.index] for v in f.verts])
+                nf.material_index = 1
+            except ValueError:
+                pass
+        bm2.free()
+        bm.to_mesh(o.data)
+        bm.free()
+        bpy.data.objects.remove(t)
     o.parent = root
-    solidify(o, 0.0004)
+    solidify(o, 0.0003)
     bd = o.modifiers.new("curl", "SIMPLE_DEFORM")
     bd.deform_method = "BEND"
     bd.deform_axis = "X"
-    bd.angle = math.radians(780) * (1 - unroll)
-    o.modifiers.move(1, 0) if len(o.modifiers) > 1 else None
-    if text:
-        ink = L.mat_principled(name + "_ink", (0.05, 0.04, 0.035), rough=0.6)
-        t = L.text3d(text, loc=(0, w * 0.5, 0.0006), rot=(0, 0, 0), size=0.0075, extrude=0, mat=ink, name=name + "_t")
-        t.data.font = _font(F_SERIF) or t.data.font
-        t.data.align_y = "CENTER"
-        t.parent = o
+    bd.angle = 2 * math.pi * turns
     return root, o, bd

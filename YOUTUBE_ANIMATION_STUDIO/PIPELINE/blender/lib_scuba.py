@@ -955,15 +955,15 @@ def inverted_compartment(w=2.4, d=2.2, h=2.4, water=1.2, nframes=120, wall_col=(
     P["toilet"] = tb
     # wash basin upside down on back wall (bowl opens downward), near the top: hand-hold for the figure
     bz = h - 0.75
-    basin = L.prim("sphere", loc=(-0.25, d / 2 - 0.25, bz), segments=20, ring_count=10, radius=0.28, name=name + "_basin")
+    basin = L.prim("sphere", loc=(-0.55, d / 2 - 0.25, bz), segments=20, ring_count=10, radius=0.28, name=name + "_basin")
     basin.scale = (1.2, 0.85, 0.5)
     L.smooth(basin)
     L.assign(basin, whitem)
     P["basin"] = basin
-    tap = L.prim("cyl", loc=(-0.25, d / 2 - 0.05, bz - 0.2), vertices=10, radius=0.025, depth=0.25,
+    tap = L.prim("cyl", loc=(-0.55, d / 2 - 0.05, bz - 0.2), vertices=10, radius=0.025, depth=0.25,
                  rot=(math.pi / 2, 0, 0), name=name + "_tap")
     L.assign(tap, L.mat_principled(name + "_chrome", (0.7, 0.7, 0.72), rough=0.15, metal=1.0))
-    mirror = L.prim("cube", loc=(-0.25, d / 2 - 0.01, bz - 0.75), name=name + "_mirror")
+    mirror = L.prim("cube", loc=(-0.55, d / 2 - 0.01, bz - 0.75), name=name + "_mirror")
     mirror.scale = (0.32, 0.01, 0.25)
     L.assign(mirror, L.mat_principled(name + "_mirm", (0.6, 0.65, 0.65), rough=0.05, metal=1.0))
     # pipes along the back wall under the overhead

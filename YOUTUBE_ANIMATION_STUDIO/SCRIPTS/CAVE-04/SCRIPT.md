@@ -5,31 +5,31 @@ Angle: the rescue mechanics. The pulley system works, then fails. This is the fa
 Beat map: cold open (L01–L02) → stakes (L03) → place/date (L04–L05) → how it happened (L06–L07) → rescue rig (L08) → hope (L09–L10) → **mid-point turn: anchor fails** (L11–L12) → the long wait (L13) → death, stated plainly (L14) → aftermath: cave sealed (L15–L16) → resting place, hard cut (L17).
 Ethics: John Jones is shown only as a faceless figure and, once inverted, only as a grey outline in a 2.5D cross-section. No face, no suffering, no body after death: his lamp icon goes dark. No quotes from family or rescuers. Contested specifics (exact distance and depth, passage size, time of death, cause of death, number of rescuers) are left out of the narration.
 
-> **VERIFICATION STATUS: PROVISIONAL.** This session's web-search budget ran out (shared per-turn limit) before any CAVE-04 searches could run, and every news host was unreachable by fetch. Narrated claims rest on the CAVE fact-check v2 search snippets recorded in `VIDEO_IDEAS/CAVE_DIVING_20/CONCEPTS.md` (UPI, NBC News, HowStuffWorks, LADbible) and were not re-checked against those pages here. Re-verify every line marked 🟡 in `QUALITY_CONTROL/CAVE-04/FACTCHECK.md` before rendering the voice-over.
+> **VERIFICATION STATUS: VERIFIED (2026-11-27, re-check pass).** Every narrated claim has ≥2 reputable sources (AP via NBC/ABC13/Inquirer, KSL, Deseret News, Fox News, UPI; Wikipedia/HowStuffWorks as secondary). See `QUALITY_CONTROL/CAVE-04/FACTCHECK.md`.
 
-**Narration:** 146 words · estimated runtime **61.7 s** at 157 wpm incl. pauses (Kokoro `am_onyx`, speed 1.07). Re-time after TTS render.
+**Narration:** 144 words · estimated runtime **60.9 s** at 157 wpm incl. pauses (Kokoro `am_onyx`, speed 1.07). Re-time after TTS render.
 
 ## Narration (timed)
 
 | Line | Est. time | Narration | Shot | Fact label | Sources |
 |---|---|---|---|---|---|
-| L01 |  0.0– 3.8 s (+0.2s) | He was stuck head-down, hundreds of feet inside a cave. | S01 | DOCUMENTED FACT 🟡 (distance kept vague: sources give different figures) | C1,C2,C4 |
-| L02 |  4.0– 7.1 s (+0.35s) | He couldn't turn around. He couldn't back out. | S02 | DOCUMENTED FACT 🟡 (implied by 'stuck'; no sourced detail added) | C1,C2 |
-| L03 |  7.4–11.6 s (+0.25s) | The rescuers' plan: pull him back up the way he came. | S03 | DOCUMENTED FACT 🟡 (rope-and-pulley extraction) | C1,C2 |
-| L04 | 11.9–14.6 s (+0.25s) | Nutty Putty Cave, Utah. November 24th, 2009. | S04 | DOCUMENTED FACT 🟡 (one source says 25 Nov) | C1,C2,C3,C4 |
-| L05 | 14.8–16.7 s (+0.3s) | John Edward Jones was 26. | S05 | DOCUMENTED FACT 🟡 | C1,C2,C4 |
-| L06 | 17.0–21.2 s (+0.2s) | Deep in the cave, he squeezed head-first into a narrow passage. | S06 | DOCUMENTED FACT 🟡 / DRAMATISATION (visual) | C1,C2,C3 |
-| L07 | 21.4–26.0 s (+0.35s) | It ran downward. He slid in until he was wedged, upside down. | S07 | DOCUMENTED FACT 🟡 (position) / DRAMATISATION (section) | C1,C2,C3 |
-| L08 | 26.4–29.8 s (+0.2s) | Rescuers rigged ropes and pulleys, anchored into the rock. | S08 | DOCUMENTED FACT 🟡 | C1,C2 |
-| L09 | 30.0–32.3 s (+0.2s) | At first, it seemed to work. | S09 | DOCUMENTED FACT 🟡 (partly freed, per concept-stage notes) | C2,C3 |
+| L01 |  0.0– 3.8 s (+0.2s) | He was stuck head-down, hundreds of feet inside a cave. | S01 | DOCUMENTED FACT (sources: ~400 ft or ~700 ft from entrance; both = 'hundreds') | C2,C6,C7 |
+| L02 |  4.0– 7.1 s (+0.35s) | He couldn't turn around. He couldn't back out. | S02 | DOCUMENTED FACT (implied by 'stuck'; no sourced detail added) | C2,C6 |
+| L03 |  7.4–11.6 s (+0.25s) | The rescuers' plan: pull him back up the way he came. | S03 | DOCUMENTED FACT (rope-and-pulley extraction) | C2,C6,C7 |
+| L04 | 11.9–14.6 s (+0.25s) | Nutty Putty Cave, Utah. November 24th, 2009. | S04 | DOCUMENTED FACT | C6,C11,C2 |
+| L05 | 14.8–16.7 s (+0.3s) | John Edward Jones was 26. | S05 | DOCUMENTED FACT | C2,C6,C12 |
+| L06 | 17.0–21.2 s (+0.2s) | Deep in the cave, he squeezed head-first into a narrow passage. | S06 | DOCUMENTED FACT / DRAMATISATION (visual) | C2,C6,C7 |
+| L07 | 21.4–26.0 s (+0.35s) | It ran downward. He slid in until he was wedged, upside down. | S07 | DOCUMENTED FACT (position) / DRAMATISATION (section) | C2,C6,C7 |
+| L08 | 26.4–29.8 s (+0.2s) | Rescuers rigged ropes and pulleys, anchored into the rock. | S08 | DOCUMENTED FACT | C2,C7,C12 |
+| L09 | 30.0–32.3 s (+0.2s) | At first, it seemed to work. | S09 | DOCUMENTED FACT (temporarily freed, moved ~12 ft per Fox/AP) | C7,C12 |
 | L10 | 32.5–35.9 s (+0.5s) | For the first time in hours, there was hope. | S10 | Editorial framing | — |
-| L11 | 36.4–39.1 s (+0.3s) | Then, reports say, an anchor gave way. | S11 | DOCUMENTED FACT 🟡 (NBC: anchor failed; UPI: equipment failure), spoken as 'reports say' | C2,C1 |
-| L12 | 39.4–42.1 s (+0.4s) | He slid straight back into the crack. | S12 | DOCUMENTED FACT 🟡 | C2,C3 |
-| L13 | 42.5–44.8 s (+0.3s) | Rescuers kept working, hour after hour. | S13 | DOCUMENTED FACT 🟡 | C1,C2 |
-| L14 | 45.1–48.9 s (+0.7s) | After about 27 hours, John Jones died in the cave. | S14 | DOCUMENTED FACT 🟡 (~27–28 h) | C1,C2,C4 |
-| L15 | 49.6–53.0 s (+0.3s) | Recovering him was reportedly judged too dangerous for rescuers. | S15 | REPORTED 🟡 (spoken as 'reportedly') | C3,C4 |
-| L16 | 53.3–57.5 s (+0.4s) | So the cave was sealed with concrete, with him still inside. | S16 | DOCUMENTED FACT 🟡 | C1,C2,C3,C4 |
-| L17 | 57.9–61.0 s (+0.7s) | Nutty Putty Cave is now his resting place. | S17 | DOCUMENTED FACT (follows from L16) / editorial wording | C3,C4 |
+| L11 | 36.4–39.1 s (+0.3s) | Then, reports say, an anchor gave way. | S11 | DOCUMENTED FACT (Fox/Sheriff: roof anchor gave way; AP/UPI: equipment/bolt failure); hedge kept | C7,C12,C2 |
+| L12 | 39.4–42.1 s (+0.4s) | He slid straight back into the crack. | S12 | DOCUMENTED FACT | C7,C12 |
+| L13 | 42.5–44.8 s (+0.3s) | Rescuers kept working, hour after hour. | S13 | DOCUMENTED FACT | C2,C6,C12 |
+| L14 | 45.1–49.3 s (+0.7s) | After more than 27 hours, John Jones died in the cave. | S14 | DOCUMENTED FACT (~27–28 h; 'more than 27' fits both) | C2,C6,C11,C12 |
+| L15 | 50.0–52.3 s (+0.3s) | Officials judged recovering him too dangerous. | S15 | DOCUMENTED FACT | C8,C9,C10,C2b |
+| L16 | 52.6–56.8 s (+0.4s) | So the cave was sealed with concrete, with him still inside. | S16 | DOCUMENTED FACT | C13,C14,C10 |
+| L17 | 57.2–60.2 s (+0.7s) | Nutty Putty Cave is now his resting place. | S17 | DOCUMENTED FACT (follows from L16) / editorial wording | C9,C10,C11 |
 
 ## Clean read (for TTS / SRT)
 
@@ -46,8 +46,8 @@ For the first time in hours, there was hope.
 Then, reports say, an anchor gave way.
 He slid straight back into the crack.
 Rescuers kept working, hour after hour.
-After about 27 hours, John Jones died in the cave.
-Recovering him was reportedly judged too dangerous for rescuers.
+After more than 27 hours, John Jones died in the cave.
+Officials judged recovering him too dangerous.
 So the cave was sealed with concrete, with him still inside.
 Nutty Putty Cave is now his resting place.
 
@@ -57,10 +57,16 @@ No loop. A death-with-sealing ending should not be played as a loop, per SHORTS_
 
 ## Sources (key → URL → what it supports)
 
-- **C1** — https://www.upi.com/Top_News/US/2009/11/26/Man-trapped-upside-down-in-cave-dies/53071259279657/ (UPI, 26 Nov 2009; prior-session search snippet, not re-fetched: host unreachable) — Man trapped upside down in Nutty Putty Cave died; age 26; ~27–28 h; equipment (rope system) failure; cave to be sealed
-- **C2** — https://www.nbcnews.com/news/amp/wbna34157005 (NBC News/AP, Nov 2009; prior-session search snippet, not re-fetched) — Stuck head-down; rope-and-pulley rescue; an anchor failed and he slipped back; died after ~28 h; family supported sealing the cave
-- **C3** — https://science.howstuffworks.com/environmental/earth/geology/nutty-putty-cave.htm (HowStuffWorks; prior-session search snippet) — Account of the entrapment, rescue attempt and sealing of the cave with his body inside
-- **C4** — https://www.ladbible.com/community/nutty-putty-cave-sealed-john-edward-jones-death-223564-20231116 (LADbible, Nov 2023; prior-session search snippet) — Cave sealed with concrete, John Edward Jones's body still inside; date and age
-- **C5** — https://knowyourmeme.com/memes/nutty-putty-cave-incident (Know Your Meme; demand evidence only, not used as a fact source) — Popularity of the story; FatalBreakdown video
+- **C2** — https://www.nbcnews.com/news/amp/wbna34157005 (NBC News / AP, Nov 2009; search snippet) — Man dies after a day trapped upside-down in cave; John Jones, 26; ~700 ft into the cave, ~150 ft underground
+- **C2b** — https://www.nbcnews.com/id/wbna34180264 (NBC News / AP; search snippet) — Body of trapped spelunker won't be recovered: recovery judged too dangerous
+- **C6** — https://www.ksl.com/article/8810404/man-dies-after-being-trapped-in-cave-nearly-28-hours + https://www.ksl.com/article/8800398 (KSL; search snippets) — Wedged head-down around 9 p.m. Tuesday (24 Nov 2009); died after nearly 28 hours
+- **C7** — https://www.foxnews.com/story/man-who-died-in-utah-cave-wasnt-first-to-get-trapped + https://foxnews.com/story/man-stuck-upside-down-in-utah-cave-dies.amp (Fox News / AP; search snippets) — Moved ~12 ft out of the crevice, then slipped back when the roof anchor supporting the pulley system gave way (Sgt Spencer Cannon); ~400 ft from entrance, ~100 ft below surface
+- **C8** — https://www.foxnews.com/story/body-of-trapped-utah-spelunker-will-not-be-recovered (Fox News / AP; search snippet) — Body will not be recovered; recovery judged too dangerous
+- **C9** — https://www.ksl.com/article/8820090/officials-halt-efforts-to-remove-body-from-cave (KSL; search snippet) — Officials halt efforts to remove the body; family and landowner agree the cave is sealed as his resting place
+- **C10** — https://www.deseret.com/2009/11/28/20355443/body-will-remain-in-sealed-utah-county-cave (Deseret News, 28 Nov 2009; search snippet) — Body will remain in the sealed cave
+- **C11** — https://en.wikipedia.org/wiki/Nutty_Putty_Cave (secondary; search snippet) — 24 Nov 2009; stuck upside down; pronounced dead 11:56 p.m. 25 Nov after ~27 h; cave as final resting place
+- **C12** — https://www.upi.com/Top_News/US/2009/11/26/Man-trapped-upside-down-in-cave-dies/53071259279657/ + AP via https://www.inquirer.com/dailynews/national/20091127_Man_dies_after_28_hours_stuck_upside-down_in_cave.html (search snippets) — Rope-pulley system temporarily freed Jones; equipment failure dropped him back into the crevice; died nearly 28 h after becoming stuck; age 26
+- **C13** — https://www.deseret.com/2009/12/3/20356562/crews-to-seal-nutty-putty-cave-s-openings-with-concrete (Deseret News, 3 Dec 2009; search snippet) — Crews seal the cave's openings with concrete
+- **C14** — https://www.upi.com/Top_News/US/2009/12/04/Nutty-Putty-Cave-sealed-off-in-Utah/15231259956769/ (UPI, 4 Dec 2009) + Salt Lake Tribune report reposted at mail-archive.com/texascavers@texascavers.com/msg51852.html (search snippets) — Cave entrance sealed with concrete in early Dec 2009; explosives collapsed part of the ceiling near the body
 
 Full claim-by-claim verification: `QUALITY_CONTROL/CAVE-04/FACTCHECK.md`.

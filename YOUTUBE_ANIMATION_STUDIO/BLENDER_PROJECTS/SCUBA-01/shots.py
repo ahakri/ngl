@@ -14,9 +14,9 @@ importlib.reload(S)
 PI = math.pi
 WATER = 1.2           # waterline inside the compartment (air pocket = 2.4 - 1.2 = 1.2 m ~ 4 ft)
 ROOM = (2.4, 2.2, 2.4)
-CAM01_A = (0.15, -2.05, 1.62)   # S01 start (S20 ends here for the loop)
-CAM01_B = (0.12, -1.45, 1.55)
-CAM01_T = (0.05, 0.45, 1.38)
+CAM01_A = (0.1, -2.75, 1.62)   # S01 start (S20 ends here for the loop)
+CAM01_B = (0.08, -2.15, 1.56)
+CAM01_T = (0.0, 0.4, 1.3)
 WARM = (1.0, 0.78, 0.52)
 TEAL = (0.35, 0.8, 0.8)
 
@@ -102,26 +102,28 @@ def flashlight_prop(L, loc, aim, energy=120, n=100, bobamp=0.01, name="flash"):
     return root, sp
 
 
-def okene_set(L, n, ripple=0.012, debris=500, fig=True, flashlight=True, water_density=0.6, arm_up=True,
-              fig_loc=(0.35, 0.3, 0.0), fig_rot=0.9, pocket_light=30, drips=True):
+def okene_set(L, n, ripple=0.012, debris=500, fig=True, flashlight=True, water_density=0.35, arm_up=True,
+              fig_loc=(0.05, 0.35, 0.0), fig_rot=0.75, pocket_light=30, drips=True):
     """The inverted compartment (S01/S07/S14/S19/S20): water to 1.2 m, air pocket above, Okene in the pocket."""
     S.setup()
     L.set_world(color=(0.003, 0.01, 0.012), strength=1.0)
     w, d, h = ROOM
     P = S.inverted_compartment(w=w, d=d, h=h, water=WATER, nframes=n, water_density=water_density,
-                               water_col=(0.06, 0.32, 0.3), ripple_amp=ripple, rust=0.6)
+                               water_col=(0.25, 0.62, 0.58), ripple_amp=ripple, rust=0.6)
     out = {"cmp": P}
     if fig:
         out["fig"] = okene_figure(L, n=n, arm_up=arm_up, loc=fig_loc, rot_z=fig_rot)
     if flashlight:
         out["flash"], out["flash_spot"] = flashlight_prop(L, (-0.55, -0.35, WATER + 0.01), (0.25, 0.9, -0.55),
-                                                          energy=140, n=n)
+                                                          energy=220, n=n)
+        S.beam_cone((0, 0, 0), (0, 0, -1), length=1.6, radius=0.45, color=(1, 0.85, 0.6), strength=1.2, alpha=0.18,
+                    name="flashbeam", parent=out["flash_spot"])
     # air-pocket bounce: warm light reflected up off the water onto the overhead + walls
     out["bounce"] = L.area((0.0, 0.2, WATER + 0.06), (0, 0, 0), energy=pocket_light, size=1.6, color=WARM, name="bounce")
     out["bounce"].rotation_euler = (PI, 0, 0)  # emit upward
     out["rim"] = L.point((-0.6, 0.85, h - 0.35), energy=8, color=WARM, radius=0.15, name="rim")
     if debris:
-        L.particle_cloud((0, 0, WATER / 2), (w * 0.95, d * 0.95, WATER * 0.9), count=debris, radius=0.006, nframes=n,
+        L.particle_cloud((0, 0, WATER / 2), (w * 0.95, d * 0.95, WATER * 0.9), count=debris, radius=0.003, nframes=n,
                          drift=(0.01, 0.0, 0.015), name="debris",
                          mat=L.mat_principled("debris_m", (0.6, 0.6, 0.5), rough=1, emit=(0.4, 0.45, 0.35), emit_strength=0.15))
     if drips:

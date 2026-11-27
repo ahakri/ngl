@@ -1,6 +1,6 @@
 # CAVE-04 — Storyboard (Stuck Upside Down With No Way to Back Out)
 
-Vertical 9:16, 1080x1920, 24 fps. 17 shots, est. 61.7 s. Captions: burned-in word-synced, 1–4 words per chunk, centre-upper safe zone, cyan accent on `emphasis` words. Keep overlays out of bottom 20% / right 15% (Shorts UI).
+Vertical 9:16, 1080x1920, 24 fps. 17 shots, est. 60.9 s. Captions: burned-in word-synced, 1–4 words per chunk, centre-upper safe zone, cyan accent on `emphasis` words. Keep overlays out of bottom 20% / right 15% (Shorts UI).
 Shot times are estimates from narration timing; the pipeline derives real durations from TTS. Overlay params follow `PIPELINE/overlays.py` (y in px on 1080x1920).
 
 ## S01 · 0.0–4.0 s (4.0 s) · cave_tunnel
@@ -185,7 +185,7 @@ Shot times are estimates from narration timing; the pipeline derives real durati
 - **Transition in:** cut
 - **Narration (L13):** "Rescuers kept working, hour after hour."
 
-## S14 · 45.1–49.6 s (4.5 s) · other:cross_section_2.5D
+## S14 · 45.1–50.0 s (4.9 s) · other:cross_section_2.5D
 
 - **Visual:** 2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. Final state of the section. The small lamp icon on the outline figure's helmet dims and goes out. The outline then fades to a faint line in the rock. No body detail is shown.
 - **Camera:** Locked; very slow zoom-out; 0.7 s silence after the line.
@@ -197,9 +197,9 @@ Shot times are estimates from narration timing; the pipeline derives real durati
 - **SFX:** sting@0.0s(g0.3)
 - **Music:** Single held note (curve 0.3).
 - **Transition in:** fade_black
-- **Narration (L14):** "After about 27 hours, John Jones died in the cave."
+- **Narration (L14):** "After more than 27 hours, John Jones died in the cave."
 
-## S15 · 49.6–53.3 s (3.7 s) · cave_tunnel
+## S15 · 50.0–52.6 s (2.6 s) · cave_tunnel
 
 - **Visual:** The crawlway from S03, now emptying: the last rescuer lamps withdraw up the passage away from camera until only darkness and a coiled rope remain.
 - **Camera:** Static 24 mm at floor level, lamps recede.
@@ -211,9 +211,9 @@ Shot times are estimates from narration timing; the pipeline derives real durati
 - **SFX:** footsteps@0.0s(g0.25), wind@1.0s(g0.2)
 - **Music:** Low pad (curve 0.35).
 - **Transition in:** cut
-- **Narration (L15):** "Recovering him was reportedly judged too dangerous for rescuers."
+- **Narration (L15):** "Officials judged recovering him too dangerous."
 
-## S16 · 53.3–57.9 s (4.6 s) · other:desert_hill_exterior
+## S16 · 52.6–57.2 s (4.6 s) · other:desert_hill_exterior
 
 - **Visual:** Daylight on the bare hillside: grey concrete pours down into the cave opening from a chute, filling it. Cut within the shot to a flat, finished concrete slab where the opening was.
 - **Camera:** High 28 mm looking down into the opening; slow crane up as the slab settles.
@@ -221,13 +221,13 @@ Shot times are estimates from narration timing; the pipeline derives real durati
 - **Environment:** other:desert_hill_exterior
 - **Lighting:** Flat winter daylight, pale sky.
 - **FX:** dust, concrete_fluid_sim_or_rising_plane
-- **On-screen text / overlays:** [label] DOCUMENTED FACT; [stamp] CAVE SEALED / NUTTY PUTTY, UTAH
+- **On-screen text / overlays:** [label] DOCUMENTED FACT; [stamp] CAVE SEALED / DECEMBER 2009
 - **SFX:** rumble@0.0s(g0.45), metal_groan@1.5s(g0.25)
 - **Music:** Strings swell (curve 0.6).
 - **Transition in:** cut
 - **Narration (L16):** "So the cave was sealed with concrete, with him still inside."
 
-## S17 · 57.9–61.7 s (3.8 s) · other:desert_hill_exterior
+## S17 · 57.2–60.9 s (3.8 s) · other:desert_hill_exterior
 
 - **Visual:** Dawn over the quiet hill. The sealed concrete slab sits flush in the hillside among the sagebrush, wind moving the brush. Final frame held, then hard cut to black.
 - **Camera:** Very slow push-in 35 mm toward the slab; hard cut at the end.

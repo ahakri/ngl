@@ -249,7 +249,7 @@ def rock_mat(name="rock", dark=(0.025, 0.028, 0.03), light=(0.2, 0.19, 0.17), sc
     return L.mat_noise_surface(name, dark, light, scale=scale, bump=bump)
 
 
-def silt_mat(name="silt", c1=(0.16, 0.13, 0.09), c2=(0.36, 0.31, 0.23)):
+def silt_mat(name="silt", c1=(0.09, 0.075, 0.05), c2=(0.24, 0.2, 0.15)):
     return L.mat_noise_surface(name, c1, c2, scale=5, bump=0.25, voronoi=False, rough=0.95)
 
 
@@ -348,7 +348,7 @@ def beam_cone(spot_obj, length=6.0, angle_deg=None, color=TORCH, strength=1.0, n
     ang = math.radians(angle_deg) if angle_deg else spot_obj.data.spot_size
     r = math.tan(ang / 2) * length * 0.85
     bm = bmesh.new()
-    bmesh.ops.create_cone(bm, cap_ends=False, cap_tris=False, segments=24, radius1=r, radius2=0.015, depth=length)
+    bmesh.ops.create_cone(bm, cap_ends=False, cap_tris=False, segments=48, radius1=r, radius2=0.015, depth=length)
     me = bpy.data.meshes.new(name)
     bm.to_mesh(me)
     bm.free()
@@ -661,18 +661,18 @@ def lost_shape(loc=(0, 0, 0), rot_z=0.0, name="lost", sink=0.55, fins_visible=Tr
     root.rotation_euler = (0, 0, rot_z)
     metal = L.mat_principled(name + "_tank", (0.22, 0.23, 0.24), rough=0.55, metal=0.6)
     dark = L.mat_principled(name + "_dark", color, rough=0.8)
-    mound_m = silt_mat(name + "_mound", (0.2, 0.17, 0.12), (0.38, 0.33, 0.25))
-    tank = L.prim("cyl", loc=(0.05, 0.1, 0.09 - sink * 0.18), rot=(math.pi / 2, 0.15, 0), vertices=20, radius=0.1,
+    mound_m = silt_mat(name + "_mound", (0.1, 0.085, 0.06), (0.22, 0.19, 0.14))
+    tank = L.prim("cyl", loc=(0.05, 0.1, 0.1 - sink * 0.1), rot=(math.pi / 2, 0.15, 0), vertices=20, radius=0.1,
                   depth=0.75, name=name + "_tank")
     L.assign(tank, metal)
     L.smooth(tank)
     tank.parent = root
-    valve = L.prim("cyl", loc=(0.05, 0.5, 0.09 - sink * 0.18), rot=(math.pi / 2, 0, 0), vertices=10, radius=0.03,
+    valve = L.prim("cyl", loc=(0.05, 0.5, 0.1 - sink * 0.1), rot=(math.pi / 2, 0, 0), vertices=10, radius=0.03,
                    depth=0.1, name=name + "_valve")
     L.assign(valve, metal)
     valve.parent = root
     mound = L.prim("sphere", loc=(-0.12, -0.05, -0.05), segments=24, ring_count=12, name=name + "_mound")
-    mound.scale = (0.32, 0.85, 0.16)
+    mound.scale = (0.26, 0.7, 0.09)
     L.add_displace(mound, strength=0.05, scale=0.2, name=name + "_md")
     L.assign(mound, mound_m)
     L.smooth(mound)
@@ -692,7 +692,7 @@ def lost_shape(loc=(0, 0, 0), rot_z=0.0, name="lost", sink=0.55, fins_visible=Tr
 # ----------------------------------------------------------------------------- environment kits
 
 def chamber_floor(center=(0, 0, 0), size=40, seed=3, boulder_count=14, back_wall=True, wall_dist=9.0,
-                  rock=None):
+                  rock=None, rmin=5.0):
     """Bottom of a vast dark chamber: silt floor, scattered boulders, optional far curved back wall."""
     cx, cy, cz = center
     fl = floor(size=(size, size), center=center, strength=0.45, name="chamber_floor")
@@ -700,7 +700,7 @@ def chamber_floor(center=(0, 0, 0), size=40, seed=3, boulder_count=14, back_wall
     pts = []
     for i in range(boulder_count):
         a = rnd.uniform(0, 2 * math.pi)
-        r = rnd.uniform(2.2, size * 0.35)
+        r = rnd.uniform(rmin, max(rmin + 1, size * 0.35))
         pts.append((cx + math.cos(a) * r, cy + math.sin(a) * r, cz))
     bl = rocks(pts, count=boulder_count, size=(0.4, 1.6), seed=seed)
     wall = None
