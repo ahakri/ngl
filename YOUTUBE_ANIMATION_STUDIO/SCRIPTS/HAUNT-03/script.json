@@ -1,0 +1,915 @@
+{
+ "id": "HAUNT-03",
+ "title": "Don't Stop for Her on Archer Avenue",
+ "category": "haunted",
+ "voice": "am_onyx",
+ "speed": 1.07,
+ "mood": "haunted",
+ "target_seconds": 52,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Since the 1930s, drivers here say their passenger vanished at a cemetery.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "passenger",
+    "vanished",
+    "cemetery"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Archer Avenue, south-west of Chicago.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "Archer",
+    "Avenue"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "The stories start at a dance hall.",
+   "pause_after": 0.2,
+   "shot": "S03",
+   "emphasis": [
+    "dance",
+    "hall"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "And end at Resurrection Cemetery.",
+   "pause_after": 0.3,
+   "shot": "S04",
+   "emphasis": [
+    "Resurrection"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "In 1939, Jerry Palus said he met a girl named Mary.",
+   "pause_after": 0.25,
+   "shot": "S05",
+   "emphasis": [
+    "Mary"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "He offered her a ride home.",
+   "pause_after": 0.25,
+   "shot": "S06",
+   "emphasis": [
+    "address",
+    "ride"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "By the cemetery, she asked to get out.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "get",
+    "out"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "He said she crossed toward the gates, and was gone.",
+   "pause_after": 0.35,
+   "shot": "S08",
+   "emphasis": [
+    "gone"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "In 1976, a driver reported a girl behind the gates.",
+   "pause_after": 0.25,
+   "shot": "S09",
+   "emphasis": [
+    "reported",
+    "behind"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Police found no one. Just two bent bars, with marks like handprints.",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "bent",
+    "handprints"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "The cemetery blamed a truck that backed into the fence.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "truck"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "And folklorists know this one: the vanishing hitchhiker, told worldwide.",
+   "pause_after": 0.25,
+   "shot": "S12",
+   "emphasis": [
+    "vanishing",
+    "hitchhiker"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Several local girls have been named as Mary. None confirmed.",
+   "pause_after": 0.9,
+   "shot": "S13",
+   "emphasis": [
+    "None",
+    "confirmed"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "So who was standing at the gates?",
+   "pause_after": 0.35,
+   "shot": "S14",
+   "emphasis": [
+    "who"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Nobody knows. But on Archer Avenue,",
+   "pause_after": 0.1,
+   "shot": "S15",
+   "emphasis": [
+    "Nobody"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "road_night",
+   "description": "Cold open, already moving: driver's-eye view down a two-lane wet asphalt `road` (width 7 m, high-gloss wet material, faded centre line) running straight through a `forest` of bare trees (count 70, clear_radius along the road), low `fog_volume` (density 0.05, 1.2 m high) hugging the verge. Our car's twin headlight cones sweep the fog. WRONG DETAIL: far ahead on the right verge, small in frame, a faceless pale female silhouette (char_figure, height 1.62, coat=True as a long 1930s dress, pale grey-white, emit 0.15 so she reads in fog; no face, no features) stands perfectly still facing the road. She is the brightest pale shape in frame but tiny (≈6% of frame height).",
+   "camera": "POV dolly forward at steady 12 m/s, 28 mm, height 1.2 m, very slight road-vibration handheld (amp 0.01); moving from frame 1",
+   "characters": [
+    "roadside woman (faceless pale silhouette, long dress)"
+   ],
+   "lighting": "two spot lights as headlights (cones 30 deg, warm white), cold blue moon sun at 0.3, no streetlights",
+   "fx": [
+    "fog_volume",
+    "light drizzle particles in headlight cones",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "drivers' reports since the 1930s"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "hit",
+     "offset": 0.2,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "map",
+   "description": "2.5D map card: dark stylised street grid of south-west Chicago suburbs (no real map tiles); Archer Avenue draws on as a pale-green diagonal from the city (top-right) down to the south-west (bottom-left); pin drops on the cemetery end. Behind the card, the S01 road blurred.",
+   "camera": "graphic; card scales 100%→106% over the shot",
+   "characters": [
+    "none"
+   ],
+   "lighting": "graphic",
+   "fx": [
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "Archer Ave, Justice, Illinois"
+     }
+    },
+    {
+     "type": "map",
+     "text": "ARCHER AVENUE\nsouth-west of Chicago",
+     "params": {
+      "points": [
+       [
+        0.86,
+        0.14
+       ],
+       [
+        0.62,
+        0.38
+       ],
+       [
+        0.4,
+        0.6
+       ],
+       [
+        0.18,
+        0.82
+       ]
+      ],
+      "pin": -1,
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        1.0,
+        0.0
+       ],
+       [
+        1.0,
+        1.0
+       ],
+       [
+        0.0,
+        1.0
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "click",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:ballroom_exterior",
+   "description": "A 1930s suburban dance hall at night: long single-storey hall (house_exterior variant: w=22 m, d=12 m, floors=1, low hipped roof) with a row of six tall arched windows glowing warm amber, a canopy over double doors, a generic unlit rooftop sign 'BALLROOM' (text3d, no real business name). Gravel car park in fog, two dark 1930s-style car silhouettes (box + rounded cabin).",
+   "camera": "slow lateral dolly left, 35 mm, low angle from the road edge",
+   "characters": [
+    "none"
+   ],
+   "lighting": "warm amber window glow (window_glow 1,0.7,0.35), cold blue night",
+   "fx": [
+    "fog_volume (thin)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "the usual shape of the story"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "THE DANCE HALL",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:cemetery_gates",
+   "description": "Night, from across the road: cemetery gates built from primitives: two square stone piers (boxes 0.9x0.9x3.2 m, pale limestone noise material, sphere finials), a pair of iron gates between them made of 22 vertical bars (cylinders r=1.2 cm, h=2.6 m, spear-point cones on top) with two horizontal rails, black satin metal; low stone wall extending both sides into fog; dark lawn with a few headstone boxes beyond. Fog drifts through the bars. Road surface in the foreground still wet. No figure yet.",
+   "camera": "slow push-in toward the gates, 35 mm, eye height 1.6 m",
+   "characters": [
+    "none"
+   ],
+   "lighting": "one cold sodium-free moonlight from back-left, faint rim on bars; headlight spill from frame left at the end of the shot",
+   "fx": [
+    "fog_volume",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "Resurrection Cemetery, Justice IL"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "RESURRECTION CEMETERY\nJUSTICE, ILLINOIS",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.3,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:ballroom_exterior",
+   "description": "Same dance hall, closer, from the car park: the double doors open, warm light spills out; two faceless silhouettes step out: a young man in a 1930s suit and flat cap, and the pale woman (same silhouette as S01). They walk toward a parked car. No faces.",
+   "camera": "static wide, then 5% push, 40 mm",
+   "characters": [
+    "young man silhouette (faceless, 1930s suit + cap)",
+    "pale woman silhouette (faceless, long dress)"
+   ],
+   "lighting": "warm door spill, cold night",
+   "fx": [
+    "fog_volume (thin)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Jerry Palus's account"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "1939",
+     "params": {
+      "y": 400
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.4,
+     "gain": 0.3
+    },
+    {
+     "name": "door_creak",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:car_interior",
+   "description": "Car interior at night, driver's side looking across: simple 1930s dashboard (box with two round dial cylinders glowing dim amber), thin steering-wheel torus in foreground left. In the passenger seat the pale faceless woman sits very upright, facing straight ahead. Through the windscreen: the fogged road and bare trees sliding past.",
+   "camera": "static on car rig, 24 mm, slight road vibration; background trees parallax",
+   "characters": [
+    "driver (only gloved hands on wheel, faceless)",
+    "pale woman passenger (faceless)"
+   ],
+   "lighting": "dim amber dash glow from below, headlight bounce, blue night through glass",
+   "fx": [
+    "window condensation texture",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Palus's account"
+     }
+    },
+    {
+     "type": "card",
+     "text": "South Damen Avenue, Chicago",
+     "params": {
+      "header": "THE ADDRESS SHE GAVE",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "road_night",
+   "description": "Exterior: the car (box body, rounded cabin, two lit headlamps) slows and stops on the wet road beside the cemetery gates built from primitives seen in S04, now on the right. Brake glow reflects red on the asphalt.",
+   "camera": "low side angle, 28 mm, slow pan following the car to a stop",
+   "characters": [
+    "car (occupants not visible)"
+   ],
+   "lighting": "headlights + red brake glow, moon rim on bars",
+   "fx": [
+    "fog_volume",
+    "wet road reflections"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Palus's account"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.6,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:cemetery_gates",
+   "description": "From behind the car's open passenger door: the pale faceless woman walks across the road toward the gates, into the headlight beams; 1.5 s before the shot ends she passes into a thicker fog bank in front of the bars and is simply not there when it thins. The gates are closed.",
+   "camera": "locked-off over-the-door shot, 35 mm; tiny push when she disappears",
+   "characters": [
+    "pale woman (faceless)"
+   ],
+   "lighting": "headlights from behind camera, fog glowing",
+   "fx": [
+    "fog_volume (animated density bump)",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Palus's account; versions vary"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "sting",
+     "offset": 1.8,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:cemetery_gates",
+   "description": "The gates again, a different angle (three-quarter, from the kerb). A police car silhouette (box body, light bar) pulls in; alternating red/blue light rakes across the bars. Behind the bars, half in fog, the pale faceless figure stands still, both hands resting on two bars.",
+   "camera": "slow arc right 15 degrees, 50 mm",
+   "characters": [
+    "pale woman behind the bars (faceless)"
+   ],
+   "lighting": "red/blue alternating point lights (flicker at 2 Hz), moon rim",
+   "fx": [
+    "fog_volume",
+    "flicker"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "driver's report to police, Aug 1976"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "AUGUST 1976",
+     "params": {
+      "y": 400
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.2
+    },
+    {
+     "name": "rumble",
+     "offset": 0.2,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:cemetery_gates",
+   "description": "Torch-beam close-up on the gate: no one there. Two adjacent bars are bowed outward (bend the two cylinders with a simple deform), and on each, at hand height, a dark scorched smudge in the rough shape of a palm (dark emission-less decal).",
+   "camera": "handheld torch POV, 50 mm, tilt from empty fog down to the bent bars",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single white spot as torch, red/blue spill fading",
+   "fx": [
+    "fog_volume",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 200,
+      "sub": "reported marks; accounts differ"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.2,
+     "gain": 0.35
+    },
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Pattern interrupt: dark corkboard evidence board (plane, cork noise). Card 'WHAT SCEPTICS SAY' slides in, plus a simple drawn icon: a box truck reversing into a fence line.",
+   "camera": "flat front, slow push, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single desk lamp top-left",
+   "fx": [
+    "paper flutter"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "cemetery officials' statement"
+     }
+    },
+    {
+     "type": "card",
+     "text": "A truck backed into the fence.\nNo evidence of a ghost.",
+     "params": {
+      "header": "THE CEMETERY'S ANSWER",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "typewriter",
+     "offset": 1.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "document",
+   "description": "Paper index card slides up over a slowly rotating dark wireframe globe (UV sphere, wire material): a folklore catalogue entry, generic, typed.",
+   "camera": "graphic; globe rotates 20 degrees",
+   "characters": [
+    "none"
+   ],
+   "lighting": "warm paper, cold globe",
+   "fx": [
+    "paper grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "a recognised legend type"
+     }
+    },
+    {
+     "type": "document",
+     "text": "A driver gives a stranger a lift.\nThe passenger vanishes.\nThey turn out to be dead.\nTold across many countries.",
+     "params": {
+      "title": "THE VANISHING HITCHHIKER",
+      "style": "paper"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:cemetery",
+   "description": "Inside the cemetery in fog: three plain blank headstones (bevelled boxes, no names, no dates) in a row on dark grass. Respectful, still. Music thins to near silence; then a 0.9 s dead-air hold on the empty frame.",
+   "camera": "slow lateral dolly past the stones, 50 mm, shallow depth of field; stops on the last stone",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight only",
+   "fx": [
+    "fog_volume (slow drift)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "no identity confirmed"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:cemetery_gates",
+   "description": "DEAD-AIR REVEAL: match-cut out of silence to the S04 composition of the gates, empty, fog thin. On the cut, the two bars are bent (they were straight in S04) and a pale shape stands just behind them, very faint (alpha 0.35), visible only for the last second.",
+   "camera": "locked-off, identical to S04 start framing, then 2% push",
+   "characters": [
+    "faint pale figure behind bars (faceless)"
+   ],
+   "lighting": "moonlight; one passing headlight sweep at 1.0 s",
+   "fx": [
+    "fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.05,
+     "gain": 0.4
+    },
+    {
+     "name": "metal_groan",
+     "offset": 0.8,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "road_night",
+   "description": "Loop frame: identical to S01 frame 1 (POV down the foggy road, figure tiny on the right verge). Begins the same forward dolly so the cut back to S01 is seamless.",
+   "camera": "match S01 start position and move",
+   "characters": [
+    "roadside woman (faceless, tiny)"
+   ],
+   "lighting": "same as S01",
+   "fx": [
+    "fog_volume",
+    "drizzle"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.35
+  ],
+  [
+   6,
+   0.5
+  ],
+  [
+   16,
+   0.65
+  ],
+  [
+   26,
+   0.75
+  ],
+  [
+   30,
+   0.45
+  ],
+  [
+   36,
+   0.6
+  ],
+  [
+   44,
+   0.5
+  ],
+  [
+   47,
+   0.0
+  ],
+  [
+   49,
+   0.0
+  ],
+  [
+   51,
+   0.35
+  ],
+  [
+   55,
+   0.35
+  ]
+ ],
+ "loop_line": "Nobody knows. But on Archer Avenue,"
+}

@@ -792,17 +792,10 @@ def section_diagram(slope_deg=24.0, T=1.35, notch=(0.0, 2.2), depth_y=1.6, span=
     gpoly = [(x, zg(x)) for x in xs] + [(x1, bottom), (x0, bottom)]
     parts["ground"] = extrude(gpoly, name + "_g", [ground_m, ground_m])
     # snow layer polygon (top with optional notch), then ground line back
-    top = []
-    for x in xs:
-        if with_notch and a < x < b:
-            continue
-        if with_notch and abs(x - a) < 1e-6:
-            continue
-        top.append((x, zs(x)))
-        if with_notch and x < a and (xs[xs.index(x) + 1] if xs.index(x) + 1 < len(xs) else 99) > a:
-            top += [(a, zs(a)), (a, zp), (b, zp)]
     if with_notch:
-        top = [p for p in top]
+        top = [(x, zs(x)) for x in xs if x < a - 1e-6] + [(a, zs(a)), (a, zp), (b, zp)] + [(x, zs(x)) for x in xs if x > b + 1e-6]
+    else:
+        top = [(x, zs(x)) for x in xs]
     poly = top + [(x, zg(x)) for x in reversed(xs)]
     parts["snow"] = extrude(poly, name + "_s", [snow_m, side_snow], y0=-depth_y / 2 - 0.01, y1=depth_y / 2 + 0.01)
     if with_notch:

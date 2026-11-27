@@ -1,0 +1,902 @@
+{
+  "id": "CAVE-04",
+  "title": "Stuck Upside Down With No Way to Back Out",
+  "category": "cave",
+  "voice": "am_onyx",
+  "speed": 1.07,
+  "mood": "cave",
+  "target_seconds": 62,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "He was stuck head-down, hundreds of feet inside a cave.",
+      "pause_after": 0.2,
+      "shot": "S01",
+      "emphasis": [
+        "head-down",
+        "hundreds"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "He couldn't turn around. He couldn't back out.",
+      "pause_after": 0.35,
+      "shot": "S02",
+      "emphasis": [
+        "turn",
+        "back",
+        "out"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "The rescuers' plan: pull him back up the way he came.",
+      "pause_after": 0.25,
+      "shot": "S03",
+      "emphasis": [
+        "pull",
+        "back",
+        "up"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "Nutty Putty Cave, Utah. November 24th, 2009.",
+      "pause_after": 0.25,
+      "shot": "S04",
+      "emphasis": [
+        "Nutty",
+        "Putty",
+        "2009"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "John Edward Jones was 26.",
+      "pause_after": 0.3,
+      "shot": "S05",
+      "emphasis": [
+        "26"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "Deep in the cave, he squeezed head-first into a narrow passage.",
+      "pause_after": 0.2,
+      "shot": "S06",
+      "emphasis": [
+        "head-first",
+        "narrow"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "It ran downward. He slid in until he was wedged, upside down.",
+      "pause_after": 0.35,
+      "shot": "S07",
+      "emphasis": [
+        "wedged",
+        "upside",
+        "down"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Rescuers rigged ropes and pulleys, anchored into the rock.",
+      "pause_after": 0.2,
+      "shot": "S08",
+      "emphasis": [
+        "ropes",
+        "pulleys"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "At first, it seemed to work.",
+      "pause_after": 0.2,
+      "shot": "S09",
+      "emphasis": [
+        "work"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "For the first time in hours, there was hope.",
+      "pause_after": 0.5,
+      "shot": "S10",
+      "emphasis": [
+        "hope"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "Then, reports say, an anchor gave way.",
+      "pause_after": 0.3,
+      "shot": "S11",
+      "emphasis": [
+        "anchor",
+        "gave",
+        "way"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "He slid straight back into the crack.",
+      "pause_after": 0.4,
+      "shot": "S12",
+      "emphasis": [
+        "back"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "Rescuers kept working, hour after hour.",
+      "pause_after": 0.3,
+      "shot": "S13",
+      "emphasis": [
+        "hour",
+        "after",
+        "hour"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "After about 27 hours, John Jones died in the cave.",
+      "pause_after": 0.7,
+      "shot": "S14",
+      "emphasis": [
+        "27",
+        "hours"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "Recovering him was reportedly judged too dangerous for rescuers.",
+      "pause_after": 0.3,
+      "shot": "S15",
+      "emphasis": [
+        "too",
+        "dangerous"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "So the cave was sealed with concrete, with him still inside.",
+      "pause_after": 0.4,
+      "shot": "S16",
+      "emphasis": [
+        "sealed",
+        "concrete"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "Nutty Putty Cave is now his resting place.",
+      "pause_after": 0.7,
+      "shot": "S17",
+      "emphasis": [
+        "resting",
+        "place"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "cave_tunnel",
+      "description": "COLD OPEN, frame 1 already moving. Dry cave: a narrow crack in pale, clay-smeared rock drops steeply away from camera. At the top of frame, two boots and the lower legs of a caver stick out of the crack, the rest of him out of sight below. His helmet lamp glows somewhere down inside the crack. Dust hangs in the air.",
+      "camera": "Slow push-in 28 mm from the crawlway behind the boots, looking down the crack; subtle handheld (amp 0.02).",
+      "characters": [
+        "caver_John (faceless figure, brown coveralls, red helmet; only boots and legs visible)"
+      ],
+      "lighting": "Black cave; warm helmet-lamp glow from inside the crack; faint cool fill from behind camera.",
+      "fx": [
+        "dust",
+        "lamp_glow"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "breath",
+          "offset": 0.3,
+          "gain": 0.45
+        },
+        {
+          "name": "sting",
+          "offset": 1.1,
+          "gain": 0.45
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. A simple grey outline figure sits inverted in the funnel's narrow end. Two arrows appear: one pointing down (deeper, blocked, red X) and one pointing back up (blocked, red X).",
+      "camera": "Locked full-frame diagram; 5% zoom-in onto the figure.",
+      "characters": [
+        "outline_figure (grey, no detail)"
+      ],
+      "lighting": "Flat graphic; black background, cyan rock edge, red X marks.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "CAN'T TURN\nCAN'T BACK OUT",
+          "params": {
+            "y": 420,
+            "size": 90
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "hit",
+          "offset": 1.0,
+          "gain": 0.4
+        },
+        {
+          "name": "hit",
+          "offset": 2.3,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Low crawlway lit by several helmet lamps: faceless rescuers in coveralls drag coils of rope and a small pulley bag toward the crack, lamps bobbing.",
+      "camera": "Low 24 mm at floor level, rescuers crawl toward camera; slow pull-back.",
+      "characters": [
+        "rescuer figures x3 (faceless, helmets with lamps)"
+      ],
+      "lighting": "Multiple moving helmet lamps; warm light on clay walls.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "creak",
+          "offset": 1.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:desert_hill_exterior",
+      "description": "Night exterior: a low, bare desert hill under a cold starry sky, sagebrush (small bare-tree builder, scaled down) and a small dark cave opening in the hillside. Rescue vehicles' lights glow at the bottom of the hill.",
+      "camera": "Descending crane 28 mm toward the cave opening.",
+      "characters": [],
+      "lighting": "Moonlight blue; warm vehicle lights far below.",
+      "fx": [
+        "dust",
+        "wind_particles"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "NUTTY PUTTY CAVE, UTAH\n24 NOVEMBER 2009",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.45
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "other:desert_hill_exterior",
+      "description": "Earlier the same evening: a lone caver figure (faceless, red helmet, lamp on) stands at the cave opening seen from behind, then ducks inside.",
+      "camera": "Medium 35 mm from behind, slight dolly-in.",
+      "characters": [
+        "caver_John (faceless, from behind)"
+      ],
+      "lighting": "Helmet lamp as key; moonlight rim.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "Age 26",
+          "params": {
+            "header": "JOHN EDWARD JONES",
+            "y": 1150
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "footsteps",
+          "offset": 0.6,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "cave_tunnel",
+      "description": "POV crawl: helmet-lamp view of a tight, clay-walled tube; two gloved hands reach forward and pull. The tube tilts and narrows ahead into a dark slot.",
+      "camera": "First-person 20 mm, crawl bob (amp 0.04), forward push.",
+      "characters": [
+        "caver_John (hands only)"
+      ],
+      "lighting": "Helmet lamp cone only.",
+      "fx": [
+        "dust",
+        "lamp_cone"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.55
+        },
+        {
+          "name": "creak",
+          "offset": 1.5,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. The grey outline figure slides from the crawlway into the crack and down to its narrow end, ending inverted. A dotted trail marks the path.",
+      "camera": "Locked diagram; slow tilt down following the figure.",
+      "characters": [
+        "outline_figure (grey)"
+      ],
+      "lighting": "Graphic.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "text",
+          "text": "UPSIDE DOWN",
+          "params": {
+            "y": 420,
+            "size": 100
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.4,
+          "gain": 0.45
+        },
+        {
+          "name": "hit",
+          "offset": 2.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Close-up in the crawlway: gloved hands drive a bolt anchor into the rock ceiling above the crack, clip a pulley to it and thread a rope through. The rope runs down into the crack.",
+      "camera": "Macro 50 mm, quick cuts within the shot (bolt, clip, rope) via fast camera moves.",
+      "characters": [
+        "rescuer hands (gloved)"
+      ],
+      "lighting": "Two helmet lamps, warm, hard shadows.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.3,
+          "gain": 0.45
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.0,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 2.0,
+          "gain": 0.45
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. The rope runs from the ceiling anchor down to the outline figure's feet. The figure inches up the crack: a cyan progress trail grows behind it.",
+      "camera": "Locked diagram; gentle push-in.",
+      "characters": [
+        "outline_figure (grey)"
+      ],
+      "lighting": "Graphic; anchor point glows.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "MOVING",
+          "params": {
+            "y": 420,
+            "size": 100,
+            "color": [
+              64,
+              224,
+              208
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "creak",
+          "offset": 1.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Rescuers in a line along the crawlway haul on the taut rope together, lamps all pointing toward the crack; the light seems warmer and brighter.",
+      "camera": "Side tracking 28 mm along the line of rescuers.",
+      "characters": [
+        "rescuer figures x4 (faceless)"
+      ],
+      "lighting": "Warm helmet lamps, slight bloom.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "HOPE",
+          "params": {
+            "y": 420,
+            "size": 110,
+            "color": [
+              64,
+              224,
+              208
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "riser",
+          "offset": 0.6,
+          "gain": 0.45
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "cave_tunnel",
+      "description": "MID-POINT TURN. Close-up on the ceiling anchor: a crack runs through the rock around the bolt, then it tears out. The rope whips slack and dust bursts across the lamps.",
+      "camera": "Macro 50 mm on the anchor; hard shake on the failure (amp 0.08) for 6 frames.",
+      "characters": [],
+      "lighting": "Lamp light strobes as the rope whips through the beams.",
+      "fx": [
+        "dust_burst",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 1.2,
+          "gain": 0.7
+        },
+        {
+          "name": "boom",
+          "offset": 1.25,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. The cyan progress trail drains back down; the outline figure slides back to the narrow end. The rope hangs slack from an empty anchor point.",
+      "camera": "Locked; no movement except the figure; 0.4 s silence after the line.",
+      "characters": [
+        "outline_figure (grey)"
+      ],
+      "lighting": "Graphic; progress trail turns red as it drains.",
+      "fx": [],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "rumble",
+          "offset": 0.8,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Dim crawlway. Rescuers' lamps flicker, some figures resting against the wall, others still working at the crack; the rope is being re-rigged.",
+      "camera": "Slow lateral dolly 35 mm, low.",
+      "characters": [
+        "rescuer figures x3 (faceless)"
+      ],
+      "lighting": "Tired, lower lamp light; cool fill.",
+      "fx": [
+        "dust",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "HOURS STUCK (APPROX.)",
+          "params": {
+            "from": 0,
+            "to": 27,
+            "fmt": "hours",
+            "y": 330
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "click",
+          "offset": 1.2,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section: beige-grey rock mass, a funnel-shaped crack angled steeply downward from a crawlway at top-left. Final state of the section. The small lamp icon on the outline figure's helmet dims and goes out. The outline then fades to a faint line in the rock. No body detail is shown.",
+      "camera": "Locked; very slow zoom-out; 0.7 s silence after the line.",
+      "characters": [],
+      "lighting": "Graphic, desaturated.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "ABOUT",
+          "params": {
+            "from": 27,
+            "to": 27,
+            "fmt": "hours",
+            "y": 330
+          }
+        },
+        {
+          "type": "card",
+          "text": "John Edward Jones",
+          "params": {
+            "header": "IN MEMORY",
+            "y": 1150
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sting",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "cave_tunnel",
+      "description": "The crawlway from S03, now emptying: the last rescuer lamps withdraw up the passage away from camera until only darkness and a coiled rope remain.",
+      "camera": "Static 24 mm at floor level, lamps recede.",
+      "characters": [],
+      "lighting": "Receding warm lamps; ends near black.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "wind",
+          "offset": 1.0,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "other:desert_hill_exterior",
+      "description": "Daylight on the bare hillside: grey concrete pours down into the cave opening from a chute, filling it. Cut within the shot to a flat, finished concrete slab where the opening was.",
+      "camera": "High 28 mm looking down into the opening; slow crane up as the slab settles.",
+      "characters": [],
+      "lighting": "Flat winter daylight, pale sky.",
+      "fx": [
+        "dust",
+        "concrete_fluid_sim_or_rising_plane"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "CAVE SEALED\nNUTTY PUTTY, UTAH",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.45
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.5,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "other:desert_hill_exterior",
+      "description": "Dawn over the quiet hill. The sealed concrete slab sits flush in the hillside among the sagebrush, wind moving the brush. Final frame held, then hard cut to black.",
+      "camera": "Very slow push-in 35 mm toward the slab; hard cut at the end.",
+      "characters": [],
+      "lighting": "Pale golden dawn, long shadows.",
+      "fx": [
+        "dust",
+        "wind_particles"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "IN MEMORY OF\nJOHN EDWARD JONES",
+          "params": {
+            "y": 420,
+            "size": 80
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.5
+    ],
+    [
+      4,
+      0.55
+    ],
+    [
+      12,
+      0.55
+    ],
+    [
+      17,
+      0.6
+    ],
+    [
+      26,
+      0.7
+    ],
+    [
+      30,
+      0.75
+    ],
+    [
+      33,
+      0.85
+    ],
+    [
+      36.4,
+      0.15
+    ],
+    [
+      42.5,
+      0.4
+    ],
+    [
+      45,
+      0.3
+    ],
+    [
+      50,
+      0.35
+    ],
+    [
+      54,
+      0.6
+    ],
+    [
+      58,
+      0.3
+    ],
+    [
+      62,
+      0.3
+    ]
+  ],
+  "loop_line": ""
+}

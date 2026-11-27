@@ -429,6 +429,38 @@ def floor(size=(30, 30), center=(0, 0, 0), mat=None, strength=0.35, levels=6, na
     return o
 
 
+def rim_glass_mat(name, color=(0.5, 0.9, 1.0), strength=3.0, power=3.0, base=0.03):
+    """Transparent tube/glass with bright fresnel rim (studio macro look)."""
+    m, n, l = L._mat(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    lw = n.new("ShaderNodeLayerWeight")
+    lw.inputs["Blend"].default_value = 0.5
+    pw = n.new("ShaderNodeMath")
+    pw.operation = "POWER"
+    pw.inputs[1].default_value = power
+    l.new(lw.outputs["Facing"], pw.inputs[0])
+    ad = n.new("ShaderNodeMath")
+    ad.operation = "ADD"
+    ad.inputs[1].default_value = base
+    l.new(pw.outputs[0], ad.inputs[0])
+    mu = n.new("ShaderNodeMath")
+    mu.operation = "MULTIPLY"
+    mu.inputs[1].default_value = strength
+    l.new(ad.outputs[0], mu.inputs[0])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    l.new(mu.outputs[0], em.inputs[1])
+    tr = n.new("ShaderNodeBsdfTransparent")
+    add = n.new("ShaderNodeAddShader")
+    l.new(tr.outputs[0], add.inputs[0])
+    l.new(em.outputs[0], add.inputs[1])
+    l.new(add.outputs[0], n["Material Output"].inputs["Surface"])
+    _blended(m)
+    return m
+
+
 def rocks(points, count=12, size=(0.3, 1.2), seed=5, mat=None, sink=0.3, flat=(0.5, 0.9)):
     rnd = random.Random(seed)
     m = mat or rock_mat("boulder_m", (0.03, 0.03, 0.03), (0.22, 0.2, 0.18), scale=2.5)
@@ -837,7 +869,7 @@ def bushes(count=60, rmin=12, rmax=55, seed=4, z=0.0, color=(0.12, 0.11, 0.06), 
 
 def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6, 4), outline_color=CYAN,
              water_top=(0.02, 0.16, 0.18), water_bot=(0.0, 0.01, 0.015), rock_mat_=None, outline_strength=4.0,
-             snow=None, name="xs"):
+             snow=None, name="xs", water_poly=None):
     """Rock slab (XZ plane, facing -Y) with a cave void cut from a polygon [(x, depth_m), ...] (clockwise or ccw).
     Returns dict(rock, water, outline, P) where P(x, depth) -> world Vector on the front face."""
     def P(x, d, y=None):
@@ -873,7 +905,8 @@ def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6,
     cutter.hide_viewport = True
     # water back plate
     bm = bmesh.new()
-    vs = [bm.verts.new((x, yb - 0.005, z)) for x, z in pts2]
+    wpts = [(x * x_scale, depth_to_z(d)) for x, d in water_poly] if water_poly else pts2
+    vs = [bm.verts.new((x, yb - 0.005, z)) for x, z in wpts]
     bm.faces.new(vs)
     bmesh.ops.triangulate(bm, faces=bm.faces)
     wat = L.mesh_from_bm(name + "_water", bm)
@@ -884,7 +917,7 @@ def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6,
     tc = n.new("ShaderNodeTexCoord")
     sep = n.new("ShaderNodeSeparateXYZ")
     l.new(tc.outputs["Object"], sep.inputs[0])
-    zs = [z for _, z in pts2]
+    zs = [z for _, z in wpts]
     mr = n.new("ShaderNodeMapRange")
     mr.inputs["From Min"].default_value = min(zs)
     mr.inputs["From Max"].default_value = max(zs)

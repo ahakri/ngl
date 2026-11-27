@@ -1,0 +1,1425 @@
+{
+ "id": "MURDER-04",
+ "title": "The Zodiac's Cipher Was Cracked After 51 Years",
+ "category": "murder",
+ "voice": "am_michael",
+ "speed": 1.08,
+ "mood": "murder",
+ "target_seconds": 70,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "The Zodiac Killer mailed this. For fifty-one years, nobody could read it.",
+   "pause_after": 0.35,
+   "shot": "S01",
+   "emphasis": [
+    "fifty-one",
+    "years"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Three hundred forty symbols.",
+   "pause_after": 0.2,
+   "shot": "S02",
+   "emphasis": [
+    "forty"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Mailed to the San Francisco Chronicle in 1969.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "Chronicle",
+    "1969"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "The Zodiac killed at least five people in Northern California.",
+   "pause_after": 0.4,
+   "shot": "S04",
+   "emphasis": [
+    "five",
+    "people"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "His first cipher fell in about a week.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "week"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "This one didn't.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "didn't"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Then, in December 2020, three amateurs broke it.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "2020",
+    "amateurs"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "A software developer in Virginia.",
+   "pause_after": 0.2,
+   "shot": "S08",
+   "emphasis": [
+    "Virginia"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "A mathematician in Australia.",
+   "pause_after": 0.2,
+   "shot": "S09",
+   "emphasis": [
+    "Australia"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "A warehouse worker in Belgium.",
+   "pause_after": 0.35,
+   "shot": "S10",
+   "emphasis": [
+    "Belgium"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Their key insight: it wasn't written left to right.",
+   "pause_after": 0.4,
+   "shot": "S11",
+   "emphasis": [
+    "left",
+    "to",
+    "right"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Most of it ran diagonally. Down one row, across two.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "diagonally"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "The mathematician tested hundreds of thousands of reading orders.",
+   "pause_after": 0.25,
+   "shot": "S13",
+   "emphasis": [
+    "hundreds",
+    "of",
+    "thousands"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The warehouse worker's software attacked each one.",
+   "pause_after": 0.3,
+   "shot": "S14",
+   "emphasis": [
+    "software"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Then words surfaced. Trying to catch me.",
+   "pause_after": 0.45,
+   "shot": "S15",
+   "emphasis": [
+    "catch",
+    "me"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "The FBI acknowledged the cipher had been solved.",
+   "pause_after": 0.3,
+   "shot": "S16",
+   "emphasis": [
+    "FBI",
+    "solved"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "So what did it say?",
+   "pause_after": 0.45,
+   "shot": "S17",
+   "emphasis": [
+    "finally"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "I hope you are having lots of fun in trying to catch me.",
+   "pause_after": 0.25,
+   "shot": "S18",
+   "emphasis": [
+    "fun"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "That wasn't me on the TV show.",
+   "pause_after": 0.35,
+   "shot": "S19",
+   "emphasis": [
+    "TV",
+    "show"
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "Probably a 1969 TV caller who claimed to be him.",
+   "pause_after": 0.3,
+   "shot": "S20",
+   "emphasis": [
+    "caller"
+   ]
+  },
+  {
+   "id": "L21",
+   "text": "Fifty-one years of waiting. For a taunt.",
+   "pause_after": 0.5,
+   "shot": "S21",
+   "emphasis": [
+    "taunt"
+   ]
+  },
+  {
+   "id": "L22",
+   "text": "No name. The killer has never been identified.",
+   "pause_after": 0.35,
+   "shot": "S22",
+   "emphasis": [
+    "never",
+    "identified"
+   ]
+  },
+  {
+   "id": "L23",
+   "text": "And two shorter Zodiac ciphers remain unsolved.",
+   "pause_after": 0.3,
+   "shot": "S23",
+   "emphasis": [
+    "unsolved"
+   ]
+  },
+  {
+   "id": "L24",
+   "text": "One is just thirteen symbols. Right before it, he wrote: my name is.",
+   "pause_after": 0.45,
+   "shot": "S24",
+   "emphasis": [
+    "my",
+    "name",
+    "is"
+   ]
+  },
+  {
+   "id": "L25",
+   "text": "Think you can read it?",
+   "pause_after": 0.6,
+   "shot": "S25",
+   "emphasis": [
+    "read"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "CIPHER GRID PROP (build once, reuse): 20 rows x 17 columns = 340 glyph cells laid out on a flat plane, each cell a text3d glyph (extrude 0.01) in dark ink on an aged off-white paper plane. Glyphs are STAND-INS drawn from DejaVu/Oswald (Latin capitals, some mirrored or rotated 90/180 deg, a few Greek letters, dots, slashes, triangles) arranged so the page reads like the 1969 sheet without claiming to reproduce it symbol-for-symbol. Every glyph is its own object so it can be keyframed (emission, colour, position). Frame 1: extreme close-up already drifting across rows of glyphs on the paper; by 1.5 s the camera has pulled back to reveal the whole 20x17 block floating in black; cells flicker faint red as if being scanned.",
+   "camera": "starts macro 85mm sliding along a row, fast ease-out pull-back to full grid by 1.5 s, slight handheld amp 0.01",
+   "characters": [],
+   "lighting": "single soft top-light on the paper, deep black surround, faint red emission pulses on random glyphs",
+   "fx": [
+    "fine dust motes in the light"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "start": 0.6,
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "Counting beat: the camera tilts across the full grid while each row of glyphs blinks white in sequence top to bottom as the counter runs.",
+   "camera": "top-down 35mm, fast tilt row by row",
+   "characters": [],
+   "lighting": "cold white top-light; row highlights",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "SYMBOLS",
+     "params": {
+      "from": 0,
+      "to": 340,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:1969 newsroom",
+   "description": "Stylised 1969 newsroom (room builder: long desks with box typewriters, hanging cone lamps, venetian-blind window with night city glow). A faceless clerk silhouette slits open a plain envelope (no real address/handwriting) and a folded sheet with the cipher-grid texture slides onto the desk under a lamp.",
+   "camera": "slow overhead crane down onto the desk, 35mm",
+   "characters": [
+    "newsroom clerk silhouette (char_figure, shirt + tie, faceless)"
+   ],
+   "lighting": "warm tungsten desk lamps, cigarette-haze, cool blue window spill",
+   "fx": [
+    "haze fog_volume low density",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "NOVEMBER 1969\nSAN FRANCISCO CHRONICLE",
+     "start": 0.3,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "door_creak",
+     "offset": 0.2,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "map",
+   "description": "Respect beat, no crime scenes: a dark map card of the San Francisco Bay Area coast; five small white candle-like points fade in one by one at neutral spots in the region (not exact sites). No names of places of death, no imagery of victims.",
+   "camera": "2D overlay over a very dark fog plate; slow push",
+   "characters": [],
+   "lighting": "n/a; muted",
+   "fx": [
+    "slow fog drift in background"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "NORTHERN CALIFORNIA\n1968-1969",
+     "params": {
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.45,
+        0.0
+       ],
+       [
+        0.4,
+        0.25
+       ],
+       [
+        0.5,
+        0.4
+       ],
+       [
+        0.42,
+        0.55
+       ],
+       [
+        0.55,
+        0.75
+       ],
+       [
+        0.5,
+        1.0
+       ],
+       [
+        0.0,
+        1.0
+       ]
+      ],
+      "points": [
+       [
+        0.2,
+        0.2
+       ],
+       [
+        0.3,
+        0.45
+       ],
+       [
+        0.25,
+        0.7
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "card",
+     "text": "At least five people killed\nCase still open",
+     "start": 1.0,
+     "params": {
+      "header": "THE ZODIAC CASE",
+      "y": 1360
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "document",
+   "description": "Document reveal on a kitchen-table plate (warm lamp, two coffee cups as simple cylinders): a 1969-style newspaper column slides in, with a smaller earlier cipher sheet under it; pencil-drawn solving marks over its symbols.",
+   "camera": "2D overlay over the kitchen-table plate, slight push",
+   "characters": [],
+   "lighting": "warm domestic lamp",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "First Zodiac cipher (408 symbols)\nmailed July 1969\nsolved about a week later\nby a Salinas couple",
+     "params": {
+      "style": "paper",
+      "title": "1969 - CIPHER No. 1",
+      "size": 40
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "timeline",
+   "description": "Timeline overlay over the slowly rotating cipher grid (grid in background, defocused): years tick across; the line stays red, unsolved.",
+   "camera": "background grid slow 10 deg turn, 50mm, shallow DOF",
+   "characters": [],
+   "lighting": "cold blue rim on the grid",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "UNSOLVED",
+     "params": {
+      "events": [
+       [
+        "1969",
+        "mailed"
+       ],
+       [
+        "1990s",
+        "still unread"
+       ],
+       [
+        "2020",
+        "?"
+       ]
+      ],
+      "highlight_last": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 0.6,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:three home offices split-screen",
+   "description": "Three vertical panels side by side, each a small dark room lit only by a computer monitor (box monitor + keyboard, modern flat screen glow): a faceless silhouette at each desk. Monitors show scrolling grids of letters. Panels slide in left-right-left.",
+   "camera": "three static 35mm frames, each with a slow push; panels slide in with a whip",
+   "characters": [
+    "solver silhouette A",
+    "solver silhouette B",
+    "solver silhouette C (all faceless, no likeness)"
+   ],
+   "lighting": "cool blue-white monitor glow on each silhouette, room otherwise black",
+   "fx": [
+    "screen flicker (flicker depth 0.05)"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "DECEMBER 2020",
+     "start": 0.2,
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "map",
+   "description": "World map card: pin drops on Virginia (USA); solver card A slides in. Background plate: solver silhouette A's monitor glow, defocused.",
+   "camera": "2D overlay; map zoom on North America",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "DAVID ORANCHAK\nsoftware developer - Virginia, USA",
+     "params": {
+      "land": [
+       [
+        0.05,
+        0.25
+       ],
+       [
+        0.4,
+        0.2
+       ],
+       [
+        0.42,
+        0.5
+       ],
+       [
+        0.3,
+        0.75
+       ],
+       [
+        0.1,
+        0.55
+       ]
+      ],
+      "points": [
+       [
+        0.32,
+        0.42
+       ]
+      ],
+      "pin_first": true,
+      "pin": 0
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "map",
+   "description": "Route line jumps from Virginia across the Pacific to Melbourne; pin drops; card B.",
+   "camera": "2D overlay; map pans with the line",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "SAM BLAKE\napplied mathematician - Melbourne, Australia",
+     "params": {
+      "land": [
+       [
+        0.45,
+        0.45
+       ],
+       [
+        0.85,
+        0.4
+       ],
+       [
+        0.9,
+        0.7
+       ],
+       [
+        0.6,
+        0.75
+       ]
+      ],
+      "points": [
+       [
+        0.1,
+        0.2
+       ],
+       [
+        0.75,
+        0.68
+       ]
+      ],
+      "pin": -1
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "map",
+   "description": "Route line jumps north-west to Belgium; pin drops; card C. All three pins now visible linked by a red triangle.",
+   "camera": "2D overlay; map pulls back to the whole world",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "JARL VAN EYCKE\nwarehouse worker - Belgium",
+     "params": {
+      "land": [
+       [
+        0.05,
+        0.25
+       ],
+       [
+        0.3,
+        0.2
+       ],
+       [
+        0.35,
+        0.45
+       ],
+       [
+        0.25,
+        0.6
+       ],
+       [
+        0.1,
+        0.5
+       ]
+      ],
+      "points": [
+       [
+        0.22,
+        0.35
+       ],
+       [
+        0.85,
+        0.78
+       ],
+       [
+        0.52,
+        0.25
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "card",
+     "text": "All three: amateur codebreakers\nworking together online",
+     "start": 0.6,
+     "params": {
+      "header": "THE THREE",
+      "y": 1420
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "MID-POINT TURN. The cipher grid returns, sharp. A white reading-arrow sweeps left-to-right along row 1, then stops, flashes red and shatters into fragments.",
+   "camera": "frontal 50mm, quick push-in on row 1",
+   "characters": [],
+   "lighting": "cold top-light; red flash on the arrow break",
+   "fx": [
+    "glyph sparks on the shatter"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "NOT LEFT TO RIGHT",
+     "start": 1.0,
+     "params": {
+      "size": 110,
+      "y": 760,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 1.0,
+     "gain": 0.8
+    },
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "Letters rearranging: starting at the top-left glyph, a glowing red path hops down 1 row and right 2 columns, wrapping at the edge; each visited glyph lifts out of the grid and slides into a new straight line at the bottom of frame, forming a re-ordered strip. The grid splits into three horizontal sections (rows 1-9, 10-18, 19-20) with thin gaps.",
+   "camera": "top-down 35mm, slight tilt to show glyphs lifting in depth",
+   "characters": [],
+   "lighting": "glyphs on the path emit red; rest dimmed to 30%",
+   "fx": [
+    "thin light trails along the path"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "DOWN 1 - RIGHT 2",
+     "start": 0.6,
+     "params": {
+      "size": 90,
+      "y": 1450
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.7,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.1,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.5,
+     "gain": 0.3
+    },
+    {
+     "name": "whoosh",
+     "offset": 2.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:modern computer screen",
+   "description": "Close on a modern monitor in a dark room: dozens of tiny thumbnail grids, each a different hop-pattern, flicker past in a mosaic; screen glow fills the frame and reflects on a desk.",
+   "camera": "slow push into the screen, 50mm, until the mosaic fills frame",
+   "characters": [
+    "solver silhouette B (shoulder only, out of focus)"
+   ],
+   "lighting": "monitor glow cyan-white, everything else black",
+   "fx": [
+    "screen flicker"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "HUNDREDS OF THOUSANDS\nOF READING ORDERS",
+     "start": 0.4,
+     "params": {
+      "size": 80,
+      "y": 600
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "riser",
+     "offset": 0.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:modern computer screen",
+   "description": "Second monitor, different room colour (amber desk lamp + screen): a program window (generic UI, labelled 'AZdecrypt' as plain text, no real screenshots) shows a score bar climbing and candidate plaintext lines scrolling as gibberish.",
+   "camera": "over-the-shoulder 35mm, slow orbit 10 deg",
+   "characters": [
+    "solver silhouette C (shoulder, faceless)"
+   ],
+   "lighting": "screen white-green + warm lamp",
+   "fx": [
+    "screen flicker"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "AZdecrypt - solver software\nwritten by Van Eycke",
+     "params": {
+      "header": "THE TOOL",
+      "y": 1300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.5,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:modern computer screen",
+   "description": "Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until TRYING TO CATCH ME reads clean, glowing red, while the rest of the line stays noise.",
+   "camera": "locked-off macro on the screen line, tiny push",
+   "characters": [],
+   "lighting": "red text glow dominates; monitor dim",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "TRYING TO CATCH ME",
+     "start": 1.2,
+     "params": {
+      "size": 100,
+      "y": 760,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "sting",
+     "offset": 1.2,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "document",
+   "description": "Document reveal: a neutral recreated statement card (no FBI seal, no letterhead) slides up; a red stamp hits.",
+   "camera": "2D overlay over the blurred grid plate",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "The FBI said a cipher attributed to\nthe Zodiac Killer had been solved\nby private citizens.\n(paraphrase, 11 Dec 2020)",
+     "params": {
+      "style": "telegram",
+      "title": "FBI SAN FRANCISCO",
+      "size": 30
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.3,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.8,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "The full 340 grid; all glyphs begin to flip toward letters at once, freezing halfway (left half symbols, right half letters) as the line ends.",
+   "camera": "slow push-in, 50mm, centred",
+   "characters": [],
+   "lighting": "cold blue → warm amber colour-temperature shift sweeping left to right",
+   "fx": [],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "document",
+   "description": "Decoded text typed onto aged paper, line by line, over the half-flipped grid plate.",
+   "camera": "2D overlay, slight push",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "I HOPE YOU ARE HAVING LOTS OF FUN\nIN TRYING TO CATCH ME",
+     "params": {
+      "style": "paper",
+      "title": "THE 340, DECODED",
+      "size": 40
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S19",
+   "lines": [
+    "L19"
+   ],
+   "environment": "other:1969 living room",
+   "description": "A 1969 box TV set (rounded box, wood veneer, convex screen) alone in a dark room, screen showing a grainy talk-show set: two faceless chair silhouettes and a desk phone. Static rolls across.",
+   "camera": "slow push toward the screen, 35mm",
+   "characters": [],
+   "lighting": "TV glow only, blue-white flicker",
+   "fx": [
+    "static noise on the screen texture"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "\"THAT WASN'T ME\nON THE TV SHOW\"",
+     "start": 0.2,
+     "params": {
+      "size": 90,
+      "y": 520
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S20",
+   "lines": [
+    "L20"
+   ],
+   "environment": "other:1969 living room",
+   "description": "Same TV, screen now shows a big old rotary-desk-phone icon lit up; captions on screen 'LIVE CALL-IN'.",
+   "camera": "tighter on the screen, 50mm",
+   "characters": [],
+   "lighting": "TV flicker",
+   "fx": [
+    "static"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "card",
+     "text": "Oct 1969: a caller to a live TV show\nclaimed to be the Zodiac",
+     "start": 0.5,
+     "params": {
+      "header": "LIKELY REFERENCE",
+      "y": 1300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S21",
+   "lines": [
+    "L21"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "Anticlimax beat: the decoded grid of letters slowly dims to grey; one glowing letter at a time switches off.",
+   "camera": "very slow pull-back, 50mm",
+   "characters": [],
+   "lighting": "warm fading to cold",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "A TAUNT",
+     "start": 1.2,
+     "params": {
+      "size": 150,
+      "y": 760
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 1.2,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S22",
+   "lines": [
+    "L22"
+   ],
+   "environment": "document",
+   "description": "Recreated case-file cover (no real seal): 'ZODIAC - UNIDENTIFIED' typed; a stamp 'OPEN' lands.",
+   "camera": "2D overlay over dark desk plate",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "SUSPECT: UNIDENTIFIED\nNo one has been charged\nStatus: OPEN",
+     "params": {
+      "style": "paper",
+      "title": "ZODIAC (recreation)",
+      "size": 42
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.3,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.6,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S23",
+   "lines": [
+    "L23"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "Two small glyph strips (13 cells and 32 cells, same stand-in glyph style) rise out of the dark below the big grid, outlined in red.",
+   "camera": "tilt down from the big grid to the two strips, 35mm",
+   "characters": [],
+   "lighting": "red outline glow, black",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Z13 - 13 symbols (April 1970)\nZ32 - 32 symbols (June 1970)",
+     "start": 0.4,
+     "params": {
+      "header": "STILL UNSOLVED",
+      "y": 1300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S24",
+   "lines": [
+    "L24"
+   ],
+   "environment": "document",
+   "description": "Paper scrap with 'MY NAME IS —' typed, then the 13 stand-in glyphs type on after it, one by one.",
+   "camera": "2D overlay, push-in to the glyph row",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "MY NAME IS -\n? ? ? ? ? ? ? ? ? ? ? ? ?",
+     "params": {
+      "style": "scrap",
+      "size": 46
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 1.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S25",
+   "lines": [
+    "L25"
+   ],
+   "environment": "other:cipher grid on black",
+   "description": "Loop frame: the camera slides back into the macro row-drift framing of S01 over the big grid, glyphs flickering red — frame matches S01 frame 1.",
+   "camera": "matches S01: macro 85mm row drift",
+   "characters": [],
+   "lighting": "as S01",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "CAN YOU?",
+     "start": 0.2,
+     "params": {
+      "size": 110,
+      "y": 700
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "In memory of the Zodiac's victims\nSources in description",
+     "start": 0.4,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
+  ],
+  [
+   12,
+   0.55
+  ],
+  [
+   25,
+   0.45
+  ],
+  [
+   25.6,
+   0.8
+  ],
+  [
+   40,
+   0.95
+  ],
+  [
+   47,
+   0.5
+  ],
+  [
+   55,
+   0.6
+  ],
+  [
+   66,
+   0.7
+  ],
+  [
+   70,
+   0.5
+  ]
+ ],
+ "loop_line": "Think you can read it?"
+}

@@ -1,0 +1,825 @@
+{
+ "id": "HAUNT-04",
+ "title": "The Ghost on the Raynham Hall Staircase",
+ "category": "haunted",
+ "voice": "bm_george",
+ "speed": 1.07,
+ "mood": "haunted",
+ "target_seconds": 52,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "In 1936, a photographer said a woman was drifting down these stairs.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "woman",
+    "drifting"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Raynham Hall, Norfolk. A Country Life photo shoot.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "Raynham",
+    "Country",
+    "Life"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Legend says the Brown Lady is Dorothy Walpole, who died in 1726.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "Brown",
+    "Lady"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "In 1836, novelist Frederick Marryat claimed he shot at her.",
+   "pause_after": 0.3,
+   "shot": "S04",
+   "emphasis": [
+    "shot"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "A century later, Provand and Shira aimed a camera up the stairs.",
+   "pause_after": 0.25,
+   "shot": "S05",
+   "emphasis": [
+    "camera"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Shira said he saw a vapoury form, slowly becoming a woman.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "vapoury",
+    "woman"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Provand uncapped the lens. Shira fired the flash.",
+   "pause_after": 0.35,
+   "shot": "S07",
+   "emphasis": [
+    "flash"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "The plate showed a pale, veiled shape.",
+   "pause_after": 0.3,
+   "shot": "S08",
+   "emphasis": [
+    "pale",
+    "veiled"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Country Life printed it. So did Life magazine.",
+   "pause_after": 0.2,
+   "shot": "S09",
+   "emphasis": [
+    "printed"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Experts reportedly found no sign of tampering.",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "tampering"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "But sceptics see a double exposure: two images, one plate.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "double",
+    "exposure"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Or grease on the lens. Or Shira moving on the stairs.",
+   "pause_after": 0.25,
+   "shot": "S12",
+   "emphasis": [
+    "grease",
+    "moving"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Nobody has ever proved which.",
+   "pause_after": 0.9,
+   "shot": "S13",
+   "emphasis": [
+    "proved"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "So look again at these stairs.",
+   "pause_after": 0.1,
+   "shot": "S14",
+   "emphasis": [
+    "again"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Cold open, already moving: a grand Jacobean-style oak staircase in a manor hall (build: 18 box steps 1.6 m wide rising to a half-landing, then a return flight; turned balusters = lathe-profile cylinders every 0.25 m; heavy square newel posts with ball finials; moulded handrail = bevelled box along a curve; walls in dark oak panelling: grid of inset rectangles (boxes 2 cm proud) to 2.4 m, plain plaster above; tall leaded window on the landing (plane with lattice emission)). Near-dark. At 0.3 s a magnesium-white flash pops from camera position and decays over 0.4 s. WRONG DETAIL: on the half-landing, small in frame (≈10% height), OUR OWN translucent figure (char_figure, height 1.7, coat=True as a long gown, a simple hood/veil = cone + sphere cap; material: pale grey-white emission 0.4, alpha 0.25, soft edges via volume scatter; no face). Deliberately NOT posed or framed like the real photograph. She is visible mainly in the flash and as a faint glow after it.",
+   "camera": "slow push-in up the first flight from the foot of the stairs, 35 mm, height 1.3 m, three-quarter angle from the left (not the head-on view of the 1936 photo)",
+   "characters": [
+    "translucent veiled figure on the landing (our design, faceless)"
+   ],
+   "lighting": "cold grey daylight from the landing window (low), flash = area light 2 m, energy spike then decay",
+   "fx": [
+    "dust motes",
+    "film grain",
+    "slight vignette"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "the assistant photographer's account"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation, not the real photo"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.25,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.3,
+     "gain": 0.3
+    },
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.1
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "house_exterior",
+   "description": "Exterior in daylight fog: a large symmetrical 17th-century-style country house (house_exterior variant: w=34 m, 3 floors, central pedimented gable = triangular prism, two shaped end gables, rows of tall sash windows, pale brick/stone material), gravel forecourt, lawn, bare trees left and right. Generic, not a replica of Raynham Hall.",
+   "camera": "slow crane down + push, 40 mm, from the lawn",
+   "characters": [
+    "none"
+   ],
+   "lighting": "flat overcast sun 0.8, cool grey",
+   "fx": [
+    "fog_volume (light ground mist)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "Country Life assignment"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "RAYNHAM HALL, NORFOLK\n19 SEPTEMBER 1936",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Half-landing of the staircase, close: an empty gilt portrait frame on the panelling holds only dark canvas (no face, no likeness). A candle sconce gutters beside it. Timeline overlay runs across the lower half.",
+   "camera": "slow lateral slide right across the frame, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single candle point light (flicker, low depth), cold window spill",
+   "fx": [
+    "flicker",
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "the identification is legend"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 290,
+      "sub": "Dorothy Walpole, d. 1726"
+     }
+    },
+    {
+     "type": "timeline",
+     "text": "THE BROWN LADY",
+     "params": {
+      "events": [
+       [
+        "1726",
+        "Dorothy dies"
+       ],
+       [
+        "1836",
+        "Marryat"
+       ],
+       [
+        "1936",
+        "the photo"
+       ]
+      ],
+      "highlight_last": true,
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "corridor",
+   "description": "Night, an upstairs panelled corridor (corridor builder: oak panelling, doors every 4 m, no electric lamps). A faceless man in an 1830s tailcoat (char_figure coat=True) holds a candle lamp and a pistol (L-shaped box). At the far end, the translucent veiled shape. Muzzle flash (point light burst 1 frame + small smoke particle puff) at ~2.0 s; when the smoke clears the corridor end is empty.",
+   "camera": "over-the-shoulder from behind the man, 35 mm, slight handheld",
+   "characters": [
+    "guest silhouette (faceless, 1830s tailcoat)",
+    "translucent veiled figure (our design)"
+   ],
+   "lighting": "warm candle lamp, deep shadows; muzzle flash spike",
+   "fx": [
+    "smoke puff",
+    "handheld"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Marryat's account, as later reported"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "boom",
+     "offset": 2.0,
+     "gain": 0.45
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Daylight now. At the foot of the staircase two faceless 1930s photographer silhouettes (suits, one in a flat cap): one stands behind a large-format plate camera on a wooden tripod, the other holds a flash gun aimed up the stairs. The stairs above are empty.",
+   "camera": "low wide from beside the newel post, 24 mm, slow push",
+   "characters": [
+    "photographer_A (Provand: faceless, suit, behind camera)",
+    "photographer_B (Shira: faceless, flat cap, holding flash gun)"
+   ],
+   "lighting": "cool daylight from landing window, soft fill",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "the photographers on the assignment"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Capt. Hubert C. Provand\nIndre Shira (assistant)",
+     "params": {
+      "header": "COUNTRY LIFE PHOTOGRAPHERS",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.2
+    },
+    {
+     "name": "click",
+     "offset": 1.5,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Shira's POV up the stairs: on the upper flight a thin column of vapour (small fog_volume, animated density + slow rotation) gathers and, over the shot, condenses into the tall veiled translucent shape descending one step. Barely there.",
+   "camera": "slow push up the stairs, 50 mm, from flash-gun height",
+   "characters": [
+    "forming translucent figure (our design)"
+   ],
+   "lighting": "daylight from landing window rim-lighting the vapour",
+   "fx": [
+    "fog_volume (local, animated)",
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Shira's published account"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:camera_closeup",
+   "description": "Macro on the plate camera: brass lens barrel (cylinder), a gloved hand lifts the round lens cap off; cut-in within the shot to the flash gun's dish reflector (cone) as it fires: the frame blows out white for 4 frames, then returns.",
+   "camera": "85 mm macro, quick rack focus from lens cap to flash dish",
+   "characters": [
+    "hands only (gloved, no faces)"
+   ],
+   "lighting": "daylight, then white flash blowout",
+   "fx": [
+    "flash blowout",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "the photographers' account"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.6
+    },
+    {
+     "name": "hit",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:darkroom",
+   "description": "Darkroom under a red safelight: a shallow developing tray (box with liquid plane, gentle ripple), a glass plate under the liquid. The image slowly appearing on the plate is OUR OWN render of the S01 staircase in negative tones with a faint pale shape on the stairs. The real photograph is not shown or traced.",
+   "camera": "top-down push-in over the tray, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "deep red safelight (area light), liquid speculars",
+   "fx": [
+    "liquid ripple",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "the photograph exists (described)"
+     }
+    },
+    {
+     "type": "text",
+     "text": "[ REAL PHOTO DESCRIBED,\nNOT SHOWN ]",
+     "params": {
+      "y": 1300,
+      "size": 52
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "document",
+   "description": "Pattern interrupt: a generic magazine page (no real masthead or logo, plain serif text) slides up over a blurred dark staircase; a second, smaller page slides in behind it for the US reprint.",
+   "camera": "graphic, slow drift up",
+   "characters": [
+    "none"
+   ],
+   "lighting": "warm paper",
+   "fx": [
+    "paper grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "Country Life, Dec 1936; Life, 4 Jan 1937"
+     }
+    },
+    {
+     "type": "document",
+     "text": "A ghost photographed on the\nstaircase at Raynham Hall.\n\nReprinted: Life, 4 January 1937.",
+     "params": {
+      "title": "COUNTRY LIFE - DECEMBER 1936",
+      "style": "paper"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:lightbox",
+   "description": "A glass plate (blank, glowing) on a lightbox (box with emissive top); a magnifying glass (torus rim + disc lens) slides across it. The plate shows only an abstract staircase silhouette (our render), not the real image.",
+   "camera": "overhead, 50 mm, follows the magnifier",
+   "characters": [
+    "none"
+   ],
+   "lighting": "lightbox glow from below, dark room",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "reported examination at the magazine"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Negative examined:\nno sign of tampering (reported)",
+     "params": {
+      "header": "THE CHECK",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Mid-point turn. Dark corkboard: card 'WHAT SCEPTICS SAY'. A simple diagram animates: two semi-transparent rectangles, one labelled 'STAIRS', one 'FIGURE', slide together and merge into one frame labelled 'ONE PLATE'.",
+   "camera": "flat front, slow push, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single desk lamp top-left",
+   "fx": [
+    "paper flutter"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200,
+      "sub": "double exposure (e.g. Joe Nickell)"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Double exposure:\ntwo images on one plate",
+     "params": {
+      "header": "WHAT SCEPTICS SAY",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Two quick in-shot beats: (a) macro of the lens with a pale smear of grease across the glass, the staircase behind it smeared into a soft vertical streak; (b) rack to the stairs: a faceless man in a flat cap walks down the steps, rendered with heavy motion blur / partial transparency so he reads as a ghostly streak.",
+   "camera": "85 mm macro on lens, rack focus to the stairs",
+   "characters": [
+    "photographer_B silhouette (faceless, motion-blurred)"
+   ],
+   "lighting": "daylight",
+   "fx": [
+    "motion blur",
+    "lens smear"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200,
+      "sub": "grease on lens / movement in exposure"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Grease on the lens?\nSomeone moving on the stairs?",
+     "params": {
+      "header": "OTHER THEORIES",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.6,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "Back to the staircase, empty, same framing as the end of S01 push. Still. Music fades to nothing; 0.9 s dead-air hold on the empty landing.",
+   "camera": "locked-off, 35 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "dim daylight from landing window",
+   "fx": [
+    "dust motes (very slow)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 200,
+      "sub": "authenticity never settled"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.1
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:manor_staircase",
+   "description": "DEAD-AIR REVEAL + LOOP: identical framing match-cut out of the silence; a single flash pops and in it the translucent veiled shape is now on the lower flight, three steps from the bottom, much closer than in S01. After the flash, the frame settles back toward the S01 start frame (dark, shape back on the landing) so the cut to S01 loops.",
+   "camera": "locked-off, then begins the S01 push-in",
+   "characters": [
+    "translucent veiled figure (our design)"
+   ],
+   "lighting": "flash spike, then dim",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.05,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.35
+  ],
+  [
+   6,
+   0.5
+  ],
+  [
+   18,
+   0.65
+  ],
+  [
+   27,
+   0.75
+  ],
+  [
+   32,
+   0.5
+  ],
+  [
+   38,
+   0.6
+  ],
+  [
+   46,
+   0.0
+  ],
+  [
+   49,
+   0.0
+  ],
+  [
+   51,
+   0.35
+  ],
+  [
+   55,
+   0.35
+  ]
+ ],
+ "loop_line": "So look again at these stairs."
+}

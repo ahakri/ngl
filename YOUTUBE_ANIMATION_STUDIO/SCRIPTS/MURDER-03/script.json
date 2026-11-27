@@ -30,7 +30,7 @@
   },
   {
    "id": "L03",
-   "text": "November 24th, 1971. Northwest Orient Flight 305.",
+   "text": "November 24th, 1971. Flight three-oh-five.",
    "pause_after": 0.25,
    "shot": "S03",
    "emphasis": [
@@ -59,7 +59,7 @@
   },
   {
    "id": "L06",
-   "text": "He wanted two hundred thousand dollars. And four parachutes.",
+   "text": "He'd demanded that cash. And four parachutes.",
    "pause_after": 0.3,
    "shot": "S06",
    "emphasis": [
@@ -69,17 +69,17 @@
   },
   {
    "id": "L07",
-   "text": "In Seattle, he traded thirty-six passengers for the cash and chutes.",
+   "text": "In Seattle, he swapped the passengers for the cash.",
    "pause_after": 0.25,
    "shot": "S07",
    "emphasis": [
-    "thirty-six",
-    "passengers"
+    "passengers",
+    "cash"
    ]
   },
   {
    "id": "L08",
-   "text": "Then he sent the jet back up, south, toward Mexico.",
+   "text": "Then he ordered the jet south, toward Mexico.",
    "pause_after": 0.25,
    "shot": "S08",
    "emphasis": [
@@ -88,7 +88,7 @@
   },
   {
    "id": "L09",
-   "text": "Over southwest Washington, in a night storm, he lowered the rear stairs.",
+   "text": "Over southwest Washington, in a storm, he lowered the rear stairs.",
    "pause_after": 0.3,
    "shot": "S09",
    "emphasis": [
@@ -107,7 +107,7 @@
   },
   {
    "id": "L11",
-   "text": "Searchers combed the forest below. No trace of him was ever found.",
+   "text": "No trace of him was ever found.",
    "pause_after": 0.3,
    "shot": "S11",
    "emphasis": [
@@ -117,7 +117,7 @@
   },
   {
    "id": "L12",
-   "text": "Then, in 1980, an eight-year-old boy was smoothing sand for a campfire on the Columbia River.",
+   "text": "In 1980, an eight-year-old smoothed sand for a campfire by the Columbia River.",
    "pause_after": 0.3,
    "shot": "S12",
    "emphasis": [
@@ -127,12 +127,11 @@
   },
   {
    "id": "L13",
-   "text": "Under the sand: three rotting bundles of twenty-dollar bills.",
+   "text": "Under the sand: three rotting bundles of twenties.",
    "pause_after": 0.35,
    "shot": "S13",
    "emphasis": [
-    "twenty-dollar",
-    "bills"
+    "twenties"
    ]
   },
   {
@@ -147,7 +146,7 @@
   },
   {
    "id": "L15",
-   "text": "But that riverbank sits miles from where investigators believed he jumped.",
+   "text": "But that sandbar sits miles from where investigators think he jumped.",
    "pause_after": 0.3,
    "shot": "S15",
    "emphasis": [
@@ -165,7 +164,7 @@
   },
   {
    "id": "L17",
-   "text": "The rest of the money has never been found.",
+   "text": "The rest has never been found.",
    "pause_after": 0.4,
    "shot": "S17",
    "emphasis": [
@@ -174,49 +173,66 @@
   },
   {
    "id": "L18",
-   "text": "Hijackings like his led the FAA to order a lock on the 727's rear stairs. It's called the Cooper vane.",
-   "pause_after": 0.35,
+   "text": "After copycats, the FAA had seven-twenty-sevens fitted with a stair lock.",
+   "pause_after": 0.2,
    "shot": "S18",
+   "emphasis": [
+    "stair",
+    "lock"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "They call it the Cooper vane.",
+   "pause_after": 0.35,
+   "shot": "S19",
    "emphasis": [
     "Cooper",
     "vane"
    ]
   },
   {
-   "id": "L19",
-   "text": "In 2016, the FBI stopped actively investigating. Hundreds of suspects. No charges.",
-   "pause_after": 0.35,
-   "shot": "S19",
+   "id": "L20",
+   "text": "In 2016, the FBI stopped actively investigating.",
+   "pause_after": 0.25,
+   "shot": "S20",
    "emphasis": [
-    "2016",
-    "No",
-    "charges"
+    "2016"
    ]
   },
   {
-   "id": "L20",
-   "text": "Did he die in those woods? Or walk out of them?",
+   "id": "L21",
+   "text": "No one was ever charged.",
+   "pause_after": 0.35,
+   "shot": "S21",
+   "emphasis": [
+    "charged"
+   ]
+  },
+  {
+   "id": "L22",
+   "text": "Did he die in those woods, or walk out?",
    "pause_after": 0.3,
-   "shot": "S20",
+   "shot": "S22",
    "emphasis": [
     "die",
     "walk"
    ]
   },
   {
-   "id": "L21",
+   "id": "L23",
    "text": "Where do you think he landed?",
    "pause_after": 0.4,
-   "shot": "S21",
+   "shot": "S23",
    "emphasis": [
     "landed"
    ]
   },
   {
-   "id": "L22",
-   "text": "Because all anyone knows for sure is this.",
+   "id": "L24",
+   "text": "All anyone knows for sure is this.",
    "pause_after": 0.3,
-   "shot": "S22",
+   "shot": "S24",
    "emphasis": [
     "sure"
    ]
@@ -563,7 +579,7 @@
    "overlay": [
     {
      "type": "stamp",
-     "text": "SEATTLE-TACOMA AIRPORT\nPASSENGERS RELEASED",
+     "text": "SEATTLE-TACOMA AIRPORT\n36 PASSENGERS RELEASED",
      "start": 0.3,
      "params": {
       "y": 1500
@@ -749,7 +765,7 @@
     "L11"
    ],
    "environment": "forest",
-   "description": "Daylight-grey overcast: low aerial over wet conifer forest and a river bend; three faceless searcher silhouettes in a line push through ferns with torches; nothing found.",
+   "description": "Daylight-grey overcast: low aerial over wet conifer forest and a river bend; three faceless searcher silhouettes in a line push through ferns with torches; nothing found. On-screen card covers the search.",
    "camera": "low drone pass over the treetops, 35mm, then tilt down to the searchers",
    "characters": [
     "searcher silhouettes x3 (anim_walk, rain jackets)"
@@ -765,6 +781,15 @@
      "text": "DOCUMENTED FACT",
      "params": {
       "y": 200
+     }
+    },
+    {
+     "type": "card",
+     "text": "Ground searches of SW Washington\nNo body, no Cooper",
+     "start": 0.6,
+     "params": {
+      "header": "THE SEARCH",
+      "y": 1250
      }
     }
    ],
@@ -1115,7 +1140,7 @@
      "type": "card",
      "text": "Spring-loaded vane blocks the\nrear stairs from opening in flight",
      "params": {
-      "header": "THE \"COOPER VANE\"",
+      "header": "FAA ORDER, 1972",
       "y": 1250
      }
     },
@@ -1146,6 +1171,39 @@
    "lines": [
     "L19"
    ],
+   "environment": "other:jet exterior, macro",
+   "description": "Macro on the vane itself: the small hinged paddle under the 727 fuselage snaps flat against the closed airstair as a red outline draws round it; blueprint lines fade out.",
+   "camera": "macro 85mm, quick push-in then hold",
+   "characters": [],
+   "lighting": "cool hangar light, red outline glow",
+   "fx": [
+    "faint dust"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "COOPER VANE",
+     "start": 0.2,
+     "params": {
+      "size": 130,
+      "y": 760
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.2,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S20",
+   "lines": [
+    "L20"
+   ],
    "environment": "document",
    "description": "Document reveal: a neutral recreated case-file cover (no real FBI seal or letterhead) with 'NORJAK' typed; a rubber stamp slams 'ACTIVE INVESTIGATION ENDED - JULY 2016'.",
    "camera": "2D overlay over a dark desk plate, slight push",
@@ -1155,7 +1213,7 @@
    "overlay": [
     {
      "type": "document",
-     "text": "CASE: NORJAK (Northwest hijacking)\nSuspects considered: 800+\nCharged: none\nStatus: active investigation ended,\nJuly 2016",
+     "text": "CASE: NORJAK (Northwest hijacking)\nStatus: active investigation ended,\nJuly 2016\nEvidence preserved for history",
      "params": {
       "style": "paper",
       "title": "CASE FILE (recreation)"
@@ -1177,19 +1235,71 @@
     },
     {
      "name": "hit",
-     "offset": 2.4,
+     "offset": 2.0,
      "gain": 0.7
     }
    ],
    "transition_in": "cut"
   },
   {
-   "id": "S20",
+   "id": "S21",
    "lines": [
-    "L20"
+    "L21"
+   ],
+   "environment": "other:evidence board",
+   "description": "Evidence board wall of faceless suspect cards (blank silhouettes, no names, no likenesses) - dozens of them; the camera pulls back to show the wall is huge; none is marked.",
+   "camera": "fast pull-back, 24mm",
+   "characters": [],
+   "lighting": "single cold lamp, long shadows",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "SUSPECTS CONSIDERED",
+     "params": {
+      "from": 0,
+      "to": 800,
+      "y": 380
+     }
+    },
+    {
+     "type": "text",
+     "text": "CHARGED: 0",
+     "start": 1.0,
+     "params": {
+      "size": 110,
+      "y": 1250,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.0,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S22",
+   "lines": [
+    "L22"
    ],
    "environment": "forest",
-   "description": "Dawn in the conifer forest, mist on the ground; a single pale parachute shape tangled high in a tree branch?  NO — keep it ambiguous: empty clearing, a faint line of footprints that fades out after a few metres.",
+   "description": "Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure.",
    "camera": "slow ground-level push through the trees, 24mm",
    "characters": [],
    "lighting": "blue-grey dawn, god rays through fog",
@@ -1230,9 +1340,9 @@
    "transition_in": "cut"
   },
   {
-   "id": "S21",
+   "id": "S23",
    "lines": [
-    "L21"
+    "L23"
    ],
    "environment": "map",
    "description": "Map card from S15 again, empty of pins; a pulsing '?' pin waits over the forest region.",
@@ -1261,9 +1371,9 @@
    "transition_in": "cut"
   },
   {
-   "id": "S22",
+   "id": "S24",
    "lines": [
-    "L22"
+    "L24"
    ],
    "environment": "other:night sky / jet exterior",
    "description": "Loop frame: same framing as S01 — underside of the 727 tail in rain, airstair open, warm spill; the suited silhouette steps back onto the bottom stair, matching frame 1.",
@@ -1326,5 +1436,5 @@
    0.55
   ]
  ],
- "loop_line": "Because all anyone knows for sure is this."
+ "loop_line": "All anyone knows for sure is this."
 }

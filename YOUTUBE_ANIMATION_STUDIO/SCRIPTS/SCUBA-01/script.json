@@ -319,7 +319,8 @@
             "pin": -1,
             "pin_first": true
           },
-          "start": 0.2
+          "start": 0.2,
+          "duration": 1.9
         }
       ],
       "sfx": [
@@ -621,7 +622,8 @@
           "params": {
             "fmt": "hours",
             "from": 0,
-            "to": 52
+            "to": 52,
+            "y": 430
           }
         },
         {
@@ -666,7 +668,8 @@
           "text": "TASK: BODY RECOVERY",
           "params": {
             "style": "telegram",
-            "title": "DIVE PLAN"
+            "title": "DIVE PLAN",
+            "y": 150
           }
         }
       ],
@@ -865,7 +868,7 @@
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
+          "text": "DOCUMENTED FACT",
           "params": {
             "y": 200
           }
@@ -997,7 +1000,7 @@
         },
         {
           "type": "label",
-          "text": "EXPERT ESTIMATE",
+          "text": "THEORY",
           "params": {
             "y": 200
           }

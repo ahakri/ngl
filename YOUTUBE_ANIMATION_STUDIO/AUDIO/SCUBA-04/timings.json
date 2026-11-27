@@ -1,0 +1,857 @@
+{
+ "duration": 49.27,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.47,
+   "text": "One second he was diving for lobster. The next, everything went black.",
+   "words": [
+    {
+     "w": "One",
+     "start": 0.18,
+     "end": 0.42
+    },
+    {
+     "w": "second",
+     "start": 0.42,
+     "end": 0.91
+    },
+    {
+     "w": "he",
+     "start": 0.91,
+     "end": 1.09
+    },
+    {
+     "w": "was",
+     "start": 1.09,
+     "end": 1.33
+    },
+    {
+     "w": "diving",
+     "start": 1.33,
+     "end": 1.74
+    },
+    {
+     "w": "for",
+     "start": 1.74,
+     "end": 2.05
+    },
+    {
+     "w": "lobster.",
+     "start": 2.05,
+     "end": 2.63
+    },
+    {
+     "w": "The",
+     "start": 2.63,
+     "end": 2.7
+    },
+    {
+     "w": "next,",
+     "start": 2.7,
+     "end": 3.13
+    },
+    {
+     "w": "everything",
+     "start": 3.13,
+     "end": 3.76
+    },
+    {
+     "w": "went",
+     "start": 3.76,
+     "end": 4.13
+    },
+    {
+     "w": "black.",
+     "start": 4.13,
+     "end": 4.41
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.77,
+   "end": 7.09,
+   "text": "Cape Cod, June 2021.",
+   "words": [
+    {
+     "w": "Cape",
+     "start": 4.8,
+     "end": 5.13
+    },
+    {
+     "w": "Cod,",
+     "start": 5.13,
+     "end": 5.55
+    },
+    {
+     "w": "June",
+     "start": 5.55,
+     "end": 6.13
+    },
+    {
+     "w": "2021.",
+     "start": 6.13,
+     "end": 7.03
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 7.24,
+   "end": 10.65,
+   "text": "Lobster diver Michael Packard was forty-five feet down.",
+   "words": [
+    {
+     "w": "Lobster",
+     "start": 7.27,
+     "end": 7.74
+    },
+    {
+     "w": "diver",
+     "start": 7.74,
+     "end": 8.15
+    },
+    {
+     "w": "Michael",
+     "start": 8.15,
+     "end": 8.67
+    },
+    {
+     "w": "Packard",
+     "start": 8.67,
+     "end": 8.93
+    },
+    {
+     "w": "was",
+     "start": 8.93,
+     "end": 9.15
+    },
+    {
+     "w": "forty-five",
+     "start": 9.15,
+     "end": 10.01
+    },
+    {
+     "w": "feet",
+     "start": 10.01,
+     "end": 10.3
+    },
+    {
+     "w": "down.",
+     "start": 10.3,
+     "end": 10.59
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 10.85,
+   "end": 12.32,
+   "text": "His first thought: a shark.",
+   "words": [
+    {
+     "w": "His",
+     "start": 10.88,
+     "end": 11.07
+    },
+    {
+     "w": "first",
+     "start": 11.07,
+     "end": 11.39
+    },
+    {
+     "w": "thought:",
+     "start": 11.39,
+     "end": 11.68
+    },
+    {
+     "w": "a",
+     "start": 11.68,
+     "end": 11.91
+    },
+    {
+     "w": "shark.",
+     "start": 11.91,
+     "end": 12.26
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 12.52,
+   "end": 14.54,
+   "text": "But there were no teeth. No pain.",
+   "words": [
+    {
+     "w": "But",
+     "start": 12.54,
+     "end": 12.78
+    },
+    {
+     "w": "there",
+     "start": 12.78,
+     "end": 13.13
+    },
+    {
+     "w": "were",
+     "start": 13.13,
+     "end": 13.24
+    },
+    {
+     "w": "no",
+     "start": 13.24,
+     "end": 13.6
+    },
+    {
+     "w": "teeth.",
+     "start": 13.6,
+     "end": 13.81
+    },
+    {
+     "w": "No",
+     "start": 13.81,
+     "end": 14.09
+    },
+    {
+     "w": "pain.",
+     "start": 14.09,
+     "end": 14.48
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 14.84,
+   "end": 16.43,
+   "text": "He was inside a whale's mouth.",
+   "words": [
+    {
+     "w": "He",
+     "start": 14.87,
+     "end": 14.99
+    },
+    {
+     "w": "was",
+     "start": 14.99,
+     "end": 15.17
+    },
+    {
+     "w": "inside",
+     "start": 15.17,
+     "end": 15.65
+    },
+    {
+     "w": "a",
+     "start": 15.65,
+     "end": 15.78
+    },
+    {
+     "w": "whale's",
+     "start": 15.78,
+     "end": 16.11
+    },
+    {
+     "w": "mouth.",
+     "start": 16.11,
+     "end": 16.37
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 16.78,
+   "end": 20.01,
+   "text": "Experts think a feeding humpback scooped him up by accident.",
+   "words": [
+    {
+     "w": "Experts",
+     "start": 16.81,
+     "end": 17.23
+    },
+    {
+     "w": "think",
+     "start": 17.23,
+     "end": 17.61
+    },
+    {
+     "w": "a",
+     "start": 17.61,
+     "end": 17.7
+    },
+    {
+     "w": "feeding",
+     "start": 17.7,
+     "end": 18.03
+    },
+    {
+     "w": "humpback",
+     "start": 18.03,
+     "end": 18.49
+    },
+    {
+     "w": "scooped",
+     "start": 18.49,
+     "end": 18.91
+    },
+    {
+     "w": "him",
+     "start": 18.91,
+     "end": 19.03
+    },
+    {
+     "w": "up",
+     "start": 19.03,
+     "end": 19.22
+    },
+    {
+     "w": "by",
+     "start": 19.22,
+     "end": 19.45
+    },
+    {
+     "w": "accident.",
+     "start": 19.45,
+     "end": 19.95
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 20.16,
+   "end": 22.86,
+   "text": "He still had his scuba tank, so he kept breathing.",
+   "words": [
+    {
+     "w": "He",
+     "start": 20.19,
+     "end": 20.33
+    },
+    {
+     "w": "still",
+     "start": 20.33,
+     "end": 20.56
+    },
+    {
+     "w": "had",
+     "start": 20.56,
+     "end": 20.9
+    },
+    {
+     "w": "his",
+     "start": 20.9,
+     "end": 21.09
+    },
+    {
+     "w": "scuba",
+     "start": 21.09,
+     "end": 21.5
+    },
+    {
+     "w": "tank,",
+     "start": 21.5,
+     "end": 21.77
+    },
+    {
+     "w": "so",
+     "start": 21.77,
+     "end": 21.87
+    },
+    {
+     "w": "he",
+     "start": 21.87,
+     "end": 22.07
+    },
+    {
+     "w": "kept",
+     "start": 22.07,
+     "end": 22.3
+    },
+    {
+     "w": "breathing.",
+     "start": 22.3,
+     "end": 22.8
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 23.01,
+   "end": 25.8,
+   "text": "He thought he was going to die. He thought of his sons.",
+   "words": [
+    {
+     "w": "He",
+     "start": 23.04,
+     "end": 23.16
+    },
+    {
+     "w": "thought",
+     "start": 23.16,
+     "end": 23.56
+    },
+    {
+     "w": "he",
+     "start": 23.56,
+     "end": 23.62
+    },
+    {
+     "w": "was",
+     "start": 23.62,
+     "end": 23.86
+    },
+    {
+     "w": "going",
+     "start": 23.86,
+     "end": 24.27
+    },
+    {
+     "w": "to",
+     "start": 24.27,
+     "end": 24.45
+    },
+    {
+     "w": "die.",
+     "start": 24.45,
+     "end": 24.66
+    },
+    {
+     "w": "He",
+     "start": 24.66,
+     "end": 24.85
+    },
+    {
+     "w": "thought",
+     "start": 24.85,
+     "end": 25.1
+    },
+    {
+     "w": "of",
+     "start": 25.1,
+     "end": 25.27
+    },
+    {
+     "w": "his",
+     "start": 25.27,
+     "end": 25.5
+    },
+    {
+     "w": "sons.",
+     "start": 25.5,
+     "end": 25.74
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 26.25,
+   "end": 28.59,
+   "text": "But a humpback can't actually swallow a person.",
+   "words": [
+    {
+     "w": "But",
+     "start": 26.28,
+     "end": 26.45
+    },
+    {
+     "w": "a",
+     "start": 26.45,
+     "end": 26.66
+    },
+    {
+     "w": "humpback",
+     "start": 26.66,
+     "end": 26.93
+    },
+    {
+     "w": "can't",
+     "start": 26.93,
+     "end": 27.17
+    },
+    {
+     "w": "actually",
+     "start": 27.17,
+     "end": 27.73
+    },
+    {
+     "w": "swallow",
+     "start": 27.73,
+     "end": 28.11
+    },
+    {
+     "w": "a",
+     "start": 28.11,
+     "end": 28.13
+    },
+    {
+     "w": "person.",
+     "start": 28.13,
+     "end": 28.53
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 28.74,
+   "end": 30.43,
+   "text": "Its throat is far too narrow.",
+   "words": [
+    {
+     "w": "Its",
+     "start": 28.77,
+     "end": 28.99
+    },
+    {
+     "w": "throat",
+     "start": 28.99,
+     "end": 29.34
+    },
+    {
+     "w": "is",
+     "start": 29.34,
+     "end": 29.5
+    },
+    {
+     "w": "far",
+     "start": 29.5,
+     "end": 29.81
+    },
+    {
+     "w": "too",
+     "start": 29.81,
+     "end": 30.0
+    },
+    {
+     "w": "narrow.",
+     "start": 30.0,
+     "end": 30.37
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 30.63,
+   "end": 33.61,
+   "text": "After thirty to forty seconds, by his own estimate,",
+   "words": [
+    {
+     "w": "After",
+     "start": 30.66,
+     "end": 31.01
+    },
+    {
+     "w": "thirty",
+     "start": 31.01,
+     "end": 31.31
+    },
+    {
+     "w": "to",
+     "start": 31.31,
+     "end": 31.49
+    },
+    {
+     "w": "forty",
+     "start": 31.49,
+     "end": 31.95
+    },
+    {
+     "w": "seconds,",
+     "start": 31.95,
+     "end": 32.43
+    },
+    {
+     "w": "by",
+     "start": 32.43,
+     "end": 32.54
+    },
+    {
+     "w": "his",
+     "start": 32.54,
+     "end": 32.82
+    },
+    {
+     "w": "own",
+     "start": 32.82,
+     "end": 33.12
+    },
+    {
+     "w": "estimate,",
+     "start": 33.12,
+     "end": 33.55
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 33.66,
+   "end": 37.45,
+   "text": "he saw light. The whale surfaced and threw its head side to side,",
+   "words": [
+    {
+     "w": "he",
+     "start": 33.69,
+     "end": 33.85
+    },
+    {
+     "w": "saw",
+     "start": 33.85,
+     "end": 34.1
+    },
+    {
+     "w": "light.",
+     "start": 34.1,
+     "end": 34.49
+    },
+    {
+     "w": "The",
+     "start": 34.49,
+     "end": 34.57
+    },
+    {
+     "w": "whale",
+     "start": 34.57,
+     "end": 34.95
+    },
+    {
+     "w": "surfaced",
+     "start": 34.95,
+     "end": 35.56
+    },
+    {
+     "w": "and",
+     "start": 35.56,
+     "end": 35.76
+    },
+    {
+     "w": "threw",
+     "start": 35.76,
+     "end": 35.98
+    },
+    {
+     "w": "its",
+     "start": 35.98,
+     "end": 36.23
+    },
+    {
+     "w": "head",
+     "start": 36.23,
+     "end": 36.51
+    },
+    {
+     "w": "side",
+     "start": 36.51,
+     "end": 36.84
+    },
+    {
+     "w": "to",
+     "start": 36.84,
+     "end": 37.04
+    },
+    {
+     "w": "side,",
+     "start": 37.04,
+     "end": 37.39
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 37.5,
+   "end": 38.44,
+   "text": "and spat him out.",
+   "words": [
+    {
+     "w": "and",
+     "start": 37.53,
+     "end": 37.74
+    },
+    {
+     "w": "spat",
+     "start": 37.74,
+     "end": 37.97
+    },
+    {
+     "w": "him",
+     "start": 37.97,
+     "end": 38.11
+    },
+    {
+     "w": "out.",
+     "start": 38.11,
+     "end": 38.38
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 38.79,
+   "end": 41.86,
+   "text": "His crewmate, Josiah Mayo, pulled him from the water.",
+   "words": [
+    {
+     "w": "His",
+     "start": 38.82,
+     "end": 39.01
+    },
+    {
+     "w": "crewmate,",
+     "start": 39.01,
+     "end": 39.56
+    },
+    {
+     "w": "Josiah",
+     "start": 39.56,
+     "end": 40.11
+    },
+    {
+     "w": "Mayo,",
+     "start": 40.11,
+     "end": 40.51
+    },
+    {
+     "w": "pulled",
+     "start": 40.51,
+     "end": 40.76
+    },
+    {
+     "w": "him",
+     "start": 40.76,
+     "end": 41.01
+    },
+    {
+     "w": "from",
+     "start": 41.01,
+     "end": 41.25
+    },
+    {
+     "w": "the",
+     "start": 41.25,
+     "end": 41.47
+    },
+    {
+     "w": "water.",
+     "start": 41.47,
+     "end": 41.8
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 42.06,
+   "end": 44.18,
+   "text": "Bruised, sore, and no broken bones.",
+   "words": [
+    {
+     "w": "Bruised,",
+     "start": 42.09,
+     "end": 42.58
+    },
+    {
+     "w": "sore,",
+     "start": 42.58,
+     "end": 42.88
+    },
+    {
+     "w": "and",
+     "start": 42.88,
+     "end": 42.95
+    },
+    {
+     "w": "no",
+     "start": 42.95,
+     "end": 43.26
+    },
+    {
+     "w": "broken",
+     "start": 43.26,
+     "end": 43.81
+    },
+    {
+     "w": "bones.",
+     "start": 43.81,
+     "end": 44.12
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 44.48,
+   "end": 48.67,
+   "text": "A humpback can't swallow you. But it can still close its mouth around you.",
+   "words": [
+    {
+     "w": "A",
+     "start": 44.51,
+     "end": 44.63
+    },
+    {
+     "w": "humpback",
+     "start": 44.63,
+     "end": 45.18
+    },
+    {
+     "w": "can't",
+     "start": 45.18,
+     "end": 45.55
+    },
+    {
+     "w": "swallow",
+     "start": 45.55,
+     "end": 45.99
+    },
+    {
+     "w": "you.",
+     "start": 45.99,
+     "end": 46.21
+    },
+    {
+     "w": "But",
+     "start": 46.21,
+     "end": 46.35
+    },
+    {
+     "w": "it",
+     "start": 46.35,
+     "end": 46.57
+    },
+    {
+     "w": "can",
+     "start": 46.57,
+     "end": 46.75
+    },
+    {
+     "w": "still",
+     "start": 46.75,
+     "end": 47.15
+    },
+    {
+     "w": "close",
+     "start": 47.15,
+     "end": 47.48
+    },
+    {
+     "w": "its",
+     "start": 47.48,
+     "end": 47.71
+    },
+    {
+     "w": "mouth",
+     "start": 47.71,
+     "end": 48.01
+    },
+    {
+     "w": "around",
+     "start": 48.01,
+     "end": 48.48
+    },
+    {
+     "w": "you.",
+     "start": 48.48,
+     "end": 48.61
+    }
+   ]
+  }
+ ]
+}

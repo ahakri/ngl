@@ -751,7 +751,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "SCIENTIFIC MODEL",
+     "text": "THEORY",
      "params": {
       "y": 200
      }
@@ -896,7 +896,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "SIMULATION (DRAMATISATION)",
+     "text": "DRAMATISATION",
      "params": {
       "y": 200
      }

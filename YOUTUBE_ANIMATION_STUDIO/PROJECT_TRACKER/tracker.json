@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:14:09Z",
+ "updated": "2026-11-27T08:19:59Z",
  "phases": {
   "P1_research": {
    "status": "in_progress",
@@ -46,13 +46,20 @@
  },
  "videos": {
   "CAVE-01": "SCRIPTED",
+  "CAVE-02": "SCRIPTED",
   "CAVE-03": "SCRIPTED",
-  "SCUBA-01": "SCRIPTED",
+  "CAVE-04": "SCRIPTED",
+  "SCUBA-01": "ANIMATING",
   "SCUBA-02": "SCRIPTED",
-  "MURDER-01": "SCRIPTED",
+  "SCUBA-03": "SCRIPTED",
+  "SCUBA-04": "SCRIPTED",
+  "MURDER-01": "ANIMATING",
   "MURDER-02": "SCRIPTED",
   "MURDER-03": "SCRIPTED",
-  "HAUNT-01": "SCRIPTED",
-  "HAUNT-02": "SCRIPTED"
+  "MURDER-04": "SCRIPTED",
+  "HAUNT-01": "ANIMATING",
+  "HAUNT-02": "SCRIPTED",
+  "HAUNT-03": "SCRIPTED",
+  "HAUNT-04": "SCRIPTED"
  }
 }

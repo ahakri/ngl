@@ -1,0 +1,1103 @@
+{
+  "id": "SCUBA-03",
+  "title": "His Lifeline Snapped 100 m Under the North Sea",
+  "category": "scuba",
+  "voice": "am_onyx",
+  "speed": 1.08,
+  "mood": "scuba",
+  "target_seconds": 58,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "His lifeline snapped nearly a hundred metres under the North Sea.",
+      "pause_after": 0.2,
+      "shot": "S01",
+      "emphasis": [
+        "lifeline",
+        "snapped"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "He had about five minutes of gas on his back.",
+      "pause_after": 0.25,
+      "shot": "S02",
+      "emphasis": [
+        "five",
+        "minutes"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "North Sea, September 2012.",
+      "pause_after": 0.15,
+      "shot": "S03",
+      "emphasis": [
+        "2012"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "Chris Lemons, a saturation diver, was working on the seabed.",
+      "pause_after": 0.2,
+      "shot": "S04",
+      "emphasis": [
+        "Chris",
+        "Lemons",
+        "saturation"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "Above him, his support ship's positioning system failed.",
+      "pause_after": 0.1,
+      "shot": "S05",
+      "emphasis": [
+        "failed"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "In rough seas, it drifted.",
+      "pause_after": 0.2,
+      "shot": "S06",
+      "emphasis": [
+        "drifted"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "His umbilical, carrying his gas and his radio, snagged on steel.",
+      "pause_after": 0.15,
+      "shot": "S07",
+      "emphasis": [
+        "umbilical",
+        "snagged"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Then it parted.",
+      "pause_after": 0.4,
+      "shot": "S08",
+      "emphasis": [
+        "parted"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "In total darkness, he pulled himself back to the structure.",
+      "pause_after": 0.2,
+      "shot": "S09",
+      "emphasis": [
+        "darkness",
+        "structure"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Then his emergency gas ran out.",
+      "pause_after": 0.6,
+      "shot": "S10",
+      "emphasis": [
+        "ran",
+        "out"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "It would take around half an hour to reach him.",
+      "pause_after": 0.2,
+      "shot": "S11",
+      "emphasis": [
+        "half",
+        "an",
+        "hour"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "When Dave Yuasa got there, Lemons was unresponsive.",
+      "pause_after": 0.15,
+      "shot": "S12",
+      "emphasis": [
+        "Dave",
+        "Yuasa",
+        "unresponsive"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "He hauled him back into the diving bell.",
+      "pause_after": 0.15,
+      "shot": "S13",
+      "emphasis": [
+        "diving",
+        "bell"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "There, Duncan Allcock gave him rescue breaths.",
+      "pause_after": 0.45,
+      "shot": "S14",
+      "emphasis": [
+        "Duncan",
+        "Allcock",
+        "rescue",
+        "breaths"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "And Chris Lemons started breathing again.",
+      "pause_after": 0.3,
+      "shot": "S15",
+      "emphasis": [
+        "breathing"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "The leading theory: the cold.",
+      "pause_after": 0.1,
+      "shot": "S16",
+      "emphasis": [
+        "cold"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "Near-freezing water chilled him, slowing his brain's need for oxygen.",
+      "pause_after": 0.2,
+      "shot": "S17",
+      "emphasis": [
+        "Near-freezing",
+        "oxygen"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "No one can prove it.",
+      "pause_after": 0.3,
+      "shot": "S18",
+      "emphasis": [
+        "prove"
+      ]
+    },
+    {
+      "id": "L19",
+      "text": "Three weeks later, he was back at work.",
+      "pause_after": 0.0,
+      "shot": "S19",
+      "emphasis": [
+        "Three",
+        "weeks"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Mid-story from frame 1: a stylised diver kneels on top of the steel manifold in green-black water. Behind him the umbilical (thick emissive cyan tube, guideline builder, thickness 0.04) is pulled taut upward into darkness, then whips and snaps; its glowing end recoils and the glow dies along its length. A small burst of bubbles from the break.",
+      "camera": "Slow push-in 0.5 m over 3 s, 24 mm, low angle, diver in upper third, umbilical diagonal top-left to centre; subtle handheld",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Only light = the emissive umbilical (cyan) + faint cold rim from above; deep blacks",
+      "fx": [
+        "water_volume (dark green, high density)",
+        "particle_cloud (marine snow)",
+        "bubbles_stream (at the break)",
+        "umbilical glow dies (emission keyframed to 0)"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "LIFELINE CUT",
+          "params": {
+            "y": 420,
+            "size": 140,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "metal_groan",
+          "offset": 0.2,
+          "gain": 0.6
+        },
+        {
+          "name": "hit",
+          "offset": 1.4,
+          "gain": 0.8
+        },
+        {
+          "name": "bubbles",
+          "offset": 1.5,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Close on the diver's back: a single small bailout cylinder (char_diver tanks='single'), valve glinting. A countdown overlay starts ticking from 05:00. Diver's exhaled bubbles rise past camera.",
+      "camera": "Over-the-shoulder 35 mm, slow lateral slide right, shallow DOF on cylinder valve",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Faint cold top light, cylinder valve catches a specular glint",
+      "fx": [
+        "bubbles_stream (exhalation, rhythmic)",
+        "particle_cloud",
+        "water_volume"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "BAILOUT GAS (EST.)",
+          "params": {
+            "fmt": "mmss",
+            "from": 300,
+            "to": 292,
+            "danger": true
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "click",
+          "offset": 0.3,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "map",
+      "description": "Map card: stylised UK east coast land blob on the left, route line runs from Aberdeen out east across the sea to a pin. Date stamp types in.",
+      "camera": "2D card; slight zoom-in 5% over the shot",
+      "characters": [],
+      "lighting": "Map card, dark background",
+      "fx": [
+        "line draw-on"
+      ],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "NORTH SEA\noff Aberdeen",
+          "params": {
+            "land": [
+              [
+                0,
+                0
+              ],
+              [
+                0.3,
+                0
+              ],
+              [
+                0.34,
+                0.2
+              ],
+              [
+                0.28,
+                0.45
+              ],
+              [
+                0.36,
+                0.7
+              ],
+              [
+                0.3,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "points": [
+              [
+                0.3,
+                0.38
+              ],
+              [
+                0.55,
+                0.4
+              ],
+              [
+                0.78,
+                0.42
+              ]
+            ],
+            "pin": -1
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "NORTH SEA\n18 SEP 2012",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "typewriter",
+          "offset": 0.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Wide underwater: the diver works on a pipe valve on the manifold, helmet light on (warm). The umbilical rises intact and glowing toward a faint shape far above (the bell). Name card slides in. Depth gauge counts to ~91 m.",
+      "camera": "Slow tilt down from the glowing umbilical to the diver, 28 mm",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless) (helmet light ON in this flashback-to-normal shot)"
+      ],
+      "lighting": "Helmet torch (spot, 4500K) + emissive umbilical; dark teal ambient",
+      "fx": [
+        "water_volume",
+        "particle_cloud",
+        "bubbles_stream (helmet exhaust)"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "CHRIS LEMONS\nSATURATION DIVER",
+          "params": {
+            "y": 1250,
+            "size": 70
+          }
+        },
+        {
+          "type": "depth",
+          "text": "DEPTH",
+          "params": {
+            "from": 0,
+            "to": 91,
+            "unit": "m"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "click",
+          "offset": 0.8,
+          "gain": 0.3
+        },
+        {
+          "name": "sonar",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "open_water",
+      "description": "Night storm surface: a dive support vessel silhouette (new simple prop: low-poly hull 100 m, tall forward superstructure, helideck disc, moon-pool tower midships, deck floodlights as point lights) holds station. On the bridge, a stylised screen panel flicks from green to flashing red.",
+      "camera": "Wide 35 mm low over the waves, slow push toward the bridge; then cut-in feel via 15% punch-in zoom at 60% of shot",
+      "characters": [],
+      "lighting": "Moonless; sodium deck floods (orange), cold blue rim; red alarm glow from bridge windows",
+      "fx": [
+        "wave surface (displaced plane, animated)",
+        "rain streaks",
+        "spray particles",
+        "flicker (bridge red alarm)"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "DSV BIBBY TOPAZ",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "text",
+          "text": "POSITIONING FAILED",
+          "params": {
+            "y": 520,
+            "size": 90,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "static",
+          "offset": 0.5,
+          "gain": 0.4
+        },
+        {
+          "name": "sting",
+          "offset": 1.2,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "open_water",
+      "description": "Same vessel seen from high above (top-down 2.5D feel): the ship slides sideways across the frame through white-capped waves; a dotted line marks where it should be.",
+      "camera": "High overhead 50 mm, ship drifts left to right through frame",
+      "characters": [],
+      "lighting": "Moonless; deck floods; whitecaps catch light",
+      "fx": [
+        "wave surface",
+        "rain streaks",
+        "spray particles"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.7
+        },
+        {
+          "name": "rumble",
+          "offset": 0.4,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Underwater: the glowing umbilical is dragged sideways and catches on the corner of the manifold frame; the tube bends sharply around the steel. Evidence-style card lists what the umbilical carries.",
+      "camera": "Close-up 50 mm on the snag point, slow push; diver small in background",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Emissive umbilical (cyan) brightening under strain; dark",
+      "fx": [
+        "water_volume",
+        "particle_cloud",
+        "silt puff where the frame shifts"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "BREATHING GAS\nCOMMS",
+          "params": {
+            "header": "UMBILICAL CARRIES",
+            "y": 1200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "metal_groan",
+          "offset": 0.0,
+          "gain": 0.8
+        },
+        {
+          "name": "creak",
+          "offset": 1.0,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "The umbilical parts at the snag: white flash at the break, the loose end recoils upward into the dark, cyan glow drains out of the tube. Diver's helmet light dies at the same moment.",
+      "camera": "Static 35 mm, hard 6-frame camera shake on the snap",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Flash then near-black",
+      "fx": [
+        "bubbles_stream (burst)",
+        "flash frame",
+        "emission keyframed to 0"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.1,
+          "gain": 0.9
+        },
+        {
+          "name": "boom",
+          "offset": 0.1,
+          "gain": 0.5
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.2,
+          "gain": 0.7
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Near-total darkness: only the silhouette edge of the diver, rim-lit by faint marine-snow glow, hand over hand along a pipe back onto the top of the manifold, then curls on top of it.",
+      "camera": "Slow orbit 20 deg, 24 mm, very low exposure; silhouette readable",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Near-black; very faint cold rim from above (area light 5 W)",
+      "fx": [
+        "particle_cloud (faint glowing marine snow)",
+        "water_volume"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.7
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Extreme close on the bailout cylinder valve; the last bubbles trickle and stop. The countdown hits 00:00 in red; frame fades almost to black.",
+      "camera": "Static 50 mm macro-feel, slow fade to 10% exposure",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless)"
+      ],
+      "lighting": "Near-black",
+      "fx": [
+        "bubbles_stream (stops)",
+        "fade to near black"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "BAILOUT GAS",
+          "params": {
+            "fmt": "mmss",
+            "from": 8,
+            "to": 0,
+            "danger": true
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.8,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "open_water",
+      "description": "Mid-point perspective switch: back at the surface, the vessel turns back over its original position (dotted marker); a diving bell (new prop: squat sphere-cylinder 3 m, ring frame, side lamp) hangs under it on cable. A clock overlay starts counting up.",
+      "camera": "Wide 28 mm side-on cross-section: surface waves top third, bell and cable below the waterline (split-level water view)",
+      "characters": [
+        "bell (prop)"
+      ],
+      "lighting": "Deck floods above, cold blue below; bell lamp warm",
+      "fx": [
+        "wave surface",
+        "water_volume (below waterline)",
+        "bubbles_stream (bell)"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "TIME WITHOUT MAIN GAS (REPORTED)",
+          "params": {
+            "fmt": "mmss",
+            "from": 300,
+            "to": 1800
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "riser",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "sonar",
+          "offset": 0.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "A second diver's helmet torch cuts through the black from top-left, finds the still figure lying curled on top of the manifold. Name card.",
+      "camera": "Over the rescuer's shoulder, 28 mm, torch beam leads the eye to the figure",
+      "characters": [
+        "yuasa_diver (char_diver, red accent, helmet light ON)",
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless) (motionless)"
+      ],
+      "lighting": "Single torch beam (spot 4500K, 22 deg) in dense water",
+      "fx": [
+        "water_volume",
+        "particle_cloud (lit in beam)",
+        "bubbles_stream (rescuer)"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "DAVE YUASA\nBELL DIVER",
+          "params": {
+            "y": 1250,
+            "size": 70
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.5,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "other:diving bell exterior from below (prop: squat sphere-cylinder with open bottom hatch glowing warm)",
+      "description": "Looking up: the open bottom hatch of the bell glows warm gold above; the rescuer tows the limp diver up toward it by the harness.",
+      "camera": "Low angle 20 mm looking up, slow push toward the hatch",
+      "characters": [
+        "yuasa_diver",
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless) (limp)"
+      ],
+      "lighting": "Warm hatch glow from above (area light 2700K), dark teal below",
+      "fx": [
+        "water_volume",
+        "bubbles_stream (both divers)",
+        "caustics_light (weak, inside hatch)"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "other:diving bell interior cutaway (stylised 2.5D section: curved steel wall, bench, gas panel)",
+      "description": "Cutaway of the bell interior: one faceless silhouette (bellman) leans over the limp diver on the bell floor, delivering rescue breaths (shown only as the silhouette's head lowering, no faces). Name card.",
+      "camera": "Side-on cross-section, 50 mm, static with slow 5% push",
+      "characters": [
+        "allcock_silhouette (char_figure, faceless)",
+        "lemons_silhouette (helmet off, faceless)"
+      ],
+      "lighting": "Single warm interior lamp; steel walls with cold rim",
+      "fx": [
+        "condensation drip particles"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "DUNCAN ALLCOCK\nIN THE BELL",
+          "params": {
+            "y": 1250,
+            "size": 70
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 1.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "other:diving bell interior cutaway (same set)",
+      "description": "The lying figure's chest rises; the lamp brightens slightly. Word 'BREATHING' pops on.",
+      "camera": "Slow push-in 50 -> 65 mm on the two silhouettes",
+      "characters": [
+        "allcock_silhouette",
+        "lemons_silhouette"
+      ],
+      "lighting": "Warm lamp brightens 30%",
+      "fx": [
+        "subtle bloom"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "BREATHING",
+          "params": {
+            "y": 420,
+            "size": 140,
+            "color": [
+              255,
+              220,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.7
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "other:2.5D thermometer diagram",
+      "description": "Diagram: a stylised human outline in a cold blue water field; a thermometer bar drains downward. THEORY badge.",
+      "camera": "2D, slight zoom-in",
+      "characters": [],
+      "lighting": "Flat diagram: blue field, white outline",
+      "fx": [
+        "line draw-on",
+        "frost shimmer"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "THEORY",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "text",
+          "text": "THE COLD?",
+          "params": {
+            "y": 520,
+            "size": 130,
+            "color": [
+              120,
+              200,
+              255
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "other:2.5D physiology diagram",
+      "description": "Same outline; the head area glows, an 'O2 demand' gauge needle falls as the body cools. Water-temperature note on screen.",
+      "camera": "2D, slow pan down the body to the head",
+      "characters": [],
+      "lighting": "Flat diagram, cold blue with a dimming warm glow at the head",
+      "fx": [
+        "line draw-on",
+        "gauge needle animation"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "THEORY",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "text",
+          "text": "COLD = LESS\nOXYGEN NEEDED",
+          "params": {
+            "y": 1250,
+            "size": 80,
+            "color": [
+              255,
+              220,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 1.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Return to the empty manifold: only the severed umbilical end drifts in the dark current. 'UNPROVEN' stamped on.",
+      "camera": "Slow drift 28 mm, same angle as S01 but empty",
+      "characters": [],
+      "lighting": "Near-black, faint cold rim",
+      "fx": [
+        "particle_cloud",
+        "water_volume"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "UNPROVEN",
+          "params": {
+            "y": 520,
+            "size": 120,
+            "color": [
+              240,
+              120,
+              40
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "sting",
+          "offset": 0.3,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S19",
+      "lines": [
+        "L19"
+      ],
+      "environment": "other:subsea manifold structure on the seabed (low-poly steel frame 6x4x3 m, pipe spools, valves; seabed builder underneath)",
+      "description": "Loop setup: the diver kneels on the manifold again, umbilical intact and glowing, helmet light on, matching S01's composition exactly. Text '3 WEEKS LATER'. The final frame equals S01's first frame (minus the snap) so the hard cut to S01 replays the moment.",
+      "camera": "Matches S01 framing: 24 mm, low angle, diver upper third; slow push-in",
+      "characters": [
+        "lemons_diver (char_diver, single tank = bailout cylinder, yellow helmet with dead helmet light, dark drysuit; stylised, faceless) (helmet light ON)"
+      ],
+      "lighting": "Emissive umbilical + helmet torch; same palette as S01",
+      "fx": [
+        "water_volume",
+        "particle_cloud",
+        "bubbles_stream"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "~3 WEEKS LATER",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.8,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "fade_black"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.55
+    ],
+    [
+      8,
+      0.6
+    ],
+    [
+      16,
+      0.75
+    ],
+    [
+      24,
+      0.85
+    ],
+    [
+      27,
+      0.4
+    ],
+    [
+      33,
+      0.7
+    ],
+    [
+      41,
+      0.9
+    ],
+    [
+      44,
+      0.5
+    ],
+    [
+      52,
+      0.6
+    ],
+    [
+      57,
+      0.3
+    ],
+    [
+      60,
+      0.0
+    ]
+  ],
+  "loop_line": "Three weeks later, he was back at work."
+}
