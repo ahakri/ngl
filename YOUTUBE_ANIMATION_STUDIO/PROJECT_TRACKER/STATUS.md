@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T08:13:24Z
+Updated: 2026-11-27T08:14:09Z
 
 ## Concept counts
 
@@ -16,8 +16,8 @@ Updated: 2026-11-27T08:13:24Z
 
 ## Pipeline status
 
-- CONCEPT: 92
-- SCRIPTED: 8
+- CONCEPT: 91
+- SCRIPTED: 9
 
 ## Videos in production
 
@@ -29,5 +29,6 @@ Updated: 2026-11-27T08:13:24Z
 | SCUBA-02 | The Boat Left Without Them | 82 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | SCRIPTED |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | SCRIPTED |
+| MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | SCRIPTED |
 | HAUNT-02 | The Real Room 217 | 77 | SCRIPTED |
