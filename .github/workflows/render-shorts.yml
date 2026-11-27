@@ -1,0 +1,116 @@
+# Render farm for the YOUTUBE_ANIMATION_STUDIO Shorts.
+# Trigger: push a change to YOUTUBE_ANIMATION_STUDIO/PROJECT_TRACKER/ci_render_request.json on the studio branch.
+# Each requested video renders in its own job (Blender/EEVEE on software GL), is assembled and auto-QC'd, and the
+# final MP4 + QC files are committed back to the branch. Frames are kept as an artifact so a later request with
+# "reuse_frames": true can re-assemble (or re-render only some shots) without rendering everything again.
+name: Render Shorts
+
+on:
+  push:
+    branches:
+      - claude/adoring-maxwell-qk4kas
+    paths:
+      - YOUTUBE_ANIMATION_STUDIO/PROJECT_TRACKER/ci_render_request.json
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      count: ${{ steps.plan.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            YOUTUBE_ANIMATION_STUDIO/PROJECT_TRACKER
+      - id: plan
+        run: |
+          python3 - <<'PYEOF'
+          import json, os
+          req = json.load(open("YOUTUBE_ANIMATION_STUDIO/PROJECT_TRACKER/ci_render_request.json"))
+          inc = [{"id": r["id"], "rerender": ",".join(r.get("rerender", [])), "reuse": "1" if r.get("reuse_frames") else ""}
+                 for r in req.get("requests", [])]
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("matrix=" + json.dumps({"include": inc}) + "\n")
+              f.write(f"count={len(inc)}\n")
+          print(inc)
+          PYEOF
+
+  render:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    name: render ${{ matrix.id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    env:
+      ID: ${{ matrix.id }}
+      STUDIO: YOUTUBE_ANIMATION_STUDIO
+      BRANCH: ${{ github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: System packages (software GL, ffmpeg, fonts)
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
+            libegl1 libegl-mesa0 libgl1-mesa-dri libgles2 libxi6 libxxf86vm1 libxfixes3 libxrender1 libxkbcommon0 libsm6 \
+            ffmpeg fonts-dejavu fonts-liberation
+      - name: Python packages (Blender as a module)
+        run: python -m pip install --quiet bpy==5.0.1 numpy==1.26.4 pillow
+      - name: Reuse frames from the latest earlier run
+        if: matrix.reuse == '1'
+        run: |
+          RUN=$(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=frames-${ID}&per_page=10" \
+                --jq '[.artifacts[] | select(.expired==false)][0].workflow_run.id')
+          echo "frames artifact from run: $RUN"
+          if [ -n "$RUN" ] && [ "$RUN" != "null" ]; then
+            mkdir -p "$STUDIO/RENDERS/$ID"
+            gh run download "$RUN" -n "frames-${ID}" -D "$STUDIO/RENDERS/$ID"
+            find "$STUDIO/RENDERS/$ID" -name '*.png' | wc -l
+          fi
+      - name: Render, assemble, auto-QC
+        run: bash "$STUDIO/PIPELINE/ci_render.sh" "$ID" "${{ matrix.rerender }}"
+      - name: Keep frames for later re-assembly
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frames-${{ matrix.id }}
+          path: YOUTUBE_ANIMATION_STUDIO/RENDERS/${{ matrix.id }}
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: ignore
+      - name: Keep render error logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: errors-${{ matrix.id }}
+          path: YOUTUBE_ANIMATION_STUDIO/QUALITY_CONTROL/${{ matrix.id }}/render_error_*.log
+          if-no-files-found: ignore
+      - name: Commit the finished video and QC files to the branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in $(seq 1 20); do
+            git fetch --quiet --depth=1 origin "$BRANCH"
+            git reset --quiet --mixed FETCH_HEAD
+            git add -f "$STUDIO/FINAL_VIDEOS/$ID.mp4" "$STUDIO/QUALITY_CONTROL/$ID/QC_AUTO.json" \
+                       "$STUDIO/QUALITY_CONTROL/$ID/qc_frames.png" "$STUDIO/PROJECT_TRACKER/ci_runs/$ID.json"
+            git commit --quiet -m "CI render: $ID (run $GITHUB_RUN_ID)" || true
+            if git push --quiet origin "HEAD:$BRANCH"; then echo "pushed on attempt $i"; exit 0; fi
+            sleep $((RANDOM % 25 + 5))
+          done
+          echo "push failed after retries"; exit 1

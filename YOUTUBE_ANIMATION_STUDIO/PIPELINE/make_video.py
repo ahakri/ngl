@@ -7,8 +7,8 @@ import json, os, sys, subprocess, math, glob
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 FPS = 24
-BPY = "/opt/bpyenv/bin/python"
-TTSPY = "/opt/ttsenv/bin/python"
+BPY = os.environ.get("STUDIO_BPY", "/opt/bpyenv/bin/python")      # Blender-as-a-module interpreter (CI overrides this)
+TTSPY = os.environ.get("STUDIO_TTSPY", "/opt/ttsenv/bin/python")  # Kokoro TTS interpreter
 
 
 def P(*a):

@@ -11,6 +11,8 @@ while [ $idle -lt 240 ]; do
   for ready in $(ls -tr $ROOT/BLENDER_PROJECTS/*/READY 2>/dev/null); do
     d=$(dirname $ready); id=$(basename $d)
     final=$ROOT/FINAL_VIDEOS/$id.mp4
+    # videos claimed by the GitHub Actions render farm are skipped here (PROJECT_TRACKER/ci_claimed.txt, one ID per line)
+    [ -f $ROOT/PROJECT_TRACKER/ci_claimed.txt ] && grep -qx "$id" $ROOT/PROJECT_TRACKER/ci_claimed.txt && continue
     [ -f $d/FAILED ] && [ $d/FAILED -nt $ready ] && continue
     if [ ! -s "$final" ] || [ "$ready" -nt "$final" ]; then
       echo "$(date -u +%FT%TZ) START $id" >> $LOG
