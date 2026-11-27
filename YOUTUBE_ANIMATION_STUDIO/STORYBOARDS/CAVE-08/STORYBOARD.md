@@ -66,11 +66,11 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 
 ## S05 · 11.8–14.5 s (2.7 s) · other:cave_cross_section
 
-- **Visual:** Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest. A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.
+- **Visual:** Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest; a dashed line continues past chamber 4 (the diagram does not claim the cave ends there). A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.
 - **Camera:** 2.5D orthographic, slow pan down following the dot
 - **Characters:** cyan diver dot (abstract)
 - **Environment:** other:cave_cross_section
-- **Build (lib_cave):** `xsection(poly=[entrance shaft 0–30 ft, angled passage, chambers 1–4 down to ~120–137 ft], depth_to_z)`; chamber numbers = `text()` with `pop_in()`; `glow_dot()` + `move_along()`; `dotted_path()` trail. Generic diagram (not traced from a survey map).
+- **Build (lib_cave):** `xsection(poly=[entrance shaft 0–30 ft, angled passage, chambers 1–4 down to ~120–137 ft], depth_to_z)`; chamber numbers = `text()` with `pop_in()`; `glow_dot()` + `move_along()`; `dotted_path()` trail and dashed continuation past chamber 4. Generic diagram (not traced from a survey map).
 - **Lighting:** graphic: emissive outlines on dark rock
 - **FX:** —
 - **On-screen text / overlays:** [depth] 0→100 ft 'AND DEEPER'

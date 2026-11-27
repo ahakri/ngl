@@ -32,7 +32,7 @@ Source quality note: J2 (Louie Bond's 2001 Wimberley series) is the most detaile
 ## On-screen claims (overlays repeat only what the narration says)
 - S01 "21 YEARS" (L01). S02 depth 0→30 ft (L02). S04 map "JACOB'S WELL", pin on Wimberley (L04). S05 gauge "100 ft / AND DEEPER" (L05). S06 struck-through "9? / 12? / MORE?" + "NO AGREED COUNT" + DISPUTED (L06): no count is asserted. S07 "1979" + DOCUMENTED FACT (L07). S13 "1981" (L13). S14 counter "YEARS MISSING" 0→21 (L14–L15). S15 "2000" (L16). S17 card "No scuba diving, except the Jacob's Well Exploration Project" (L18).
 - S16 memorial line "KENT MAUPIN · MARK BRASHIER / 1979": both names are confirmed by two sources (J2, J3). It names them together and does not say who was found when, so it adds nothing the narration had to hedge.
-- The S05 side-section shows four numbered chambers (J2 describes the third and fourth chambers; concept v2 lists "four chambers" as verified via ZME, A-Z Animals, Bond and Grunge). It is a generic diagram, not traced from a survey. JWEP has mapped passage beyond the classic four chambers; the diagram doesn't claim the cave ends there (dashed continuation).
+- The S05 side-section shows four numbered chambers (J2 describes the third and fourth chambers; concept v2 lists "four chambers" as verified via ZME, A-Z Animals, Bond and Grunge). It is a generic diagram, not traced from a survey, and it ends in a dashed line past chamber 4 so it doesn't claim the cave stops there.
 
 ## Removed / not used
 - **"Missing for 22 years"** (concept alt title). Corrected to 21 (J1; 1979 → 2000).

@@ -649,9 +649,11 @@ def S12(L, n):
                                      scale=1.6, name="plume")
     C.key_input(dens, [(1, 0.0), (20, 0.1), (50, 2.5), (85, 7.0), (n, 12.0)])
     C.key_scale(plume, [(1, 0.5), (50, 0.9), (n, 1.3)])
-    burst = C.cloud((0.5, 0.1, -0.3), (2.4, 2.0, 1.2), count=4000, radius=0.0035, emit=0.08, shape="sphere", seed=8)
-    C.key_scale(burst, [(1, 0.25), (22, 0.4), (60, 1.0), (n, 1.6)])
-    C.drift(burst, n, (0.1, 0.05, 0.3))
+    # QC fix (2026-11-27): the burst used to expand around the lens, so near particles read as big confetti squares.
+    # Finer particles, kept >= ~0.5 m from the camera; the noisy volume above does the actual silt-out.
+    burst = C.cloud((0.5, 0.6, -0.3), (2.4, 1.7, 1.2), count=7000, radius=0.002, emit=0.08, shape="sphere", seed=8)
+    C.key_scale(burst, [(1, 0.25), (22, 0.4), (60, 0.95), (n, 1.25)])
+    C.drift(burst, n, (0.1, 0.05, 0.25))
     cam = C.camera(lens=50)
     # micro-pushes on each sentence start (~0, 1.6 s, 3.1 s)
     C.aim_cam(cam, n, [(1, (0.15, -1.55, 0.62), (0.05, 0, 0.42)), (36, (0.13, -1.45, 0.62), (0.05, 0, 0.42)),

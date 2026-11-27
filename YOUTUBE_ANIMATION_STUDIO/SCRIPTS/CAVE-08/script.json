@@ -426,7 +426,7 @@
         "L05"
       ],
       "environment": "other:cave_cross_section",
-      "description": "Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest. A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.",
+      "description": "Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest; a dashed line continues past chamber 4 (the diagram does not claim the cave ends there). A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.",
       "camera": "2.5D orthographic, slow pan down following the dot",
       "characters": [
         "cyan diver dot (abstract)"

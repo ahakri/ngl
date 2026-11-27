@@ -1,0 +1,882 @@
+{
+  "id": "SCUBA-08",
+  "title": "Shackleton's Ship Was Found a Century Later, 3 km Down",
+  "category": "scuba",
+  "voice": "am_adam",
+  "speed": 1.02,
+  "mood": "scuba",
+  "target_seconds": 50,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "This ship sank in 1915. You can still read its name.",
+      "pause_after": 0.25,
+      "shot": "S01",
+      "emphasis": [
+        "1915",
+        "name"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "It's Ernest Shackleton's Endurance, three kilometres under the Weddell Sea.",
+      "pause_after": 0.3,
+      "shot": "S02",
+      "emphasis": [
+        "Shackleton's",
+        "Endurance"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Pack ice trapped it for months, then crushed it.",
+      "pause_after": 0.2,
+      "shot": "S03",
+      "emphasis": [
+        "crushed"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "It sank, but all 28 men on board survived.",
+      "pause_after": 0.3,
+      "shot": "S04",
+      "emphasis": [
+        "28",
+        "survived"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "The ship wasn't seen again for over a century.",
+      "pause_after": 0.45,
+      "shot": "S05",
+      "emphasis": [
+        "century"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "A 2019 search lost its underwater robot and was called off.",
+      "pause_after": 0.3,
+      "shot": "S06",
+      "emphasis": [
+        "2019",
+        "robot"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "In 2022, a new expedition went back, aboard an icebreaker.",
+      "pause_after": 0.2,
+      "shot": "S07",
+      "emphasis": [
+        "2022",
+        "icebreaker"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Its underwater drone searched the seabed, three kilometres down.",
+      "pause_after": 0.5,
+      "shot": "S08",
+      "emphasis": [
+        "three",
+        "kilometres"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "On March 5th, it found her.",
+      "pause_after": 0.5,
+      "shot": "S09",
+      "emphasis": [
+        "found"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "About four miles from the position her captain had recorded.",
+      "pause_after": 0.2,
+      "shot": "S10",
+      "emphasis": [
+        "four",
+        "miles"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "Upright, intact, 3,008 metres down.",
+      "pause_after": 0.45,
+      "shot": "S11",
+      "emphasis": [
+        "Upright",
+        "intact"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "Experts say the creatures that eat wooden wrecks elsewhere don't live in these waters.",
+      "pause_after": 0.3,
+      "shot": "S12",
+      "emphasis": [
+        "wooden"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "Today it's a protected monument. Nothing may be taken.",
+      "pause_after": 0.6,
+      "shot": "S13",
+      "emphasis": [
+        "protected"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "And it was found 100 years to the day after Shackleton's funeral.",
+      "pause_after": 0.3,
+      "shot": "S14",
+      "emphasis": [
+        "100",
+        "funeral"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "other:deep_wreck_stern",
+      "description": "COLD OPEN, moving at frame 1. Pitch-black water three kilometres down. Two hard drone lamps sweep from the left across the curved wooden stern of a sailing ship: gold capital letters reading ENDURANCE arc across it, a five-pointed star beneath them. Pale sea anemones dot the planks; marine snow drifts through the beams.",
+      "camera": "35 mm, slow lateral slide + push toward the letters, as if from a hovering underwater drone",
+      "characters": [],
+      "lighting": "two cool-white drone lamps only (beams visible in the water); everything else black",
+      "fx": [
+        "marine snow",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "SANK 1915",
+          "params": {
+            "y": 380,
+            "size": 100,
+            "color": [
+              70,
+              200,
+              255
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "sonar",
+          "offset": 0.3,
+          "gain": 0.3
+        },
+        {
+          "name": "sting",
+          "offset": 1.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "map",
+      "description": "Map card over a slow drift along the dark hull (S01 set, defocused): the Antarctic coast and peninsula, a route line running south into the Weddell Sea, a pin dropping on the wreck site.",
+      "camera": "2.5D map card; background drifts",
+      "characters": [],
+      "lighting": "background drone lamps; map card self-lit",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "WEDDELL SEA",
+          "params": {
+            "points": [
+              [
+                0.2,
+                0.08
+              ],
+              [
+                0.42,
+                0.3
+              ],
+              [
+                0.48,
+                0.46
+              ]
+            ],
+            "pin": -1,
+            "land": [
+              [
+                0.0,
+                0.55
+              ],
+              [
+                0.12,
+                0.5
+              ],
+              [
+                0.22,
+                0.34
+              ],
+              [
+                0.3,
+                0.18
+              ],
+              [
+                0.34,
+                0.05
+              ],
+              [
+                0.38,
+                0.06
+              ],
+              [
+                0.36,
+                0.24
+              ],
+              [
+                0.33,
+                0.42
+              ],
+              [
+                0.4,
+                0.6
+              ],
+              [
+                0.55,
+                0.66
+              ],
+              [
+                0.7,
+                0.62
+              ],
+              [
+                0.86,
+                0.58
+              ],
+              [
+                1.0,
+                0.6
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "click",
+          "offset": 1.6,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "other:pack_ice_1915",
+      "description": "1915. A three-masted wooden ship sits locked in a white plain of pack ice under a low, pale sun. Pressure ridges heave up against the hull; the hull lists and timbers bend; a yard snaps and swings.",
+      "camera": "50 mm, slow push from the ice toward the straining hull; slight shake on the snap",
+      "characters": [],
+      "lighting": "low pale sun, long blue shadows, cold sky",
+      "fx": [
+        "drifting snow",
+        "ice chips"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "WEDDELL SEA\n1915",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "creak",
+          "offset": 0.4,
+          "gain": 0.45
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.2,
+          "gain": 0.35
+        },
+        {
+          "name": "hit",
+          "offset": 2.0,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:pack_ice_1915",
+      "description": "Dusk on the ice. In the foreground, a long line of tiny faceless figures and three small wooden boats on the floe watch from a distance as, far behind them, the ship's stern tilts up and slides down through a gap in the ice.",
+      "camera": "35 mm wide, locked, slow push",
+      "characters": [
+        "crew x28 (tiny faceless silhouettes, generic)"
+      ],
+      "lighting": "dim pink-grey dusk, flat light, ship silhouetted",
+      "fx": [
+        "blowing snow"
+      ],
+      "overlay": [
+        {
+          "type": "counter",
+          "text": "MEN WHO SURVIVED",
+          "params": {
+            "from": 0,
+            "to": 28,
+            "y": 330
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "metal_groan",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "timeline",
+      "description": "Pattern interrupt: a timeline draws across dark water: 1915 'sank' on the left, a long empty stretch, 2022 'found' on the right, highlighted.",
+      "camera": "2.5D graphic, slow push",
+      "characters": [],
+      "lighting": "graphic",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timeline",
+          "text": "OVER A CENTURY",
+          "params": {
+            "events": [
+              [
+                "1915",
+                "sank"
+              ],
+              [
+                "2022",
+                "found"
+              ]
+            ],
+            "y": 900
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.1,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "other:under_sea_ice",
+      "description": "2019, under the sea ice, seen from below: a long yellow torpedo-shaped robot glides away beneath the milky-white underside of the ice; its single lamp shrinks into the blue-black and does not come back.",
+      "camera": "28 mm, low angle looking up at the ice ceiling, locked; robot exits frame",
+      "characters": [],
+      "lighting": "faint blue light filtering through the ice; robot lamp",
+      "fx": [
+        "particles",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "2019",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "sonar",
+          "offset": 0.4,
+          "gain": 0.3
+        },
+        {
+          "name": "static",
+          "offset": 2.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "other:icebreaker_sea_ice",
+      "description": "2022, aerial: a red-hulled icebreaker with a white superstructure grinds slowly through broken white sea ice under a heavy overcast sky, leaving a dark lane of open water behind it.",
+      "camera": "high 35 mm drone, slow tracking alongside and ahead of the bow",
+      "characters": [],
+      "lighting": "flat overcast polar light",
+      "fx": [
+        "ice floes",
+        "light snow"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "2022\nENDURANCE22 EXPEDITION",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "rumble",
+          "offset": 0.3,
+          "gain": 0.35
+        },
+        {
+          "name": "creak",
+          "offset": 1.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "other:deep_descent",
+      "description": "A yellow box-shaped underwater drone with four thruster pods and two lamps descends through black water; marine snow streams upward past it; its lamps point down into nothing.",
+      "camera": "35 mm, camera sinks with the drone, slight sway",
+      "characters": [],
+      "lighting": "drone lamps only; faint blue fill",
+      "fx": [
+        "marine snow",
+        "volumetric_water",
+        "bubbles (thrusters)"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "",
+          "params": {
+            "from": 0,
+            "to": 3008,
+            "max": 3300,
+            "unit": "m",
+            "speed": 0.95
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.45
+        },
+        {
+          "name": "sonar",
+          "offset": 0.6,
+          "gain": 0.35
+        },
+        {
+          "name": "riser",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "other:deep_wreck_bow",
+      "description": "MID-POINT TURN. In the drone's lamps, the black resolves into the wooden bow of a ship rising out of the seabed: planks, a rail, a broken mast stump. The lamps stop and hold on it.",
+      "camera": "35 mm drone POV, slow approach, then hold",
+      "characters": [],
+      "lighting": "two drone lamps pooling on the hull; black beyond",
+      "fx": [
+        "marine snow",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "5 MARCH 2022",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sonar",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "hit",
+          "offset": 0.5,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "map",
+      "description": "Map card zoomed into the search area: a small marker for the position recorded by the ship's captain in 1915, a line drawing about four miles south, a pin on the wreck.",
+      "camera": "2.5D map card",
+      "characters": [],
+      "lighting": "graphic",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "ABOUT 4 MILES",
+          "params": {
+            "points": [
+              [
+                0.5,
+                0.25
+              ],
+              [
+                0.5,
+                0.7
+              ]
+            ],
+            "pin": -1
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.3,
+          "gain": 0.3
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.2,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "wreck",
+      "description": "Wide reveal: the whole ship sits upright on the grey seabed, hull intact, masts broken and fallen across the deck, rigging draped; the drone lamps travel slowly along its length.",
+      "camera": "24 mm, slow orbit at mid-height, drone-lamp light travelling along the hull",
+      "characters": [],
+      "lighting": "two moving lamps plus a faint blue fill so the silhouette reads",
+      "fx": [
+        "marine snow",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "3,008 M",
+          "params": {
+            "y": 380,
+            "size": 110,
+            "color": [
+              70,
+              200,
+              255
+            ]
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "riser",
+          "offset": 0.4,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:wreck_macro",
+      "description": "Macro along the wooden rail and deck planks: the wood is whole and sharp-edged; sea anemones and small pale animals cling to it. A card slides in.",
+      "camera": "85 mm macro, slow slide along the rail",
+      "characters": [],
+      "lighting": "one lamp raking across the grain",
+      "fx": [
+        "marine snow"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "Experts: the wood-eaters that\nwreck ships elsewhere\naren't found here",
+          "params": {
+            "header": "WHY IT SURVIVED",
+            "y": 820
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "click",
+          "offset": 0.6,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "wreck",
+      "description": "The drone lamps slowly pull away and up; the ship sinks back into darkness, untouched. A card slides in.",
+      "camera": "35 mm, slow pull-back and rise",
+      "characters": [],
+      "lighting": "lamps fading with distance; black",
+      "fx": [
+        "marine snow"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "Antarctic Treaty Historic Site\nand Monument No. 93\nNothing may be removed",
+          "params": {
+            "header": "PROTECTED",
+            "y": 820
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "other:deep_wreck_stern",
+      "description": "LOOP FRAME: back on the stern, the gold ENDURANCE letters and the star caught again in the drone lamps, ending on the S01 framing so a replay flows into 'This ship sank in 1915'.",
+      "camera": "35 mm, same slide + push as S01, ending on S01's first-frame pose",
+      "characters": [],
+      "lighting": "two drone lamps",
+      "fx": [
+        "marine snow",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "FUNERAL: 5 MARCH 1922\nFOUND: 5 MARCH 2022",
+          "params": {
+            "y": 380,
+            "size": 64
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sting",
+          "offset": 0.3,
+          "gain": 0.35
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.45
+    ],
+    [
+      4.1,
+      0.55
+    ],
+    [
+      8.3,
+      0.6
+    ],
+    [
+      10.8,
+      0.55
+    ],
+    [
+      13.7,
+      0.45
+    ],
+    [
+      16.5,
+      0.45
+    ],
+    [
+      21.0,
+      0.55
+    ],
+    [
+      25.4,
+      0.65
+    ],
+    [
+      28.9,
+      0.12
+    ],
+    [
+      29.4,
+      0.75
+    ],
+    [
+      34.8,
+      0.65
+    ],
+    [
+      38.0,
+      0.6
+    ],
+    [
+      42.4,
+      0.4
+    ],
+    [
+      45.6,
+      0.08
+    ],
+    [
+      46.2,
+      0.5
+    ],
+    [
+      50.6,
+      0.45
+    ]
+  ],
+  "loop_line": "And it was found 100 years to the day after Shackleton's funeral."
+}

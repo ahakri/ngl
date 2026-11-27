@@ -1,0 +1,1094 @@
+{
+  "id": "MURDER-08",
+  "title": "Who Put Bella in the Wych Elm? Nobody Ever Answered",
+  "category": "murder",
+  "voice": "am_adam",
+  "speed": 1.05,
+  "mood": "murder",
+  "target_seconds": 67,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "Who put Bella down the Wych Elm?",
+      "pause_after": 0.35,
+      "shot": "S01",
+      "emphasis": [
+        "Bella",
+        "Wych",
+        "Elm"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "In 1944, someone wrote that on a wall in Birmingham.",
+      "pause_after": 0.25,
+      "shot": "S02",
+      "emphasis": [
+        "1944",
+        "wall"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "It was about a real woman. Nobody knows who she was.",
+      "pause_after": 0.4,
+      "shot": "S03",
+      "emphasis": [
+        "real",
+        "Nobody"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "April 1943. Four boys were out in Hagley Wood, in Worcestershire.",
+      "pause_after": 0.2,
+      "shot": "S04",
+      "emphasis": [
+        "1943",
+        "Hagley"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "One climbed an old wych elm and looked down into its hollow trunk.",
+      "pause_after": 0.2,
+      "shot": "S05",
+      "emphasis": [
+        "hollow"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "In the dark, he saw a skull.",
+      "pause_after": 0.6,
+      "shot": "S06",
+      "emphasis": [
+        "skull"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "Inside the tree, police found the skeleton of a woman.",
+      "pause_after": 0.25,
+      "shot": "S07",
+      "emphasis": [
+        "skeleton",
+        "woman"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Investigators estimated she'd been dead about a year and a half.",
+      "pause_after": 0.25,
+      "shot": "S08",
+      "emphasis": [
+        "year",
+        "half"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "She was probably about 35, and five feet tall.",
+      "pause_after": 0.25,
+      "shot": "S09",
+      "emphasis": [
+        "35",
+        "five"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "There was a shoe, a wedding ring, and scraps of clothing.",
+      "pause_after": 0.3,
+      "shot": "S10",
+      "emphasis": [
+        "shoe",
+        "ring"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "But no one could put a name to her.",
+      "pause_after": 0.45,
+      "shot": "S11",
+      "emphasis": [
+        "name"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "Then, in 1944, the messages began, calling her Bella.",
+      "pause_after": 0.3,
+      "shot": "S12",
+      "emphasis": [
+        "Bella"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "The writer of the messages was never found.",
+      "pause_after": 0.4,
+      "shot": "S13",
+      "emphasis": [
+        "never"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "In 1945, an anthropologist suggested witchcraft.",
+      "pause_after": 0.15,
+      "shot": "S14",
+      "emphasis": [
+        "witchcraft"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "Investigators dismissed the idea.",
+      "pause_after": 0.35,
+      "shot": "S15",
+      "emphasis": [
+        "dismissed"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "A 1953 letter to a local paper tied her to a wartime spy ring.",
+      "pause_after": 0.2,
+      "shot": "S16",
+      "emphasis": [
+        "spy",
+        "ring"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "That claim was never proven either.",
+      "pause_after": 0.45,
+      "shot": "S17",
+      "emphasis": [
+        "never",
+        "proven"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "And today, even her skeleton is missing.",
+      "pause_after": 0.25,
+      "shot": "S18",
+      "emphasis": [
+        "missing"
+      ]
+    },
+    {
+      "id": "L19",
+      "text": "So are key case records.",
+      "pause_after": 0.5,
+      "shot": "S18",
+      "emphasis": [
+        "records"
+      ]
+    },
+    {
+      "id": "L20",
+      "text": "For decades, the question has kept reappearing on an obelisk near the wood.",
+      "pause_after": 0.3,
+      "shot": "S19",
+      "emphasis": [
+        "obelisk"
+      ]
+    },
+    {
+      "id": "L21",
+      "text": "More than 80 years on, all that's left is the question.",
+      "pause_after": 0.3,
+      "shot": "S20",
+      "emphasis": [
+        "question"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "other:brick_wall_graffiti_1944",
+      "description": "COLD OPEN, moving at frame 1. Night, wartime blackout street. A soot-dark brick wall under one dim, hooded street lamp. Rough white chalk capitals fill the frame: WHO PUT BELLA DOWN THE WYCH ELM - HAGLEY WOOD. The lamp buzzes and dips; chalk dust glints.",
+      "camera": "50 mm, slow push-in across the letters, slight drift left",
+      "characters": [],
+      "lighting": "one warm, weak street lamp from upper right; cold blue night fill",
+      "fx": [
+        "chalk dust motes",
+        "light fog"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "sting",
+          "offset": 0.4,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "other:brick_wall_graffiti_1944",
+      "description": "Wider: the whole wall belongs to an empty, boarded-up building on a narrow city street; taped windows, a sandbag stack. The chalk question sits at head height; the street is deserted.",
+      "camera": "28 mm, slow pull-back from the wall",
+      "characters": [],
+      "lighting": "street lamp pool; blue moonlight; dark windows",
+      "fx": [
+        "light fog"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "BIRMINGHAM, 1944",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.6,
+          "gain": 0.2
+        },
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "other:hagley_wood_dusk",
+      "description": "Woodland at dusk in early spring: mist between grey trunks, a carpet of dead leaves. The camera glides toward one squat, very thick old tree with a dark hollow where its crown should be.",
+      "camera": "35 mm, slow glide through the trees toward the old elm",
+      "characters": [],
+      "lighting": "fading blue dusk, low mist, no direct sun",
+      "fx": [
+        "mist",
+        "drifting leaves"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "UNIDENTIFIED",
+          "params": {
+            "y": 420,
+            "size": 100,
+            "color": [
+              230,
+              40,
+              40
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "creak",
+          "offset": 1.2,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "map",
+      "description": "Map card over the woodland: the West Midlands as a simple shape, a line drawing from Birmingham south-west toward a wood, a pin dropping on Hagley Wood; then the date stamp.",
+      "camera": "2.5D map card; background woodland drifts",
+      "characters": [],
+      "lighting": "map card self-lit",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "HAGLEY WOOD",
+          "params": {
+            "points": [
+              [
+                0.72,
+                0.3
+              ],
+              [
+                0.55,
+                0.45
+              ],
+              [
+                0.38,
+                0.6
+              ]
+            ],
+            "pin": -1,
+            "land": [
+              [
+                0.08,
+                0.2
+              ],
+              [
+                0.4,
+                0.08
+              ],
+              [
+                0.78,
+                0.12
+              ],
+              [
+                0.95,
+                0.35
+              ],
+              [
+                0.9,
+                0.7
+              ],
+              [
+                0.62,
+                0.92
+              ],
+              [
+                0.3,
+                0.9
+              ],
+              [
+                0.1,
+                0.68
+              ]
+            ]
+          },
+          "start": 0.0,
+          "duration": 2.3
+        },
+        {
+          "type": "stamp",
+          "text": "18 APRIL 1943",
+          "params": {
+            "y": 300
+          },
+          "start": 2.3
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "typewriter",
+          "offset": 2.3,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "other:hagley_wood_day",
+      "description": "Spring afternoon, dappled light. Four faceless boy silhouettes in 1940s caps and short trousers stand at the base of the squat elm; one has climbed onto it and leans over the dark opening at its top, peering down.",
+      "camera": "35 mm low angle from among the roots, slow push up toward the climbing boy",
+      "characters": [
+        "boy_A (climbing, cap, faceless)",
+        "boys_B–D (watching, faceless silhouettes)"
+      ],
+      "lighting": "soft afternoon sun through young leaves",
+      "fx": [
+        "dust in sunbeams",
+        "falling leaf"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.2
+        },
+        {
+          "name": "creak",
+          "offset": 0.8,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "other:inside_hollow_trunk",
+      "description": "POV from deep inside the hollow, looking up: a ring of rough inner bark frames a disc of bright sky, and the boy's faceless silhouette leans into it, then jerks back out of view. Nothing inside the trunk is shown.",
+      "camera": "18 mm, locked looking straight up; tiny push",
+      "characters": [
+        "boy_A (silhouette against the sky)"
+      ],
+      "lighting": "bright sky disc above; the trunk interior near-black",
+      "fx": [
+        "dust falling",
+        "a leaf drifting down"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "sting",
+          "offset": 0.2,
+          "gain": 0.45
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.8,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "other:hagley_wood_day",
+      "description": "Late afternoon: two 1940s police constables (faceless silhouettes, tall helmets) and a man in a long coat stand at the elm; a wooden ladder leans on the trunk; a canvas screen is being put up beside it. Nothing from inside the tree is shown.",
+      "camera": "50 mm, slow lateral move behind trunks",
+      "characters": [
+        "constable_A / constable_B (faceless, helmets)",
+        "detective (long coat, hat, faceless)"
+      ],
+      "lighting": "low gold sun, long shadows",
+      "fx": [
+        "mist"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "creak",
+          "offset": 1.4,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "other:hagley_wood_day",
+      "description": "Time-lapse on the old elm: light sweeps from day to night and back, leaves fall, snow dusts the ground, leaves return; the trunk stays still and dark.",
+      "camera": "50 mm, locked on the trunk, very slow push",
+      "characters": [],
+      "lighting": "cycling day/night light; season colour shifts",
+      "fx": [
+        "falling leaves",
+        "light snow"
+      ],
+      "overlay": [
+        {
+          "type": "counter",
+          "text": "MONTHS DEAD (ESTIMATE)",
+          "params": {
+            "from": 0,
+            "to": 18,
+            "y": 330
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "rumble",
+          "offset": 0.5,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "other:police_office_1943",
+      "description": "A plain height chart painted on a police-station wall: a flat, faceless grey outline of a woman slides in and stops at the 5 ft mark; a typed tag beside it fills in AGE: ABOUT 35 (EST.).",
+      "camera": "50 mm, slow push",
+      "characters": [
+        "outline figure (flat grey silhouette, no face, no features)"
+      ],
+      "lighting": "cold overhead light, soft shadows",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "AGE: ABOUT 35 (EST.)\nHEIGHT: 5 FT",
+          "params": {
+            "y": 420,
+            "size": 76
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "typewriter",
+          "offset": 0.9,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "other:evidence_table_1943",
+      "description": "An evidence table under a desk lamp: a worn blue crepe-soled shoe, a thin gold ring on a folded cloth, a scrap of striped knitted fabric; each has a small paper tag. A card slides in.",
+      "camera": "top-down 50 mm, slow rotation",
+      "characters": [],
+      "lighting": "warm desk lamp pool, dark surroundings",
+      "fx": [
+        "dust motes"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "a shoe, a wedding ring,\nscraps of clothing",
+          "params": {
+            "header": "FOUND WITH HER",
+            "y": 820
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.3,
+          "gain": 0.3
+        },
+        {
+          "name": "typewriter",
+          "offset": 1.0,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "other:police_office_1943",
+      "description": "A police file on a desk: a typed record sheet; the NAME line stays blank as the typewriter carriage stops. A paper scrap slides up: NAME: UNKNOWN.",
+      "camera": "50 mm, slow push on the blank line",
+      "characters": [],
+      "lighting": "desk lamp; cold window light",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "NAME: UNKNOWN",
+          "params": {
+            "style": "scrap",
+            "size": 60,
+            "rot": -2,
+            "y": 420
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "click",
+          "offset": 1.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:brick_wall_graffiti_1944",
+      "description": "MID-POINT TURN. Night, a different brick wall: chalk letters write themselves stroke by stroke, HAGLEY WOOD BELLA, as if an invisible hand were drawing them; chalk dust falls.",
+      "camera": "35 mm, slow push, slight handheld",
+      "characters": [],
+      "lighting": "weak street lamp; cold night fill",
+      "fx": [
+        "chalk dust"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "1944",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "riser",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 0.4,
+          "gain": 0.2
+        },
+        {
+          "name": "hit",
+          "offset": 1.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "other:blackout_street_night",
+      "description": "An empty wet street at night: a constable's torch beam sweeps across walls and doorways; chalk marks here and there; nobody in sight.",
+      "camera": "28 mm, slow pan following the torch beam",
+      "characters": [
+        "constable (faceless silhouette with torch, mostly the beam)"
+      ],
+      "lighting": "single hand-torch beam; faint lamp at the far end",
+      "fx": [
+        "fog",
+        "wet reflections"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "other:evidence_board",
+      "description": "Evidence board under one hanging lamp: a paper card reading WITCHCRAFT? slams onto the cork beside a few blank question-mark cards.",
+      "camera": "50 mm, push-in on the card",
+      "characters": [],
+      "lighting": "single hanging lamp over the board",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "A witchcraft ritual?\nSuggested by an anthropologist",
+          "params": {
+            "header": "THEORY · 1945",
+            "y": 820
+          }
+        },
+        {
+          "type": "label",
+          "text": "THEORY",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.3,
+          "gain": 0.4
+        },
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "other:evidence_board",
+      "description": "Macro: a red rubber stamp comes down on the WITCHCRAFT? card and lifts away: DISMISSED.",
+      "camera": "85 mm macro, small shake on impact",
+      "characters": [],
+      "lighting": "board lamp",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "DISMISSED",
+          "params": {
+            "y": 520,
+            "size": 110,
+            "color": [
+              230,
+              40,
+              40
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.25,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "other:evidence_board",
+      "description": "A second card slams in beside the first: SPY RING?, with a red string to a generic folded newspaper pinned to the board (no real masthead).",
+      "camera": "50 mm, lateral move to the second card",
+      "characters": [],
+      "lighting": "board lamp",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "A wartime spy ring?\nClaimed in a letter to a paper",
+          "params": {
+            "header": "THEORY · 1953",
+            "y": 820
+          }
+        },
+        {
+          "type": "label",
+          "text": "THEORY",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.3,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "other:evidence_board",
+      "description": "The stamp comes down on the second card: NEVER PROVEN. The lamp swings slightly.",
+      "camera": "85 mm macro on the card, small shake",
+      "characters": [],
+      "lighting": "board lamp swinging",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "NEVER PROVEN",
+          "params": {
+            "y": 520,
+            "size": 110,
+            "color": [
+              230,
+              40,
+              40
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.2,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18",
+        "L19"
+      ],
+      "environment": "other:archive_shelf",
+      "description": "TWIST. A dim archive aisle: a long metal shelf of labelled boxes; one gap where a box should be, its paper label hanging. A document slides up listing what is missing.",
+      "camera": "35 mm, slow dolly along the shelf to the gap",
+      "characters": [],
+      "lighting": "cold strip light flickering once",
+      "fx": [
+        "dust motes"
+      ],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "SKELETON: MISSING\nSKULL: MISSING\nKEY CASE RECORDS: MISSING",
+          "params": {
+            "style": "paper",
+            "title": "HAGLEY WOOD, 1943",
+            "rot": 2,
+            "size": 44,
+            "y": 70
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.4,
+          "gain": 0.3
+        },
+        {
+          "name": "rumble",
+          "offset": 2.0,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S19",
+      "lines": [
+        "L20"
+      ],
+      "environment": "other:wychbury_hill_obelisk",
+      "description": "Dusk on a grassy hilltop above the woods: a tall stone obelisk; painted letters on its weathered base read WHO PUT BELLA IN THE WITCH ELM. Wind moves the grass; the camera rises up the shaft. A small memorial line fades in.",
+      "camera": "24 mm, low then craning up the obelisk",
+      "characters": [],
+      "lighting": "last orange light on the stone; blue valley below",
+      "fx": [
+        "wind in grass",
+        "mist in the valley"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "WYCHBURY OBELISK",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "text",
+          "text": "UNIDENTIFIED WOMAN\nFOUND 18 APRIL 1943",
+          "params": {
+            "y": 880,
+            "size": 54
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S20",
+      "lines": [
+        "L21"
+      ],
+      "environment": "other:brick_wall_graffiti_1944",
+      "description": "LOOP FRAME: back to the S01 wall and lamp; the camera settles exactly into S01's first-frame composition on the chalk question, so a replay flows into 'Who put Bella down the Wych Elm?'.",
+      "camera": "50 mm, slow push ending on S01's first-frame pose",
+      "characters": [],
+      "lighting": "same weak street lamp",
+      "fx": [
+        "chalk dust motes",
+        "light fog"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "sting",
+          "offset": 2.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.5
+    ],
+    [
+      6.1,
+      0.55
+    ],
+    [
+      9.5,
+      0.55
+    ],
+    [
+      14.4,
+      0.6
+    ],
+    [
+      18.1,
+      0.65
+    ],
+    [
+      19.5,
+      0.15
+    ],
+    [
+      20.1,
+      0.55
+    ],
+    [
+      26.7,
+      0.55
+    ],
+    [
+      32.6,
+      0.45
+    ],
+    [
+      34.6,
+      0.7
+    ],
+    [
+      38.9,
+      0.6
+    ],
+    [
+      41.6,
+      0.65
+    ],
+    [
+      47.9,
+      0.65
+    ],
+    [
+      52.7,
+      0.3
+    ],
+    [
+      54.9,
+      0.35
+    ],
+    [
+      58.7,
+      0.08
+    ],
+    [
+      59.2,
+      0.4
+    ],
+    [
+      63.3,
+      0.5
+    ],
+    [
+      66.9,
+      0.5
+    ]
+  ],
+  "loop_line": "More than 80 years on, all that's left is the question."
+}

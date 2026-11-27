@@ -1,695 +1,695 @@
 {
  "duration": 66.37,
- "voice": "am_onyx",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.28,
+   "end": 3.2,
    "text": "Footprints in the snow led to the farm. None led away.",
    "words": [
     {
      "w": "Footprints",
      "start": 0.18,
-     "end": 0.79
+     "end": 0.75
     },
     {
      "w": "in",
-     "start": 0.79,
-     "end": 0.94
+     "start": 0.75,
+     "end": 0.92
     },
     {
      "w": "the",
-     "start": 0.94,
-     "end": 1.19
+     "start": 0.92,
+     "end": 1.16
     },
     {
      "w": "snow",
-     "start": 1.19,
-     "end": 1.41
+     "start": 1.16,
+     "end": 1.35
     },
     {
      "w": "led",
-     "start": 1.41,
-     "end": 1.69
+     "start": 1.35,
+     "end": 1.71
     },
     {
      "w": "to",
-     "start": 1.69,
-     "end": 1.95
+     "start": 1.71,
+     "end": 1.86
     },
     {
      "w": "the",
-     "start": 1.95,
-     "end": 2.07
+     "start": 1.86,
+     "end": 2.0
     },
     {
      "w": "farm.",
-     "start": 2.07,
-     "end": 2.33
+     "start": 2.0,
+     "end": 2.27
     },
     {
      "w": "None",
-     "start": 2.33,
-     "end": 2.63
+     "start": 2.27,
+     "end": 2.54
     },
     {
      "w": "led",
-     "start": 2.63,
-     "end": 2.87
+     "start": 2.54,
+     "end": 2.82
     },
     {
      "w": "away.",
-     "start": 2.87,
-     "end": 3.22
+     "start": 2.82,
+     "end": 3.14
     }
    ]
   },
   {
    "id": "L02",
    "start": 3.68,
-   "end": 7.99,
+   "end": 7.93,
    "text": "Bavaria, March 1922. A lonely farm called Hinterkaifeck.",
    "words": [
     {
      "w": "Bavaria,",
-     "start": 3.71,
-     "end": 4.22
+     "start": 3.7,
+     "end": 4.17
     },
     {
      "w": "March",
-     "start": 4.22,
-     "end": 4.75
+     "start": 4.17,
+     "end": 4.73
     },
     {
      "w": "1922.",
-     "start": 4.75,
-     "end": 5.48
+     "start": 4.73,
+     "end": 5.45
     },
     {
      "w": "A",
-     "start": 5.48,
-     "end": 5.81
+     "start": 5.45,
+     "end": 5.77
     },
     {
      "w": "lonely",
-     "start": 5.81,
-     "end": 6.16
+     "start": 5.77,
+     "end": 6.12
     },
     {
      "w": "farm",
-     "start": 6.16,
-     "end": 6.59
+     "start": 6.12,
+     "end": 6.62
     },
     {
      "w": "called",
-     "start": 6.59,
-     "end": 6.98
+     "start": 6.62,
+     "end": 7.02
     },
     {
      "w": "Hinterkaifeck.",
-     "start": 6.98,
-     "end": 7.93
+     "start": 7.02,
+     "end": 7.87
     }
    ]
   },
   {
    "id": "L03",
    "start": 8.24,
-   "end": 12.23,
+   "end": 12.31,
    "text": "The farmer, Andreas Gruber, reportedly told neighbours about the tracks.",
    "words": [
     {
      "w": "The",
      "start": 8.27,
-     "end": 8.37
+     "end": 8.38
     },
     {
      "w": "farmer,",
-     "start": 8.37,
-     "end": 8.85
+     "start": 8.38,
+     "end": 8.88
     },
     {
      "w": "Andreas",
-     "start": 8.85,
-     "end": 9.47
+     "start": 8.88,
+     "end": 9.44
     },
     {
      "w": "Gruber,",
-     "start": 9.47,
-     "end": 9.87
+     "start": 9.44,
+     "end": 9.81
     },
     {
      "w": "reportedly",
-     "start": 9.87,
-     "end": 10.49
+     "start": 9.81,
+     "end": 10.59
     },
     {
      "w": "told",
-     "start": 10.49,
-     "end": 10.88
+     "start": 10.59,
+     "end": 11.02
     },
     {
      "w": "neighbours",
-     "start": 10.88,
-     "end": 11.39
+     "start": 11.02,
+     "end": 11.33
     },
     {
      "w": "about",
-     "start": 11.39,
-     "end": 11.65
+     "start": 11.33,
+     "end": 11.79
     },
     {
      "w": "the",
-     "start": 11.65,
-     "end": 11.75
+     "start": 11.79,
+     "end": 11.86
     },
     {
      "w": "tracks.",
-     "start": 11.75,
-     "end": 12.17
+     "start": 11.86,
+     "end": 12.25
     }
    ]
   },
   {
    "id": "L04",
    "start": 12.48,
-   "end": 15.34,
+   "end": 15.31,
    "text": "He'd heard footsteps in the attic. He searched. Nobody.",
    "words": [
     {
      "w": "He'd",
      "start": 12.51,
-     "end": 12.8
+     "end": 12.77
     },
     {
      "w": "heard",
-     "start": 12.8,
-     "end": 13.1
+     "start": 12.77,
+     "end": 13.01
     },
     {
      "w": "footsteps",
-     "start": 13.1,
-     "end": 13.51
+     "start": 13.01,
+     "end": 13.6
     },
     {
      "w": "in",
-     "start": 13.51,
-     "end": 13.72
+     "start": 13.6,
+     "end": 13.79
     },
     {
      "w": "the",
-     "start": 13.72,
-     "end": 13.92
+     "start": 13.79,
+     "end": 13.9
     },
     {
      "w": "attic.",
-     "start": 13.92,
-     "end": 14.17
+     "start": 13.9,
+     "end": 14.1
     },
     {
      "w": "He",
-     "start": 14.17,
-     "end": 14.39
+     "start": 14.1,
+     "end": 14.27
     },
     {
      "w": "searched.",
-     "start": 14.39,
-     "end": 14.68
+     "start": 14.27,
+     "end": 14.72
     },
     {
      "w": "Nobody.",
-     "start": 14.68,
-     "end": 15.28
+     "start": 14.72,
+     "end": 15.25
     }
    ]
   },
   {
    "id": "L05",
    "start": 15.69,
-   "end": 18.45,
+   "end": 18.44,
    "text": "A Munich newspaper turned up that nobody had bought.",
    "words": [
     {
      "w": "A",
      "start": 15.72,
-     "end": 15.81
+     "end": 15.92
     },
     {
      "w": "Munich",
-     "start": 15.81,
+     "start": 15.92,
      "end": 16.34
     },
     {
      "w": "newspaper",
      "start": 16.34,
-     "end": 16.77
+     "end": 16.8
     },
     {
      "w": "turned",
-     "start": 16.77,
+     "start": 16.8,
      "end": 17.16
     },
     {
      "w": "up",
      "start": 17.16,
-     "end": 17.26
+     "end": 17.23
     },
     {
      "w": "that",
-     "start": 17.26,
+     "start": 17.23,
      "end": 17.4
     },
     {
      "w": "nobody",
      "start": 17.4,
-     "end": 17.98
+     "end": 17.97
     },
     {
      "w": "had",
-     "start": 17.98,
-     "end": 18.09
+     "start": 17.97,
+     "end": 18.06
     },
     {
      "w": "bought.",
-     "start": 18.09,
-     "end": 18.39
+     "start": 18.06,
+     "end": 18.38
     }
    ]
   },
   {
    "id": "L06",
    "start": 18.65,
-   "end": 20.32,
+   "end": 20.28,
    "text": "Then a house key went missing.",
    "words": [
     {
      "w": "Then",
-     "start": 18.68,
-     "end": 18.87
+     "start": 18.67,
+     "end": 18.88
     },
     {
      "w": "a",
-     "start": 18.87,
-     "end": 19.11
+     "start": 18.88,
+     "end": 19.1
     },
     {
      "w": "house",
-     "start": 19.11,
-     "end": 19.32
+     "start": 19.1,
+     "end": 19.3
     },
     {
      "w": "key",
-     "start": 19.32,
-     "end": 19.55
+     "start": 19.3,
+     "end": 19.64
     },
     {
      "w": "went",
-     "start": 19.55,
-     "end": 19.94
+     "start": 19.64,
+     "end": 19.86
     },
     {
      "w": "missing.",
-     "start": 19.94,
-     "end": 20.26
+     "start": 19.86,
+     "end": 20.22
     }
    ]
   },
   {
    "id": "L07",
    "start": 20.62,
-   "end": 24.46,
+   "end": 24.37,
    "text": "Their previous maid had already quit. She'd heard noises in the attic too.",
    "words": [
     {
      "w": "Their",
      "start": 20.65,
-     "end": 20.77
+     "end": 20.8
     },
     {
      "w": "previous",
-     "start": 20.77,
-     "end": 21.4
+     "start": 20.8,
+     "end": 21.37
     },
     {
      "w": "maid",
-     "start": 21.4,
-     "end": 21.59
+     "start": 21.37,
+     "end": 21.56
     },
     {
      "w": "had",
-     "start": 21.59,
-     "end": 21.91
+     "start": 21.56,
+     "end": 21.9
     },
     {
      "w": "already",
-     "start": 21.91,
-     "end": 22.4
+     "start": 21.9,
+     "end": 22.3
     },
     {
      "w": "quit.",
-     "start": 22.4,
-     "end": 22.59
+     "start": 22.3,
+     "end": 22.53
     },
     {
      "w": "She'd",
-     "start": 22.59,
-     "end": 22.89
+     "start": 22.53,
+     "end": 22.88
     },
     {
      "w": "heard",
-     "start": 22.89,
-     "end": 23.22
+     "start": 22.88,
+     "end": 23.16
     },
     {
      "w": "noises",
-     "start": 23.22,
-     "end": 23.52
+     "start": 23.16,
+     "end": 23.46
     },
     {
      "w": "in",
-     "start": 23.52,
+     "start": 23.46,
      "end": 23.71
     },
     {
      "w": "the",
      "start": 23.71,
-     "end": 23.88
+     "end": 23.84
     },
     {
      "w": "attic",
-     "start": 23.88,
-     "end": 24.15
+     "start": 23.84,
+     "end": 24.02
     },
     {
      "w": "too.",
-     "start": 24.15,
-     "end": 24.4
+     "start": 24.02,
+     "end": 24.31
     }
    ]
   },
   {
    "id": "L08",
    "start": 24.76,
-   "end": 27.86,
+   "end": 27.89,
    "text": "On March thirty-first, the new maid arrived. Her first day.",
    "words": [
     {
      "w": "On",
      "start": 24.79,
-     "end": 24.91
+     "end": 25.02
     },
     {
      "w": "March",
-     "start": 24.91,
-     "end": 25.38
+     "start": 25.02,
+     "end": 25.37
     },
     {
      "w": "thirty-first,",
-     "start": 25.38,
-     "end": 26.07
+     "start": 25.37,
+     "end": 26.06
     },
     {
      "w": "the",
-     "start": 26.07,
-     "end": 26.17
+     "start": 26.06,
+     "end": 26.22
     },
     {
      "w": "new",
-     "start": 26.17,
-     "end": 26.32
+     "start": 26.22,
+     "end": 26.4
     },
     {
      "w": "maid",
-     "start": 26.32,
-     "end": 26.7
+     "start": 26.4,
+     "end": 26.74
     },
     {
      "w": "arrived.",
-     "start": 26.7,
-     "end": 27.0
+     "start": 26.74,
+     "end": 27.02
     },
     {
      "w": "Her",
-     "start": 27.0,
-     "end": 27.23
+     "start": 27.02,
+     "end": 27.25
     },
     {
      "w": "first",
-     "start": 27.23,
-     "end": 27.51
+     "start": 27.25,
+     "end": 27.54
     },
     {
      "w": "day.",
-     "start": 27.51,
-     "end": 27.8
+     "start": 27.54,
+     "end": 27.83
     }
    ]
   },
   {
    "id": "L09",
    "start": 28.21,
-   "end": 30.86,
+   "end": 30.77,
    "text": "That night, all six people on the farm were killed.",
    "words": [
     {
      "w": "That",
      "start": 28.24,
-     "end": 28.41
+     "end": 28.4
     },
     {
      "w": "night,",
-     "start": 28.41,
-     "end": 28.82
+     "start": 28.4,
+     "end": 28.69
     },
     {
      "w": "all",
-     "start": 28.82,
-     "end": 28.98
+     "start": 28.69,
+     "end": 28.9
     },
     {
      "w": "six",
-     "start": 28.98,
+     "start": 28.9,
      "end": 29.24
     },
     {
      "w": "people",
      "start": 29.24,
-     "end": 29.75
+     "end": 29.63
     },
     {
      "w": "on",
-     "start": 29.75,
-     "end": 29.85
+     "start": 29.63,
+     "end": 29.83
     },
     {
      "w": "the",
-     "start": 29.85,
-     "end": 30.04
+     "start": 29.83,
+     "end": 29.86
     },
     {
      "w": "farm",
-     "start": 30.04,
-     "end": 30.32
+     "start": 29.86,
+     "end": 30.31
     },
     {
      "w": "were",
-     "start": 30.32,
-     "end": 30.44
+     "start": 30.31,
+     "end": 30.37
     },
     {
      "w": "killed.",
-     "start": 30.44,
-     "end": 30.8
+     "start": 30.37,
+     "end": 30.71
     }
    ]
   },
   {
    "id": "L10",
    "start": 31.36,
-   "end": 33.32,
+   "end": 33.26,
    "text": "No one found them for four days.",
    "words": [
     {
      "w": "No",
      "start": 31.39,
-     "end": 31.64
+     "end": 31.65
     },
     {
      "w": "one",
-     "start": 31.64,
-     "end": 31.91
+     "start": 31.65,
+     "end": 31.89
     },
     {
      "w": "found",
-     "start": 31.91,
-     "end": 32.23
+     "start": 31.89,
+     "end": 32.17
     },
     {
      "w": "them",
-     "start": 32.23,
-     "end": 32.49
+     "start": 32.17,
+     "end": 32.46
     },
     {
      "w": "for",
-     "start": 32.49,
-     "end": 32.63
+     "start": 32.46,
+     "end": 32.69
     },
     {
      "w": "four",
-     "start": 32.63,
-     "end": 33.01
+     "start": 32.69,
+     "end": 32.97
     },
     {
      "w": "days.",
-     "start": 33.01,
-     "end": 33.26
+     "start": 32.97,
+     "end": 33.2
     }
    ]
   },
   {
    "id": "L11",
    "start": 33.62,
-   "end": 35.33,
+   "end": 35.23,
    "text": "And that's where it gets stranger.",
    "words": [
     {
      "w": "And",
      "start": 33.65,
-     "end": 33.87
+     "end": 33.77
     },
     {
      "w": "that's",
-     "start": 33.87,
-     "end": 34.15
+     "start": 33.77,
+     "end": 34.02
     },
     {
      "w": "where",
-     "start": 34.15,
-     "end": 34.38
+     "start": 34.02,
+     "end": 34.27
     },
     {
      "w": "it",
-     "start": 34.38,
-     "end": 34.41
+     "start": 34.27,
+     "end": 34.43
     },
     {
      "w": "gets",
-     "start": 34.41,
-     "end": 34.77
+     "start": 34.43,
+     "end": 34.59
     },
     {
      "w": "stranger.",
-     "start": 34.77,
-     "end": 35.27
+     "start": 34.59,
+     "end": 35.17
     }
    ]
   },
   {
    "id": "L12",
    "start": 35.63,
-   "end": 39.0,
+   "end": 38.93,
    "text": "Neighbours later said smoke rose from the chimney in those days.",
    "words": [
     {
      "w": "Neighbours",
      "start": 35.66,
-     "end": 36.05
+     "end": 36.03
     },
     {
      "w": "later",
-     "start": 36.05,
-     "end": 36.39
+     "start": 36.03,
+     "end": 36.47
     },
     {
      "w": "said",
-     "start": 36.39,
-     "end": 36.68
+     "start": 36.47,
+     "end": 36.66
     },
     {
      "w": "smoke",
-     "start": 36.68,
-     "end": 37.0
+     "start": 36.66,
+     "end": 37.03
     },
     {
      "w": "rose",
-     "start": 37.0,
-     "end": 37.41
+     "start": 37.03,
+     "end": 37.35
     },
     {
      "w": "from",
-     "start": 37.41,
-     "end": 37.66
+     "start": 37.35,
+     "end": 37.51
     },
     {
      "w": "the",
-     "start": 37.66,
+     "start": 37.51,
      "end": 37.66
     },
     {
      "w": "chimney",
      "start": 37.66,
-     "end": 38.17
+     "end": 38.03
     },
     {
      "w": "in",
-     "start": 38.17,
-     "end": 38.32
+     "start": 38.03,
+     "end": 38.33
     },
     {
      "w": "those",
-     "start": 38.32,
+     "start": 38.33,
      "end": 38.62
     },
     {
      "w": "days.",
      "start": 38.62,
-     "end": 38.94
+     "end": 38.87
     }
    ]
   },
   {
    "id": "L13",
    "start": 39.25,
-   "end": 41.14,
+   "end": 41.0,
    "text": "Someone had been feeding the cattle.",
    "words": [
     {
      "w": "Someone",
      "start": 39.28,
-     "end": 39.76
+     "end": 39.66
     },
     {
      "w": "had",
-     "start": 39.76,
-     "end": 40.0
+     "start": 39.66,
+     "end": 39.83
     },
     {
      "w": "been",
-     "start": 40.0,
-     "end": 40.12
+     "start": 39.83,
+     "end": 40.08
     },
     {
      "w": "feeding",
-     "start": 40.12,
-     "end": 40.55
+     "start": 40.08,
+     "end": 40.5
     },
     {
      "w": "the",
-     "start": 40.55,
-     "end": 40.66
+     "start": 40.5,
+     "end": 40.54
     },
     {
      "w": "cattle.",
-     "start": 40.66,
-     "end": 41.08
+     "start": 40.54,
+     "end": 40.94
     }
    ]
   },
   {
    "id": "L14",
    "start": 41.44,
-   "end": 44.71,
+   "end": 44.69,
    "text": "Investigators concluded the killer stayed on the farm for days.",
    "words": [
     {
@@ -700,296 +700,296 @@
     {
      "w": "concluded",
      "start": 42.27,
-     "end": 42.83
+     "end": 42.81
     },
     {
      "w": "the",
-     "start": 42.83,
-     "end": 42.92
+     "start": 42.81,
+     "end": 42.98
     },
     {
      "w": "killer",
-     "start": 42.92,
-     "end": 43.29
+     "start": 42.98,
+     "end": 43.21
     },
     {
      "w": "stayed",
-     "start": 43.29,
-     "end": 43.59
+     "start": 43.21,
+     "end": 43.61
     },
     {
      "w": "on",
-     "start": 43.59,
-     "end": 43.77
+     "start": 43.61,
+     "end": 43.7
     },
     {
      "w": "the",
-     "start": 43.77,
-     "end": 43.81
+     "start": 43.7,
+     "end": 43.88
     },
     {
      "w": "farm",
-     "start": 43.81,
-     "end": 44.14
+     "start": 43.88,
+     "end": 44.08
     },
     {
      "w": "for",
-     "start": 44.14,
-     "end": 44.32
+     "start": 44.08,
+     "end": 44.42
     },
     {
      "w": "days.",
-     "start": 44.32,
-     "end": 44.65
+     "start": 44.42,
+     "end": 44.63
     }
    ]
   },
   {
    "id": "L15",
    "start": 45.16,
-   "end": 49.19,
+   "end": 49.26,
    "text": "Police looked at more than a hundred suspects. Nobody was ever convicted.",
    "words": [
     {
      "w": "Police",
      "start": 45.19,
-     "end": 45.56
+     "end": 45.66
     },
     {
      "w": "looked",
-     "start": 45.56,
-     "end": 45.82
+     "start": 45.66,
+     "end": 45.83
     },
     {
      "w": "at",
-     "start": 45.82,
-     "end": 45.96
+     "start": 45.83,
+     "end": 45.95
     },
     {
      "w": "more",
-     "start": 45.96,
-     "end": 46.35
+     "start": 45.95,
+     "end": 46.36
     },
     {
      "w": "than",
-     "start": 46.35,
-     "end": 46.42
+     "start": 46.36,
+     "end": 46.54
     },
     {
      "w": "a",
-     "start": 46.42,
-     "end": 46.6
+     "start": 46.54,
+     "end": 46.72
     },
     {
      "w": "hundred",
-     "start": 46.6,
-     "end": 47.13
+     "start": 46.72,
+     "end": 47.07
     },
     {
      "w": "suspects.",
-     "start": 47.13,
-     "end": 47.57
+     "start": 47.07,
+     "end": 47.63
     },
     {
      "w": "Nobody",
-     "start": 47.57,
-     "end": 48.18
+     "start": 47.63,
+     "end": 48.21
     },
     {
      "w": "was",
-     "start": 48.18,
-     "end": 48.25
+     "start": 48.21,
+     "end": 48.4
     },
     {
      "w": "ever",
-     "start": 48.25,
-     "end": 48.49
+     "start": 48.4,
+     "end": 48.65
     },
     {
      "w": "convicted.",
-     "start": 48.49,
-     "end": 49.13
+     "start": 48.65,
+     "end": 49.2
     }
    ]
   },
   {
    "id": "L16",
    "start": 49.49,
-   "end": 53.81,
+   "end": 53.85,
    "text": "In 2007, police students re-examined the files with modern methods.",
    "words": [
     {
      "w": "In",
      "start": 49.52,
-     "end": 49.64
+     "end": 49.76
     },
     {
      "w": "2007,",
-     "start": 49.64,
-     "end": 50.42
+     "start": 49.76,
+     "end": 50.48
     },
     {
      "w": "police",
-     "start": 50.42,
-     "end": 50.78
+     "start": 50.48,
+     "end": 50.84
     },
     {
      "w": "students",
-     "start": 50.78,
-     "end": 51.42
+     "start": 50.84,
+     "end": 51.53
     },
     {
      "w": "re-examined",
-     "start": 51.42,
-     "end": 52.27
+     "start": 51.53,
+     "end": 52.28
     },
     {
      "w": "the",
-     "start": 52.27,
-     "end": 52.32
+     "start": 52.28,
+     "end": 52.4
     },
     {
      "w": "files",
-     "start": 52.32,
+     "start": 52.4,
      "end": 52.78
     },
     {
      "w": "with",
      "start": 52.78,
-     "end": 52.86
+     "end": 52.98
     },
     {
      "w": "modern",
-     "start": 52.86,
-     "end": 53.27
+     "start": 52.98,
+     "end": 53.31
     },
     {
      "w": "methods.",
-     "start": 53.27,
-     "end": 53.75
+     "start": 53.31,
+     "end": 53.79
     }
    ]
   },
   {
    "id": "L17",
    "start": 54.01,
-   "end": 58.57,
+   "end": 58.63,
    "text": "They reportedly narrowed it to one main suspect, but never named that person publicly.",
    "words": [
     {
      "w": "They",
      "start": 54.04,
-     "end": 54.26
+     "end": 54.27
     },
     {
      "w": "reportedly",
-     "start": 54.26,
-     "end": 54.89
+     "start": 54.27,
+     "end": 54.92
     },
     {
      "w": "narrowed",
-     "start": 54.89,
-     "end": 55.26
+     "start": 54.92,
+     "end": 55.24
     },
     {
      "w": "it",
-     "start": 55.26,
-     "end": 55.34
+     "start": 55.24,
+     "end": 55.46
     },
     {
      "w": "to",
-     "start": 55.34,
-     "end": 55.56
+     "start": 55.46,
+     "end": 55.52
     },
     {
      "w": "one",
-     "start": 55.56,
-     "end": 55.84
+     "start": 55.52,
+     "end": 55.85
     },
     {
      "w": "main",
-     "start": 55.84,
-     "end": 56.13
+     "start": 55.85,
+     "end": 56.16
     },
     {
      "w": "suspect,",
-     "start": 56.13,
-     "end": 56.55
+     "start": 56.16,
+     "end": 56.5
     },
     {
      "w": "but",
-     "start": 56.55,
-     "end": 56.73
+     "start": 56.5,
+     "end": 56.75
     },
     {
      "w": "never",
-     "start": 56.73,
-     "end": 57.01
+     "start": 56.75,
+     "end": 57.03
     },
     {
      "w": "named",
-     "start": 57.01,
-     "end": 57.34
+     "start": 57.03,
+     "end": 57.46
     },
     {
      "w": "that",
-     "start": 57.34,
-     "end": 57.56
+     "start": 57.46,
+     "end": 57.67
     },
     {
      "w": "person",
-     "start": 57.56,
-     "end": 57.97
+     "start": 57.67,
+     "end": 58.09
     },
     {
      "w": "publicly.",
-     "start": 57.97,
-     "end": 58.51
+     "start": 58.09,
+     "end": 58.57
     }
    ]
   },
   {
    "id": "L18",
    "start": 58.92,
-   "end": 61.17,
+   "end": 61.06,
    "text": "Officially, the case is still unsolved.",
    "words": [
     {
      "w": "Officially,",
      "start": 58.95,
-     "end": 59.56
+     "end": 59.5
     },
     {
      "w": "the",
-     "start": 59.56,
-     "end": 59.58
+     "start": 59.5,
+     "end": 59.61
     },
     {
      "w": "case",
-     "start": 59.58,
-     "end": 60.04
+     "start": 59.61,
+     "end": 59.89
     },
     {
      "w": "is",
-     "start": 60.04,
-     "end": 60.07
+     "start": 59.89,
+     "end": 60.11
     },
     {
      "w": "still",
-     "start": 60.07,
-     "end": 60.5
+     "start": 60.11,
+     "end": 60.34
     },
     {
      "w": "unsolved.",
-     "start": 60.5,
-     "end": 61.11
+     "start": 60.34,
+     "end": 61.0
     }
    ]
   },
   {
    "id": "L19",
    "start": 61.52,
-   "end": 63.59,
+   "end": 63.65,
    "text": "Why would anyone stay? Tell me what you think.",
    "words": [
     {
@@ -1000,87 +1000,230 @@
     {
      "w": "would",
      "start": 61.8,
-     "end": 61.99
+     "end": 61.89
     },
     {
      "w": "anyone",
-     "start": 61.99,
-     "end": 62.27
+     "start": 61.89,
+     "end": 62.4
     },
     {
      "w": "stay?",
-     "start": 62.27,
-     "end": 62.61
+     "start": 62.4,
+     "end": 62.65
     },
     {
      "w": "Tell",
-     "start": 62.61,
-     "end": 62.72
+     "start": 62.65,
+     "end": 62.74
     },
     {
      "w": "me",
-     "start": 62.72,
-     "end": 62.96
+     "start": 62.74,
+     "end": 63.03
     },
     {
      "w": "what",
-     "start": 62.96,
-     "end": 63.08
+     "start": 63.03,
+     "end": 63.14
     },
     {
      "w": "you",
-     "start": 63.08,
-     "end": 63.33
+     "start": 63.14,
+     "end": 63.32
     },
     {
      "w": "think.",
-     "start": 63.33,
-     "end": 63.53
+     "start": 63.32,
+     "end": 63.59
     }
    ]
   },
   {
    "id": "L20",
    "start": 64.04,
-   "end": 65.77,
+   "end": 65.64,
    "text": "And it all began in the snow.",
    "words": [
     {
      "w": "And",
      "start": 64.07,
-     "end": 64.21
+     "end": 64.22
     },
     {
      "w": "it",
-     "start": 64.21,
-     "end": 64.45
+     "start": 64.22,
+     "end": 64.43
     },
     {
      "w": "all",
-     "start": 64.45,
-     "end": 64.64
+     "start": 64.43,
+     "end": 64.63
     },
     {
      "w": "began",
-     "start": 64.64,
-     "end": 65.02
+     "start": 64.63,
+     "end": 64.92
     },
     {
      "w": "in",
-     "start": 65.02,
-     "end": 65.19
+     "start": 64.92,
+     "end": 65.11
     },
     {
      "w": "the",
-     "start": 65.19,
-     "end": 65.34
+     "start": 65.11,
+     "end": 65.25
     },
     {
      "w": "snow.",
-     "start": 65.34,
-     "end": 65.71
+     "start": 65.25,
+     "end": 65.58
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 1.06,
+   "target": 3.13,
+   "dur": 3.05,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 1.06,
+   "target": 4.31,
+   "dur": 4.25,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 1.111,
+   "target": 3.99,
+   "dur": 4.07,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 1.06,
+   "target": 2.86,
+   "dur": 2.83,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 1.017,
+   "target": 2.76,
+   "dur": 2.75,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 0.9,
+   "target": 1.67,
+   "dur": 1.63,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 1.105,
+   "target": 3.84,
+   "dur": 3.75,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 1.06,
+   "target": 3.1,
+   "dur": 3.13,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 0.945,
+   "target": 2.65,
+   "dur": 2.56,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 0.9,
+   "target": 1.96,
+   "dur": 1.9,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.952,
+   "target": 1.71,
+   "dur": 1.61,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 1.06,
+   "target": 3.37,
+   "dur": 3.3,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 0.9,
+   "target": 1.89,
+   "dur": 1.75,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 1.129,
+   "target": 3.27,
+   "dur": 3.25,
+   "overrun": 0.0
+  },
+  {
+   "id": "L15",
+   "speed": 1.06,
+   "target": 4.03,
+   "dur": 4.1,
+   "overrun": 0.0
+  },
+  {
+   "id": "L16",
+   "speed": 1.142,
+   "target": 4.32,
+   "dur": 4.36,
+   "overrun": 0.0
+  },
+  {
+   "id": "L17",
+   "speed": 1.06,
+   "target": 4.56,
+   "dur": 4.62,
+   "overrun": 0.0
+  },
+  {
+   "id": "L18",
+   "speed": 0.9,
+   "target": 2.25,
+   "dur": 2.14,
+   "overrun": 0.0
+  },
+  {
+   "id": "L19",
+   "speed": 1.06,
+   "target": 2.07,
+   "dur": 2.13,
+   "overrun": 0.0
+  },
+  {
+   "id": "L20",
+   "speed": 0.947,
+   "target": 1.73,
+   "dur": 1.6,
+   "overrun": 0.0
   }
  ]
 }

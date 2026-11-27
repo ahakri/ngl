@@ -1,47 +1,47 @@
 {
  "duration": 75.04,
- "voice": "am_michael",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.23,
+   "end": 3.13,
    "text": "Found sailing the Atlantic. Nobody on board.",
    "words": [
     {
      "w": "Found",
      "start": 0.18,
-     "end": 0.55
+     "end": 0.54
     },
     {
      "w": "sailing",
-     "start": 0.55,
+     "start": 0.54,
      "end": 1.04
     },
     {
      "w": "the",
      "start": 1.04,
-     "end": 1.18
+     "end": 1.26
     },
     {
      "w": "Atlantic.",
-     "start": 1.18,
-     "end": 1.94
+     "start": 1.26,
+     "end": 1.84
     },
     {
      "w": "Nobody",
-     "start": 1.94,
-     "end": 2.56
+     "start": 1.84,
+     "end": 2.39
     },
     {
      "w": "on",
-     "start": 2.56,
-     "end": 2.77
+     "start": 2.39,
+     "end": 2.69
     },
     {
      "w": "board.",
-     "start": 2.77,
-     "end": 3.17
+     "start": 2.69,
+     "end": 3.07
     }
    ]
   },
@@ -59,41 +59,41 @@
     {
      "w": "know",
      "start": 3.8,
-     "end": 4.08
+     "end": 4.09
     },
     {
      "w": "the",
-     "start": 4.08,
+     "start": 4.09,
      "end": 4.31
     },
     {
      "w": "legend:",
      "start": 4.31,
-     "end": 4.76
+     "end": 4.86
     },
     {
      "w": "warm",
-     "start": 4.76,
-     "end": 5.26
+     "start": 4.86,
+     "end": 5.27
     },
     {
      "w": "tea,",
-     "start": 5.26,
-     "end": 5.47
+     "start": 5.27,
+     "end": 5.46
     },
     {
      "w": "breakfast",
-     "start": 5.47,
-     "end": 6.08
+     "start": 5.46,
+     "end": 6.03
     },
     {
      "w": "on",
-     "start": 6.08,
-     "end": 6.23
+     "start": 6.03,
+     "end": 6.25
     },
     {
      "w": "the",
-     "start": 6.23,
+     "start": 6.25,
      "end": 6.48
     },
     {
@@ -106,784 +106,784 @@
   {
    "id": "L03",
    "start": 7.21,
-   "end": 9.48,
+   "end": 9.37,
    "text": "Most of that is fiction. Even the name.",
    "words": [
     {
      "w": "Most",
      "start": 7.24,
-     "end": 7.58
+     "end": 7.54
     },
     {
      "w": "of",
-     "start": 7.58,
-     "end": 7.76
+     "start": 7.54,
+     "end": 7.74
     },
     {
      "w": "that",
-     "start": 7.76,
-     "end": 7.98
+     "start": 7.74,
+     "end": 7.95
     },
     {
      "w": "is",
-     "start": 7.98,
-     "end": 8.09
+     "start": 7.95,
+     "end": 8.08
     },
     {
      "w": "fiction.",
-     "start": 8.09,
-     "end": 8.63
+     "start": 8.08,
+     "end": 8.53
     },
     {
      "w": "Even",
-     "start": 8.63,
-     "end": 9.01
+     "start": 8.53,
+     "end": 8.9
     },
     {
      "w": "the",
-     "start": 9.01,
-     "end": 9.07
+     "start": 8.9,
+     "end": 9.06
     },
     {
      "w": "name.",
-     "start": 9.07,
-     "end": 9.42
+     "start": 9.06,
+     "end": 9.31
     }
    ]
   },
   {
    "id": "L04",
    "start": 9.83,
-   "end": 16.14,
+   "end": 15.96,
    "text": "December 1872, east of the Azores. Another crew spots a ship drifting.",
    "words": [
     {
      "w": "December",
      "start": 9.86,
-     "end": 10.58
+     "end": 10.56
     },
     {
      "w": "1872,",
-     "start": 10.58,
-     "end": 11.65
+     "start": 10.56,
+     "end": 11.6
     },
     {
      "w": "east",
-     "start": 11.65,
-     "end": 12.17
+     "start": 11.6,
+     "end": 12.1
     },
     {
      "w": "of",
-     "start": 12.17,
-     "end": 12.34
+     "start": 12.1,
+     "end": 12.27
     },
     {
      "w": "the",
-     "start": 12.34,
-     "end": 12.53
+     "start": 12.27,
+     "end": 12.34
     },
     {
      "w": "Azores.",
-     "start": 12.53,
+     "start": 12.34,
      "end": 13.05
     },
     {
      "w": "Another",
      "start": 13.05,
-     "end": 13.61
+     "end": 13.54
     },
     {
      "w": "crew",
-     "start": 13.61,
-     "end": 14.15
+     "start": 13.54,
+     "end": 13.91
     },
     {
      "w": "spots",
-     "start": 14.15,
-     "end": 14.66
+     "start": 13.91,
+     "end": 14.6
     },
     {
      "w": "a",
-     "start": 14.66,
-     "end": 14.97
+     "start": 14.6,
+     "end": 14.9
     },
     {
      "w": "ship",
-     "start": 14.97,
-     "end": 15.29
+     "start": 14.9,
+     "end": 15.24
     },
     {
      "w": "drifting.",
-     "start": 15.29,
-     "end": 16.08
+     "start": 15.24,
+     "end": 15.9
     }
    ]
   },
   {
    "id": "L05",
    "start": 16.39,
-   "end": 18.71,
+   "end": 18.61,
    "text": "The Mary Celeste. Her lifeboat: gone.",
    "words": [
     {
      "w": "The",
      "start": 16.42,
-     "end": 16.62
+     "end": 16.58
     },
     {
      "w": "Mary",
-     "start": 16.62,
-     "end": 16.89
+     "start": 16.58,
+     "end": 16.9
     },
     {
      "w": "Celeste.",
-     "start": 16.89,
-     "end": 17.52
+     "start": 16.9,
+     "end": 17.45
     },
     {
      "w": "Her",
-     "start": 17.52,
-     "end": 17.68
+     "start": 17.45,
+     "end": 17.58
     },
     {
      "w": "lifeboat:",
-     "start": 17.68,
-     "end": 18.29
+     "start": 17.58,
+     "end": 18.32
     },
     {
      "w": "gone.",
-     "start": 18.29,
-     "end": 18.65
+     "start": 18.32,
+     "end": 18.55
     }
    ]
   },
   {
    "id": "L06",
    "start": 19.06,
-   "end": 21.42,
+   "end": 21.29,
    "text": "Six months of food and water still aboard.",
    "words": [
     {
      "w": "Six",
      "start": 19.09,
-     "end": 19.35
+     "end": 19.32
     },
     {
      "w": "months",
-     "start": 19.35,
-     "end": 19.77
+     "start": 19.32,
+     "end": 19.69
     },
     {
      "w": "of",
-     "start": 19.77,
-     "end": 19.81
+     "start": 19.69,
+     "end": 19.74
     },
     {
      "w": "food",
-     "start": 19.81,
-     "end": 20.1
+     "start": 19.74,
+     "end": 20.02
     },
     {
      "w": "and",
-     "start": 20.1,
-     "end": 20.29
+     "start": 20.02,
+     "end": 20.19
     },
     {
      "w": "water",
-     "start": 20.29,
-     "end": 20.72
+     "start": 20.19,
+     "end": 20.63
     },
     {
      "w": "still",
-     "start": 20.72,
-     "end": 21.01
+     "start": 20.63,
+     "end": 20.9
     },
     {
      "w": "aboard.",
-     "start": 21.01,
-     "end": 21.36
+     "start": 20.9,
+     "end": 21.23
     }
    ]
   },
   {
    "id": "L07",
    "start": 21.62,
-   "end": 24.46,
+   "end": 24.43,
    "text": "Seventeen hundred barrels of alcohol in the hold.",
    "words": [
     {
      "w": "Seventeen",
      "start": 21.65,
-     "end": 22.23
+     "end": 22.32
     },
     {
      "w": "hundred",
-     "start": 22.23,
-     "end": 22.66
+     "start": 22.32,
+     "end": 22.76
     },
     {
      "w": "barrels",
-     "start": 22.66,
-     "end": 23.16
+     "start": 22.76,
+     "end": 23.13
     },
     {
      "w": "of",
-     "start": 23.16,
-     "end": 23.25
+     "start": 23.13,
+     "end": 23.14
     },
     {
      "w": "alcohol",
-     "start": 23.25,
-     "end": 23.84
+     "start": 23.14,
+     "end": 23.75
     },
     {
      "w": "in",
-     "start": 23.84,
-     "end": 23.9
+     "start": 23.75,
+     "end": 23.98
     },
     {
      "w": "the",
-     "start": 23.9,
-     "end": 24.11
+     "start": 23.98,
+     "end": 23.98
     },
     {
      "w": "hold.",
-     "start": 24.11,
-     "end": 24.4
+     "start": 23.98,
+     "end": 24.37
     }
    ]
   },
   {
    "id": "L08",
    "start": 24.71,
-   "end": 28.55,
+   "end": 28.45,
    "text": "A sounding rod lay on deck, as if someone had checked for leaks.",
    "words": [
     {
      "w": "A",
      "start": 24.74,
-     "end": 24.91
+     "end": 24.92
     },
     {
      "w": "sounding",
-     "start": 24.91,
-     "end": 25.39
+     "start": 24.92,
+     "end": 25.49
     },
     {
      "w": "rod",
-     "start": 25.39,
-     "end": 25.71
+     "start": 25.49,
+     "end": 25.8
     },
     {
      "w": "lay",
-     "start": 25.71,
-     "end": 26.09
+     "start": 25.8,
+     "end": 26.05
     },
     {
      "w": "on",
-     "start": 26.09,
-     "end": 26.16
+     "start": 26.05,
+     "end": 26.12
     },
     {
      "w": "deck,",
-     "start": 26.16,
-     "end": 26.5
+     "start": 26.12,
+     "end": 26.47
     },
     {
      "w": "as",
-     "start": 26.5,
-     "end": 26.55
+     "start": 26.47,
+     "end": 26.62
     },
     {
      "w": "if",
-     "start": 26.55,
-     "end": 26.77
+     "start": 26.62,
+     "end": 26.63
     },
     {
      "w": "someone",
-     "start": 26.77,
-     "end": 27.17
+     "start": 26.63,
+     "end": 27.07
     },
     {
      "w": "had",
-     "start": 27.17,
-     "end": 27.51
+     "start": 27.07,
+     "end": 27.44
     },
     {
      "w": "checked",
-     "start": 27.51,
-     "end": 27.83
+     "start": 27.44,
+     "end": 27.74
     },
     {
      "w": "for",
-     "start": 27.83,
-     "end": 28.08
+     "start": 27.74,
+     "end": 27.98
     },
     {
      "w": "leaks.",
-     "start": 28.08,
-     "end": 28.49
+     "start": 27.98,
+     "end": 28.39
     }
    ]
   },
   {
    "id": "L09",
    "start": 28.8,
-   "end": 32.01,
+   "end": 31.96,
    "text": "Three and a half feet of water below. Yet she was seaworthy.",
    "words": [
     {
      "w": "Three",
      "start": 28.83,
-     "end": 29.18
+     "end": 29.11
     },
     {
      "w": "and",
-     "start": 29.18,
+     "start": 29.11,
      "end": 29.24
     },
     {
      "w": "a",
      "start": 29.24,
-     "end": 29.52
+     "end": 29.46
     },
     {
      "w": "half",
-     "start": 29.52,
-     "end": 29.74
+     "start": 29.46,
+     "end": 29.71
     },
     {
      "w": "feet",
-     "start": 29.74,
-     "end": 29.97
+     "start": 29.71,
+     "end": 30.03
     },
     {
      "w": "of",
-     "start": 29.97,
-     "end": 30.11
+     "start": 30.03,
+     "end": 30.04
     },
     {
      "w": "water",
-     "start": 30.11,
+     "start": 30.04,
      "end": 30.51
     },
     {
      "w": "below.",
      "start": 30.51,
-     "end": 30.89
+     "end": 30.76
     },
     {
      "w": "Yet",
-     "start": 30.89,
-     "end": 31.07
+     "start": 30.76,
+     "end": 31.01
     },
     {
      "w": "she",
-     "start": 31.07,
+     "start": 31.01,
      "end": 31.24
     },
     {
      "w": "was",
      "start": 31.24,
-     "end": 31.47
+     "end": 31.39
     },
     {
      "w": "seaworthy.",
-     "start": 31.47,
-     "end": 31.95
+     "start": 31.39,
+     "end": 31.9
     }
    ]
   },
   {
    "id": "L10",
    "start": 32.46,
-   "end": 34.33,
+   "end": 34.22,
    "text": "So where did the warm tea come from?",
    "words": [
     {
      "w": "So",
      "start": 32.49,
-     "end": 32.7
+     "end": 32.67
     },
     {
      "w": "where",
-     "start": 32.7,
-     "end": 32.98
+     "start": 32.67,
+     "end": 32.89
     },
     {
      "w": "did",
-     "start": 32.98,
-     "end": 33.14
+     "start": 32.89,
+     "end": 33.06
     },
     {
      "w": "the",
-     "start": 33.14,
-     "end": 33.2
+     "start": 33.06,
+     "end": 33.28
     },
     {
      "w": "warm",
-     "start": 33.2,
-     "end": 33.55
+     "start": 33.28,
+     "end": 33.48
     },
     {
      "w": "tea",
-     "start": 33.55,
-     "end": 33.81
+     "start": 33.48,
+     "end": 33.71
     },
     {
      "w": "come",
-     "start": 33.81,
-     "end": 34.1
+     "start": 33.71,
+     "end": 33.9
     },
     {
      "w": "from?",
-     "start": 34.1,
-     "end": 34.27
+     "start": 33.9,
+     "end": 34.16
     }
    ]
   },
   {
    "id": "L11",
    "start": 34.63,
-   "end": 40.7,
+   "end": 40.347,
    "text": "In 1884, an anonymous magazine story renamed her Marie Celeste.",
    "words": [
     {
      "w": "In",
-     "start": 34.65,
-     "end": 34.97
+     "start": 34.66,
+     "end": 34.95
     },
     {
      "w": "1884,",
-     "start": 34.97,
-     "end": 36.03
+     "start": 34.95,
+     "end": 35.87
     },
     {
      "w": "an",
-     "start": 36.03,
-     "end": 36.18
+     "start": 35.87,
+     "end": 36.0
     },
     {
      "w": "anonymous",
-     "start": 36.18,
-     "end": 36.96
+     "start": 36.0,
+     "end": 36.83
     },
     {
      "w": "magazine",
-     "start": 36.96,
-     "end": 37.96
+     "start": 36.83,
+     "end": 37.68
     },
     {
      "w": "story",
-     "start": 37.96,
-     "end": 38.46
+     "start": 37.68,
+     "end": 38.36
     },
     {
      "w": "renamed",
-     "start": 38.46,
-     "end": 39.17
+     "start": 38.36,
+     "end": 39.02
     },
     {
      "w": "her",
-     "start": 39.17,
-     "end": 39.54
+     "start": 39.02,
+     "end": 39.16
     },
     {
      "w": "Marie",
-     "start": 39.54,
-     "end": 40.08
+     "start": 39.16,
+     "end": 39.67
     },
     {
      "w": "Celeste.",
-     "start": 40.08,
-     "end": 40.64
+     "start": 39.67,
+     "end": 40.29
     }
    ]
   },
   {
    "id": "L12",
    "start": 40.95,
-   "end": 46.31,
+   "end": 46.27,
    "text": "Many readers took it as fact. The author: Arthur Conan Doyle, before Sherlock Holmes.",
    "words": [
     {
      "w": "Many",
      "start": 40.98,
-     "end": 41.41
+     "end": 41.28
     },
     {
      "w": "readers",
-     "start": 41.41,
-     "end": 41.83
+     "start": 41.28,
+     "end": 41.81
     },
     {
      "w": "took",
-     "start": 41.83,
-     "end": 42.13
+     "start": 41.81,
+     "end": 42.11
     },
     {
      "w": "it",
-     "start": 42.13,
-     "end": 42.37
+     "start": 42.11,
+     "end": 42.36
     },
     {
      "w": "as",
-     "start": 42.37,
-     "end": 42.44
+     "start": 42.36,
+     "end": 42.43
     },
     {
      "w": "fact.",
-     "start": 42.44,
-     "end": 42.84
+     "start": 42.43,
+     "end": 42.79
     },
     {
      "w": "The",
-     "start": 42.84,
-     "end": 43.0
+     "start": 42.79,
+     "end": 42.9
     },
     {
      "w": "author:",
-     "start": 43.0,
-     "end": 43.41
+     "start": 42.9,
+     "end": 43.39
     },
     {
      "w": "Arthur",
-     "start": 43.41,
-     "end": 43.86
+     "start": 43.39,
+     "end": 43.83
     },
     {
      "w": "Conan",
-     "start": 43.86,
-     "end": 44.32
+     "start": 43.83,
+     "end": 44.35
     },
     {
      "w": "Doyle,",
-     "start": 44.32,
-     "end": 44.75
+     "start": 44.35,
+     "end": 44.72
     },
     {
      "w": "before",
-     "start": 44.75,
-     "end": 45.21
+     "start": 44.72,
+     "end": 45.12
     },
     {
      "w": "Sherlock",
-     "start": 45.21,
-     "end": 45.74
+     "start": 45.12,
+     "end": 45.7
     },
     {
      "w": "Holmes.",
-     "start": 45.74,
-     "end": 46.25
+     "start": 45.7,
+     "end": 46.21
     }
    ]
   },
   {
    "id": "L13",
    "start": 46.71,
-   "end": 51.17,
+   "end": 51.12,
    "text": "The cosy breakfast scenes came from retellings like these. Not from the ship.",
    "words": [
     {
      "w": "The",
-     "start": 46.74,
+     "start": 46.73,
      "end": 46.85
     },
     {
      "w": "cosy",
      "start": 46.85,
-     "end": 47.32
+     "end": 47.28
     },
     {
      "w": "breakfast",
-     "start": 47.32,
-     "end": 47.84
+     "start": 47.28,
+     "end": 47.9
     },
     {
      "w": "scenes",
-     "start": 47.84,
-     "end": 48.24
+     "start": 47.9,
+     "end": 48.17
     },
     {
      "w": "came",
-     "start": 48.24,
-     "end": 48.54
+     "start": 48.17,
+     "end": 48.62
     },
     {
      "w": "from",
-     "start": 48.54,
-     "end": 48.82
+     "start": 48.62,
+     "end": 48.88
     },
     {
      "w": "retellings",
-     "start": 48.82,
-     "end": 49.39
+     "start": 48.88,
+     "end": 49.35
     },
     {
      "w": "like",
-     "start": 49.39,
-     "end": 49.77
+     "start": 49.35,
+     "end": 49.69
     },
     {
      "w": "these.",
-     "start": 49.77,
-     "end": 50.06
+     "start": 49.69,
+     "end": 50.03
     },
     {
      "w": "Not",
-     "start": 50.06,
-     "end": 50.5
+     "start": 50.03,
+     "end": 50.46
     },
     {
      "w": "from",
-     "start": 50.5,
-     "end": 50.65
+     "start": 50.46,
+     "end": 50.61
     },
     {
      "w": "the",
-     "start": 50.65,
-     "end": 50.84
+     "start": 50.61,
+     "end": 50.76
     },
     {
      "w": "ship.",
-     "start": 50.84,
-     "end": 51.11
+     "start": 50.76,
+     "end": 51.06
     }
    ]
   },
   {
    "id": "L14",
    "start": 51.57,
-   "end": 53.34,
+   "end": 53.27,
    "text": "The leading theories are ordinary.",
    "words": [
     {
      "w": "The",
      "start": 51.6,
-     "end": 51.7
+     "end": 51.71
     },
     {
      "w": "leading",
-     "start": 51.7,
+     "start": 51.71,
      "end": 52.05
     },
     {
      "w": "theories",
      "start": 52.05,
-     "end": 52.55
+     "end": 52.41
     },
     {
      "w": "are",
-     "start": 52.55,
-     "end": 52.72
+     "start": 52.41,
+     "end": 52.66
     },
     {
      "w": "ordinary.",
-     "start": 52.72,
-     "end": 53.28
+     "start": 52.66,
+     "end": 53.21
     }
    ]
   },
   {
    "id": "L15",
    "start": 53.54,
-   "end": 56.1,
+   "end": 56.01,
    "text": "Alcohol fumes, and fear of an explosion.",
    "words": [
     {
      "w": "Alcohol",
      "start": 53.57,
-     "end": 54.15
+     "end": 54.12
     },
     {
      "w": "fumes,",
-     "start": 54.15,
+     "start": 54.12,
      "end": 54.59
     },
     {
      "w": "and",
      "start": 54.59,
-     "end": 54.89
+     "end": 54.84
     },
     {
      "w": "fear",
-     "start": 54.89,
-     "end": 55.06
+     "start": 54.84,
+     "end": 55.04
     },
     {
      "w": "of",
-     "start": 55.06,
-     "end": 55.27
+     "start": 55.04,
+     "end": 55.16
     },
     {
      "w": "an",
-     "start": 55.27,
-     "end": 55.3
+     "start": 55.16,
+     "end": 55.33
     },
     {
      "w": "explosion.",
-     "start": 55.3,
-     "end": 56.04
+     "start": 55.33,
+     "end": 55.95
     }
    ]
   },
   {
    "id": "L16",
    "start": 56.3,
-   "end": 58.75,
+   "end": 58.63,
    "text": "Or a broken pump, and fear she was sinking.",
    "words": [
     {
      "w": "Or",
-     "start": 56.33,
+     "start": 56.32,
      "end": 56.55
     },
     {
      "w": "a",
      "start": 56.55,
-     "end": 56.75
+     "end": 56.72
     },
     {
      "w": "broken",
-     "start": 56.75,
-     "end": 57.23
+     "start": 56.72,
+     "end": 57.18
     },
     {
      "w": "pump,",
-     "start": 57.23,
-     "end": 57.5
+     "start": 57.18,
+     "end": 57.37
     },
     {
      "w": "and",
-     "start": 57.5,
-     "end": 57.72
+     "start": 57.37,
+     "end": 57.59
     },
     {
      "w": "fear",
-     "start": 57.72,
-     "end": 57.87
+     "start": 57.59,
+     "end": 57.88
     },
     {
      "w": "she",
-     "start": 57.87,
-     "end": 58.09
+     "start": 57.88,
+     "end": 58.01
     },
     {
      "w": "was",
-     "start": 58.09,
-     "end": 58.22
+     "start": 58.01,
+     "end": 58.14
     },
     {
      "w": "sinking.",
-     "start": 58.22,
-     "end": 58.69
+     "start": 58.14,
+     "end": 58.57
     }
    ]
   },
   {
    "id": "L17",
    "start": 59.05,
-   "end": 62.14,
+   "end": 62.08,
    "text": "Either way, they may have taken the lifeboat, and lost the ship.",
    "words": [
     {
@@ -894,64 +894,64 @@
     {
      "w": "way,",
      "start": 59.36,
-     "end": 59.65
+     "end": 59.6
     },
     {
      "w": "they",
-     "start": 59.65,
-     "end": 59.74
+     "start": 59.6,
+     "end": 59.69
     },
     {
      "w": "may",
-     "start": 59.74,
-     "end": 60.06
+     "start": 59.69,
+     "end": 60.01
     },
     {
      "w": "have",
-     "start": 60.06,
-     "end": 60.18
+     "start": 60.01,
+     "end": 60.21
     },
     {
      "w": "taken",
-     "start": 60.18,
-     "end": 60.57
+     "start": 60.21,
+     "end": 60.66
     },
     {
      "w": "the",
-     "start": 60.57,
-     "end": 60.8
+     "start": 60.66,
+     "end": 60.75
     },
     {
      "w": "lifeboat,",
-     "start": 60.8,
-     "end": 61.25
+     "start": 60.75,
+     "end": 61.16
     },
     {
      "w": "and",
-     "start": 61.25,
-     "end": 61.45
+     "start": 61.16,
+     "end": 61.39
     },
     {
      "w": "lost",
-     "start": 61.45,
-     "end": 61.75
+     "start": 61.39,
+     "end": 61.69
     },
     {
      "w": "the",
-     "start": 61.75,
-     "end": 61.78
+     "start": 61.69,
+     "end": 61.77
     },
     {
      "w": "ship.",
-     "start": 61.78,
-     "end": 62.08
+     "start": 61.77,
+     "end": 62.02
     }
    ]
   },
   {
    "id": "L18",
    "start": 62.59,
-   "end": 67.67,
+   "end": 67.57,
    "text": "Captain Briggs, his wife Sarah, two-year-old Sophia and seven crew were never found.",
    "words": [
     {
@@ -962,170 +962,313 @@
     {
      "w": "Briggs,",
      "start": 63.02,
-     "end": 63.45
+     "end": 63.42
     },
     {
      "w": "his",
-     "start": 63.45,
-     "end": 63.81
+     "start": 63.42,
+     "end": 63.78
     },
     {
      "w": "wife",
-     "start": 63.81,
-     "end": 64.13
+     "start": 63.78,
+     "end": 64.11
     },
     {
      "w": "Sarah,",
-     "start": 64.13,
-     "end": 64.47
+     "start": 64.11,
+     "end": 64.33
     },
     {
      "w": "two-year-old",
-     "start": 64.47,
-     "end": 65.25
+     "start": 64.33,
+     "end": 65.28
     },
     {
      "w": "Sophia",
-     "start": 65.25,
-     "end": 65.73
+     "start": 65.28,
+     "end": 65.62
     },
     {
      "w": "and",
-     "start": 65.73,
-     "end": 66.0
+     "start": 65.62,
+     "end": 65.93
     },
     {
      "w": "seven",
-     "start": 66.0,
-     "end": 66.3
+     "start": 65.93,
+     "end": 66.29
     },
     {
      "w": "crew",
-     "start": 66.3,
-     "end": 66.62
+     "start": 66.29,
+     "end": 66.56
     },
     {
      "w": "were",
-     "start": 66.62,
-     "end": 66.91
+     "start": 66.56,
+     "end": 66.73
     },
     {
      "w": "never",
-     "start": 66.91,
-     "end": 67.27
+     "start": 66.73,
+     "end": 67.15
     },
     {
      "w": "found.",
-     "start": 67.27,
-     "end": 67.61
+     "start": 67.15,
+     "end": 67.51
     }
    ]
   },
   {
    "id": "L19",
    "start": 68.12,
-   "end": 69.93,
+   "end": 69.86,
    "text": "Would you have left? Tell me below.",
    "words": [
     {
      "w": "Would",
      "start": 68.15,
-     "end": 68.36
+     "end": 68.34
     },
     {
      "w": "you",
-     "start": 68.36,
-     "end": 68.49
+     "start": 68.34,
+     "end": 68.48
     },
     {
      "w": "have",
-     "start": 68.49,
-     "end": 68.78
+     "start": 68.48,
+     "end": 68.77
     },
     {
      "w": "left?",
-     "start": 68.78,
-     "end": 69.06
+     "start": 68.77,
+     "end": 69.02
     },
     {
      "w": "Tell",
-     "start": 69.06,
-     "end": 69.25
+     "start": 69.02,
+     "end": 69.3
     },
     {
      "w": "me",
-     "start": 69.25,
-     "end": 69.53
+     "start": 69.3,
+     "end": 69.45
     },
     {
      "w": "below.",
-     "start": 69.53,
-     "end": 69.87
+     "start": 69.45,
+     "end": 69.8
     }
    ]
   },
   {
    "id": "L20",
    "start": 70.38,
-   "end": 74.44,
+   "end": 74.29,
    "text": "After the last log entry, nine days passed. Until she was...",
    "words": [
     {
      "w": "After",
      "start": 70.41,
-     "end": 70.76
+     "end": 70.81
     },
     {
      "w": "the",
-     "start": 70.76,
-     "end": 71.03
+     "start": 70.81,
+     "end": 71.0
     },
     {
      "w": "last",
-     "start": 71.03,
-     "end": 71.44
+     "start": 71.0,
+     "end": 71.4
     },
     {
      "w": "log",
-     "start": 71.44,
-     "end": 71.76
+     "start": 71.4,
+     "end": 71.63
     },
     {
      "w": "entry,",
-     "start": 71.76,
-     "end": 72.25
+     "start": 71.63,
+     "end": 72.17
     },
     {
      "w": "nine",
-     "start": 72.25,
-     "end": 72.58
+     "start": 72.17,
+     "end": 72.45
     },
     {
      "w": "days",
-     "start": 72.58,
-     "end": 73.04
+     "start": 72.45,
+     "end": 72.92
     },
     {
      "w": "passed.",
-     "start": 73.04,
-     "end": 73.42
+     "start": 72.92,
+     "end": 73.24
     },
     {
      "w": "Until",
-     "start": 73.42,
-     "end": 73.87
+     "start": 73.24,
+     "end": 73.73
     },
     {
      "w": "she",
-     "start": 73.87,
-     "end": 74.18
+     "start": 73.73,
+     "end": 74.05
     },
     {
      "w": "was...",
-     "start": 74.18,
-     "end": 74.38
+     "start": 74.05,
+     "end": 74.23
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 0.907,
+   "target": 3.08,
+   "dur": 2.98,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 0.907,
+   "target": 3.33,
+   "dur": 3.33,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 1.06,
+   "target": 2.27,
+   "dur": 2.16,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 0.9,
+   "target": 6.31,
+   "dur": 6.13,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 1.0,
+   "target": 2.32,
+   "dur": 2.22,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 1.06,
+   "target": 2.36,
+   "dur": 2.23,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 0.984,
+   "target": 2.84,
+   "dur": 2.81,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 0.9,
+   "target": 3.84,
+   "dur": 3.74,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 0.9,
+   "target": 3.21,
+   "dur": 3.16,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 1.06,
+   "target": 1.87,
+   "dur": 1.76,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.9,
+   "target": 6.07,
+   "dur": 5.717,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 0.904,
+   "target": 5.36,
+   "dur": 5.32,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 0.922,
+   "target": 4.46,
+   "dur": 4.41,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 0.999,
+   "target": 1.77,
+   "dur": 1.7,
+   "overrun": 0.0
+  },
+  {
+   "id": "L15",
+   "speed": 0.961,
+   "target": 2.56,
+   "dur": 2.47,
+   "overrun": 0.0
+  },
+  {
+   "id": "L16",
+   "speed": 0.959,
+   "target": 2.45,
+   "dur": 2.33,
+   "overrun": 0.0
+  },
+  {
+   "id": "L17",
+   "speed": 0.952,
+   "target": 3.09,
+   "dur": 3.03,
+   "overrun": 0.0
+  },
+  {
+   "id": "L18",
+   "speed": 0.927,
+   "target": 5.08,
+   "dur": 4.98,
+   "overrun": 0.0
+  },
+  {
+   "id": "L19",
+   "speed": 0.982,
+   "target": 1.81,
+   "dur": 1.74,
+   "overrun": 0.0
+  },
+  {
+   "id": "L20",
+   "speed": 0.9,
+   "target": 4.06,
+   "dur": 3.91,
+   "overrun": 0.0
   }
  ]
 }

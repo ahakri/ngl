@@ -1,223 +1,223 @@
 {
  "duration": 74.08,
- "voice": "am_onyx",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.14,
+   "end": 3.169,
    "text": "He opened the back door of a jetliner in flight. And jumped.",
    "words": [
     {
      "w": "He",
      "start": 0.18,
-     "end": 0.36
+     "end": 0.37
     },
     {
      "w": "opened",
-     "start": 0.36,
-     "end": 0.76
+     "start": 0.37,
+     "end": 0.77
     },
     {
      "w": "the",
-     "start": 0.76,
-     "end": 0.85
+     "start": 0.77,
+     "end": 0.87
     },
     {
      "w": "back",
-     "start": 0.85,
-     "end": 0.99
+     "start": 0.87,
+     "end": 1.01
     },
     {
      "w": "door",
-     "start": 0.99,
-     "end": 1.28
+     "start": 1.01,
+     "end": 1.31
     },
     {
      "w": "of",
-     "start": 1.28,
-     "end": 1.36
+     "start": 1.31,
+     "end": 1.37
     },
     {
      "w": "a",
-     "start": 1.36,
-     "end": 1.51
+     "start": 1.37,
+     "end": 1.5
     },
     {
      "w": "jetliner",
-     "start": 1.51,
-     "end": 2.08
+     "start": 1.5,
+     "end": 2.03
     },
     {
      "w": "in",
-     "start": 2.08,
-     "end": 2.29
+     "start": 2.03,
+     "end": 2.27
     },
     {
      "w": "flight.",
-     "start": 2.29,
-     "end": 2.51
+     "start": 2.27,
+     "end": 2.55
     },
     {
      "w": "And",
-     "start": 2.51,
-     "end": 2.67
+     "start": 2.55,
+     "end": 2.73
     },
     {
      "w": "jumped.",
-     "start": 2.67,
-     "end": 3.08
+     "start": 2.73,
+     "end": 3.11
     }
    ]
   },
   {
    "id": "L02",
    "start": 3.49,
-   "end": 5.88,
+   "end": 5.76,
    "text": "With two hundred thousand dollars in ransom.",
    "words": [
     {
      "w": "With",
-     "start": 3.52,
-     "end": 3.67
+     "start": 3.51,
+     "end": 3.68
     },
     {
      "w": "two",
-     "start": 3.67,
+     "start": 3.68,
      "end": 3.91
     },
     {
      "w": "hundred",
      "start": 3.91,
-     "end": 4.42
+     "end": 4.38
     },
     {
      "w": "thousand",
-     "start": 4.42,
-     "end": 4.9
+     "start": 4.38,
+     "end": 4.77
     },
     {
      "w": "dollars",
-     "start": 4.9,
-     "end": 5.19
+     "start": 4.77,
+     "end": 5.14
     },
     {
      "w": "in",
-     "start": 5.19,
-     "end": 5.4
+     "start": 5.14,
+     "end": 5.36
     },
     {
      "w": "ransom.",
-     "start": 5.4,
-     "end": 5.82
+     "start": 5.36,
+     "end": 5.7
     }
    ]
   },
   {
    "id": "L03",
    "start": 6.18,
-   "end": 10.07,
+   "end": 10.1,
    "text": "November 24th, 1971. Flight three-oh-five.",
    "words": [
     {
      "w": "November",
      "start": 6.21,
-     "end": 6.9
+     "end": 6.92
     },
     {
      "w": "24th,",
-     "start": 6.9,
-     "end": 7.84
+     "start": 6.92,
+     "end": 7.79
     },
     {
      "w": "1971.",
-     "start": 7.84,
-     "end": 8.7
+     "start": 7.79,
+     "end": 8.72
     },
     {
      "w": "Flight",
-     "start": 8.7,
-     "end": 9.13
+     "start": 8.72,
+     "end": 9.16
     },
     {
      "w": "three-oh-five.",
-     "start": 9.13,
-     "end": 10.01
+     "start": 9.16,
+     "end": 10.04
     }
    ]
   },
   {
    "id": "L04",
    "start": 10.32,
-   "end": 14.27,
+   "end": 14.21,
    "text": "A passenger ticketed as Dan Cooper handed a flight attendant a note.",
    "words": [
     {
      "w": "A",
      "start": 10.35,
-     "end": 10.46
+     "end": 10.47
     },
     {
      "w": "passenger",
-     "start": 10.46,
-     "end": 11.08
+     "start": 10.47,
+     "end": 11.11
     },
     {
      "w": "ticketed",
-     "start": 11.08,
-     "end": 11.55
+     "start": 11.11,
+     "end": 11.57
     },
     {
      "w": "as",
-     "start": 11.55,
-     "end": 11.61
+     "start": 11.57,
+     "end": 11.62
     },
     {
      "w": "Dan",
-     "start": 11.61,
-     "end": 11.83
+     "start": 11.62,
+     "end": 11.81
     },
     {
      "w": "Cooper",
-     "start": 11.83,
-     "end": 12.31
+     "start": 11.81,
+     "end": 12.28
     },
     {
      "w": "handed",
-     "start": 12.31,
-     "end": 12.6
+     "start": 12.28,
+     "end": 12.58
     },
     {
      "w": "a",
-     "start": 12.6,
-     "end": 12.9
+     "start": 12.58,
+     "end": 12.75
     },
     {
      "w": "flight",
-     "start": 12.9,
-     "end": 13.24
+     "start": 12.75,
+     "end": 13.09
     },
     {
      "w": "attendant",
-     "start": 13.24,
-     "end": 13.79
+     "start": 13.09,
+     "end": 13.73
     },
     {
      "w": "a",
-     "start": 13.79,
-     "end": 13.85
+     "start": 13.73,
+     "end": 13.79
     },
     {
      "w": "note.",
-     "start": 13.85,
-     "end": 14.21
+     "start": 13.79,
+     "end": 14.15
     }
    ]
   },
   {
    "id": "L05",
    "start": 14.52,
-   "end": 15.95,
+   "end": 15.85,
    "text": "It claimed he had a bomb.",
    "words": [
     {
@@ -228,171 +228,171 @@
     {
      "w": "claimed",
      "start": 14.63,
-     "end": 15.0
+     "end": 14.97
     },
     {
      "w": "he",
-     "start": 15.0,
-     "end": 15.27
+     "start": 14.97,
+     "end": 15.23
     },
     {
      "w": "had",
-     "start": 15.27,
-     "end": 15.43
+     "start": 15.23,
+     "end": 15.37
     },
     {
      "w": "a",
-     "start": 15.43,
-     "end": 15.64
+     "start": 15.37,
+     "end": 15.58
     },
     {
      "w": "bomb.",
-     "start": 15.64,
-     "end": 15.89
+     "start": 15.58,
+     "end": 15.79
     }
    ]
   },
   {
    "id": "L06",
    "start": 16.25,
-   "end": 18.76,
+   "end": 18.75,
    "text": "He'd demanded that cash. And four parachutes.",
    "words": [
     {
      "w": "He'd",
      "start": 16.28,
-     "end": 16.54
+     "end": 16.57
     },
     {
      "w": "demanded",
-     "start": 16.54,
-     "end": 17.04
+     "start": 16.57,
+     "end": 17.02
     },
     {
      "w": "that",
-     "start": 17.04,
-     "end": 17.36
+     "start": 17.02,
+     "end": 17.33
     },
     {
      "w": "cash.",
-     "start": 17.36,
-     "end": 17.51
+     "start": 17.33,
+     "end": 17.59
     },
     {
      "w": "And",
-     "start": 17.51,
-     "end": 17.7
+     "start": 17.59,
+     "end": 17.66
     },
     {
      "w": "four",
-     "start": 17.7,
-     "end": 17.98
+     "start": 17.66,
+     "end": 18.04
     },
     {
      "w": "parachutes.",
-     "start": 17.98,
-     "end": 18.7
+     "start": 18.04,
+     "end": 18.69
     }
    ]
   },
   {
    "id": "L07",
    "start": 19.06,
-   "end": 21.62,
+   "end": 21.58,
    "text": "In Seattle, he swapped the passengers for the cash.",
    "words": [
     {
      "w": "In",
      "start": 19.09,
-     "end": 19.22
+     "end": 19.19
     },
     {
      "w": "Seattle,",
-     "start": 19.22,
-     "end": 19.75
+     "start": 19.19,
+     "end": 19.73
     },
     {
      "w": "he",
-     "start": 19.75,
-     "end": 19.95
+     "start": 19.73,
+     "end": 19.93
     },
     {
      "w": "swapped",
-     "start": 19.95,
-     "end": 20.33
+     "start": 19.93,
+     "end": 20.24
     },
     {
      "w": "the",
-     "start": 20.33,
-     "end": 20.35
+     "start": 20.24,
+     "end": 20.44
     },
     {
      "w": "passengers",
-     "start": 20.35,
-     "end": 21.04
+     "start": 20.44,
+     "end": 20.9
     },
     {
      "w": "for",
-     "start": 21.04,
-     "end": 21.2
+     "start": 20.9,
+     "end": 21.15
     },
     {
      "w": "the",
-     "start": 21.2,
-     "end": 21.29
+     "start": 21.15,
+     "end": 21.33
     },
     {
      "w": "cash.",
-     "start": 21.29,
-     "end": 21.56
+     "start": 21.33,
+     "end": 21.52
     }
    ]
   },
   {
    "id": "L08",
    "start": 21.87,
-   "end": 24.27,
+   "end": 24.31,
    "text": "Then he ordered the jet south, toward Mexico.",
    "words": [
     {
      "w": "Then",
      "start": 21.9,
-     "end": 22.09
+     "end": 22.1
     },
     {
      "w": "he",
-     "start": 22.09,
-     "end": 22.26
+     "start": 22.1,
+     "end": 22.25
     },
     {
      "w": "ordered",
-     "start": 22.26,
-     "end": 22.57
+     "start": 22.25,
+     "end": 22.7
     },
     {
      "w": "the",
-     "start": 22.57,
-     "end": 22.73
+     "start": 22.7,
+     "end": 22.74
     },
     {
      "w": "jet",
-     "start": 22.73,
-     "end": 23.05
+     "start": 22.74,
+     "end": 23.07
     },
     {
      "w": "south,",
-     "start": 23.05,
-     "end": 23.25
+     "start": 23.07,
+     "end": 23.31
     },
     {
      "w": "toward",
-     "start": 23.25,
-     "end": 23.72
+     "start": 23.31,
+     "end": 23.65
     },
     {
      "w": "Mexico.",
-     "start": 23.72,
-     "end": 24.21
+     "start": 23.65,
+     "end": 24.25
     }
    ]
   },
@@ -410,51 +410,51 @@
     {
      "w": "southwest",
      "start": 24.79,
-     "end": 25.3
+     "end": 25.42
     },
     {
      "w": "Washington,",
-     "start": 25.3,
-     "end": 26.0
+     "start": 25.42,
+     "end": 25.96
     },
     {
      "w": "in",
-     "start": 26.0,
-     "end": 26.16
+     "start": 25.96,
+     "end": 26.13
     },
     {
      "w": "a",
-     "start": 26.16,
-     "end": 26.31
+     "start": 26.13,
+     "end": 26.23
     },
     {
      "w": "storm,",
-     "start": 26.31,
-     "end": 26.74
+     "start": 26.23,
+     "end": 26.75
     },
     {
      "w": "he",
-     "start": 26.74,
+     "start": 26.75,
      "end": 26.86
     },
     {
      "w": "lowered",
      "start": 26.86,
-     "end": 27.22
+     "end": 27.18
     },
     {
      "w": "the",
-     "start": 27.22,
-     "end": 27.3
+     "start": 27.18,
+     "end": 27.28
     },
     {
      "w": "rear",
-     "start": 27.3,
-     "end": 27.61
+     "start": 27.28,
+     "end": 27.58
     },
     {
      "w": "stairs.",
-     "start": 27.61,
+     "start": 27.58,
      "end": 27.93
     }
    ]
@@ -462,38 +462,38 @@
   {
    "id": "L10",
    "start": 28.29,
-   "end": 29.78,
+   "end": 29.68,
    "text": "And stepped off into the dark.",
    "words": [
     {
      "w": "And",
      "start": 28.32,
-     "end": 28.54
+     "end": 28.51
     },
     {
      "w": "stepped",
-     "start": 28.54,
-     "end": 28.76
+     "start": 28.51,
+     "end": 28.72
     },
     {
      "w": "off",
-     "start": 28.76,
-     "end": 29.02
+     "start": 28.72,
+     "end": 28.94
     },
     {
      "w": "into",
-     "start": 29.02,
-     "end": 29.32
+     "start": 28.94,
+     "end": 29.25
     },
     {
      "w": "the",
-     "start": 29.32,
-     "end": 29.38
+     "start": 29.25,
+     "end": 29.25
     },
     {
      "w": "dark.",
-     "start": 29.38,
-     "end": 29.72
+     "start": 29.25,
+     "end": 29.62
     }
    ]
   },
@@ -506,36 +506,36 @@
     {
      "w": "No",
      "start": 30.26,
-     "end": 30.54
+     "end": 30.51
     },
     {
      "w": "trace",
-     "start": 30.54,
-     "end": 30.9
+     "start": 30.51,
+     "end": 30.96
     },
     {
      "w": "of",
-     "start": 30.9,
-     "end": 31.0
+     "start": 30.96,
+     "end": 30.98
     },
     {
      "w": "him",
-     "start": 31.0,
-     "end": 31.36
+     "start": 30.98,
+     "end": 31.34
     },
     {
      "w": "was",
-     "start": 31.36,
-     "end": 31.47
+     "start": 31.34,
+     "end": 31.54
     },
     {
      "w": "ever",
-     "start": 31.47,
-     "end": 31.8
+     "start": 31.54,
+     "end": 31.7
     },
     {
      "w": "found.",
-     "start": 31.8,
+     "start": 31.7,
      "end": 32.16
     }
    ]
@@ -543,7 +543,7 @@
   {
    "id": "L12",
    "start": 32.52,
-   "end": 37.42,
+   "end": 37.38,
    "text": "In 1980, an eight-year-old smoothed sand for a campfire by the Columbia River.",
    "words": [
     {
@@ -554,180 +554,180 @@
     {
      "w": "1980,",
      "start": 32.79,
-     "end": 33.44
+     "end": 33.52
     },
     {
      "w": "an",
-     "start": 33.44,
-     "end": 33.65
+     "start": 33.52,
+     "end": 33.55
     },
     {
      "w": "eight-year-old",
-     "start": 33.65,
-     "end": 34.44
+     "start": 33.55,
+     "end": 34.38
     },
     {
      "w": "smoothed",
-     "start": 34.44,
-     "end": 34.89
+     "start": 34.38,
+     "end": 34.82
     },
     {
      "w": "sand",
-     "start": 34.89,
-     "end": 35.12
+     "start": 34.82,
+     "end": 35.11
     },
     {
      "w": "for",
-     "start": 35.12,
-     "end": 35.44
+     "start": 35.11,
+     "end": 35.41
     },
     {
      "w": "a",
-     "start": 35.44,
-     "end": 35.6
+     "start": 35.41,
+     "end": 35.58
     },
     {
      "w": "campfire",
-     "start": 35.6,
-     "end": 36.18
+     "start": 35.58,
+     "end": 36.03
     },
     {
      "w": "by",
-     "start": 36.18,
-     "end": 36.35
+     "start": 36.03,
+     "end": 36.37
     },
     {
      "w": "the",
-     "start": 36.35,
-     "end": 36.55
+     "start": 36.37,
+     "end": 36.52
     },
     {
      "w": "Columbia",
-     "start": 36.55,
+     "start": 36.52,
      "end": 37.06
     },
     {
      "w": "River.",
      "start": 37.06,
-     "end": 37.36
+     "end": 37.32
     }
    ]
   },
   {
    "id": "L13",
    "start": 37.72,
-   "end": 40.18,
+   "end": 40.14,
    "text": "Under it: three rotting bundles of twenties.",
    "words": [
     {
      "w": "Under",
      "start": 37.75,
-     "end": 38.13
+     "end": 38.12
     },
     {
      "w": "it:",
-     "start": 38.13,
-     "end": 38.21
+     "start": 38.12,
+     "end": 38.22
     },
     {
      "w": "three",
-     "start": 38.21,
-     "end": 38.55
+     "start": 38.22,
+     "end": 38.56
     },
     {
      "w": "rotting",
-     "start": 38.55,
-     "end": 39.02
+     "start": 38.56,
+     "end": 39.0
     },
     {
      "w": "bundles",
-     "start": 39.02,
-     "end": 39.53
+     "start": 39.0,
+     "end": 39.51
     },
     {
      "w": "of",
-     "start": 39.53,
+     "start": 39.51,
      "end": 39.54
     },
     {
      "w": "twenties.",
      "start": 39.54,
-     "end": 40.12
+     "end": 40.08
     }
    ]
   },
   {
    "id": "L14",
    "start": 40.53,
-   "end": 44.63,
+   "end": 44.53,
    "text": "About five thousand eight hundred dollars. The serial numbers matched the ransom.",
    "words": [
     {
      "w": "About",
-     "start": 40.56,
-     "end": 40.85
+     "start": 40.55,
+     "end": 40.84
     },
     {
      "w": "five",
-     "start": 40.85,
-     "end": 41.21
+     "start": 40.84,
+     "end": 41.14
     },
     {
      "w": "thousand",
-     "start": 41.21,
-     "end": 41.65
+     "start": 41.14,
+     "end": 41.56
     },
     {
      "w": "eight",
-     "start": 41.65,
-     "end": 41.93
+     "start": 41.56,
+     "end": 41.83
     },
     {
      "w": "hundred",
-     "start": 41.93,
-     "end": 42.4
+     "start": 41.83,
+     "end": 42.37
     },
     {
      "w": "dollars.",
-     "start": 42.4,
-     "end": 42.73
+     "start": 42.37,
+     "end": 42.64
     },
     {
      "w": "The",
-     "start": 42.73,
-     "end": 42.85
+     "start": 42.64,
+     "end": 42.77
     },
     {
      "w": "serial",
-     "start": 42.85,
-     "end": 43.34
+     "start": 42.77,
+     "end": 43.28
     },
     {
      "w": "numbers",
-     "start": 43.34,
-     "end": 43.64
+     "start": 43.28,
+     "end": 43.55
     },
     {
      "w": "matched",
-     "start": 43.64,
-     "end": 44.0
+     "start": 43.55,
+     "end": 43.91
     },
     {
      "w": "the",
-     "start": 44.0,
-     "end": 44.1
+     "start": 43.91,
+     "end": 44.02
     },
     {
      "w": "ransom.",
-     "start": 44.1,
-     "end": 44.57
+     "start": 44.02,
+     "end": 44.47
     }
    ]
   },
   {
    "id": "L15",
    "start": 44.98,
-   "end": 48.48,
+   "end": 48.38,
    "text": "But that sandbar sits miles from where investigators think he jumped.",
    "words": [
     {
@@ -738,155 +738,155 @@
     {
      "w": "that",
      "start": 45.24,
-     "end": 45.36
+     "end": 45.35
     },
     {
      "w": "sandbar",
-     "start": 45.36,
-     "end": 45.93
+     "start": 45.35,
+     "end": 45.82
     },
     {
      "w": "sits",
-     "start": 45.93,
-     "end": 46.13
+     "start": 45.82,
+     "end": 46.06
     },
     {
      "w": "miles",
-     "start": 46.13,
-     "end": 46.46
+     "start": 46.06,
+     "end": 46.44
     },
     {
      "w": "from",
-     "start": 46.46,
-     "end": 46.67
+     "start": 46.44,
+     "end": 46.64
     },
     {
      "w": "where",
-     "start": 46.67,
-     "end": 46.81
+     "start": 46.64,
+     "end": 46.75
     },
     {
      "w": "investigators",
-     "start": 46.81,
-     "end": 47.59
+     "start": 46.75,
+     "end": 47.55
     },
     {
      "w": "think",
-     "start": 47.59,
-     "end": 47.85
+     "start": 47.55,
+     "end": 47.78
     },
     {
      "w": "he",
-     "start": 47.85,
-     "end": 48.04
+     "start": 47.78,
+     "end": 47.92
     },
     {
      "w": "jumped.",
-     "start": 48.04,
-     "end": 48.42
+     "start": 47.92,
+     "end": 48.32
     }
    ]
   },
   {
    "id": "L16",
    "start": 48.78,
-   "end": 52.27,
+   "end": 52.18,
    "text": "Washed downstream? Buried? Nobody has proven how it got there.",
    "words": [
     {
      "w": "Washed",
      "start": 48.81,
-     "end": 49.14
+     "end": 49.12
     },
     {
      "w": "downstream?",
-     "start": 49.14,
-     "end": 49.84
+     "start": 49.12,
+     "end": 49.82
     },
     {
      "w": "Buried?",
-     "start": 49.84,
-     "end": 50.19
+     "start": 49.82,
+     "end": 50.16
     },
     {
      "w": "Nobody",
-     "start": 50.19,
-     "end": 50.7
+     "start": 50.16,
+     "end": 50.54
     },
     {
      "w": "has",
-     "start": 50.7,
-     "end": 50.91
+     "start": 50.54,
+     "end": 50.81
     },
     {
      "w": "proven",
-     "start": 50.91,
-     "end": 51.28
+     "start": 50.81,
+     "end": 51.26
     },
     {
      "w": "how",
-     "start": 51.28,
-     "end": 51.63
+     "start": 51.26,
+     "end": 51.47
     },
     {
      "w": "it",
-     "start": 51.63,
-     "end": 51.67
+     "start": 51.47,
+     "end": 51.66
     },
     {
      "w": "got",
-     "start": 51.67,
-     "end": 51.93
+     "start": 51.66,
+     "end": 51.9
     },
     {
      "w": "there.",
-     "start": 51.93,
-     "end": 52.21
+     "start": 51.9,
+     "end": 52.12
     }
    ]
   },
   {
    "id": "L17",
    "start": 52.57,
-   "end": 54.25,
+   "end": 54.17,
    "text": "The rest has never been found.",
    "words": [
     {
      "w": "The",
      "start": 52.6,
-     "end": 52.7
+     "end": 52.71
     },
     {
      "w": "rest",
-     "start": 52.7,
-     "end": 53.04
+     "start": 52.71,
+     "end": 52.96
     },
     {
      "w": "has",
-     "start": 53.04,
-     "end": 53.21
+     "start": 52.96,
+     "end": 53.29
     },
     {
      "w": "never",
-     "start": 53.21,
-     "end": 53.54
+     "start": 53.29,
+     "end": 53.46
     },
     {
      "w": "been",
-     "start": 53.54,
-     "end": 53.76
+     "start": 53.46,
+     "end": 53.7
     },
     {
      "w": "found.",
-     "start": 53.76,
-     "end": 54.19
+     "start": 53.7,
+     "end": 54.11
     }
    ]
   },
   {
    "id": "L18",
    "start": 54.65,
-   "end": 58.92,
+   "end": 58.81,
    "text": "After copycats, the FAA had seven-twenty-sevens fitted with a stair lock.",
    "words": [
     {
@@ -897,302 +897,473 @@
     {
      "w": "copycats,",
      "start": 54.94,
-     "end": 55.62
+     "end": 55.61
     },
     {
      "w": "the",
-     "start": 55.62,
-     "end": 55.77
+     "start": 55.61,
+     "end": 55.79
     },
     {
      "w": "FAA",
-     "start": 55.77,
-     "end": 55.97
+     "start": 55.79,
+     "end": 56.05
     },
     {
      "w": "had",
-     "start": 55.97,
-     "end": 56.33
+     "start": 56.05,
+     "end": 56.27
     },
     {
      "w": "seven-twenty-sevens",
-     "start": 56.33,
-     "end": 57.44
+     "start": 56.27,
+     "end": 57.39
     },
     {
      "w": "fitted",
-     "start": 57.44,
-     "end": 57.88
+     "start": 57.39,
+     "end": 57.76
     },
     {
      "w": "with",
-     "start": 57.88,
-     "end": 58.01
+     "start": 57.76,
+     "end": 57.98
     },
     {
      "w": "a",
-     "start": 58.01,
-     "end": 58.18
+     "start": 57.98,
+     "end": 58.11
     },
     {
      "w": "stair",
-     "start": 58.18,
-     "end": 58.59
+     "start": 58.11,
+     "end": 58.51
     },
     {
      "w": "lock.",
-     "start": 58.59,
-     "end": 58.86
+     "start": 58.51,
+     "end": 58.75
     }
    ]
   },
   {
    "id": "L19",
    "start": 59.12,
-   "end": 60.8,
+   "end": 60.72,
    "text": "They call it the Cooper vane.",
    "words": [
     {
      "w": "They",
      "start": 59.15,
-     "end": 59.32
+     "end": 59.35
     },
     {
      "w": "call",
-     "start": 59.32,
-     "end": 59.75
+     "start": 59.35,
+     "end": 59.71
     },
     {
      "w": "it",
-     "start": 59.75,
-     "end": 59.88
+     "start": 59.71,
+     "end": 59.86
     },
     {
      "w": "the",
-     "start": 59.88,
-     "end": 59.93
+     "start": 59.86,
+     "end": 59.87
     },
     {
      "w": "Cooper",
-     "start": 59.93,
-     "end": 60.33
+     "start": 59.87,
+     "end": 60.38
     },
     {
      "w": "vane.",
-     "start": 60.33,
-     "end": 60.74
+     "start": 60.38,
+     "end": 60.66
     }
    ]
   },
   {
    "id": "L20",
    "start": 61.15,
-   "end": 64.91,
+   "end": 64.96,
    "text": "In 2016, the FBI stopped actively investigating.",
    "words": [
     {
      "w": "In",
-     "start": 61.18,
-     "end": 61.31
+     "start": 61.17,
+     "end": 61.42
     },
     {
      "w": "2016,",
-     "start": 61.31,
-     "end": 62.11
+     "start": 61.42,
+     "end": 62.2
     },
     {
      "w": "the",
-     "start": 62.11,
+     "start": 62.2,
      "end": 62.31
     },
     {
      "w": "FBI",
      "start": 62.31,
-     "end": 62.91
+     "end": 62.88
     },
     {
      "w": "stopped",
-     "start": 62.91,
-     "end": 63.42
+     "start": 62.88,
+     "end": 63.44
     },
     {
      "w": "actively",
-     "start": 63.42,
-     "end": 63.88
+     "start": 63.44,
+     "end": 63.93
     },
     {
      "w": "investigating.",
-     "start": 63.88,
-     "end": 64.85
+     "start": 63.93,
+     "end": 64.9
     }
    ]
   },
   {
    "id": "L21",
    "start": 65.16,
-   "end": 66.85,
+   "end": 66.77,
    "text": "No one was ever charged.",
    "words": [
     {
      "w": "No",
      "start": 65.19,
-     "end": 65.43
+     "end": 65.46
     },
     {
      "w": "one",
-     "start": 65.43,
-     "end": 65.78
+     "start": 65.46,
+     "end": 65.65
     },
     {
      "w": "was",
-     "start": 65.78,
-     "end": 65.97
+     "start": 65.65,
+     "end": 65.88
     },
     {
      "w": "ever",
-     "start": 65.97,
-     "end": 66.13
+     "start": 65.88,
+     "end": 66.11
     },
     {
      "w": "charged.",
-     "start": 66.13,
-     "end": 66.79
+     "start": 66.11,
+     "end": 66.71
     }
    ]
   },
   {
    "id": "L22",
    "start": 67.2,
-   "end": 69.26,
+   "end": 69.24,
    "text": "Did he die in those woods, or walk out?",
    "words": [
     {
      "w": "Did",
      "start": 67.23,
-     "end": 67.46
+     "end": 67.45
     },
     {
      "w": "he",
-     "start": 67.46,
-     "end": 67.67
+     "start": 67.45,
+     "end": 67.56
     },
     {
      "w": "die",
-     "start": 67.67,
-     "end": 67.89
+     "start": 67.56,
+     "end": 67.79
     },
     {
      "w": "in",
-     "start": 67.89,
-     "end": 68.05
+     "start": 67.79,
+     "end": 68.01
     },
     {
      "w": "those",
-     "start": 68.05,
-     "end": 68.32
+     "start": 68.01,
+     "end": 68.31
     },
     {
      "w": "woods,",
-     "start": 68.32,
+     "start": 68.31,
      "end": 68.5
     },
     {
      "w": "or",
      "start": 68.5,
-     "end": 68.66
+     "end": 68.63
     },
     {
      "w": "walk",
-     "start": 68.66,
-     "end": 68.93
+     "start": 68.63,
+     "end": 69.01
     },
     {
      "w": "out?",
-     "start": 68.93,
-     "end": 69.2
+     "start": 69.01,
+     "end": 69.18
     }
    ]
   },
   {
    "id": "L23",
    "start": 69.56,
-   "end": 70.85,
+   "end": 70.75,
    "text": "Where do you think he landed?",
    "words": [
     {
      "w": "Where",
      "start": 69.59,
-     "end": 69.74
+     "end": 69.7
     },
     {
      "w": "do",
-     "start": 69.74,
-     "end": 69.99
+     "start": 69.7,
+     "end": 69.94
     },
     {
      "w": "you",
-     "start": 69.99,
-     "end": 70.15
+     "start": 69.94,
+     "end": 70.07
     },
     {
      "w": "think",
-     "start": 70.15,
-     "end": 70.29
+     "start": 70.07,
+     "end": 70.2
     },
     {
      "w": "he",
-     "start": 70.29,
-     "end": 70.52
+     "start": 70.2,
+     "end": 70.42
     },
     {
      "w": "landed?",
-     "start": 70.52,
-     "end": 70.79
+     "start": 70.42,
+     "end": 70.69
     }
    ]
   },
   {
    "id": "L24",
    "start": 71.25,
-   "end": 73.18,
+   "end": 73.09,
    "text": "All anyone knows for sure is this.",
    "words": [
     {
      "w": "All",
      "start": 71.28,
-     "end": 71.52
+     "end": 71.47
     },
     {
      "w": "anyone",
-     "start": 71.52,
-     "end": 72.05
+     "start": 71.47,
+     "end": 72.01
     },
     {
      "w": "knows",
-     "start": 72.05,
-     "end": 72.32
+     "start": 72.01,
+     "end": 72.18
     },
     {
      "w": "for",
-     "start": 72.32,
-     "end": 72.57
+     "start": 72.18,
+     "end": 72.4
     },
     {
      "w": "sure",
-     "start": 72.57,
-     "end": 72.8
+     "start": 72.4,
+     "end": 72.72
     },
     {
      "w": "is",
-     "start": 72.8,
-     "end": 72.93
+     "start": 72.72,
+     "end": 72.74
     },
     {
      "w": "this.",
-     "start": 72.93,
-     "end": 73.12
+     "start": 72.74,
+     "end": 73.03
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 1.132,
+   "target": 2.99,
+   "dur": 3.019,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 1.001,
+   "target": 2.39,
+   "dur": 2.27,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 1.101,
+   "target": 3.89,
+   "dur": 3.92,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 1.022,
+   "target": 3.95,
+   "dur": 3.89,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 0.93,
+   "target": 1.43,
+   "dur": 1.33,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 0.991,
+   "target": 2.51,
+   "dur": 2.5,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 1.06,
+   "target": 2.56,
+   "dur": 2.52,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 1.06,
+   "target": 2.4,
+   "dur": 2.44,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 1.156,
+   "target": 3.47,
+   "dur": 3.47,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 1.06,
+   "target": 1.49,
+   "dur": 1.39,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.923,
+   "target": 1.99,
+   "dur": 1.99,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 1.149,
+   "target": 4.9,
+   "dur": 4.86,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 0.924,
+   "target": 2.46,
+   "dur": 2.42,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 1.06,
+   "target": 4.1,
+   "dur": 4.0,
+   "overrun": 0.0
+  },
+  {
+   "id": "L15",
+   "speed": 1.06,
+   "target": 3.5,
+   "dur": 3.4,
+   "overrun": 0.0
+  },
+  {
+   "id": "L16",
+   "speed": 1.06,
+   "target": 3.49,
+   "dur": 3.4,
+   "overrun": 0.0
+  },
+  {
+   "id": "L17",
+   "speed": 0.957,
+   "target": 1.68,
+   "dur": 1.6,
+   "overrun": 0.0
+  },
+  {
+   "id": "L18",
+   "speed": 1.06,
+   "target": 4.27,
+   "dur": 4.16,
+   "overrun": 0.0
+  },
+  {
+   "id": "L19",
+   "speed": 0.931,
+   "target": 1.68,
+   "dur": 1.6,
+   "overrun": 0.0
+  },
+  {
+   "id": "L20",
+   "speed": 1.154,
+   "target": 3.76,
+   "dur": 3.81,
+   "overrun": 0.0
+  },
+  {
+   "id": "L21",
+   "speed": 0.938,
+   "target": 1.69,
+   "dur": 1.61,
+   "overrun": 0.0
+  },
+  {
+   "id": "L22",
+   "speed": 1.002,
+   "target": 2.06,
+   "dur": 2.04,
+   "overrun": 0.0
+  },
+  {
+   "id": "L23",
+   "speed": 1.06,
+   "target": 1.29,
+   "dur": 1.19,
+   "overrun": 0.0
+  },
+  {
+   "id": "L24",
+   "speed": 0.993,
+   "target": 1.93,
+   "dur": 1.84,
+   "overrun": 0.0
   }
  ]
 }

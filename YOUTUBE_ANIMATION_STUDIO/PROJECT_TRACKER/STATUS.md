@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T17:24:24Z
+Updated: 2026-11-27T18:07:40Z
 
 ## Concept counts
 
@@ -16,21 +16,23 @@ Updated: 2026-11-27T17:24:24Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 26
-- CONCEPT: 72
-- QC PASSED: 2
+- ANIMATED - in render queue: 25
+- CONCEPT: 69
+- QC PASSED: 3
+- SCRIPTED: 3
 
 ## Videos in production
 
 | ID | Title | Score | Status |
 |---|---|---|---|
-| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATED - in render queue |
+| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | QC PASSED |
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | ANIMATED - in render queue |
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATED - in render queue |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | ANIMATED - in render queue |
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | ANIMATED - in render queue |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | ANIMATED - in render queue |
 | CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | ANIMATED - in render queue |
+| CAVE-08 | The Swimming Hole With a Trap at the Bottom | 73 | SCRIPTED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |
 | SCUBA-02 | The Boat Left Without Them | 82 | ANIMATED - in render queue |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | ANIMATED - in render queue |
@@ -38,6 +40,7 @@ Updated: 2026-11-27T17:24:24Z
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | ANIMATED - in render queue |
 | SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATED - in render queue |
 | SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | ANIMATED - in render queue |
+| SCUBA-08 | Found After 107 Years, 3 km Under the Ice | 73 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | QC PASSED |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | ANIMATED - in render queue |
@@ -45,6 +48,7 @@ Updated: 2026-11-27T17:24:24Z
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | ANIMATED - in render queue |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | ANIMATED - in render queue |
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | ANIMATED - in render queue |
+| MURDER-08 | 'Who Put Bella in the Wych Elm?' | 76 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |
 | HAUNT-02 | The Real Room 217 | 77 | ANIMATED - in render queue |
 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | ANIMATED - in render queue |
