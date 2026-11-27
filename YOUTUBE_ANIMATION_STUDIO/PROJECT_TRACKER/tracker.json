@@ -1,47 +1,41 @@
 {
- "updated": "2026-11-27T16:20:43Z",
+ "updated": "2026-11-27T16:25:05Z",
  "phases": {
   "P1_research": {
-   "status": "in_progress",
-   "items": {
-    "algorithm": "in_progress",
-    "cave": "in_progress",
-    "scuba": "in_progress",
-    "murder": "in_progress",
-    "haunted": "in_progress"
-   }
+   "status": "done",
+   "note": "algorithm/Shorts strategy + 4 niche reports + reference CSVs (view counts mostly unverified snippets)"
   },
   "P2_formats": {
-   "status": "in_progress",
-   "note": "format templates produced inside each niche research report"
+   "status": "done",
+   "note": "FORMAT TEMPLATE per niche in RESEARCH/<NICHE>/RESEARCH_REPORT.md"
   },
   "P3_concepts": {
-   "status": "in_progress",
-   "items": {
-    "cave": "in_progress",
-    "scuba": "in_progress",
-    "murder": "in_progress",
-    "haunted": "in_progress"
-   }
+   "status": "done",
+   "note": "4x20 ranked + 20 reserve = 100, fact-checked"
   },
   "P4_selection": {
-   "status": "todo"
+   "status": "done",
+   "note": "slates 1-4 = 28 videos by rank (7 per niche)"
   },
   "P5_scripts_storyboards": {
-   "status": "todo"
+   "status": "done_for_slates_1-4",
+   "note": "28 scripts/storyboards/packaging/factchecks; narration generated"
   },
   "P6_assets": {
    "status": "in_progress",
-   "note": "pipeline + Blender library being built"
+   "note": "lib_cave/lib_scuba/lib_murder/lib_haunted + 23+ animated shot sets"
   },
   "P7_render_edit": {
-   "status": "todo"
+   "status": "in_progress",
+   "note": "render queue daemon; ~1.3-2 h per Short on CPU"
   },
   "P8_qc": {
-   "status": "todo"
+   "status": "in_progress",
+   "note": "QC_AUTO + QC_REPORT per finished video"
   },
   "P9_report": {
-   "status": "todo"
+   "status": "in_progress",
+   "note": "PROJECT_TRACKER/FINAL_REPORT.md (living)"
   }
  },
  "videos": {
@@ -64,7 +58,7 @@
   "MURDER-03": "ANIMATED - in render queue",
   "MURDER-04": "ANIMATED - in render queue",
   "MURDER-05": "ANIMATED - in render queue",
-  "MURDER-06": "SCRIPTED",
+  "MURDER-06": "ANIMATING",
   "MURDER-07": "SCRIPTED",
   "HAUNT-01": "QC PASSED",
   "HAUNT-02": "ANIMATED - in render queue",

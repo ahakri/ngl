@@ -45,6 +45,8 @@ def main(id_):
             res["fail"].append(f"loudness {m[-1]} LUFS (target -14)")
     if tp:
         res["checks"]["true_peak_dbfs"] = float(tp[-1])
+        if float(tp[-1]) > -1.0:
+            res["fail"].append(f"true peak {tp[-1]} dBTP above -1 dBTP")
     # black + frozen
     r = run(["ffmpeg", "-nostats", "-i", mp4, "-vf", "blackdetect=d=0.5:pix_th=0.06,freezedetect=n=0.002:d=1.5", "-an", "-f", "null", "-"])
     blacks = re.findall(r"black_start:([\d\.]+) black_end:([\d\.]+)", r.stderr)
