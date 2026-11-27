@@ -1,0 +1,8 @@
+[
+ {"name": "A", "source": "THUMBNAILS/CAVE-01/hero_THUMB_A/0020.png", "text": "270 M", "text_pos": "top",
+  "text_color": [255, 225, 0], "zoom": 1.0, "focus": [0.5, 0.5], "vignette": 0.45,
+  "focus_16x9": [0.5, 0.6], "zoom_16x9": 1.0},
+ {"name": "B", "source": "THUMBNAILS/CAVE-01/hero_THUMB_B/0020.png", "text": "WENT BACK", "text_pos": "top",
+  "text_color": [255, 255, 255], "text_glow": [200, 0, 0], "zoom": 1.0, "focus": [0.5, 0.5], "vignette": 0.4,
+  "focus_16x9": [0.5, 0.66], "zoom_16x9": 1.0}
+]
