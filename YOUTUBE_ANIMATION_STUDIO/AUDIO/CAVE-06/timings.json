@@ -1,0 +1,924 @@
+{
+ "duration": 61.17,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 2.36,
+   "text": "This pond has killed at least ten divers.",
+   "words": [
+    {
+     "w": "This",
+     "start": 0.18,
+     "end": 0.35
+    },
+    {
+     "w": "pond",
+     "start": 0.35,
+     "end": 0.79
+    },
+    {
+     "w": "has",
+     "start": 0.79,
+     "end": 1.02
+    },
+    {
+     "w": "killed",
+     "start": 1.02,
+     "end": 1.22
+    },
+    {
+     "w": "at",
+     "start": 1.22,
+     "end": 1.38
+    },
+    {
+     "w": "least",
+     "start": 1.38,
+     "end": 1.74
+    },
+    {
+     "w": "ten",
+     "start": 1.74,
+     "end": 1.9
+    },
+    {
+     "w": "divers.",
+     "start": 1.9,
+     "end": 2.3
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 2.61,
+   "end": 5.01,
+   "text": "From above, it's just a pond in the woods.",
+   "words": [
+    {
+     "w": "From",
+     "start": 2.64,
+     "end": 2.87
+    },
+    {
+     "w": "above,",
+     "start": 2.87,
+     "end": 3.26
+    },
+    {
+     "w": "it's",
+     "start": 3.26,
+     "end": 3.41
+    },
+    {
+     "w": "just",
+     "start": 3.41,
+     "end": 3.73
+    },
+    {
+     "w": "a",
+     "start": 3.73,
+     "end": 3.96
+    },
+    {
+     "w": "pond",
+     "start": 3.96,
+     "end": 4.26
+    },
+    {
+     "w": "in",
+     "start": 4.26,
+     "end": 4.53
+    },
+    {
+     "w": "the",
+     "start": 4.53,
+     "end": 4.69
+    },
+    {
+     "w": "woods.",
+     "start": 4.69,
+     "end": 4.95
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 5.31,
+   "end": 8.62,
+   "text": "Below, a narrow shaft called the Chimney drops into the dark.",
+   "words": [
+    {
+     "w": "Below,",
+     "start": 5.34,
+     "end": 5.75
+    },
+    {
+     "w": "a",
+     "start": 5.75,
+     "end": 5.91
+    },
+    {
+     "w": "narrow",
+     "start": 5.91,
+     "end": 6.2
+    },
+    {
+     "w": "shaft",
+     "start": 6.2,
+     "end": 6.53
+    },
+    {
+     "w": "called",
+     "start": 6.53,
+     "end": 6.83
+    },
+    {
+     "w": "the",
+     "start": 6.83,
+     "end": 7.02
+    },
+    {
+     "w": "Chimney",
+     "start": 7.02,
+     "end": 7.32
+    },
+    {
+     "w": "drops",
+     "start": 7.32,
+     "end": 7.73
+    },
+    {
+     "w": "into",
+     "start": 7.73,
+     "end": 8.04
+    },
+    {
+     "w": "the",
+     "start": 8.04,
+     "end": 8.16
+    },
+    {
+     "w": "dark.",
+     "start": 8.16,
+     "end": 8.56
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 8.87,
+   "end": 12.09,
+   "text": "Then it opens into a huge room divers call the Ballroom.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 8.9,
+     "end": 9.18
+    },
+    {
+     "w": "it",
+     "start": 9.18,
+     "end": 9.18
+    },
+    {
+     "w": "opens",
+     "start": 9.18,
+     "end": 9.59
+    },
+    {
+     "w": "into",
+     "start": 9.59,
+     "end": 9.93
+    },
+    {
+     "w": "a",
+     "start": 9.93,
+     "end": 10.09
+    },
+    {
+     "w": "huge",
+     "start": 10.09,
+     "end": 10.41
+    },
+    {
+     "w": "room",
+     "start": 10.41,
+     "end": 10.75
+    },
+    {
+     "w": "divers",
+     "start": 10.75,
+     "end": 11.12
+    },
+    {
+     "w": "call",
+     "start": 11.12,
+     "end": 11.35
+    },
+    {
+     "w": "the",
+     "start": 11.35,
+     "end": 11.53
+    },
+    {
+     "w": "Ballroom.",
+     "start": 11.53,
+     "end": 12.03
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 12.44,
+   "end": 16.9,
+   "text": "Florida's Eagle's Nest. Divers call it the Mount Everest of cave diving.",
+   "words": [
+    {
+     "w": "Florida's",
+     "start": 12.47,
+     "end": 13.17
+    },
+    {
+     "w": "Eagle's",
+     "start": 13.17,
+     "end": 13.59
+    },
+    {
+     "w": "Nest.",
+     "start": 13.59,
+     "end": 13.86
+    },
+    {
+     "w": "Divers",
+     "start": 13.86,
+     "end": 14.44
+    },
+    {
+     "w": "call",
+     "start": 14.44,
+     "end": 14.67
+    },
+    {
+     "w": "it",
+     "start": 14.67,
+     "end": 14.91
+    },
+    {
+     "w": "the",
+     "start": 14.91,
+     "end": 15.04
+    },
+    {
+     "w": "Mount",
+     "start": 15.04,
+     "end": 15.44
+    },
+    {
+     "w": "Everest",
+     "start": 15.44,
+     "end": 15.91
+    },
+    {
+     "w": "of",
+     "start": 15.91,
+     "end": 16.09
+    },
+    {
+     "w": "cave",
+     "start": 16.09,
+     "end": 16.43
+    },
+    {
+     "w": "diving.",
+     "start": 16.43,
+     "end": 16.84
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 17.2,
+   "end": 21.37,
+   "text": "The cave runs on past the Ballroom, to about 300 feet deep.",
+   "words": [
+    {
+     "w": "The",
+     "start": 17.23,
+     "end": 17.32
+    },
+    {
+     "w": "cave",
+     "start": 17.32,
+     "end": 17.68
+    },
+    {
+     "w": "runs",
+     "start": 17.68,
+     "end": 18.01
+    },
+    {
+     "w": "on",
+     "start": 18.01,
+     "end": 18.3
+    },
+    {
+     "w": "past",
+     "start": 18.3,
+     "end": 18.61
+    },
+    {
+     "w": "the",
+     "start": 18.61,
+     "end": 18.72
+    },
+    {
+     "w": "Ballroom,",
+     "start": 18.72,
+     "end": 19.31
+    },
+    {
+     "w": "to",
+     "start": 19.31,
+     "end": 19.6
+    },
+    {
+     "w": "about",
+     "start": 19.6,
+     "end": 20.03
+    },
+    {
+     "w": "300",
+     "start": 20.03,
+     "end": 20.59
+    },
+    {
+     "w": "feet",
+     "start": 20.59,
+     "end": 21.01
+    },
+    {
+     "w": "deep.",
+     "start": 21.01,
+     "end": 21.31
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.67,
+   "end": 25.6,
+   "text": "120 feet down, there's a sign with the Grim Reaper on it.",
+   "words": [
+    {
+     "w": "120",
+     "start": 21.7,
+     "end": 22.41
+    },
+    {
+     "w": "feet",
+     "start": 22.41,
+     "end": 22.74
+    },
+    {
+     "w": "down,",
+     "start": 22.74,
+     "end": 23.12
+    },
+    {
+     "w": "there's",
+     "start": 23.12,
+     "end": 23.49
+    },
+    {
+     "w": "a",
+     "start": 23.49,
+     "end": 23.59
+    },
+    {
+     "w": "sign",
+     "start": 23.59,
+     "end": 23.95
+    },
+    {
+     "w": "with",
+     "start": 23.95,
+     "end": 24.29
+    },
+    {
+     "w": "the",
+     "start": 24.29,
+     "end": 24.44
+    },
+    {
+     "w": "Grim",
+     "start": 24.44,
+     "end": 24.68
+    },
+    {
+     "w": "Reaper",
+     "start": 24.68,
+     "end": 25.11
+    },
+    {
+     "w": "on",
+     "start": 25.11,
+     "end": 25.44
+    },
+    {
+     "w": "it.",
+     "start": 25.44,
+     "end": 25.54
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 25.9,
+   "end": 28.76,
+   "text": "It reads: Stop. Prevent your death. Go no farther.",
+   "words": [
+    {
+     "w": "It",
+     "start": 25.93,
+     "end": 26.02
+    },
+    {
+     "w": "reads:",
+     "start": 26.02,
+     "end": 26.38
+    },
+    {
+     "w": "Stop.",
+     "start": 26.38,
+     "end": 26.84
+    },
+    {
+     "w": "Prevent",
+     "start": 26.84,
+     "end": 27.36
+    },
+    {
+     "w": "your",
+     "start": 27.36,
+     "end": 27.56
+    },
+    {
+     "w": "death.",
+     "start": 27.56,
+     "end": 27.78
+    },
+    {
+     "w": "Go",
+     "start": 27.78,
+     "end": 27.94
+    },
+    {
+     "w": "no",
+     "start": 27.94,
+     "end": 28.29
+    },
+    {
+     "w": "farther.",
+     "start": 28.29,
+     "end": 28.7
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 29.26,
+   "end": 34.38,
+   "text": "In 1999, partly over safety fears, it was closed to divers.",
+   "words": [
+    {
+     "w": "In",
+     "start": 29.28,
+     "end": 29.58
+    },
+    {
+     "w": "1999,",
+     "start": 29.58,
+     "end": 30.55
+    },
+    {
+     "w": "partly",
+     "start": 30.55,
+     "end": 31.09
+    },
+    {
+     "w": "over",
+     "start": 31.09,
+     "end": 31.54
+    },
+    {
+     "w": "safety",
+     "start": 31.54,
+     "end": 32.17
+    },
+    {
+     "w": "fears,",
+     "start": 32.17,
+     "end": 32.59
+    },
+    {
+     "w": "it",
+     "start": 32.59,
+     "end": 32.74
+    },
+    {
+     "w": "was",
+     "start": 32.74,
+     "end": 32.92
+    },
+    {
+     "w": "closed",
+     "start": 32.92,
+     "end": 33.56
+    },
+    {
+     "w": "to",
+     "start": 33.56,
+     "end": 33.72
+    },
+    {
+     "w": "divers.",
+     "start": 33.72,
+     "end": 34.32
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 34.63,
+   "end": 38.2,
+   "text": "Cave divers pushed back. It reopened in 2003.",
+   "words": [
+    {
+     "w": "Cave",
+     "start": 34.65,
+     "end": 35.01
+    },
+    {
+     "w": "divers",
+     "start": 35.01,
+     "end": 35.48
+    },
+    {
+     "w": "pushed",
+     "start": 35.48,
+     "end": 35.97
+    },
+    {
+     "w": "back.",
+     "start": 35.97,
+     "end": 36.15
+    },
+    {
+     "w": "It",
+     "start": 36.15,
+     "end": 36.41
+    },
+    {
+     "w": "reopened",
+     "start": 36.41,
+     "end": 37.06
+    },
+    {
+     "w": "in",
+     "start": 37.06,
+     "end": 37.24
+    },
+    {
+     "w": "2003.",
+     "start": 37.24,
+     "end": 38.14
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 38.6,
+   "end": 42.24,
+   "text": "October 2016. Three friends came to dive it.",
+   "words": [
+    {
+     "w": "October",
+     "start": 38.63,
+     "end": 39.23
+    },
+    {
+     "w": "2016.",
+     "start": 39.23,
+     "end": 40.23
+    },
+    {
+     "w": "Three",
+     "start": 40.23,
+     "end": 40.61
+    },
+    {
+     "w": "friends",
+     "start": 40.61,
+     "end": 41.05
+    },
+    {
+     "w": "came",
+     "start": 41.05,
+     "end": 41.42
+    },
+    {
+     "w": "to",
+     "start": 41.42,
+     "end": 41.64
+    },
+    {
+     "w": "dive",
+     "start": 41.64,
+     "end": 42.08
+    },
+    {
+     "w": "it.",
+     "start": 42.08,
+     "end": 42.18
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 42.49,
+   "end": 46.27,
+   "text": "One stayed near the surface. Two experienced divers went deep.",
+   "words": [
+    {
+     "w": "One",
+     "start": 42.52,
+     "end": 42.81
+    },
+    {
+     "w": "stayed",
+     "start": 42.81,
+     "end": 43.22
+    },
+    {
+     "w": "near",
+     "start": 43.22,
+     "end": 43.44
+    },
+    {
+     "w": "the",
+     "start": 43.44,
+     "end": 43.6
+    },
+    {
+     "w": "surface.",
+     "start": 43.6,
+     "end": 43.94
+    },
+    {
+     "w": "Two",
+     "start": 43.94,
+     "end": 44.28
+    },
+    {
+     "w": "experienced",
+     "start": 44.28,
+     "end": 45.11
+    },
+    {
+     "w": "divers",
+     "start": 45.11,
+     "end": 45.56
+    },
+    {
+     "w": "went",
+     "start": 45.56,
+     "end": 45.92
+    },
+    {
+     "w": "deep.",
+     "start": 45.92,
+     "end": 46.21
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 46.57,
+   "end": 49.36,
+   "text": "They were due back within an hour. They never surfaced.",
+   "words": [
+    {
+     "w": "They",
+     "start": 46.6,
+     "end": 46.83
+    },
+    {
+     "w": "were",
+     "start": 46.83,
+     "end": 47.0
+    },
+    {
+     "w": "due",
+     "start": 47.0,
+     "end": 47.23
+    },
+    {
+     "w": "back",
+     "start": 47.23,
+     "end": 47.56
+    },
+    {
+     "w": "within",
+     "start": 47.56,
+     "end": 47.93
+    },
+    {
+     "w": "an",
+     "start": 47.93,
+     "end": 48.03
+    },
+    {
+     "w": "hour.",
+     "start": 48.03,
+     "end": 48.31
+    },
+    {
+     "w": "They",
+     "start": 48.31,
+     "end": 48.4
+    },
+    {
+     "w": "never",
+     "start": 48.4,
+     "end": 48.84
+    },
+    {
+     "w": "surfaced.",
+     "start": 48.84,
+     "end": 49.3
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 50.06,
+   "end": 54.81,
+   "text": "Recovery divers found them the next morning, around 260 feet down.",
+   "words": [
+    {
+     "w": "Recovery",
+     "start": 50.09,
+     "end": 50.76
+    },
+    {
+     "w": "divers",
+     "start": 50.76,
+     "end": 51.15
+    },
+    {
+     "w": "found",
+     "start": 51.15,
+     "end": 51.65
+    },
+    {
+     "w": "them",
+     "start": 51.65,
+     "end": 51.81
+    },
+    {
+     "w": "the",
+     "start": 51.81,
+     "end": 52.06
+    },
+    {
+     "w": "next",
+     "start": 52.06,
+     "end": 52.36
+    },
+    {
+     "w": "morning,",
+     "start": 52.36,
+     "end": 53.01
+    },
+    {
+     "w": "around",
+     "start": 53.01,
+     "end": 53.38
+    },
+    {
+     "w": "260",
+     "start": 53.38,
+     "end": 54.03
+    },
+    {
+     "w": "feet",
+     "start": 54.03,
+     "end": 54.42
+    },
+    {
+     "w": "down.",
+     "start": 54.42,
+     "end": 54.75
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 55.11,
+   "end": 57.26,
+   "text": "Exactly what went wrong is still unclear.",
+   "words": [
+    {
+     "w": "Exactly",
+     "start": 55.14,
+     "end": 55.59
+    },
+    {
+     "w": "what",
+     "start": 55.59,
+     "end": 55.88
+    },
+    {
+     "w": "went",
+     "start": 55.88,
+     "end": 56.11
+    },
+    {
+     "w": "wrong",
+     "start": 56.11,
+     "end": 56.39
+    },
+    {
+     "w": "is",
+     "start": 56.39,
+     "end": 56.52
+    },
+    {
+     "w": "still",
+     "start": 56.52,
+     "end": 56.73
+    },
+    {
+     "w": "unclear.",
+     "start": 56.73,
+     "end": 57.2
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 57.86,
+   "end": 59.97,
+   "text": "And from above, it still looks like a pond.",
+   "words": [
+    {
+     "w": "And",
+     "start": 57.89,
+     "end": 58.03
+    },
+    {
+     "w": "from",
+     "start": 58.03,
+     "end": 58.24
+    },
+    {
+     "w": "above,",
+     "start": 58.24,
+     "end": 58.57
+    },
+    {
+     "w": "it",
+     "start": 58.57,
+     "end": 58.65
+    },
+    {
+     "w": "still",
+     "start": 58.65,
+     "end": 58.86
+    },
+    {
+     "w": "looks",
+     "start": 58.86,
+     "end": 59.19
+    },
+    {
+     "w": "like",
+     "start": 59.19,
+     "end": 59.43
+    },
+    {
+     "w": "a",
+     "start": 59.43,
+     "end": 59.53
+    },
+    {
+     "w": "pond.",
+     "start": 59.53,
+     "end": 59.91
+    }
+   ]
+  }
+ ]
+}

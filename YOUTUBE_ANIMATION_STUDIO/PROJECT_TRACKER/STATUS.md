@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T12:44:57Z
+Updated: 2026-11-27T13:05:04Z
 
 ## Concept counts
 
@@ -16,8 +16,8 @@ Updated: 2026-11-27T12:44:57Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 4
-- ANIMATING: 4
+- ANIMATED - in render queue: 7
+- ANIMATING: 1
 - CONCEPT: 76
 - SCRIPTED: 16
 
@@ -27,11 +27,11 @@ Updated: 2026-11-27T12:44:57Z
 |---|---|---|---|
 | CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATED - in render queue |
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | SCRIPTED |
-| CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATING |
+| CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATED - in render queue |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | SCRIPTED |
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | SCRIPTED |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | SCRIPTED |
-| SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATING |
+| SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |
 | SCUBA-02 | The Boat Left Without Them | 82 | ANIMATING |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | SCRIPTED |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | SCRIPTED |
@@ -44,7 +44,7 @@ Updated: 2026-11-27T12:44:57Z
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | SCRIPTED |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | ANIMATED - in render queue |
-| HAUNT-02 | The Real Room 217 | 77 | ANIMATING |
+| HAUNT-02 | The Real Room 217 | 77 | ANIMATED - in render queue |
 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | SCRIPTED |
 | HAUNT-05 | The Tunnel Built to Hide the Dead | 75 | SCRIPTED |
 | HAUNT-04 | The Ghost Photo Country Life Published | 75 | SCRIPTED |
