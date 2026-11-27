@@ -4,27 +4,46 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SCHEMA = `
-CREATE TABLE IF NOT EXISTS deals (
+CREATE TABLE IF NOT EXISTS records (
   id INTEGER PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
-  status TEXT NOT NULL DEFAULT 'approved',   -- approved | pending | rejected
-  flags TEXT NOT NULL DEFAULT '[]',          -- JSON list of screening reasons
-  verified INTEGER NOT NULL DEFAULT 0,       -- a moderator has seen proof
-  is_demo INTEGER NOT NULL DEFAULT 0,        -- synthetic sample data, never real
-  created_at TEXT NOT NULL,
-  reviewed_at TEXT,
-  -- athlete context (no name, school or team is ever stored)
-  sport TEXT NOT NULL, level TEXT NOT NULL, class_year TEXT NOT NULL, role TEXT, region TEXT NOT NULL,
-  followers INTEGER NOT NULL,
-  -- the deal (no brand name is ever stored)
-  payer_type TEXT NOT NULL, industry TEXT NOT NULL, deal_type TEXT NOT NULL,
-  deliverables INTEGER NOT NULL, duration_months INTEGER NOT NULL,
-  cash_usd INTEGER NOT NULL, in_kind_usd INTEGER NOT NULL, total_usd INTEGER NOT NULL,
-  exclusive INTEGER NOT NULL, has_agent INTEGER NOT NULL,
-  clearance TEXT NOT NULL, signed_quarter TEXT NOT NULL
+  jurisdiction TEXT NOT NULL,       -- Legistar client code
+  state TEXT NOT NULL,
+  external_id TEXT NOT NULL,
+  file TEXT, name TEXT, title TEXT NOT NULL,
+  type_name TEXT, status_name TEXT, body_name TEXT,
+  intro_date TEXT, agenda_date TEXT, passed_date TEXT,
+  modified_utc TEXT, url TEXT NOT NULL,
+  -- derived by classify.js
+  category TEXT NOT NULL, restrictive INTEGER NOT NULL DEFAULT 0, outcome TEXT NOT NULL,
+  acres REAL, square_feet REAL, mw REAL,
+  project_name TEXT, case_number TEXT, staff_recommendation TEXT,
+  event_date TEXT,                  -- latest known activity: last action, else agenda, else intro
+  first_seen TEXT NOT NULL,
+  UNIQUE (jurisdiction, external_id)
 );
-CREATE INDEX IF NOT EXISTS idx_deals_status ON deals(status);
-CREATE INDEX IF NOT EXISTS idx_deals_user ON deals(user_id);
+CREATE INDEX IF NOT EXISTS idx_records_event ON records(event_date);
+CREATE INDEX IF NOT EXISTS idx_records_cat ON records(category, state);
+
+CREATE TABLE IF NOT EXISTS actions (
+  record_id INTEGER NOT NULL REFERENCES records(id) ON DELETE CASCADE,
+  external_id TEXT NOT NULL,
+  date TEXT NOT NULL, body TEXT, action TEXT, result TEXT, tally TEXT,
+  PRIMARY KEY (record_id, external_id)
+) WITHOUT ROWID;
+
+CREATE TABLE IF NOT EXISTS sync (
+  jurisdiction TEXT PRIMARY KEY,
+  last_ok TEXT, last_error TEXT, matters INTEGER NOT NULL DEFAULT 0
+) WITHOUT ROWID;
+
+CREATE TABLE IF NOT EXISTS watches (
+  id INTEGER PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  filters TEXT NOT NULL,            -- JSON: { state, jurisdiction, category, q }
+  feed_token TEXT NOT NULL UNIQUE,  -- secret in the private feed URL
+  created_at TEXT NOT NULL
+);
 
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,

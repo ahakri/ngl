@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { count, pct, quarter, usd, usdFull } from '../format.js';
+import { CATEGORY_COLOR, fullDay, size } from '../format.js';
 import { useSession } from '../hooks.js';
 
 export function State({ loading, error, children }) {
@@ -8,97 +8,40 @@ export function State({ loading, error, children }) {
   return children;
 }
 
-/** Labelled <select> over one of the API's dimensions. */
-export function Pick({ label, dim, value, onChange, any, error, hint }) {
+export function Upgrade({ children }) {
+  return (
+    <div className="notice lock">
+      <span>{children}</span>
+      <Link className="btn small primary" to="/pricing">See plans</Link>
+    </div>
+  );
+}
+
+const OUTCOME_ICON = { approved: '✓', denied: '✕', continued: '↻', pending: '•', withdrawn: '–' };
+
+export function Tags({ r }) {
   const { meta } = useSession();
-  const options = meta?.dimensions[dim] || {};
   return (
-    <label>
-      {label}
-      <select value={value || ''} onChange={(e) => onChange(e.target.value)}>
-        <option value="">{any || 'Choose…'}</option>
-        {Object.entries(options).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
-      </select>
-      {hint && <span className="hint">{hint}</span>}
-      {error && <span className="field-error">{error}</span>}
-    </label>
+    <span className="tags">
+      <span className="tag"><i style={{ background: CATEGORY_COLOR[r.category] }} />{meta?.categories[r.category] || r.category}</span>
+      <span className={`tag outcome-${r.outcome}`}>{OUTCOME_ICON[r.outcome]} {meta?.outcomes[r.outcome] || r.outcome}</span>
+      {r.restrictive && <span className="tag warn">⚠ Restrictive</span>}
+    </span>
   );
 }
 
-export function Field({ label, error, hint, ...props }) {
+/** One siting record as a list row. */
+export function RecordRow({ r }) {
+  const title = r.project_name || r.title.replace(/\s+/g, ' ');
   return (
-    <label>
-      {label}
-      <input {...props} />
-      {hint && <span className="hint">{hint}</span>}
-      {error && <span className="field-error">{error}</span>}
-    </label>
-  );
-}
-
-/** Shown instead of data when the viewer has neither contributed nor subscribed. */
-export function Locked({ title = 'Share a deal to see this' }) {
-  const { user } = useSession();
-  return (
-    <div className="card" style={{ maxWidth: 640 }}>
-      <h2>{title}</h2>
-      <p className="sub" style={{ margin: '6px 0 14px' }}>
-        Rangefinder runs on give-to-get. Athletes who anonymously share one of their own deals get full access for a year, free.
-        Agents, brands, collectives and schools subscribe.
-      </p>
-      <div className="row">
-        <Link className="btn primary" to={user ? '/submit' : '/account?next=submit'}>Share a deal</Link>
-        <Link className="btn" to="/pricing">See plans</Link>
+    <Link to={`/record/${r.id}`} className="record">
+      <div className="record-head">
+        <span className="record-where">{r.jurisdiction.name}, {r.jurisdiction.state}</span>
+        <span className="sub">{fullDay(r.event_date)}</span>
       </div>
-    </div>
-  );
-}
-
-export function StatsTable({ rows, label }) {
-  return (
-    <div className="table-wrap">
-      <table>
-        <thead><tr><th>{label}</th><th className="num">Deals</th><th className="num">25th</th><th className="num">Median</th><th className="num">75th</th><th className="num hide-sm">90th</th><th className="num hide-sm">Cleared</th></tr></thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.key}>
-              <td className="name">{r.label}</td>
-              <td className="num">{count(r.n)}</td>
-              <td className="num">{usdFull(r.p25)}</td>
-              <td className="num"><b>{usdFull(r.median)}</b></td>
-              <td className="num">{usdFull(r.p75)}</td>
-              <td className="num hide-sm">{usdFull(r.p90)}</td>
-              <td className="num hide-sm" title="Share of deals with an NIL Go decision that were cleared">{pct(r.cleared_rate)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export function CompsTable({ rows }) {
-  const { meta } = useSession();
-  const d = meta?.dimensions || {};
-  const name = (dim, k) => d[dim]?.[k] || k;
-  if (!rows.length) return <div className="skeleton">No comparable deals to list for this selection.</div>;
-  return (
-    <div className="table-wrap">
-      <table>
-        <thead><tr><th className="num">Total</th><th>Deal</th><th>Athlete</th><th>Paid by</th><th>Signed</th><th>NIL Go</th></tr></thead>
-        <tbody>
-          {rows.map((r, i) => (
-            <tr key={i}>
-              <td className="num"><b>{usd(r.total_usd)}</b>{r.in_kind && <div className="vendor">incl. in-kind</div>}</td>
-              <td className="name">{name('deal_type', r.deal_type)}<div className="vendor">{r.deliverables} deliverable{r.deliverables === 1 ? '' : 's'}{r.duration_months ? ` · ${r.duration_months} mo` : ''}{r.exclusive ? ' · exclusive' : ''}</div></td>
-              <td className="name">{name('sport', r.sport)}<div className="vendor">{name('level', r.level)} · {name('class_year', r.class_year)} · {name('followers', r.followers)} followers</div></td>
-              <td className="name">{name('payer_type', r.payer_type)}<div className="vendor">{name('industry', r.industry)}</div></td>
-              <td>{quarter(r.signed_quarter)}</td>
-              <td>{name('clearance', r.clearance).replace(' by NIL Go', '')}{r.verified && <span className="badge hot" title="A moderator has seen proof of this deal">Verified</span>}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+      <div className="record-title">{title.length > 150 ? `${title.slice(0, 150)}…` : title}</div>
+      {r.project_name && <div className="sub clamp">{r.title.replace(/\s+/g, ' ')}</div>}
+      <div className="record-foot"><Tags r={r} />{size(r) && <span className="sub">{size(r)}</span>}</div>
+    </Link>
   );
 }

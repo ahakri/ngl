@@ -15,11 +15,10 @@ export const config = {
   // Set to "1" when running behind a TLS-terminating proxy so cookies are Secure.
   secureCookies: env.SECURE_COOKIES === '1' || env.NODE_ENV === 'production',
   trustProxy: env.TRUST_PROXY === '1',
-  dbPath: env.DATABASE_PATH || path.join(root, 'data', 'rangefinder.db'),
-  // Moderation
-  adminEmails: (env.ADMIN_EMAILS || '').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean),
-  // "1": publish submissions that pass screening immediately. "0": every submission waits for a moderator.
-  autoApprove: env.AUTO_APPROVE !== '0',
+  dbPath: env.DATABASE_PATH || path.join(root, 'data', 'siteline.db'),
+  // Collection
+  schedulerEnabled: env.SCHEDULER !== '0',
+  collectHourUtc: int(env.COLLECT_HOUR_UTC, 9),
   // Billing (optional — the app runs without it; upgrade buttons are hidden)
   stripe: {
     secretKey: env.STRIPE_SECRET_KEY || '',

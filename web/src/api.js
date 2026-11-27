@@ -1,4 +1,4 @@
-// Thin client for the Rangefinder API. The browser authenticates with the session cookie.
+// Thin client for the Siteline API. The browser authenticates with the session cookie.
 async function request(path, opts = {}) {
   const res = await fetch(path, {
     credentials: 'same-origin',

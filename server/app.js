@@ -5,12 +5,10 @@ import fastifyStatic from '@fastify/static';
 import fs from 'node:fs';
 import path from 'node:path';
 import { config, billingEnabled } from './config.js';
-import { DIMENSIONS, FOLLOWER_BUCKETS, ValidationError, followerBucket, parseDeal, quarterOf, FIRST_QUARTER } from './domain.js';
-import { K_MIN, anonymize, applyFilters, findCohort, groupBy, percentileRank, summarize } from './benchmarks.js';
 import { TIERS, tierOf } from './plans.js';
 import * as auth from './auth.js';
 import * as billing from './billing.js';
-import * as deals from './deals.js';
+import * as q from './queries.js';
 
 const clampInt = (v, lo, hi, dflt) => {
   const n = Number.parseInt(v, 10);
@@ -65,22 +63,22 @@ export function buildApp(db, { logger = false } = {}) {
   };
 
   // ------------------------------------------------------------------
-  // Data API — /v1. Auth: "Authorization: Bearer rfk_…" (metered against the
-  // tier's daily quota), the web session cookie, or anonymous.
+  // Data API — /v1. Auth: "Authorization: Bearer slk_…" (metered against the
+  // tier's daily quota), the web session cookie, or anonymous (free tier).
   // ------------------------------------------------------------------
-  /** Moderators need to see everything they moderate, so they get full access. */
-  const accessOf = (user) => (user && config.adminEmails.includes(user.email.toLowerCase()) ? 'team' : tierOf(user, user ? deals.isContributor(db, user.id) : false));
-
-  const FILTER_DIMS = ['sport', 'level', 'deal_type', 'payer_type', 'followers', 'industry', 'class_year', 'region', 'clearance'];
-  const GROUP_DIMS = [...FILTER_DIMS, 'quarter'];
-
-  const csvCell = (v) => (v === null || v === undefined ? '' : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
-  const toCsv = (cols, rows) => `${[cols.join(','), ...rows.map((r) => cols.map((c) => csvCell(r[c])).join(','))].join('\n')}\n`;
+  const filtersOf = (src) => {
+    try {
+      return q.parseFilters(src);
+    } catch (err) {
+      if (err instanceof q.FilterError) throw new ApiError(400, 'invalid_filter', err.message);
+      throw err;
+    }
+  };
 
   app.register(async (v1) => {
     v1.addHook('onRequest', async (req, reply) => {
       reply.header('access-control-allow-origin', '*');
-      reply.header('access-control-allow-headers', 'authorization, content-type');
+      reply.header('access-control-allow-headers', 'authorization');
       if (req.method === 'OPTIONS') return reply.code(204).send();
       const header = req.headers.authorization || '';
       let quota = null;
@@ -93,115 +91,62 @@ export function buildApp(db, { logger = false } = {}) {
         req.user = sessionUser(req);
         if (!anonLimiter(req.user ? `u${req.user.id}` : req.ip)) throw new ApiError(429, 'rate_limited', 'Too many requests. Slow down or use an API key.');
       }
-      req.tierKey = accessOf(req.user);
+      req.tierKey = tierOf(req.user);
       req.tier = TIERS[req.tierKey];
-      reply.header('x-rangefinder-tier', req.tierKey);
+      reply.header('x-siteline-tier', req.tierKey);
       if (quota !== null) {
         reply.header('x-ratelimit-limit', req.tier.dailyRequests);
         reply.header('x-ratelimit-remaining', Math.max(0, req.tier.dailyRequests - quota));
-        if (quota > req.tier.dailyRequests) throw new ApiError(429, 'quota_exceeded', `Daily quota of ${req.tier.dailyRequests} requests reached for the ${req.tier.name} tier. Resets at 00:00 UTC.`);
+        if (quota > req.tier.dailyRequests) throw new ApiError(429, 'quota_exceeded', `Daily quota of ${req.tier.dailyRequests} requests reached for the ${req.tier.name} plan. Resets at 00:00 UTC.`);
       }
     });
     v1.options('/*', async () => '');
 
-    const need = (req, ability) => {
-      if (!req.tier[ability]) throw new ApiError(402, 'access_required', 'Share one of your own deals to unlock this for free, or upgrade to Pro.');
-    };
-    /** Read and validate cohort filters from a query string or JSON body. */
-    const filtersFrom = (src) => {
-      const out = {};
-      for (const dim of FILTER_DIMS) {
-        const v = src[dim];
-        if (v === undefined || v === '') continue;
-        if (!Object.hasOwn(DIMENSIONS[dim], v)) throw new ApiError(400, 'invalid_filter', `Unknown ${dim}: ${v}`);
-        out[dim] = v;
-      }
-      return out;
-    };
-
     v1.get('/meta', async (req) => ({
       tier: req.tierKey,
-      abilities: { explorer: req.tier.explorer, rangefinder: req.tier.rangefinder, comps: req.tier.comps, export: req.tier.export },
-      k_min: K_MIN,
-      dimensions: DIMENSIONS,
-      follower_buckets: FOLLOWER_BUCKETS,
-      quarters: { first: FIRST_QUARTER, current: quarterOf() },
-      dataset: deals.datasetStats(db),
+      abilities: { embargo_days: req.tier.embargoDays, upcoming: req.tier.upcoming, export: req.tier.export, watches: req.tier.watches, page_size: req.tier.pageSize },
+      ...q.dimensions(),
     }));
 
-    // Public teaser: medians only, by sport and by deal type.
-    v1.get('/summary', async () => {
-      const all = deals.publishedDeals(db);
-      const slim = (rows) => rows.map((r) => ({ key: r.key, label: r.label, n: r.n, median: r.median }));
-      const overall = summarize(all);
-      return {
-        dataset: deals.datasetStats(db),
-        overall: overall.suppressed ? { n: overall.n, suppressed: true } : { n: overall.n, median: overall.median },
-        by_sport: slim(groupBy(all, 'sport')),
-        by_deal_type: slim(groupBy(all, 'deal_type')),
-      };
+    v1.get('/summary', async () => q.summary(db));
+    v1.get('/jurisdictions', async () => ({ data: q.coverage(db) }));
+
+    v1.get('/records', async (req) => {
+      const limit = clampInt(req.query.limit, 1, req.tier.pageSize, Math.min(25, req.tier.pageSize));
+      const offset = clampInt(req.query.offset, 0, 1_000_000, 0);
+      const filters = filtersOf(req.query);
+      const out = q.listRecords(db, filters, { limit, offset, embargoDays: req.tier.embargoDays });
+      return { filters, limit, offset, total: out.total, withheld_by_plan: out.withheld, embargo_days: req.tier.embargoDays, data: out.rows };
     });
 
-    v1.get('/benchmarks', async (req) => {
-      need(req, 'explorer');
-      const groupDim = req.query.group_by || 'sport';
-      if (!GROUP_DIMS.includes(groupDim)) throw new ApiError(400, 'invalid_group_by', `group_by must be one of: ${GROUP_DIMS.join(', ')}`);
-      const filters = filtersFrom(req.query);
-      const cohort = applyFilters(deals.publishedDeals(db), filters);
-      return { filters, group_by: groupDim, k_min: K_MIN, overall: summarize(cohort), rows: groupBy(cohort, groupDim) };
+    v1.get('/records/:id', async (req) => {
+      const rec = q.getRecord(db, Number(req.params.id), req.tier.embargoDays);
+      if (!rec) throw new ApiError(404, 'not_found', 'No such record.');
+      if (rec.embargoed) throw new ApiError(402, 'plan_required', `Records from the last ${req.tier.embargoDays} days are available on the Pro and Team plans.`);
+      return rec;
     });
 
-    v1.get('/comps', async (req) => {
-      need(req, 'explorer');
-      const filters = filtersFrom(req.query);
-      const cohort = applyFilters(deals.publishedDeals(db), filters);
-      const limit = clampInt(req.query.limit, 1, req.tier.comps, req.tier.comps);
-      // Below the floor nothing is listed: a short list would point at individuals.
-      const rows = cohort.length >= K_MIN ? [...cohort].sort((a, b) => (a.created_at < b.created_at ? 1 : -1)).slice(0, limit).map(anonymize) : [];
-      return { filters, n: cohort.length, limit_cap: req.tier.comps, rows };
+    v1.get('/upcoming', async (req) => {
+      if (!req.tier.upcoming) throw new ApiError(402, 'plan_required', 'The upcoming hearings calendar is available on the Pro and Team plans.');
+      return { data: q.upcoming(db, filtersOf(req.query)) };
     });
 
-    v1.post('/rangefinder', async (req) => {
-      need(req, 'rangefinder');
-      const body = req.body || {};
-      for (const dim of ['sport', 'level', 'deal_type', 'payer_type']) {
-        if (!Object.hasOwn(DIMENSIONS[dim], body[dim] ?? '')) throw new ApiError(400, 'invalid_profile', `Choose a valid ${dim.replace('_', ' ')}.`);
-      }
-      const followers = Number(body.followers);
-      if (!Number.isInteger(followers) || followers < 0) throw new ApiError(400, 'invalid_profile', 'Enter total followers as a whole number.');
-      const amount = body.amount === undefined || body.amount === null || body.amount === '' ? null : Number(body.amount);
-      if (amount !== null && (!Number.isFinite(amount) || amount < 0)) throw new ApiError(400, 'invalid_amount', 'Amount must be a positive number.');
-
-      const profile = { sport: body.sport, level: body.level, deal_type: body.deal_type, payer_type: body.payer_type, followers };
-      const found = findCohort(deals.publishedDeals(db), profile);
-      const stats = summarize(found.cohort);
-      const result = {
-        profile: { ...profile, followers_bucket: followerBucket(followers) },
-        basis: { n: found.cohort.length, exact_match: found.widened.length === 0, widened: found.widened },
-        stats,
-        amount,
-        percentile: null,
-        position: null,
-        comps: [],
-      };
-      if (stats.suppressed) return result;
-      if (amount !== null) {
-        result.percentile = percentileRank(found.cohort, amount);
-        result.position = amount < stats.p25 ? 'below' : amount <= stats.p75 ? 'within' : stats.p90 === null || amount <= stats.p90 ? 'above' : 'well_above';
-      }
-      const anchor = amount ?? stats.median;
-      result.comps = [...found.cohort].sort((a, b) => Math.abs(a.total_usd - anchor) - Math.abs(b.total_usd - anchor)).slice(0, req.tier.comps).map(anonymize);
-      return result;
-    });
-
-    v1.get('/export/benchmarks.csv', async (req, reply) => {
+    v1.get('/export/records.csv', async (req, reply) => {
       if (!req.tier.export) throw new ApiError(402, 'plan_required', 'CSV export is available on the Pro and Team plans.');
-      const groupDim = GROUP_DIMS.includes(req.query.group_by) ? req.query.group_by : 'sport';
-      const rows = groupBy(applyFilters(deals.publishedDeals(db), filtersFrom(req.query)), groupDim);
-      return reply.header('content-type', 'text/csv; charset=utf-8').header('content-disposition', `attachment; filename="rangefinder-by-${groupDim}.csv"`)
-        .send(toCsv(['key', 'label', 'n', 'p10', 'p25', 'median', 'p75', 'p90', 'cleared_rate', 'verified_share'], rows));
+      const out = q.listRecords(db, filtersOf(req.query), { limit: 100000, offset: 0, embargoDays: 0 });
+      return reply.header('content-type', 'text/csv; charset=utf-8').header('content-disposition', 'attachment; filename="siteline-records.csv"').send(q.recordsCsv(out.rows));
     });
   }, { prefix: '/v1' });
+
+  // Private alert feed for a saved watch. The token in the URL is the credential.
+  app.get('/feeds/:token', async (req, reply) => {
+    const watch = q.watchByToken(db, req.params.token);
+    if (!watch) throw new ApiError(404, 'not_found', 'No such feed.');
+    const tier = TIERS[tierOf({ plan: watch.plan })];
+    if (!tier.watches) throw new ApiError(402, 'plan_required', 'This feed belongs to an account without an active Pro or Team plan.');
+    const rows = q.listRecords(db, watch.filters, { limit: 50, embargoDays: 0 }).rows;
+    return reply.header('content-type', 'application/atom+xml; charset=utf-8').send(q.atomFeed(watch, rows, config.publicUrl));
+  });
 
   // ------------------------------------------------------------------
   // Account API — /api. Cookie-authenticated, JSON only (a JSON content type
@@ -233,7 +178,7 @@ export function buildApp(db, { logger = false } = {}) {
     api.get('/config', async () => ({
       billing: billingEnabled(),
       sales_email: config.salesEmail || null,
-      tiers: Object.fromEntries(['contributor', 'pro', 'team'].map((k) => [k, { name: TIERS[k].name, price: TIERS[k].price, tagline: TIERS[k].tagline, features: TIERS[k].features }])),
+      tiers: Object.fromEntries(Object.entries(TIERS).map(([k, t]) => [k, { name: t.name, price: t.price, tagline: t.tagline, features: t.features }])),
     }));
 
     api.post('/auth/signup', async (req, reply) => {
@@ -263,61 +208,34 @@ export function buildApp(db, { logger = false } = {}) {
       return { ok: true };
     });
 
-    const isAdmin = (user) => config.adminEmails.includes(user.email.toLowerCase());
-
     api.get('/me', async (req) => {
       const user = sessionUser(req);
       if (!user) return { user: null };
-      const contributing = deals.isContributor(db, user.id);
-      const tierKey = accessOf(user);
+      const tierKey = tierOf(user);
       return {
         user,
         tier: tierKey,
         tier_name: TIERS[tierKey].name,
-        contributing,
-        is_admin: isAdmin(user),
-        limits: { daily_requests: TIERS[tierKey].dailyRequests, comps: TIERS[tierKey].comps, export: TIERS[tierKey].export },
+        limits: { daily_requests: TIERS[tierKey].dailyRequests, watches: TIERS[tierKey].watches, export: TIERS[tierKey].export },
         usage: auth.usageHistory(db, user.id),
         keys: auth.listApiKeys(db, user.id),
-        deals: deals.myDeals(db, user.id),
+        watches: q.listWatches(db, user.id).map((w) => ({ ...w, feed_url: `${config.publicUrl}/feeds/${w.feed_token}`, feed_token: undefined })),
       };
     });
 
-    api.post('/deals', async (req) => {
+    api.post('/watches', async (req) => {
       const user = requireUser(req);
       try {
-        return { deal: deals.submitDeal(db, user.id, parseDeal(req.body)) };
+        const w = q.createWatch(db, user.id, req.body.name, q.parseFilters(req.body.filters || {}), TIERS[tierOf(user)].watches);
+        return { watch: { id: w.id, name: w.name, filters: w.filters, feed_url: `${config.publicUrl}/feeds/${w.feed_token}` } };
       } catch (err) {
-        if (err instanceof ValidationError) {
-          const e = new ApiError(400, 'invalid_deal', err.message);
-          e.fields = err.fields;
-          throw e;
-        }
-        if (err instanceof deals.DealError) throw new ApiError(err.status, 'deal_refused', err.message);
+        if (err instanceof q.FilterError) throw new ApiError(TIERS[tierOf(user)].watches ? 400 : 402, 'watch_refused', err.message);
         throw err;
       }
     });
 
-    api.delete('/deals/:id', async (req) => {
-      if (!deals.withdrawDeal(db, requireUser(req).id, Number(req.params.id))) throw new ApiError(404, 'not_found', 'No such deal.');
-      return { ok: true };
-    });
-
-    const requireAdmin = (req) => {
-      const user = requireUser(req);
-      if (!isAdmin(user)) throw new ApiError(403, 'forbidden', 'Moderators only.');
-      return user;
-    };
-
-    api.get('/admin/queue', async (req) => {
-      requireAdmin(req);
-      return { deals: deals.reviewQueue(db) };
-    });
-
-    api.post('/admin/deals/:id', async (req) => {
-      requireAdmin(req);
-      if (!['approve', 'verify', 'reject'].includes(req.body.action)) throw new ApiError(400, 'invalid_action', 'action must be approve, verify or reject.');
-      if (!deals.reviewDeal(db, Number(req.params.id), req.body.action)) throw new ApiError(404, 'not_found', 'No such deal.');
+    api.delete('/watches/:id', async (req) => {
+      if (!q.deleteWatch(db, requireUser(req).id, Number(req.params.id))) throw new ApiError(404, 'not_found', 'No such watch.');
       return { ok: true };
     });
 
@@ -355,7 +273,7 @@ export function buildApp(db, { logger = false } = {}) {
     });
   }, { prefix: '/api' });
 
-  app.get('/healthz', async () => ({ ok: true, deals: deals.datasetStats(db).deals }));
+  app.get('/healthz', async () => ({ ok: true, last_sync: db.prepare('SELECT MAX(last_ok) AS t FROM sync').get().t }));
 
   // ------------------------------------------------------------------
   // Web app (built by `npm run build` into web/dist) with SPA fallback.
@@ -364,7 +282,7 @@ export function buildApp(db, { logger = false } = {}) {
   if (fs.existsSync(path.join(dist, 'index.html'))) {
     app.register(fastifyStatic, { root: dist, wildcard: false, maxAge: '1h', immutable: false });
     app.setNotFoundHandler((req, reply) => {
-      if (req.method === 'GET' && !req.url.startsWith('/v1/') && !req.url.startsWith('/api/') && !path.extname(req.url.split('?')[0])) {
+      if (req.method === 'GET' && !req.url.startsWith('/v1/') && !req.url.startsWith('/api/') && !req.url.startsWith('/feeds/') && !path.extname(req.url.split('?')[0])) {
         return reply.header('cache-control', 'no-cache').sendFile('index.html');
       }
       reply.code(404).send({ error: { code: 'not_found', message: 'Not found.' } });

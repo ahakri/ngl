@@ -168,3 +168,24 @@ label.check input { margin-top: 3px; }
   .card { border-color: #bbb; break-inside: avoid; }
   main { padding: 0; }
 }
+.record { display: block; padding: 14px 0; border-bottom: 1px solid var(--grid); color: inherit; }
+.record:last-child { border-bottom: 0; }
+.record:hover { text-decoration: none; }
+.record:hover .record-title { color: var(--accent); }
+.record-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.record-where { font-size: 12.5px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; color: var(--text-secondary); }
+.record-title { font-weight: 600; margin: 3px 0; }
+.record-foot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 7px; }
+.clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.tags { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 550; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; }
+.tag i { width: 8px; height: 8px; border-radius: 2px; }
+.tag.outcome-approved { color: var(--good); } .tag.outcome-denied { color: var(--bad); }
+.tag.warn { color: var(--text-primary); border-color: var(--text-secondary); }
+.timeline { list-style: none; margin: 10px 0 0; padding: 0 0 0 16px; border-left: 2px solid var(--border); }
+.timeline li { position: relative; padding: 0 0 14px 6px; }
+.timeline li::before { content: ""; position: absolute; left: -22px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface-1); border: 2px solid var(--accent); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px; }
+.fact .label { color: var(--text-secondary); font-size: 12.5px; } .fact .v { font-weight: 600; }
+.pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 12px; }
+.original { white-space: pre-wrap; font-size: 14px; line-height: 1.6; }

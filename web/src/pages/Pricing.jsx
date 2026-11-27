@@ -25,9 +25,9 @@ export function PlanCards() {
 
   const action = (key) => {
     if (me?.tier === key) return <span className="btn" aria-disabled="true">Your current access</span>;
-    if (key === 'contributor') return <Link className="btn" to={user ? '/submit' : '/account?next=submit'}>Share a deal</Link>;
+    if (key === 'free') return user ? null : <Link className="btn" to="/account">Create free account</Link>;
     if (config.billing) return <button className={`btn ${key === 'pro' ? 'primary' : ''}`} disabled={busy === key} onClick={() => choose(key)}>{busy === key ? 'Redirecting…' : `Get ${config.tiers[key].name}`}</button>;
-    if (config.sales_email) return <a className={`btn ${key === 'pro' ? 'primary' : ''}`} href={`mailto:${config.sales_email}?subject=Rangefinder ${config.tiers[key].name}`}>Contact sales</a>;
+    if (config.sales_email) return <a className={`btn ${key === 'pro' ? 'primary' : ''}`} href={`mailto:${config.sales_email}?subject=Siteline ${config.tiers[key].name}`}>Contact sales</a>;
     return <span className="sub">Checkout opens soon.</span>;
   };
 
@@ -39,7 +39,7 @@ export function PlanCards() {
           <div key={key} className={`card plan ${key === 'pro' ? 'featured' : ''}`}>
             <h3>{t.name}</h3>
             <p className="sub">{t.tagline}</p>
-            <div className="price" style={{ marginTop: 10 }}>{t.price ? <>${t.price.toLocaleString('en-US')}<small> / month</small></> : <>Free<small> with a deal</small></>}</div>
+            <div className="price" style={{ marginTop: 10 }}>${t.price.toLocaleString('en-US')}<small> / month</small></div>
             <ul>{t.features.map((f) => <li key={f}>{f}</li>)}</ul>
             {action(key)}
           </div>
@@ -54,16 +54,16 @@ export default function Pricing() {
     <div className="stack">
       <div>
         <h1>Pricing</h1>
-        <p className="sub" style={{ maxWidth: 660 }}>Athletes pay with data, not money. Everyone who uses the benchmarks professionally subscribes, and that funds the database.</p>
+        <p className="sub" style={{ maxWidth: 660 }}>The same records on every plan. Free runs 30 days behind; paid plans are live and add the hearing calendar, alerts, export and API volume.</p>
       </div>
       <PlanCards />
       <div className="card">
         <h2>Questions</h2>
         <div className="stack" style={{ gap: 12, marginTop: 10 }}>
-          <div><h3>Where does the data come from?</h3><p className="sub">Only from athletes, who share the terms of their own deals. Every submission is screened for outliers, unusual ones are reviewed by a person, and deals a moderator has seen proof of are marked verified.</p></div>
-          <div><h3>Can an athlete be identified?</h3><p className="sub">We never collect names, schools, teams or brand names. Followers are shown as ranges, amounts are rounded, and no statistic or list is shown for a group of fewer than five deals.</p></div>
-          <div><h3>Is this an official fair-market-value ruling?</h3><p className="sub">No. Rangefinder is independent market context. It is not affiliated with NIL Go or the College Sports Commission and cannot predict or replace their decisions.</p></div>
-          <div><h3>Can I redistribute the data?</h3><p className="sub">Pro is for use inside your own organisation, including in reports for the athletes and clients you represent. Team adds an internal redistribution licence.</p></div>
+          <div><h3>Where does the data come from?</h3><p className="sub">The official legislative record of each covered city and county: agendas, ordinances, zoning cases and the votes on them. Every record links back to its source page.</p></div>
+          <div><h3>How current is it?</h3><p className="sub">Every jurisdiction is checked daily. Items usually appear when the agenda is published, typically one to two weeks before the hearing.</p></div>
+          <div><h3>How are records classified?</h3><p className="sub">By rule, from the official text: project entitlement, policy, incentive, or power and water. Size figures are extracted the same way. It is not perfect, which is why the original text and source link are always shown.</p></div>
+          <div><h3>What is not covered yet?</h3><p className="sub">Governments that publish through other agenda systems, state air permits for on-site generation, and utility-commission dockets. See the <Link to="/coverage">coverage page</Link> for exactly what is in.</p></div>
         </div>
       </div>
     </div>

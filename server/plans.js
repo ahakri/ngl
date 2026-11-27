@@ -1,30 +1,20 @@
-// Access tiers. "contributor" is not bought: an athlete earns it by sharing a
-// deal of their own, which is how the dataset grows.
+// Access tiers. Free shows the record with a delay; paying removes the delay
+// and adds alerts, export and API volume.
 export const TIERS = {
   free: {
-    name: 'Visitor', price: 0, explorer: false, rangefinder: false, comps: 0, export: false, dailyRequests: 50,
-  },
-  contributor: {
-    name: 'Contributor', price: 0, explorer: true, rangefinder: true, comps: 8, export: false, dailyRequests: 200,
-    tagline: 'For athletes. Share one deal, see them all.',
-    features: ['Full benchmark explorer', 'Range finder for your next deal', '8 comparable deals per search', '12 months of access per deal shared'],
+    name: 'Free', price: 0, embargoDays: 30, pageSize: 25, upcoming: false, export: false, watches: 0, dailyRequests: 100,
+    tagline: 'See what is covered.',
+    features: ['National summary and trends', 'Records older than 30 days', 'Coverage list', '100 API requests / day'],
   },
   pro: {
-    name: 'Pro', price: 299, explorer: true, rangefinder: true, comps: 50, export: true, dailyRequests: 5000,
-    tagline: 'For agents, brands and collectives.',
-    features: ['Everything, without contributing', '50 comparable deals per search', 'Printable fair-value comp reports', 'CSV export and API access', '5,000 API requests / day'],
+    name: 'Pro', price: 399, embargoDays: 0, pageSize: 200, upcoming: true, export: true, watches: 10, dailyRequests: 5000,
+    tagline: 'For developers, brokers and consultants.',
+    features: ['Live records, no delay', 'Upcoming hearings calendar', '10 saved watches with private alert feeds', 'CSV export and API', '5,000 API requests / day'],
   },
   team: {
-    name: 'Team', price: 1499, explorer: true, rangefinder: true, comps: 200, export: true, dailyRequests: 50000,
-    tagline: 'For athletic departments and agencies.',
-    features: ['Everything in Pro', '200 comparable deals per search', '50,000 API requests / day', 'Internal redistribution licence', 'Priority support'],
+    name: 'Team', price: 750, embargoDays: 0, pageSize: 1000, upcoming: true, export: true, watches: 100, dailyRequests: 50000,
+    tagline: 'For funds, utilities and law firms.',
+    features: ['Everything in Pro', '100 saved watches', '50,000 API requests / day', 'Internal redistribution licence', 'Priority coverage requests'],
   },
 };
-
-export const CONTRIBUTOR_DAYS = 365;
-
-/** @param user  row with { plan }  @param contributing  has a live, non-rejected submission */
-export function tierOf(user, contributing) {
-  if (user?.plan === 'pro' || user?.plan === 'team') return user.plan;
-  return user && contributing ? 'contributor' : 'free';
-}
+export const tierOf = (user) => (TIERS[user?.plan] ? user.plan : 'free');

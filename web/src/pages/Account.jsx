@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link, Navigate, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { api } from '../api.js';
 import { useSession } from '../hooks.js';
-import { fullDay, quarter, usdFull } from '../format.js';
+import { fullDay } from '../format.js';
 
 function AuthForm() {
   const { refresh } = useSession();
@@ -72,7 +72,7 @@ function PasswordCard() {
 }
 
 export default function Account() {
-  const { user, me, meta, ready, config, refresh } = useSession();
+  const { user, me, ready, config, refresh } = useSession();
   const [params] = useSearchParams();
   const [fresh, setFresh] = useState(null);
   const [name, setName] = useState('');
@@ -81,7 +81,6 @@ export default function Account() {
 
   if (!ready) return <div className="skeleton">Loading…</div>;
   if (!user) return <AuthForm />;
-  if (params.get('next') === 'submit') return <Navigate to="/submit" replace />;
   if (!me) return <div className="skeleton">Loading…</div>;
 
   const run = async (fn) => {
@@ -113,33 +112,32 @@ export default function Account() {
       {error && <div className="notice error" role="alert">{error}</div>}
 
       <div className="grid three">
-        <div className="card tile"><div className="label">Access</div><div className="value">{me.tier_name}</div>
-          <div className="note">{me.tier === 'free' ? <><Link to="/submit">Share a deal</Link> or <Link to="/pricing">subscribe</Link> to unlock the data</> : me.tier === 'contributor' ? 'Unlocked by sharing a deal' : user.has_subscription && config?.billing ? <button className="btn small" onClick={() => run(async () => window.location.assign((await api.post('/api/billing/portal')).url))}>Manage billing</button> : 'Active subscription'}</div></div>
+        <div className="card tile"><div className="label">Plan</div><div className="value">{me.tier_name}</div>
+          <div className="note">{me.tier === 'free' ? <Link to="/pricing">Upgrade for live records and alerts</Link> : user.has_subscription && config?.billing ? <button className="btn small" onClick={() => run(async () => window.location.assign((await api.post('/api/billing/portal')).url))}>Manage billing</button> : 'Active'}</div></div>
         <div className="card tile"><div className="label">API requests today</div><div className="value">{today.toLocaleString('en-US')}</div><div className="note">of {me.limits.daily_requests.toLocaleString('en-US')} per day</div></div>
-        <div className="card tile"><div className="label">Deals shared</div><div className="value">{me.deals.length}</div><div className="note">{me.limits.export ? 'CSV export included' : 'CSV export on Pro and Team'}</div></div>
+        <div className="card tile"><div className="label">Watches</div><div className="value">{me.watches.length}</div><div className="note">{me.limits.watches ? `of ${me.limits.watches} on your plan` : 'available on Pro and Team'}</div></div>
       </div>
 
       <div className="card">
-        <div className="row between"><h2>Your deals</h2><Link className="btn small primary" to="/submit">Share a deal</Link></div>
-        <p className="sub">Only you can see this list. Withdrawing a deal deletes it; if it was your only one, contributor access ends.</p>
-        {me.deals.length ? (
+        <div className="row between"><h2>Watches</h2><Link className="btn small" to="/records">Create from Records</Link></div>
+        <p className="sub">A watch is a saved filter with a private feed. Add the feed link to any RSS reader, Slack or Teams to be told when a matching record appears. Treat the link like a password.</p>
+        {me.watches.length ? (
           <div className="table-wrap" style={{ marginTop: 8 }}>
             <table>
-              <thead><tr><th>Deal</th><th className="num">Total</th><th>Signed</th><th>Status</th><th /></tr></thead>
+              <thead><tr><th>Name</th><th>Filter</th><th>Feed link</th><th /></tr></thead>
               <tbody>
-                {me.deals.map((d) => (
-                  <tr key={d.id}>
-                    <td className="name">{meta?.dimensions.deal_type[d.deal_type]}<div className="vendor">{meta?.dimensions.sport[d.sport]} · {meta?.dimensions.payer_type[d.payer_type]}</div></td>
-                    <td className="num">{usdFull(d.total_usd)}</td>
-                    <td>{quarter(d.signed_quarter)}</td>
-                    <td><span className="status">{d.status === 'approved' ? (d.verified ? 'Published · verified' : 'Published') : d.status === 'pending' ? 'In review' : 'Not accepted'}</span></td>
-                    <td className="num"><button className="btn small" onClick={() => { if (window.confirm('Withdraw this deal? It will be deleted from the database.')) run(() => api.del(`/api/deals/${d.id}`)); }}>Withdraw</button></td>
+                {me.watches.map((w) => (
+                  <tr key={w.id}>
+                    <td className="name">{w.name}</td>
+                    <td>{Object.entries(w.filters).map(([k, v]) => `${k}: ${v}`).join(', ') || 'All records'}</td>
+                    <td><button className="btn small" onClick={() => navigator.clipboard.writeText(w.feed_url).then(() => setCopied(w.id), () => {})}>{copied === w.id ? 'Copied' : 'Copy link'}</button></td>
+                    <td className="num"><button className="btn small" onClick={() => { if (window.confirm(`Delete watch “${w.name}”? Its feed link will stop working.`)) run(() => api.del(`/api/watches/${w.id}`)); }}>Delete</button></td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        ) : <p className="sub" style={{ marginTop: 8 }}>You have not shared a deal yet.</p>}
+        ) : <p className="sub" style={{ marginTop: 8 }}>No watches yet.</p>}
       </div>
 
       <div className="card">
@@ -148,7 +146,7 @@ export default function Account() {
         {fresh && (
           <div className="notice" style={{ marginTop: 12 }}>
             <div className="row between"><b>New key “{fresh.name}” — copy it now:</b>
-              <button className="btn small" onClick={() => navigator.clipboard.writeText(fresh.key).then(() => setCopied(true), () => {})}>{copied ? 'Copied' : 'Copy'}</button></div>
+              <button className="btn small" onClick={() => navigator.clipboard.writeText(fresh.key).then(() => setCopied(true), () => {})}>{copied === true ? 'Copied' : 'Copy'}</button></div>
             <div className="keybox" style={{ marginTop: 6 }}>{fresh.key}</div>
           </div>
         )}
