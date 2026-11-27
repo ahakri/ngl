@@ -2797,8 +2797,8 @@ def submarine_outline(length=4.0, name="subline", color=(0.75, 0.95, 1.0), width
 
 def _gw_r(t):
     """Great-white half-width profile, t = 0 tail .. 1 snout (fraction of length)."""
-    pts = ((0.0, 0.018), (0.1, 0.03), (0.2, 0.055), (0.35, 0.095), (0.5, 0.122), (0.62, 0.13), (0.75, 0.118),
-           (0.85, 0.09), (0.93, 0.055), (0.98, 0.022), (1.0, 0.004))
+    pts = ((0.0, 0.018), (0.1, 0.03), (0.2, 0.055), (0.35, 0.095), (0.5, 0.122), (0.62, 0.13), (0.75, 0.124),
+           (0.85, 0.106), (0.93, 0.078), (0.98, 0.042), (1.0, 0.01))
     for (a, ra), (b, rb) in zip(pts, pts[1:]):
         if a <= t <= b:
             u = (t - a) / (b - a)
@@ -2876,7 +2876,7 @@ def great_white(name="gw", length=4.5, top=(0.24, 0.27, 0.3), belly=(0.86, 0.86,
     te = 0.86
     for sx in (-1, 1):
         r = _gw_r(te) * Lh
-        e = L.prim("sphere", loc=(sx * r * 0.93, y(te), r * 0.35), segments=16, ring_count=10, radius=0.018 * Lh,
+        e = L.prim("sphere", loc=(sx * r * 0.95, y(te), r * 0.35), segments=16, ring_count=10, radius=0.011 * Lh,
                    name=name + f"_eye{sx}")
         L.assign(e, eyem)
         L.smooth(e)

@@ -13,12 +13,12 @@ import lib_scuba as S
 importlib.reload(S)
 
 PI = math.pi
-WATER = (0.14, 0.45, 0.45)       # temperate South Australian blue-green
+WATER = (0.07, 0.28, 0.3)       # temperate South Australian blue-green
 YEL = (1.0, 0.82, 0.15)
 # S01 opening framing (S18 ends exactly here)
 CAM01_A = Vector((0.9, -4.3, -6.2))
 CAM01_T = Vector((0.1, 0.4, -0.9))
-SH01_A = Vector((0.6, 3.6, -8.6))      # shark at S01 frame 1
+SH01_A = Vector((0.45, 2.7, -6.4))      # shark at S01 frame 1
 SH01_B = Vector((0.25, 1.2, -3.0))     # shark at S01 last frame
 
 
@@ -103,18 +103,18 @@ def snow(L, n, center, size, count=1200, emit=0.25, name="snow"):
                                                  emit_strength=emit))
 
 
-def sa_under(L, n, depth=7.0, vol=0.055, bottom=True, rays=True, surface=True, size=40, center=(0, 0), world=WATER,
-             under=(0.55, 0.85, 0.8), snow_n=1200):
+def sa_under(L, n, depth=7.0, vol=0.07, bottom=True, rays=True, surface=True, size=110, center=(0, 0), world=WATER,
+             under=(0.45, 0.75, 0.7), snow_n=1200):
     """South Australian reef water: blue-green volume, glowing surface overhead, sand/rock/weed bottom, shafts."""
     S.setup(vol_end=50)
-    L.set_world(color=tuple(c * 0.25 for c in world), strength=1.0)
-    vn = S.world_volume(color=world, density=vol, anisotropy=0.6, absorption=(0.25, 0.55, 0.5),
+    L.set_world(color=tuple(c * 0.12 for c in world), strength=1.0)
+    vn = S.world_volume(color=world, density=vol, anisotropy=0.6, absorption=(0.3, 0.6, 0.55),
                         center=(center[0], center[1], -depth / 2), size=(size, size, depth + 0.4))
     out = {"vol": vn}
     if surface:
-        surf = L.prim("plane", loc=(center[0], center[1], 0.0), size=size * 1.6, name="undersurface")
+        surf = L.prim("plane", loc=(center[0], center[1], 0.0), size=size, name="undersurface")
         L.assign(surf, S.mat_water_surface("usurf", color=(0.3, 0.5, 0.5), rough=0.1, alpha=1.0, under_color=under,
-                                           under_strength=1.4, ripple=0.5, nframes=n))
+                                           under_strength=0.8, ripple=0.5, nframes=n))
         surf.visible_shadow = False
     if bottom:
         sand = S.mat_caustic_ground("sasand", c1=(0.32, 0.3, 0.24), c2=(0.55, 0.52, 0.42), caustic=(0.8, 1.0, 0.9),
@@ -136,7 +136,7 @@ def sa_under(L, n, depth=7.0, vol=0.055, bottom=True, rays=True, surface=True, s
         S.god_rays(center=(center[0], center[1] + 3, -0.1), count=7, length=depth + 3, spread=6, tilt=(0.22, 0.1),
                    color=(0.8, 1.0, 0.9), strength=1.0, alpha=0.18, nframes=n)
     if snow_n:
-        snow(L, n, (center[0], center[1] + 2, -depth / 2), (16, 16, depth), count=snow_n)
+        snow(L, n, (center[0], center[1] + 2, -depth / 2), (14, 14, min(depth, 10)), count=snow_n)
     return out
 
 
@@ -174,7 +174,7 @@ def matrix_rot(xcol, ycol, zcol):
 # ----------------------------------------------------------------------------- S01 / S18 looking up at the surface
 
 def surface_hunt(L, n, cam_keys, shark_keys):
-    sa_under(L, n, depth=12, bottom=False, vol=0.045, under=(0.7, 0.95, 0.9))
+    sa_under(L, n, depth=12, bottom=False, vol=0.06, under=(0.6, 0.9, 0.85))
     F = fox(L)
     r = F["root"]
     r.location = (0.0, 0.0, -0.22)
@@ -244,7 +244,7 @@ def S02(L, n):
         F["root"].location = (0, -0.6, 0.1)
         F["pelvis"].location.z -= 0.45
     for k in range(9):
-        x, y = rnd.uniform(-16, 16), rnd.uniform(6, 28)
+        x, y = (rnd.uniform(-5, 4), rnd.uniform(2.5, 9)) if k < 3 else (rnd.uniform(-16, 16), rnd.uniform(6, 28))
         fb = S.float_buoy((x, y, 0.0), name=f"fl{k}")
         S.bob(fb, n, amp=0.05, rate=0.4, phase=k, tilt=0.1, base=(x, y, 0.03))
         if k % 2 == 0:
@@ -252,8 +252,9 @@ def S02(L, n):
             S.bob(W["root"], n, amp=0.05, rate=0.35, phase=k * 0.7, tilt=0.03, base=(x + 1.2, y - 0.6, -0.05))
     cut = 46
     cam, _ = L.camera(loc=(0, -10, 80), lens=35)
-    look_keys(cam, [(1, (0, 0, 95), (0, 22, 0)), (cut - 1, (0, 2, 88), (0, 22, 0)), (cut, (2.5, -6.0, 1.2), (-1.0, 22.0, 1.6)),
-                    (n, (2.0, -4.8, 1.15), (-1.5, 22.0, 1.6))])
+    look_keys(cam, [(1, (0, -40, 70), (0, 50, 0)), (cut - 1, (0, -36, 64), (0, 50, 0)), (cut, (2.5, -6.0, 1.3), (-1.0, 22.0, 0.6)),
+                    (n, (2.0, -4.8, 1.25), (-1.5, 22.0, 0.6))])
+    cam.data.lens = 45
     for fc in _fc(cam):
         for kp in fc.keyframe_points:
             kp.interpolation = "CONSTANT" if kp.co[0] == cut - 1 else "BEZIER"
@@ -309,12 +310,12 @@ def S03(L, n):
     F = fox(L)
     r = F["root"]
     dive = 49
-    keys_loc_rot(r, [(1, (0, 1.2, -0.12), (0, 0, PI / 2)), (dive - 10, (0, 1.2, -0.08), (0.04, 0, PI / 2)),
-                     (dive, (0, 1.25, -0.12), (0, 0, PI / 2)), (dive + 8, (0.6, 1.25, -0.4), (0, -0.2, PI / 2)),
-                     (dive + 30, (1.5, 1.3, -2.0), (0, 0, PI / 2)), (n, (2.0, 1.35, -2.7), (0, 0, PI / 2))])
+    r.rotation_euler = (0, 0, PI / 2)
     # pitch head-down for the duck dive (rotate about the body's lateral axis via a parent pivot)
     piv = L.link(bpy.data.objects.new("divepiv", None))
     r.parent = piv
+    keys_loc_rot(piv, [(1, (0, 1.2, -0.12), None), (dive - 10, (0, 1.2, -0.08), None), (dive, (0, 1.25, -0.12), None),
+                       (dive + 8, (-0.5, 1.25, -0.4), None), (dive + 30, (-1.4, 1.3, -1.9), None), (n, (-1.9, 1.35, -2.6), None)])
     for f, a in ((1, 0.0), (dive, 0.0), (dive + 8, -1.1), (dive + 30, -0.9), (n, -0.75)):
         piv.rotation_euler = (0, a, 0)
         piv.keyframe_insert("rotation_euler", frame=f)
@@ -327,12 +328,12 @@ def S03(L, n):
             F[f"hip{tag}"].rotation_euler = (a, 0, 0)
             F[f"hip{tag}"].keyframe_insert("rotation_euler", frame=f)
     L.anim_swim(F, n - dive - 16, kick_rate=0.8, amp=0.3, start=dive + 18)
-    S.bubbles_at((0.0, 1.85, -0.3), [dive + 4 + i % 5 for i in range(12)], rise=1.0, spread=0.15, size=0.03, life=(14, 24),
+    S.bubbles_at((-0.3, 1.25, -0.3), [dive + 4 + i % 5 for i in range(12)], rise=1.0, spread=0.15, size=0.03, life=(14, 24),
                  name="splb")
-    S.splash_drops((-0.5, 1.2, 0.0), [dive + 14, dive + 15], count=25, speed=2.2, size=0.03)
+    S.splash_drops((0.5, 1.2, 0.0), [dive + 14, dive + 15], count=25, speed=2.2, size=0.03)
     cam, _ = L.camera(loc=(0.2, -2.6, 0.02), lens=28)
-    look_keys(cam, [(1, (0.25, -2.7, 0.02), (0.0, 1.2, -0.05)), (dive, (0.2, -2.5, 0.0), (0.1, 1.2, -0.15)),
-                    (dive + 18, (0.6, -2.3, -0.7), (0.9, 1.2, -1.0)), (n, (1.2, -2.2, -1.6), (1.9, 1.3, -2.4))])
+    look_keys(cam, [(1, (0.1, -1.9, 0.02), (-0.1, 1.2, -0.05)), (dive, (0.05, -1.8, 0.0), (-0.2, 1.2, -0.15)),
+                    (dive + 18, (-0.5, -1.8, -0.7), (-0.9, 1.2, -1.0)), (n, (-1.2, -1.8, -1.6), (-1.8, 1.3, -2.3))])
     L.cam_light(cam, energy=20, color=(0.7, 0.9, 0.9))
     L.handheld(cam, n, amp=0.015, rate=0.5, rot_amp=0.003)
     ic = tank_icon(L, f0=30, f1=36)
@@ -361,7 +362,7 @@ def S04(L, n):
     hide_keys(subtree(r), [(hit, False), (hit + 1, True)])
     G = gw(L, length=4.8)
     g = G["root"]
-    keys_loc_rot(g, [(1, (-7.5, 0.4, -2.0), (0, 0, -PI / 2)), (hit, (-1.9, 0.3, -2.3), (0.05, 0, -PI / 2)),
+    keys_loc_rot(g, [(1, (-6.2, 0.4, -2.0), (0, 0, -PI / 2)), (hit, (-1.9, 0.3, -2.3), (0.05, 0, -PI / 2)),
                      (hit + 6, (-0.6, 0.6, -2.8), (0.25, 0.1, -PI / 2 - 0.25)),
                      (hit + 30, (3.5, 2.5, -4.2), (0.3, 0.2, -PI / 2 - 0.7)), (n, (6.0, 6.0, -5.0), (0.3, 0.2, -PI / 2 - 0.9))])
     S.gw_swim(G, n, rate=1.0, amp=0.35)
@@ -376,7 +377,7 @@ def S04(L, n):
     silt.keyframe_insert("scale", frame=hit + 20)
     # whip pan with the shark, flash at contact
     tgt = L.link(bpy.data.objects.new("tgt", None))
-    for f, p in ((1, (-4.5, 0.3, -2.1)), (hit, (-0.6, 0.2, -2.3)), (hit + 10, (0.3, 0.2, -2.3)), (n, (0.6, 0.2, -2.2))):
+    for f, p in ((1, (-1.6, 0.3, -2.1)), (hit, (-0.6, 0.2, -2.3)), (hit + 10, (0.3, 0.2, -2.3)), (n, (0.6, 0.2, -2.2))):
         tgt.location = p
         tgt.keyframe_insert("location", frame=f)
     cam, _ = L.camera(loc=(0.0, -6.5, -1.9), target=tgt, lens=35)
@@ -451,7 +452,7 @@ def S05(L, n):
 # ----------------------------------------------------------------------------- S06 the float dragged under
 
 def S06(L, n):
-    sa_under(L, n, depth=12, bottom=False, vol=0.045, under=(0.7, 0.95, 0.9))
+    sa_under(L, n, depth=12, bottom=False, vol=0.06, under=(0.6, 0.9, 0.85))
     seize = 33
     fb = S.float_buoy((0, 0, 0))
     keys_loc_rot(fb, [(1, (0, 0, 0.02), (0, 0, 0)), (seize - 4, (0, 0, 0.0), (0.1, 0, 0)), (seize, (-0.05, 0.0, -0.15), (0.3, 0.2, 0)),
@@ -484,11 +485,11 @@ def S06(L, n):
 # ----------------------------------------------------------------------------- S07 freeing the line
 
 def S07(L, n):
-    sa_under(L, n, depth=9, bottom=False, vol=0.055, rays=True)
+    sa_under(L, n, depth=9, bottom=False, vol=0.07, rays=False)
     F = fox(L, gun=False)
     r = F["root"]
     r.location = (0, 0, -2.2)
-    r.rotation_euler = (0.25, 0.4, 0.0)
+    r.rotation_euler = (0.0, 0.0, 0.0)
     for tag in ("L", "R"):
         F[f"shoulder{tag}"].rotation_euler = (-2.4, 0, 0)   # own arms toward the belt (hidden behind gloves)
         F[f"hip{tag}"].rotation_euler = (0.3, 0, 0)
@@ -509,7 +510,7 @@ def S07(L, n):
     knot = L.prim("sphere", loc=belt, segments=10, ring_count=6, radius=0.03, name="knot")
     L.assign(knot, line.data.materials[0])
     keys_loc_rot(knot, [(slip, belt, None), (slip + 5, belt.lerp(far, 0.45), None), (n, far + Vector((0.2, -0.3, 0.6)), None)])
-    for k, (off, yaw) in enumerate(((Vector((0.06, 0.12, -0.12)), 0.0), (Vector((0.1, -0.16, -0.1)), 0.0))):
+    for k, (off, yaw) in enumerate(((Vector((0.1, 0.12, 0.06)), 0.0), (Vector((0.12, -0.15, 0.07)), 0.0))):
         H = S.hand(f"gl{k}", color=(0.02, 0.02, 0.025), scale=1.2)
         hr = H["root"]
         hr.rotation_euler = (Vector(belt) - (belt + off)).to_track_quat("Y", "Z").to_euler()
@@ -520,9 +521,9 @@ def S07(L, n):
         for f in range(1, slip, 5):
             S.curl(H, f, 0.5 + 0.4 * ((f // 5 + k) % 2))
         S.curl(H, slip + 3, 0.2)
-    cam = L.camera(loc=belt + Vector((0.5, -0.45, -0.25)), lens=40)[0]
-    look_keys(cam, [(1, belt + Vector((0.55, -0.5, -0.3)), belt + Vector((0.1, 0, 0.05))),
-                    (n, belt + Vector((0.6, -0.6, -0.2)), belt + Vector((0.3, -0.2, 0.3)))])
+    cam = L.camera(loc=belt + Vector((0.75, -0.25, 0.35)), lens=40)[0]
+    look_keys(cam, [(1, belt + Vector((0.75, -0.25, 0.35)), belt + Vector((0.0, -0.05, 0.0))),
+                    (n, belt + Vector((0.8, -0.35, 0.45)), belt + Vector((0.2, -0.3, 0.3)))])
     L.handheld(cam, n, amp=0.03, rate=1.3, rot_amp=0.02)
     L.cam_light(cam, energy=30, color=(0.7, 0.9, 0.9))
     rim(L, belt + Vector((-1, 1, 1.5)), belt, energy=60, size=1.5, name="rimB")
@@ -559,7 +560,7 @@ def S08(L, n):
                       (44, (0.25, -0.95, -0.55), (-0.25, 0, 0)), (n, (0.25, -0.6, -0.15), (-1.1, 0, 0))])
     for tag, sx in (("L", -1), ("R", 1)):
         Fx[f"shoulder{tag}"].rotation_euler = (2.6, 0, sx * 0.2)
-    S.foam_patch((0.4, -1.1), 0.2, 1.0, 28, n, name="hfoam", z=0.03)
+    S.foam_patch((0.4, -1.1), 0.15, 0.45, 28, n, name="hfoam", z=0.03)
     S.splash_drops((0.3, -1.1, 0.1), [36, 40], count=25, speed=2.0, size=0.04)
     cam, _ = L.camera(loc=(1.0, -7.0, 0.55), target=(0.0, 0.0, 0.7), lens=35)
     L.cam_keys(cam, [(1, (1.6, -7.0, 0.55)), (n, (0.6, -6.5, 0.5))])
@@ -649,7 +650,6 @@ def S11(L, n):
     F["neck"].rotation_euler = (0.1, 0, 0)
     for tag, sx in (("L", -1), ("R", 1)):
         F[f"shoulder{tag}"].rotation_euler = (0.1, sx * 0.12, 0)
-    S.foam_patch((0, 0.0), 0.35, 0.45, 1, n, name="waist", z=0.02)
     rim(L, (0, 6, 2.5), (0, 0, 0.6), energy=150, size=3, color=(1.0, 0.8, 0.55), name="rimS")
     cam, _ = L.camera(loc=(0.35, -3.8, 1.05), target=(0.0, 3.0, 0.75), lens=35)
     L.cam_keys(cam, [(1, (0.4, -4.0, 1.05)), (n, (0.3, -3.2, 1.0))])
@@ -700,12 +700,12 @@ def S12(L, n):
 
 # ----------------------------------------------------------------------------- S13 / S14 / S15 / S17 cage dives
 
-def cage_set(L, n, cage_at=(0, 0, -2.6), world=(0.12, 0.4, 0.48), vol=0.05):
+def cage_set(L, n, cage_at=(0, 0, -3.4), world=(0.06, 0.25, 0.32), vol=0.06):
     sa_under(L, n, depth=14, bottom=False, vol=vol, world=world, snow_n=1400, center=(0, 2))
-    C = S.shark_cage("cage")
+    C = S.shark_cage("cage", h=2.4)
     C.location = cage_at
     S.bob(C, n, amp=0.04, rate=0.2, tilt=0.01, base=cage_at)
-    top = Vector(cage_at) + Vector((0, 0, 2.4))
+    top = Vector(cage_at) + Vector((0, 0, 3.0))
     S.tube([top, top + Vector((0, 0, 1.0)), Vector((0, 0, 0))], radius=0.012,
            mat=L.mat_principled("ropem", (0.75, 0.72, 0.6), rough=0.6), name="cageline", order=2)
     return C
@@ -716,19 +716,19 @@ def S13(L, n):
     F = fox(L, scuba=True, gun=False)
     r = F["root"]
     S.pose_upright(F, yaw=0.0, reach=())
-    r.location = (0.35, 0.05, -1.35)
+    r.location = (0.12, 0.05, -2.0)
     for tag, sx in (("L", -1), ("R", 1)):
         F[f"shoulder{tag}"].rotation_euler = (-1.55, 0, sx * -0.3)
-    S.bubbles_at((0.35, -0.1, -0.7), [6 + i % 4 for i in range(7)] + [40 + i % 4 for i in range(7)], rise=1.0, spread=0.06,
+    S.bubbles_at((0.12, -0.1, -1.35), [6 + i % 4 for i in range(7)] + [40 + i % 4 for i in range(7)], rise=1.0, spread=0.06,
                  size=0.03, life=(26, 40), name="br")
     G = gw(L, length=4.4)
     g = G["root"]
-    keys_loc_rot(g, [(1, (-6.5, 3.2, -1.3), (0, 0, -PI / 2 + 0.1)), (n, (5.5, 2.8, -1.2), (0.0, 0, -PI / 2 - 0.05))])
+    keys_loc_rot(g, [(1, (-6.5, 3.2, -2.0), (0, 0, -PI / 2 + 0.1)), (n, (5.5, 2.8, -1.9), (0.0, 0, -PI / 2 - 0.05))])
     L.linear_fcurves(g)
     S.gw_swim(G, n, rate=0.55, amp=0.25)
     rim(L, (2, 6, 1), (0.3, 0, -0.8), energy=300, size=3, name="rimA")
-    cam = L.camera(loc=(-0.45, -0.42, -0.55), lens=24)[0]
-    look_keys(cam, [(1, (-0.45, -0.42, -0.55), (0.6, 3.0, -1.05)), (n, (-0.4, -0.3, -0.58), (1.0, 3.0, -1.05))])
+    cam = L.camera(loc=(-0.3, -0.5, -1.25), lens=24)[0]
+    look_keys(cam, [(1, (-0.3, -0.5, -1.25), (0.5, 3.0, -2.0)), (n, (-0.26, -0.4, -1.27), (0.8, 3.0, -2.0))])
     L.cam_light(cam, energy=25, color=(0.7, 0.9, 0.9))
     L.handheld(cam, n, amp=0.01, rate=0.4)
     _finish(L)
@@ -739,7 +739,7 @@ def S14(L, n):
     T = fox(L, scuba=True, gun=False, name="taylor")
     r = T["root"]
     S.pose_upright(T, yaw=0.0, reach=())
-    r.location = (-0.25, -0.05, -1.4)
+    r.location = (-0.25, -0.05, -2.05)
     for tag, sx in (("L", -1), ("R", 1)):
         T[f"shoulder{tag}"].rotation_euler = (-1.25, 0, sx * -0.45)
     H = S.film_housing("cine")
@@ -747,16 +747,16 @@ def S14(L, n):
     H.location = (0.0, 0.72, -0.32)
     H.rotation_euler = (-PI / 2, 0, 0)
     H.scale = (1.15, 1.15, 1.15)
-    S.bubbles_at((-0.25, -0.15, -0.75), [10 + i % 4 for i in range(7)] + [60 + i % 4 for i in range(7)], rise=1.0, spread=0.06,
+    S.bubbles_at((-0.25, -0.15, -1.4), [10 + i % 4 for i in range(7)] + [60 + i % 4 for i in range(7)], rise=1.0, spread=0.06,
                  size=0.03, life=(26, 40), name="br")
     G = gw(L, length=4.4)
     g = G["root"]
-    keys_loc_rot(g, [(1, (-3.0, 9.0, -1.6), (0, 0, PI + 0.5)), (50, (-0.6, 4.6, -1.4), (0, 0, PI + 0.25)),
-                     (n, (2.2, 2.6, -1.2), (0, 0, PI - 0.6))])
+    keys_loc_rot(g, [(1, (-3.0, 9.0, -2.3), (0, 0, PI + 0.5)), (50, (-0.6, 4.6, -2.1), (0, 0, PI + 0.25)),
+                     (n, (2.2, 2.6, -1.9), (0, 0, PI - 0.6))])
     S.gw_swim(G, n, rate=0.55, amp=0.25)
     rim(L, (2, 6, 1), (0, 0, -0.8), energy=300, size=3, name="rimA")
-    cam = L.camera(loc=(0.35, -0.5, -0.55), lens=35)[0]
-    look_keys(cam, [(1, (0.4, -0.55, -0.5), (-0.4, 2.5, -1.25)), (n, (0.28, -0.3, -0.58), (-0.35, 2.5, -1.25))])
+    cam = L.camera(loc=(0.35, -0.5, -1.2), lens=35)[0]
+    look_keys(cam, [(1, (0.4, -0.55, -1.15), (-0.4, 2.5, -1.95)), (n, (0.28, -0.3, -1.22), (-0.35, 2.5, -1.95))])
     L.cam_light(cam, energy=25, color=(0.7, 0.9, 0.9))
     L.handheld(cam, n, amp=0.01, rate=0.4)
     _finish(L)
@@ -766,11 +766,11 @@ def S15(L, n):
     C = cage_set(L, n, world=(0.42, 0.45, 0.33), vol=0.07)
     G = gw(L, length=4.4)
     g = G["root"]
-    keys_loc_rot(g, [(1, (-4.5, 4.5, -1.3), (0, 0, -PI / 2 - 0.35)), (34, (-0.4, 1.7, -1.0), (0, 0, -PI / 2 + 0.1)),
-                     (n, (1.0, 4.5, -1.2), (0.0, 0, -PI / 2 + 1.2))])
+    keys_loc_rot(g, [(1, (-4.5, 4.5, -2.0), (0, 0, -PI / 2 - 0.35)), (34, (-0.4, 1.7, -1.8), (0, 0, -PI / 2 + 0.1)),
+                     (n, (1.0, 4.5, -1.9), (0.0, 0, -PI / 2 + 1.2))])
     S.gw_swim(G, n, rate=0.6, amp=0.28)
-    cam = L.camera(loc=(-0.1, 0.2, -1.05), lens=18)[0]
-    look_keys(cam, [(1, (-0.1, 0.2, -1.05), (-0.6, 3.0, -1.1)), (n, (-0.05, 0.25, -1.05), (0.4, 3.0, -1.1))])
+    cam = L.camera(loc=(-0.1, 0.2, -1.9), lens=18)[0]
+    look_keys(cam, [(1, (-0.1, 0.2, -1.9), (-0.6, 3.0, -1.9)), (n, (-0.05, 0.25, -1.9), (0.4, 3.0, -1.9))])
     L.handheld(cam, n, amp=0.012, rate=1.6, rot_amp=0.008)
     S.film_grain(cam, lens=18, strength=0.22, nframes=n)
     L.cam_light(cam, energy=20, color=(0.9, 0.8, 0.6))
