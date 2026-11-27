@@ -2272,7 +2272,7 @@ def step_pos(i, x=0.0):
 
 def brown_lady(name="lady", alpha=0.25, emit=0.4, height=1.7, color=(0.72, 0.7, 0.66)):
     """Translucent veiled figure (our own design): long gown (coat), conical veil + cap, no face. Returns parts with 'mat'."""
-    p = figure(name, color=color, height=height, coat=True)
+    p = figure(name, color=color, height=height, coat=True, dress=True)
     m = p["torso"].data.materials[0]
     pr = m.node_tree.nodes["Principled BSDF"]
     pr.inputs["Emission Color"].default_value = (0.85, 0.82, 0.76, 1)

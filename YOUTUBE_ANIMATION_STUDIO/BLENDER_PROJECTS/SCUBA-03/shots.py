@@ -593,11 +593,15 @@ def S09(L, n):
         P[f"shoulder{tag}"].keyframe_insert("rotation_euler", frame=f2)
     rim(L, (-3, 5, 7), (-4, -1.5, 2), energy=2200, size=4)
     rim(L, (-9, 3, 5), (-4, -1.5, 2), energy=450, size=4, color=(0.25, 0.5, 0.5), name="side")
+    tg = L.link(bpy.data.objects.new("s09tgt", None))
+    for f, p in ((1, (-5.0, -2.2, 1.6)), (int(n * 0.7), (-3.0, -1.3, 2.9)), (n, (-2.3, -0.9, 3.2))):
+        tg.location = p
+        tg.keyframe_insert("location", frame=f)
     piv = L.link(bpy.data.objects.new("orbit", None))
     piv.location = (-3.6, -1.6, 2.4)
-    cam, _ = L.camera(loc=(0, -7.8, 1.4), target=(-3.6, -1.6, 2.4), lens=26)
+    cam, _ = L.camera(loc=(0, 0, 0), target=tg, lens=26)
     cam.parent = piv
-    cam.location = (1.2, -4.4, 0.4)
+    cam.location = (-1.6, -4.6, 0.9)
     L.cam_light(cam, energy=35, color=(0.45, 0.7, 0.75), size_deg=50)
     piv.rotation_euler = (0, 0, -0.17)
     piv.keyframe_insert("rotation_euler", frame=1)
