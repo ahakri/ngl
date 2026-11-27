@@ -48,6 +48,15 @@ export function authenticate(db, email, password) {
   return publicUser(row);
 }
 
+/** Change a password and sign out every other session. */
+export function changePassword(db, userId, current, next, keepToken) {
+  const row = db.prepare('SELECT password_hash FROM users WHERE id = ?').get(userId);
+  if (!row || !verifyPassword(String(current || ''), row.password_hash)) throw new AuthError('Current password is incorrect.', 401);
+  if (typeof next !== 'string' || next.length < 10 || next.length > 200) throw new AuthError('Password must be at least 10 characters.');
+  db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hashPassword(next), userId);
+  db.prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash <> ?').run(userId, sha(keepToken || ''));
+}
+
 const publicUser = (r) => r && { id: r.id, email: r.email, plan: r.plan, created_at: r.created_at, has_subscription: Boolean(r.stripe_subscription_id) };
 export const getUser = (db, id) => publicUser(db.prepare('SELECT * FROM users WHERE id = ?').get(id));
 

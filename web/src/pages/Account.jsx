@@ -33,11 +33,40 @@ function AuthForm() {
         <label>Password<input type="password" autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} minLength={10} required {...field('password')} /></label>
         {error && <div className="notice error" role="alert">{error}</div>}
         <button className="btn primary" disabled={busy}>{busy ? 'Working…' : mode === 'signup' ? 'Create account' : 'Sign in'}</button>
+        {mode === 'signup' && <p className="sub">By creating an account you agree to the <Link to="/terms">Terms</Link> and <Link to="/privacy">Privacy Policy</Link>.</p>}
       </form>
       <p className="sub" style={{ marginTop: 12 }}>
         {mode === 'signup' ? 'Already have an account? ' : 'New here? '}
         <button className="btn small" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(null); }}>{mode === 'signup' ? 'Sign in' : 'Create one'}</button>
       </p>
+    </div>
+  );
+}
+
+function PasswordCard() {
+  const [form, setForm] = useState({ current: '', next: '' });
+  const [msg, setMsg] = useState(null);
+  const submit = async (e) => {
+    e.preventDefault();
+    setMsg(null);
+    try {
+      await api.post('/api/auth/password', form);
+      setForm({ current: '', next: '' });
+      setMsg({ ok: true, text: 'Password changed. Other devices have been signed out.' });
+    } catch (err) {
+      setMsg({ ok: false, text: err.message });
+    }
+  };
+  const field = (k) => ({ value: form[k], onChange: (e) => setForm({ ...form, [k]: e.target.value }) });
+  return (
+    <div className="card">
+      <h2>Password</h2>
+      <form className="auth" style={{ marginTop: 12 }} onSubmit={submit}>
+        <label>Current password<input type="password" autoComplete="current-password" required {...field('current')} /></label>
+        <label>New password<input type="password" autoComplete="new-password" minLength={10} required {...field('next')} /></label>
+        {msg && <div className={`notice ${msg.ok ? '' : 'error'}`} role="status">{msg.text}</div>}
+        <button className="btn">Change password</button>
+      </form>
     </div>
   );
 }
@@ -119,6 +148,7 @@ export default function Account() {
           </div>
         ) : <p className="sub">No keys yet.</p>}
       </div>
+      <PasswordCard />
     </div>
   );
 }

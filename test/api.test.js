@@ -109,6 +109,14 @@ test('accounts: signup, session, API keys, metering, quota and export', async ()
   assert.equal((await app.inject({ method: 'DELETE', url: `/api/keys/${created.id}`, cookies })).statusCode, 200);
   assert.equal((await app.inject({ url: '/v1/meta', headers: bearer })).statusCode, 401);
 
+  // Password change: needs the current password, and signs out other sessions.
+  const other = (await app.inject({ method: 'POST', url: '/api/auth/login', headers: json, payload: { email: 'analyst@fund.com', password: 'correct horse battery' } })).cookies[0].value;
+  assert.equal((await app.inject({ method: 'POST', url: '/api/auth/password', cookies, headers: json, payload: { current: 'nope', next: 'a brand new password' } })).statusCode, 401);
+  assert.equal((await app.inject({ method: 'POST', url: '/api/auth/password', cookies, headers: json, payload: { current: 'correct horse battery', next: 'a brand new password' } })).statusCode, 200);
+  assert.equal((await app.inject({ url: '/api/me', cookies: { uptake_session: other } })).json().user, null);
+  assert.equal((await app.inject({ url: '/api/me', cookies })).json().user.email, 'analyst@fund.com');
+  assert.equal((await app.inject({ method: 'POST', url: '/api/auth/login', headers: json, payload: { email: 'analyst@fund.com', password: 'a brand new password' } })).statusCode, 200);
+
   await app.inject({ method: 'POST', url: '/api/auth/logout', cookies, headers: json, payload: {} });
   assert.equal((await app.inject({ url: '/api/me', cookies })).json().user, null);
   await app.close();

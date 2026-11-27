@@ -61,5 +61,6 @@ The API is documented in the app at `/docs`.
 ## Before charging customers
 
 - Have the upstream terms (pypistats/PyPI, npm, Hugging Face, Algolia HN Search) reviewed for commercial redistribution of derived statistics.
-- Add terms of service, a privacy policy, and email verification / password reset (accounts are email + password only today).
+- The Terms and Privacy pages (`web/src/pages/Legal.jsx`) are starting drafts: have counsel review them and add your company details.
+- Add email verification and a forgotten-password flow (needs an email provider; signed-in users can already change their password).
 - SQLite on one node is fine to launch; move to Postgres when you need more than one instance.

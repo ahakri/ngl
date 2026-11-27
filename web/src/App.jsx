@@ -10,6 +10,7 @@ import Models from './pages/Models.jsx';
 import Pricing from './pages/Pricing.jsx';
 import Docs from './pages/Docs.jsx';
 import Account from './pages/Account.jsx';
+import { Privacy, Terms } from './pages/Legal.jsx';
 
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -60,13 +61,15 @@ export default function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="*" element={<div className="card"><h2>Page not found</h2><p className="sub"><Link to="/">Back to the start</Link></p></div>} />
           </Routes>
         </div>
       </main>
       <footer>
         <div className="wrap">
-          <span>Uptake · AI ecosystem adoption data</span>
+          <span>Uptake · AI ecosystem adoption data · <Link to="/terms">Terms</Link> · <Link to="/privacy">Privacy</Link></span>
           <span>Sources: PyPI download logs, npm registry, Hugging Face Hub, Hacker News. Aggregate public data only — no personal data.</span>
         </div>
       </footer>

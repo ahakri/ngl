@@ -210,6 +210,13 @@ export function buildApp(db, { logger = false } = {}) {
       return { ok: true };
     });
 
+    api.post('/auth/password', async (req) => {
+      guard(req);
+      const user = requireUser(req);
+      wrap(() => auth.changePassword(db, user.id, req.body.current, req.body.next, req.cookies[auth.SESSION_COOKIE]));
+      return { ok: true };
+    });
+
     api.get('/me', async (req) => {
       const user = sessionUser(req);
       if (!user) return { user: null };
