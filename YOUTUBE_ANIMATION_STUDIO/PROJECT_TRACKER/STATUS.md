@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T14:32:43Z
+Updated: 2026-11-27T14:51:02Z
 
 ## Concept counts
 
@@ -17,8 +17,8 @@ Updated: 2026-11-27T14:32:43Z
 ## Pipeline status
 
 - ANIMATED - in render queue: 19
-- ANIMATING: 1
 - CONCEPT: 72
+- QC PASSED: 1
 - SCRIPTED: 8
 
 ## Videos in production
@@ -37,7 +37,7 @@ Updated: 2026-11-27T14:32:43Z
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | ANIMATED - in render queue |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | ANIMATED - in render queue |
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | ANIMATED - in render queue |
-| SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATING |
+| SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATED - in render queue |
 | SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATED - in render queue |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
@@ -46,7 +46,7 @@ Updated: 2026-11-27T14:32:43Z
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | SCRIPTED |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | SCRIPTED |
-| HAUNT-01 | The Voice on the Enfield Tapes | 78 | ANIMATED - in render queue |
+| HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |
 | HAUNT-02 | The Real Room 217 | 77 | ANIMATED - in render queue |
 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | ANIMATED - in render queue |
 | HAUNT-05 | The Tunnel Built to Hide the Dead | 75 | ANIMATED - in render queue |

@@ -443,9 +443,9 @@ def S05(L, n):
     for f, l_ in ((1, 50), (touch, 52), (touch + 14, 24), (n, 24)):
         cam.data.lens = l_
         cam.data.keyframe_insert("lens", frame=f)
-    gl = L.point(E + Vector((0.3, 0.1, 0.25)), energy=8, color=(0.9, 1, 1), radius=0.05, name="eyeglint")
-    rim(L, E + Vector((-0.5, 1.5, 1.5)), E, energy=120, size=2, name="rimE")
-    L.cam_light(cam, energy=30, color=(0.7, 0.9, 0.9))
+    gl = L.point(E + Vector((0.3, 0.1, 0.25)), energy=3, color=(0.9, 1, 1), radius=0.05, name="eyeglint")
+    rim(L, E + Vector((-0.5, 1.5, 1.5)), E, energy=40, size=2, name="rimE")
+    L.cam_light(cam, energy=10, color=(0.7, 0.9, 0.9))
     _finish(L)
 
 

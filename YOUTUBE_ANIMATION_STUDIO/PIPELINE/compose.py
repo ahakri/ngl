@@ -32,7 +32,10 @@ def vignette_mask(strength):
     return (1 - strength * np.clip(_vig - 0.25, 0, 1) ** 1.6)[..., None]
 
 
-def grade(arr, mood, rng):
+_grain = {"f": -1, "n": None}
+
+
+def grade(arr, mood, rng, frame=0):
     g = GRADES[mood]
     x = arr.astype(np.float32) / 255.0
     x = x * np.array(g["gain"], np.float32) + np.array(g["lift"], np.float32)
@@ -40,9 +43,11 @@ def grade(arr, mood, rng):
     x = lum + (x - lum) * g["sat"]
     x = (x - 0.5) * g["con"] + 0.5
     x = x * vignette_mask(g["vig"])
-    noise = rng.standard_normal((H // 2, W // 2, 1)).astype(np.float32)
-    noise = np.repeat(np.repeat(noise, 2, 0), 2, 1)
-    x = x + noise * g["grain"] * (0.6 + 0.4 * (1 - lum))
+    if _grain["n"] is None or frame // 2 != _grain["f"]:
+        nz = rng.standard_normal((H // 2, W // 2, 1)).astype(np.float32)
+        _grain["n"] = np.repeat(np.repeat(nz, 2, 0), 2, 1)
+        _grain["f"] = frame // 2
+    x = x + _grain["n"] * g["grain"] * 0.55 * (0.6 + 0.4 * (1 - lum))
     return (np.clip(x, 0, 1) * 255).astype(np.uint8)
 
 
@@ -167,10 +172,11 @@ def compose(id_, preview=False, until=None):
     out_dir = os.path.join(ROOT, "FINAL_VIDEOS")
     os.makedirs(out_dir, exist_ok=True)
     out = os.path.join(out_dir, f"{id_}{'_preview' if preview else ''}.mp4")
+    tmp_out = os.path.join("/tmp", f"compose_{id_}{'_preview' if preview else ''}.mp4")
     vf = f"ass={ass}:fontsdir={os.path.join(os.path.dirname(__file__), 'fonts')}"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "20" if not preview else "28",
-           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", out]
+           "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "21" if not preview else "28", "-maxrate", "8M" if not preview else "4M", "-bufsize", "16M",
+           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", tmp_out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     rng = np.random.default_rng(1)
     cache = {}
@@ -186,7 +192,7 @@ def compose(id_, preview=False, until=None):
         sdur = st["shots"][cur]["duration"]
         k = int(round((t - s0) * FPS))
         im = shot_frame(id_, cur, k, cache)
-        arr = grade(np.asarray(im), mood, rng)
+        arr = grade(np.asarray(im), mood, rng, f)
         # transitions
         tr = sh_by[cur].get("transition_in", "cut")
         lt = t - s0
@@ -210,6 +216,11 @@ def compose(id_, preview=False, until=None):
         p.stdin.write(im.convert("RGB").tobytes())
     p.stdin.close()
     p.wait()
+    if p.returncode == 0 and os.path.getsize(tmp_out) > 0:
+        import shutil
+        shutil.move(tmp_out, out)
+    else:
+        raise RuntimeError(f"ffmpeg failed for {id_}")
     return out
 
 
