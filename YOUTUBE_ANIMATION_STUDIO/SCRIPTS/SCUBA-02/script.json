@@ -460,7 +460,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "ALL ABOARD ✓",
+     "text": "'ALL ABOARD'",
      "params": {
       "y": 420,
       "size": 90
@@ -875,10 +875,15 @@
    "overlay": [
     {
      "type": "text",
-     "text": "COUNT 1 ✓\nCOUNT 2 ✓",
+     "text": "COUNT 1  OK\nCOUNT 2  OK",
      "params": {
       "y": 420,
-      "size": 90
+      "size": 90,
+      "color": [
+       90,
+       220,
+       130
+      ]
      }
     }
    ],

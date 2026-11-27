@@ -474,7 +474,7 @@ def beam_cone(origin, direction, length=6, radius=0.8, color=(1, 0.95, 0.8), str
 
 
 def ocean(size=60, nframes=120, wave_scale=0.6, choppiness=0.9, resolution=10, spatial=40, wind=12, foam=True,
-          mat=None, z=0.0, speed=1.0, loc=(0, 0, 0), repeat=1, name="ocean", alignment=0.0):
+          mat=None, z=0.0, speed=1.0, loc=(0, 0, 0), repeat=1, name="ocean", alignment=0.0, t0=1.0, seed=3):
     """Animated Ocean-modifier surface (keyframed time => stays live through bake_static)."""
     bpy.ops.mesh.primitive_plane_add(size=2, location=(loc[0], loc[1], z))
     o = bpy.context.active_object
@@ -489,14 +489,14 @@ def ocean(size=60, nframes=120, wave_scale=0.6, choppiness=0.9, resolution=10, s
     oc.choppiness = choppiness
     oc.wind_velocity = wind
     oc.wave_alignment = alignment
-    oc.random_seed = 3
+    oc.random_seed = seed
     if foam:
         oc.use_foam = True
         oc.foam_layer_name = "foam"
         oc.foam_coverage = 0.25
-    oc.time = 1.0
+    oc.time = t0
     o.keyframe_insert('modifiers["ocean"].time', frame=1)
-    oc.time = 1.0 + speed * nframes / 24
+    oc.time = t0 + speed * (nframes - 1) / 24
     o.keyframe_insert('modifiers["ocean"].time', frame=nframes)
     L.linear_fcurves(o)
     L.smooth(o)
