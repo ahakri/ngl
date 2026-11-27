@@ -14,9 +14,9 @@ importlib.reload(S)
 PI = math.pi
 WATER = 1.2           # waterline inside the compartment (air pocket = 2.4 - 1.2 = 1.2 m ~ 4 ft)
 ROOM = (2.4, 2.2, 2.4)
-CAM01_A = (0.1, -2.75, 1.62)   # S01 start (S20 ends here for the loop)
-CAM01_B = (0.08, -2.15, 1.56)
-CAM01_T = (0.0, 0.4, 1.3)
+CAM01_A = (0.1, -2.75, 1.4)   # S01 start (S20 ends here for the loop)
+CAM01_B = (0.08, -2.15, 1.36)
+CAM01_T = (0.0, 0.4, 0.88)
 WARM = (1.0, 0.78, 0.52)
 TEAL = (0.35, 0.8, 0.8)
 
@@ -55,7 +55,7 @@ def okene_figure(L, name="okene", loc=(0.35, 0.3, 0.0), rot_z=0.9, n=100, arm_up
     """Faceless silhouette treading water with head+shoulders above the waterline."""
     fig = L.char_figure(name=name, color=color, height=1.75)
     r = fig["root"]
-    r.location = (loc[0], loc[1], WATER - 1.5 + loc[2])
+    r.location = (loc[0], loc[1], WATER - 1.42 + loc[2])
     r.rotation_euler = (0.08, 0, rot_z)
     for tag, s in (("L", 1), ("R", -1)):
         fig[f"hip{tag}"].rotation_euler = (0.55 + 0.1 * s, 0, 0)
@@ -114,13 +114,14 @@ def okene_set(L, n, ripple=0.012, debris=500, fig=True, flashlight=True, water_d
     if fig:
         out["fig"] = okene_figure(L, n=n, arm_up=arm_up, loc=fig_loc, rot_z=fig_rot)
     if flashlight:
-        out["flash"], out["flash_spot"] = flashlight_prop(L, (-0.55, -0.35, WATER + 0.01), (0.25, 0.9, -0.55),
+        out["flash"], out["flash_spot"] = flashlight_prop(L, (-0.55, -0.35, WATER + 0.01), (-0.25, 0.9, -0.6),
                                                           energy=220, n=n)
         S.beam_cone((0, 0, 0), (0, 0, -1), length=1.6, radius=0.45, color=(1, 0.85, 0.6), strength=1.2, alpha=0.18,
                     name="flashbeam", parent=out["flash_spot"])
     # air-pocket bounce: warm light reflected up off the water onto the overhead + walls
     out["bounce"] = L.area((0.0, 0.2, WATER + 0.06), (0, 0, 0), energy=pocket_light, size=1.6, color=WARM, name="bounce")
     out["bounce"].rotation_euler = (PI, 0, 0)  # emit upward
+    out["underfill"] = L.point((0.4, -0.5, 0.45), energy=12, color=(0.3, 0.8, 0.75), radius=0.4, name="underfill")
     out["rim"] = L.point((-0.6, 0.85, h - 0.35), energy=8, color=WARM, radius=0.15, name="rim")
     if debris:
         L.particle_cloud((0, 0, WATER / 2), (w * 0.95, d * 0.95, WATER * 0.9), count=debris, radius=0.003, nframes=n,
@@ -178,14 +179,14 @@ def S02(L, n):
     bpy.data.objects["fill"].rotation_euler = (Vector((14, -18, -8)).to_track_quat("-Z", "Y").to_euler())
     L.point((0, 3.5, 6.5), energy=200, color=(1, 0.75, 0.45), radius=0.5, name="decklamp").parent = tug
     # spray + rain
-    L.particle_cloud((0, 4, 1.0), (12, 16, 3), count=900, radius=0.03, nframes=n, drift=(0.6, -0.3, 0.5), name="spray",
+    L.particle_cloud((0, 4, 1.0), (12, 16, 3), count=250, radius=0.025, nframes=n, drift=(0.6, -0.3, 0.5), name="spray",
                      mat=L.mat_principled("spray_m", (0.8, 0.9, 1.0), rough=0.3, emit=(0.4, 0.5, 0.6), emit_strength=0.5))
     rain = L.particle_cloud((0, 0, 0.6), (40, 40, 3.0), count=900, radius=0.012, nframes=n, drift=(0.3, 0, -3.0),
                             name="rain", mat=L.mat_principled("rain_m", (0.7, 0.8, 0.9), rough=0.3, emit=(0.4, 0.5, 0.6),
                                                               emit_strength=0.6))
     rain.scale = (1, 1, 6)
-    cam, tgt = L.camera(loc=(-9.5, 24.0, 1.4), target=(0, 1.0, 2.2), lens=35)
-    L.cam_keys(cam, [(1, (-9.5, 24.0, 1.4)), (n, (-8.6, 22.0, 1.1))])
+    cam, tgt = L.camera(loc=(-9.5, 24.0, 3.4), target=(0, 1.0, 2.0), lens=35)
+    L.cam_keys(cam, [(1, (-9.5, 24.0, 3.4)), (n, (-8.6, 22.0, 3.1))])
     L.handheld(cam, n, amp=0.08, rate=0.5, rot_amp=0.01)
     L.bake_static()
 
@@ -220,7 +221,7 @@ def S03(L, n):
     bulb = L.prim("sphere", loc=(0, 0, -0.45), segments=12, ring_count=8, radius=0.05, name="bulb")
     L.assign(bulb, bulbm)
     bulb.parent = hang
-    lamp = L.point((0, 0, -0.5), energy=60, color=(1.0, 0.78, 0.5), radius=0.05, name="bulb_light")
+    lamp = L.point((0, 0, -0.5), energy=35, color=(1.0, 0.78, 0.5), radius=0.05, name="bulb_light")
     lamp.parent = hang
     # NOTE: hang's local frame is flipped by the room (pi about Y) -> local -Z is world +Z; so the cord hangs "up"
     # in local terms. Correct by giving hang a base rotation of pi about Y (cancels) and then counter-rolling.
@@ -233,7 +234,7 @@ def S03(L, n):
         hang.rotation_euler = (0, PI - lag, 0)
         hang.keyframe_insert("rotation_euler", frame=f)
     # flicker then die
-    L.flicker(lamp, n, base=60, seed=4, depth=0.5, rate=0.6, blackouts=((40, 43), (n - 7, n + 2)))
+    L.flicker(lamp, n, base=35, seed=4, depth=0.25, rate=0.6, blackouts=((40, 41), (n - 7, n + 2)))
     em = [nd for nd in bulbm.node_tree.nodes if nd.type == "EMISSION"][0]
     for f, v in ((1, 30), (39, 30), (40, 0.5), (43, 0.5), (44, 30), (n - 8, 30), (n - 7, 0.2), (n, 0.2)):
         em.inputs[1].default_value = v
@@ -243,7 +244,7 @@ def S03(L, n):
     fr = fig["root"]
     fr.parent = room
     # room-local with pi flip: world (x,y,z) = (-lx, ly, -lz) + pivot
-    fr.location = (0.25, 0.15, h / 2)
+    fr.location = (0.25, 0.45, h / 2)
     fr.rotation_euler = (0, PI, PI + 0.5)
     _pose(fig, 1, shoulderL=(0.3, 0, -1.3), shoulderR=(0.3, 0, 1.3), elbowL=(0.6, 0, 0), elbowR=(0.6, 0, 0),
           hipL=(0.1, 0, -0.15), hipR=(-0.1, 0, 0.15))
@@ -271,7 +272,7 @@ def S03(L, n):
         sheet.location = (-w / 2 + 0.05 + sx / 2, 0, h / 2 - 0.03)
         sheet.keyframe_insert("scale", frame=f)
         sheet.keyframe_insert("location", frame=f)
-    L.particle_cloud((-w / 2 + 0.1, 0, h / 2 - 0.2), (0.1, 0.8, 0.3), count=300, radius=0.012, nframes=n,
+    L.particle_cloud((-w / 2 + 0.1, 0, h / 2 - 0.2), (0.1, 0.8, 0.3), count=200, radius=0.005, nframes=n,
                      drift=(0.8, 0, -0.3), name="rushspray",
                      mat=L.mat_principled("rsm", (0.7, 0.85, 0.9), rough=0.2, emit=(0.3, 0.45, 0.5), emit_strength=0.5)).parent = room
     bucket = L.prim("cyl", loc=(-0.45, -0.55, h / 2 - 0.14), vertices=14, radius=0.12, depth=0.26, name="bucket")
@@ -298,7 +299,8 @@ def _sea_floor(L, n, size=120, mat=None):
 
 
 def wreck_scene(L, n, rest_z=5.65, vol_density=0.045, ambient=0.15):
-    S.setup(vol_end=80)
+    S.setup(vol_end=45, vol_tile="4", vol_samples=20)
+    vol_density *= 0.45
     L.set_world(color=(0.01, 0.04, 0.05), strength=ambient)
     S.world_volume(color=(0.15, 0.45, 0.5), density=vol_density, anisotropy=0.5, absorption=(0.05, 0.25, 0.3))
     _sea_floor(L, n)
@@ -311,6 +313,14 @@ def wreck_scene(L, n, rest_z=5.65, vol_density=0.045, ambient=0.15):
         if nm in bpy.data.objects:
             bpy.data.objects[nm].hide_render = True
     return tug, P
+
+
+def _hull_fill(L, k=1.0):
+    """Cold soft key + rim so the hull reads in dark water (no fog-wall from a camera lamp)."""
+    a = L.area((-9, -10, 12), (0, 0, 0), energy=2500 * k, size=8, color=(0.5, 0.8, 0.9), name="hullkey")
+    a.rotation_euler = (Vector((0, 0, 3)) - Vector((-9, -10, 12))).to_track_quat("-Z", "Y").to_euler()
+    b = L.area((8, 10, 9), (0, 0, 0), energy=1500 * k, size=6, color=(0.3, 0.6, 0.8), name="hullrim")
+    b.rotation_euler = (Vector((0, 0, 3)) - Vector((8, 10, 9))).to_track_quat("-Z", "Y").to_euler()
 
 
 # ----------------------------------------------------------------------------- S04 sinking and settling
@@ -356,7 +366,8 @@ def S04(L, n):
     cam, _ = L.camera(loc=(-13.0, -12.0, 6.5), target=tgt, lens=28)
     L.cam_keys(cam, [(1, (-13.0, -12.0, 8.0)), (land, (-12.0, -11.0, 5.2)), (n, (-11.7, -10.7, 5.0))])
     L.handheld(cam, n, amp=0.04, rate=0.4)
-    L.cam_light(cam, energy=900, color=(0.55, 0.85, 0.95), size_deg=60)
+    L.cam_light(cam, energy=60, color=(0.55, 0.85, 0.95), size_deg=60)
+    _hull_fill(L)
     # shake on impact
     for fc in L._fcurves(cam.animation_data.action):
         pass
@@ -415,7 +426,7 @@ def S05(L, n):
     L.point((0, length + 0.9, wl + 0.25), energy=25, color=WARM, radius=0.3, name="pocketglow")
     L.area((0, length + 0.8, wl + 0.02), (PI, 0, 0), energy=20, size=1.2, color=WARM, name="pocketbounce")
     # water
-    L.water_volume(center=(0, length / 2 + 1, wl / 2), size=(w + 0.4, length + 4, wl), color=(0.06, 0.3, 0.28), density=0.4,
+    L.water_volume(center=(0, length / 2 + 1, wl / 2), size=(w + 0.4, length + 4, wl), color=(0.25, 0.6, 0.55), density=0.3,
                    anisotropy=0.6, absorption=(0.02, 0.12, 0.12), name="cwater")
     sm = S.mat_water_surface("csurf", color=(0.01, 0.04, 0.045), rough=0.02, alpha=0.9, under_color=(0.2, 0.45, 0.42),
                              under_strength=0.12, ripple=0.05, nframes=n)
@@ -436,9 +447,10 @@ def S05(L, n):
     for f in range(1, n + 1, 6):
         hr.location = (0.17 + 0.012 * math.sin(f * 0.3), -0.12, -0.32 + 0.02 * math.sin(f * 0.15))
         hr.keyframe_insert("location", frame=f)
-    torch = L.spot((-0.15, -0.15, 0), (0.05, -0.05, 0), energy=90, size_deg=26, blend=0.5, color=(1, 0.85, 0.65), name="ctorch")
+    L.point((0.12, -0.05, -0.15), energy=2.5, color=(1, 0.85, 0.65), radius=0.05, name="handkey").parent = cam
+    torch = L.spot((-0.15, -0.15, 0), (0.05, -0.05, 0), energy=260, size_deg=26, blend=0.5, color=(1, 0.85, 0.65), name="ctorch")
     torch.parent = cam
-    L.flicker(torch, n, base=90, seed=8, depth=0.7, rate=0.5, blackouts=((14, 17), (33, 35)))
+    L.flicker(torch, n, base=260, seed=8, depth=0.6, rate=0.5, blackouts=((14, 17), (33, 35)))
     L.cam_light(cam, energy=6, color=(0.5, 0.8, 0.85))
     L.bake_static()
 
@@ -573,7 +585,8 @@ def S08(L, n):
     cam, _ = L.camera(loc=(-11, -14, 7.5), target=(0, 0, 6.0), lens=24)
     L.cam_keys(cam, [(1, (-10.0, -12.8, 6.8)), (n, (-11.4, -14.6, 7.4))], ease=False)
     L.handheld(cam, n, amp=0.03, rate=0.3)
-    L.cam_light(cam, energy=700, color=(0.45, 0.7, 0.9), size_deg=70)
+    L.cam_light(cam, energy=40, color=(0.45, 0.7, 0.9), size_deg=70)
+    _hull_fill(L, 0.6)
     L.bake_static()
 
 
@@ -603,7 +616,8 @@ def S09(L, n):
     cam, _ = L.camera(loc=(4.0, -5.5, 22.5), target=(0.9, -0.3, 12.5), lens=28)
     L.cam_keys(cam, [(1, (4.0, -5.5, 22.5)), (n, (3.9, -5.3, 21.2))], ease=False)
     L.handheld(cam, n, amp=0.03, rate=0.4)
-    L.cam_light(cam, energy=300, color=(0.5, 0.8, 0.9))
+    L.cam_light(cam, energy=40, color=(0.5, 0.8, 0.9))
+    _hull_fill(L, 0.5)
     L.bake_static()
 
 
@@ -638,7 +652,8 @@ def S10(L, n):
     cam, _ = L.camera(loc=(8.8, y0 - 0.5, 2.6), target=r, lens=24)
     L.cam_keys(cam, [(1, (8.8, y0 - 1.2, 2.8)), (n, (8.8, y1 - 1.0, 2.7))], ease=False)
     L.handheld(cam, n, amp=0.03, rate=0.4)
-    L.cam_light(cam, energy=250, color=(0.5, 0.8, 0.9))
+    L.cam_light(cam, energy=30, color=(0.5, 0.8, 0.9))
+    _hull_fill(L, 0.5)
     L.bake_static()
 
 

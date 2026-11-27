@@ -6,3 +6,4 @@
   each category file keeps exactly 20 ranked concepts (completion criteria), plus VIDEO_IDEAS/RESERVE_20/ holds 20 extra concepts
   (5 per niche, IDs CAVE-R1..R5, SCUBA-R1..R5, MURDER-R1..R5, HAUNT-R1..R5) so the library totals exactly 100.
 - RESOLVED: CAVE-04 (Nutty Putty) fact-check completed (16 claims, ≥2 sources each).
+- MURDER-04 (Zodiac 340): fact-check provisional; re-check in progress. Do not voice/render before FACTCHECK says VERIFIED.

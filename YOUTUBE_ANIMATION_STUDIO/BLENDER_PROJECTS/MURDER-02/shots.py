@@ -37,6 +37,7 @@ def desk_scene(L, n, lamp_energy=14, lamp_loc=(-0.35, 0.45, 0.0), lamp_target=(0
 
 
 def sand_grains(center=(0, 0, 0), size=(0.16, 0.12), count=160):
+    L = M.L
     m = L.mat_principled("grain", (0.55, 0.45, 0.3), rough=0.8)
     return L.particle_cloud((center[0], center[1], 0.0007), (size[0], size[1], 0.0004), count=count, radius=0.0009, mat=m,
                             drift=(0, 0, 0), nframes=2, name="grains")
@@ -546,7 +547,7 @@ def S15(L, n):
     bench = L.prim("cube", loc=(0, 0, -0.02))
     bench.scale = (1.4, 0.6, 0.02)
     L.assign(bench, L.mat_principled("bench", (0.75, 0.77, 0.78), rough=0.35))
-    tiles = L.mat_grid("tiles", color=(0.25, 0.27, 0.3), bg=(0.5, 0.53, 0.55), scale=7, width=0.05, strength=0.05)[0]
+    tiles = M.mat_grid("tiles", color=(0.25, 0.27, 0.3), bg=(0.5, 0.53, 0.55), scale=7, width=0.05, strength=0.05)[0]
     wall = L.prim("plane", loc=(0, 0.6, 0.6), size=1, rot=(math.pi / 2, 0, 0))
     wall.scale = (3, 1.4, 1)
     wp = L.mat_noise_surface("labwall", (0.18, 0.2, 0.22), (0.3, 0.32, 0.34), scale=3, bump=0.05, voronoi=False)

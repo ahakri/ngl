@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T08:29:37Z
+Updated: 2026-11-27T08:35:03Z
 
 ## Concept counts
 
@@ -16,9 +16,9 @@ Updated: 2026-11-27T08:29:37Z
 
 ## Pipeline status
 
-- ANIMATING: 5
+- ANIMATING: 6
 - CONCEPT: 84
-- SCRIPTED: 11
+- SCRIPTED: 10
 
 ## Videos in production
 
@@ -29,7 +29,7 @@ Updated: 2026-11-27T08:29:37Z
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | SCRIPTED |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | SCRIPTED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATING |
-| SCUBA-02 | The Boat Left Without Them | 82 | SCRIPTED |
+| SCUBA-02 | The Boat Left Without Them | 82 | ANIMATING |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | SCRIPTED |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATING |

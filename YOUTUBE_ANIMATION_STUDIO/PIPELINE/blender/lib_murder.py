@@ -780,11 +780,17 @@ def seated_pose(parts, slump=0.35, lean=0.22):
 # ============================================================================ cross-section diagram
 
 def section_diagram(slope_deg=24.0, T=1.35, notch=(0.0, 2.2), depth_y=1.6, span=(-9, 9), with_notch=True, tent_block=True,
-                    slab=False, slab_full=True, name="sec"):
+                    slab=False, slab_full=True, name="sec", ridge_x=-3.4):
     """Side-on slope cross-section (XZ plane, extruded along Y). Slope descends toward +X. Returns dict of parts.
     notch=(x_centre, width): tent platform cut into the snow layer."""
     tg = math.tan(math.radians(slope_deg))
-    zg = lambda x: -x * tg
+
+    def zg(x):
+        if ridge_x is None or x >= ridge_x:
+            return -x * tg
+        # rounded crest, gentle windward side beyond the ridge
+        d = ridge_x - x
+        return -ridge_x * tg - d * tg * 0.25
     zs = lambda x: zg(x) + T
     xn, wn = notch
     a, b = xn - wn / 2, xn + wn / 2
@@ -794,7 +800,7 @@ def section_diagram(slope_deg=24.0, T=1.35, notch=(0.0, 2.2), depth_y=1.6, span=
 
     snow_m = L.mat_principled(name + "_snow", (0.86, 0.9, 0.97), rough=0.7, emit=(0.6, 0.66, 0.78), emit_strength=0.25)
     side_snow = L.mat_principled(name + "_snowside", (0.55, 0.62, 0.78), rough=0.8, emit=(0.3, 0.36, 0.5), emit_strength=0.25)
-    ground_m = L.mat_noise_surface(name + "_ground", (0.05, 0.05, 0.055), (0.13, 0.13, 0.14), scale=3, bump=0.3)
+    ground_m = L.mat_noise_surface(name + "_ground", (0.035, 0.035, 0.04), (0.07, 0.07, 0.08), scale=1.2, bump=0.1, voronoi=False)
     parts = {"a": a, "b": b, "zp": zp, "zs": zs, "zg": zg, "tg": tg}
 
     def extrude(poly, nm, mats, y0=-depth_y / 2, y1=depth_y / 2):
@@ -818,7 +824,7 @@ def section_diagram(slope_deg=24.0, T=1.35, notch=(0.0, 2.2), depth_y=1.6, span=
             o.data.materials.append(mm)
         return o
 
-    xs = [x0 + (x1 - x0) * i / 40 for i in range(41)]
+    xs = sorted(set([x0 + (x1 - x0) * i / 60 for i in range(61)] + ([ridge_x] if ridge_x is not None else [])))
     gpoly = [(x, zg(x)) for x in xs] + [(x1, bottom), (x0, bottom)]
     parts["ground"] = extrude(gpoly, name + "_g", [ground_m, ground_m])
     # snow layer polygon (top with optional notch), then ground line back
@@ -842,12 +848,12 @@ def section_diagram(slope_deg=24.0, T=1.35, notch=(0.0, 2.2), depth_y=1.6, span=
         parts["tent_c"] = (cx, zp)
     if slab:
         # wind slab: wedge on the snow surface uphill of the notch
-        sx0 = a - 4.2
+        sx0 = max(a - 4.2, (ridge_x + 0.3) if ridge_x is not None else -99)
         thick = lambda x: 0.75 * smoothstep(sx0, a - 0.3, x)
         sxs = [sx0 + (a - sx0) * i / 12 for i in range(13)]
         spoly = [(x, zs(x) + thick(x)) for x in sxs] + [(a, zs(a) + thick(a) * 0.7), (a, zs(a))] + \
                 [(x, zs(x) - 0.01) for x in reversed(sxs)]
-        slab_m = L.mat_principled(name + "_slab", (0.78, 0.86, 1.0), rough=0.7, emit=(0.5, 0.65, 0.9), emit_strength=0.45)
+        slab_m = L.mat_principled(name + "_slab", (0.45, 0.7, 1.0), rough=0.7, emit=(0.3, 0.6, 1.0), emit_strength=0.9)
         sl = extrude(spoly, name + "_slab", [slab_m, side_snow], y0=-depth_y / 2 - 0.03, y1=depth_y / 2 + 0.03)
         parts["slab"] = sl
         parts["slab_x0"] = sx0
@@ -1334,3 +1340,256 @@ def rolled_scrap(loc, length=0.06, height=0.014, rot_z=0.0, turns=2.1, name="scr
     bd.deform_axis = "X"
     bd.angle = 2 * math.pi * turns
     return root, o, bd
+
+
+# ============================================================================ Somerton extras
+
+def desk(size=(3.0, 2.0), z=0.0, name="desk"):
+    """Dark wood desktop (top at z)."""
+    t = L.prim("cube", loc=(0, 0, z - 0.03), name=name)
+    t.scale = (size[0] / 2, size[1] / 2, 0.03)
+    L.apply_scale(t)
+    L.assign(t, mat_wood_dark(name + "_m"))
+    return t
+
+
+def folded_jacket(loc, rot_z=0.0, color=(0.07, 0.07, 0.075), name="jacket", label_outline=True):
+    """Folded suit jacket seen from above: body slab with lapels, collar, tie, and an empty stitched rectangle
+    where the maker's label was cut out."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    cm = L.mat_noise_surface(name + "_m", tuple(c * 0.6 for c in color), color, scale=60, bump=0.15, voronoi=False, rough=0.9)
+    body = L.prim("cube", loc=(0, 0, 0.025))
+    body.scale = (0.24, 0.32, 0.025)
+    L.assign(body, cm)
+    L.bevel(body, 0.02, 3)
+    body.parent = root
+    lm = L.mat_noise_surface(name + "_lin", (0.16, 0.14, 0.12), (0.26, 0.23, 0.2), scale=40, bump=0.05, voronoi=False, rough=0.6)
+    lin = L.prim("plane", loc=(0, 0.17, 0.0515), size=1)
+    lin.scale = (0.16, 0.13, 1)
+    L.assign(lin, lm)
+    lin.parent = root
+    for s in (-1, 1):
+        lp = mesh_obj(name + f"_lap{s}", [(s * 0.005, 0.04, 0.053), (s * 0.17, 0.3, 0.053), (s * 0.06, 0.3, 0.053)], [(0, 1, 2)], mat=cm)
+        lp.parent = root
+    col = L.prim("cube", loc=(0, 0.31, 0.058))
+    col.scale = (0.14, 0.02, 0.008)
+    L.assign(col, cm)
+    col.parent = root
+    tm = L.mat_noise_surface(name + "_tie", (0.08, 0.03, 0.03), (0.2, 0.07, 0.06), scale=80, bump=0.1, voronoi=False, rough=0.6)
+    tie = mesh_obj(name + "_tie", [(-0.018, 0.29, 0.056), (0.018, 0.29, 0.056), (0.03, -0.1, 0.056), (0.0, -0.14, 0.056), (-0.03, -0.1, 0.056)],
+                   [(0, 1, 2, 3, 4)], mat=tm)
+    tie.parent = root
+    if label_outline:
+        stm = L.mat_principled(name + "_stitch", (0.6, 0.55, 0.45), rough=0.7)
+        lx, ly, w, h = 0.0, 0.2, 0.08, 0.035
+        dashes = []
+        for (x0, y0, x1, y1) in ((lx - w, ly - h, lx + w, ly - h), (lx + w, ly - h, lx + w, ly + h), (lx + w, ly + h, lx - w, ly + h),
+                                 (lx - w, ly + h, lx - w, ly - h)):
+            seg = 9
+            for i in range(0, seg, 2):
+                ax, ay = x0 + (x1 - x0) * i / seg, y0 + (y1 - y0) * i / seg
+                bx, by = x0 + (x1 - x0) * (i + 1) / seg, y0 + (y1 - y0) * (i + 1) / seg
+                dashes.append(((ax, ay), (bx, by)))
+        verts, faces = [], []
+        for (a, b) in dashes:
+            d = Vector((b[0] - a[0], b[1] - a[1], 0))
+            p = Vector((-d.y, d.x, 0)).normalized() * 0.0018
+            base = len(verts)
+            verts += [(a[0] + p.x, a[1] + p.y, 0.0525), (b[0] + p.x, b[1] + p.y, 0.0525), (b[0] - p.x, b[1] - p.y, 0.0525),
+                      (a[0] - p.x, a[1] - p.y, 0.0525)]
+            faces.append((base, base + 1, base + 2, base + 3))
+        so = mesh_obj(name + "_stitches", verts, faces, mat=stm)
+        so.parent = root
+        pr = L.prim("plane", loc=(lx, ly, 0.0518), size=1)
+        pr.scale = (w * 1.9, h * 1.8, 1)
+        L.assign(pr, L.mat_principled(name + "_pale", (0.33, 0.3, 0.26), rough=0.7))
+        pr.parent = root
+    return root
+
+
+def scissors(loc, rot_z=0.0, name="scissors"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    mt = L.mat_principled(name + "_m", (0.55, 0.56, 0.58), rough=0.25, metal=1.0)
+    hm = L.mat_principled(name + "_h", (0.05, 0.05, 0.05), rough=0.5)
+    for s in (-1, 1):
+        bl = mesh_obj(name + f"_b{s}", [(0, 0, 0.004), (s * 0.01, 0.12, 0.004), (s * 0.004, 0.12, 0.004), (-s * 0.006, 0.0, 0.004)],
+                      [(0, 1, 2, 3)], mat=mt)
+        bl.rotation_euler = (0, 0, s * 0.12)
+        bl.parent = root
+        rg = L.prim("torus", loc=(s * 0.022, -0.04, 0.005), major_radius=0.018, minor_radius=0.004)
+        L.assign(rg, hm)
+        rg.parent = root
+    return root
+
+
+def luggage_shelf(x_range=(-4, 4), y=1.0, levels=(0.0, 0.9, 1.8), depth=0.7, seed=4, name="shelf", skip_slot=None):
+    """Long wooden cloakroom shelving with assorted suitcases. skip_slot=(level, x) leaves a gap."""
+    rnd = random.Random(seed)
+    wm = L.WOOD_OLD()
+    out = []
+    for z in levels:
+        b = L.prim("cube", loc=((x_range[0] + x_range[1]) / 2, y, z + 0.4))
+        b.scale = ((x_range[1] - x_range[0]) / 2, depth / 2, 0.02)
+        L.assign(b, wm)
+    x = x_range[0]
+    while x <= x_range[1]:
+        p = L.prim("cube", loc=(x, y - depth / 2 + 0.03, (levels[-1] + 0.4) / 2 + 0.2))
+        p.scale = (0.03, 0.03, (levels[-1] + 0.4) / 2 + 0.2)
+        L.assign(p, wm)
+        x += 2.0
+    cols = [(0.17, 0.09, 0.05), (0.1, 0.07, 0.05), (0.22, 0.17, 0.11), (0.06, 0.06, 0.07), (0.25, 0.12, 0.06), (0.14, 0.12, 0.1)]
+    for li, z in enumerate(levels):
+        x = x_range[0] + 0.1
+        while x < x_range[1] - 0.5:
+            w = rnd.uniform(0.45, 0.8)
+            if skip_slot and skip_slot[0] == li and abs(x + w / 2 - skip_slot[1]) < 0.6:
+                x += 1.2
+                continue
+            hgt = rnd.uniform(0.3, 0.45)
+            c = suitcase((x + w / 2, y + rnd.uniform(-0.05, 0.05), z + 0.42), size=(w, rnd.uniform(0.18, 0.26), hgt),
+                         color=rnd.choice(cols), rot_z=rnd.uniform(-0.05, 0.05), name=f"{name}_c{li}_{int(x * 10)}")
+            out.append(c)
+            x += w + rnd.uniform(0.03, 0.15)
+    return out
+
+
+def test_tube(loc, glow=(0.3, 0.9, 1.0), strength=3.0, name="tube"):
+    root = empty(name, loc)
+    gm = L.mat_principled(name + "_glass", (0.8, 0.9, 0.95), rough=0.05)
+    p = gm.node_tree.nodes["Principled BSDF"]
+    if "Transmission Weight" in p.inputs:
+        p.inputs["Transmission Weight"].default_value = 0.9
+    t = L.prim("cyl", loc=(0, 0, 0.06), vertices=20, radius=0.012, depth=0.12)
+    L.assign(t, gm)
+    t.parent = root
+    liq = L.prim("cyl", loc=(0, 0, 0.03), vertices=16, radius=0.01, depth=0.05)
+    L.assign(liq, L.mat_emission(name + "_liq", glow, strength))
+    liq.parent = root
+    cap = L.prim("cyl", loc=(0, 0, 0.125), vertices=16, radius=0.014, depth=0.015)
+    L.assign(cap, L.mat_principled(name + "_cap", (0.1, 0.4, 0.8), rough=0.4))
+    cap.parent = root
+    return root, liq
+
+
+def work_light(loc, target, energy=2500, name="worklight"):
+    """Tripod work light with a harsh white flood aimed at target."""
+    root = empty(name, loc)
+    mt = L.mat_principled(name + "_m", (0.12, 0.12, 0.12), rough=0.4, metal=0.6)
+    for k in range(3):
+        a = 2 * math.pi * k / 3
+        leg = L.prim("cyl", loc=(0.25 * math.cos(a), 0.25 * math.sin(a), 0.8), vertices=6, radius=0.015, depth=1.7,
+                     rot=(0.17 * math.sin(a), -0.17 * math.cos(a), 0))
+        L.assign(leg, mt)
+        leg.parent = root
+    head = L.prim("cube", loc=(0, 0, 1.75))
+    head.scale = (0.18, 0.08, 0.13)
+    L.assign(head, L.mat_principled(name + "_y", (0.7, 0.5, 0.05), rough=0.5))
+    head.parent = root
+    lens = L.prim("plane", loc=(0, -0.085, 1.75), size=1, rot=(math.pi / 2, 0, 0))
+    lens.scale = (0.15, 0.1, 1)
+    L.assign(lens, L.mat_emission(name + "_lens", (1, 0.98, 0.95), 40))
+    lens.parent = root
+    lens.visible_shadow = False
+    bpy.context.view_layer.update()
+    sp = L.spot(lens.matrix_world.translation, (0, 0, 0), energy=energy, size_deg=70, blend=0.3, color=(0.95, 0.97, 1.0),
+                name=name + "_spot", radius=0.1)
+    tg = empty(name + "_tgt", target)
+    aim(sp, tg)
+    return root, sp
+
+
+def tree_lines(root_pts, end_pt, mat, z=0.0, name="tree"):
+    """Family-tree style orthogonal connectors (curves) in the XZ plane; animate with curve_draw."""
+    out = []
+    for i, p in enumerate(root_pts):
+        mid_z = (p[1] + end_pt[1]) / 2
+        pts = [(p[0], z, p[1]), (p[0], z, mid_z), (end_pt[0], z, mid_z), (end_pt[0], z, end_pt[1])]
+        cu = bpy.data.curves.new(f"{name}{i}", "CURVE")
+        cu.dimensions = "3D"
+        sp = cu.splines.new("POLY")
+        sp.points.add(len(pts) - 1)
+        for k, q in enumerate(pts):
+            sp.points[k].co = (*q, 1)
+        cu.bevel_depth = 0.012
+        o = L.link(bpy.data.objects.new(f"{name}{i}", cu))
+        o.data.materials.append(mat)
+        out.append(o)
+    return out
+
+
+def curve_draw(o, f0, f1):
+    cu = o.data
+    cu.bevel_factor_end = 0.0
+    cu.keyframe_insert("bevel_factor_end", frame=max(1, f0))
+    cu.bevel_factor_end = 1.0
+    cu.keyframe_insert("bevel_factor_end", frame=max(f0 + 1, f1))
+
+
+def cloud_points(pts, radius=0.01, name="pts", mat=None, seed=3):
+    """Tetra particles at the given world points (one mesh)."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    for p in pts:
+        r = radius * rnd.uniform(0.6, 1.4)
+        c = Vector(p)
+        vs = [bm.verts.new(c + Vector(v) * r) for v in ((1, 1, 1), (-1, -1, 1), (-1, 1, -1), (1, -1, -1))]
+        for f in ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2)):
+            bm.faces.new([vs[i] for i in f])
+    o = L.mesh_from_bm(name, bm)
+    if mat:
+        L.assign(o, mat)
+    o.visible_shadow = False
+    return o
+
+
+def volume_puff(center, f0, n, size=2.5, density=0.25, color=(0.8, 0.84, 0.95), dur=30, name="puff"):
+    """Expanding, thinning snow-dust cloud (volume sphere) for an impact."""
+    o = L.prim("ico", loc=center, subdivisions=2, radius=1.0, name=name)
+    m = mat_volume_anim(name + "_m", color, density)
+    L.assign(o, m[0])
+    dens = m[1]
+    o.scale = (0.01,) * 3
+    o.keyframe_insert("scale", frame=max(1, f0 - 1))
+    o.scale = (size * 0.6,) * 3
+    o.keyframe_insert("scale", frame=f0 + 5)
+    o.scale = (size, size, size * 0.7)
+    o.keyframe_insert("scale", frame=f0 + dur)
+    dens.default_value = density
+    dens.keyframe_insert("default_value", frame=f0 + 3)
+    dens.default_value = density * 0.15
+    dens.keyframe_insert("default_value", frame=min(n, f0 + dur))
+    return o
+
+
+def mat_volume_anim(name, color, density):
+    m, n, l = L._mat(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    v = n.new("ShaderNodeVolumePrincipled")
+    v.inputs["Color"].default_value = (*color, 1)
+    v.inputs["Density"].default_value = density
+    # soft spherical falloff
+    tc = n.new("ShaderNodeTexCoord")
+    vl = n.new("ShaderNodeVectorMath"); vl.operation = "LENGTH"
+    l.new(tc.outputs["Object"], vl.inputs[0])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.3
+    mr.inputs["From Max"].default_value = 1.0
+    mr.inputs["To Min"].default_value = 1.0
+    mr.inputs["To Max"].default_value = 0.0
+    l.new(vl.outputs["Value"], mr.inputs["Value"])
+    nz = n.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 2.0
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    m1 = n.new("ShaderNodeMath"); m1.operation = "MULTIPLY"
+    l.new(mr.outputs[0], m1.inputs[0]); l.new(nz.outputs["Fac"], m1.inputs[1])
+    val = n.new("ShaderNodeValue")
+    val.outputs[0].default_value = density
+    m2 = n.new("ShaderNodeMath"); m2.operation = "MULTIPLY"
+    l.new(m1.outputs[0], m2.inputs[0])
+    l.new(val.outputs[0], m2.inputs[1])
+    l.new(m2.outputs[0], v.inputs["Density"])
+    l.new(v.outputs[0], n["Material Output"].inputs["Volume"])
+    return m, val.outputs[0]

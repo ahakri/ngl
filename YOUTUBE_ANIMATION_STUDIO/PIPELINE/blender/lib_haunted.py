@@ -91,6 +91,25 @@ def cam_move(cam_o, keys, ease=True):
     return cam_o
 
 
+def handheld(cam_o, nframes, amp=0.02, rate=0.6, seed=3, rot_amp=0.008):
+    """Like L.handheld but never overwrites existing frame-1 keys (L.handheld re-keys rotation at frame 1)."""
+    ad = cam_o.animation_data
+    have = set()
+    if ad and ad.action:
+        have = {fc.data_path for fc in L._fcurves(ad.action)}
+    if "location" not in have:
+        cam_o.keyframe_insert("location", frame=1)
+    if "rotation_euler" not in have:
+        cam_o.keyframe_insert("rotation_euler", frame=1)
+    for fc in L._fcurves(cam_o.animation_data.action):
+        if fc.data_path in ("location", "rotation_euler"):
+            m = fc.modifiers.new("NOISE")
+            m.scale = 24 / max(0.05, rate)
+            m.strength = amp * 2 if fc.data_path == "location" else rot_amp * 2
+            m.phase = seed * 13 + fc.array_index * 7
+            m.blend_type = "ADD"
+
+
 def key_energy(light_o, pairs, interp="CONSTANT"):
     """pairs: [(frame, energy)]"""
     for f, e in pairs:
@@ -781,7 +800,7 @@ def enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=None, reels_spin=Tru
     rec = tape_recorder(REC_POS[0], REC_POS[1], n=n, rec_on=rec_on, rec_on_frame=rec_on_frame, reels_spin=reels_spin)
     # chest of drawers by the door (or face-down)
     if toppled:
-        chest_of_drawers((1.0, -1.1, 0.2), rot=(math.pi / 2, 0, 0.35), name="chest")
+        chest_of_drawers((0.45, -0.05, 0.2), rot=(math.pi / 2, 0, 0.35), name="chest")
     else:
         chest_of_drawers((1.25, -1.45, 0), rot=(0, 0, -math.pi / 2), name="chest")
     # chair
@@ -790,7 +809,7 @@ def enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=None, reels_spin=Tru
     elif chair == "B":
         ch = wood_chair(CHAIR_B[0], CHAIR_B[1], jumper=jumper)
     else:
-        ch = wood_chair((-0.15, 0.6, 0.21), 0.9, jumper=False)
+        ch = wood_chair((-0.1, 0.3, 0.21), 0.9, jumper=False)
         ch["root"].rotation_euler = (0, math.radians(90), 0.9)
     # a few child details: rug, poster rectangles
     box_mesh("rug", [(0.0, 0.3, 0.005, 0.5, 0.8, 0.005)], L.mat_noise_surface("rug_m", (0.18, 0.08, 0.05), (0.3, 0.16, 0.08), scale=20, bump=0.1, voronoi=False))

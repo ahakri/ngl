@@ -37,10 +37,10 @@ def _street(L, n, lit=("U1",), open_win=None):
     for i, x in enumerate((-11.0, 0.0, 11.0)):
         houses.append(H.semi_pair(f"semi{i}", (x, 0, 0), lit=(lit if i == 1 else (("U3",) if i == 0 else ())),
                                   open_win=(open_win if i == 1 else None), brick=bricks[i % 2], seed=i))
-    lamp = H.streetlamp((3.2, -4.9, 0), height=5.5, energy=1400, face=math.pi, arm=1.0)
+    lamp = H.streetlamp((1.6, -4.9, 0), height=5.5, energy=5000, face=math.pi, arm=1.0)
     H.streetlamp((-17.0, -4.9, 0), height=5.5, energy=500, face=math.pi, arm=1.0, name="slamp2")
     # back-row rooftops / sky glow
-    L.sun(rot=(0.9, 0.0, 2.6), energy=0.06, color=(0.5, 0.6, 1.0), angle=8)
+    L.sun(rot=(0.9, 0.0, 2.6), energy=0.25, color=(0.5, 0.6, 1.0), angle=8)
     L.fog_volume(center=(0, 0, 4), size=(70, 36, 9), density=0.018, color=(0.75, 0.72, 0.8))
     return houses, lamp
 
@@ -48,9 +48,9 @@ def _street(L, n, lit=("U1",), open_win=None):
 def S02(L, n):
     houses, lamp = _street(L, n)
     H.rain((1.0, -9.0, 3.0), (14, 8, 6), n, count=1800, speed=7, emit=0.35)
-    c = H.cam((-3.2, -16.0, 0.75), (-1.6, 0, 4.0), lens=35)
-    H.cam_move(c, [(1, (-3.2, -16.0, 0.75), (-1.6, 0, 3.9)), (n, (-0.6, -16.0, 0.8), (0.4, 0, 3.9))], ease=False)
-    L.handheld(c, n, amp=0.015, rate=0.4)
+    c = H.cam((-3.4, -14.0, 0.8), (-2.0, 0, 1.9), lens=35)
+    H.cam_move(c, [(1, (-3.4, -14.0, 0.8), (-2.0, 0, 1.9)), (n, (-0.9, -14.0, 0.85), (0.3, 0, 1.9))], ease=False)
+    H.handheld(c, n, amp=0.015, rate=0.4)
     L.bake_static()
 
 
@@ -79,11 +79,11 @@ def S03(L, n):
     cord = L.guideline([(wx - 0.3, 1.2, 0.86), (wx - 0.05, 1.18, 1.0), (wx + 0.2, 1.15, 1.25), (wx + 0.33, 1.12, 1.45)],
                        mat=L.mat_principled("cordm", (0.01, 0.01, 0.01)), thickness=0.008, name="cord")
     # net curtain across the window
-    net = H.curtain("net", wx, 1.62, 1.28, 2.08, axis="x", fixed=0.12, folds=10, depth=0.02, mat=H.mat_net_curtain(alpha=0.45, emit=0.5))
-    c = H.cam((-3.0, -12.5, 1.6), (-2.2, 0.0, 3.0), lens=50)
-    H.cam_move(c, [(1, (-3.0, -12.5, 1.6), (-2.2, 0.0, 3.0)), (int(n * 0.35), (-3.0, -12.5, 1.6), (-2.2, 0.0, 3.0)),
-                   (n, (-3.0, -11.9, 1.62), (-2.2, 0.0, 3.0))])
-    L.handheld(c, n, amp=0.006, rate=0.3)
+    net = H.curtain("net", wx, 1.62, 1.28, 2.08, axis="x", fixed=0.12, folds=10, depth=0.02, mat=H.mat_net_curtain(alpha=0.3, emit=0.1))
+    p0, t0 = (-2.3, -9.0, 1.6), (-2.3, 0.0, 1.85)
+    c = H.cam(p0, t0, lens=50)
+    H.cam_move(c, [(1, p0, t0), (int(n * 0.35), p0, t0), (n, (-2.35, -8.55, 1.6), (-2.4, 0.0, 1.8))])
+    H.handheld(c, n, amp=0.006, rate=0.3)
     H.rain((-2.0, -6.0, 3.0), (8, 6, 6), n, count=900, speed=7, emit=0.3)
     L.bake_static()
 
@@ -162,7 +162,7 @@ def S04(L, n):
     r.rotation_euler = (0, 0, math.radians(-5))
     r.keyframe_insert("location", frame=n - 6)
     r.keyframe_insert("rotation_euler", frame=n - 6)
-    H.dust((0, 0, 1.2), (3, 3, 2), n, count=350, emit=0.1)
+    H.dust((0, 0, 1.2), (3, 3, 2), n, count=120, radius=0.0025, emit=0.03)
     H.room_fog((0, 0, Hh / 2), (W, D, Hh), density=0.02, color=(0.8, 0.75, 0.7))
     c = H.cam((1.75, -2.15, 1.55), (-0.45, 0.6, 0.75), lens=24)
     L.cam_light(c, energy=15, color=(0.8, 0.85, 1.0))
@@ -192,12 +192,13 @@ def S05(L, n):
     # stairs along the east wall rising toward camera (foreground right)
     st_m = L.mat_principled("stairs", (0.2, 0.12, 0.06), rough=0.6)
     steps = []
-    for k in range(12):
-        y = 0.6 - k * 0.26
-        steps.append((W / 2 - 0.42, y, 0.1 + k * 0.2, 0.42, 0.13, 0.1 + k * 0.2))
+    for k in range(5):
+        y = -1.5 - k * 0.26
+        top = 0.2 * (k + 1)
+        steps.append((W / 2 - 0.42, y, top / 2, 0.42, 0.13, top / 2))
     H.box_mesh("stairs", steps, st_m)
-    H.box_mesh("banister", [(W / 2 - 0.86, 0.6 - k * 0.26, 0.55 + k * 0.2, 0.018, 0.018, 0.45) for k in range(0, 9)] +
-               [(W / 2 - 0.86, 0.75, 1.0, 0.05, 0.05, 0.5)], trim)
+    H.box_mesh("banister", [(W / 2 - 0.86, -1.5 - k * 0.26, 0.2 * (k + 1) + 0.45, 0.018, 0.018, 0.45) for k in range(0, 5)] +
+               [(W / 2 - 0.86, -1.42, 0.55, 0.045, 0.045, 0.55)], trim)
     # outside: cold street light, fog spilling in
     H.box_mesh("outside", [(0, D / 2 + 4.0, 2.0, 5.0, 0.1, 3.0)], L.mat_emission("nightout", (0.06, 0.09, 0.16), 1.0))
     H.box_mesh("outground", [(0, D / 2 + 2.0, -0.01, 5, 2.0, 0.01)], L.mat_principled("og", (0.05, 0.05, 0.06), rough=0.3))
@@ -226,9 +227,9 @@ def S05(L, n):
     rec["root"].location = (0.04, 0.0, -0.58)
     rec["root"].rotation_euler = (0, 0, math.pi / 2)
     H.box_mesh("handle", [(0, 0, 0.17, 0.01, 0.08, 0.05)], L.mat_principled("hdl", (0.02, 0.02, 0.02)), parent=rec["root"])
-    c = H.cam((0.45, -2.1, 0.62), (-0.1, 2.5, 1.35), lens=28)
-    H.cam_move(c, [(1, (0.45, -2.1, 0.62), (-0.1, 2.5, 1.35)), (n, (0.4, -2.0, 0.6), (-0.15, 2.5, 1.25))])
-    L.handheld(c, n, amp=0.012, rate=0.5)
+    c = H.cam((0.5, -2.2, 1.02), (-0.15, 2.5, 1.45), lens=28)
+    H.cam_move(c, [(1, (0.5, -2.2, 1.02), (-0.15, 2.5, 1.45)), (n, (0.45, -2.1, 1.0), (-0.2, 2.5, 1.35))])
+    H.handheld(c, n, amp=0.012, rate=0.5)
     L.cam_light(c, energy=10, color=(0.9, 0.85, 0.8))
     H.dust((0, 1.0, 1.2), (1.8, 3.5, 2.0), n, count=400, emit=0.1)
     L.bake_static()
@@ -246,12 +247,12 @@ def S06(L, n):
     set_ = H.enfield_bedroom(n, chair="A", rec_on=True, fog=True, dust_count=500)
     rc = (0.25, 1.5, 0.6)
     keys = []
-    for f, th in ((1, -112), (n, -88)):
+    for f, th in ((1, -80), (n, -58)):
         a = math.radians(th)
-        keys.append((f, (rc[0] + 0.95 * math.cos(a), rc[1] + 0.95 * math.sin(a), rc[2] + 0.62), (rc[0], rc[1] + 0.02, rc[2] - 0.02)))
+        keys.append((f, (rc[0] + 0.8 * math.cos(a), rc[1] + 0.8 * math.sin(a), rc[2] + 0.72), (rc[0], rc[1] + 0.0, rc[2] - 0.1)))
     c = H.cam(keys[0][1], keys[0][2], lens=70)
     H.cam_move(c, keys, ease=False)
-    L.dof(c, distance=1.13, fstop=2.0)
+    L.dof(c, distance=1.07, fstop=2.2)
     L.cam_light(c, energy=6, color=(0.6, 0.7, 1.0), size_deg=40)
     L.spot((rc[0] + 0.6, rc[1] + 0.25, 1.4), (0, 0, 0), energy=25, size_deg=50, blend=1, color=(0.55, 0.68, 1.0), name="rim")
     rim = [o for o in __import__("bpy").data.objects if o.name == "rim"][0]
@@ -269,7 +270,7 @@ def S07(L, n):
     st, tg = (0.55, -2.0, 1.15), (-0.05, 1.0, 0.6)
     c = H.cam(st, (-1.7, -0.4, 1.4), lens=22)
     H.cam_move(c, [(1, st, (-1.7, -0.4, 1.4)), (6, st, tg), (n, (0.35, -1.6, 1.05), (0.0, 1.2, 0.6))])
-    L.handheld(c, n, amp=0.02, rate=0.7, rot_amp=0.012)
+    H.handheld(c, n, amp=0.02, rate=0.7, rot_amp=0.012)
     L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()
 
@@ -280,7 +281,7 @@ def S08(L, n):
     L.set_world((0, 0, 0), 0)
     wf = H.waveform_curve("wave", length=16, pts=900, amp=0.42, z=0.35, thickness=0.009, strength=9,
                           bursts=((0.18, 0.42), (0.5, 0.7), (0.78, 0.95)))
-    glow = H.waveform_curve("waveglow", length=16, pts=900, amp=0.42, z=0.35, y=0.02, thickness=0.03, strength=0.5,
+    glow = H.waveform_curve("waveglow", length=16, pts=900, amp=0.42, z=0.35, y=0.02, thickness=0.02, strength=0.5,
                             bursts=((0.18, 0.42), (0.5, 0.7), (0.78, 0.95)))
     for o in (wf, glow):
         o.location = (-0.9, 0, 0)
@@ -288,7 +289,7 @@ def S08(L, n):
         o.location = (-0.9 - 1.45 * n / 24.0, 0, 0)
         o.keyframe_insert("location", frame=n)
         L.linear_fcurves(o)
-    grid_m = L.mat_emission("grid", (0.3, 0.7, 0.4), 0.35)
+    grid_m = L.mat_emission("grid", (0.3, 0.7, 0.4), 0.18)
     lines = []
     for k in range(-6, 7):
         lines.append((k * 0.25, 0.05, 0.35, 0.002, 0.002, 1.3))
@@ -326,10 +327,10 @@ def S09(L, n):
     # 'bedside lamp low': a lamp knocked to the floor by the left bed, throwing the chair's shadow onto the east wall
     lp = H.bedside_lamp((-1.05, 1.35, 0.55), on=True, energy=0.0, name="lowlamp")
     lp["root"].rotation_euler = (0, math.radians(-70), 0.1)
-    key = L.spot((-1.15, 1.12, 0.72), (0, 0, 0), energy=420, size_deg=70, blend=0.35, color=(1.0, 0.7, 0.4), name="lowkey", radius=0.015)
+    key = L.spot((-1.15, 1.12, 0.72), (0, 0, 0), energy=280, size_deg=70, blend=0.35, color=(1.0, 0.7, 0.4), name="lowkey", radius=0.015)
     H.aim(key, (-1.15, 1.12, 0.72), (1.65, 1.0, 1.3))
-    H.flicker_lamp({"light": key, "shade_mat": lp["shade_mat"]}, n, 420, 1.6, seed=9, depth=0.12, rate=0.2)
-    st, tg0, tg1 = (-1.45, -1.62, 2.28), (1.0, 0.9, 1.5), (1.0, 0.9, 1.1)
+    H.flicker_lamp({"light": key, "shade_mat": lp["shade_mat"]}, n, 280, 1.6, seed=9, depth=0.12, rate=0.2)
+    st, tg0, tg1 = (-1.45, -1.62, 2.28), (1.0, 0.9, 1.75), (1.0, 0.9, 1.4)
     c = H.cam(st, tg0, lens=20)
     H.cam_move(c, [(1, st, tg0), (n, (-1.4, -1.55, 2.25), tg1)])
     L.cam_light(c, energy=10, color=(0.65, 0.75, 1.0), size_deg=80)

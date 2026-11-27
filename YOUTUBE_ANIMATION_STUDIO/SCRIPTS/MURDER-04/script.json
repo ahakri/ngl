@@ -94,7 +94,7 @@
   },
   {
    "id": "L10",
-   "text": "A warehouse worker in Belgium.",
+   "text": "A programmer in Belgium.",
    "pause_after": 0.35,
    "shot": "S09",
    "emphasis": [
@@ -134,21 +134,20 @@
   },
   {
    "id": "L14",
-   "text": "The warehouse worker's software attacked each one.",
+   "text": "The Belgian's program attacked each one.",
    "pause_after": 0.3,
    "shot": "S13",
    "emphasis": [
-    "software"
+    "program"
    ]
   },
   {
    "id": "L15",
-   "text": "Then words surfaced. Trying to catch me.",
+   "text": "Then, real English surfaced.",
    "pause_after": 0.45,
    "shot": "S14",
    "emphasis": [
-    "catch",
-    "me"
+    "English"
    ]
   },
   {
@@ -686,7 +685,7 @@
    "overlay": [
     {
      "type": "map",
-     "text": "JARL VAN EYCKE\nwarehouse worker - Belgium",
+     "text": "JARL VAN EYCKE\nprogrammer, author of AZdecrypt - Belgium",
      "params": {
       "land": [
        [
@@ -937,7 +936,7 @@
     "L15"
    ],
    "environment": "other:modern computer screen",
-   "description": "MID-POINT TURN (unreadable becomes readable). Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until TRYING TO CATCH ME reads clean, glowing red, while the rest of the line stays noise.",
+   "description": "MID-POINT TURN (unreadable becomes readable). Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until a fragment reads as clean English, glowing red, while the rest of the line stays noise. Use a fragment of the published plaintext (e.g. LOTS OF FUN); do not imply which words appeared first.",
    "camera": "locked-off macro on the screen line, tiny push",
    "characters": [],
    "lighting": "red text glow dominates; monitor dim",
@@ -945,7 +944,7 @@
    "overlay": [
     {
      "type": "title",
-     "text": "TRYING TO CATCH ME",
+     "text": "REAL WORDS",
      "start": 1.2,
      "params": {
       "size": 100,

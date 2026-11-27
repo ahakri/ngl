@@ -13,7 +13,7 @@ Beat map:
 - open question and comment prompt 67–71 s
 - open question S22, loop line 71–74 s, back to frame 1
 
-Timings come from a Kokoro test render (am_onyx, speed 1.06): total narration **74.2 s**. Shot boundaries are the start of each shot's first line (the pipeline's `timing()` rule). 9:16, 1080x1920, 24 fps. Captions are burned in (red accent, `emphasis` words highlighted). Keep overlays out of the bottom 20 % and right 15 %.
+Timings come from a Kokoro test render (am_onyx, speed 1.06): total narration **74.1 s**. Shot boundaries are the start of each shot's first line (the pipeline's `timing()` rule). 9:16, 1080x1920, 24 fps. Captions are burned in (red accent, `emphasis` words highlighted). Keep overlays out of the bottom 20 % and right 15 %.
 
 **Reusable prop: STYLISED 727** (built from primitives: exterior in S01, S07, S09, S18, S19, S23; cabin interior in S04)
 - Fuselage: a cylinder (r 1.9 m, 40 m) with a tapered nose cone and tail cone, navy-grey metal, red cheat-line. No airline logo or livery.
@@ -184,9 +184,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** wind @+0.0s g0.3, sting @+0.0s g0.6
 - **Music level:** 0.50 → 0.87 (original/royalty-free dark ambient pad; no licensed music)
 
-## S13  ·  37.6–40.6 s  (2.9 s)  ·  transition in: cut
+## S13  ·  37.6–40.5 s  (2.8 s)  ·  transition in: cut
 
-- **Narration:** L13 "Under the sand: three rotting bundles of twenties."
+- **Narration:** L13 "Under it: three rotting bundles of twenties."
 - **Visual:** Macro: sand slides away to reveal three blackened, swollen bundles of green paper (stacked thin planes, edges frayed, darker at corners), held by perished rubber bands. Generic bills only — no real banknote design.
 - **Environment:** other:riverbank macro
 - **Camera:** macro 85mm, top-down rack focus as sand pours off
@@ -197,7 +197,7 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** hit @+0.0s g0.6, riser @+0.2s g0.4
 - **Music level:** 0.87 → 0.89 (original/royalty-free dark ambient pad; no licensed music)
 
-## S14  ·  40.6–45.0 s  (4.5 s)  ·  transition in: cut
+## S14  ·  40.5–44.9 s  (4.4 s)  ·  transition in: cut
 
 - **Narration:** L14 "About five thousand eight hundred dollars. The serial numbers matched the ransom."
 - **Visual:** Evidence card: a recovered bill fragment on the left, a 1971 ransom-list microfilm strip on the right; serial-number rows highlight and a red line connects them, then a red MATCH stamp. Serial numbers are placeholders (e.g. L0000000A), not real ones.
@@ -210,7 +210,7 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** typewriter @+0.0s g0.4, hit @+1.6s g0.8
 - **Music level:** 0.89 → 0.92 (original/royalty-free dark ambient pad; no licensed music)
 
-## S15  ·  45.0–48.8 s  (3.8 s)  ·  transition in: whip
+## S15  ·  44.9–48.7 s  (3.8 s)  ·  transition in: whip
 
 - **Narration:** L15 "But that sandbar sits miles from where investigators think he jumped."
 - **Visual:** Map card: the estimated flight path is a thin dashed line north-south; a soft red oval marks the presumed drop zone; the route line draws from the drop zone to a pin on Tena Bar further south-west on the river, with a '~20 MI?' tag.
@@ -223,7 +223,7 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** boom @+0.0s g0.4
 - **Music level:** 0.92 → 0.94 (original/royalty-free dark ambient pad; no licensed music)
 
-## S16  ·  48.8–52.6 s  (3.8 s)  ·  transition in: cut
+## S16  ·  48.7–52.5 s  (3.8 s)  ·  transition in: cut
 
 - **Narration:** L16 "Washed downstream? Buried? Nobody has proven how it got there."
 - **Visual:** Evidence board (dark cork wall): two theory cards pin on in time with the words; a third card reads '?'. Red string links them to a photo-style card of the sandbar (rendered, not a photo).
@@ -234,9 +234,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **FX:** dust
 - **On-screen text / overlays:** [label] THEORY; [text] WASHED DOWNSTREAM?; [text] BURIED?; [text] UNPROVEN
 - **SFX:** hit @+0.1s g0.4, hit @+1.3s g0.4, hit @+2.4s g0.6
-- **Music level:** 0.94 → 0.88 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.94 → 0.89 (original/royalty-free dark ambient pad; no licensed music)
 
-## S17  ·  52.6–54.7 s  (2.1 s)  ·  transition in: cut
+## S17  ·  52.5–54.6 s  (2.1 s)  ·  transition in: cut
 
 - **Narration:** L17 "The rest has never been found."
 - **Visual:** Callback to S02: the empty sky over the dark forest at night, rain; no figure, no bag. A counter subtracts the find from the ransom.
@@ -247,9 +247,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **FX:** rain, fog_volume
 - **On-screen text / overlays:** [counter] STILL MISSING (USD)
 - **SFX:** wind @+0.0s g0.5, heartbeat @+0.3s g0.4
-- **Music level:** 0.88 → 0.83 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.89 → 0.84 (original/royalty-free dark ambient pad; no licensed music)
 
-## S18  ·  54.7–59.2 s  (4.5 s)  ·  transition in: cut
+## S18  ·  54.6–59.0 s  (4.5 s)  ·  transition in: cut
 
 - **Narration:** L18 "After copycats, the FAA had seven-twenty-sevens fitted with a stair lock."
 - **Visual:** Clean technical cutaway: the stylised 727 tail in a dim hangar; a small spring-loaded paddle (thin box on a hinge) under the fuselage flips into the airflow line, and the airstair attempts to drop but is blocked. Blueprint-blue line overlay draws the paddle.
@@ -260,9 +260,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **FX:** faint dust
 - **On-screen text / overlays:** [card] Spring-loaded vane blocks the / rear stairs from opening in flight; [label] DOCUMENTED FACT
 - **SFX:** click @+1.0s g0.6, metal_groan @+1.2s g0.4
-- **Music level:** 0.83 → 0.72 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.84 → 0.72 (original/royalty-free dark ambient pad; no licensed music)
 
-## S19  ·  59.2–61.2 s  (2.0 s)  ·  transition in: cut
+## S19  ·  59.0–61.1 s  (2.0 s)  ·  transition in: cut
 
 - **Narration:** L19 "They call it the Cooper vane."
 - **Visual:** Macro on the vane itself: the small hinged paddle under the 727 fuselage snaps flat against the closed airstair as a red outline draws round it; blueprint lines fade out.
@@ -275,7 +275,7 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** hit @+0.2s g0.6
 - **Music level:** 0.72 → 0.68 (original/royalty-free dark ambient pad; no licensed music)
 
-## S20  ·  61.2–65.2 s  (4.0 s)  ·  transition in: cut
+## S20  ·  61.1–65.1 s  (4.0 s)  ·  transition in: cut
 
 - **Narration:** L20 "In 2016, the FBI stopped actively investigating."
 - **Visual:** Document reveal: a neutral recreated case-file cover (no real FBI seal or letterhead) with 'NORJAK' typed; a rubber stamp slams 'ACTIVE INVESTIGATION ENDED - JULY 2016'.
@@ -288,7 +288,7 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** typewriter @+0.4s g0.5, hit @+2.0s g0.7
 - **Music level:** 0.68 → 0.60 (original/royalty-free dark ambient pad; no licensed music)
 
-## S21  ·  65.2–67.2 s  (2.0 s)  ·  transition in: cut
+## S21  ·  65.1–67.1 s  (2.0 s)  ·  transition in: cut
 
 - **Narration:** L21 "No one was ever charged."
 - **Visual:** Evidence board wall of faceless suspect cards (blank silhouettes, no names, no likenesses) - dozens of them; the camera pulls back to show the wall is huge; none is marked.
@@ -299,9 +299,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **FX:** dust
 - **On-screen text / overlays:** [counter] SUSPECTS CONSIDERED; [text] CHARGED: 0
 - **SFX:** whoosh @+0.0s g0.4, hit @+1.0s g0.6
-- **Music level:** 0.60 → 0.56 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.60 → 0.57 (original/royalty-free dark ambient pad; no licensed music)
 
-## S22  ·  67.2–71.3 s  (4.1 s)  ·  transition in: cut
+## S22  ·  67.1–71.2 s  (4.0 s)  ·  transition in: cut
 
 - **Narration:** L22 "Did he die in those woods, or walk out?" L23 "Where do you think he landed?"
 - **Visual:** Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure. On the question (about 2.4 s in) the camera rises above the canopy to endless treetops.
@@ -312,9 +312,9 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **FX:** fog_volume, drips
 - **On-screen text / overlays:** [label] THEORY; [card] FBI view: he probably didn't survive / No body has ever been found; [text] WHERE DID / HE LAND?
 - **SFX:** wind @+0.0s g0.4, footsteps @+0.6s g0.2
-- **Music level:** 0.56 → 0.55 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.57 → 0.55 (original/royalty-free dark ambient pad; no licensed music)
 
-## S23  ·  71.3–74.2 s  (2.9 s)  ·  transition in: cut
+## S23  ·  71.2–74.1 s  (2.9 s)  ·  transition in: cut
 
 - **Narration:** L24 "All anyone knows for sure is this."
 - **Visual:** Loop frame: same framing as S01 — underside of the 727 tail in rain, airstair open, warm spill; the suited silhouette steps back onto the bottom stair, matching frame 1.
