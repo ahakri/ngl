@@ -431,11 +431,24 @@ def S12(L, n):
 
 
 # --------------------------------------------------------------------------- S13 still: chair back against the wall
+# S13 + S14 share a closer doorway framing on the chair corner (S14 starts exactly where S13 ends: match-cut).
+S13_P0, S13_P1, S13_T = (0.32, -1.05, 1.08), (0.27, -0.7, 1.04), (-0.28, 1.45, 0.62)
+S13_LENS = 30
+
+
+def _chair_kick(L):
+    # moonlight kick on the chair corner (same in S13 and S14, so the only change is the chair)
+    k = L.spot((-0.3, 1.0, 2.35), (0, 0, 0), energy=60, size_deg=40, blend=0.8, color=(0.6, 0.72, 1.0), name="chairkick", radius=0.05)
+    H.aim(k, (-0.3, 1.0, 2.35), (-0.35, 1.35, 0.4))
+
+
 def S13(L, n):
     H.eevee_quality()
     L.set_world((0.004, 0.006, 0.012), 1.0)
     H.enfield_bedroom(n, chair="B", rec_on=False, dust_count=400)
-    c = H.cam(BC["start"], BC["target"], lens=BC["lens"] / 1.1)
+    _chair_kick(L)
+    c = H.cam(S13_P0, S13_T, lens=S13_LENS)
+    H.cam_move(c, [(1, S13_P0, S13_T), (n, S13_P1, S13_T)], ease=False)
     L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()
 
@@ -445,10 +458,10 @@ def S14(L, n):
     H.eevee_quality()
     L.set_world((0.004, 0.006, 0.012), 1.0)
     H.enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=18, dust_count=400)
-    lens0 = BC["lens"] / 1.1
-    c = H.cam(BC["start"], BC["target"], lens=lens0)
+    _chair_kick(L)
+    c = H.cam(S13_P1, S13_T, lens=S13_LENS)
     c.data.keyframe_insert("lens", frame=8)
-    c.data.lens = lens0 * 1.03
+    c.data.lens = S13_LENS * 1.03
     c.data.keyframe_insert("lens", frame=n)
     L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()

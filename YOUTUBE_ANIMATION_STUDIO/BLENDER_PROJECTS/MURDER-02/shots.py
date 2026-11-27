@@ -19,20 +19,20 @@ def lin(o):
 
 # ----------------------------------------------------------------------------- evidence desk
 
-def desk_scene(L, n, lamp_energy=14, lamp_loc=(-0.35, 0.45, 0.0), lamp_target=(0, 0, 0), dust=True, cold_fill=0.5):
+def desk_scene(L, n, lamp_energy=14, lamp_loc=(-0.55, 0.08, 0.0), lamp_target=(0, 0, 0), dust=True, cold_fill=0.5, lamp_rot=90):
     L.set_world((0.004, 0.005, 0.007), 1.0)
     M.desk(size=(2.4, 1.6))
     # back wall far in the dark
     w = L.prim("plane", loc=(0, 0.9, 0.6), size=1, rot=(math.pi / 2, 0, 0))
     w.scale = (4, 2, 1)
     L.assign(w, L.mat_noise_surface("deskwall", (0.012, 0.012, 0.014), (0.03, 0.03, 0.034), scale=4, bump=0.1, voronoi=False))
-    root, sp = M.desk_lamp(lamp_loc, lamp_target, energy=lamp_energy, rot_z=R(-35))
+    root, sp = M.desk_lamp(lamp_loc, lamp_target, energy=lamp_energy * 4.5, rot_z=R(lamp_rot))
     # cold moonlight-ish fill from the right (desaturated murder palette)
     if cold_fill:
-        L.area((0.8, -0.5, 0.7), (R(60), 0, R(55)), energy=cold_fill, size=1.0, color=(0.55, 0.65, 0.9), name="coldfill")
+        L.area((0.8, -0.5, 0.7), (R(60), 0, R(55)), energy=cold_fill * 3, size=1.0, color=(0.55, 0.65, 0.9), name="coldfill")
     if dust:
-        L.particle_cloud((0, 0.05, 0.25), (0.8, 0.6, 0.5), count=350, radius=0.0012, drift=(0.008, 0, -0.006), nframes=n,
-                         mat=L.mat_principled("dust", (0.9, 0.8, 0.6), emit=(1, 0.8, 0.5), emit_strength=0.5), name="dust")
+        L.particle_cloud((-0.1, 0.1, 0.3), (0.5, 0.4, 0.4), count=120, radius=0.0006, drift=(0.008, 0, -0.006), nframes=n,
+                         mat=L.mat_principled("dust", (0.9, 0.8, 0.6), emit=(1, 0.8, 0.5), emit_strength=0.3), name="dust")
     return sp
 
 
@@ -193,8 +193,8 @@ def S03(L, n):
 
 def S04(L, n):
     beach(L, n, dawn=0.0, figure=True, mist=0.025)
-    cam, ct = L.camera(loc=(-3.0, -22.0, 1.4), target=(2.5, 0, 1.2), lens=35)
-    L.cam_keys(cam, [(1, (-3.0, -22.0, 1.4)), (n, (0.5, -22.0, 1.4))])
+    cam, ct = L.camera(loc=(-1.5, -15.0, 1.0), target=(2.5, 0, 1.5), lens=35)
+    L.cam_keys(cam, [(1, (-1.5, -15.0, 1.0)), (n, (1.5, -15.0, 1.0))])
     lin(cam)
     ct.keyframe_insert("location", frame=1)
     ct.location = (4.5, 0, 1.2)
@@ -256,7 +256,7 @@ def cloakroom(L, n, lamp_e=260):
     lamp = L.spot((0.3, -0.2, 2.95), (R(18), 0, 0), energy=lamp_e * 3, size_deg=80, blend=0.7, color=(1.0, 0.72, 0.42), name="lamp", radius=0.08)
     L.flicker(lamp, n, depth=0.15, rate=0.5, seed=3)
     L.area((-3, -3, 2.5), (R(60), 0, R(-40)), energy=25, size=3, color=(0.5, 0.6, 0.85), name="coldfill")
-    L.particle_cloud((0.3, 0.2, 1.6), (2.0, 1.5, 2.0), count=400, radius=0.003, drift=(0.02, 0, -0.01), nframes=n,
+    L.particle_cloud((0.3, 0.2, 1.6), (2.0, 1.5, 2.0), count=150, radius=0.0018, drift=(0.02, 0, -0.01), nframes=n,
                      mat=L.mat_principled("dust", (0.9, 0.8, 0.6), emit=(1, 0.8, 0.5), emit_strength=0.4))
     return case, lamp
 
@@ -367,10 +367,10 @@ def back_cover(L, n, flip=True, uv=True):
             L.assign(st, pencil)
             st.parent = holder
     # phone number: deliberately unreadable smudges (number is not shown)
-    sm = L.mat_principled("smudge", (0.3, 0.3, 0.32), rough=0.6, emit=(0.7, 0.5, 1.0), emit_strength=0.0)
+    sm = L.mat_principled("smudge", (0.42, 0.41, 0.4), rough=0.6, emit=(0.7, 0.5, 1.0), emit_strength=0.0)
     for k in range(7):
-        s = L.prim("plane", loc=(-0.035 + k * 0.009, -0.07, 0), size=1)
-        s.scale = (0.006, 0.009, 1)
+        s = L.prim("plane", loc=(-0.032 + k * 0.0095, -0.07, 0), size=1, rot=(0, 0, 0.3 * ((k * 5) % 3 - 1)))
+        s.scale = (0.0035, 0.006, 1)
         L.assign(s, sm)
         s.parent = holder
     if flip:
@@ -390,7 +390,7 @@ def back_cover(L, n, flip=True, uv=True):
         bk.location = (0, 0, 0.022)
         bk.rotation_euler = (0, math.pi, 0)
     if uv:
-        uvl = L.area((-0.3, 0, 0.25), (0, R(-40), 0), energy=8, size=0.15, color=(0.5, 0.2, 1.0), name="uv")
+        uvl = L.area((-0.3, 0, 0.25), (0, R(-40), 0), energy=1.2, size=0.15, color=(0.5, 0.2, 1.0), name="uv")
         uvl.keyframe_insert("location", frame=20)
         uvl.location = (0.3, 0, 0.25)
         uvl.rotation_euler = (0, R(40), 0)
@@ -399,7 +399,7 @@ def back_cover(L, n, flip=True, uv=True):
             p = mm.node_tree.nodes["Principled BSDF"]
             p.inputs["Emission Strength"].default_value = 0.0
             p.inputs["Emission Strength"].keyframe_insert("default_value", frame=20)
-            p.inputs["Emission Strength"].default_value = 1.6
+            p.inputs["Emission Strength"].default_value = 0.7
             p.inputs["Emission Strength"].keyframe_insert("default_value", frame=min(n, 50))
     return bk
 
@@ -454,8 +454,8 @@ CARDS = [("SPY", (-0.6, -0.01, 1.05), R(-4)), ("LOST\nLOVE", (0.55, -0.01, 0.15)
 def S13(L, n):
     L.set_world((0.002, 0.002, 0.003), 1.0)
     M.evidence_board(lamp_energy=200)
-    L.particle_cloud((0, -1.2, 0.5), (3, 2, 4), count=500, radius=0.004, drift=(0.03, 0, -0.03), nframes=n,
-                     mat=L.mat_principled("dust", (0.9, 0.8, 0.6), emit=(1, 0.8, 0.5), emit_strength=0.4))
+    L.particle_cloud((0, -1.2, 1.0), (2.5, 1.5, 2.5), count=140, radius=0.0025, drift=(0.03, 0, -0.03), nframes=n,
+                     mat=L.mat_principled("dust", (0.9, 0.8, 0.6), emit=(1, 0.8, 0.5), emit_strength=0.25))
     # blank silhouette card at the centre-right
     sil = M.paper_card(" ", (0.75, -0.01, 1.55), rot_y=R(3), badge=None, name="unknown", size=(0.6, 0.75))
     dark = L.mat_principled("sil", (0.02, 0.02, 0.022), rough=0.8)
@@ -468,10 +468,10 @@ def S13(L, n):
         o.parent = sil
     qm = L.text3d("?", loc=(0, -0.012, 0.03), size=0.16, extrude=0, mat=L.mat_principled("qm", (0.6, 0.55, 0.45)), name="qm")
     qm.parent = sil
-    hits = [5, 22, 41]
+    hits = [6, 22, 41]
     roots = []
     for i, ((txt, loc, rot), f) in enumerate(zip(CARDS, hits)):
-        r = M.paper_card(txt, loc, rot_y=rot, name=f"card{i}", text_size=0.22 if "\n" not in txt else 0.17)
+        r = M.paper_card(txt, loc, rot_y=rot, name=f"card{i}", size=(1.2, 0.78), text_size=0.3 if "\n" not in txt else 0.23)
         M.hide_until(r, f - 5)
         M.slam_in(r, f, lead=5)
         roots.append(r)
@@ -485,14 +485,14 @@ def S13(L, n):
         st.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
         L.assign(st, sm)
         M.hide_until(st, f + 3)
-    cam, ct = L.camera(loc=(0.05, -4.6, 0.25), target=(0.05, 0, 0.2), lens=35)
-    keys = [(1, (0.05, -4.6, 0.25))]
-    y = -4.6
+    cam, ct = L.camera(loc=(0.05, -5.0, 0.45), target=(0.05, 0, 0.4), lens=35)
+    keys = [(1, (0.05, -5.0, 0.45))]
+    y = -5.0
     for f in hits:
-        keys.append((f, (0.05, y, 0.25)))
-        y += 0.17
-        keys.append((f + 4, (0.05, y, 0.25)))
-    keys.append((n, (0.05, y + 0.1, 0.25)))
+        keys.append((f, (0.05, y, 0.45)))
+        y += 0.12
+        keys.append((f + 4, (0.05, y, 0.45)))
+    keys.append((n, (0.05, y + 0.06, 0.45)))
     L.cam_keys(cam, keys)
     M.shake(cam, hits, amp=0.02, decay=6)
     L.bake_static()
@@ -502,7 +502,7 @@ def S13(L, n):
 
 def S14(L, n):
     M.night_sky(stars=0.5, hor=(0.02, 0.025, 0.04))
-    M.moon(rot=(R(60), 0, R(-140)), energy=0.9, color=(0.55, 0.65, 1.0))
+    M.moon(rot=(R(62), 0, R(-30)), energy=1.6, color=(0.55, 0.65, 1.0))
     grass = L.mat_noise_surface("cgrass", (0.015, 0.02, 0.012), (0.05, 0.055, 0.035), scale=10, bump=0.3, voronoi=False)
     M.heightfield("cground", -40, 40, -30, 60, 80, 90, lambda x, y: 0.15 * M.noise.noise(Vector((x * 0.1, y * 0.1, 0))), mat=grass)
     stone = L.mat_noise_surface("stone", (0.18, 0.18, 0.17), (0.38, 0.37, 0.35), scale=6, bump=0.4)
@@ -531,10 +531,10 @@ def S14(L, n):
         t = L.prim("cube", loc=mid)
         t.scale = (max(0.005, abs(b[0] - a[0]) / 2), max(0.005, abs(b[1] - a[1]) / 2), 0.02)
         L.assign(t, tape)
-    wl, sp = M.work_light((2.4, 0.2, 0), (0, 2.6, 0.2), energy=1800)
+    wl, sp = M.work_light((1.9, 0.0, 0), (0, 2.6, 0.2), energy=6000)
     L.flicker(sp, n, depth=0.12, rate=0.6, seed=7)
-    M.fog((0, 15, 1.2), (80, 60, 3.5), density=0.06, color=(0.6, 0.65, 0.75))
-    c0, c1 = (-2.8, -7.5, 6.0), (-2.2, -6.0, 1.9)
+    M.fog((0, 15, 1.2), (80, 60, 3.5), density=0.04, color=(0.6, 0.65, 0.75))
+    c0, c1 = (-3.2, -8.5, 6.5), (-2.6, -6.8, 2.2)
     cam, ct = L.camera(loc=c0, target=(0.2, 2.6, 0.4), lens=35)
     L.cam_keys(cam, [(1, c0), (n, c1)])
     L.bake_static()

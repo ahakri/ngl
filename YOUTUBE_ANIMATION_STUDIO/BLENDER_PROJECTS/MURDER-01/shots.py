@@ -176,15 +176,15 @@ def S03(L, n):
 # ----------------------------------------------------------------------------- S04 drone top-down to the trees
 
 def S04(L, n):
-    night(stars=0, moon_rot=(R(68), 0, R(70)), moon_e=2.4)
+    night(stars=0.8, moon_rot=(R(76), 0, R(95)), moon_e=2.6)
     h0 = M.make_slope_h(13, 4, macro=1.0)
     pz = h0(0, -1.25)
     h = M.make_slope_h(13, 4, macro=1.0, platform=(0, 0, 2.3, 1.25, pz, 1.1))
     prints = []
     for k, (dx, sd) in enumerate(((-1.2, 1), (0.0, 2), (1.3, 3))):
-        prints += M.trail((dx * 0.4, -2), (dx * 3 - 4, -200), step=1.25, gap=0.3, seed=sd, wobble=1.5, rx=0.22, ry=0.42,
-                          skip=0.15)
-    M.heightfield("slopeB", -60, 60, -280, 40, 120, 320, h, mat=M.mat_snow("slopeB_m"))
+        prints += M.trail((dx * 0.4, -2), (dx * 3 - 4, -200), step=0.9, gap=0.25, seed=sd, wobble=1.5, rx=0.16, ry=0.3,
+                          skip=0.1, depth=0.12)
+    M.heightfield("slopeB", -60, 60, -280, 40, 160, 400, h, mat=M.mat_snow("slopeB_m"))
     M.print_decals(prints, h, name="tracks", color=(0.05, 0.07, 0.12), lift=0.05, scale=1.0)
     t = M.tent(loc=(0, 0, pz), slit=False, snow_amt=0.0, inner_light=60)
     glow = L.point((0, -2.5, pz + 1.0), energy=400, color=(1.0, 0.6, 0.3), radius=0.5, name="tentglow")
@@ -192,15 +192,18 @@ def S04(L, n):
     spots += M.scatter_spots((-60, 60, -185, -165), 50, h, seed=6, h=(6, 11))
     M.conifer_forest("forest", spots, seed=5)
     M.fog((0, -215, h(0, -215) + 6), (140, 70, 18), density=0.03)
-    M.snowfall((0, -60, h(0, -60) + 40), (90, 120, 40), n, count=700, radius=0.1, fall=3, wind=(8, 0, 0), seed=41, emit=0.1)
-    z = 150
-    cam, _ = L.camera(loc=(0, -38, h(0, -38) + z), lens=50)
-    cam.rotation_euler = (0, 0, 0)
-    L.cam_keys(cam, [(1, (0, -36, h(0, -36) + z)), (n, (-3, -150, h(0, -150) + z))])
-    cam.rotation_euler = (0, 0, R(2))
-    cam.keyframe_insert("rotation_euler", frame=1)
-    cam.rotation_euler = (0, 0, R(-3))
-    cam.keyframe_insert("rotation_euler", frame=n)
+    M.snowfall((0, -40, h(0, -40) + 10), (60, 90, 25), n, count=900, radius=0.05, fall=3, wind=(6, 0, 0), seed=41, emit=0.1,
+               cam=((6.0, 22.0, h(0, 22) + 26.0), (4.0, -40.0, h(0, -40) + 22.0)), clear=15)
+    # low oblique drone: from just above/behind the tent, gliding downhill along the tracks to the tree line
+    c0 = (6.0, 22.0, h(0, 22) + 26.0)
+    c1 = (4.0, -40.0, h(0, -40) + 22.0)
+    cam, ct = L.camera(loc=c0, target=(0, -60, h(0, -60)), lens=40)
+    L.cam_keys(cam, [(1, c0), (n, c1)])
+    lin(cam)
+    ct.keyframe_insert("location", frame=1)
+    ct.location = (-2, -175, h(-2, -175) + 4)
+    ct.keyframe_insert("location", frame=n)
+    lin(ct)
     L.bake_static()
 
 

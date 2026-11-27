@@ -573,7 +573,8 @@
      "params": {
       "title": "INVESTIGATORS' TAPE NOTES (paraphrase)",
       "style": "paper"
-     }
+     },
+     "start": 1.5
     }
    ],
    "sfx": [
@@ -712,7 +713,8 @@
      "params": {
       "y": 520,
       "size": 200
-     }
+     },
+     "start": 2.2
     }
    ],
    "sfx": [

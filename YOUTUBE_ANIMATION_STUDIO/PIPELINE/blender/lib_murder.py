@@ -967,6 +967,8 @@ def slam_in(root, f_hit, frm=(0.0, -1.4, 0.3), rot0=0.25, scale0=1.6, lead=6):
 
 def hide_until(obj, f):
     """Visibility switch (render) at frame f."""
+    if f <= 1:
+        return
     obj.hide_render = True
     obj.keyframe_insert("hide_render", frame=1)
     obj.hide_render = True
