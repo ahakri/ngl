@@ -1,15 +1,57 @@
 {
- "updated": "2026-11-27",
+ "updated": "2026-11-27T08:07:33Z",
  "phases": {
-  "P1_research": {"status": "in_progress", "items": {"algorithm": "in_progress", "cave": "in_progress", "scuba": "in_progress", "murder": "in_progress", "haunted": "in_progress"}},
-  "P2_formats": {"status": "in_progress", "note": "format templates produced inside each niche research report"},
-  "P3_concepts": {"status": "in_progress", "items": {"cave": "in_progress", "scuba": "in_progress", "murder": "in_progress", "haunted": "in_progress"}},
-  "P4_selection": {"status": "todo"},
-  "P5_scripts_storyboards": {"status": "todo"},
-  "P6_assets": {"status": "in_progress", "note": "pipeline + Blender library being built"},
-  "P7_render_edit": {"status": "todo"},
-  "P8_qc": {"status": "todo"},
-  "P9_report": {"status": "todo"}
+  "P1_research": {
+   "status": "in_progress",
+   "items": {
+    "algorithm": "in_progress",
+    "cave": "in_progress",
+    "scuba": "in_progress",
+    "murder": "in_progress",
+    "haunted": "in_progress"
+   }
+  },
+  "P2_formats": {
+   "status": "in_progress",
+   "note": "format templates produced inside each niche research report"
+  },
+  "P3_concepts": {
+   "status": "in_progress",
+   "items": {
+    "cave": "in_progress",
+    "scuba": "in_progress",
+    "murder": "in_progress",
+    "haunted": "in_progress"
+   }
+  },
+  "P4_selection": {
+   "status": "todo"
+  },
+  "P5_scripts_storyboards": {
+   "status": "todo"
+  },
+  "P6_assets": {
+   "status": "in_progress",
+   "note": "pipeline + Blender library being built"
+  },
+  "P7_render_edit": {
+   "status": "todo"
+  },
+  "P8_qc": {
+   "status": "todo"
+  },
+  "P9_report": {
+   "status": "todo"
+  }
  },
- "videos": {}
+ "videos": {
+  "CAVE-01": "SCRIPTED",
+  "CAVE-03": "SCRIPTED",
+  "SCUBA-01": "SCRIPTED",
+  "SCUBA-02": "SCRIPTED",
+  "MURDER-01": "SCRIPTED",
+  "MURDER-02": "SCRIPTED",
+  "HAUNT-01": "SCRIPTED",
+  "HAUNT-02": "SCRIPTED"
+ }
 }

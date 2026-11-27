@@ -1,0 +1,890 @@
+{
+ "duration": 62.55,
+ "voice": "bm_george",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.08,
+   "text": "Two divers surfaced at the Great Barrier Reef. Their boat was gone.",
+   "words": [
+    {
+     "w": "Two",
+     "start": 0.18,
+     "end": 0.39
+    },
+    {
+     "w": "divers",
+     "start": 0.39,
+     "end": 0.95
+    },
+    {
+     "w": "surfaced",
+     "start": 0.95,
+     "end": 1.51
+    },
+    {
+     "w": "at",
+     "start": 1.51,
+     "end": 1.64
+    },
+    {
+     "w": "the",
+     "start": 1.64,
+     "end": 1.84
+    },
+    {
+     "w": "Great",
+     "start": 1.84,
+     "end": 2.14
+    },
+    {
+     "w": "Barrier",
+     "start": 2.14,
+     "end": 2.68
+    },
+    {
+     "w": "Reef.",
+     "start": 2.68,
+     "end": 2.91
+    },
+    {
+     "w": "Their",
+     "start": 2.91,
+     "end": 3.17
+    },
+    {
+     "w": "boat",
+     "start": 3.17,
+     "end": 3.59
+    },
+    {
+     "w": "was",
+     "start": 3.59,
+     "end": 3.8
+    },
+    {
+     "w": "gone.",
+     "start": 3.8,
+     "end": 4.02
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.38,
+   "end": 9.06,
+   "text": "January 1998. St Crispin's Reef, off Port Douglas.",
+   "words": [
+    {
+     "w": "January",
+     "start": 4.41,
+     "end": 5.41
+    },
+    {
+     "w": "1998.",
+     "start": 5.41,
+     "end": 6.36
+    },
+    {
+     "w": "St",
+     "start": 6.36,
+     "end": 6.64
+    },
+    {
+     "w": "Crispin's",
+     "start": 6.64,
+     "end": 7.39
+    },
+    {
+     "w": "Reef,",
+     "start": 7.39,
+     "end": 7.79
+    },
+    {
+     "w": "off",
+     "start": 7.79,
+     "end": 7.97
+    },
+    {
+     "w": "Port",
+     "start": 7.97,
+     "end": 8.5
+    },
+    {
+     "w": "Douglas.",
+     "start": 8.5,
+     "end": 9.0
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 9.26,
+   "end": 12.89,
+   "text": "Tom and Eileen Lonergan, experienced American divers.",
+   "words": [
+    {
+     "w": "Tom",
+     "start": 9.29,
+     "end": 9.67
+    },
+    {
+     "w": "and",
+     "start": 9.67,
+     "end": 9.85
+    },
+    {
+     "w": "Eileen",
+     "start": 9.85,
+     "end": 10.26
+    },
+    {
+     "w": "Lonergan,",
+     "start": 10.26,
+     "end": 10.95
+    },
+    {
+     "w": "experienced",
+     "start": 10.95,
+     "end": 11.74
+    },
+    {
+     "w": "American",
+     "start": 11.74,
+     "end": 12.33
+    },
+    {
+     "w": "divers.",
+     "start": 12.33,
+     "end": 12.83
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 13.04,
+   "end": 16.75,
+   "text": "Before leaving, the Outer Edge crew reportedly counted heads.",
+   "words": [
+    {
+     "w": "Before",
+     "start": 13.07,
+     "end": 13.51
+    },
+    {
+     "w": "leaving,",
+     "start": 13.51,
+     "end": 13.93
+    },
+    {
+     "w": "the",
+     "start": 13.93,
+     "end": 14.13
+    },
+    {
+     "w": "Outer",
+     "start": 14.13,
+     "end": 14.51
+    },
+    {
+     "w": "Edge",
+     "start": 14.51,
+     "end": 14.74
+    },
+    {
+     "w": "crew",
+     "start": 14.74,
+     "end": 15.08
+    },
+    {
+     "w": "reportedly",
+     "start": 15.08,
+     "end": 15.82
+    },
+    {
+     "w": "counted",
+     "start": 15.82,
+     "end": 16.42
+    },
+    {
+     "w": "heads.",
+     "start": 16.42,
+     "end": 16.69
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 16.85,
+   "end": 20.04,
+   "text": "By one account, two other divers were counted twice.",
+   "words": [
+    {
+     "w": "By",
+     "start": 16.88,
+     "end": 17.16
+    },
+    {
+     "w": "one",
+     "start": 17.16,
+     "end": 17.34
+    },
+    {
+     "w": "account,",
+     "start": 17.34,
+     "end": 17.9
+    },
+    {
+     "w": "two",
+     "start": 17.9,
+     "end": 18.14
+    },
+    {
+     "w": "other",
+     "start": 18.14,
+     "end": 18.43
+    },
+    {
+     "w": "divers",
+     "start": 18.43,
+     "end": 18.86
+    },
+    {
+     "w": "were",
+     "start": 18.86,
+     "end": 19.01
+    },
+    {
+     "w": "counted",
+     "start": 19.01,
+     "end": 19.54
+    },
+    {
+     "w": "twice.",
+     "start": 19.54,
+     "end": 19.98
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 20.24,
+   "end": 23.66,
+   "text": "On paper, everyone was aboard. The boat headed home.",
+   "words": [
+    {
+     "w": "On",
+     "start": 20.27,
+     "end": 20.42
+    },
+    {
+     "w": "paper,",
+     "start": 20.42,
+     "end": 20.98
+    },
+    {
+     "w": "everyone",
+     "start": 20.98,
+     "end": 21.62
+    },
+    {
+     "w": "was",
+     "start": 21.62,
+     "end": 21.84
+    },
+    {
+     "w": "aboard.",
+     "start": 21.84,
+     "end": 22.35
+    },
+    {
+     "w": "The",
+     "start": 22.35,
+     "end": 22.4
+    },
+    {
+     "w": "boat",
+     "start": 22.4,
+     "end": 22.86
+    },
+    {
+     "w": "headed",
+     "start": 22.86,
+     "end": 23.2
+    },
+    {
+     "w": "home.",
+     "start": 23.2,
+     "end": 23.6
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 23.86,
+   "end": 25.88,
+   "text": "Nobody noticed they were missing.",
+   "words": [
+    {
+     "w": "Nobody",
+     "start": 23.89,
+     "end": 24.52
+    },
+    {
+     "w": "noticed",
+     "start": 24.52,
+     "end": 25.02
+    },
+    {
+     "w": "they",
+     "start": 25.02,
+     "end": 25.23
+    },
+    {
+     "w": "were",
+     "start": 25.23,
+     "end": 25.48
+    },
+    {
+     "w": "missing.",
+     "start": 25.48,
+     "end": 25.82
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 26.28,
+   "end": 29.43,
+   "text": "Two days later, the crew found their bag still aboard.",
+   "words": [
+    {
+     "w": "Two",
+     "start": 26.31,
+     "end": 26.54
+    },
+    {
+     "w": "days",
+     "start": 26.54,
+     "end": 26.92
+    },
+    {
+     "w": "later,",
+     "start": 26.92,
+     "end": 27.28
+    },
+    {
+     "w": "the",
+     "start": 27.28,
+     "end": 27.35
+    },
+    {
+     "w": "crew",
+     "start": 27.35,
+     "end": 27.8
+    },
+    {
+     "w": "found",
+     "start": 27.8,
+     "end": 28.18
+    },
+    {
+     "w": "their",
+     "start": 28.18,
+     "end": 28.26
+    },
+    {
+     "w": "bag",
+     "start": 28.26,
+     "end": 28.53
+    },
+    {
+     "w": "still",
+     "start": 28.53,
+     "end": 28.97
+    },
+    {
+     "w": "aboard.",
+     "start": 28.97,
+     "end": 29.37
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 29.53,
+   "end": 31.76,
+   "text": "Inside: their wallets and passports.",
+   "words": [
+    {
+     "w": "Inside:",
+     "start": 29.56,
+     "end": 30.11
+    },
+    {
+     "w": "their",
+     "start": 30.11,
+     "end": 30.23
+    },
+    {
+     "w": "wallets",
+     "start": 30.23,
+     "end": 30.8
+    },
+    {
+     "w": "and",
+     "start": 30.8,
+     "end": 30.92
+    },
+    {
+     "w": "passports.",
+     "start": 30.92,
+     "end": 31.7
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 32.06,
+   "end": 34.15,
+   "text": "Only then did the search begin.",
+   "words": [
+    {
+     "w": "Only",
+     "start": 32.09,
+     "end": 32.57
+    },
+    {
+     "w": "then",
+     "start": 32.57,
+     "end": 32.86
+    },
+    {
+     "w": "did",
+     "start": 32.86,
+     "end": 33.15
+    },
+    {
+     "w": "the",
+     "start": 33.15,
+     "end": 33.26
+    },
+    {
+     "w": "search",
+     "start": 33.26,
+     "end": 33.7
+    },
+    {
+     "w": "begin.",
+     "start": 33.7,
+     "end": 34.09
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 34.35,
+   "end": 36.68,
+   "text": "Searchers found their gear. Not them.",
+   "words": [
+    {
+     "w": "Searchers",
+     "start": 34.38,
+     "end": 34.93
+    },
+    {
+     "w": "found",
+     "start": 34.93,
+     "end": 35.39
+    },
+    {
+     "w": "their",
+     "start": 35.39,
+     "end": 35.67
+    },
+    {
+     "w": "gear.",
+     "start": 35.67,
+     "end": 35.89
+    },
+    {
+     "w": "Not",
+     "start": 35.89,
+     "end": 36.26
+    },
+    {
+     "w": "them.",
+     "start": 36.26,
+     "end": 36.62
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 36.98,
+   "end": 40.75,
+   "text": "A buoyancy vest washed ashore up the coast. Then a wetsuit.",
+   "words": [
+    {
+     "w": "A",
+     "start": 37.01,
+     "end": 37.15
+    },
+    {
+     "w": "buoyancy",
+     "start": 37.15,
+     "end": 37.71
+    },
+    {
+     "w": "vest",
+     "start": 37.71,
+     "end": 38.05
+    },
+    {
+     "w": "washed",
+     "start": 38.05,
+     "end": 38.44
+    },
+    {
+     "w": "ashore",
+     "start": 38.44,
+     "end": 38.93
+    },
+    {
+     "w": "up",
+     "start": 38.93,
+     "end": 39.06
+    },
+    {
+     "w": "the",
+     "start": 39.06,
+     "end": 39.3
+    },
+    {
+     "w": "coast.",
+     "start": 39.3,
+     "end": 39.64
+    },
+    {
+     "w": "Then",
+     "start": 39.64,
+     "end": 39.98
+    },
+    {
+     "w": "a",
+     "start": 39.98,
+     "end": 40.2
+    },
+    {
+     "w": "wetsuit.",
+     "start": 40.2,
+     "end": 40.69
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 40.95,
+   "end": 44.66,
+   "text": "Months later, a dive slate, reportedly asking for rescue.",
+   "words": [
+    {
+     "w": "Months",
+     "start": 40.98,
+     "end": 41.42
+    },
+    {
+     "w": "later,",
+     "start": 41.42,
+     "end": 41.73
+    },
+    {
+     "w": "a",
+     "start": 41.73,
+     "end": 41.92
+    },
+    {
+     "w": "dive",
+     "start": 41.92,
+     "end": 42.23
+    },
+    {
+     "w": "slate,",
+     "start": 42.23,
+     "end": 42.72
+    },
+    {
+     "w": "reportedly",
+     "start": 42.72,
+     "end": 43.49
+    },
+    {
+     "w": "asking",
+     "start": 43.49,
+     "end": 43.77
+    },
+    {
+     "w": "for",
+     "start": 43.77,
+     "end": 44.11
+    },
+    {
+     "w": "rescue.",
+     "start": 44.11,
+     "end": 44.6
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 45.16,
+   "end": 47.3,
+   "text": "Tom and Eileen were never found.",
+   "words": [
+    {
+     "w": "Tom",
+     "start": 45.18,
+     "end": 45.59
+    },
+    {
+     "w": "and",
+     "start": 45.59,
+     "end": 45.7
+    },
+    {
+     "w": "Eileen",
+     "start": 45.7,
+     "end": 46.28
+    },
+    {
+     "w": "were",
+     "start": 46.28,
+     "end": 46.42
+    },
+    {
+     "w": "never",
+     "start": 46.42,
+     "end": 46.83
+    },
+    {
+     "w": "found.",
+     "start": 46.83,
+     "end": 47.24
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 47.5,
+   "end": 49.93,
+   "text": "What happened in the water is unknown.",
+   "words": [
+    {
+     "w": "What",
+     "start": 47.53,
+     "end": 47.87
+    },
+    {
+     "w": "happened",
+     "start": 47.87,
+     "end": 48.42
+    },
+    {
+     "w": "in",
+     "start": 48.42,
+     "end": 48.63
+    },
+    {
+     "w": "the",
+     "start": 48.63,
+     "end": 48.7
+    },
+    {
+     "w": "water",
+     "start": 48.7,
+     "end": 49.13
+    },
+    {
+     "w": "is",
+     "start": 49.13,
+     "end": 49.35
+    },
+    {
+     "w": "unknown.",
+     "start": 49.35,
+     "end": 49.87
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 50.33,
+   "end": 53.84,
+   "text": "The skipper was acquitted. The company was fined and closed.",
+   "words": [
+    {
+     "w": "The",
+     "start": 50.36,
+     "end": 50.51
+    },
+    {
+     "w": "skipper",
+     "start": 50.51,
+     "end": 50.99
+    },
+    {
+     "w": "was",
+     "start": 50.99,
+     "end": 51.15
+    },
+    {
+     "w": "acquitted.",
+     "start": 51.15,
+     "end": 51.73
+    },
+    {
+     "w": "The",
+     "start": 51.73,
+     "end": 51.8
+    },
+    {
+     "w": "company",
+     "start": 51.8,
+     "end": 52.48
+    },
+    {
+     "w": "was",
+     "start": 52.48,
+     "end": 52.59
+    },
+    {
+     "w": "fined",
+     "start": 52.59,
+     "end": 53.04
+    },
+    {
+     "w": "and",
+     "start": 53.04,
+     "end": 53.23
+    },
+    {
+     "w": "closed.",
+     "start": 53.23,
+     "end": 53.78
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 53.99,
+   "end": 59.28,
+   "text": "Queensland tightened its rules. Divers must now be counted twice, independently.",
+   "words": [
+    {
+     "w": "Queensland",
+     "start": 54.02,
+     "end": 54.71
+    },
+    {
+     "w": "tightened",
+     "start": 54.71,
+     "end": 55.25
+    },
+    {
+     "w": "its",
+     "start": 55.25,
+     "end": 55.51
+    },
+    {
+     "w": "rules.",
+     "start": 55.51,
+     "end": 55.84
+    },
+    {
+     "w": "Divers",
+     "start": 55.84,
+     "end": 56.37
+    },
+    {
+     "w": "must",
+     "start": 56.37,
+     "end": 56.74
+    },
+    {
+     "w": "now",
+     "start": 56.74,
+     "end": 56.98
+    },
+    {
+     "w": "be",
+     "start": 56.98,
+     "end": 57.22
+    },
+    {
+     "w": "counted",
+     "start": 57.22,
+     "end": 57.77
+    },
+    {
+     "w": "twice,",
+     "start": 57.77,
+     "end": 58.25
+    },
+    {
+     "w": "independently.",
+     "start": 58.25,
+     "end": 59.22
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 59.53,
+   "end": 61.95,
+   "text": "Because one wrong count is all it takes...",
+   "words": [
+    {
+     "w": "Because",
+     "start": 59.56,
+     "end": 60.02
+    },
+    {
+     "w": "one",
+     "start": 60.02,
+     "end": 60.19
+    },
+    {
+     "w": "wrong",
+     "start": 60.19,
+     "end": 60.55
+    },
+    {
+     "w": "count",
+     "start": 60.55,
+     "end": 60.96
+    },
+    {
+     "w": "is",
+     "start": 60.96,
+     "end": 61.01
+    },
+    {
+     "w": "all",
+     "start": 61.01,
+     "end": 61.39
+    },
+    {
+     "w": "it",
+     "start": 61.39,
+     "end": 61.44
+    },
+    {
+     "w": "takes...",
+     "start": 61.44,
+     "end": 61.89
+    }
+   ]
+  }
+ ]
+}

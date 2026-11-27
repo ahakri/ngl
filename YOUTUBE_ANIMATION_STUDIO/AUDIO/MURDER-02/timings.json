@@ -1,0 +1,1197 @@
+{
+ "duration": 72.71,
+ "voice": "am_onyx",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 3.9,
+   "text": "This scrap was hidden in a tiny pocket inside a dead man's trousers.",
+   "words": [
+    {
+     "w": "This",
+     "start": 0.18,
+     "end": 0.38
+    },
+    {
+     "w": "scrap",
+     "start": 0.38,
+     "end": 0.8
+    },
+    {
+     "w": "was",
+     "start": 0.8,
+     "end": 0.86
+    },
+    {
+     "w": "hidden",
+     "start": 0.86,
+     "end": 1.28
+    },
+    {
+     "w": "in",
+     "start": 1.28,
+     "end": 1.35
+    },
+    {
+     "w": "a",
+     "start": 1.35,
+     "end": 1.62
+    },
+    {
+     "w": "tiny",
+     "start": 1.62,
+     "end": 1.86
+    },
+    {
+     "w": "pocket",
+     "start": 1.86,
+     "end": 2.3
+    },
+    {
+     "w": "inside",
+     "start": 2.3,
+     "end": 2.75
+    },
+    {
+     "w": "a",
+     "start": 2.75,
+     "end": 2.93
+    },
+    {
+     "w": "dead",
+     "start": 2.93,
+     "end": 3.08
+    },
+    {
+     "w": "man's",
+     "start": 3.08,
+     "end": 3.32
+    },
+    {
+     "w": "trousers.",
+     "start": 3.32,
+     "end": 3.84
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.15,
+   "end": 6.76,
+   "text": "Two words. Tamam Shud. Persian for, ended.",
+   "words": [
+    {
+     "w": "Two",
+     "start": 4.18,
+     "end": 4.39
+    },
+    {
+     "w": "words.",
+     "start": 4.39,
+     "end": 4.8
+    },
+    {
+     "w": "Tamam",
+     "start": 4.8,
+     "end": 5.2
+    },
+    {
+     "w": "Shud.",
+     "start": 5.2,
+     "end": 5.6
+    },
+    {
+     "w": "Persian",
+     "start": 5.6,
+     "end": 6.06
+    },
+    {
+     "w": "for,",
+     "start": 6.06,
+     "end": 6.26
+    },
+    {
+     "w": "ended.",
+     "start": 6.26,
+     "end": 6.7
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 7.16,
+   "end": 11.1,
+   "text": "Somerton Beach, Adelaide. The first of December, 1948.",
+   "words": [
+    {
+     "w": "Somerton",
+     "start": 7.19,
+     "end": 7.83
+    },
+    {
+     "w": "Beach,",
+     "start": 7.83,
+     "end": 8.23
+    },
+    {
+     "w": "Adelaide.",
+     "start": 8.23,
+     "end": 8.8
+    },
+    {
+     "w": "The",
+     "start": 8.8,
+     "end": 8.94
+    },
+    {
+     "w": "first",
+     "start": 8.94,
+     "end": 9.43
+    },
+    {
+     "w": "of",
+     "start": 9.43,
+     "end": 9.61
+    },
+    {
+     "w": "December,",
+     "start": 9.61,
+     "end": 10.1
+    },
+    {
+     "w": "1948.",
+     "start": 10.1,
+     "end": 11.04
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 11.3,
+   "end": 14.46,
+   "text": "A well-dressed man, dead against the seawall. No ID.",
+   "words": [
+    {
+     "w": "A",
+     "start": 11.33,
+     "end": 11.46
+    },
+    {
+     "w": "well-dressed",
+     "start": 11.46,
+     "end": 12.16
+    },
+    {
+     "w": "man,",
+     "start": 12.16,
+     "end": 12.4
+    },
+    {
+     "w": "dead",
+     "start": 12.4,
+     "end": 12.66
+    },
+    {
+     "w": "against",
+     "start": 12.66,
+     "end": 13.07
+    },
+    {
+     "w": "the",
+     "start": 13.07,
+     "end": 13.2
+    },
+    {
+     "w": "seawall.",
+     "start": 13.2,
+     "end": 13.7
+    },
+    {
+     "w": "No",
+     "start": 13.7,
+     "end": 14.07
+    },
+    {
+     "w": "ID.",
+     "start": 14.07,
+     "end": 14.4
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 14.66,
+   "end": 16.92,
+   "text": "The labels on his clothes had been cut out.",
+   "words": [
+    {
+     "w": "The",
+     "start": 14.69,
+     "end": 14.75
+    },
+    {
+     "w": "labels",
+     "start": 14.75,
+     "end": 15.17
+    },
+    {
+     "w": "on",
+     "start": 15.17,
+     "end": 15.45
+    },
+    {
+     "w": "his",
+     "start": 15.45,
+     "end": 15.58
+    },
+    {
+     "w": "clothes",
+     "start": 15.58,
+     "end": 16.0
+    },
+    {
+     "w": "had",
+     "start": 16.0,
+     "end": 16.19
+    },
+    {
+     "w": "been",
+     "start": 16.19,
+     "end": 16.39
+    },
+    {
+     "w": "cut",
+     "start": 16.39,
+     "end": 16.59
+    },
+    {
+     "w": "out.",
+     "start": 16.59,
+     "end": 16.86
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 17.22,
+   "end": 21.35,
+   "text": "Weeks later, a suitcase linked to him turned up at Adelaide railway station.",
+   "words": [
+    {
+     "w": "Weeks",
+     "start": 17.25,
+     "end": 17.52
+    },
+    {
+     "w": "later,",
+     "start": 17.52,
+     "end": 17.87
+    },
+    {
+     "w": "a",
+     "start": 17.87,
+     "end": 18.08
+    },
+    {
+     "w": "suitcase",
+     "start": 18.08,
+     "end": 18.57
+    },
+    {
+     "w": "linked",
+     "start": 18.57,
+     "end": 18.86
+    },
+    {
+     "w": "to",
+     "start": 18.86,
+     "end": 19.07
+    },
+    {
+     "w": "him",
+     "start": 19.07,
+     "end": 19.23
+    },
+    {
+     "w": "turned",
+     "start": 19.23,
+     "end": 19.68
+    },
+    {
+     "w": "up",
+     "start": 19.68,
+     "end": 19.85
+    },
+    {
+     "w": "at",
+     "start": 19.85,
+     "end": 19.85
+    },
+    {
+     "w": "Adelaide",
+     "start": 19.85,
+     "end": 20.35
+    },
+    {
+     "w": "railway",
+     "start": 20.35,
+     "end": 20.88
+    },
+    {
+     "w": "station.",
+     "start": 20.88,
+     "end": 21.29
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.5,
+   "end": 23.06,
+   "text": "Its label? Removed too.",
+   "words": [
+    {
+     "w": "Its",
+     "start": 21.53,
+     "end": 21.68
+    },
+    {
+     "w": "label?",
+     "start": 21.68,
+     "end": 22.13
+    },
+    {
+     "w": "Removed",
+     "start": 22.13,
+     "end": 22.69
+    },
+    {
+     "w": "too.",
+     "start": 22.69,
+     "end": 23.0
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 23.36,
+   "end": 26.82,
+   "text": "Then someone handed police the very book that scrap was torn from.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 23.39,
+     "end": 23.61
+    },
+    {
+     "w": "someone",
+     "start": 23.61,
+     "end": 24.07
+    },
+    {
+     "w": "handed",
+     "start": 24.07,
+     "end": 24.4
+    },
+    {
+     "w": "police",
+     "start": 24.4,
+     "end": 24.81
+    },
+    {
+     "w": "the",
+     "start": 24.81,
+     "end": 24.99
+    },
+    {
+     "w": "very",
+     "start": 24.99,
+     "end": 25.27
+    },
+    {
+     "w": "book",
+     "start": 25.27,
+     "end": 25.38
+    },
+    {
+     "w": "that",
+     "start": 25.38,
+     "end": 25.68
+    },
+    {
+     "w": "scrap",
+     "start": 25.68,
+     "end": 25.96
+    },
+    {
+     "w": "was",
+     "start": 25.96,
+     "end": 26.16
+    },
+    {
+     "w": "torn",
+     "start": 26.16,
+     "end": 26.5
+    },
+    {
+     "w": "from.",
+     "start": 26.5,
+     "end": 26.76
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 26.97,
+   "end": 28.97,
+   "text": "The Rubaiyat of Omar Khayyam.",
+   "words": [
+    {
+     "w": "The",
+     "start": 27.0,
+     "end": 27.09
+    },
+    {
+     "w": "Rubaiyat",
+     "start": 27.09,
+     "end": 27.86
+    },
+    {
+     "w": "of",
+     "start": 27.86,
+     "end": 27.91
+    },
+    {
+     "w": "Omar",
+     "start": 27.91,
+     "end": 28.34
+    },
+    {
+     "w": "Khayyam.",
+     "start": 28.34,
+     "end": 28.91
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 29.17,
+   "end": 32.68,
+   "text": "On the back cover, in pencil: a phone number, and lines of letters.",
+   "words": [
+    {
+     "w": "On",
+     "start": 29.2,
+     "end": 29.4
+    },
+    {
+     "w": "the",
+     "start": 29.4,
+     "end": 29.57
+    },
+    {
+     "w": "back",
+     "start": 29.57,
+     "end": 29.7
+    },
+    {
+     "w": "cover,",
+     "start": 29.7,
+     "end": 30.13
+    },
+    {
+     "w": "in",
+     "start": 30.13,
+     "end": 30.21
+    },
+    {
+     "w": "pencil:",
+     "start": 30.21,
+     "end": 30.73
+    },
+    {
+     "w": "a",
+     "start": 30.73,
+     "end": 30.84
+    },
+    {
+     "w": "phone",
+     "start": 30.84,
+     "end": 31.23
+    },
+    {
+     "w": "number,",
+     "start": 31.23,
+     "end": 31.56
+    },
+    {
+     "w": "and",
+     "start": 31.56,
+     "end": 31.71
+    },
+    {
+     "w": "lines",
+     "start": 31.71,
+     "end": 32.14
+    },
+    {
+     "w": "of",
+     "start": 32.14,
+     "end": 32.18
+    },
+    {
+     "w": "letters.",
+     "start": 32.18,
+     "end": 32.62
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 32.88,
+   "end": 34.88,
+   "text": "A code. Nobody has ever cracked it.",
+   "words": [
+    {
+     "w": "A",
+     "start": 32.91,
+     "end": 33.02
+    },
+    {
+     "w": "code.",
+     "start": 33.02,
+     "end": 33.41
+    },
+    {
+     "w": "Nobody",
+     "start": 33.41,
+     "end": 33.89
+    },
+    {
+     "w": "has",
+     "start": 33.89,
+     "end": 34.18
+    },
+    {
+     "w": "ever",
+     "start": 34.18,
+     "end": 34.29
+    },
+    {
+     "w": "cracked",
+     "start": 34.29,
+     "end": 34.67
+    },
+    {
+     "w": "it.",
+     "start": 34.67,
+     "end": 34.82
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 35.23,
+   "end": 39.11,
+   "text": "Cause of death? Never determined. Poison was suspected. None was found.",
+   "words": [
+    {
+     "w": "Cause",
+     "start": 35.26,
+     "end": 35.64
+    },
+    {
+     "w": "of",
+     "start": 35.64,
+     "end": 35.65
+    },
+    {
+     "w": "death?",
+     "start": 35.65,
+     "end": 35.91
+    },
+    {
+     "w": "Never",
+     "start": 35.91,
+     "end": 36.26
+    },
+    {
+     "w": "determined.",
+     "start": 36.26,
+     "end": 36.96
+    },
+    {
+     "w": "Poison",
+     "start": 36.96,
+     "end": 37.4
+    },
+    {
+     "w": "was",
+     "start": 37.4,
+     "end": 37.56
+    },
+    {
+     "w": "suspected.",
+     "start": 37.56,
+     "end": 38.17
+    },
+    {
+     "w": "None",
+     "start": 38.17,
+     "end": 38.52
+    },
+    {
+     "w": "was",
+     "start": 38.52,
+     "end": 38.7
+    },
+    {
+     "w": "found.",
+     "start": 38.7,
+     "end": 39.05
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 39.36,
+   "end": 42.67,
+   "text": "Spy. Lost love. Suicide. Plenty of theories, no proof.",
+   "words": [
+    {
+     "w": "Spy.",
+     "start": 39.39,
+     "end": 39.76
+    },
+    {
+     "w": "Lost",
+     "start": 39.76,
+     "end": 40.03
+    },
+    {
+     "w": "love.",
+     "start": 40.03,
+     "end": 40.34
+    },
+    {
+     "w": "Suicide.",
+     "start": 40.34,
+     "end": 40.95
+    },
+    {
+     "w": "Plenty",
+     "start": 40.95,
+     "end": 41.43
+    },
+    {
+     "w": "of",
+     "start": 41.43,
+     "end": 41.57
+    },
+    {
+     "w": "theories,",
+     "start": 41.57,
+     "end": 42.0
+    },
+    {
+     "w": "no",
+     "start": 42.0,
+     "end": 42.28
+    },
+    {
+     "w": "proof.",
+     "start": 42.28,
+     "end": 42.61
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 43.12,
+   "end": 46.28,
+   "text": "Then, in 2021, police exhumed his body.",
+   "words": [
+    {
+     "w": "Then,",
+     "start": 43.15,
+     "end": 43.47
+    },
+    {
+     "w": "in",
+     "start": 43.47,
+     "end": 43.69
+    },
+    {
+     "w": "2021,",
+     "start": 43.69,
+     "end": 44.41
+    },
+    {
+     "w": "police",
+     "start": 44.41,
+     "end": 44.9
+    },
+    {
+     "w": "exhumed",
+     "start": 44.9,
+     "end": 45.56
+    },
+    {
+     "w": "his",
+     "start": 45.56,
+     "end": 45.86
+    },
+    {
+     "w": "body.",
+     "start": 45.86,
+     "end": 46.22
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 46.48,
+   "end": 51.63,
+   "text": "In 2022, a professor and a genealogist tested hairs from his plaster death mask.",
+   "words": [
+    {
+     "w": "In",
+     "start": 46.51,
+     "end": 46.63
+    },
+    {
+     "w": "2022,",
+     "start": 46.63,
+     "end": 47.46
+    },
+    {
+     "w": "a",
+     "start": 47.46,
+     "end": 47.52
+    },
+    {
+     "w": "professor",
+     "start": 47.52,
+     "end": 48.03
+    },
+    {
+     "w": "and",
+     "start": 48.03,
+     "end": 48.21
+    },
+    {
+     "w": "a",
+     "start": 48.21,
+     "end": 48.41
+    },
+    {
+     "w": "genealogist",
+     "start": 48.41,
+     "end": 49.48
+    },
+    {
+     "w": "tested",
+     "start": 49.48,
+     "end": 49.84
+    },
+    {
+     "w": "hairs",
+     "start": 49.84,
+     "end": 50.19
+    },
+    {
+     "w": "from",
+     "start": 50.19,
+     "end": 50.43
+    },
+    {
+     "w": "his",
+     "start": 50.43,
+     "end": 50.65
+    },
+    {
+     "w": "plaster",
+     "start": 50.65,
+     "end": 50.97
+    },
+    {
+     "w": "death",
+     "start": 50.97,
+     "end": 51.27
+    },
+    {
+     "w": "mask.",
+     "start": 51.27,
+     "end": 51.57
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 51.83,
+   "end": 54.53,
+   "text": "The DNA led through family trees to a name.",
+   "words": [
+    {
+     "w": "The",
+     "start": 51.86,
+     "end": 51.95
+    },
+    {
+     "w": "DNA",
+     "start": 51.95,
+     "end": 52.61
+    },
+    {
+     "w": "led",
+     "start": 52.61,
+     "end": 52.72
+    },
+    {
+     "w": "through",
+     "start": 52.72,
+     "end": 53.01
+    },
+    {
+     "w": "family",
+     "start": 53.01,
+     "end": 53.51
+    },
+    {
+     "w": "trees",
+     "start": 53.51,
+     "end": 53.87
+    },
+    {
+     "w": "to",
+     "start": 53.87,
+     "end": 54.04
+    },
+    {
+     "w": "a",
+     "start": 54.04,
+     "end": 54.23
+    },
+    {
+     "w": "name.",
+     "start": 54.23,
+     "end": 54.47
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 54.88,
+   "end": 59.6,
+   "text": "Carl, Charles, Webb. An electrical engineer from Melbourne, born 1905.",
+   "words": [
+    {
+     "w": "Carl,",
+     "start": 54.91,
+     "end": 55.26
+    },
+    {
+     "w": "Charles,",
+     "start": 55.26,
+     "end": 55.82
+    },
+    {
+     "w": "Webb.",
+     "start": 55.82,
+     "end": 56.15
+    },
+    {
+     "w": "An",
+     "start": 56.15,
+     "end": 56.29
+    },
+    {
+     "w": "electrical",
+     "start": 56.29,
+     "end": 57.01
+    },
+    {
+     "w": "engineer",
+     "start": 57.01,
+     "end": 57.64
+    },
+    {
+     "w": "from",
+     "start": 57.64,
+     "end": 57.82
+    },
+    {
+     "w": "Melbourne,",
+     "start": 57.82,
+     "end": 58.36
+    },
+    {
+     "w": "born",
+     "start": 58.36,
+     "end": 58.68
+    },
+    {
+     "w": "1905.",
+     "start": 58.68,
+     "end": 59.54
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 60.05,
+   "end": 63.42,
+   "text": "But it isn't official. Police and the coroner haven't confirmed it yet.",
+   "words": [
+    {
+     "w": "But",
+     "start": 60.08,
+     "end": 60.33
+    },
+    {
+     "w": "it",
+     "start": 60.33,
+     "end": 60.34
+    },
+    {
+     "w": "isn't",
+     "start": 60.34,
+     "end": 60.72
+    },
+    {
+     "w": "official.",
+     "start": 60.72,
+     "end": 61.07
+    },
+    {
+     "w": "Police",
+     "start": 61.07,
+     "end": 61.51
+    },
+    {
+     "w": "and",
+     "start": 61.51,
+     "end": 61.69
+    },
+    {
+     "w": "the",
+     "start": 61.69,
+     "end": 61.7
+    },
+    {
+     "w": "coroner",
+     "start": 61.7,
+     "end": 62.22
+    },
+    {
+     "w": "haven't",
+     "start": 62.22,
+     "end": 62.51
+    },
+    {
+     "w": "confirmed",
+     "start": 62.51,
+     "end": 63.09
+    },
+    {
+     "w": "it",
+     "start": 63.09,
+     "end": 63.09
+    },
+    {
+     "w": "yet.",
+     "start": 63.09,
+     "end": 63.36
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 63.72,
+   "end": 66.45,
+   "text": "And even if he is Webb, no one knows how he died.",
+   "words": [
+    {
+     "w": "And",
+     "start": 63.75,
+     "end": 63.98
+    },
+    {
+     "w": "even",
+     "start": 63.98,
+     "end": 64.21
+    },
+    {
+     "w": "if",
+     "start": 64.21,
+     "end": 64.45
+    },
+    {
+     "w": "he",
+     "start": 64.45,
+     "end": 64.51
+    },
+    {
+     "w": "is",
+     "start": 64.51,
+     "end": 64.74
+    },
+    {
+     "w": "Webb,",
+     "start": 64.74,
+     "end": 64.89
+    },
+    {
+     "w": "no",
+     "start": 64.89,
+     "end": 65.14
+    },
+    {
+     "w": "one",
+     "start": 65.14,
+     "end": 65.44
+    },
+    {
+     "w": "knows",
+     "start": 65.44,
+     "end": 65.65
+    },
+    {
+     "w": "how",
+     "start": 65.65,
+     "end": 65.97
+    },
+    {
+     "w": "he",
+     "start": 65.97,
+     "end": 66.13
+    },
+    {
+     "w": "died.",
+     "start": 66.13,
+     "end": 66.39
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "start": 66.6,
+   "end": 67.91,
+   "text": "Or what the code says.",
+   "words": [
+    {
+     "w": "Or",
+     "start": 66.63,
+     "end": 66.8
+    },
+    {
+     "w": "what",
+     "start": 66.8,
+     "end": 67.1
+    },
+    {
+     "w": "the",
+     "start": 67.1,
+     "end": 67.18
+    },
+    {
+     "w": "code",
+     "start": 67.18,
+     "end": 67.55
+    },
+    {
+     "w": "says.",
+     "start": 67.55,
+     "end": 67.85
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "start": 68.26,
+   "end": 70.15,
+   "text": "So what do you think those letters spell?",
+   "words": [
+    {
+     "w": "So",
+     "start": 68.29,
+     "end": 68.45
+    },
+    {
+     "w": "what",
+     "start": 68.45,
+     "end": 68.74
+    },
+    {
+     "w": "do",
+     "start": 68.74,
+     "end": 68.95
+    },
+    {
+     "w": "you",
+     "start": 68.95,
+     "end": 69.0
+    },
+    {
+     "w": "think",
+     "start": 69.0,
+     "end": 69.23
+    },
+    {
+     "w": "those",
+     "start": 69.23,
+     "end": 69.57
+    },
+    {
+     "w": "letters",
+     "start": 69.57,
+     "end": 69.88
+    },
+    {
+     "w": "spell?",
+     "start": 69.88,
+     "end": 70.09
+    }
+   ]
+  },
+  {
+   "id": "L22",
+   "start": 70.6,
+   "end": 72.11,
+   "text": "It all comes back to this.",
+   "words": [
+    {
+     "w": "It",
+     "start": 70.63,
+     "end": 70.7
+    },
+    {
+     "w": "all",
+     "start": 70.7,
+     "end": 70.97
+    },
+    {
+     "w": "comes",
+     "start": 70.97,
+     "end": 71.29
+    },
+    {
+     "w": "back",
+     "start": 71.29,
+     "end": 71.59
+    },
+    {
+     "w": "to",
+     "start": 71.59,
+     "end": 71.74
+    },
+    {
+     "w": "this.",
+     "start": 71.74,
+     "end": 72.05
+    }
+   ]
+  }
+ ]
+}

@@ -349,7 +349,7 @@ def water_volume(center=(0, 0, 0), size=(60, 60, 60), color=(0.25, 0.5, 0.55), d
 
 # ----------------------------------------------------------------------------- particles
 
-def particle_cloud(center, size, count=600, radius=0.012, mat=None, drift=(0, 0, 0.02), seed=7, nframes=240, name="silt",
+def particle_cloud(center, size, count=1200, radius=0.005, mat=None, drift=(0, 0, 0.02), seed=7, nframes=240, name="silt",
                    jitter=0.004):
     """Suspended particles (silt, dust, plankton) as a single mesh of tiny tetrahedra, animated by shape-free
     object drift + per-vertex noise via a Wave-like displace. Cheap and render-engine agnostic."""
@@ -363,7 +363,7 @@ def particle_cloud(center, size, count=600, radius=0.012, mat=None, drift=(0, 0,
         for f in ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2)):
             bm.faces.new([vs[k] for k in f])
     o = mesh_from_bm(name, bm)
-    assign(o, mat or mat_principled(name + "_m", (0.8, 0.75, 0.6), rough=1, emit=(0.5, 0.45, 0.35), emit_strength=0.25))
+    assign(o, mat or mat_principled(name + "_m", (0.85, 0.8, 0.68), rough=1, emit=(0.5, 0.45, 0.35), emit_strength=0.04))
     o.visible_shadow = False
     # animate drift
     o.location = (0, 0, 0)
@@ -1201,3 +1201,32 @@ def save_blend(path):
     import os
     os.makedirs(os.path.dirname(path), exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=path, compress=True)
+
+
+def cam_light(cam, energy=60, color=(0.75, 0.9, 0.95), size_deg=70, name="camfill"):
+    """Soft videographer light attached to the camera (keeps environments readable in black water/rooms)."""
+    sp = spot((0, 0, 0), (0, 0, 0), energy=energy, size_deg=size_deg, blend=1.0, color=color, name=name, radius=0.6)
+    sp.parent = cam
+    return sp
+
+
+def dof(cam, target=None, distance=3.0, fstop=2.0):
+    c = cam.data
+    c.dof.use_dof = True
+    c.dof.aperture_fstop = fstop
+    if target is not None:
+        c.dof.focus_object = target
+    else:
+        c.dof.focus_distance = distance
+    return cam
+
+
+def bake_static():
+    """Apply modifiers on static (non-animated) meshes to cut per-frame evaluation cost."""
+    dg = bpy.context.evaluated_depsgraph_get()
+    for o in list(bpy.data.objects):
+        if o.type == "MESH" and o.modifiers and not (o.animation_data and o.animation_data.action):
+            if any(m.type == "BOOLEAN" for m in o.modifiers) or True:
+                me = bpy.data.meshes.new_from_object(o.evaluated_get(dg))
+                o.modifiers.clear()
+                o.data = me

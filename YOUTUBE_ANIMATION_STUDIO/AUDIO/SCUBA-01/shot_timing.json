@@ -1,0 +1,105 @@
+{
+ "duration": 51.92,
+ "shots": {
+  "S01": {
+   "start": 0.0,
+   "duration": 3.45,
+   "frames": 85
+  },
+  "S02": {
+   "start": 3.45,
+   "duration": 4.14,
+   "frames": 102
+  },
+  "S03": {
+   "start": 7.59,
+   "duration": 2.58,
+   "frames": 64
+  },
+  "S04": {
+   "start": 10.17,
+   "duration": 3.04,
+   "frames": 75
+  },
+  "S05": {
+   "start": 13.21,
+   "duration": 2.1,
+   "frames": 53
+  },
+  "S06": {
+   "start": 15.31,
+   "duration": 1.74,
+   "frames": 44
+  },
+  "S07": {
+   "start": 17.05,
+   "duration": 2.18,
+   "frames": 55
+  },
+  "S08": {
+   "start": 19.23,
+   "duration": 2.41,
+   "frames": 60
+  },
+  "S09": {
+   "start": 21.64,
+   "duration": 1.87,
+   "frames": 47
+  },
+  "S10": {
+   "start": 23.51,
+   "duration": 2.82,
+   "frames": 70
+  },
+  "S11": {
+   "start": 26.33,
+   "duration": 2.03,
+   "frames": 51
+  },
+  "S12": {
+   "start": 28.36,
+   "duration": 2.7,
+   "frames": 67
+  },
+  "S13": {
+   "start": 31.06,
+   "duration": 1.91,
+   "frames": 48
+  },
+  "S14": {
+   "start": 32.97,
+   "duration": 2.61,
+   "frames": 65
+  },
+  "S15": {
+   "start": 35.58,
+   "duration": 2.74,
+   "frames": 68
+  },
+  "S16": {
+   "start": 38.32,
+   "duration": 2.05,
+   "frames": 52
+  },
+  "S17": {
+   "start": 40.37,
+   "duration": 2.5,
+   "frames": 62
+  },
+  "S18": {
+   "start": 42.87,
+   "duration": 4.17,
+   "frames": 103
+  },
+  "S19": {
+   "start": 47.04,
+   "duration": 2.03,
+   "frames": 51
+  },
+  "S20": {
+   "start": 49.07,
+   "duration": 2.85,
+   "frames": 71
+  }
+ }
+}

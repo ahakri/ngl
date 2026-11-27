@@ -13,7 +13,7 @@ import bpy
 ap = argparse.ArgumentParser()
 ap.add_argument("id"); ap.add_argument("shot"); ap.add_argument("nframes", type=int)
 ap.add_argument("--res", type=int, default=540); ap.add_argument("--step", type=int, default=1)
-ap.add_argument("--samples", type=int, default=8); ap.add_argument("--engine", default="BLENDER_EEVEE")
+ap.add_argument("--samples", type=int, default=4); ap.add_argument("--engine", default="BLENDER_EEVEE")
 ap.add_argument("--save", action="store_true"); ap.add_argument("--out", default=None)
 ap.add_argument("--frames", default=None, help="comma list of frames to render (preview)")
 args = ap.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:])

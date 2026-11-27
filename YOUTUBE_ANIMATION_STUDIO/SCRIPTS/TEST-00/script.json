@@ -1,6 +1,0 @@
-{"id":"TEST-00","title":"pipeline test","category":"cave","voice":"am_michael","speed":1.07,"mood":"cave","target_seconds":10,
-"lines":[{"id":"L01","text":"At 270 meters, his light was the only thing in the dark.","shot":"S01","emphasis":["270"]},
-{"id":"L02","text":"Then the silt came up.","shot":"S02"}],
-"shots":[{"id":"S01","lines":["L01"],"overlay":[{"type":"depth","text":"BOESMANSGAT","params":{"from":0,"to":270}},{"type":"stamp","text":"JANUARY 8, 2005\nSOUTH AFRICA","start":0.2,"duration":2.5}],"sfx":[{"name":"breath","offset":0.2,"gain":0.5}],"transition_in":"cut"},
-{"id":"S02","lines":["L02"],"overlay":[{"type":"label","text":"DOCUMENTED FACT"}],"sfx":[{"name":"hit","offset":0,"gain":0.7},{"name":"rumble","offset":0,"gain":0.4}],"transition_in":"flash"}],
-"music_curve":[[0,0.5],[8,1.0]]}

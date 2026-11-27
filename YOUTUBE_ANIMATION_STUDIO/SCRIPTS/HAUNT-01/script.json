@@ -1,882 +1,882 @@
 {
-  "id": "HAUNT-01",
-  "title": "The Voice on the Enfield Tapes",
-  "category": "haunted",
-  "voice": "bm_george",
-  "speed": 1.05,
-  "mood": "haunted",
-  "target_seconds": 50,
-  "lines": [
+ "id": "HAUNT-01",
+ "title": "The Voice on the Enfield Tapes",
+ "category": "haunted",
+ "voice": "bm_george",
+ "speed": 1.12,
+ "mood": "haunted",
+ "target_seconds": 50,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "In 1977, investigators left a tape recorder running in this bedroom.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "tape",
+    "recorder"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Enfield, London. The case behind The Conjuring 2.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "Enfield",
+    "Conjuring"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "A mother had called the police about knocking in the walls.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "police",
+    "knocking"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "An officer reported a chair sliding by itself.",
+   "pause_after": 0.3,
+   "shot": "S04",
+   "emphasis": [
+    "chair",
+    "itself"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Then investigators Maurice Grosse and Guy Playfair arrived.",
+   "pause_after": 0.25,
+   "shot": "S05",
+   "emphasis": [
+    "Grosse",
+    "Playfair"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "They recorded over a hundred and eighty hours.",
+   "pause_after": 0.25,
+   "shot": "S06",
+   "emphasis": [
+    "hundred",
+    "eighty"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Knocks. Furniture overturned. Janet, eleven, thrown from bed, the family said.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "Knocks",
+    "Janet"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Then the tape caught a deep, gruff man's voice.",
+   "pause_after": 0.35,
+   "shot": "S08",
+   "emphasis": [
+    "gruff",
+    "voice"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Coming from Janet.",
+   "pause_after": 0.3,
+   "shot": "S08",
+   "emphasis": [
+    "Janet"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "It called itself Bill, and claimed it died in that house.",
+   "pause_after": 0.4,
+   "shot": "S09",
+   "emphasis": [
+    "Bill",
+    "died"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "But a camera next door caught Janet bending spoons herself.",
+   "pause_after": 0.25,
+   "shot": "S10",
+   "emphasis": [
+    "spoons",
+    "herself"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "A former Society president suspected ventriloquism.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "ventriloquism"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Later, Janet admitted some was faked. About two per cent.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "faked",
+    "two",
+    "per",
+    "cent"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The rest, she says, was real.",
+   "pause_after": 0.9,
+   "shot": "S13",
+   "emphasis": [
+    "real"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "So which knocks were hers? Nobody knows.",
+   "pause_after": 0.35,
+   "shot": "S14",
+   "emphasis": [
+    "which",
+    "Nobody"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Only one thing is certain:",
+   "pause_after": 0.1,
+   "shot": "S15",
+   "emphasis": [
+    "certain"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "room",
+   "description": "Cold open, frame 1 already moving: the dark bedroom at night. 1970s council-house child's bedroom (room 3.2x3.6 m, door + sash window, floral wallpaper texture, brown carpet): two single beds against opposite walls, wooden chair, small bedside lamp, tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp on the floor by the door. WRONG DETAIL: the chair stands ~40 cm out from the wall, angled toward the left bed. Tape recorder's red REC lamp is the brightest point in frame; reels turning.",
+   "camera": "slow push-in from doorway, 28 mm, eye height 1.1 m, starts moving at frame 1",
+   "characters": [
+    "none (beds empty, blankets rumpled)"
+   ],
+   "lighting": "one cold blue moonlight through window + tiny red REC lamp; lamp off",
+   "fx": [
+    "dust motes",
+    "slight film grain"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "In 1977, investigators left a tape recorder running in this bedroom.",
-      "pause_after": 0.2,
-      "shot": "S01",
-      "emphasis": [
-        "tape",
-        "recorder"
-      ]
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "SPR recordings, 1977-78"
+     }
     },
     {
-      "id": "L02",
-      "text": "Enfield, London. The case behind The Conjuring 2.",
-      "pause_after": 0.25,
-      "shot": "S02",
-      "emphasis": [
-        "Enfield",
-        "Conjuring"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "A mother had called the police about knocking in the walls.",
-      "pause_after": 0.25,
-      "shot": "S03",
-      "emphasis": [
-        "police",
-        "knocking"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "An officer reported a chair sliding by itself.",
-      "pause_after": 0.3,
-      "shot": "S04",
-      "emphasis": [
-        "chair",
-        "itself"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "Then investigators Maurice Grosse and Guy Playfair arrived.",
-      "pause_after": 0.25,
-      "shot": "S05",
-      "emphasis": [
-        "Grosse",
-        "Playfair"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "They recorded over a hundred and eighty hours.",
-      "pause_after": 0.25,
-      "shot": "S06",
-      "emphasis": [
-        "hundred",
-        "eighty"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Knocks. Furniture overturned. Janet, eleven, thrown from bed, the family said.",
-      "pause_after": 0.3,
-      "shot": "S07",
-      "emphasis": [
-        "Knocks",
-        "Janet"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "Then the tape caught a deep, gruff man's voice.",
-      "pause_after": 0.35,
-      "shot": "S08",
-      "emphasis": [
-        "gruff",
-        "voice"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Coming from Janet.",
-      "pause_after": 0.3,
-      "shot": "S08",
-      "emphasis": [
-        "Janet"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "It called itself Bill, and claimed it died in that house.",
-      "pause_after": 0.4,
-      "shot": "S09",
-      "emphasis": [
-        "Bill",
-        "died"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "But a camera next door caught Janet bending spoons herself.",
-      "pause_after": 0.25,
-      "shot": "S10",
-      "emphasis": [
-        "spoons",
-        "herself"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "A former Society president suspected ventriloquism.",
-      "pause_after": 0.25,
-      "shot": "S11",
-      "emphasis": [
-        "ventriloquism"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Later, Janet admitted some was faked. About two per cent.",
-      "pause_after": 0.3,
-      "shot": "S12",
-      "emphasis": [
-        "faked",
-        "two",
-        "per",
-        "cent"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "The rest, she says, was real.",
-      "pause_after": 0.9,
-      "shot": "S13",
-      "emphasis": [
-        "real"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "So which knocks were hers? Nobody knows.",
-      "pause_after": 0.35,
-      "shot": "S14",
-      "emphasis": [
-        "which",
-        "Nobody"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Only one thing is certain:",
-      "pause_after": 0.1,
-      "shot": "S15",
-      "emphasis": [
-        "certain"
-      ]
+     "type": "text",
+     "text": "ENFIELD, 1977",
+     "params": {
+      "y": 420,
+      "size": 96
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "room",
-      "description": "Cold open, frame 1 already moving: the dark bedroom at night. 1970s council-house child's bedroom (room 3.2x3.6 m, door + sash window, floral wallpaper texture, brown carpet): two single beds against opposite walls, wooden chair, small bedside lamp, tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp on the floor by the door. WRONG DETAIL: the chair stands ~40 cm out from the wall, angled toward the left bed. Tape recorder's red REC lamp is the brightest point in frame; reels turning.",
-      "camera": "slow push-in from doorway, 28 mm, eye height 1.1 m, starts moving at frame 1",
-      "characters": [
-        "none (beds empty, blankets rumpled)"
-      ],
-      "lighting": "one cold blue moonlight through window + tiny red REC lamp; lamp off",
-      "fx": [
-        "dust motes",
-        "slight film grain"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "SPR recordings, 1977-78"
-          }
-        },
-        {
-          "type": "text",
-          "text": "ENFIELD, 1977",
-          "params": {
-            "y": 420,
-            "size": 96
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.15,
-          "gain": 0.35
-        },
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.15
-        }
-      ],
-      "transition_in": "cut"
+     "name": "hit",
+     "offset": 0.15,
+     "gain": 0.35
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "house_exterior",
-      "description": "Exterior at night: a row of plain 1970s two-storey semi-detached brick houses (house_exterior x3, flat fronts, small front gardens, low brick walls); one upstairs window dim-lit. Wet road in foreground, one sodium streetlamp.",
-      "camera": "slow lateral dolly right, 35 mm, low angle from across the road",
-      "characters": [
-        "none"
-      ],
-      "lighting": "orange sodium streetlamp, cold sky, one warm upstairs window",
-      "fx": [
-        "light fog_volume",
-        "drizzle particles"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "GREEN STREET\nENFIELD, LONDON - 1977",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 160,
-            "sub": "street and year (house number withheld)"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "house_exterior",
-      "description": "Same house, closer: front door and the dim upstairs window. A faceless silhouette of a woman (char_figure, cardigan, no face) stands behind the downstairs net curtain holding an old corded telephone handset (simple prop: box base + handset).",
-      "camera": "static then 5% push, 50 mm, framed on the front door + window",
-      "characters": [
-        "mother silhouette (faceless, cardigan)"
-      ],
-      "lighting": "warm hallway light behind curtain, blue night outside",
-      "fx": [
-        "fog_volume (thin)"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "police called, Aug 1977"
-          }
-        },
-        {
-          "type": "stamp",
-          "text": "AUGUST 1977",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.6,
-          "gain": 0.3
-        },
-        {
-          "name": "hit",
-          "offset": 1.1,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "room",
-      "description": "Downstairs living room (room with sofa approximated by bed prop with low back, a wooden chair centre). The wooden chair slides ~1 m across the carpet by itself, slow, smooth. A faceless uniformed silhouette (char_figure with peaked cap) stands in the doorway, back-lit.",
-      "camera": "locked-off wide, 24 mm, chair motion is the only movement",
-      "characters": [
-        "police officer silhouette (faceless, peaked cap)"
-      ],
-      "lighting": "single ceiling bulb flickering (flicker, 2 short dips)",
-      "fx": [
-        "flicker"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200,
-            "sub": "police officer's statement"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 290,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.4,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "room",
-      "description": "Hallway/stairs foot of the same house (room variant, narrow). Two faceless male silhouettes in 1970s coats enter through the front door; one carries the tape recorder prop (tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp).",
-      "camera": "low angle from the stairs looking at the door, 28 mm, slight handheld",
-      "characters": [
-        "investigator_A silhouette (overcoat, taller)",
-        "investigator_B silhouette (jacket, carries recorder)"
-      ],
-      "lighting": "cold street light through open door, warm hall bulb",
-      "fx": [
-        "fog spill through door"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "SPR investigators, from Sept 1977"
-          }
-        },
-        {
-          "type": "card",
-          "text": "Maurice Grosse\nGuy Lyon Playfair",
-          "params": {
-            "header": "SOCIETY FOR PSYCHICAL RESEARCH",
-            "y": 1150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "door_creak",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "footsteps",
-          "offset": 0.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "other:tape_recorder_closeup",
-      "description": "Macro close-up of the tape recorder prop on bedroom carpet: two reels turning, tape running between them, red REC lamp. A timer overlay rolls up to 'OVER 180 HRS'.",
-      "camera": "macro 85 mm, slow orbit 20 degrees, shallow depth of field",
-      "characters": [
-        "none"
-      ],
-      "lighting": "red REC lamp + soft blue moonlight rim",
-      "fx": [
-        "dust motes"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "SPR tape archive"
-          }
-        },
-        {
-          "type": "timer",
-          "text": "TAPE RECORDED: OVER",
-          "params": {
-            "from": 0,
-            "to": 180,
-            "fmt": "hours",
-            "y": 1150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "static",
-          "offset": 0.1,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "room",
-      "description": "The bedroom again (1970s council-house child's bedroom (room 3.2x3.6 m, door + sash window, floral wallpaper texture, brown carpet): two single beds against opposite walls, wooden chair, small bedside lamp, tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp on the floor by the door). Lamp flickers; the chair is now tipped on its side; a small chest of drawers (box prop) lies face-down. The duvet of the right bed is thrown onto the floor; the bed is empty. No child figure shown.",
-      "camera": "fast whip into wide, then handheld drift, 24 mm",
-      "characters": [
-        "none (no child shown)"
-      ],
-      "lighting": "bedside lamp flicker with two full blackouts",
-      "fx": [
-        "flicker",
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200,
-            "sub": "family's account (Playfair, 1980)"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 290,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "hit",
-          "offset": 0.5,
-          "gain": 0.5
-        },
-        {
-          "name": "hit",
-          "offset": 0.9,
-          "gain": 0.55
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08",
-        "L09"
-      ],
-      "environment": "other:waveform_graphic",
-      "description": "Music drops out on L08. 2D motion graphic: a single jagged audio waveform (pale green) scrolls across black, like an oscilloscope; NO audio from the real recording is used. In the background, very dark, the silhouette of the girl's bed.",
-      "camera": "graphic, waveform scrolls right-to-left, slight zoom",
-      "characters": [
-        "none"
-      ],
-      "lighting": "black + pale green waveform glow",
-      "fx": [
-        "scanlines"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "recordings exist (described, not played)"
-          }
-        },
-        {
-          "type": "text",
-          "text": "[ RECORDING DESCRIBED,\nNOT PLAYED ]",
-          "params": {
-            "y": 1250,
-            "size": 52
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "rumble",
-          "offset": 0.2,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L10"
-      ],
-      "environment": "room",
-      "description": "Bedroom wide from the doorway at a new angle (high corner). On the wall above the right bed, the lamp-light casts the long shadow of the empty chair; it reads vaguely like a seated man. Waveform overlay continues small in the lower third.",
-      "camera": "high corner static, 20 mm, very slow tilt down",
-      "characters": [
-        "none"
-      ],
-      "lighting": "bedside lamp low, long hard shadows",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200,
-            "sub": "what the voice claimed on tape"
-          }
-        },
-        {
-          "type": "document",
-          "text": "Voice gave its name as 'Bill'\nClaimed to be a former occupant\nwho died in the house",
-          "params": {
-            "title": "INVESTIGATORS' TAPE NOTES (paraphrase)",
-            "style": "paper"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.8,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:evidence_board",
-      "description": "Pattern interrupt: dark corkboard evidence board (flat plane with cork texture), card pinned: 'WHAT SCEPTICS SAY'. A second card slides in: a simple drawn spoon icon bent at the neck, captioned 'caught on camera, next room'.",
-      "camera": "flat front, slow push, 50 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "single desk lamp from top-left",
-      "fx": [
-        "paper flutter"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "video from the adjoining room (per Anita Gregory)"
-          }
-        },
-        {
-          "type": "card",
-          "text": "Janet filmed bending spoons\nherself, from the next room",
-          "params": {
-            "header": "WHAT SCEPTICS SAY",
-            "y": 1150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "typewriter",
-          "offset": 1.6,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:evidence_board",
-      "description": "Same board, push closer onto a third card: 'VENTRILOQUISM?' next to a simple throat/sound-wave icon.",
-      "camera": "push-in 10%, 50 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "desk lamp",
-      "fx": [
-        "none"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "John Beloff, ex-SPR president"
-          }
-        },
-        {
-          "type": "card",
-          "text": "A former SPR president\nsuspected ventriloquism",
-          "params": {
-            "header": "WHAT SCEPTICS SAY",
-            "y": 1150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:document",
-      "description": "Newspaper-style document reveal (no real masthead): a generic page slides up, typed text 'JANET: ABOUT 2% WAS FAKED' with '2016 interview' in small caps. Big '2%' counter pops.",
-      "camera": "graphic, slow drift up",
-      "characters": [
-        "none"
-      ],
-      "lighting": "paper lit warm",
-      "fx": [
-        "paper grain"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "Janet's 1980 + 2016 interviews"
-          }
-        },
-        {
-          "type": "document",
-          "text": "Admitted some events were faked.\nEstimated: about 2 per cent.",
-          "params": {
-            "title": "LATER INTERVIEWS (paraphrase)",
-            "style": "paper"
-          }
-        },
-        {
-          "type": "text",
-          "text": "2%",
-          "params": {
-            "y": 520,
-            "size": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L14"
-      ],
-      "environment": "room",
-      "description": "Back in the bedroom, wide from the doorway (same composition as S01). The chair is back against the wall, upright. Everything still. Music thins to near silence.",
-      "camera": "static, 28 mm, same framing as S01 but 10% wider",
-      "characters": [
-        "none"
-      ],
-      "lighting": "moonlight only",
-      "fx": [
-        "dust motes (very slow)"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200,
-            "sub": "Janet's own view"
-          }
-        },
-        {
-          "type": "text",
-          "text": "98%?",
-          "params": {
-            "y": 520,
-            "size": 170
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.1
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L15"
-      ],
-      "environment": "room",
-      "description": "DEAD-AIR REVEAL: the previous shot (S13) holds through a 0.9 s silence; this shot is an identical-framing match-cut out of that silence, so nothing seems to change except that the chair is suddenly 40 cm out from the wall again, angled toward the bed (exactly the S01 position). One knock on the cut. The tape recorder's REC lamp flicks on by itself.",
-      "camera": "locked-off, then slowest possible push (2%)",
-      "characters": [
-        "none"
-      ],
-      "lighting": "moonlight; REC lamp red pops on",
-      "fx": [
-        "none"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 200,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.05,
-          "gain": 0.45
-        },
-        {
-          "name": "click",
-          "offset": 0.7,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L16"
-      ],
-      "environment": "room",
-      "description": "Loop frame: identical to S01 frame 1 (chair askew, reels turning, REC lamp on). Cut back so the end flows into line 1.",
-      "camera": "match S01 start position, begin the same push-in",
-      "characters": [
-        "none"
-      ],
-      "lighting": "same as S01",
-      "fx": [
-        "dust motes"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.15
-        }
-      ],
-      "transition_in": "cut"
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.15
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "house_exterior",
+   "description": "Exterior at night: a row of plain 1970s two-storey semi-detached brick houses (house_exterior x3, flat fronts, small front gardens, low brick walls); one upstairs window dim-lit. Wet road in foreground, one sodium streetlamp.",
+   "camera": "slow lateral dolly right, 35 mm, low angle from across the road",
+   "characters": [
+    "none"
+   ],
+   "lighting": "orange sodium streetlamp, cold sky, one warm upstairs window",
+   "fx": [
+    "light fog_volume",
+    "drizzle particles"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "GREEN STREET\nENFIELD, LONDON - 1977",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 160,
+      "sub": "street and year (house number withheld)"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "house_exterior",
+   "description": "Same house, closer: front door and the dim upstairs window. A faceless silhouette of a woman (char_figure, cardigan, no face) stands behind the downstairs net curtain holding an old corded telephone handset (simple prop: box base + handset).",
+   "camera": "static then 5% push, 50 mm, framed on the front door + window",
+   "characters": [
+    "mother silhouette (faceless, cardigan)"
+   ],
+   "lighting": "warm hallway light behind curtain, blue night outside",
+   "fx": [
+    "fog_volume (thin)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "police called, Aug 1977"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "AUGUST 1977",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.3
+    },
+    {
+     "name": "hit",
+     "offset": 1.1,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "room",
+   "description": "Downstairs living room (room with sofa approximated by bed prop with low back, a wooden chair centre). The wooden chair slides ~1 m across the carpet by itself, slow, smooth. A faceless uniformed silhouette (char_figure with peaked cap) stands in the doorway, back-lit.",
+   "camera": "locked-off wide, 24 mm, chair motion is the only movement",
+   "characters": [
+    "police officer silhouette (faceless, peaked cap)"
+   ],
+   "lighting": "single ceiling bulb flickering (flicker, 2 short dips)",
+   "fx": [
+    "flicker"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "police officer's statement"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "room",
+   "description": "Hallway/stairs foot of the same house (room variant, narrow). Two faceless male silhouettes in 1970s coats enter through the front door; one carries the tape recorder prop (tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp).",
+   "camera": "low angle from the stairs looking at the door, 28 mm, slight handheld",
+   "characters": [
+    "investigator_A silhouette (overcoat, taller)",
+    "investigator_B silhouette (jacket, carries recorder)"
+   ],
+   "lighting": "cold street light through open door, warm hall bulb",
+   "fx": [
+    "fog spill through door"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "SPR investigators, from Sept 1977"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Maurice Grosse\nGuy Lyon Playfair",
+     "params": {
+      "header": "SOCIETY FOR PSYCHICAL RESEARCH",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "door_creak",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:tape_recorder_closeup",
+   "description": "Macro close-up of the tape recorder prop on bedroom carpet: two reels turning, tape running between them, red REC lamp. A timer overlay rolls up to 'OVER 180 HRS'.",
+   "camera": "macro 85 mm, slow orbit 20 degrees, shallow depth of field",
+   "characters": [
+    "none"
+   ],
+   "lighting": "red REC lamp + soft blue moonlight rim",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "SPR tape archive"
+     }
+    },
+    {
+     "type": "timer",
+     "text": "TAPE RECORDED: OVER",
+     "params": {
+      "from": 0,
+      "to": 180,
+      "fmt": "hours",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "static",
+     "offset": 0.1,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "room",
+   "description": "The bedroom again (1970s council-house child's bedroom (room 3.2x3.6 m, door + sash window, floral wallpaper texture, brown carpet): two single beds against opposite walls, wooden chair, small bedside lamp, tape recorder prop: dark-grey box 40x25x12 cm, two 18 cm silver reels on top, small red REC lamp on the floor by the door). Lamp flickers; the chair is now tipped on its side; a small chest of drawers (box prop) lies face-down. The duvet of the right bed is thrown onto the floor; the bed is empty. No child figure shown.",
+   "camera": "fast whip into wide, then handheld drift, 24 mm",
+   "characters": [
+    "none (no child shown)"
+   ],
+   "lighting": "bedside lamp flicker with two full blackouts",
+   "fx": [
+    "flicker",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "family's account (Playfair, 1980)"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.5,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.9,
+     "gain": 0.55
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08",
+    "L09"
+   ],
+   "environment": "other:waveform_graphic",
+   "description": "Music drops out on L08. 2D motion graphic: a single jagged audio waveform (pale green) scrolls across black, like an oscilloscope; NO audio from the real recording is used. In the background, very dark, the silhouette of the girl's bed.",
+   "camera": "graphic, waveform scrolls right-to-left, slight zoom",
+   "characters": [
+    "none"
+   ],
+   "lighting": "black + pale green waveform glow",
+   "fx": [
+    "scanlines"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "recordings exist (described, not played)"
+     }
+    },
+    {
+     "type": "text",
+     "text": "[ RECORDING DESCRIBED,\nNOT PLAYED ]",
+     "params": {
+      "y": 1250,
+      "size": 52
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "rumble",
+     "offset": 0.2,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L10"
+   ],
+   "environment": "room",
+   "description": "Bedroom wide from the doorway at a new angle (high corner). On the wall above the right bed, the lamp-light casts the long shadow of the empty chair; it reads vaguely like a seated man. Waveform overlay continues small in the lower third.",
+   "camera": "high corner static, 20 mm, very slow tilt down",
+   "characters": [
+    "none"
+   ],
+   "lighting": "bedside lamp low, long hard shadows",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "what the voice claimed on tape"
+     }
+    },
+    {
+     "type": "document",
+     "text": "Voice gave its name as 'Bill'\nClaimed to be a former occupant\nwho died in the house",
+     "params": {
+      "title": "INVESTIGATORS' TAPE NOTES (paraphrase)",
+      "style": "paper"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.8,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Pattern interrupt: dark corkboard evidence board (flat plane with cork texture), card pinned: 'WHAT SCEPTICS SAY'. A second card slides in: a simple drawn spoon icon bent at the neck, captioned 'caught on camera, next room'.",
+   "camera": "flat front, slow push, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single desk lamp from top-left",
+   "fx": [
+    "paper flutter"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "video from the adjoining room (per Anita Gregory)"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Janet filmed bending spoons\nherself, from the next room",
+     "params": {
+      "header": "WHAT SCEPTICS SAY",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "typewriter",
+     "offset": 1.6,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Same board, push closer onto a third card: 'VENTRILOQUISM?' next to a simple throat/sound-wave icon.",
+   "camera": "push-in 10%, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "desk lamp",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "John Beloff, ex-SPR president"
+     }
+    },
+    {
+     "type": "card",
+     "text": "A former SPR president\nsuspected ventriloquism",
+     "params": {
+      "header": "WHAT SCEPTICS SAY",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:document",
+   "description": "Newspaper-style document reveal (no real masthead): a generic page slides up, typed text 'JANET: ABOUT 2% WAS FAKED' with '2016 interview' in small caps. Big '2%' counter pops.",
+   "camera": "graphic, slow drift up",
+   "characters": [
+    "none"
+   ],
+   "lighting": "paper lit warm",
+   "fx": [
+    "paper grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "Janet's 1980 + 2016 interviews"
+     }
+    },
+    {
+     "type": "document",
+     "text": "Admitted some events were faked.\nEstimated: about 2 per cent.",
+     "params": {
+      "title": "LATER INTERVIEWS (paraphrase)",
+      "style": "paper"
+     }
+    },
+    {
+     "type": "text",
+     "text": "2%",
+     "params": {
+      "y": 520,
+      "size": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L14"
+   ],
+   "environment": "room",
+   "description": "Back in the bedroom, wide from the doorway (same composition as S01). The chair is back against the wall, upright. Everything still. Music thins to near silence.",
+   "camera": "static, 28 mm, same framing as S01 but 10% wider",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight only",
+   "fx": [
+    "dust motes (very slow)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "Janet's own view"
+     }
+    },
+    {
+     "type": "text",
+     "text": "98%?",
+     "params": {
+      "y": 520,
+      "size": 170
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.1
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L15"
+   ],
+   "environment": "room",
+   "description": "DEAD-AIR REVEAL: the previous shot (S13) holds through a 0.9 s silence; this shot is an identical-framing match-cut out of that silence, so nothing seems to change except that the chair is suddenly 40 cm out from the wall again, angled toward the bed (exactly the S01 position). One knock on the cut. The tape recorder's REC lamp flicks on by itself.",
+   "camera": "locked-off, then slowest possible push (2%)",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight; REC lamp red pops on",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.05,
+     "gain": 0.45
+    },
+    {
+     "name": "click",
+     "offset": 0.7,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L16"
+   ],
+   "environment": "room",
+   "description": "Loop frame: identical to S01 frame 1 (chair askew, reels turning, REC lamp on). Cut back so the end flows into line 1.",
+   "camera": "match S01 start position, begin the same push-in",
+   "characters": [
+    "none"
+   ],
+   "lighting": "same as S01",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.35
   ],
-  "music_curve": [
-    [
-      0,
-      0.35
-    ],
-    [
-      6,
-      0.5
-    ],
-    [
-      18,
-      0.7
-    ],
-    [
-      27,
-      0.75
-    ],
-    [
-      30,
-      0.4
-    ],
-    [
-      38,
-      0.6
-    ],
-    [
-      44,
-      0.0
-    ],
-    [
-      47,
-      0.0
-    ],
-    [
-      49,
-      0.35
-    ],
-    [
-      52,
-      0.35
-    ]
+  [
+   6,
+   0.5
   ],
-  "loop_line": "Only one thing is certain:"
+  [
+   18,
+   0.7
+  ],
+  [
+   27,
+   0.75
+  ],
+  [
+   30,
+   0.4
+  ],
+  [
+   38,
+   0.6
+  ],
+  [
+   44,
+   0.0
+  ],
+  [
+   47,
+   0.0
+  ],
+  [
+   49,
+   0.35
+  ],
+  [
+   52,
+   0.35
+  ]
+ ],
+ "loop_line": "Only one thing is certain:"
 }

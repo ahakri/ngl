@@ -73,7 +73,7 @@ def ov_depth(t, dur, text, p):
     v = v0 + (v1 - v0) * ease(t / max(0.3, dur * p.get("speed", 0.85)))
     unit = p.get("unit", "m")
     acc = ACCENT.get(p.get("mood", "cave"), (64, 224, 208))
-    x0, y0, y1 = W - 130, 420, 1300
+    x0, y0, y1 = W - 130, 300, 1000
     d.line((x0, y0, x0, y1), fill=(255, 255, 255, int(120 * a)), width=4)
     mx = p.get("max", max(v0, v1) * 1.1 or 1)
     for k in range(0, 11):
