@@ -361,7 +361,8 @@
         {
           "type": "stamp",
           "text": "RED SEA\n18 SEP 2014",
-          "params": {}
+          "params": {},
+          "start": 1.8
         }
       ],
       "sfx": [
@@ -504,7 +505,7 @@
       "overlay": [
         {
           "type": "label",
-          "text": "DOCUMENTED",
+          "text": "DOCUMENTED FACT",
           "params": {
             "y": 200
           }
@@ -630,12 +631,12 @@
           "text": "2005  318.25 m\n2014  332.35 m",
           "params": {
             "header": "DEEPEST SCUBA DIVE",
-            "y": 1150
+            "y": 1420
           }
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
+          "text": "DOCUMENTED FACT",
           "params": {
             "y": 200
           }
@@ -715,7 +716,7 @@
               60
             ]
           },
-          "start": 2.3
+          "start": 3.05
         }
       ],
       "sfx": [
@@ -726,7 +727,7 @@
         },
         {
           "name": "hit",
-          "offset": 2.3,
+          "offset": 3.05,
           "gain": 0.6
         }
       ],
@@ -768,7 +769,7 @@
                 "~15 h"
               ]
             ],
-            "y": 1250
+            "y": 1560
           }
         }
       ],
@@ -865,7 +866,7 @@
           "params": {
             "style": "paper",
             "title": "ANONYMOUS",
-            "y": 600
+            "y": 420
           }
         },
         {
@@ -942,12 +943,12 @@
           "text": "332.35 m\nCONFIRMED",
           "params": {
             "header": "REVIEW CONCLUDED",
-            "y": 1150
+            "y": 1420
           }
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
+          "text": "DOCUMENTED FACT",
           "params": {
             "y": 200
           }

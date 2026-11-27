@@ -60,6 +60,23 @@ def shot_frame(id_, shot, k, cache):
     return im
 
 
+CAP_TOP, CAP_BOT = 1150, 1340  # caption band (captions centred at y=1240)
+
+
+def avoid_captions(o):
+    """Shift an overlay frame up if its visible pixels intrude into the caption band."""
+    bb = o.getbbox()
+    if not bb or bb[3] <= CAP_TOP or bb[1] >= CAP_BOT:
+        return o
+    shift = bb[3] - (CAP_TOP - 20)
+    shift = min(shift, max(0, bb[1] - 110))  # never push above the top safe margin
+    if shift <= 0:
+        return o
+    out = Image.new("RGBA", o.size, (0, 0, 0, 0))
+    out.alpha_composite(o.crop((0, shift, o.width, o.height)), (0, 0))
+    return out
+
+
 def ass_time(t):
     t = max(0, t)
     h = int(t // 3600)
@@ -121,7 +138,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         f.write(head + "\n".join(ev) + "\n")
 
 
-def compose(id_, preview=False):
+def compose(id_, preview=False, until=None):
     sdir = os.path.join(ROOT, "SCRIPTS", id_)
     adir = os.path.join(ROOT, "AUDIO", id_)
     script = json.load(open(os.path.join(sdir, "script.json")))
@@ -130,6 +147,8 @@ def compose(id_, preview=False):
     mood = script.get("mood", script.get("category", "cave"))
     dur = st["duration"]
     nfr = int(math.ceil(dur * FPS))
+    if until:
+        nfr = min(nfr, int(until * FPS))
     # audio mix
     sfx_events = []
     for sh in script["shots"]:
@@ -151,7 +170,7 @@ def compose(id_, preview=False):
     vf = f"ass={ass}:fontsdir={os.path.join(os.path.dirname(__file__), 'fonts')}"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "20" if not preview else "28",
-           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out]
+           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     rng = np.random.default_rng(1)
     cache = {}
@@ -187,7 +206,7 @@ def compose(id_, preview=False):
         for ov in sh_by[cur].get("overlay", []):
             o = OV.render_overlay(ov, lt, sdur, mood)
             if o is not None:
-                im.alpha_composite(o)
+                im.alpha_composite(avoid_captions(o))
         p.stdin.write(im.convert("RGB").tobytes())
     p.stdin.close()
     p.wait()
@@ -195,4 +214,5 @@ def compose(id_, preview=False):
 
 
 if __name__ == "__main__":
-    print(compose(sys.argv[1], preview="--preview" in sys.argv))
+    u = float(sys.argv[sys.argv.index("--until") + 1]) if "--until" in sys.argv else None
+    print(compose(sys.argv[1], preview="--preview" in sys.argv, until=u))

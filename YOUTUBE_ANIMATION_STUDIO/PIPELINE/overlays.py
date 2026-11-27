@@ -244,11 +244,25 @@ def ov_document(t, dur, text, p):
     title = p.get("title")
     yy = 60
     if title:
-        pd.text((pw // 2, yy), title, font=font(F_SERIF, 46), fill=(40, 30, 25, 255), anchor="mm")
+        tsz = 46
+        while tsz > 22 and pd.textlength(title, font=font(F_SERIF, tsz)) > pw - 80:
+            tsz -= 2
+        pd.text((pw // 2, yy), title, font=font(F_SERIF, tsz), fill=(40, 30, 25, 255), anchor="mm")
         yy += 70
-    body = typewriter(text, max(0, t - 0.4), p.get("cps", 30))
     fsz = p.get("size", 54 if style == "scrap" else 38)
     fnt = font(F_SERIF if style != "telegram" else F_MONO, fsz)
+    wrapped = []
+    for para in text.split("\n"):
+        cur = ""
+        for w in para.split(" "):
+            cand = (cur + " " + w).strip()
+            if cur and "~~" not in cand and pd.textlength(cand, font=fnt) > pw - 120:
+                wrapped.append(cur)
+                cur = w
+            else:
+                cur = cand
+        wrapped.append(cur)
+    body = typewriter("\n".join(wrapped), max(0, t - 0.4), p.get("cps", 30))
     for i, ln in enumerate(body.split("\n")):
         y = yy + i * int(fsz * 1.35) + (ph // 2 - 60 if style == "scrap" else 0)
         segs = ln.split("~~")  # odd segments are struck through: "ABC ~~struck~~ DEF"

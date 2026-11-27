@@ -2332,3 +2332,861 @@ def no_shadow(*lights):
             o.data.use_shadow = False
         except Exception:
             pass
+
+
+# ============================================================================= SCUBA-05 / SCUBA-06 additions
+# (Gabr 332 m descent line / Fox great white) — new builders only, everything above is untouched.
+
+
+def tech_diver(name="tech", suit=(0.03, 0.03, 0.035), fins=(1.0, 0.78, 0.05), stages=4, light_energy=0.0,
+               stage_cols=((0.9, 0.9, 0.86), (0.95, 0.75, 0.1), (0.15, 0.6, 0.3), (0.85, 0.25, 0.15))):
+    """Deep tech diver: L.char_diver (dark suit + hood, sidemount twins) + yellow fins and `stages` slim stage
+    cylinders clipped along each side (coloured neck bands). Root faces +Y, back +Z (trim). parts['stages'] = list."""
+    P = L.char_diver(name=name, suit=suit, accent=(0.08, 0.08, 0.09), tanks="sidemount", light_on=light_energy > 0,
+                     light_energy=max(light_energy, 1.0))
+    fm = L.mat_principled(name + "_finm", fins, rough=0.4)
+    for tag in ("L", "R"):
+        L.assign(P[f"fin{tag}"], fm)
+    alu = L.mat_principled(name + "_alu", (0.72, 0.74, 0.76), rough=0.3, metal=0.8)
+    offs = [(0.33, 0.05), (0.37, -0.06), (0.34, -0.17), (0.27, -0.24)][:stages]
+    P["stages"] = []
+    for sx in (-1, 1):
+        for k, (x, z) in enumerate(offs):
+            t = L.prim("cyl", loc=(sx * x, -0.14 + 0.05 * k, z), rot=(math.pi / 2, 0, 0), vertices=12, radius=1, depth=2,
+                       name=f"{name}_stage")
+            t.scale = (0.055, 0.055, 0.27)
+            L.assign(t, alu)
+            L.smooth(t)
+            t.parent = P["root"]
+            b = L.prim("cyl", loc=(sx * x, -0.14 + 0.05 * k + 0.25, z), rot=(math.pi / 2, 0, 0), vertices=12, radius=1,
+                       depth=2, name=f"{name}_stageband")
+            b.scale = (0.058, 0.058, 0.04)
+            L.assign(b, L.mat_principled(f"{name}_band{k}", stage_cols[k % len(stage_cols)], rough=0.4))
+            b.parent = P["root"]
+            P["stages"].append((t, b))
+    return P
+
+
+def pose_upright(P, yaw=0.0, reach=("R",), lean=0.0, legs=0.25):
+    """Stand a char_diver rig upright (head +Z, faces +Y rotated by yaw). Arms in `reach` go forward/up (rope grip),
+    the others hang. Knees softly bent."""
+    r = P["root"]
+    r.rotation_euler = (math.pi / 2 - lean, 0, yaw)
+    for tag, sx in (("L", -1), ("R", 1)):
+        P[f"hip{tag}"].rotation_euler = (legs, 0, 0)
+        P[f"knee{tag}"].rotation_euler = (-legs * 1.6, 0, 0)
+        if tag in reach:
+            P[f"shoulder{tag}"].rotation_euler = (-0.55, 0, sx * -0.3)
+        else:
+            P[f"shoulder{tag}"].rotation_euler = (-2.7, 0, sx * -0.25)
+
+
+def mat_rope(name="rope", color=(0.92, 0.92, 0.88), stripe=(0.35, 0.33, 0.3), period=0.08, emit=0.15):
+    """White braided-rope look: fine diagonal bands along object Z (scrolls with the object), slight self-glow."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    wv = n.new("ShaderNodeTexWave")
+    wv.wave_type = "BANDS"
+    wv.bands_direction = "DIAGONAL"
+    wv.inputs["Scale"].default_value = 2 * math.pi / (20 * period)
+    l.new(tc.outputs["Object"], wv.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*stripe, 1)
+    ramp.color_ramp.elements[1].color = (*color, 1)
+    ramp.color_ramp.elements[0].position = 0.2
+    ramp.color_ramp.elements[1].position = 0.6
+    l.new(wv.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.8
+    p.inputs["Emission Color"].default_value = (*color, 1)
+    p.inputs["Emission Strength"].default_value = emit
+    return m
+
+
+def descent_line(top=5.0, bottom=-20.0, x=0.0, y=0.0, radius=0.012, mat=None, name="line"):
+    """Vertical descent rope between z=top and z=bottom (object origin at its centre)."""
+    h = top - bottom
+    o = L.prim("cyl", loc=(x, y, (top + bottom) / 2), vertices=10, radius=radius, depth=h, name=name)
+    L.assign(o, mat or mat_rope(name + "_m"))
+    return o
+
+
+def depth_tag(text, loc=(0, 0, 0), yaw=0.0, scale=1.0, name="tag", rope_r=0.012, glow=0.0):
+    """Small white plastic depth tag zip-tied to a vertical rope at loc: tie ring + tag plate + printed number
+    (faces -Y before yaw). Returns root empty (parent it to the rope)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, yaw)
+    wm = L.mat_principled(name + "_w", (0.92, 0.92, 0.9), rough=0.45, emit=(0.9, 0.95, 1.0), emit_strength=glow)
+    tie = L.prim("torus", loc=(0, 0, 0), major_radius=rope_r + 0.004, minor_radius=0.003, name=name + "_tie")
+    L.assign(tie, L.mat_principled(name + "_tiem", (0.1, 0.1, 0.1), rough=0.5))
+    tie.parent = root
+    pl = L.prim("cube", loc=(0, -rope_r - 0.004, -0.055), name=name + "_plate")
+    pl.scale = (0.035, 0.003, 0.05)
+    L.bevel(pl, 0.006, 2)
+    L.assign(pl, wm)
+    pl.parent = root
+    tx = L.text3d(text, loc=(0, -rope_r - 0.0075, -0.062), size=0.026, extrude=0.0005,
+                  mat=L.mat_principled(name + "_ink", (0.02, 0.02, 0.025), rough=0.6), name=name + "_txt")
+    tx.data.align_y = "CENTER"
+    tx.parent = root
+    root.scale = (scale,) * 3
+    return root
+
+
+def stage_tank(loc=(0, 0, 0), rot=(0, 0, 0), band=(0.95, 0.75, 0.1), length=0.6, radius=0.06, name="stg"):
+    """Loose aluminium stage cylinder with coloured neck band, valve and clip (axis = local Z, valve at +Z)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = rot
+    alu = L.mat_principled(name + "_alu", (0.75, 0.77, 0.79), rough=0.3, metal=0.8)
+    body = L.prim("cyl", loc=(0, 0, 0), vertices=14, radius=radius, depth=length, name=name + "_body")
+    L.assign(body, alu)
+    L.smooth(body)
+    body.parent = root
+    b = L.prim("cyl", loc=(0, 0, length * 0.42), vertices=14, radius=radius * 1.04, depth=length * 0.12, name=name + "_band")
+    L.assign(b, L.mat_principled(name + "_bandm", band, rough=0.4))
+    b.parent = root
+    v = L.prim("cyl", loc=(0, 0, length / 2 + 0.04), vertices=8, radius=radius * 0.35, depth=0.08, name=name + "_valve")
+    L.assign(v, L.mat_principled(name + "_chrome", (0.85, 0.85, 0.88), rough=0.15, metal=1.0))
+    v.parent = root
+    return root
+
+
+def mat_reveal_z(name, color=(0.3, 1.0, 0.9), strength=4.0, soft=0.4, alpha=1.0):
+    """Emission visible only below a keyframable world-Z threshold (draw-on from the bottom up). Returns (mat, socket):
+    key socket.default_value = threshold z."""
+    m, n, l = _m(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    geo = n.new("ShaderNodeNewGeometry")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(geo.outputs["Position"], sep.inputs[0])
+    sub = n.new("ShaderNodeMath")
+    sub.operation = "SUBTRACT"
+    l.new(sep.outputs["Z"], sub.inputs[1])  # T - z
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0
+    mr.inputs["From Max"].default_value = soft
+    mr.inputs["To Max"].default_value = alpha
+    l.new(sub.outputs[0], mr.inputs["Value"])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    em.inputs[1].default_value = strength
+    tr = n.new("ShaderNodeBsdfTransparent")
+    mx = n.new("ShaderNodeMixShader")
+    l.new(mr.outputs[0], mx.inputs[0])
+    l.new(tr.outputs[0], mx.inputs[1])
+    l.new(em.outputs[0], mx.inputs[2])
+    l.new(mx.outputs[0], n["Material Output"].inputs["Surface"])
+    m.surface_render_method = "BLENDED"
+    return m, sub.inputs[0]
+
+
+def lattice_tower(base_z=0.0, height=33.0, half_base=6.25, center=(0, 0), mat=None, bevel=0.08, name="tower"):
+    """Eiffel-style lattice tower as one emissive wire curve object (1 unit = 10 m by default: 330 m tall).
+    Four curved legs (double rails), three platforms, cross-bracing, arches, spire. Built in world space."""
+    cx, cy = center
+    H = height
+
+    def hw(t):  # half-width profile (concave legs)
+        return max(0.035 * half_base, half_base * (1 - t) ** 2.6 + 0.02 * half_base)
+
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    cu.bevel_depth = bevel
+    cu.bevel_resolution = 1
+
+    def seg(pts):
+        sp = cu.splines.new("POLY")
+        sp.points.add(len(pts) - 1)
+        for i, p in enumerate(pts):
+            sp.points[i].co = (p[0] + cx, p[1] + cy, p[2] + base_z, 1)
+
+    ts = [k / 24 for k in range(25)]
+    corners = ((1, 1), (-1, 1), (-1, -1), (1, -1))
+    tmax = 0.9
+    for sx, sy in corners:
+        for inset in (1.0, 0.82):
+            seg([(sx * hw(t * tmax) * inset, sy * hw(t * tmax) * inset, t * tmax * H) for t in ts])
+    # rings / platforms
+    for t, w in ((0.17, 1.15), (0.35, 1.1), (0.84, 1.6)):
+        r = hw(t) * w
+        seg([(r, r, t * H), (-r, r, t * H), (-r, -r, t * H), (r, -r, t * H), (r, r, t * H)])
+    for k in range(1, 18):
+        t = k / 18 * tmax
+        r = hw(t)
+        seg([(r, r, t * H), (-r, r, t * H), (-r, -r, t * H), (r, -r, t * H), (r, r, t * H)])
+        # X-bracing on the 4 faces between this ring and the previous
+        t0 = (k - 1) / 18 * tmax
+        r0 = hw(t0)
+        for (ax, ay), (bx, by) in zip(corners, corners[1:] + corners[:1]):
+            seg([(ax * r0, ay * r0, t0 * H), (bx * r, by * r, t * H)])
+            seg([(bx * r0, by * r0, t0 * H), (ax * r, ay * r, t * H)])
+    # base arches on each face
+    for (ax, ay), (bx, by) in zip(corners, corners[1:] + corners[:1]):
+        pts = []
+        for k in range(13):
+            u = k / 12
+            t = 0.17 * math.sin(u * math.pi) * 0.85
+            r = hw(t)
+            x = (ax + (bx - ax) * u) * r
+            y = (ay + (by - ay) * u) * r
+            pts.append((x, y, t * H))
+        seg(pts)
+    # spire
+    seg([(0, 0, tmax * H), (0, 0, H)])
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(mat or L.mat_emission(name + "_m", (0.3, 1.0, 0.9), 4.0))
+    return o
+
+
+def backdrop_z(name="backdrop", stops=((-40, (0.0, 0.004, 0.01)), (-5, (0.02, 0.25, 0.35)), (0, (0.25, 0.75, 0.8)),
+                                       (0.2, (0.55, 0.7, 0.85)), (30, (0.15, 0.35, 0.65))),
+               loc=(0, 30, 0), size=(200, 200), strength=1.0):
+    """Big vertical emissive backdrop plane (faces -Y) coloured by world Z through colour stops [(z, rgb)]."""
+    o = L.prim("plane", loc=loc, rot=(math.pi / 2, 0, 0), size=1, name=name)
+    o.scale = (size[0], size[1], 1)
+    m, n, l = _m(name + "_m")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    geo = n.new("ShaderNodeNewGeometry")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(geo.outputs["Position"], sep.inputs[0])
+    z0, z1 = stops[0][0], stops[-1][0]
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = z0
+    mr.inputs["From Max"].default_value = z1
+    l.new(sep.outputs["Z"], mr.inputs["Value"])
+    ramp = n.new("ShaderNodeValToRGB")
+    els = ramp.color_ramp.elements
+    els[0].position, els[0].color = 0.0, (*stops[0][1], 1)
+    els[1].position, els[1].color = 1.0, (*stops[-1][1], 1)
+    for z, c in stops[1:-1]:
+        e = els.new((z - z0) / (z1 - z0))
+        e.color = (*c, 1)
+    l.new(mr.outputs[0], ramp.inputs["Fac"])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[1].default_value = strength
+    l.new(ramp.outputs["Color"], em.inputs[0])
+    l.new(em.outputs[0], n["Material Output"].inputs["Surface"])
+    L.assign(o, m)
+    o.visible_shadow = False
+    return o
+
+
+def mat_xray(name, color, strength=2.0, power=1.6, base=0.04):
+    """Line-art x-ray look: silhouette edges glow (Layer Weight Facing), faces see-through."""
+    m, n, l = _m(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    lw = n.new("ShaderNodeLayerWeight")
+    lw.inputs["Blend"].default_value = 0.5
+    pw = n.new("ShaderNodeMath")
+    pw.operation = "POWER"
+    pw.inputs[1].default_value = power
+    l.new(lw.outputs["Facing"], pw.inputs[0])
+    ad = n.new("ShaderNodeMath")
+    ad.operation = "ADD"
+    ad.use_clamp = True
+    ad.inputs[1].default_value = base
+    l.new(pw.outputs[0], ad.inputs[0])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    em.inputs[1].default_value = strength
+    tr = n.new("ShaderNodeBsdfTransparent")
+    mx = n.new("ShaderNodeMixShader")
+    l.new(ad.outputs[0], mx.inputs[0])
+    l.new(tr.outputs[0], mx.inputs[1])
+    l.new(em.outputs[0], mx.inputs[2])
+    l.new(mx.outputs[0], n["Material Output"].inputs["Surface"])
+    m.surface_render_method = "BLENDED"
+    m.use_backface_culling = True
+    return m
+
+
+def restyle(prefix, mat):
+    """Replace the material on every mesh/curve whose name starts with prefix."""
+    for o in bpy.data.objects:
+        if o.name.startswith(prefix) and o.type in ("MESH", "CURVE", "FONT"):
+            o.data.materials.clear()
+            o.data.materials.append(mat)
+
+
+def diagram_grid(y=5.5, color=(0.02, 0.1, 0.1), bg=(0.004, 0.035, 0.04), step=0.8, extent=20, name="grid"):
+    """Dark teal diagram backdrop (plane facing -Y at y) with a faint square grid."""
+    b = L.prim("plane", loc=(0, y + 0.5, 0), rot=(math.pi / 2, 0, 0), size=1, name=name + "_bg")
+    b.scale = (extent * 3, extent * 3, 1)
+    L.assign(b, flat_mat(name + "_bgm", bg, 1))
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    cu.bevel_depth = 0.012 * step / 0.8
+    k = int(extent / step)
+    for i in range(-k, k + 1):
+        for horiz in (0, 1):
+            sp = cu.splines.new("POLY")
+            sp.points.add(1)
+            if horiz:
+                sp.points[0].co, sp.points[1].co = (-extent, y, i * step, 1), (extent, y, i * step, 1)
+            else:
+                sp.points[0].co, sp.points[1].co = (i * step, y, -extent, 1), (i * step, y, extent, 1)
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(flat_mat(name + "_m", color, 1))
+    return o
+
+
+def splash_drops(center, starts, count=60, speed=4.0, seed=3, name="spl", size=0.05):
+    """White droplets thrown up and falling back (small ico spheres on ballistic keys)."""
+    rnd = random.Random(seed)
+    m = L.mat_principled(name + "_m", (0.95, 0.98, 1.0), rough=0.2, emit=(0.5, 0.55, 0.6), emit_strength=0.5)
+    c = Vector(center)
+    for i in range(count):
+        st = rnd.choice(starts)
+        o = L.prim("ico", loc=c, subdivisions=1, radius=size * rnd.uniform(0.5, 1.3), name=name)
+        L.assign(o, m)
+        o.visible_shadow = False
+        v = Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(1.2, 2.5))).normalized() * speed * rnd.uniform(0.5, 1.2)
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=max(0, st - 1))
+        o.scale = (1, 1, 1)
+        o.keyframe_insert("scale", frame=st)
+        p0 = c + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * 0.5
+        for k in range(0, 21, 4):
+            t = k / 24
+            o.location = p0 + v * t + Vector((0, 0, -4.9 * t * t))
+            o.keyframe_insert("location", frame=st + k)
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=st + 22)
+
+
+def foam_patch(loc, r0=0.3, r1=2.0, f0=1, f1=40, name="foam", z=0.04):
+    """Expanding white foam ring on the water surface."""
+    m = L.mat_principled(name + "_m", (0.95, 0.97, 0.97), rough=0.6, emit=(0.6, 0.65, 0.65), emit_strength=0.4)
+    o = L.prim("torus", loc=(loc[0], loc[1], z), major_radius=1.0, minor_radius=0.25, name=name)
+    L.add_displace(o, strength=0.2, scale=0.3, name=name + "_d")
+    L.assign(o, m)
+    o.scale = (0.001, 0.001, 0.001)
+    o.keyframe_insert("scale", frame=max(0, f0 - 1))
+    o.scale = (r0, r0, 0.4)
+    o.keyframe_insert("scale", frame=f0)
+    o.scale = (r1, r1, 0.15)
+    o.keyframe_insert("scale", frame=f1)
+    return o
+
+
+def paper(loc=(0, 0, 0), size=(0.21, 0.297), rot_z=0.0, color=(0.88, 0.86, 0.8), lines=10, redact=(), seed=1,
+          name="paper", ink=(0.12, 0.12, 0.14)):
+    """Sheet of paper lying flat (z up) with grey 'text' lines (illegible strokes); redact = list of line indexes
+    that get a black redaction bar (parts['bars'] for scale-x draw-on: origin at the bar's left end)."""
+    rnd = random.Random(seed)
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, rot_z)
+    P = {"root": root, "bars": []}
+    pl = L.prim("cube", loc=(0, 0, 0.0008), name=name + "_sheet")
+    pl.scale = (size[0] / 2, size[1] / 2, 0.0008)
+    L.assign(pl, L.mat_principled(name + "_pm", color, rough=0.85))
+    pl.parent = root
+    lm = L.mat_principled(name + "_lm", tuple(c * 0.6 + 0.3 for c in ink), rough=0.9)
+    bm = L.mat_principled(name + "_bm", (0.01, 0.01, 0.012), rough=0.6)
+    x0 = -size[0] / 2 + size[0] * 0.12
+    wmax = size[0] * 0.76
+    for i in range(lines):
+        y = size[1] / 2 - size[1] * 0.14 - i * size[1] * 0.07
+        w = wmax * (rnd.uniform(0.55, 1.0) if i else 0.45)
+        ln = L.prim("cube", loc=(x0 + w / 2, y, 0.0018), name=name + "_ln")
+        ln.scale = (w / 2, size[1] * 0.009, 0.0002)
+        L.assign(ln, lm)
+        ln.parent = root
+        if i in redact:
+            piv = L.link(bpy.data.objects.new(name + "_barpiv", None))
+            piv.parent = root
+            piv.location = (x0 - 0.004, y, 0.0024)
+            b = L.prim("cube", loc=(w / 2 + 0.004, 0, 0), name=name + "_bar")
+            b.scale = (w / 2 + 0.006, size[1] * 0.02, 0.0004)
+            L.assign(b, bm)
+            b.parent = piv
+            P["bars"].append(piv)
+    return P
+
+
+def magnifier(loc=(0, 0, 0), radius=0.07, name="loupe"):
+    """Hand magnifier lying above a desk: chrome ring, faintly tinted glass disc, black handle (+X)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    ring = L.prim("torus", loc=(0, 0, 0), major_radius=radius, minor_radius=radius * 0.09, name=name + "_ring")
+    L.assign(ring, L.mat_principled(name + "_chrome", (0.85, 0.85, 0.88), rough=0.15, metal=1.0))
+    ring.parent = root
+    gl = L.prim("cyl", loc=(0, 0, 0), vertices=32, radius=radius, depth=radius * 0.04, name=name + "_glass")
+    gm = L.mat_principled(name + "_gm", (0.75, 0.9, 1.0), rough=0.05, alpha=0.18)
+    gm.surface_render_method = "BLENDED"
+    L.assign(gl, gm)
+    gl.parent = root
+    h = L.prim("cyl", loc=(radius * 2.2, 0, 0), rot=(0, math.pi / 2, 0), vertices=12, radius=radius * 0.16,
+               depth=radius * 2.2, name=name + "_handle")
+    L.assign(h, L.mat_principled(name + "_hm", (0.03, 0.03, 0.03), rough=0.5))
+    h.parent = root
+    return root
+
+
+def rubber_stamp(loc=(0, 0, 0), size=0.12, name="stamp", wood=(0.35, 0.2, 0.1)):
+    """Office rubber stamp: red rubber pad, wooden block and round knob handle. Origin at the pad face."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    pad = L.prim("cube", loc=(0, 0, 0.006), name=name + "_pad")
+    pad.scale = (size / 2, size * 0.3, 0.006)
+    L.assign(pad, L.mat_principled(name + "_rub", (0.5, 0.05, 0.04), rough=0.7))
+    pad.parent = root
+    blk = L.prim("cube", loc=(0, 0, 0.03), name=name + "_block")
+    blk.scale = (size / 2 * 1.05, size * 0.32, 0.018)
+    L.bevel(blk, 0.004, 2)
+    wm = L.mat_principled(name + "_wood", wood, rough=0.5)
+    L.assign(blk, wm)
+    blk.parent = root
+    st = L.prim("cyl", loc=(0, 0, 0.09), vertices=16, radius=size * 0.09, depth=0.09, name=name + "_stem")
+    L.assign(st, wm)
+    st.parent = root
+    kn = L.prim("sphere", loc=(0, 0, 0.15), segments=16, ring_count=10, radius=size * 0.2, name=name + "_knob")
+    kn.scale = (1, 1, 0.8)
+    L.assign(kn, L.mat_principled(name + "_knobm", (0.05, 0.05, 0.06), rough=0.3))
+    kn.parent = root
+    return root
+
+
+def submarine_outline(length=4.0, name="subline", color=(0.75, 0.95, 1.0), width=0.02, f0=1, f1=12):
+    """2.5D line-art submarine silhouette in the local XY plane (draws on f0..f1). Returns root empty + material."""
+    root = L.link(bpy.data.objects.new(name, None))
+    h = length * 0.11
+    hull = []
+    for k in range(41):
+        a = k / 40 * 2 * math.pi
+        x = math.cos(a) * length / 2
+        y = math.sin(a) * h * (1.0 if math.cos(a) > -0.3 else 0.75)
+        hull.append((x * (1.0 if x > 0 else 1.05), y, 0))
+    tower = [(-0.02 * length, h * 0.95, 0), (0.0, h * 2.0, 0), (0.17 * length, h * 2.0, 0), (0.2 * length, h * 0.95, 0)]
+    fin = [(-0.47 * length, 0, 0), (-0.58 * length, h * 1.3, 0), (-0.56 * length, 0, 0), (-0.58 * length, -h * 1.3, 0),
+           (-0.47 * length, 0, 0)]
+    objs = []
+    m = None
+    for i, pts in enumerate((hull, tower, fin)):
+        o = draw_on_curve(pts, f0, f1, color=color, width=width, strength=3.0, name=f"{name}{i}")
+        if m is None:
+            m = o.data.materials[0]
+        else:
+            o.data.materials.clear()
+            o.data.materials.append(m)
+        o.parent = root
+        objs.append(o)
+    for k in range(4):
+        c = L.prim("torus", loc=(-0.25 * length + k * 0.14 * length, 0, 0), major_radius=h * 0.25, minor_radius=width,
+                   name=f"{name}_port")
+        L.assign(c, m)
+        c.parent = root
+        for f, s in ((f1 - 2, 0.001), (f1, 1.0)):
+            c.scale = (s,) * 3
+            c.keyframe_insert("scale", frame=f)
+    return root, m
+
+
+# ----------------------------------------------------------------------------- SCUBA-06 (Fox) additions
+
+
+def _gw_r(t):
+    """Great-white half-width profile, t = 0 tail .. 1 snout (fraction of length)."""
+    pts = ((0.0, 0.018), (0.1, 0.03), (0.2, 0.055), (0.35, 0.095), (0.5, 0.122), (0.62, 0.13), (0.75, 0.118),
+           (0.85, 0.09), (0.93, 0.055), (0.98, 0.022), (1.0, 0.004))
+    for (a, ra), (b, rb) in zip(pts, pts[1:]):
+        if a <= t <= b:
+            u = (t - a) / (b - a)
+            u = u * u * (3 - 2 * u)
+            return ra + (rb - ra) * u
+    return pts[-1][1]
+
+
+def _fin_mesh(name, pts, thick, mat, parent):
+    bm = bmesh.new()
+    vs = [bm.verts.new(p) for p in pts]
+    bm.faces.new(vs)
+    o = L.mesh_from_bm(name, bm)
+    so = o.modifiers.new("sol", "SOLIDIFY")
+    so.thickness = thick
+    so.offset = 0
+    L.assign(o, mat)
+    o.parent = parent
+    return o
+
+
+def great_white(name="gw", length=4.5, top=(0.24, 0.27, 0.3), belly=(0.86, 0.86, 0.84), seg=22, ring=16):
+    """Stylised great white shark: lofted fusiform body (conical snout, deep girth, narrow peduncle), countershaded
+    (grey back / white belly by normal), dorsal + pectoral fins, lunate caudal on a tail pivot, black eyes, gill
+    slits and closed mouth line. Body along +Y (snout +Y), origin mid-body. Returns parts (root, tail, eyes, body)."""
+    Lh = length
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root}
+    skin = _whale_body_mat(name + "_skin", top=top, belly=belly)
+    skin.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.45
+    tail = L.link(bpy.data.objects.new(name + "_tail", None))
+    tail.parent = root
+    tcut = 0.3
+    tail.location = (0, (tcut - 0.5) * Lh, 0)
+    P["tail"] = tail
+
+    def ring_at(t, yoff=0.0):
+        r = _gw_r(t) * Lh
+        rz = r * 1.18
+        out = []
+        for j in range(ring):
+            a = 2 * math.pi * j / ring
+            z = math.sin(a) * rz * (0.85 if math.sin(a) < 0 else 1.0)
+            out.append((math.cos(a) * r, (t - 0.5) * Lh - yoff, z + 0.02 * Lh * (t - 0.5)))
+        return out
+    front = _loft(name + "_body", [ring_at(tcut - 0.02 + (1 - tcut + 0.02) * k / seg) for k in range(seg + 1)])
+    L.smooth(front)
+    L.assign(front, skin)
+    front.parent = root
+    P["body"] = front
+    rear = _loft(name + "_rear", [ring_at(tcut * k / 8, (tcut - 0.5) * Lh) for k in range(9)])
+    L.smooth(rear)
+    L.assign(rear, skin)
+    rear.parent = tail
+    finm = L.mat_principled(name + "_finm", tuple(c * 0.85 for c in top), rough=0.45)
+    y = lambda t: (t - 0.5) * Lh
+    zt = lambda t: _gw_r(t) * Lh * 1.18
+    _fin_mesh(name + "_dorsal", [(0, y(0.47), zt(0.47) * 0.8), (0, y(0.63), zt(0.63) * 0.8), (0, y(0.45), zt(0.5) + 0.2 * Lh)],
+              0.025 * Lh, finm, root)
+    for sx in (-1, 1):
+        P[f"pec{sx}"] = _fin_mesh(name + f"_pec{sx}", [(sx * _gw_r(0.7) * Lh * 0.8, y(0.72), -0.04 * Lh),
+                                                         (sx * _gw_r(0.62) * Lh * 0.8, y(0.62), -0.06 * Lh),
+                                                         (sx * 0.36 * Lh, y(0.5), -0.17 * Lh)], 0.02 * Lh, finm, root)
+    # caudal (in tail space: tail pivot at t=tcut)
+    ty = lambda t: (t - tcut) * Lh
+    _fin_mesh(name + "_caudal", [(0, ty(0.04), 0.01 * Lh), (0, ty(-0.1), 0.27 * Lh), (0, ty(-0.06), 0.0),
+                                 (0, ty(-0.09), -0.21 * Lh)], 0.02 * Lh, finm, tail)
+    _fin_mesh(name + "_anal", [(0, ty(0.18), -0.02 * Lh), (0, ty(0.26), -0.035 * Lh), (0, ty(0.16), -0.07 * Lh)],
+              0.012 * Lh, finm, tail)
+    _fin_mesh(name + "_dorsal2", [(0, ty(0.17), 0.03 * Lh), (0, ty(0.23), 0.045 * Lh), (0, ty(0.16), 0.08 * Lh)],
+              0.012 * Lh, finm, tail)
+    # eyes, gills, mouth
+    eyem = L.mat_principled(name + "_eyem", (0.005, 0.005, 0.006), rough=0.05, metal=0.0)
+    P["eyes"] = []
+    te = 0.86
+    for sx in (-1, 1):
+        r = _gw_r(te) * Lh
+        e = L.prim("sphere", loc=(sx * r * 0.93, y(te), r * 0.35), segments=16, ring_count=10, radius=0.018 * Lh,
+                   name=name + f"_eye{sx}")
+        L.assign(e, eyem)
+        L.smooth(e)
+        e.parent = root
+        P["eyes"].append(e)
+        for k in range(5):
+            tg = 0.7 + k * 0.025
+            rg = _gw_r(tg) * Lh
+            g = L.prim("cube", loc=(sx * rg * 0.98, y(tg), 0.0), rot=(0.25, 0, 0), name=name + "_gill")
+            g.scale = (0.004 * Lh, 0.003 * Lh, 0.05 * Lh)
+            L.assign(g, L.mat_principled(name + "_gillm", (0.12, 0.13, 0.15), rough=0.5))
+            g.parent = root
+    mp = []
+    for k in range(9):
+        u = -1 + 2 * k / 8
+        tm = 0.88 - 0.06 * abs(u) ** 1.5
+        rm = _gw_r(tm) * Lh
+        mp.append((u * rm * 0.9, y(tm), -rm * 0.55))
+    mo = tube(mp, radius=0.006 * Lh, mat=L.mat_principled(name + "_mouthm", (0.08, 0.05, 0.05), rough=0.5), name=name + "_mouth")
+    mo.parent = root
+    return P
+
+
+def gw_swim(P, nframes, rate=0.5, amp=0.3, start=1, step=2):
+    """Tail sweep (tail pivot yaw) with a small counter-yaw on the pectorals."""
+    for f in range(start, start + nframes + 1, step):
+        t = (f - start) / 24
+        P["tail"].rotation_euler = (0, 0, amp * math.sin(2 * math.pi * rate * t))
+        P["tail"].keyframe_insert("rotation_euler", frame=f)
+
+
+def spearfisher(name="fox", suit=(0.025, 0.03, 0.045), scuba=False, gun=True):
+    """1960s breath-hold spearfisher (faceless): char_diver without tank (unless scuba), black wetsuit + hood,
+    oval mask, snorkel, weight belt with buckle, long fins, wooden speargun in the right hand.
+    parts['belt_pt'] = local belt attachment point for a float line. Root faces +Y, back +Z."""
+    P = L.char_diver(name=name, suit=suit, accent=(0.05, 0.05, 0.05), tanks="single", light_on=False)
+    if not scuba:
+        for k in list(P):
+            if k.startswith("tank"):
+                bpy.data.objects.remove(P.pop(k), do_unlink=True)
+    r = P["root"]
+    sn = tube([(0.07, 0.66, -0.06), (0.12, 0.6, 0.02), (0.13, 0.5, 0.18), (0.13, 0.48, 0.32)], radius=0.012,
+              mat=L.mat_principled(name + "_snork", (0.9, 0.55, 0.1), rough=0.4), name=name + "_snorkel")
+    sn.parent = r
+    belt = L.prim("torus", loc=(0, -0.38, -0.01), rot=(math.pi / 2, 0, 0), major_radius=1.0, minor_radius=0.12,
+                  name=name + "_belt")
+    belt.scale = (0.2, 0.17, 0.14)
+    L.assign(belt, L.mat_principled(name + "_beltm", (0.02, 0.02, 0.02), rough=0.5))
+    belt.parent = r
+    bk = L.prim("cube", loc=(0, -0.38, -0.17), name=name + "_buckle")
+    bk.scale = (0.04, 0.02, 0.012)
+    L.assign(bk, L.mat_principled(name + "_bkm", (0.7, 0.7, 0.72), rough=0.2, metal=1.0))
+    bk.parent = r
+    for sx in (-1, 1):
+        w = L.prim("cube", loc=(sx * 0.15, -0.38, -0.12), name=name + "_lead")
+        w.scale = (0.04, 0.03, 0.025)
+        L.assign(w, L.mat_principled(name + "_leadm", (0.25, 0.25, 0.27), rough=0.5, metal=0.5))
+        w.parent = r
+    for tag in ("L", "R"):
+        f = P[f"fin{tag}"]
+        f.scale = (0.1, 0.36, 0.012)
+        f.location = (0, -0.75, 0)
+    if gun:
+        g = L.prim("cyl", loc=(0, 0.95, 0), rot=(math.pi / 2, 0, 0), vertices=8, radius=0.022, depth=1.1, name=name + "_gun")
+        L.assign(g, L.mat_principled(name + "_wood", (0.35, 0.2, 0.08), rough=0.5))
+        g.parent = P["shoulderR"]
+        sp = L.prim("cyl", loc=(0, 1.75, 0.0), rot=(math.pi / 2, 0, 0), vertices=6, radius=0.006, depth=0.6, name=name + "_spear")
+        L.assign(sp, L.mat_principled(name + "_steel", (0.75, 0.75, 0.78), rough=0.2, metal=1.0))
+        sp.parent = P["shoulderR"]
+        P["gun"] = g
+    P["belt_pt"] = (0, -0.38, 0.16)
+    return P
+
+
+def float_buoy(loc=(0, 0, 0), name="float", color=(1.0, 0.38, 0.03)):
+    """Orange surface float with a short flag pole."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    b = L.prim("sphere", loc=(0, 0, 0), segments=16, ring_count=10, radius=0.22, name=name + "_ball")
+    b.scale = (1, 1, 0.8)
+    L.assign(b, L.mat_principled(name + "_m", color, rough=0.4))
+    b.parent = root
+    p = L.prim("cyl", loc=(0, 0, 0.45), vertices=6, radius=0.012, depth=0.6, name=name + "_pole")
+    L.assign(p, L.mat_principled(name + "_pm", (0.15, 0.15, 0.15), rough=0.5))
+    p.parent = root
+    fl = L.prim("cube", loc=(0.1, 0, 0.66), name=name + "_flag")
+    fl.scale = (0.1, 0.005, 0.07)
+    L.assign(fl, L.mat_principled(name + "_fm", (0.9, 0.1, 0.08), rough=0.5))
+    fl.parent = root
+    return root
+
+
+def dinghy(name="dinghy", length=4.0, beam=1.5, wood=(0.42, 0.24, 0.11), inside=(0.6, 0.45, 0.3)):
+    """Small wooden open dinghy (bow +Y, waterline z=0): lofted planked hull, gunwale rail, two thwarts, oars."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root}
+    hm = L.mat_noise_surface(name + "_hull", tuple(c * 0.7 for c in wood), wood, scale=6, rough=0.6, bump=0.2, voronoi=False)
+    sts = []
+    for i in range(13):
+        t = i / 12
+        y = (t - 0.5) * length
+        b = beam / 2 * (math.sin(math.pi * min(1.0, 0.15 + t * 0.95)) ** 0.7 if t > 0.1 else 0.85)
+        b = max(0.04, b)
+        keel = -0.3 + 0.25 * max(0, t - 0.75) / 0.25
+        gun = 0.42 + 0.15 * max(0, t - 0.7) / 0.3
+        ring = [(xn * b, y, keel + (gun - keel) * zn) for xn, zn in SECTION[:-1]]
+        ring.append((0, y, keel))
+        ring += [(-xn * b, y, keel + (gun - keel) * zn) for xn, zn in reversed(SECTION[:-1])]
+        sts.append(ring)
+    h = _loft(name + "_hull", sts, close_ends=True)
+    L.smooth(h)
+    L.assign(h, hm)
+    h.parent = root
+    fl = L.prim("cube", loc=(0, -0.1, 0.36), name=name + "_floor")
+    fl.scale = (beam * 0.42, length * 0.38, 0.03)
+    L.assign(fl, L.mat_principled(name + "_in", inside, rough=0.7))
+    fl.parent = root
+    for ty in (-0.6, 0.5):
+        th = L.prim("cube", loc=(0, ty, 0.48), name=name + "_thwart")
+        th.scale = (beam * 0.45, 0.1, 0.02)
+        L.assign(th, hm)
+        th.parent = root
+    for sx in (-1, 1):
+        oar = L.prim("cyl", loc=(sx * 0.9, -0.1, 0.45), rot=(0, math.pi / 2 - sx * 0.2, 0.25 * sx), vertices=6,
+                     radius=0.025, depth=2.2, name=name + "_oar")
+        L.assign(oar, hm)
+        oar.parent = root
+    return P
+
+
+def shark_cage(name="cage", w=2.0, d=1.2, h=1.8, bar=0.25, steel=(0.55, 0.57, 0.6), drums=(0.95, 0.85, 0.2)):
+    """Two-person shark cage: steel box frame (origin at bottom centre), vertical bars every `bar` m, mid rail, top
+    hatch frame, two float drums on top, lifting bridle ring. Returns root."""
+    root = L.link(bpy.data.objects.new(name, None))
+    sm = L.mat_principled(name + "_steel", steel, rough=0.35, metal=0.8)
+
+    def rod(a, b, r=0.018):
+        a, b = Vector(a), Vector(b)
+        o = L.prim("cyl", loc=(a + b) / 2, vertices=8, radius=r, depth=(b - a).length, name=name + "_rod")
+        o.rotation_euler = (b - a).to_track_quat("Z", "Y").to_euler()
+        L.assign(o, sm)
+        o.parent = root
+        return o
+    cs = [(-w / 2, -d / 2), (w / 2, -d / 2), (w / 2, d / 2), (-w / 2, d / 2)]
+    for z, r in ((0, 0.035), (h, 0.035), (h * 0.55, 0.025)):
+        for (ax, ay), (bx, by) in zip(cs, cs[1:] + cs[:1]):
+            rod((ax, ay, z), (bx, by, z), r)
+    for (ax, ay), (bx, by) in zip(cs, cs[1:] + cs[:1]):
+        ln = math.hypot(bx - ax, by - ay)
+        k = int(ln / bar)
+        for i in range(k + 1):
+            u = i / k
+            rod((ax + (bx - ax) * u, ay + (by - ay) * u, 0), (ax + (bx - ax) * u, ay + (by - ay) * u, h), 0.016 if 0 < i < k else 0.035)
+    for x in (-w / 4, w / 4):
+        rod((x, -d / 2, 0), (x, d / 2, 0), 0.02)
+    # top hatch frame
+    for (ax, ay), (bx, by) in (((-0.35, -0.35), (0.35, -0.35)), ((0.35, -0.35), (0.35, 0.35)), ((0.35, 0.35), (-0.35, 0.35)),
+                               ((-0.35, 0.35), (-0.35, -0.35))):
+        rod((ax, ay, h + 0.03), (bx, by, h + 0.03), 0.02)
+    dm = L.mat_principled(name + "_drum", drums, rough=0.4)
+    for y in (-d / 2 + 0.15, d / 2 - 0.15):
+        dr = L.prim("cyl", loc=(0, y, h + 0.17), rot=(0, math.pi / 2, 0), vertices=16, radius=0.15, depth=w * 0.9, name=name + "_drum")
+        L.assign(dr, dm)
+        dr.parent = root
+    ring = L.prim("torus", loc=(0, 0, h + 0.6), rot=(math.pi / 2, 0, 0), major_radius=0.08, minor_radius=0.015, name=name + "_ring")
+    L.assign(ring, sm)
+    ring.parent = root
+    for (cx, cy) in cs:
+        rod((cx, cy, h), (0, 0, h + 0.55), 0.008)
+    return root
+
+
+def film_housing(name="camhousing", body=(0.12, 0.13, 0.15)):
+    """1960s boxy underwater cine-camera housing: box, front lens port (+Y), side handles, top viewfinder."""
+    root = L.link(bpy.data.objects.new(name, None))
+    bm_ = L.mat_principled(name + "_m", body, rough=0.35, metal=0.6)
+    b = L.prim("cube", loc=(0, 0, 0), name=name + "_box")
+    b.scale = (0.14, 0.2, 0.13)
+    L.bevel(b, 0.02, 2)
+    L.assign(b, bm_)
+    b.parent = root
+    port = L.prim("cyl", loc=(0, 0.24, 0), rot=(math.pi / 2, 0, 0), vertices=24, radius=0.07, depth=0.08, name=name + "_port")
+    L.assign(port, bm_)
+    port.parent = root
+    gl = L.prim("cyl", loc=(0, 0.285, 0), rot=(math.pi / 2, 0, 0), vertices=24, radius=0.058, depth=0.005, name=name + "_glass")
+    L.assign(gl, L.mat_principled(name + "_gl", (0.05, 0.1, 0.15), rough=0.02, metal=0.5))
+    gl.parent = root
+    for sx in (-1, 1):
+        hd = L.prim("cube", loc=(sx * 0.2, -0.02, -0.02), name=name + "_handle")
+        hd.scale = (0.02, 0.03, 0.12)
+        L.assign(hd, bm_)
+        hd.parent = root
+    vf = L.prim("cube", loc=(0, -0.05, 0.16), name=name + "_vf")
+    vf.scale = (0.04, 0.08, 0.03)
+    L.assign(vf, bm_)
+    vf.parent = root
+    return root
+
+
+def polyline(points, mat, width=0.01, name="pl", closed=False):
+    """Static emissive poly curve (diagram line art)."""
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    cu.bevel_depth = width
+    sp = cu.splines.new("POLY")
+    sp.points.add(len(points) - 1)
+    for i, p in enumerate(points):
+        sp.points[i].co = (*p, 1)
+    sp.use_cyclic_u = closed
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(mat)
+    return o
+
+
+def torso_diagram(name="torso", color=(0.9, 0.95, 1.0), width=0.008):
+    """Front-view schematic torso in the XZ plane (y=0): outline, neck, both upper arms, clavicles, sternum,
+    6 rib arcs per side (each its own material: parts['ribs'][side] = [(obj, mat)]), lung loops (parts['lungL'] is
+    an empty at the patient's LEFT lung centre (+X = viewer's right) — scale it to deflate). Height ~1.0 unit."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root, "ribs": {"L": [], "R": []}}
+    m = L.mat_emission(name + "_m", color, 3.0)
+
+    def add(pts, nm, mat=None, closed=False, parent=root):
+        o = polyline([(x, 0, z) for x, z in pts], mat or m, width, name + nm, closed)
+        o.parent = parent
+        return o
+    half = [(0.06, 0.62), (0.07, 0.52), (0.2, 0.47), (0.27, 0.43), (0.29, 0.3), (0.27, 0.1), (0.23, -0.1), (0.21, -0.25),
+            (0.24, -0.38)]
+    add(half, "_outR")
+    add([(-x, z) for x, z in half], "_outL")
+    add([(-0.24, -0.38), (0, -0.42), (0.24, -0.38)], "_hip")
+    for sx in (-1, 1):
+        add([(sx * 0.29, 0.42), (sx * 0.37, 0.35), (sx * 0.39, 0.1), (sx * 0.38, -0.12)], f"_armo{sx}")
+        add([(sx * 0.28, 0.2), (sx * 0.31, 0.05), (sx * 0.31, -0.12)], f"_armi{sx}")
+        add([(sx * 0.03, 0.42), (sx * 0.22, 0.44)], f"_clav{sx}")
+    add([(0, 0.4), (0, 0.12)], "_sternum")
+    for side, sx in (("R", -1), ("L", 1)):
+        for k in range(6):
+            z = 0.36 - k * 0.06
+            rm = L.mat_emission(f"{name}_rib{side}{k}", color, 2.2)
+            pts = [(sx * 0.02, z), (sx * 0.12, z + 0.01), (sx * 0.22, z - 0.03), (sx * (0.25 - k * 0.003), z - 0.1)]
+            P["ribs"][side].append((add(pts, f"_rib{side}{k}", rm), rm))
+    for side, sx in (("R", -1), ("L", 1)):
+        c = L.link(bpy.data.objects.new(f"{name}_lung{side}", None))
+        c.parent = root
+        c.location = (sx * 0.13, 0, 0.2)
+        lm = L.mat_emission(f"{name}_lungm{side}", (0.4, 0.8, 1.0), 2.5)
+        pts = []
+        for j in range(20):
+            a = 2 * math.pi * j / 20
+            pts.append((sx * (0.075 * math.cos(a)), 0.15 * math.sin(a) - 0.0))
+        o = add(pts, f"_lung{side}c", lm, closed=True, parent=c)
+        P[f"lung{side}"] = c
+        P[f"lungm{side}"] = lm
+    return P
+
+
+def film_grain(cam, lens=18, dist=0.12, strength=0.25, nframes=60, tint=(0.25, 0.2, 0.12), name="grain"):
+    """Camera-parented film look: flickering noise grain + soft vignette + faint vertical scratch (transparent)."""
+    hh = dist * 18 / lens * 1.08
+    o = L.prim("plane", loc=(0, 0, -dist), size=2, name=name)
+    o.scale = (hh * 9 / 16, hh, 1)
+    o.parent = cam
+    m, n, l = _m(name + "_m")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    tc = n.new("ShaderNodeTexCoord")
+    mp = n.new("ShaderNodeMapping")
+    l.new(tc.outputs["UV"], mp.inputs["Vector"])
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 260
+    nz.inputs["Detail"].default_value = 2
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    for f in range(1, nframes + 1):
+        mp.inputs["Location"].default_value = ((f * 0.37) % 1, (f * 0.61) % 1, 0)
+        mp.inputs["Location"].keyframe_insert("default_value", frame=f)
+    ad = mp.inputs["Location"].id_data.animation_data
+    if ad and ad.action:
+        for fc in L._fcurves(ad.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = "CONSTANT"
+    gr = n.new("ShaderNodeMapRange")
+    gr.inputs["From Min"].default_value = 0.45
+    gr.inputs["From Max"].default_value = 0.75
+    gr.inputs["To Max"].default_value = strength
+    l.new(nz.outputs["Fac"], gr.inputs["Value"])
+    vm = n.new("ShaderNodeVectorMath")
+    vm.operation = "DISTANCE"
+    vm.inputs[1].default_value = (0.5, 0.5, 0)
+    l.new(tc.outputs["UV"], vm.inputs[0])
+    vg = n.new("ShaderNodeMapRange")
+    vg.inputs["From Min"].default_value = 0.3
+    vg.inputs["From Max"].default_value = 0.72
+    vg.inputs["To Max"].default_value = 0.85
+    l.new(vm.outputs["Value"], vg.inputs["Value"])
+    tot = n.new("ShaderNodeMath")
+    tot.operation = "MAXIMUM"
+    l.new(gr.outputs[0], tot.inputs[0])
+    l.new(vg.outputs[0], tot.inputs[1])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*tint, 1)
+    em.inputs[1].default_value = 0.3
+    tr = n.new("ShaderNodeBsdfTransparent")
+    ms = n.new("ShaderNodeMixShader")
+    l.new(tot.outputs[0], ms.inputs[0])
+    l.new(tr.outputs[0], ms.inputs[1])
+    l.new(em.outputs[0], ms.inputs[2])
+    l.new(ms.outputs[0], n["Material Output"].inputs["Surface"])
+    m.surface_render_method = "BLENDED"
+    L.assign(o, m)
+    o.visible_shadow = False
+    return o

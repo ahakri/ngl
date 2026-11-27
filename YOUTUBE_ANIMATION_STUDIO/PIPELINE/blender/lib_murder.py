@@ -2983,4 +2983,5 @@ def fast_conifers(name, spots, mat=None, tiers=(3, 4), seg=6, seed=1, **kw):
                 faces.append((b + s, b + (s + 1) % seg, b + seg))
             faces.append(tuple(b + s for s in reversed(range(seg))))
     o = mesh_obj(name, verts, faces, mat=mat or mat_dusted(name + "_m"))
+    o.visible_shadow = kw.get("shadow", False)  # thousands of shadow casters are very slow in EEVEE (virtual shadow maps)
     return o

@@ -2684,7 +2684,7 @@ def gurney(name="gurney", parent=None, sheet=True):
     if parent:
         root.parent = parent
     steel = L.mat_principled(name + "_steel", (0.55, 0.55, 0.56), rough=0.3, metal=0.9)
-    pad = L.mat_principled(name + "_pad", (0.06, 0.075, 0.075), rough=0.45)
+    pad = L.mat_principled(name + "_pad", (0.16, 0.2, 0.19), rough=0.45)
     bx = [(sx * 0.29, 0, 0.78, 0.016, 0.95, 0.016) for sx in (-1, 1)] + [(0, sy * 0.94, 0.78, 0.3, 0.016, 0.016) for sy in (-1, 1)]
     bx += [(sx * 0.27, 0, 0.3, 0.012, 0.85, 0.012) for sx in (-1, 1)] + [(0, sy * 0.84, 0.3, 0.27, 0.012, 0.012) for sy in (-1, 1)]
     bx += [(sx * 0.27, sy * 0.84, 0.44, 0.015, 0.015, 0.34) for sx in (-1, 1) for sy in (-1, 1)]
@@ -2977,4 +2977,307 @@ def ticket_icon(name, loc, w=0.9, h=0.42, parent=None, col=(0.55, 0.06, 0.05)):
         L.assign(c, paper)
         c.parent = root
     box_mesh(name + "_perf", [(w * 0.25, -0.003, -h / 2 + (k + 0.5) * h / 7, 0.008, 0.002, h / 28) for k in range(7)], paper, parent=root)
+    return root
+
+# ============================================================================ BACHELOR'S GROVE sets (HAUNT-06)
+# Clearing: hero stone at the origin, front face toward -Y. Headstones scattered x -10..10, y -6..12, pond at (-10, 13),
+# leafy summer trees ring the clearing beyond r ~ 14 m. ir=True swaps to an infrared-film material palette
+# (foliage and grass near-white, water black, stone mid grey). Lights/world are set by the shot.
+
+def grove_mats(ir=False):
+    if ir:
+        return {"grass": L.mat_noise_surface("g_grass", (0.55, 0.55, 0.55), (0.85, 0.85, 0.85), scale=1.2, bump=0.3, voronoi=False, rough=1.0),
+                "tuft": L.mat_principled("g_tuft", (0.88, 0.88, 0.88), rough=1.0, emit=(1, 1, 1), emit_strength=0.04),
+                "leaf": L.mat_noise_surface("g_leaf", (0.6, 0.6, 0.6), (0.92, 0.92, 0.92), scale=2.0, bump=0.4, voronoi=False, rough=1.0),
+                "bark": L.mat_noise_surface("g_bark", (0.08, 0.08, 0.08), (0.25, 0.25, 0.25), scale=6, bump=0.3, voronoi=False),
+                "stone": L.mat_noise_surface("g_stone", (0.16, 0.16, 0.16), (0.42, 0.42, 0.42), scale=4, bump=0.4, voronoi=True),
+                "hero": L.mat_noise_surface("g_hero", (0.2, 0.2, 0.2), (0.45, 0.45, 0.45), scale=6, bump=0.35, voronoi=True),
+                "hero2": L.mat_noise_surface("g_hero2", (0.07, 0.07, 0.07), (0.17, 0.17, 0.17), scale=6, bump=0.35, voronoi=True),
+                "water": L.mat_principled("g_water", (0.0, 0.0, 0.0), rough=0.05),
+                "flat": L.mat_noise_surface("g_flat", (0.45, 0.45, 0.45), (0.66, 0.66, 0.66), scale=8, bump=0.2, voronoi=False, rough=1.0)}
+    return {"grass": L.mat_noise_surface("g_grass", (0.012, 0.02, 0.008), (0.04, 0.06, 0.025), scale=1.2, bump=0.3, voronoi=False, rough=1.0),
+            "tuft": L.mat_principled("g_tuft", (0.03, 0.055, 0.02), rough=1.0),
+            "leaf": L.mat_noise_surface("g_leaf", (0.008, 0.02, 0.008), (0.03, 0.06, 0.025), scale=2.0, bump=0.4, voronoi=False, rough=1.0),
+            "bark": L.mat_noise_surface("g_bark", (0.012, 0.012, 0.012), (0.05, 0.045, 0.04), scale=6, bump=0.3, voronoi=False),
+            "stone": L.mat_noise_surface("g_stone", (0.12, 0.12, 0.115), (0.36, 0.35, 0.33), scale=4, bump=0.4, voronoi=True),
+            "hero": L.mat_noise_surface("g_hero", (0.2, 0.19, 0.18), (0.42, 0.41, 0.38), scale=6, bump=0.35, voronoi=True),
+            "hero2": L.mat_noise_surface("g_hero2", (0.07, 0.07, 0.065), (0.16, 0.155, 0.15), scale=6, bump=0.35, voronoi=True),
+            "water": L.mat_principled("g_water", (0.004, 0.006, 0.008), rough=0.04),
+            "flat": L.mat_noise_surface("g_flat", (0.02, 0.025, 0.012), (0.05, 0.06, 0.03), scale=8, bump=0.2, voronoi=False, rough=1.0)}
+
+
+def hero_stone(mats, loc=(0, 0, 0)):
+    """Squat blank stone 0.9 x 0.25 x 0.75 m with an 8 x 6 raised checkerboard on its front face; no name, no dates."""
+    root = empty("hero", loc)
+    box_mesh("hero_body", [(0, 0, 0.375, 0.45, 0.125, 0.375)], mats["hero"], parent=root, bevel=0.015)
+    box_mesh("hero_base", [(0, 0, 0.04, 0.55, 0.22, 0.05)], mats["hero"], parent=root, bevel=0.01)
+    tw, th = 0.78 / 8, 0.6 / 6
+    tiles = []
+    for i in range(8):
+        for j in range(6):
+            if (i + j) % 2 == 0:
+                tiles.append((-0.39 + tw * (i + 0.5), -0.128, 0.09 + th * (j + 0.5), tw / 2 - 0.002, 0.004, th / 2 - 0.002))
+    box_mesh("hero_checks", tiles, mats["hero2"], parent=root)
+    return root
+
+
+def leafy_trees(name, regions, mats, count=24, seed=5, height=(9, 15), zfunc=None):
+    """Summer deciduous trees: bare_forest-style trunks (depth 2) + lumpy crown blobs, two meshes total."""
+    rnd = random.Random(seed)
+    zf = zfunc or (lambda x, y: 0.0)
+    tr = bare_forest_z(name + "_trunks", regions, zf, count=count, seed=seed, height=height, mat=mats["bark"], depth=2)
+    bm = bmesh.new()
+    rr = random.Random(seed)
+    tot = sum((r[1] - r[0]) * (r[3] - r[2]) for r in regions)
+    for reg in regions:
+        k = max(1, int(round(count * (reg[1] - reg[0]) * (reg[3] - reg[2]) / tot)))
+        for i in range(k):
+            x, y = rr.uniform(reg[0], reg[1]), rr.uniform(reg[2], reg[3])
+            h = rr.uniform(*height)
+            for b in range(5):
+                r = h * rnd.uniform(0.12, 0.2)
+                c = Vector((x + rnd.uniform(-1, 1) * h * 0.15, y + rnd.uniform(-1, 1) * h * 0.15, zf(x, y) + h * rnd.uniform(0.55, 0.85)))
+                bmesh.ops.create_icosphere(bm, subdivisions=3, radius=r, matrix=Matrix.Translation(c) @ Matrix.Diagonal((1, 1, 0.75, 1)))
+    cr = L.mesh_from_bm(name + "_crowns", bm)
+    L.assign(cr, mats["leaf"])
+    L.smooth(cr)
+    L.add_displace(cr, strength=1.4, scale=0.6, name=name + "_cd")
+    return tr, cr
+
+
+def grove_clearing(ir=False, seed=6, pond=True, trees=True, tufts=7000, broken_front=True):
+    """Small overgrown cemetery clearing in woods by a pond (stylised, not a likeness). Returns dict mats, hero."""
+    mats = grove_mats(ir)
+    rnd = random.Random(seed)
+    g = ground_box("g_ground", -60, 60, -40, 60, 0.0, mats["grass"])
+    hero = hero_stone(mats)
+    # flattened patch in front of the hero stone (the wrong detail)
+    fp = L.prim("cyl", loc=(0.05, -0.55, 0.006), vertices=24, radius=0.38, depth=0.006)
+    fp.scale = (1.15, 0.8, 1)
+    L.assign(fp, mats["flat"])
+    # headstones
+    stones = []
+    spots = []
+    for i in range(80):
+        x, y = rnd.uniform(-10, 10), rnd.uniform(-5, 12)
+        if abs(x) < 1.8 and -4.5 < y < 1.5:
+            continue
+        if pond and (x + 10) ** 2 + (y - 13) ** 2 < 36:
+            continue
+        if any((x - a) ** 2 + (y - b) ** 2 < 2.2 for a, b in spots):
+            continue
+        spots.append((x, y))
+        if len(spots) >= 21:
+            break
+    for i, (x, y) in enumerate(spots):
+        hgt = rnd.uniform(0.6, 1.0)
+        wd = rnd.uniform(0.4, 0.7)
+        t = rnd.uniform(0.08, 0.22)
+        o = box_mesh(f"gs{i}", [(0, 0, hgt / 2 - 0.05, wd / 2, t / 2, hgt / 2)], mats["stone"], bevel=0.02)
+        o.location = (x, y, 0)
+        o.rotation_euler = (math.radians(rnd.uniform(-12, 12)), math.radians(rnd.uniform(-10, 10)), rnd.uniform(-0.25, 0.25))
+        stones.append(o)
+    # broken / toppled stones in the foreground right (S03 dolly path), one lying flat
+    if broken_front:
+        bx = [(3.0, -3.2, 0.2, 0.3, 0.09, 0.25), (3.3, -2.6, 0.06, 0.3, 0.32, 0.05),        # stub + its top on the grass
+              (5.0, -2.8, 0.16, 0.26, 0.08, 0.2), (5.5, -3.4, 0.07, 0.27, 0.07, 0.25, 0.6),   # split slab
+              (7.0, -3.0, 0.07, 0.45, 0.6, 0.07, 0.2),                                       # lying flat
+              (2.2, -1.8, 0.06, 0.4, 0.25, 0.06)]                                            # base, stone missing
+        for i, b in enumerate(bx):
+            o = box_mesh(f"gb{i}", [b], mats["stone"], bevel=0.02)
+            if i in (0, 2):
+                o.rotation_euler = (math.radians(rnd.uniform(-8, 8)), math.radians(rnd.uniform(-6, 6)), 0)
+    # grass tufts (tiny cones, one mesh), none on the flattened patch
+    bm = bmesh.new()
+    for i in range(tufts):
+        x, y = rnd.uniform(-12, 12), rnd.uniform(-8, 13)
+        if (x - 0.05) ** 2 / 0.25 + (y + 0.55) ** 2 / 0.1 < 1.0:
+            continue
+        if pond and (x + 10) ** 2 + (y - 13) ** 2 < 25:
+            continue
+        hgt = rnd.uniform(0.07, 0.2)
+        bmesh.ops.create_cone(bm, cap_ends=False, segments=3, radius1=rnd.uniform(0.008, 0.018), radius2=0.0, depth=hgt,
+                              matrix=Matrix.Translation((x, y, hgt / 2)) @ Matrix.Rotation(rnd.uniform(-0.4, 0.4), 4, "X")
+                              @ Matrix.Rotation(rnd.uniform(-0.4, 0.4), 4, "Y"))
+    # a few flattened tufts lying in the patch
+    for i in range(10):
+        a = rnd.uniform(0, 6.28)
+        bmesh.ops.create_cone(bm, cap_ends=False, segments=3, radius1=0.02, radius2=0.0, depth=0.16,
+                              matrix=Matrix.Translation((0.05 + 0.3 * math.cos(a), -0.55 + 0.2 * math.sin(a), 0.012)) @ Matrix.Rotation(1.5, 4, "X"))
+    tf = L.mesh_from_bm("g_tufts", bm)
+    L.assign(tf, mats["tuft"])
+    if pond:
+        w = L.prim("cyl", loc=(-10, 13, 0.02), vertices=40, radius=5.0, depth=0.02)
+        w.scale = (1.3, 0.8, 1)
+        L.assign(w, mats["water"])
+        bmr = bmesh.new()
+        for i in range(70):
+            a = rnd.uniform(0, 6.28)
+            x, y = -10 + 6.6 * math.cos(a) * rnd.uniform(0.95, 1.05), 13 + 4.1 * math.sin(a) * rnd.uniform(0.95, 1.05)
+            hgt = rnd.uniform(0.5, 1.2)
+            bmesh.ops.create_cone(bmr, cap_ends=False, segments=3, radius1=0.02, radius2=0.0, depth=hgt,
+                                  matrix=Matrix.Translation((x, y, hgt / 2)))
+        rd = L.mesh_from_bm("g_reeds", bmr)
+        L.assign(rd, mats["tuft"])
+    if trees:
+        leafy_trees("g_trees", [(-30, -13, -10, 35), (13, 30, -10, 35), (-13, 13, 18, 35)], mats, count=26, seed=seed + 1)
+    return {"mats": mats, "hero": hero, "stones": stones}
+
+
+def seated_woman(name="sitter", alpha=0.5, emit=0.2, height=1.62, seat_z=0.75, color=(0.8, 0.8, 0.78)):
+    """Our own seated pose (not modelled on any photograph): faceless pale figure in a long dress, hands in lap.
+    Returns parts; root at floor level under the seat. Faces +Y local."""
+    p = pale_woman(name, height=height, alpha=alpha, emit=emit, color=color)
+    s = height / 1.75
+    for tag, sx in (("L", -1), ("R", 1)):
+        p[f"hip{tag}"].rotation_euler = (math.radians(88), 0, sx * math.radians(4))
+        p[f"knee{tag}"].rotation_euler = (-math.radians(95), 0, 0)
+        p[f"shoulder{tag}"].rotation_euler = (math.radians(28), 0, sx * math.radians(-8))
+        p[f"elbow{tag}"].rotation_euler = (math.radians(55), 0, sx * math.radians(-20))
+    p["dress"].scale = (1.05, 1.25, 0.5)
+    p["dress"].location.z += 0.25 * s
+    p["dress"].location.y += 0.12 * s
+    p["root"].location.z = seat_z - 0.95 * s + 0.06
+    return p
+
+
+def chainlink(name, x0, x1, y, h=2.0, gate=None, gate_angle=1.2, mat=None):
+    """Chain-link fence along X at y: posts, top rail, wire grid (thin boxes). gate=(x_hinge, width) opens inward (+Y)."""
+    mat = mat or L.mat_principled(name + "_m", (0.35, 0.36, 0.37), rough=0.4, metal=0.8)
+    def panel(a0, a1, yy, parent=None):
+        bx = [(a, yy, h / 2, 0.004, 0.004, h / 2) for a in [a0 + k * 0.11 for k in range(int((a1 - a0) / 0.11) + 1)]]
+        bx += [((a0 + a1) / 2, yy, z, (a1 - a0) / 2, 0.004, 0.004) for z in [0.05 + k * 0.11 for k in range(int(h / 0.11))]]
+        bx += [((a0 + a1) / 2, yy, h, (a1 - a0) / 2, 0.02, 0.02)]
+        return box_mesh(f"{name}_{a0:.1f}", bx, mat, parent=parent)
+    segs = [(x0, x1)]
+    if gate:
+        gx, gw = gate
+        segs = [(x0, gx), (gx + gw, x1)]
+    for a0, a1 in segs:
+        if a1 - a0 > 0.1:
+            panel(a0, a1, y)
+    posts = []
+    x = x0
+    while x <= x1 + 0.01:
+        posts.append((x, y, h / 2 + 0.05, 0.03, 0.03, h / 2 + 0.05))
+        x += 2.5
+    if gate:
+        posts += [(gate[0], y, h / 2 + 0.05, 0.035, 0.035, h / 2 + 0.05), (gate[0] + gate[1], y, h / 2 + 0.05, 0.035, 0.035, h / 2 + 0.05)]
+        hg = empty(name + "_gate", (gate[0], y, 0))
+        panel(0.05, gate[1] - 0.05, 0.0, parent=hg)
+        hg.rotation_euler = (0, 0, gate_angle)
+    box_mesh(name + "_posts", posts, mat)
+
+
+def farmhouse(name="farm", loc=(0, 0, 0), rot_z=0.0, porch_energy=60):
+    """One-storey pale farmhouse with gable roof, porch posts and a warm porch light. Returns dict root, mats, light."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    wall = L.mat_principled(name + "_wall", (0.62, 0.6, 0.55), rough=0.8)
+    roof = L.mat_principled(name + "_roof", (0.08, 0.08, 0.09), rough=0.7)
+    win = L.mat_emission(name + "_win", (1.0, 0.65, 0.3), 1.2)
+    for m in (wall, roof):
+        try:
+            m.surface_render_method = "BLENDED"
+        except Exception:
+            pass
+    box_mesh(name + "_body", [(0, 0, 1.5, 4.0, 3.0, 1.5)], wall, parent=root)
+    bm = bmesh.new()
+    v = [bm.verts.new(p) for p in ((-4.3, -3.3, 3.0), (4.3, -3.3, 3.0), (4.3, 3.3, 3.0), (-4.3, 3.3, 3.0), (-4.3, 0, 4.8), (4.3, 0, 4.8))]
+    for f in ((0, 1, 5, 4), (2, 3, 4, 5), (1, 2, 5), (3, 0, 4)):
+        bm.faces.new([v[i] for i in f])
+    r = L.mesh_from_bm(name + "_roof", bm)
+    L.assign(r, roof)
+    r.parent = root
+    box_mesh(name + "_porch", [(0, -4.2, 2.6, 3.0, 1.2, 0.08)] + [(x, -5.2, 1.3, 0.07, 0.07, 1.3) for x in (-2.8, -0.9, 0.9, 2.8)] +
+             [(0, -4.2, 0.12, 3.0, 1.2, 0.12)], wall, parent=root)
+    box_mesh(name + "_wins", [(x, -3.02, 1.6, 0.45, 0.02, 0.6) for x in (-2.4, 2.4)], win, parent=root)
+    lt = L.point((0, -4.4, 2.35), energy=porch_energy, color=(1.0, 0.68, 0.35), radius=0.1, name=name + "_porchlt")
+    lt.parent = root
+    bulb = L.prim("sphere", loc=(0, -4.4, 2.45), segments=10, ring_count=6, radius=0.08)
+    L.assign(bulb, L.mat_emission(name + "_bulb", (1.0, 0.7, 0.4), 15))
+    bulb.parent = root
+    return {"root": root, "mats": (wall, roof), "win": win, "light": lt, "bulb": bulb}
+
+
+def orb(name, loc, n, seed=1, amp=0.4, energy=5.0, r=0.06, color=(0.7, 0.85, 1.0)):
+    """Small emissive orb + weak point light drifting on a slow noise path around loc."""
+    o = L.prim("sphere", loc=loc, segments=12, ring_count=8, radius=r, name=name)
+    L.assign(o, L.mat_emission(name + "_m", color, 6.0))
+    lt = L.point((0, 0, 0), energy=energy, color=color, radius=0.05, name=name + "_lt")
+    lt.parent = o
+    lt.data.use_shadow = False
+    for f in range(1, n + 2, 6):
+        u = f / 24.0
+        o.location = (loc[0] + amp * noise.noise(Vector((u * 0.4, seed, 0))), loc[1] + amp * noise.noise(Vector((seed, u * 0.4, 1))),
+                      loc[2] + amp * 0.5 * noise.noise(Vector((2, seed, u * 0.4))))
+        o.keyframe_insert("location", frame=f)
+    return o
+
+
+def slr_camera(name="slr", loc=(0, 0, 0), rot=(0, 0, 0), parent=None):
+    """Generic 35 mm SLR (no brand): body 14x5x9 cm, lens cylinder, pentaprism wedge, knobs. Lens points +Y."""
+    root = empty(name, loc, parent=parent)
+    root.rotation_euler = rot
+    blk = L.mat_principled(name + "_blk", (0.02, 0.02, 0.022), rough=0.45)
+    chrome = L.mat_principled(name + "_chr", (0.6, 0.6, 0.62), rough=0.25, metal=1.0)
+    glass = L.mat_principled(name + "_gl", (0.02, 0.03, 0.05), rough=0.02, metal=0.5)
+    box_mesh(name + "_body", [(0, 0, 0, 0.07, 0.025, 0.045)], blk, parent=root, bevel=0.006)
+    box_mesh(name + "_top", [(0, 0, 0.047, 0.07, 0.024, 0.004)], chrome, parent=root)
+    bm = bmesh.new()
+    v = [bm.verts.new(p) for p in ((-0.025, -0.022, 0.05), (0.025, -0.022, 0.05), (0.025, 0.022, 0.05), (-0.025, 0.022, 0.05),
+                                   (-0.015, -0.006, 0.08), (0.015, -0.006, 0.08), (0.015, 0.006, 0.08), (-0.015, 0.006, 0.08))]
+    for f in ((0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7), (4, 5, 6, 7)):
+        bm.faces.new([v[i] for i in f])
+    pr = L.mesh_from_bm(name + "_prism", bm)
+    L.assign(pr, blk)
+    pr.parent = root
+    ln = L.prim("cyl", loc=(0, 0.06, 0), vertices=24, radius=0.03, depth=0.07, rot=(math.pi / 2, 0, 0))
+    L.assign(ln, blk)
+    ln.parent = root
+    rg = L.prim("torus", loc=(0, 0.045, 0), major_radius=0.031, minor_radius=0.004, rot=(math.pi / 2, 0, 0))
+    L.assign(rg, chrome)
+    rg.parent = root
+    fg = L.prim("cyl", loc=(0, 0.096, 0), vertices=24, radius=0.024, depth=0.002, rot=(math.pi / 2, 0, 0))
+    L.assign(fg, glass)
+    fg.parent = root
+    for x in (-0.045, 0.045):
+        k = L.prim("cyl", loc=(x, 0, 0.057), vertices=12, radius=0.011, depth=0.01)
+        L.assign(k, chrome)
+        k.parent = root
+    return root
+
+
+def tripod(name="tripod", loc=(0, 0, 0), h=1.25):
+    root = empty(name, loc)
+    m = L.mat_principled(name + "_m", (0.04, 0.04, 0.045), rough=0.4, metal=0.5)
+    bm = bmesh.new()
+    top = Vector((0, 0, h - 0.08))
+    for k in range(3):
+        a = k * 2 * math.pi / 3 + 0.4
+        foot = Vector((0.38 * math.cos(a), 0.38 * math.sin(a), 0))
+        _tube(bm, [top, (top + foot) / 2, foot], 0.012, 0.008, sides=6)
+    _tube(bm, [top, top + Vector((0, 0, 0.06))], 0.022, 0.022, sides=10)
+    t = L.mesh_from_bm(name + "_legs", bm)
+    L.assign(t, m)
+    t.parent = root
+    head = empty(name + "_head", (0, 0, h - 0.01), parent=root)
+    return root, head
+
+
+def gloved_hand(name="glove", parent=None, loc=(0, 0, 0), rot=(0, 0, 0)):
+    m = L.mat_principled(name + "_m", (0.025, 0.022, 0.02), rough=0.8)
+    root = empty(name, loc, parent=parent)
+    root.rotation_euler = rot
+    palm = L.prim("sphere", loc=(0, 0, 0), segments=12, ring_count=8, radius=0.045)
+    palm.scale = (0.5, 1.0, 1.1)
+    L.assign(palm, m)
+    palm.parent = root
+    for k in range(4):
+        f = L.prim("cyl", loc=(0.012, 0.03 - k * 0.019, 0.06), vertices=8, radius=0.009, depth=0.05, rot=(0, 0.35, 0))
+        L.assign(f, m)
+        f.parent = root
+    cuff = L.prim("cyl", loc=(-0.01, 0, -0.07), vertices=12, radius=0.035, depth=0.1)
+    L.assign(cuff, m)
+    cuff.parent = root
     return root

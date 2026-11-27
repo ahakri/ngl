@@ -149,20 +149,21 @@ def S02(L, n):
         fig["shoulderL"].rotation_euler = (0.9 + 0.06 * math.sin(f * 1.1), 0, 1.1)
         fig["shoulderL"].keyframe_insert("rotation_euler", frame=f)
     # wind: rain and cloud stream upward past the falling man
-    M.rain((0, 0, 0), (40, 12, 12), (2, 0, 34), n, count=1200, length=0.6, width=0.004, period=8, seed=7, cam=(0.8, 1.1, 0.5),
+    M.rain((0, 0, 0), (40, 12, 12), (2, 0, 34), n, count=1200, length=0.6, width=0.004, period=8, seed=7, cam=(0.9, 2.0, 0.0),
            clear=0.9, emit=0.7)
     M.cloud_volume((0, 0, 0), (60, 60, 60), density=0.12, scale=1.4, drift=(0, 0, 30), n=n, color=(0.3, 0.33, 0.42), name="cloudfall")
     M.loose_bills((0.2, 0.3, -1.6), 5, n, area=(1.6, 1.6, 0.6), vel=(0.2, -0.3, 2.6), spin=5, seed=5)
     L.sun(rot=(R(-20), R(30), R(10)), energy=0.8, color=(0.5, 0.6, 0.9), name="moonfill")
     M.lightning(n, [8, 44], rot=(R(-10), R(-10), R(0)), energy=10.0, world_bg=bg, world_peak=5)
     tgt = M.empty("focus", (0, 0.2, 0.25))
-    cam, ct = L.camera(loc=(0.8, 1.1, 0.5), target=tgt, lens=35)
+    cam, ct = L.camera(loc=(0.8, 1.1, 0.5), target=tgt, lens=40)
+    L.area((-1.5, -2.0, 2.5), (R(-50), 0, R(-35)), energy=400, size=2, color=(0.55, 0.65, 1.0), name="rim")
     pts = []
     for k, f in enumerate((1, n)):
         a = R(-35) + R(55) * k
-        cam.location = (1.35 * math.sin(a), 1.35 * math.cos(a), 0.5 + 0.15 * k)
+        cam.location = (2.3 * math.sin(a), 2.3 * math.cos(a), -0.05 + 0.15 * k)
         cam.keyframe_insert("location", frame=f)
-    L.cam_light(cam, energy=40, color=(0.7, 0.8, 1.0))
+    L.cam_light(cam, energy=160, color=(0.7, 0.8, 1.0))
     L.handheld(cam, n, amp=0.04, rate=1.2, rot_amp=0.015)
     L.bake_static()
 
@@ -223,13 +224,13 @@ def S04(L, n):
     hj["neck"].rotation_euler = (0, 0, 0)
     figure_on(hj, (xr - 0.05, -0.45, 0), R(-90))
     fa = L.char_figure("attendant", color=(0.16, 0.2, 0.3), height=1.66)
-    figure_on(fa, (xr + 0.6, 0.12, 0), R(90 + 30))
+    figure_on(fa, (xr - 0.3, 0.18, 0), R(-157))
     # arms: hijacker reaches into the aisle (toward +Y local is forward = +X world; aisle is +Y world -> use shoulder z)
-    sh = hj["shoulderR"]
-    for f, v in ((1, (0.3, 0, 0)), (18, (0.3, 0, 0)), (40, (1.25, 0, 0.55)), (n, (1.3, 0, 0.6))):
+    sh = hj["shoulderL"]
+    for f, v in ((1, (0.3, 0, 0)), (18, (0.3, 0, 0)), (40, (1.2, 0, 0.7)), (n, (1.25, 0, 0.75))):
         sh.rotation_euler = v
         sh.keyframe_insert("rotation_euler", frame=f)
-    hj["elbowR"].rotation_euler = (0.2, 0, 0)
+    hj["elbowL"].rotation_euler = (0.2, 0, 0)
     sa = fa["shoulderR"]
     for f, v in ((1, (0.1, 0, 0)), (36, (0.1, 0, 0)), (58, (1.05, 0, 0.2)), (n, (1.0, 0, 0.2))):
         sa.rotation_euler = v
@@ -245,7 +246,7 @@ def S04(L, n):
         sc.frame_set(f)
         bpy.context.view_layer.update()
         return parts["elbow" + side].matrix_world @ Vector((0, 0.02, -0.32 * 1.78 / 1.75))
-    seq = [(f, hand(hj, "R", f)) for f in (1, 18, 30, 40, 52)]
+    seq = [(f, hand(hj, "L", f)) for f in (1, 18, 30, 40, 52)]
     seq += [(62, hand(fa, "R", 62)), (72, hand(fa, "R", 72)), (n, hand(fa, "R", n))]
     for f, p in seq:
         note.location = p
@@ -254,7 +255,7 @@ def S04(L, n):
     sc.frame_set(1)
     fe = M.empty("focus", seq[3][1])
     cam, ct = cam_path(L, n, (xr + 2.3, 0.85, 1.6), (xr + 1.75, 0.7, 1.52), (xr + 0.2, -0.25, 1.0), (xr + 0.25, -0.2, 1.0), lens=40)
-    L.area((xr + 1.2, 0.6, 2.1), (R(30), 0, R(120)), energy=40, size=1.0, color=(1.0, 0.85, 0.65), name="key")
+    L.area((xr + 1.2, 0.6, 2.1), (R(30), 0, R(120)), energy=15, size=1.0, color=(1.0, 0.85, 0.65), name="key")
     L.dof(cam, target=fe, fstop=2.2)
     L.fog_volume(center=(0, 0, 1.2), size=(16, 3.6, 2.6), density=0.04, color=(0.9, 0.8, 0.65))
     L.bake_static()
@@ -345,9 +346,9 @@ def S07(L, n):
     b.parent = cour["shoulderR"]
     M.rain((12, -16, 5), (26, 26, 14), (1.5, 0, -14), n, count=2400, length=0.45, width=0.008, period=6, seed=11,
            cam=(27, -19, 2.0), clear=2.0, emit=0.9, color=(0.9, 0.7, 0.5))
-    L.fog_volume(center=(10, 0, 6), size=(90, 70, 14), density=0.012, color=(0.9, 0.75, 0.55))
+    L.fog_volume(center=(10, 0, 6), size=(90, 70, 14), density=0.005, color=(0.9, 0.75, 0.55))
     cam, ct = cam_path(L, n, (27, -19, 2.0), (29, -16.5, 2.0), (12, -5, 3.0), (12, -4.5, 3.0), lens=35, ease=False)
-    L.area((14, -9, 15), (0, 0, 0), energy=30000, size=24, color=(1.0, 0.62, 0.3), name="sodiumwash")
+    L.area((14, -9, 15), (0, 0, 0), energy=9000, size=24, color=(1.0, 0.62, 0.3), name="sodiumwash")
     L.handheld(cam, n, amp=0.01, rate=0.4)
     L.bake_static()
 
@@ -514,7 +515,7 @@ def S11(L, n):
     L.fog_volume(center=(0, 14, 5), size=(60, 50, 10), density=0.03, color=(0.75, 0.8, 0.78))
     M.rain((0, 2, 4), (12, 16, 14), (0.4, 0, -6), n, count=900, length=0.12, width=0.004, period=8, seed=9, emit=0.4,
            color=(0.8, 0.85, 0.85), cam=(0, -10, 6), clear=1.5)
-    cam, ct = cam_path(L, n, (0.5, -11, 7.5), (0, -8.5, 2.6), (0, 4, 6), (0, 1.5, 1.0), lens=35)
+    cam, ct = cam_path(L, n, (0.5, -9, 5.0), (0, -8.0, 2.4), (0, 4, 3.5), (0, 1.5, 1.0), lens=35)
     L.bake_static()
 
 
@@ -662,7 +663,7 @@ def S14(L, n):
         M.curve_draw(c, 38, 46)
     M.desk_lamp((-0.7, 0.9, 0), (0, 0.25, 0), energy=14, rot_z=R(200))
     L.area((0, 0.2, 1.5), (0, 0, 0), energy=8, size=1, color=(0.8, 0.85, 1.0), name="fill")
-    cam, ct = cam_path(L, n, (0.02, -0.1, 1.25), (0.04, 0.0, 0.95), (0.02, 0.12, 0), (0.06, 0.12, 0), lens=40)
+    cam, ct = cam_path(L, n, (0.06, -0.2, 1.95), (0.08, -0.1, 1.6), (0.06, 0.16, 0), (0.08, 0.16, 0), lens=40)
     L.bake_static()
 
 
@@ -790,9 +791,9 @@ def S18(L, n):
     L.particle_cloud((-14, -6, 3), (14, 8, 6), count=400, radius=0.006, drift=(0.02, 0, 0.01), nframes=n, name="dust")
     # orbit 20 deg around the tail
     tgt = (-14.5, 0, 2.6)
-    r_ = 12.0
-    tgt = (-16.0, 0, 2.3)
-    cam, ct = L.camera(loc=(0, 0, 0), target=tgt, lens=35)
+    r_ = 9.0
+    tgt = (-15.0, 0, 2.1)
+    cam, ct = L.camera(loc=(0, 0, 0), target=tgt, lens=40)
     for f, a in ((1, R(-30)), (n, R(-10))):
         cam.location = (tgt[0] + r_ * math.sin(a), -r_ * math.cos(a), 0.7)
         cam.keyframe_insert("location", frame=f)
@@ -876,7 +877,8 @@ def S21(L, n):
 # ============================================================================= S22 dawn forest, open question
 
 def S22(L, n):
-    M.dawn_sky(hor=(0.5, 0.45, 0.45), mid=(0.22, 0.25, 0.32), zen=(0.06, 0.08, 0.14), strength=1.6, sun_dir=(0.6, 0.8, 0.1))
+    M.dawn_sky(hor=(0.5, 0.45, 0.45), mid=(0.22, 0.25, 0.32), zen=(0.06, 0.08, 0.14), strength=2.5, sun_dir=(0.6, 0.8, 0.1))
+    bpy.context.scene.eevee.use_volumetric_shadows = False
     L.sun(rot=(R(72), 0, R(-160)), energy=4.0, color=(1.0, 0.78, 0.6), angle=2, name="dawnsun")
     L.sun(rot=(R(20), 0, R(30)), energy=0.8, color=(0.6, 0.7, 0.9), angle=20, name="skyfill")
     def h(x, y):

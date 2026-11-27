@@ -1,0 +1,754 @@
+{
+  "id": "HAUNT-07",
+  "title": "Drivers Keep Reporting They Hit Her",
+  "category": "haunted",
+  "voice": "bm_george",
+  "speed": 1.07,
+  "mood": "haunted",
+  "target_seconds": 48,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "A driver says he hit a girl on this hill.",
+      "pause_after": 0.1,
+      "shot": "S01",
+      "emphasis": [
+        "hit",
+        "girl"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "Then she vanished.",
+      "pause_after": 0.4,
+      "shot": "S02",
+      "emphasis": [
+        "vanished"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Blue Bell Hill, Kent, on the A229 near Maidstone.",
+      "pause_after": 0.25,
+      "shot": "S03",
+      "emphasis": [
+        "Blue",
+        "Bell",
+        "Hill"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "In 1974, a local bricklayer reported hitting a young girl here at night.",
+      "pause_after": 0.25,
+      "shot": "S04",
+      "emphasis": [
+        "1974",
+        "girl"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "He covered her with a blanket and went for the police.",
+      "pause_after": 0.25,
+      "shot": "S05",
+      "emphasis": [
+        "blanket",
+        "police"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "When he came back with officers, only the blanket was there.",
+      "pause_after": 0.45,
+      "shot": "S06",
+      "emphasis": [
+        "only",
+        "blanket"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "And he wasn't the last.",
+      "pause_after": 0.3,
+      "shot": "S07",
+      "emphasis": [
+        "last"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "In November 1992, motorists again reported running down a young woman here.",
+      "pause_after": 0.25,
+      "shot": "S08",
+      "emphasis": [
+        "1992",
+        "woman"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "No trace of her was ever found.",
+      "pause_after": 0.35,
+      "shot": "S09",
+      "emphasis": [
+        "No",
+        "trace"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Sceptics call it a classic folk tale, told on roads worldwide.",
+      "pause_after": 0.25,
+      "shot": "S10",
+      "emphasis": [
+        "folk",
+        "tale"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "Even local accounts disagree on when the sightings began.",
+      "pause_after": 0.3,
+      "shot": "S11",
+      "emphasis": [
+        "disagree"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "None of these reports has ever been confirmed.",
+      "pause_after": 1.2,
+      "shot": "S12",
+      "emphasis": [
+        "confirmed"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "So if someone steps into your headlights on this hill...",
+      "pause_after": 0.2,
+      "shot": "S13",
+      "emphasis": [
+        "headlights"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "road_night",
+      "description": "COLD OPEN, moving at frame 1. Driver's POV through a windscreen (dashcam-style framing, wiper at rest, dark bonnet edge at bottom): headlights rake up the wet hill road. A pale faceless figure steps out from the verge into the beams at ~1.0 s; 2-frame white flash on the 'thump'. The figure is in frame for under 0.5 s.",
+      "camera": "POV 24 mm, forward dolly at ~50 km/h feel, subtle road shake",
+      "characters": [
+        "the figure (generic, faceless, pale; plain knee-length light coat, NOT a dress, veil or period clothing; modelled on nobody)"
+      ],
+      "lighting": "headlight cones only + one distant sodium lamp",
+      "fx": [
+        "rain (light)",
+        "ground fog",
+        "windscreen droplets"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 290
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "hit",
+          "offset": 1.1,
+          "gain": 0.6
+        },
+        {
+          "name": "static",
+          "offset": 1.15,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "road_night",
+      "description": "Same POV a beat later, the car now stopped: the headlights light an empty stretch of wet road; nothing on the tarmac; the wipers sweep once and the hazard lights start to tick.",
+      "camera": "POV 24 mm, locked, tiny settle after the stop; slow push",
+      "characters": [],
+      "lighting": "headlight cones, amber hazard blink",
+      "fx": [
+        "rain (light)",
+        "ground fog",
+        "windscreen droplets"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "road_night",
+      "description": "Night dual carriageway climbing a wooded chalk hill: wet asphalt, white dashes, crash barrier, bare trees close on both verges, thin ground fog, sodium streetlamps spaced far apart (dark gaps between). High drone view looking down the hill, a single car's headlights crawling up it. Map card follows: Kent, Medway towns and Maidstone, pin on Blue Bell Hill.",
+      "camera": "high 35 mm drone, slow descending push; map slides in at mid-shot",
+      "characters": [
+        "one car (lights only)"
+      ],
+      "lighting": "sodium pools, moonless sky, fog glow",
+      "fx": [
+        "ground fog"
+      ],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "BLUE BELL HILL",
+          "params": {
+            "points": [
+              [
+                0.4,
+                0.15
+              ],
+              [
+                0.45,
+                0.4
+              ],
+              [
+                0.5,
+                0.62
+              ]
+            ],
+            "pin": -1,
+            "land": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.0,
+                0.0
+              ],
+              [
+                1.0,
+                1.0
+              ],
+              [
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "A229, KENT",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.4,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "road_night",
+      "description": "1970s re-creation: a boxy 1970s saloon (generic, no badge) stopped askew on the hard shoulder, headlights on, driver's door open; a faceless man in a work jacket stands frozen beside the car looking back at the dark road. Nothing visible on the road yet.",
+      "camera": "35 mm low, slow push from the verge toward the car",
+      "characters": [
+        "the driver (faceless man, work jacket)"
+      ],
+      "lighting": "headlights, red tail-light glow, one far sodium lamp",
+      "fx": [
+        "ground fog",
+        "exhaust vapour"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "1974",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "door_creak",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "heartbeat",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "road_night",
+      "description": "Close on the wet tarmac in the headlight beam: a tartan blanket is laid down over a small shape at the edge of frame (only the blanket's edge and hands placing it are seen). Then the car pulls away, the blanket left alone in the beam's fading light.",
+      "camera": "50 mm close, ground level; static then tail-light pull-away reflected on the road",
+      "characters": [
+        "the driver (hands only)"
+      ],
+      "lighting": "headlights, then red tail-light receding, darkness",
+      "fx": [
+        "light rain on puddles"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "door_creak",
+          "offset": 1.8,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "road_night",
+      "description": "Blue flashing light washes over the same patch of road. Two faceless officer silhouettes with torches walk in; the torch beams find the blanket lying flat on the tarmac. Empty. One officer lifts a corner: nothing beneath.",
+      "camera": "35 mm, slow push to the blanket, torch beams crossing frame",
+      "characters": [
+        "officers x2 (faceless, 1970s police coats and helmets as silhouettes)",
+        "the driver (faceless)"
+      ],
+      "lighting": "police blue flash + two torch cones",
+      "fx": [
+        "ground fog",
+        "light rain"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "sting",
+          "offset": 2.4,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "timeline",
+      "description": "Pattern interrupt: a timeline line draws from 1974 to 1992 over a dark road plate; small red car icons pop along it.",
+      "camera": "2.5D lateral pan",
+      "characters": [],
+      "lighting": "graphic",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timeline",
+          "text": "REPORTS",
+          "params": {
+            "events": [
+              [
+                "1974",
+                "bricklayer"
+              ],
+              [
+                "1992",
+                "motorists"
+              ]
+            ],
+            "y": 900
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.35
+        },
+        {
+          "name": "click",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "road_night",
+      "description": "1990s re-creation: a modern hatchback stopped on the hard shoulder with hazard lights blinking; the faceless driver walks back along the barrier with a small torch, sweeping the verge and the road; rain heavier.",
+      "camera": "35 mm handheld following the driver from behind",
+      "characters": [
+        "driver (faceless, 1990s jacket)"
+      ],
+      "lighting": "amber hazard blinks + torch + far sodium lamp",
+      "fx": [
+        "rain",
+        "ground fog"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "NOVEMBER 1992",
+          "params": {
+            "y": 300
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 0.3,
+          "gain": 0.2
+        },
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "road_night",
+      "description": "Wide from above: the torch beam sweeping a long empty stretch of wet road. Nothing. The beam stops, lowers.",
+      "camera": "high 28 mm crane up and away",
+      "characters": [
+        "driver (tiny, faceless)"
+      ],
+      "lighting": "single torch; hazard blink",
+      "fx": [
+        "rain",
+        "ground fog"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "EYEWITNESS CLAIM",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "other:evidence_board",
+      "description": "Sceptic beat: an evidence board under a desk lamp. Pinned cards: 'VANISHING HITCHHIKER', 'PHANTOM ON THE ROAD', and a small world map with pins on several continents joined by string.",
+      "camera": "35 mm slow pan across the cards",
+      "characters": [],
+      "lighting": "warm desk lamp, dark room",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "A road-ghost story told\nworldwide (folklorists)",
+          "params": {
+            "header": "WHAT SCEPTICS SAY",
+            "y": 820
+          }
+        },
+        {
+          "type": "label",
+          "text": "FOLKLORE",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.2,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "document",
+      "description": "Paper card with three conflicting start-dates typed and struck through in turn; the last line reads 'NOBODY AGREES'.",
+      "camera": "top-down 50 mm, slight push",
+      "characters": [],
+      "lighting": "desk lamp",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "SIGHTINGS BEGAN:\n~~1930s?~~\n~~1960s?~~\n~~1970s?~~\nNOBODY AGREES",
+          "params": {
+            "style": "paper",
+            "title": "LOCAL ACCOUNTS",
+            "rot": -3,
+            "size": 46
+          }
+        },
+        {
+          "type": "label",
+          "text": "DISPUTED",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.3,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "road_night",
+      "description": "DEAD-AIR REVEAL: driver's POV again, a normal night drive while the line is spoken; then, in the 1.2 s of silence after it, but the camera tilts to the rear-view mirror. The road behind is red with tail-light glow. In the mirror, small and still, the pale faceless figure stands in the lane behind the car. She does not move. Generic figure, plain coat.",
+      "camera": "POV 50 mm locked on the mirror, slowest push",
+      "characters": [
+        "the figure (generic, faceless, pale; plain knee-length light coat, NOT a dress, veil or period clothing; modelled on nobody)"
+      ],
+      "lighting": "red tail-light glow behind; dashboard dim",
+      "fx": [
+        "ground fog",
+        "rain on rear window"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.6,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "road_night",
+      "description": "LOOP FRAME: back to the S01 windscreen POV, identical framing and speed, headlights raking up the empty wet road; ends exactly on S01's frame 1 so the replay continues seamlessly into 'A driver says he hit a girl...'.",
+      "camera": "POV 24 mm, same forward dolly as S01 start",
+      "characters": [],
+      "lighting": "headlight cones + distant sodium lamp",
+      "fx": [
+        "rain (light)",
+        "ground fog",
+        "windscreen droplets"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.0
+    ],
+    [
+      3,
+      0.4
+    ],
+    [
+      10,
+      0.5
+    ],
+    [
+      18,
+      0.35
+    ],
+    [
+      21,
+      0.55
+    ],
+    [
+      30,
+      0.4
+    ],
+    [
+      35,
+      0.25
+    ],
+    [
+      40,
+      0.2
+    ],
+    [
+      41.5,
+      0.0
+    ],
+    [
+      43.5,
+      0.0
+    ],
+    [
+      44,
+      0.15
+    ],
+    [
+      48,
+      0.0
+    ]
+  ],
+  "loop_line": "So if someone steps into your headlights on this hill..."
+}

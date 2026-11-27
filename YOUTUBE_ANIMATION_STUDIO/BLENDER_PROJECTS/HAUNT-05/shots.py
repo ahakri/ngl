@@ -33,7 +33,7 @@ def _sun_dir(L, d, energy=0.5, color=(0.6, 0.68, 0.9), name="sun", angle=1.0):
 # --------------------------------------------------------------------------- body chute (S01, S04, S05, S14)
 def _chute_top(L, n, jolt=False):
     _dark(L, vol_end=70)
-    t = H.chute_tunnel(length=60, lamp_y0=2.0, lamp_every=6.0, lamp_energy=45, dead=(6,), fog=0.02, door_glow=0.8)
+    t = H.chute_tunnel(length=60, lamp_y0=2.0, lamp_every=6.0, lamp_energy=45, dead=(6,), fog=0.012, door_glow=0.8)
     root = t["root"]
     g = H.gurney("gurney", parent=root)
     y0 = 4.0
@@ -60,7 +60,7 @@ def _chute_top(L, n, jolt=False):
     spill.parent = root
     H.aim(spill, (0.0, -2.6, 2.0), (0.4, 6.0, 0.6))
     fill = L.cam_light(c, energy=10, color=(0.6, 0.68, 0.85))
-    d = H.dust((0.3, 6, 1.3), (2.2, 12, 2.4), n, count=420, radius=0.0025, emit=0.25, drift=(0.0, 0.03, 0.01))
+    d = H.dust((0.3, 6, 1.3), (2.2, 12, 2.4), n, count=160, radius=0.0025, emit=0.12, drift=(0.0, 0.03, 0.01))
     d.parent = root
     H.crisp_shadows()
     L.bake_static()
@@ -85,7 +85,7 @@ def S04(L, n):
     H.cam_move(c, [(1, p0, tg0), (n, p1, tg1)])
     H.handheld(c, n, amp=0.003, rate=0.4, rot_amp=0.0008)
     L.cam_light(c, energy=8, color=(0.65, 0.7, 0.85))
-    d = H.dust((0.0, 88, 1.3), (2.2, 14, 2.4), n, count=350, radius=0.003, emit=0.25)
+    d = H.dust((0.0, 88, 1.3), (2.2, 14, 2.4), n, count=150, radius=0.003, emit=0.12)
     d.parent = root
     wm = L.mat_principled("drip_m", (0.7, 0.75, 0.8), rough=0.1, emit=(0.6, 0.65, 0.7), emit_strength=0.6)
     dr = L.particle_cloud((0.0, 90, 1.4), (2.0, 8, 2.4), count=40, radius=0.004, mat=wm, drift=(0, 0, -1.6), seed=5, nframes=n, name="drips")
@@ -148,7 +148,7 @@ def S05(L, n):
     p1 = tuple(p0[i] + (tg[i] - p0[i]) * 0.05 for i in range(3))
     H.cam_move(c, [(1, p0, tg), (stop, p0, tg), (n, p1, tg)])
     L.cam_light(c, energy=4, color=(0.6, 0.68, 0.85))
-    d = H.dust((0.0, 18, 1.3), (2.2, 8, 2.4), n, count=260, radius=0.0025, emit=0.25)
+    d = H.dust((0.0, 18, 1.3), (2.2, 8, 2.4), n, count=120, radius=0.0025, emit=0.12)
     d.parent = root
     H.crisp_shadows()
     L.bake_static()
@@ -204,7 +204,7 @@ def S06(L, n):
     bays = [(0, 19), (1, 17), (2, 20), (3, 18), (4, 19), (1, 21), (3, 16)]
     lit = {}
     for f, b in bays:
-        lit.update(_bay("C", f, b, 22, 1.0))
+        lit.update(_bay("C", f, b, 3, 0.35))
     s, sn = _facade(L, n, lit, world=(0.03, 0.036, 0.052), sun=0.9, fog=0.01, tree_count=40)
     # night falls: sky + sun dim; bays switch off floor by floor, bottom to top
     bg = bpy.context.scene.world.node_tree.nodes["Background"].inputs[1]
@@ -215,7 +215,7 @@ def S06(L, n):
     offs = {0: 18, 1: 32, 2: 46, 3: 60, 4: 74}
     for (blk, f, b), (m, e) in lit.items():
         off = offs[f] + (4 if b in (21, 16) else 0)
-        H.key_emission(m, [(1, 1.0), (off, 1.0), (off + 1, 0.0)], "CONSTANT")
+        H.key_emission(m, [(1, 0.35), (off, 0.35), (off + 1, 0.0)], "CONSTANT")
         lt = s["lights"].get((blk, f, b))
         if lt:
             H.key_energy(lt, [(1, e), (off, e), (off + 1, 0.0)], "CONSTANT")
@@ -238,7 +238,7 @@ def _ball_pos(cor):
 
 
 def S07(L, n):
-    cor = _corridor(L, moon=4.5, end_glow=2.5)
+    cor = _corridor(L, moon=4.5, end_glow=8.0)
     hy = cor["hy"]
     p0, p1 = (0.25, -13.2, 1.6), (0.05, -6.8, 1.62)
     c = H.cam(p0, (0.0, hy, 1.25), lens=24)
@@ -251,9 +251,10 @@ def S07(L, n):
         keys.append((f, loc, (0.0 + 0.15 * math.sin(u * 5), hy, 1.25)))
     H.cam_move(c, keys, ease=False)
     H.handheld(c, n, amp=0.01, rate=0.9, rot_amp=0.005)
-    fl = L.spot((0.18, -0.2, 0.0), (0, 0, 0), energy=500, size_deg=24, blend=0.55, color=(1.0, 0.92, 0.8), name="flashlight", radius=0.02)
+    fl = L.spot((0.18, -0.2, 0.0), (-0.22, 0, 0), energy=1600, size_deg=28, blend=0.55, color=(1.0, 0.92, 0.8), name="flashlight", radius=0.02)
     fl.parent = c
     fl.data.volume_factor = 0.6
+    L.cam_light(c, energy=12, color=(0.6, 0.7, 0.95))
     # shadow figure crosses the far doorway (L08)
     fig = H.figure("shadow", color=(0.002, 0.002, 0.002), height=1.88)
     fig["root"].rotation_euler = (0, 0, -math.pi / 2)
@@ -278,6 +279,7 @@ def S08(L, n):
     H.cam_move(c, [(1, p0, tg), (n, p1, (bp[0], bp[1] + 0.4, 0.05))])
     H.handheld(c, n, amp=0.002, rate=0.3, rot_amp=0.0008)
     L.dof(c, target=ball, fstop=2.0)
+    L.cam_light(c, energy=6, color=(0.6, 0.7, 0.95))
     # flashlight beam from an unseen hand, sweeping across the floor and settling on the ball
     fl = L.spot((0, 0, 0), (0, 0, 0), energy=0, size_deg=16, blend=0.5, color=(1.0, 0.92, 0.8), name="flashlight", radius=0.02)
     src = (bp[0] - 0.6, bp[1] - 2.4, 1.3)
@@ -291,12 +293,13 @@ def S08(L, n):
 
 def _wide_cam(L, cor, n, push=0.0):
     bp = _ball_pos(cor)
-    p0 = (bp[0] + 0.25, bp[1] - 4.0, 1.6)
-    pitch = math.radians(16)
-    tg = (bp[0] + 0.1, p0[1] + 10 * math.cos(pitch), 1.6 - 10 * math.sin(pitch))
+    p0 = (bp[0] + 0.2, bp[1] - 2.6, 1.0)
+    pitch = math.radians(15)
+    tg = (bp[0] + 0.1, p0[1] + 10 * math.cos(pitch), 1.0 - 10 * math.sin(pitch))
     c = H.cam(p0, tg, lens=28)
     p1 = tuple(p0[i] + (tg[i] - p0[i]) * push for i in range(3))
     H.cam_move(c, [(1, p0, tg), (n, p1, tg)], ease=False)
+    L.cam_light(c, energy=8, color=(0.6, 0.7, 0.95))
     return c, bp
 
 
@@ -351,18 +354,18 @@ def S10(L, n):
     H.cam_move(c, [(1, p0, (0.0, hy, 1.3)), (n, (0.0, -9.6, 1.62), (0.0, hy, 1.4))], ease=False)
     # the legend figure, struck through (3D, parented to camera; matches the S09 counter position)
     num_m = L.mat_emission("legend_num", (0.4, 1.0, 0.4), 1.3)
-    tx = L.text3d("63,000", loc=(0, -0.012, -1.0), rot=(0, 0, 0), size=0.105, extrude=0.0, mat=num_m, font=ANTON, name="legend")
+    tx = L.text3d("63,000", loc=(0, -0.012, -1.0), rot=(0, 0, 0), size=0.17, extrude=0.0, mat=num_m, font=ANTON, name="legend")
     tx.data.align_y = "CENTER"
     tx.parent = c
     red = L.mat_emission("strike_m", (1.0, 0.04, 0.03), 4.0)
     sk = H.box_mesh("strike", [(0.0, 0, 0, 0.5, 0.006, 0.001)], red)
     sk.parent = c
-    sk.location = (-0.135, -0.012, -0.995)
+    sk.location = (-0.21, -0.012, -0.995)
     sk.rotation_euler = (0, 0, math.radians(-8))
     sk.scale = (0.001, 1, 1)
     sk.keyframe_insert("scale", frame=1)
     sk.keyframe_insert("scale", frame=4)
-    sk.scale = (0.27, 1, 1)
+    sk.scale = (0.42, 1, 1)
     sk.keyframe_insert("scale", frame=11)
     # strike grows from the left edge: offset the box so its origin is its left end
     me = sk.data
