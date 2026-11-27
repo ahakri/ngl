@@ -1490,3 +1490,843 @@ def draw_on_curve(points, nframes_start, nframes_end, color=(1, 0.86, 0.24), wid
     cu.bevel_factor_end = 1.0
     cu.keyframe_insert("bevel_factor_end", frame=nframes_end)
     return o
+
+
+# ============================================================================= SCUBA-03 / SCUBA-04 additions
+# (new builders only — functions above are used by SCUBA-01/02 and are left untouched)
+
+
+def emit_node(mat):
+    """First Emission node of a material (L.mat_emission / flat_mat) for keyframing."""
+    return [nd for nd in mat.node_tree.nodes if nd.type == "EMISSION"][0]
+
+
+def emit_keys(mat, pairs=(), color_pairs=(), interp=None):
+    """Keyframe an emission material: pairs [(frame, strength)], color_pairs [(frame, rgb)]."""
+    e = emit_node(mat)
+    for f, v in pairs:
+        e.inputs[1].default_value = v
+        e.inputs[1].keyframe_insert("default_value", frame=f)
+    for f, c in color_pairs:
+        e.inputs[0].default_value = (*c, 1)
+        e.inputs[0].keyframe_insert("default_value", frame=f)
+    if interp:
+        ad = mat.node_tree.animation_data
+        if ad and ad.action:
+            for fc in L._fcurves(ad.action):
+                for kp in fc.keyframe_points:
+                    kp.interpolation = interp
+    return e
+
+
+def energy_keys(light, pairs, interp=None):
+    """Keyframe a light's energy: pairs [(frame, watts)]."""
+    for f, v in pairs:
+        light.data.energy = v
+        light.data.keyframe_insert("energy", frame=f)
+    if interp and light.data.animation_data and light.data.animation_data.action:
+        for fc in L._fcurves(light.data.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = interp
+    return light
+
+
+def exposure_keys(pairs):
+    """Film exposure keyframes (fades to/from black without a compositor): pairs [(frame, stops)]."""
+    vs = bpy.context.scene.view_settings
+    for f, v in pairs:
+        vs.exposure = v
+        vs.keyframe_insert("exposure", frame=f)
+
+
+def shake(cam, start, length=6, amp=0.08, rot=0.03, seed=1):
+    """Hard camera shake for `length` frames starting at `start` (adds to existing location keys via delta)."""
+    rnd = random.Random(seed)
+    cam.keyframe_insert("delta_location", frame=start - 1)
+    cam.keyframe_insert("delta_rotation_euler", frame=start - 1)
+    for k in range(length):
+        d = 1 - k / length
+        cam.delta_location = (rnd.uniform(-amp, amp) * d, rnd.uniform(-amp, amp) * d, rnd.uniform(-amp, amp) * d)
+        cam.delta_rotation_euler = (rnd.uniform(-rot, rot) * d, rnd.uniform(-rot, rot) * d, rnd.uniform(-rot, rot) * d)
+        cam.keyframe_insert("delta_location", frame=start + k)
+        cam.keyframe_insert("delta_rotation_euler", frame=start + k)
+    cam.delta_location = (0, 0, 0)
+    cam.delta_rotation_euler = (0, 0, 0)
+    cam.keyframe_insert("delta_location", frame=start + length)
+    cam.keyframe_insert("delta_rotation_euler", frame=start + length)
+
+
+def tube(points, radius=0.04, mat=None, name="tube", order=3, res=10):
+    """Smooth NURBS tube through/near the control points (endpoints exact). Control points can be keyframed with
+    tube_keys() (robust: no auto-handle recompute issues). Returns the curve object."""
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    cu.bevel_depth = radius
+    cu.bevel_resolution = 3
+    cu.resolution_u = res
+    cu.use_fill_caps = True
+    sp = cu.splines.new("NURBS")
+    sp.points.add(len(points) - 1)
+    for i, p in enumerate(points):
+        sp.points[i].co = (*p, 1)
+    sp.order_u = min(order, len(points))
+    sp.use_endpoint_u = True
+    o = L.link(bpy.data.objects.new(name, cu))
+    if mat:
+        o.data.materials.append(mat)
+    return o
+
+
+def tube_keys(o, frame, points, interp=None):
+    """Keyframe all control points of a tube() at `frame`."""
+    sp = o.data.splines[0]
+    for pt, p in zip(sp.points, points):
+        pt.co = (*p, 1)
+        pt.keyframe_insert("co", frame=frame)
+    if interp and o.data.animation_data and o.data.animation_data.action:
+        for fc in L._fcurves(o.data.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = interp
+
+
+def umbilical(points, radius=0.045, color=(0.25, 1.0, 0.95), strength=6.0, name="umb"):
+    """Glowing diver umbilical (stylised: emissive cyan tube). Returns (curve object, emission material)."""
+    m = L.mat_emission(name + "_m", color, strength)
+    return tube(points, radius=radius, mat=m, name=name, order=4), m
+
+
+# ----------------------------------------------------------------------------- subsea manifold
+
+
+def manifold(loc=(0, 0, 0), size=(6.0, 4.0, 3.0), paint=(0.72, 0.5, 0.06), grime=0.55, name="manifold", spools=True):
+    """Subsea manifold / template structure: tubular steel frame (4 legs, ring beams at 3 levels, X-bracing),
+    mudmats, a grated roof panel on top (where a diver kneels), internal header pipe with vertical branches, valve
+    bodies with handwheels on the long side, pipe spools leaving along the seabed. Origin = seabed centre.
+    Returns parts: root, top_z, corners (top corner xyz), valve (front handwheel world xyz), mats."""
+    w, d, h = size
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    P = {"root": root, "top_z": loc[2] + h}
+    steel = mat_paint(name + "_paint", paint, rough=0.5, metal=0.2, grime=grime, rust=0.35, scale=2.0)
+    dark = mat_paint(name + "_dark", (0.12, 0.13, 0.13), rough=0.5, metal=0.5, grime=0.5, rust=0.3)
+    pipe = mat_paint(name + "_pipe", (0.3, 0.32, 0.33), rough=0.35, metal=0.7, grime=0.4, rust=0.2)
+    grate = L.mat_principled(name + "_grate", (0.06, 0.06, 0.06), rough=0.7, metal=0.4)
+    P["mats"] = (steel, dark, pipe)
+
+    def add(o, m):
+        L.assign(o, m)
+        o.parent = root
+        return o
+
+    def beam(a, b, r=0.11, m=steel, nm="beam"):
+        a, b = Vector(a), Vector(b)
+        c = (a + b) / 2
+        o = L.prim("cyl", loc=c, vertices=10, radius=r, depth=(b - a).length, name=f"{name}_{nm}")
+        o.rotation_euler = (b - a).to_track_quat("Z", "Y").to_euler()
+        return add(o, m)
+
+    cx = [(-w / 2, -d / 2), (w / 2, -d / 2), (w / 2, d / 2), (-w / 2, d / 2)]
+    for (x, y) in cx:
+        beam((x, y, 0.0), (x, y, h + 0.05), r=0.16, nm="leg")
+        mm = L.prim("cube", loc=(x, y, 0.04), name=f"{name}_mudmat")
+        mm.scale = (0.65, 0.65, 0.05)
+        add(mm, dark)
+    for z in (0.35, h * 0.55, h):
+        for i in range(4):
+            a, b = cx[i], cx[(i + 1) % 4]
+            beam((a[0], a[1], z), (b[0], b[1], z), r=0.12 if z == h else 0.1)
+    # X bracing on the four sides between the lower and middle ring
+    for i in range(4):
+        a, b = cx[i], cx[(i + 1) % 4]
+        beam((a[0], a[1], 0.35), (b[0], b[1], h * 0.55), r=0.07, nm="brace")
+        beam((b[0], b[1], 0.35), (a[0], a[1], h * 0.55), r=0.07, nm="brace")
+    # roof: grating panel + stringers (diver kneels here)
+    rf = L.prim("cube", loc=(0, 0, h + 0.06), name=f"{name}_roof")
+    rf.scale = (w / 2 - 0.05, d / 2 - 0.05, 0.04)
+    add(rf, grate)
+    for k in range(-3, 4):
+        s = L.prim("cube", loc=(k * w / 7.5, 0, h + 0.11), name=f"{name}_stringer")
+        s.scale = (0.05, d / 2 - 0.05, 0.03)
+        add(s, steel)
+    # internal header pipe + branches + valve bodies with handwheels (front side, -Y)
+    hd = beam((-w / 2 - 0.8, 0.2, 1.0), (w / 2 + 0.8, 0.2, 1.0), r=0.32, m=pipe, nm="header")
+    for k, x in enumerate((-1.8, -0.6, 0.6, 1.8)):
+        beam((x * w / 6, 0.2, 1.0), (x * w / 6, 0.2, h * 0.85), r=0.14, m=pipe, nm="branch")
+        vb = L.prim("cube", loc=(x * w / 6, -0.25, h * 0.62), name=f"{name}_valve")
+        vb.scale = (0.28, 0.3, 0.28)
+        L.bevel(vb, 0.05)
+        add(vb, dark)
+        st = beam((x * w / 6, -0.5, h * 0.62), (x * w / 6, -d / 2 + 0.05, h * 0.62), r=0.04, m=pipe, nm="stem")
+        hw = L.prim("torus", loc=(x * w / 6, -d / 2 - 0.02, h * 0.62), rot=(math.pi / 2, 0, 0), major_radius=0.26,
+                    minor_radius=0.03, name=f"{name}_wheel")
+        add(hw, L.mat_principled(name + "_wheelm", (0.7, 0.1, 0.05), rough=0.4))
+        for a in range(3):
+            sp_ = L.prim("cube", loc=(x * w / 6, -d / 2 - 0.02, h * 0.62), rot=(0, a * math.pi / 3, 0), name=f"{name}_spoke")
+            sp_.scale = (0.25, 0.015, 0.015)
+            add(sp_, hw.data.materials[0])
+        if k == 1:
+            P["valve"] = Vector(loc) + Vector((x * w / 6, -d / 2 - 0.05, h * 0.62))
+    # flanges on the header ends
+    for sx in (-1, 1):
+        fl = L.prim("cyl", loc=(sx * (w / 2 + 0.3), 0.2, 1.0), vertices=16, radius=0.45, depth=0.12,
+                    rot=(0, math.pi / 2, 0), name=f"{name}_flange")
+        add(fl, dark)
+    if spools:
+        for sx in (-1, 1):
+            beam((sx * (w / 2 + 0.8), 0.2, 1.0), (sx * (w / 2 + 2.2), 0.2, 0.4), r=0.3, m=pipe, nm="spool")
+            beam((sx * (w / 2 + 2.2), 0.2, 0.4), (sx * (w / 2 + 14), 1.5 * sx, 0.35), r=0.3, m=pipe, nm="spool")
+    P["corners"] = [Vector(loc) + Vector((x, y, h + 0.12)) for (x, y) in cx]
+    return P
+
+
+def kneel(P, lean=0.15, arms="work"):
+    """Pose an L.char_diver / rescue_diver rig upright and kneeling. Root origin = torso centre; place the root
+    about 1.05 m above the surface it kneels on. Diver faces +Y of the root's yaw. arms: work | hang | reach."""
+    r = P["root"]
+    r.rotation_euler = (math.pi / 2 - lean, 0, r.rotation_euler.z)
+    for tag in ("L", "R"):
+        P[f"hip{tag}"].rotation_euler = (0.25 + lean, 0, 0)
+        P[f"knee{tag}"].rotation_euler = (-1.65, 0, 0)
+        if f"fin{tag}" in P:
+            P[f"fin{tag}"].scale = (0.07, 0.12, 0.05)
+    sx = {"L": -1, "R": 1}
+    for tag in ("L", "R"):
+        if arms == "work":
+            P[f"shoulder{tag}"].rotation_euler = (-2.1, 0, sx[tag] * -0.25)
+        elif arms == "hang":
+            P[f"shoulder{tag}"].rotation_euler = (-2.9, 0, sx[tag] * -0.2)
+        else:
+            P[f"shoulder{tag}"].rotation_euler = (-1.5, 0, sx[tag] * -0.15)
+
+
+def curl_pose(P):
+    """Diver lying on his side, curled (knees up, arms in) — motionless."""
+    r = P["root"]
+    r.rotation_euler = (0.0, math.pi / 2, r.rotation_euler.z)
+    for tag in ("L", "R"):
+        P[f"hip{tag}"].rotation_euler = (1.2, 0, 0)
+        P[f"knee{tag}"].rotation_euler = (-1.5, 0, 0)
+        P[f"shoulder{tag}"].rotation_euler = (-1.6, 0, 0)
+
+
+def bailout_valve(P, name="bail"):
+    """Add a chunky pillar valve + handwheel + first stage on top of a char_diver single tank (bailout cylinder).
+    Returns the handwheel object (glint target)."""
+    tk = [o for k, o in P.items() if k.startswith("tank")][0]
+    met = L.mat_principled(name + "_chrome", (0.85, 0.86, 0.88), rough=0.12, metal=1.0)
+    blk = L.mat_principled(name + "_blk", (0.03, 0.03, 0.03), rough=0.4)
+    root = P["root"]
+    base = Vector(tk.location) + Vector((0, tk.scale.z + 0.02, 0))
+    v = L.prim("cyl", loc=base, vertices=12, radius=0.035, depth=0.09, rot=(math.pi / 2, 0, 0), name=name + "_valve")
+    L.assign(v, met)
+    v.parent = root
+    hw = L.prim("torus", loc=base + Vector((0.06, 0.02, 0)), rot=(0, math.pi / 2, 0), major_radius=0.035,
+                minor_radius=0.01, name=name + "_wheel")
+    L.assign(hw, blk)
+    hw.parent = root
+    fs = L.prim("cyl", loc=base + Vector((-0.05, 0.03, 0)), vertices=10, radius=0.03, depth=0.06,
+                rot=(0, math.pi / 2, 0), name=name + "_first")
+    L.assign(fs, met)
+    fs.parent = root
+    return v
+
+
+# ----------------------------------------------------------------------------- vessels / bell
+
+
+def dsv(name="dsv", length=90.0, beam=20.0, depth=10.0, draft=6.0, hull=(0.12, 0.14, 0.18), house=(0.85, 0.85, 0.82),
+        floods=True, flood_energy=6000):
+    """Dive support vessel (stylised, generic): lofted hull (bow +Y, waterline z=0), tall forward accommodation block
+    with bridge window band (emission, animatable via parts['bridge_mat']), helideck disc over the bow, moon-pool
+    dive tower midships (lattice), aft deck crane, lit cabin windows, sodium deck floods (point lights).
+    Returns parts dict."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root, "floods": []}
+    half = length / 2
+    sts = []
+    for i in range(25):
+        t = i / 24
+        y = -half + length * t
+        b = beam / 2 * (0.92 + 0.08 * min(1, t / 0.06)) if t < 0.62 else beam / 2 * max(0.04, 1 - ((t - 0.62) / 0.38) ** 1.7) ** 0.55
+        keel = -draft + (depth * 0.7 * ((t - 0.8) / 0.2) ** 2.2 if t > 0.8 else 0) + (1.2 * ((0.05 - t) / 0.05) if t < 0.05 else 0)
+        deck = -draft + depth + 2.0 * max(0, t - 0.75) ** 1.5 * 4
+        ring = [(xn * b, y, keel + (deck - keel) * zn) for (xn, zn) in SECTION[:-1]] + [(0, y, keel)]
+        ring += [(-xn * b, y, keel + (deck - keel) * zn) for (xn, zn) in reversed(SECTION[:-1])]
+        sts.append(ring)
+    h = _loft(name + "_hull", sts)
+    L.smooth(h)
+    L.assign(h, mat_z_bands(name + "_hullm", [(-draft - 1, (0.3, 0.06, 0.04)), (-0.3, hull), (depth - draft - 0.8, house)],
+                            rough=0.5, metal=0.2, space="Object"))
+    h.parent = root
+    P["hull"] = h
+    dz = depth - draft  # main deck height above waterline
+    P["deck_z"] = dz
+    whitem = mat_paint(name + "_house", house, rough=0.45, grime=0.35)
+    darkm = L.mat_principled(name + "_dk", (0.03, 0.03, 0.035), rough=0.6)
+    yel = mat_paint(name + "_yel", (0.8, 0.55, 0.05), rough=0.5, grime=0.4)
+    winm = L.mat_emission(name + "_cabin", (1.0, 0.78, 0.45), 4.0)
+    bridgem = L.mat_emission(name + "_bridge", (0.2, 1.0, 0.45), 6.0)
+    P["bridge_mat"] = bridgem
+
+    def box(loc, scl, m, nm):
+        o = L.prim("cube", loc=loc, name=f"{name}_{nm}")
+        o.scale = scl
+        L.assign(o, m)
+        o.parent = root
+        return o
+
+    dk = box((0, -half * 0.25, dz + 0.1), (beam / 2 * 0.9, half * 0.7, 0.12), darkm, "deck")
+    # accommodation block forward (y ~ +0.15L .. +0.38L), 4 tiers + bridge
+    hy = half * 0.42
+    box((0, hy, dz + 6), (beam / 2 * 0.86, length * 0.1, 6), whitem, "house")
+    box((0, hy + 1, dz + 13.5), (beam / 2 * 0.8, length * 0.07, 1.6), whitem, "bridgedeck")
+    for k in range(3):  # cabin window rows
+        for sx in (-1, 1):
+            box((sx * beam / 2 * 0.87, hy, dz + 2.2 + k * 3.2), (0.05, length * 0.085, 0.35), winm, "cabwin")
+        box((0, hy + length * 0.1 + 0.05, dz + 2.2 + k * 3.2), (beam / 2 * 0.75, 0.05, 0.35), winm, "cabwinf")
+    # bridge window band (front + sides)
+    box((0, hy + 1 + length * 0.07 + 0.06, dz + 13.7), (beam / 2 * 0.75, 0.06, 0.6), bridgem, "bridgewin")
+    for sx in (-1, 1):
+        box((sx * (beam / 2 * 0.8 + 0.05), hy + 1, dz + 13.7), (0.06, length * 0.06, 0.6), bridgem, "bridgewins")
+    # helideck over the bow
+    hdk = L.prim("cyl", loc=(0, hy + length * 0.14, dz + 16.0), vertices=32, radius=beam * 0.55, depth=0.4,
+                 name=name + "_helideck")
+    L.assign(hdk, L.mat_principled(name + "_heli", (0.12, 0.3, 0.15), rough=0.6))
+    hdk.parent = root
+    ring_ = L.prim("torus", loc=(0, hy + length * 0.14, dz + 16.25), major_radius=beam * 0.36, minor_radius=0.25,
+                   name=name + "_hring")
+    L.assign(ring_, L.mat_principled(name + "_hringm", (0.9, 0.8, 0.2), rough=0.5))
+    ring_.parent = root
+    for sx in (-1, 1):  # helideck legs
+        lg = L.prim("cyl", loc=(sx * beam * 0.25, hy + length * 0.17, dz + 13), vertices=8, radius=0.4, depth=6,
+                    name=name + "_hleg")
+        L.assign(lg, whitem)
+        lg.parent = root
+    # mast on the bridge roof
+    ms = L.prim("cyl", loc=(0, hy, dz + 19), vertices=8, radius=0.25, depth=8, name=name + "_mast")
+    L.assign(ms, whitem)
+    ms.parent = root
+    # moon-pool dive tower midships (lattice)
+    ty = -half * 0.05
+    th = 22.0
+    tw = 3.2
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            lg = L.prim("cyl", loc=(sx * tw, ty + sy * tw, dz + th / 2), vertices=8, radius=0.3, depth=th,
+                        name=name + "_tleg")
+            L.assign(lg, yel)
+            lg.parent = root
+    for z in range(3, int(th), 4):
+        for (a, b) in (((-1, -1), (1, -1)), ((1, -1), (1, 1)), ((1, 1), (-1, 1)), ((-1, 1), (-1, -1))):
+            pa = Vector((a[0] * tw, ty + a[1] * tw, dz + z))
+            pb = Vector((b[0] * tw, ty + b[1] * tw, dz + z + 3.5))
+            o = L.prim("cyl", loc=(pa + pb) / 2, vertices=6, radius=0.15, depth=(pb - pa).length, name=name + "_tbr")
+            o.rotation_euler = (pb - pa).to_track_quat("Z", "Y").to_euler()
+            L.assign(o, yel)
+            o.parent = root
+    box((0, ty, dz + th), (tw + 0.6, tw + 0.6, 0.4), yel, "ttop")
+    P["tower_xy"] = (0, ty)
+    # aft crane (pedestal + jib)
+    pd = L.prim("cyl", loc=(beam * 0.3, -half * 0.6, dz + 3), vertices=12, radius=1.0, depth=6, name=name + "_crane")
+    L.assign(pd, yel)
+    pd.parent = root
+    jb = box((beam * 0.3, -half * 0.45, dz + 9), (0.6, 0.6, 9), yel, "jib")
+    jb.rotation_euler = (0.9, 0, 0)
+    # deck floods (sodium)
+    if floods:
+        for k, (x, y, z) in enumerate(((beam * 0.4, ty, dz + 8), (-beam * 0.4, ty, dz + 8), (0, hy - length * 0.1, dz + 10),
+                                       (0, -half * 0.7, dz + 6))):
+            pl = L.point((x, y, z), energy=flood_energy, color=(1.0, 0.62, 0.28), radius=0.6, name=f"{name}_flood{k}")
+            pl.parent = root
+            P["floods"].append(pl)
+            g = L.prim("sphere", loc=(x, y, z), segments=8, ring_count=6, radius=0.45, name=f"{name}_lamp{k}")
+            L.assign(g, L.mat_emission(name + "_lampm", (1.0, 0.7, 0.35), 25))
+            g.parent = root
+    return P
+
+
+def diving_bell(name="bell", radius=1.5, height=2.4, paint=(0.85, 0.42, 0.05), lamp_energy=300, hatch_strength=4.0):
+    """Closed diving bell: squat vertical cylinder with domed top and dished bottom, external guard frame (ring +
+    four legs), strapped gas bottles, two side lamps (emissive + spot lights, parts['lamps']), lift-wire eye on top,
+    a bottom trunk with a warm glowing hatch disc (parts['hatch_mat'], emission). Origin at bell centre.
+    Returns parts."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root, "lamps": []}
+    pm = mat_paint(name + "_paint", paint, rough=0.45, grime=0.35, rust=0.15)
+    dm = L.mat_principled(name + "_frame", (0.08, 0.08, 0.09), rough=0.5, metal=0.6)
+    met = L.mat_principled(name + "_met", (0.7, 0.72, 0.75), rough=0.25, metal=1.0)
+
+    def add(o, m):
+        L.assign(o, m)
+        L.smooth(o)
+        o.parent = root
+        return o
+
+    add(L.prim("cyl", loc=(0, 0, 0), vertices=32, radius=radius, depth=height, name=name + "_body"), pm)
+    top = add(L.prim("sphere", loc=(0, 0, height / 2), segments=32, ring_count=12, radius=radius, name=name + "_dome"), pm)
+    top.scale = (1, 1, 0.45)
+    bot = add(L.prim("sphere", loc=(0, 0, -height / 2), segments=32, ring_count=12, radius=radius, name=name + "_dish"), pm)
+    bot.scale = (1, 1, 0.25)
+    for z in (-height / 2 - 0.1, height / 2 - 0.1):
+        add(L.prim("torus", loc=(0, 0, z), major_radius=radius + 0.25, minor_radius=0.08, name=name + "_ring"), dm)
+    for a in range(4):
+        ang = a * math.pi / 2 + math.pi / 4
+        x, y = math.cos(ang) * (radius + 0.25), math.sin(ang) * (radius + 0.25)
+        add(L.prim("cyl", loc=(x, y, -0.4), vertices=8, radius=0.08, depth=height + 1.4, name=name + "_leg"), dm)
+    for a in range(5):  # gas bottles
+        ang = math.pi * 0.85 + a * 0.22
+        add(L.prim("cyl", loc=(math.cos(ang) * (radius + 0.12), math.sin(ang) * (radius + 0.12), 0), vertices=12,
+                   radius=0.12, depth=height * 0.8, name=name + "_bottle"),
+            L.mat_principled(name + "_bot", (0.15, 0.4, 0.25), rough=0.4))
+    add(L.prim("torus", loc=(0, 0, height / 2 + radius * 0.45 + 0.15), rot=(math.pi / 2, 0, 0), major_radius=0.22,
+               minor_radius=0.05, name=name + "_eye"), met)
+    # viewport (porthole) glows warm
+    pv = add(L.prim("cyl", loc=(0, -radius - 0.01, 0.3), vertices=16, radius=0.17, depth=0.06, rot=(math.pi / 2, 0, 0),
+                    name=name + "_port"), L.mat_emission(name + "_portm", (1.0, 0.75, 0.4), 6))
+    # bottom trunk + hatch glow
+    add(L.prim("cyl", loc=(0, 0, -height / 2 - 0.35), vertices=24, radius=0.5, depth=0.35, name=name + "_trunk"), dm)
+    hm = L.mat_emission(name + "_hatch", (1.0, 0.72, 0.35), hatch_strength)
+    hz = add(L.prim("cyl", loc=(0, 0, -height / 2 - 0.53), vertices=24, radius=0.42, depth=0.02, name=name + "_hatchdisc"), hm)
+    P["hatch_mat"] = hm
+    P["hatch"] = hz
+    P["bottom_z"] = -height / 2 - 0.55
+    for sx in (-1, 1):
+        lp = add(L.prim("cyl", loc=(sx * (radius + 0.3), -0.3, -0.6), vertices=10, radius=0.1, depth=0.25,
+                        name=name + "_lamp"), L.mat_emission(name + "_lampm", (1.0, 0.85, 0.6), 20))
+        if lamp_energy:
+            sp = L.spot((sx * (radius + 0.3), -0.3, -0.75), (0, 0, 0), energy=lamp_energy, size_deg=50, blend=0.6,
+                        color=(1.0, 0.82, 0.55), name=name + "_lampspot")
+            sp.parent = root
+            P["lamps"].append(sp)
+    return P
+
+
+def lift_wire(top, bottom, radius=0.03, name="wire", color=(0.25, 0.25, 0.27)):
+    """Straight steel wire / cable between two points."""
+    a, b = Vector(top), Vector(bottom)
+    o = L.prim("cyl", loc=(a + b) / 2, vertices=6, radius=radius, depth=(b - a).length, name=name)
+    o.rotation_euler = (b - a).to_track_quat("Z", "Y").to_euler()
+    L.assign(o, L.mat_principled(name + "_m", color, rough=0.4, metal=0.8))
+    return o
+
+
+def lobster_boat(name="lobsterboat", length=12.0, beam=4.2, hull=(0.93, 0.93, 0.9), bottom=(0.55, 0.08, 0.05),
+                 trim=(0.1, 0.25, 0.5)):
+    """New-England lobster boat: lofted hull with high flared bow (bow +Y, waterline z=0), forward wheelhouse with
+    windows and roof, open aft deck with a hauler davit, trap stack, gunwale rail. Returns parts
+    (root, deck_z, gunwale_z, stern_y)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root}
+    half = length / 2
+    sts = []
+    for i in range(21):
+        t = i / 20
+        y = -half + length * t
+        b = beam / 2 * (0.94 if t < 0.5 else max(0.03, 1 - ((t - 0.5) / 0.5) ** 1.8) ** 0.6)
+        keel = -0.9 + (1.1 * ((t - 0.75) / 0.25) ** 2 if t > 0.75 else 0)
+        deck = 1.1 + 0.6 * t ** 2.2
+        ring = [(xn * b, y, keel + (deck - keel) * zn) for (xn, zn) in SECTION[:-1]] + [(0, y, keel)]
+        ring += [(-xn * b, y, keel + (deck - keel) * zn) for (xn, zn) in reversed(SECTION[:-1])]
+        sts.append(ring)
+    h = _loft(name + "_hull", sts)
+    sub = h.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    L.smooth(h)
+    L.assign(h, mat_z_bands(name + "_hullm", [(-2, bottom), (0.05, (0.05, 0.05, 0.05)), (0.12, hull), (1.0, trim),
+                                              (1.12, hull)], rough=0.35, metal=0.0))
+    h.parent = root
+    P["hull"] = h
+    whm = L.mat_principled(name + "_white", hull, rough=0.35)
+    deckm = L.mat_principled(name + "_deckm", (0.55, 0.55, 0.5), rough=0.7)
+    glass = L.mat_principled(name + "_glass", (0.03, 0.05, 0.07), rough=0.05, metal=0.5)
+
+    def box(loc, scl, m, nm, rot=(0, 0, 0)):
+        o = L.prim("cube", loc=loc, rot=rot, name=f"{name}_{nm}")
+        o.scale = scl
+        L.assign(o, m)
+        o.parent = root
+        return o
+
+    box((0, -0.8, 0.55), (beam / 2 * 0.9, half * 0.78, 0.05), deckm, "deck")
+    P["deck_z"] = 0.6
+    P["gunwale_z"] = 1.15
+    P["stern_y"] = -half
+    # wheelhouse forward
+    wy = half * 0.25
+    box((0, wy, 1.6), (beam * 0.36, 1.4, 1.0), whm, "house")
+    box((0, wy - 0.3, 2.68), (beam * 0.4, 1.9, 0.07), whm, "roof")
+    box((0, wy + 1.42, 1.95), (beam * 0.3, 0.02, 0.4), glass, "winf")
+    for sx in (-1, 1):
+        box((sx * (beam * 0.36 + 0.02), wy + 0.3, 1.95), (0.02, 0.9, 0.38), glass, "wins")
+    mast = L.prim("cyl", loc=(0, wy - 0.6, 3.5), vertices=8, radius=0.05, depth=1.6, name=name + "_mast")
+    L.assign(mast, whm)
+    mast.parent = root
+    # hauler davit (starboard, just aft of house) + trap stack aft
+    dv = L.prim("cyl", loc=(beam * 0.42, wy - 1.8, 1.6), vertices=8, radius=0.05, depth=1.4, name=name + "_davit")
+    L.assign(dv, L.mat_principled(name + "_steel", (0.6, 0.6, 0.62), rough=0.3, metal=1))
+    dv.parent = root
+    for k in range(3):
+        box((-beam * 0.18, -half * 0.55 + k * 0.05, 0.85 + k * 0.5), (0.6, 0.4, 0.24),
+            L.mat_principled(name + "_trap", (0.15, 0.35, 0.2), rough=0.8), "trap")
+    # rope coil + crate
+    rc = L.prim("torus", loc=(beam * 0.2, -half * 0.7, 0.66), major_radius=0.3, minor_radius=0.06, name=name + "_coil")
+    L.assign(rc, L.mat_principled(name + "_rope", (0.75, 0.6, 0.2), rough=0.9))
+    rc.parent = root
+    P["coil"] = rc
+    return P
+
+
+def lobster(loc=(0, 0, 0), rot_z=0.0, scale=1.0, name="lobster"):
+    """Small red-brown lobster prop (body segments, tail fan, two claws, antennae)."""
+    m = L.mat_principled(name + "_m", (0.25, 0.08, 0.04), rough=0.45)
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, rot_z)
+
+    def p(kind, l, s, r=(0, 0, 0), **kw):
+        o = L.prim(kind, loc=l, rot=r, **kw)
+        o.scale = s
+        L.assign(o, m)
+        L.smooth(o)
+        o.parent = root
+        return o
+
+    p("sphere", (0, 0.05, 0.05), (0.05, 0.1, 0.045), segments=12, ring_count=8)
+    for k in range(4):
+        p("sphere", (0, -0.07 - k * 0.045, 0.04), (0.045 - k * 0.006, 0.03, 0.03), segments=10, ring_count=6)
+    p("cube", (0, -0.27, 0.035), (0.06, 0.03, 0.006))
+    for sx in (-1, 1):
+        p("cyl", (sx * 0.06, 0.15, 0.05), (0.015, 0.015, 0.06), r=(math.pi / 2 - 0.3, 0, sx * 0.4), vertices=8)
+        p("sphere", (sx * 0.1, 0.23, 0.05), (0.035, 0.07, 0.025), r=(0, 0, sx * 0.3), segments=10, ring_count=6)
+        p("cyl", (sx * 0.03, 0.25, 0.08), (0.003, 0.003, 0.15), r=(math.pi / 2 - 0.2, 0, sx * 0.3), vertices=4)
+    root.scale = (scale,) * 3
+    return root
+
+
+# ----------------------------------------------------------------------------- humpback whale
+
+
+def _whale_body_mat(name, top=(0.05, 0.055, 0.065), belly=(0.62, 0.62, 0.6)):
+    """Countershaded skin: dark back, paler underside (by normal Z), mottle + barnacle-ish speckle."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    geo = n.new("ShaderNodeNewGeometry")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(geo.outputs["Normal"], sep.inputs[0])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = -0.55
+    mr.inputs["From Max"].default_value = -0.85
+    l.new(sep.outputs["Z"], mr.inputs["Value"])
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 3.0
+    nz.inputs["Detail"].default_value = 6
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    mx = n.new("ShaderNodeMix")
+    mx.data_type = "RGBA"
+    l.new(mr.outputs[0], mx.inputs["Factor"])
+    mx.inputs[6].default_value = (*top, 1)
+    mx.inputs[7].default_value = (*belly, 1)
+    ov = n.new("ShaderNodeMix")
+    ov.data_type = "RGBA"
+    ov.blend_type = "OVERLAY"
+    ov.inputs["Factor"].default_value = 0.35
+    l.new(mx.outputs[2], ov.inputs[6])
+    l.new(nz.outputs["Color"], ov.inputs[7])
+    l.new(ov.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.35
+    p.inputs["Specular IOR Level"].default_value = 0.6
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.15
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def _pleat_mat(name, base=(0.6, 0.6, 0.58), groove=(0.06, 0.06, 0.07), count=9.0):
+    """Ventral throat pleats: pale with dark lengthwise grooves (bands across object X => stripes run along Y)."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    wv = n.new("ShaderNodeTexWave")
+    wv.wave_type = "BANDS"
+    wv.bands_direction = "X"
+    wv.wave_profile = "SIN"
+    wv.inputs["Scale"].default_value = count / 2
+    wv.inputs["Distortion"].default_value = 0.6
+    l.new(tc.outputs["Generated"], wv.inputs["Vector"])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.12
+    mr.inputs["From Max"].default_value = 0.3
+    l.new(wv.outputs["Fac"], mr.inputs["Value"])
+    mx = n.new("ShaderNodeMix")
+    mx.data_type = "RGBA"
+    l.new(mr.outputs[0], mx.inputs["Factor"])
+    mx.inputs[6].default_value = (*groove, 1)
+    mx.inputs[7].default_value = (*base, 1)
+    l.new(mx.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.4
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.5
+    l.new(mr.outputs[0], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+_WHALE_PROF = [  # t (0 tail stock .. 1 snout): half-width, half-height, centre z  (fractions of length)
+    (0.0, 0.018, 0.045, 0.0), (0.1, 0.035, 0.06, 0.005), (0.25, 0.07, 0.085, 0.01), (0.42, 0.105, 0.1, 0.01),
+    (0.58, 0.11, 0.098, 0.0), (0.7, 0.1, 0.085, -0.008), (0.82, 0.078, 0.065, -0.012), (0.92, 0.05, 0.045, -0.012),
+    (1.0, 0.012, 0.014, -0.01)]
+
+
+def _wprof(t):
+    for i in range(len(_WHALE_PROF) - 1):
+        a, b = _WHALE_PROF[i], _WHALE_PROF[i + 1]
+        if a[0] <= t <= b[0]:
+            u = (t - a[0]) / (b[0] - a[0])
+            u = u * u * (3 - 2 * u)
+            return tuple(a[k] + (b[k] - a[k]) * u for k in (1, 2, 3))
+    return _WHALE_PROF[-1][1:]
+
+
+def humpback(name="humpback", length=12.0, top=(0.05, 0.055, 0.065), belly=(0.62, 0.62, 0.6), t_hinge=0.6, seg=28,
+             ring=20):
+    """Stylised humpback built from primitives / lofts. Body along +Y (snout +Y), origin at body centre.
+    - body loft: dark back / pale belly; the head part above the mouth line is a 'lid' whose underside is dark
+      baleen (stripes), so opening the jaw reveals a dark mouth.
+    - lower jaw + throat pouch: separate loft (pale, dark pleat grooves) parented to parts['jaw'] (hinge empty at the
+      mouth corner; rotate X positive to open; scale Z to distend the throat).
+    - long white pectoral fins on pivots (parts['pecL'/'pecR']), fluke on parts['fluke'] pivot, small dorsal hump,
+      knobbly tubercles on the head and jaw tip. Returns parts."""
+    Lw = length
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root, "length": Lw}
+    body_m = _whale_body_mat(name + "_skin", top, belly)
+    baleen = L.mat_noise_surface(name + "_baleen", (0.03, 0.025, 0.02), (0.16, 0.13, 0.1), scale=30, bump=0.3, voronoi=False)
+    mouth_in = L.mat_principled(name + "_mouth", (0.12, 0.05, 0.05), rough=0.6)
+    pleat = _pleat_mat(name + "_pleat", base=tuple(c * 0.95 for c in belly))
+    white = L.mat_principled(name + "_fin", (0.78, 0.78, 0.76), rough=0.45)
+
+    def zmouth(t):
+        a, b, c = _wprof(t)
+        u = (t - t_hinge) / (1 - t_hinge)
+        return Lw * (c - b * (0.32 - 0.25 * u))
+
+    def build(nm, t0, t1, n_st, clamp, mats):
+        bm = bmesh.new()
+        rings = []
+        flagged = set()
+        for i in range(n_st + 1):
+            t = t0 + (t1 - t0) * i / n_st
+            a, b, c = _wprof(t)
+            zm = zmouth(t) if t >= t_hinge - 1e-6 else None
+            rr = []
+            for j in range(ring):
+                th = 2 * math.pi * j / ring
+                x, z = a * Lw * math.cos(th), c * Lw + b * Lw * math.sin(th)
+                fl = False
+                if clamp == "lid" and zm is not None and z < zm:
+                    z, fl = zm, True
+                if clamp == "jaw":
+                    zz = zmouth(max(t, t_hinge))
+                    if z > zz:
+                        z, fl = zz, True
+                    else:
+                        x *= 1.02
+                v = bm.verts.new((x, -Lw / 2 + Lw * t, z))
+                if fl:
+                    flagged.add(v)
+                rr.append(v)
+            rings.append(rr)
+        for i in range(len(rings) - 1):
+            for j in range(ring):
+                f = bm.faces.new((rings[i][j], rings[i][(j + 1) % ring], rings[i + 1][(j + 1) % ring], rings[i + 1][j]))
+                if all(v in flagged for v in f.verts):
+                    f.material_index = 1
+        bm.faces.new(list(reversed(rings[0])))
+        bm.faces.new(rings[-1])
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        o = L.mesh_from_bm(nm, bm)
+        for m in mats:
+            o.data.materials.append(m)
+        sub = o.modifiers.new("sub", "SUBSURF")
+        sub.levels = sub.render_levels = 1
+        L.smooth(o)
+        return o
+
+    body = build(name + "_body", 0.0, 1.0, seg, "lid", (body_m, baleen))
+    body.parent = root
+    P["body"] = body
+    # lower jaw / throat pouch, hinged at the mouth corner
+    a, b, c = _wprof(t_hinge)
+    hinge = L.link(bpy.data.objects.new(name + "_jawpivot", None))
+    hinge.parent = root
+    hz = zmouth(t_hinge)
+    hinge.location = (0, -Lw / 2 + Lw * (t_hinge - 0.08), hz)
+    P["jaw"] = hinge
+    jaw = build(name + "_jaw", t_hinge - 0.2, 1.0, int(seg * 0.5), "jaw", (pleat, mouth_in))
+    jaw.parent = hinge
+    jaw.location = (0, -hinge.location.y, -hz)
+    P["jawmesh"] = jaw
+    # pectoral fins (very long, white, knobbly leading edge)
+    for sx, tag in ((-1, "L"), (1, "R")):
+        pv = L.link(bpy.data.objects.new(f"{name}_pec{tag}", None))
+        pv.parent = root
+        a, b, c = _wprof(0.6)
+        pv.location = (sx * a * Lw * 0.85, -Lw / 2 + Lw * 0.6, (c - b * 0.45) * Lw)
+        pv.rotation_euler = (0.25, sx * 0.5, sx * 0.55)
+        fl = L.prim("cone", loc=(sx * Lw * 0.15, 0, 0), vertices=12, radius1=Lw * 0.035, radius2=Lw * 0.008,
+                    depth=Lw * 0.3, rot=(0, sx * math.pi / 2, 0), name=f"{name}_fin{tag}")
+        L.assign(fl, white)
+        L.smooth(fl)
+        fl.parent = pv
+        # flatten: squash the cone in its local X (which maps to world Z after the Y rotation)
+        fl.scale = (0.3, 1.0, 1.0)
+        for k in range(5):
+            kb = L.prim("sphere", loc=(sx * Lw * (0.04 + 0.05 * k), Lw * 0.028 * (1 - k * 0.15), 0), segments=8, ring_count=6,
+                        radius=Lw * 0.008, name=f"{name}_knob{tag}")
+            L.assign(kb, white)
+            kb.parent = pv
+        P["pec" + tag] = pv
+    # fluke
+    fk = L.link(bpy.data.objects.new(name + "_flukepivot", None))
+    fk.parent = root
+    fk.location = (0, -Lw / 2 + 0.01 * Lw, 0.0)
+    P["fluke"] = fk
+    for sx in (-1, 1):
+        f = L.prim("cone", loc=(sx * Lw * 0.09, -Lw * 0.05, 0), vertices=3, radius1=Lw * 0.09, radius2=0.0,
+                   depth=Lw * 0.02, name=name + "_flukeblade")
+        f.rotation_euler = (0, 0, sx * 0.9 + math.pi)
+        f.scale = (1.0, 0.55, 1.0)
+        L.assign(f, body_m)
+        f.parent = fk
+    # dorsal hump + tubercles
+    a, b, c = _wprof(0.3)
+    d_ = L.prim("cone", loc=(0, -Lw / 2 + Lw * 0.3, (c + b * 0.92) * Lw), vertices=8, radius1=Lw * 0.03, radius2=Lw * 0.004,
+                depth=Lw * 0.035, rot=(-0.6, 0, 0), name=name + "_dorsal")
+    L.assign(d_, body_m)
+    d_.parent = root
+    rnd = random.Random(5)
+    for k in range(16):
+        t = rnd.uniform(0.78, 0.98)
+        a, b, c = _wprof(t)
+        x = rnd.uniform(-0.6, 0.6) * a * Lw
+        zt = (c + b * math.sqrt(max(0.0, 1 - (x / (a * Lw)) ** 2)) * 0.97) * Lw
+        tb = L.prim("sphere", loc=(x, -Lw / 2 + Lw * t, zt), segments=8, ring_count=6, radius=Lw * 0.006,
+                    name=name + "_tub")
+        L.assign(tb, body_m)
+        tb.parent = root
+    for sx in (-1, 1):  # eye (small dark dome just above the mouth corner)
+        a, b, c = _wprof(t_hinge + 0.03)
+        ey = L.prim("sphere", loc=(sx * a * Lw * 0.98, -Lw / 2 + Lw * (t_hinge + 0.03), zmouth(t_hinge) + 0.03 * Lw),
+                    segments=10, ring_count=6, radius=Lw * 0.008, name=name + "_eye")
+        L.assign(ey, L.mat_principled(name + "_eyem", (0.01, 0.01, 0.01), rough=0.1))
+        ey.parent = root
+    return P
+
+
+def whale_swim(P, nframes, rate=0.35, amp=0.18, start=1, step=2):
+    """Slow fluke beat + gentle pectoral sway."""
+    for f in range(start, start + nframes + 1, step):
+        t = (f - start) / 24
+        ph = 2 * math.pi * rate * t
+        P["fluke"].rotation_euler = (amp * math.sin(ph), 0, 0)
+        P["fluke"].keyframe_insert("rotation_euler", frame=f)
+        for tag, sx in (("L", -1), ("R", 1)):
+            pv = P["pec" + tag]
+            pv.rotation_euler = (0.25 + 0.08 * math.sin(ph + 1), sx * 0.5, sx * (0.55 + 0.06 * math.sin(ph)))
+            pv.keyframe_insert("rotation_euler", frame=f)
+
+
+def jaw_keys(P, pairs):
+    """pairs: [(frame, open_radians, throat_scale)]."""
+    j = P["jaw"]
+    for f, a, s in pairs:
+        j.rotation_euler = (-a, 0, 0)
+        j.scale = (1.0 + 0.15 * (s - 1), 1.0, s)
+        j.keyframe_insert("rotation_euler", frame=f)
+        j.keyframe_insert("scale", frame=f)
+
+
+def bubbles_at(origin, starts, rise=1.6, spread=0.12, size=0.025, life=(28, 50), seed=3, name="bub", mat=None,
+               drift=(0.0, 0.0)):
+    """Bubbles released at explicit frames (bursts, rhythmic exhalations, a supply running out).
+    starts: list of frames (one bubble each; repeat a frame for a burst)."""
+    rnd = random.Random(seed)
+    m = mat or L.mat_principled(name + "_m", (0.8, 0.95, 1.0), rough=0.05, emit=(0.55, 0.75, 0.85), emit_strength=0.5)
+    out = []
+    o0 = Vector(origin)
+    for i, st in enumerate(starts):
+        r = size * rnd.uniform(0.45, 1.4)
+        o = L.prim("sphere", loc=o0, segments=8, ring_count=6, radius=r, name=f"{name}{i}")
+        L.assign(o, m)
+        o.visible_shadow = False
+        lf = rnd.randint(*life)
+        ox, oy = rnd.uniform(-spread, spread), rnd.uniform(-spread, spread)
+        o.scale = (0.001,) * 3
+        o.location = o0
+        o.keyframe_insert("scale", frame=max(0, st - 1))
+        o.keyframe_insert("location", frame=max(0, st - 1))
+        o.scale = (1, 1, 1)
+        o.keyframe_insert("scale", frame=st)
+        for k in range(1, 5):
+            f = st + lf * k / 4
+            o.location = (o0.x + ox * k + drift[0] * k + 0.03 * math.sin(k * 2.1 + i), o0.y + oy * k + drift[1] * k,
+                          o0.z + rise * k / 4 * lf / 24)
+            o.keyframe_insert("location", frame=f)
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=st + lf)
+        out.append(o)
+    return out
+
+
+def mat_drain(name, color=(0.25, 1.0, 0.95), strength=6.0, origin=(0, 0, 0)):
+    """Emission whose glow can 'drain' outward from a point: strength * clamp((dist(P, origin) - T) / 0.4) where
+    T is keyframable (returned socket). T < 0 => fully lit; T beyond the tube length => dark.
+    Object must have an identity transform (object space == world space)."""
+    m, n, l = _m(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    tc = n.new("ShaderNodeTexCoord")
+    dv = n.new("ShaderNodeVectorMath")
+    dv.operation = "DISTANCE"
+    dv.inputs[1].default_value = origin
+    l.new(tc.outputs["Object"], dv.inputs[0])
+    sub = n.new("ShaderNodeMath")
+    sub.operation = "SUBTRACT"
+    sub.inputs[1].default_value = -1.0
+    l.new(dv.outputs["Value"], sub.inputs[0])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0
+    mr.inputs["From Max"].default_value = 0.4
+    l.new(sub.outputs[0], mr.inputs["Value"])
+    mul = n.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    mul.inputs[1].default_value = strength
+    l.new(mr.outputs[0], mul.inputs[0])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    l.new(mul.outputs[0], em.inputs[1])
+    dark = n.new("ShaderNodeBsdfPrincipled")
+    dark.inputs["Base Color"].default_value = (0.03, 0.05, 0.05, 1)
+    dark.inputs["Roughness"].default_value = 0.5
+    add = n.new("ShaderNodeAddShader")
+    l.new(dark.outputs[0], add.inputs[0])
+    l.new(em.outputs[0], add.inputs[1])
+    l.new(add.outputs[0], n["Material Output"].inputs["Surface"])
+    return m, sub.inputs[1], mul.inputs[1]
+
+
+def drain_keys(sock, pairs):
+    for f, v in pairs:
+        sock.default_value = v
+        sock.keyframe_insert("default_value", frame=f)
+
+
+def no_shadow(*lights):
+    for o in lights:
+        try:
+            o.data.use_shadow = False
+        except Exception:
+            pass

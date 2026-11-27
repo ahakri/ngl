@@ -406,7 +406,7 @@
           "type": "text",
           "text": "CHRIS LEMONS\nSATURATION DIVER",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70
           }
         },
@@ -549,7 +549,7 @@
           "text": "BREATHING GAS\nCOMMS",
           "params": {
             "header": "UMBILICAL CARRIES",
-            "y": 1200
+            "y": 150
           }
         }
       ],
@@ -742,7 +742,7 @@
           "type": "text",
           "text": "DAVE YUASA\nBELL DIVER",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70
           }
         }
@@ -815,7 +815,7 @@
           "type": "text",
           "text": "DUNCAN ALLCOCK\nIN THE BELL",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70
           }
         }
@@ -945,7 +945,7 @@
           "type": "text",
           "text": "COLD = LESS\nOXYGEN NEEDED",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 80,
             "color": [
               255,

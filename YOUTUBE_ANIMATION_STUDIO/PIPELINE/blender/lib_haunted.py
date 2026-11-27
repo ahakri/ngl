@@ -5,7 +5,7 @@ Import from shots.py:
 All geometry procedural. Units metres, Z up. Uses studio_lib (L) helpers; never edits it.
 """
 import bpy, bmesh, math, random
-from mathutils import Vector, Quaternion, Euler, noise
+from mathutils import Vector, Quaternion, Euler, Matrix, noise
 import studio_lib as L
 
 # ============================================================================ generic helpers
@@ -1617,3 +1617,917 @@ def fire_hose(points, n, start_frac=0.15, end_frame=None, name="hose", radius=0.
     L.linear_fcurves(noz)
     _interp_data(cu, "LINEAR")
     return o, noz
+
+
+# ============================================================================ ARCHER AVENUE sets (HAUNT-03)
+# World layout: Archer road runs along +Y at x=0 (width 7, right lane x=+1.75). Cemetery set: gates along X at y=0 facing -Y,
+# cemetery road along X between y=-9 and y=-2. Dance hall: front facade at y=0 facing -Y, 22 m along X.
+
+def _tube(bm, pts, r0, r1=None, sides=6):
+    """Tapered tube through a polyline of points (Vector). Appends to bm."""
+    r1 = r0 if r1 is None else r1
+    rings = []
+    for i, p in enumerate(pts):
+        a = pts[max(0, i - 1)]
+        b = pts[min(len(pts) - 1, i + 1)]
+        d = (b - a).normalized()
+        up = Vector((0, 0, 1)) if abs(d.z) < 0.95 else Vector((1, 0, 0))
+        u = d.cross(up).normalized()
+        v = d.cross(u).normalized()
+        r = r0 + (r1 - r0) * i / max(1, len(pts) - 1)
+        rings.append([bm.verts.new(p + (u * math.cos(k * 2 * math.pi / sides) + v * math.sin(k * 2 * math.pi / sides)) * r)
+                      for k in range(sides)])
+    for j in range(len(rings) - 1):
+        for k in range(sides):
+            bm.faces.new((rings[j][k], rings[j][(k + 1) % sides], rings[j + 1][(k + 1) % sides], rings[j + 1][k]))
+    return rings
+
+
+def bare_forest(name, regions, count=80, seed=3, height=(6.0, 12.0), mat=None, depth=3):
+    """Many bare deciduous trees in ONE mesh (cheap). regions: [(xmin, xmax, ymin, ymax)]."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    tot = sum((r[1] - r[0]) * (r[3] - r[2]) for r in regions)
+
+    def branch(base, d, length, rad, lvl):
+        end = base + d * length
+        mid = (base + end) / 2 + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * length * 0.06
+        _tube(bm, [base, mid, end], rad, rad * 0.6, sides=5 if lvl > 1 else 4)
+        if lvl > 0:
+            for _ in range(rnd.randint(2, 3)):
+                nd = (d + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-0.05, 0.6)))).normalized()
+                if nd.z < 0.1:
+                    nd.z = 0.1
+                    nd.normalize()
+                branch(end - d * length * rnd.uniform(0, 0.25), nd, length * rnd.uniform(0.5, 0.72), rad * 0.55, lvl - 1)
+
+    for reg in regions:
+        k = max(1, int(round(count * (reg[1] - reg[0]) * (reg[3] - reg[2]) / tot)))
+        for i in range(k):
+            x, y = rnd.uniform(reg[0], reg[1]), rnd.uniform(reg[2], reg[3])
+            h = rnd.uniform(*height)
+            lean = Vector((rnd.uniform(-0.08, 0.08), rnd.uniform(-0.08, 0.08), 1)).normalized()
+            branch(Vector((x, y, -0.3)), lean, h * 0.42, h * 0.026, depth)
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat or L.mat_noise_surface(name + "_bark", (0.012, 0.012, 0.012), (0.05, 0.045, 0.04), scale=6, bump=0.3, voronoi=False))
+    return o
+
+
+def ground_box(name, x0, x1, y0, y1, z=0.0, mat=None):
+    """Flat ground quad in world coords (object coords = metres, so noise materials keep real scale)."""
+    bm = bmesh.new()
+    vs = [bm.verts.new(p) for p in ((x0, y0, z), (x1, y0, z), (x1, y1, z), (x0, y1, z))]
+    bm.faces.new(vs)
+    o = L.mesh_from_bm(name, bm)
+    if mat:
+        L.assign(o, mat)
+    return o
+
+
+def mat_gravel(name="gravel"):
+    return L.mat_noise_surface(name, (0.05, 0.05, 0.05), (0.17, 0.16, 0.15), scale=9, bump=0.5, voronoi=True, rough=0.9)
+
+
+def mat_verge(name="verge"):
+    return L.mat_noise_surface(name, (0.012, 0.016, 0.01), (0.05, 0.055, 0.035), scale=3, bump=0.4, voronoi=False, rough=1.0)
+
+
+def mat_limestone(name="limestone"):
+    return L.mat_noise_surface(name, (0.3, 0.29, 0.26), (0.55, 0.53, 0.48), scale=3.5, bump=0.35, voronoi=True, rough=0.85)
+
+
+def archer_road(y0=-30.0, y1=230.0, forest=True, fog=0.05, fog_h=2.4, count=130, seed=3, dashes=True):
+    """Two-lane wet country road along +Y through bare woods, low fog over the verges."""
+    box_mesh("road", [(0, (y0 + y1) / 2, 0.0, 3.5, (y1 - y0) / 2, 0.01)], mat_wet_road("archer_wet"))
+    ground_box("verge", -60, 60, y0, y1 + 40, -0.02, mat_verge())
+    if dashes:
+        lm = L.mat_principled("cline", (0.45, 0.38, 0.16), rough=0.5, emit=(0.3, 0.25, 0.1), emit_strength=0.05)
+        box_mesh("centreline", [(0.0, y, 0.012, 0.06, 1.5, 0.002) for y in range(int(y0), int(y1), 7)], lm)
+    tr = None
+    if forest:
+        tr = bare_forest("woods", [(-40, -5.2, y0, y1), (5.2, 40, y0, y1)], count=count, seed=seed)
+    fg = None
+    if fog:
+        fg = L.fog_volume(center=(0, (y0 + y1) / 2, fog_h / 2), size=(70, y1 - y0, fog_h), density=fog, color=(0.72, 0.75, 0.82))
+    return {"trees": tr, "fog": fg}
+
+
+def pale_woman(name="mary", height=1.62, alpha=1.0, emit=0.15, color=(0.75, 0.75, 0.72)):
+    """Faceless pale woman in a long 1930s dress (figure(dress=True)), soft emission so she reads in fog."""
+    p = figure(name, color=color, height=height, dress=True)
+    m = p["torso"].data.materials[0]
+    pr = m.node_tree.nodes["Principled BSDF"]
+    pr.inputs["Emission Color"].default_value = (0.85, 0.88, 0.92, 1)
+    pr.inputs["Emission Strength"].default_value = emit
+    pr.inputs["Roughness"].default_value = 0.9
+    s = height / 1.75
+    hair = L.prim("sphere", loc=(0, -0.03 * s, 0.1 * s), segments=14, ring_count=8, radius=0.1 * s)
+    hair.scale = (1.12, 1.05, 1.15)
+    L.assign(hair, m)
+    hair.parent = p["neck"]
+    # slightly flared hem + narrow waist so the silhouette reads as a dress, not a cone
+    p["dress"].scale = (1.0, 0.85, 1.0)
+    if alpha < 1.0:
+        pr.inputs["Alpha"].default_value = alpha
+        try:
+            m.surface_render_method = "BLENDED"
+        except Exception:
+            pass
+    p["mat"] = m
+    return p
+
+
+def set_alpha(mat, pairs):
+    """Animate principled alpha [(frame, a)] (material must be BLENDED/dithered)."""
+    pr = mat.node_tree.nodes["Principled BSDF"]
+    try:
+        mat.surface_render_method = "BLENDED"
+    except Exception:
+        pass
+    for f, a in pairs:
+        pr.inputs["Alpha"].default_value = a
+        pr.inputs["Alpha"].keyframe_insert("default_value", frame=f)
+
+
+def car_1930s(name="car", loc=(0, 0, 0), rot_z=0.0, body=(0.02, 0.022, 0.025), lamps=True, lamp_energy=900, tail=1.0,
+              door_open=0.0, police=False):
+    """1930s sedan silhouette facing +Y local: long hood, upright cabin, separate fenders, running boards, spare wheel.
+    Returns dict root, spots, tail_light, tail_mat, head_mat, door (hinge empty, passenger/right side)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    bm_ = L.mat_principled(name + "_paint", body, rough=0.28, metal=0.3)
+    chrome = L.mat_principled(name + "_chrome", (0.6, 0.6, 0.62), rough=0.2, metal=1.0)
+    glass = L.mat_principled(name + "_glass", (0.01, 0.012, 0.016), rough=0.05, metal=0.2)
+    tyre = L.mat_principled(name + "_tyre", (0.01, 0.01, 0.01), rough=0.8)
+    box_mesh(name + "_body", [(0, -0.2, 0.74, 0.66, 1.75, 0.24),           # main tub
+                             (0, 1.55, 0.86, 0.46, 0.65, 0.2),             # long hood
+                             (0, -1.9, 0.8, 0.62, 0.3, 0.28)], bm_, parent=root, bevel=0.07)
+    box_mesh(name + "_cabin", [(0, -0.55, 1.26, 0.74, 1.0, 0.35)], bm_, parent=root, bevel=0.2)
+    box_mesh(name + "_fender", [(sx * 0.8, sy * 1.45 - 0.1, 0.66, 0.15, 0.55, 0.13) for sx in (-1, 1) for sy in (-1, 1)], bm_,
+             parent=root, bevel=0.1)
+    box_mesh(name + "_win", [(0, -0.55, 1.3, 0.75, 0.92, 0.2), (0, 0.46, 1.3, 0.68, 0.01, 0.2)], glass, parent=root)
+    box_mesh(name + "_grille", [(0, 2.21, 0.82, 0.32, 0.04, 0.24)], chrome, parent=root, bevel=0.02)
+    box_mesh(name + "_board", [(sx * 0.8, -0.05, 0.42, 0.12, 0.85, 0.02) for sx in (-1, 1)], tyre, parent=root)
+    box_mesh(name + "_bump", [(0, 2.42, 0.48, 0.85, 0.04, 0.05), (0, -2.32, 0.48, 0.85, 0.04, 0.05)], chrome, parent=root)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            w = L.prim("cyl", loc=(sx * 0.8, sy * 1.45 - 0.1, 0.36), vertices=16, radius=0.36, depth=0.2, rot=(0, math.pi / 2, 0))
+            L.assign(w, tyre)
+            w.parent = root
+            hub = L.prim("cyl", loc=(sx * 0.91, sy * 1.45 - 0.1, 0.36), vertices=12, radius=0.12, depth=0.02, rot=(0, math.pi / 2, 0))
+            L.assign(hub, chrome)
+            hub.parent = root
+    sp_ = L.prim("torus", loc=(0, -2.25, 0.95), major_radius=0.3, minor_radius=0.08, rot=(math.pi / 2, 0, 0))
+    L.assign(sp_, tyre)
+    sp_.parent = root
+    head_mat = L.mat_emission(name + "_lamp", (1.0, 0.86, 0.6), 25.0 if lamps else 0.0)
+    tail_mat = L.mat_emission(name + "_tail", (1.0, 0.05, 0.02), 6.0 * tail)
+    spots = []
+    for sx in (-1, 1):
+        h = L.prim("sphere", loc=(sx * 0.6, 2.2, 1.02), segments=14, ring_count=8, radius=0.13)
+        h.scale = (1, 0.7, 1)
+        L.assign(h, head_mat if lamps else chrome)
+        h.parent = root
+        t = L.prim("sphere", loc=(sx * 0.72, -2.2, 0.85), segments=10, ring_count=6, radius=0.05)
+        L.assign(t, tail_mat)
+        t.parent = root
+        if lamps:
+            s = L.spot((0, 0, 0), (math.pi / 2 - 0.07, 0, 0), energy=lamp_energy, size_deg=30, blend=0.5, color=(1.0, 0.88, 0.66),
+                       name=f"{name}_hl{sx}", radius=0.08)
+            s.parent = root
+            s.location = (sx * 0.6, 2.35, 1.02)
+            spots.append(s)
+    tl = L.point((0, -2.7, 0.6), energy=40 * tail, color=(1.0, 0.05, 0.02), radius=0.3, name=name + "_brake")
+    tl.parent = root
+    out = {"root": root, "spots": spots, "tail_light": tl, "tail_mat": tail_mat, "head_mat": head_mat}
+    # passenger (right, +X) front door as separate hinged slab
+    # rear-hinged ("suicide") front door, typical of the period: opens forward, door_open in radians
+    hinge = empty(name + "_dhinge", (0.76, -0.5, 0.48), parent=root)
+    box_mesh(name + "_door", [(0, 0.45, 0.5, 0.03, 0.45, 0.5)], bm_, parent=hinge)
+    box_mesh(name + "_dwin", [(0.006, 0.45, 0.8, 0.03, 0.38, 0.17)], glass, parent=hinge)
+    hinge.rotation_euler = (0, 0, -door_open)
+    out["door"] = hinge
+    if police:
+        bar = box_mesh(name + "_bar", [(0, -0.5, 1.68, 0.55, 0.12, 0.06)], L.mat_principled(name + "_barm", (0.1, 0.1, 0.1)), parent=root)
+        rm = L.mat_emission(name + "_red", (1.0, 0.02, 0.02), 30)
+        bmm = L.mat_emission(name + "_blue", (0.05, 0.2, 1.0), 30)
+        r = box_mesh(name + "_rl", [(-0.32, -0.5, 1.68, 0.2, 0.13, 0.065)], rm, parent=root)
+        b = box_mesh(name + "_bl", [(0.32, -0.5, 1.68, 0.2, 0.13, 0.065)], bmm, parent=root)
+        rl = L.point((-0.4, -0.5, 1.9), energy=900, color=(1.0, 0.03, 0.02), radius=0.15, name=name + "_redl")
+        bl = L.point((0.4, -0.5, 1.9), energy=900, color=(0.1, 0.25, 1.0), radius=0.15, name=name + "_bluel")
+        rl.parent = root
+        bl.parent = root
+        out.update({"red": rl, "blue": bl, "red_mat": rm, "blue_mat": bmm})
+    return out
+
+
+def police_flash(car, n, hz=2.0, energy=900, fade=None):
+    """Alternating red/blue at hz (each colour half a cycle). fade=(f0,f1) ramps to 0."""
+    fps = bpy.context.scene.render.fps
+    half = max(1, int(round(fps / hz / 2)))
+    for f in range(1, n + 2):
+        on_red = ((f - 1) // half) % 2 == 0
+        k = 1.0
+        if fade:
+            k = max(0.0, min(1.0, (fade[1] - f) / max(1, fade[1] - fade[0])))
+        car["red"].data.energy = energy * k if on_red else 0.0
+        car["blue"].data.energy = 0.0 if on_red else energy * k
+        car["red"].data.keyframe_insert("energy", frame=f)
+        car["blue"].data.keyframe_insert("energy", frame=f)
+    for o in (car["red"], car["blue"]):
+        _interp_data(o.data, "CONSTANT")
+    for mat, red in ((car["red_mat"], True), (car["blue_mat"], False)):
+        node = next(nd for nd in mat.node_tree.nodes if nd.type == "EMISSION")
+        for f in range(1, n + 2, half):
+            on_red = ((f - 1) // half) % 2 == 0
+            node.inputs[1].default_value = 30.0 if (on_red == red) else 0.5
+            node.inputs[1].keyframe_insert("default_value", frame=f)
+        _interp_data(mat.node_tree, "CONSTANT")
+
+
+def cemetery_gates(loc=(0, 0, 0), bent=False, prints=False, wall_len=26.0, stones=True, trees=True, road=True, seed=5):
+    """Iron gates between two limestone piers along X (facing -Y), low stone walls, lawn + headstones behind,
+    wet road in front (y -9..-2). bent: two left-of-centre bars bowed out toward the road; prints: scorched palm marks."""
+    root = empty("gates", loc)
+    lime = mat_limestone()
+    iron = L.mat_principled("iron", (0.03, 0.032, 0.034), rough=0.32, metal=0.75)
+    ow = 3.2
+    nb = 22
+    pier_x = ow / 2 + 0.45
+    for sx in (-1, 1):
+        box_mesh(f"pier{sx}", [(sx * pier_x, 0, 1.6, 0.45, 0.45, 1.6), (sx * pier_x, 0, 3.27, 0.52, 0.52, 0.07),
+                               (sx * pier_x, 0, 0.12, 0.52, 0.52, 0.12)], lime, parent=root, bevel=0.02)
+        f = L.prim("sphere", loc=(sx * pier_x, 0, 3.62), segments=18, ring_count=10, radius=0.27)
+        L.assign(f, lime)
+        L.smooth(f)
+        f.parent = root
+        nk = L.prim("cyl", loc=(sx * pier_x, 0, 3.38), vertices=12, radius=0.14, depth=0.12)
+        L.assign(nk, lime)
+        nk.parent = root
+    # bars
+    bm = bmesh.new()
+    bent_idx = (8, 9)
+    tips = []
+    bar_r, hgt = 0.013, 2.6
+    xs = [-ow / 2 + ow * (i + 0.5) / nb for i in range(nb)]
+    for i, x in enumerate(xs):
+        if bent and i in bent_idx:
+            pts = []
+            side = -1 if i == bent_idx[0] else 1
+            for k in range(13):
+                t = k / 12
+                z = 0.1 + t * hgt
+                w = math.sin(math.pi * min(1, max(0, (z - 0.4) / 1.6))) if z < 2.0 else 0.0
+                pts.append(Vector((x + side * 0.055 * w, -0.16 * w, z)))
+            _tube(bm, pts, bar_r, bar_r, sides=8)
+        else:
+            _tube(bm, [Vector((x, 0, 0.1)), Vector((x, 0, 0.1 + hgt))], bar_r, bar_r, sides=8)
+        tips.append((x, 0.1 + hgt))
+    bars = L.mesh_from_bm("bars", bm)
+    L.assign(bars, iron)
+    bars.parent = root
+    L.smooth(bars)
+    bmt = bmesh.new()
+    for x, z in tips:
+        bmesh.ops.create_cone(bmt, cap_ends=True, segments=6, radius1=0.028, radius2=0.0, depth=0.16,
+                              matrix=Matrix.Translation((x, 0, z + 0.08)))
+    tp = L.mesh_from_bm("bartips", bmt)
+    L.assign(tp, iron)
+    tp.parent = root
+    rails = [(0, 0, 0.42, ow / 2, 0.022, 0.03), (0, 0, 2.25, ow / 2, 0.022, 0.03), (0, 0, 2.5, ow / 2, 0.018, 0.02),
+             (0, 0, 1.35, 0.03, 0.03, 1.3)]
+    for sx in (-1, 1):
+        rails.append((sx * (ow / 2 - 0.03), 0, 1.35, 0.03, 0.03, 1.3))
+    box_mesh("rails", rails, iron, parent=root)
+    if prints:
+        pm = L.mat_noise_surface("scorch", (0.015, 0.008, 0.004), (0.07, 0.035, 0.015), scale=60, bump=0.6, voronoi=False, rough=1.0)
+        for j, i in enumerate(bent_idx):
+            side = -1 if j == 0 else 1
+            x = xs[i] + side * 0.052
+            z = 1.12 + 0.04 * j
+            w = math.sin(math.pi * (z - 0.4) / 1.6)
+            y = -0.16 * w
+            palm = L.prim("sphere", loc=(x, y - 0.002, z), segments=12, ring_count=8, radius=1)
+            palm.scale = (0.017, 0.017, 0.036)
+            L.assign(palm, pm)
+            palm.parent = root
+            for k in range(4):
+                fg = L.prim("sphere", loc=(x + (k - 1.5) * 0.004, y - 0.002, z + 0.065 + 0.012 * (1 - abs(k - 1.5) / 1.5)),
+                            segments=8, ring_count=6, radius=1)
+                fg.scale = (0.0142, 0.0142, 0.02)
+                L.assign(fg, pm)
+                fg.parent = root
+    # walls
+    wl = (wall_len - pier_x - 0.45) / 2
+    wx = pier_x + 0.45 + wl
+    box_mesh("cwall", [(sx * wx, 0, 0.55, wl, 0.25, 0.55) for sx in (-1, 1)] +
+             [(sx * wx, 0, 1.13, wl + 0.02, 0.3, 0.05) for sx in (-1, 1)], lime, parent=root)
+    grass = mat_verge("lawn")
+    ground_box("lawn", -60, 60, 0.3, 80, 0.0, grass)
+    ground_box("cverge", -60, 60, -2.0, 0.3, 0.005, grass)
+    if road:
+        box_mesh("croad", [(0, -5.5, 0.0, 60, 3.5, 0.01)], mat_wet_road("cwet"))
+        ground_box("sverge", -60, 60, -40, -9, 0.005, grass)
+        lm = L.mat_principled("ccline", (0.45, 0.38, 0.16), rough=0.5)
+        box_mesh("ccentre", [(x, -5.5, 0.012, 1.5, 0.06, 0.002) for x in range(-58, 60, 7)], lm)
+    st = []
+    if stones:
+        rnd = random.Random(seed)
+        stm = L.mat_noise_surface("stone", (0.2, 0.2, 0.19), (0.42, 0.41, 0.38), scale=4, bump=0.4, voronoi=True)
+        boxes = []
+        for i in range(40):
+            x, y = rnd.uniform(-22, 22), rnd.uniform(4, 40)
+            if abs(x) < 2.5 and y < 9:
+                continue
+            boxes.append((x, y, 0.4, rnd.uniform(0.25, 0.4), 0.08, rnd.uniform(0.3, 0.55), rnd.uniform(-0.15, 0.15)))
+        st.append(box_mesh("headstones", boxes, stm, bevel=0.03))
+    if trees:
+        bare_forest("ctrees", [(-30, 30, 12, 45)], count=22, seed=seed + 2, height=(7, 13))
+        bare_forest("ctrees_s", [(-40, 40, -40, -14)], count=14, seed=seed + 4, height=(7, 12))
+    return {"root": root, "bars": bars, "xs": xs, "bent_idx": bent_idx}
+
+
+def headstone_row(xs, y=0.0, h=0.85, w=0.6, t=0.14, name="hs"):
+    """Plain blank upright headstones (round-topped), no names, no dates."""
+    stm = L.mat_noise_surface(name + "_m", (0.28, 0.28, 0.27), (0.5, 0.49, 0.46), scale=5, bump=0.35, voronoi=True, rough=0.8)
+    out = []
+    for i, x in enumerate(xs):
+        b = box_mesh(f"{name}{i}", [(x, y, h / 2 - 0.1, w / 2, t / 2, h / 2)], stm, bevel=0.025)
+        c = L.prim("cyl", loc=(x, y, h - 0.1), vertices=24, radius=w / 2, depth=t, rot=(math.pi / 2, 0, 0))
+        c.scale = (1, 0.45, 1)
+        L.assign(c, stm)
+        base = box_mesh(f"{name}{i}_base", [(x, y, 0.06, w / 2 + 0.08, t / 2 + 0.1, 0.08)], stm, bevel=0.02)
+        out += [b, c, base]
+    return out
+
+
+def dance_hall(n, doors_open=None, cars=True, sign=True, gravel=True):
+    """1930s single-storey suburban dance hall, front facade at y=0 facing -Y, 22 x 12 m, hipped roof,
+    six tall arched amber windows, canopy over double doors, unlit rooftop 'BALLROOM' sign, gravel car park.
+    doors_open: (f0, f1) animate the double doors opening between those frames (else closed)."""
+    Wd, Dp, Ht = 22.0, 12.0, 5.2
+    stucco = L.mat_noise_surface("stucco", (0.26, 0.24, 0.21), (0.42, 0.39, 0.34), scale=2.0, bump=0.12, voronoi=False, rough=0.85)
+    roofm = L.mat_noise_surface("hallroof", (0.03, 0.03, 0.035), (0.09, 0.085, 0.08), scale=6, bump=0.3, voronoi=False, rough=0.7)
+    trim = L.mat_principled("halltrim", (0.55, 0.5, 0.42), rough=0.6)
+    glow = L.mat_emission("hallglow", (1.0, 0.62, 0.28), 4.0)
+    door = (0.0, 2.2, 0.0, 2.7)
+    wall_with_openings("hallfront", "x", 0.0, Wd, Ht, [door], mat=stucco, outward=-1)
+    box_mesh("hallbody", [(0, (Dp + 2.4) / 2, Ht / 2, Wd / 2, (Dp - 2.4) / 2, Ht / 2), (-Wd / 2 + 0.1, 1.2, Ht / 2, 0.1, 1.2, Ht / 2),
+                          (Wd / 2 - 0.1, 1.2, Ht / 2, 0.1, 1.2, Ht / 2), (0, 1.2, Ht - 0.1, Wd / 2, 1.2, 0.1),
+                          (-1.7, 1.2, Ht / 2, 0.05, 1.2, Ht / 2), (1.7, 1.2, Ht / 2, 0.05, 1.2, Ht / 2)], stucco)
+    box_mesh("hallcornice", [(0, -0.12, Ht - 0.1, Wd / 2 + 0.15, 0.12, 0.12), (0, -0.12, 0.2, Wd / 2 + 0.05, 0.08, 0.2)], trim)
+    _hip_roof("hallroof", (0, Dp / 2, Ht), Wd + 0.8, Dp + 0.8, 2.0, roofm)
+    # six tall arched windows: emissive panes + dark mullions/glazing bars
+    wxs = (-9.0, -6.2, -3.4, 3.4, 6.2, 9.0)
+    panes, mull = [], []
+    for x in wxs:
+        panes.append((x, -0.12, 2.15, 0.6, 0.02, 1.25))
+        for k in (-1, 0, 1):
+            mull.append((x + k * 0.3, -0.15, 2.4, 0.025, 0.02, 1.5))
+        for z in (1.4, 2.2, 3.0):
+            mull.append((x, -0.15, z, 0.6, 0.02, 0.022))
+        mull.append((x, -0.16, 0.86, 0.72, 0.06, 0.04))
+    box_mesh("hallpanes", panes, glow)
+    box_mesh("hallmull", mull, L.mat_principled("mullm", (0.04, 0.035, 0.03), rough=0.7))
+    for x in wxs:
+        a = L.prim("cyl", loc=(x, -0.12, 3.4), vertices=24, radius=0.6, depth=0.04, rot=(math.pi / 2, 0, 0))
+        L.assign(a, glow)
+        ar = L.prim("torus", loc=(x, -0.14, 3.4), major_radius=0.64, minor_radius=0.05, rot=(math.pi / 2, 0, 0))
+        L.assign(ar, trim)
+    for x in (-7.6, -3.4, 3.4, 7.6):
+        L.area((x, -1.2, 2.6), (math.radians(80), 0, 0), energy=260, size=2.2, color=(1.0, 0.62, 0.3), name="winspill")
+    # interior behind the doors
+    box_mesh("foyer", [(0, 1.6, 1.6, 1.6, 0.05, 1.6), (0, 0.8, 0.0, 1.6, 0.8, 0.02)], L.mat_principled("foyerm", (0.6, 0.42, 0.24), rough=0.6,
+                                                                                                         emit=(1.0, 0.6, 0.3), emit_strength=1.2))
+    fl = L.point((0, 1.0, 2.2), energy=300, color=(1.0, 0.62, 0.3), radius=0.4, name="foyerlight")
+    dm = L.mat_principled("halldoor", (0.12, 0.06, 0.03), rough=0.5)
+    dl, _ = door_slab("hdoorL", (-1.1, -0.06, 0), width=1.1, height=2.7, mat=dm)
+    dr, _ = door_slab("hdoorR", (1.1, -0.06, 0), width=1.1, height=2.7, mat=dm)
+    dr.rotation_euler = (0, 0, math.pi)
+    spill = L.spot((0, 1.0, 2.3), (-math.radians(62), 0, 0), energy=0, size_deg=95, blend=0.5, color=(1.0, 0.62, 0.3), name="doorspill",
+                   radius=0.3)
+    if doors_open:
+        f0, f1 = doors_open
+        for piv, a0, a1 in ((dl, 0.0, -1.8), (dr, math.pi, math.pi + 1.8)):
+            piv.rotation_euler = (0, 0, a0)
+            piv.keyframe_insert("rotation_euler", index=2, frame=f0)
+            piv.rotation_euler = (0, 0, a1)
+            piv.keyframe_insert("rotation_euler", index=2, frame=f1)
+        key_energy(spill, [(f0, 0.0), (f1, 1500.0)], "LINEAR")
+    # canopy on two posts + bulbs under it
+    box_mesh("canopy", [(0, -1.25, 3.05, 2.1, 1.25, 0.08)], trim)
+    box_mesh("canposts", [(sx * 1.95, -2.35, 1.5, 0.07, 0.07, 1.5) for sx in (-1, 1)], trim)
+    cb = L.mat_emission("canbulb", (1.0, 0.75, 0.45), 15)
+    for x in (-1.3, 0, 1.3):
+        b = L.prim("sphere", loc=(x, -2.2, 2.9), segments=10, ring_count=6, radius=0.06)
+        L.assign(b, cb)
+    L.point((0, -1.6, 2.7), energy=120, color=(1.0, 0.72, 0.42), radius=0.3, name="canlight")
+    if sign:
+        sm = L.mat_principled("signm", (0.62, 0.58, 0.5), rough=0.6, emit=(0.9, 0.85, 0.75), emit_strength=0.25)
+        box_mesh("signframe", [(0, 1.2, Ht + 1.9, 4.3, 0.05, 0.75)] + [(sx * 3.6, 1.25, Ht + 0.9, 0.05, 0.05, 1.0) for sx in (-1, 1)],
+                 L.mat_principled("signbk", (0.05, 0.045, 0.04), rough=0.6))
+        L.text3d("BALLROOM", loc=(0, 1.13, Ht + 1.55), size=1.05, extrude=0.04, mat=sm, name="signtxt")
+    if gravel:
+        ground_box("carpark", -30, 30, -26, -0.1, 0.0, mat_gravel())
+        ground_box("hallgrass", -60, 60, -60, 60, -0.03, mat_verge("hverge"))
+    if cars:
+        car_1930s("park1", (-7.0, -8.5, 0), math.radians(8), lamps=False, tail=0.0)
+        car_1930s("park2", (7.5, -9.5, 0), math.radians(-5), body=(0.04, 0.03, 0.025), lamps=False, tail=0.0)
+    bare_forest("halltrees", [(-34, 34, 16, 40), (-40, -14, -10, 16), (14, 40, -10, 16)], count=26, seed=11, height=(8, 14))
+    return {"doors": (dl, dr), "spill": spill, "foyer_light": fl}
+
+
+def wire_globe(loc, radius=1.0, color=(0.35, 0.75, 0.7), strength=2.0, n=100, deg=20.0, name="globe"):
+    """Dark wireframe UV globe slowly rotating (deg over n frames)."""
+    g = L.prim("sphere", loc=loc, segments=36, ring_count=18, radius=radius)
+    w = g.modifiers.new("wire", "WIREFRAME")
+    w.thickness = radius * 0.006
+    L.assign(g, L.mat_emission(name + "_m", color, strength))
+    g.rotation_euler = (math.radians(23), 0, 0)
+    g.keyframe_insert("rotation_euler", frame=1)
+    g.rotation_euler = (math.radians(23), 0, math.radians(deg))
+    g.keyframe_insert("rotation_euler", frame=n)
+    L.linear_fcurves(g)
+    core = L.prim("sphere", loc=loc, segments=36, ring_count=18, radius=radius * 0.985)
+    L.assign(core, L.mat_principled(name + "_core", (0.005, 0.01, 0.012), rough=0.5))
+    return g
+
+
+# ============================================================================ RAYNHAM / MANOR sets (HAUNT-04)
+# Staircase layout: hall floor z=0. First flight rises +Y from y=0 (x -0.8..0.8), 14 steps (rise 0.18, going 0.3) to a
+# half-landing (y 4.2..5.8, x -0.8..2.6, z 2.52). Return flight (10 steps) rises -Y at x 1.0..2.6 from the landing.
+# Panelled walls: west x=-1.0, landing wall y=5.9 (leaded window above the landing at x=0), east x=2.75.
+
+STAIR_RISE, STAIR_GO, STAIR_N = 0.18, 0.3, 14
+LANDING_Z = STAIR_RISE * STAIR_N
+LANDING_Y0 = STAIR_GO * STAIR_N
+
+
+def _beam(bm, a, b, hw, hh):
+    """Rectangular prism from a to b (Vectors), width 2*hw horizontal, height 2*hh roughly vertical."""
+    d = (b - a).normalized()
+    u = d.cross(Vector((0, 0, 1)))
+    if u.length < 1e-4:
+        u = Vector((1, 0, 0))
+    u.normalize()
+    v = u.cross(d).normalized()
+    if v.z < 0:
+        v = -v
+    vs = []
+    for p in (a, b):
+        for su, sv in ((-1, -1), (1, -1), (1, 1), (-1, 1)):
+            vs.append(bm.verts.new(p + u * su * hw + v * sv * hh))
+    for f in ((0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)):
+        bm.faces.new([vs[i] for i in f])
+
+
+def _lathe(bm, base, prof, sides=8):
+    """Turned shape: prof [(dz, r)] from base (Vector)."""
+    rings = []
+    for dz, r in prof:
+        rings.append([bm.verts.new(base + Vector((r * math.cos(k * 2 * math.pi / sides), r * math.sin(k * 2 * math.pi / sides), dz)))
+                      for k in range(sides)])
+    for j in range(len(rings) - 1):
+        for k in range(sides):
+            bm.faces.new((rings[j][k], rings[j][(k + 1) % sides], rings[j + 1][(k + 1) % sides], rings[j + 1][k]))
+
+
+BALUSTER = [(0, 0.03), (0.06, 0.03), (0.08, 0.022), (0.2, 0.018), (0.3, 0.032), (0.38, 0.034), (0.46, 0.02), (0.56, 0.016),
+            (0.62, 0.026), (0.66, 0.026), (0.7, 0.018), (0.78, 0.018)]
+
+
+def mat_oak(name="oak", dark=1.0):
+    return L.mat_noise_surface(name, (0.05 * dark, 0.028 * dark, 0.013 * dark), (0.17 * dark, 0.095 * dark, 0.045 * dark),
+                               scale=7, bump=0.15, voronoi=False, rough=0.45)
+
+
+def panelled_wall(name, axis, fixed, a0, a1, z0, z1, side=1, pw=0.62, ph=0.85, mat=None, frame_mat=None, plaster_to=None):
+    """Oak panelling on a wall plane. axis 'x' (wall runs along X at y=fixed) or 'y'. side: room-side normal sign.
+    Back board + raised panel grid 2 cm proud. plaster_to: plain plaster from z1 up to this height."""
+    mat = mat or mat_oak(name + "_oak")
+    frame_mat = frame_mat or mat_oak(name + "_fr", 0.7)
+    def B(ca, cz, ha, hz, off, t):
+        c = fixed + side * off
+        return (ca, c, cz, ha, t, hz) if axis == "x" else (c, ca, cz, t, ha, hz)
+    boxes = [B((a0 + a1) / 2, (z0 + z1) / 2, (a1 - a0) / 2, (z1 - z0) / 2, -0.03, 0.03)]
+    na = max(1, int((a1 - a0) / pw))
+    nz = max(1, int((z1 - z0 - 0.3) / ph))
+    sa = (a1 - a0) / na
+    sz = (z1 - z0 - 0.3) / nz
+    panels = []
+    for i in range(na):
+        for j in range(nz):
+            panels.append(B(a0 + sa * (i + 0.5), z0 + 0.2 + sz * (j + 0.5), sa / 2 - 0.07, sz / 2 - 0.07, 0.012, 0.012))
+    rails = [B((a0 + a1) / 2, z0 + 0.1, (a1 - a0) / 2, 0.1, 0.02, 0.02), B((a0 + a1) / 2, z1 - 0.04, (a1 - a0) / 2, 0.06, 0.035, 0.035)]
+    box_mesh(name, boxes, frame_mat)
+    box_mesh(name + "_pan", panels, mat, bevel=0.012)
+    box_mesh(name + "_rail", rails, frame_mat)
+    if plaster_to:
+        pl = L.mat_noise_surface(name + "_pl", (0.36, 0.34, 0.3), (0.5, 0.47, 0.42), scale=2.5, bump=0.05, voronoi=False, rough=0.9)
+        box_mesh(name + "_plaster", [B((a0 + a1) / 2, (z1 + plaster_to) / 2, (a1 - a0) / 2, (plaster_to - z1) / 2, -0.03, 0.03)], pl)
+
+
+def leaded_window(name, centre, width, z0, z1, y, glow=1.0, color=(0.7, 0.78, 0.9)):
+    """Tall leaded window on an X-running wall at y (room on -Y side): emissive glass + diamond lead lattice + stone mullion."""
+    gm = L.mat_emission(name + "_glass", color, 2.5 * glow)
+    g = box_mesh(name + "_g", [(centre, y + 0.01, (z0 + z1) / 2, width / 2, 0.005, (z1 - z0) / 2)], gm)
+    g.visible_shadow = False
+    bm = bmesh.new()
+    s = 0.2
+    h = z1 - z0
+    k = -int(h / s) - 2
+    while k * s < width + h:
+        for sgn in (1, -1):
+            # line x = x0 + sgn*(z - z0) + offset, clipped to the window rect
+            pts = []
+            for t in (0.0, 1.0):
+                pass
+            x_start = centre - width / 2 + k * s
+            a = Vector((x_start, y - 0.005, z0))
+            b = Vector((x_start + sgn * h, y - 0.005, z1))
+            # clip to rect by sampling
+            def clip(p, q):
+                lo, hi = 0.0, 1.0
+                for i, (mn, mx) in ((0, (centre - width / 2, centre + width / 2)), (2, (z0, z1))):
+                    dp = q[i] - p[i]
+                    for bound, sg in ((mn, 1), (mx, -1)):
+                        if abs(dp) < 1e-9:
+                            if (p[i] - bound) * sg < 0:
+                                return None
+                            continue
+                        t = (bound - p[i]) / dp
+                        if sg * dp > 0:
+                            lo = max(lo, t)
+                        else:
+                            hi = min(hi, t)
+                if hi <= lo:
+                    return None
+                return p.lerp(q, lo), p.lerp(q, hi)
+            seg = clip(a, b)
+            if seg:
+                _beam(bm, seg[0], seg[1], 0.006, 0.004)
+        k += 1
+    lead = L.mesh_from_bm(name + "_lead", bm)
+    lead.visible_shadow = False
+    L.assign(lead, L.mat_principled(name + "_leadm", (0.02, 0.02, 0.02), rough=0.6))
+    stone = L.mat_noise_surface(name + "_st", (0.3, 0.29, 0.26), (0.48, 0.46, 0.42), scale=4, bump=0.2, voronoi=False)
+    box_mesh(name + "_mull", [(centre, y - 0.04, (z0 + z1) / 2, 0.05, 0.06, (z1 - z0) / 2),
+                              (centre, y - 0.04, z0 + (z1 - z0) * 0.62, width / 2, 0.06, 0.05),
+                              (centre - width / 2 - 0.06, y - 0.04, (z0 + z1) / 2, 0.07, 0.08, (z1 - z0) / 2 + 0.06),
+                              (centre + width / 2 + 0.06, y - 0.04, (z0 + z1) / 2, 0.07, 0.08, (z1 - z0) / 2 + 0.06),
+                              (centre, y - 0.04, z1 + 0.06, width / 2 + 0.12, 0.08, 0.06),
+                              (centre, y - 0.06, z0 - 0.06, width / 2 + 0.14, 0.12, 0.06)], stone)
+    return gm
+
+
+def manor_staircase(day=False, window=1.0, return_flight=True, hall=True, floor_y0=-10.0):
+    """Jacobean-style oak staircase in a panelled manor hall (see layout above). Returns dict with landing/key points."""
+    oak = mat_oak("stair_oak")
+    dark = mat_oak("stair_dark", 0.6)
+    steps = []
+    for i in range(STAIR_N):
+        steps.append((0, STAIR_GO * i + STAIR_GO / 2, STAIR_RISE * i + STAIR_RISE / 2, 0.8, STAIR_GO / 2 + 0.02, STAIR_RISE / 2))
+    # landing
+    steps.append((0.9, LANDING_Y0 + 0.8, LANDING_Z / 2, 1.7, 0.8, LANDING_Z / 2))
+    if return_flight:
+        for i in range(10):
+            y = LANDING_Y0 - STAIR_GO * i - STAIR_GO / 2
+            z = LANDING_Z + STAIR_RISE * (i + 1)
+            steps.append((1.8, y, z - STAIR_RISE / 2, 0.8, STAIR_GO / 2 + 0.02, STAIR_RISE / 2))
+        # soffit under the return flight
+        bm = bmesh.new()
+        _beam(bm, Vector((1.8, LANDING_Y0, LANDING_Z - 0.15)), Vector((1.8, LANDING_Y0 - 3.0, LANDING_Z + 1.8 - 0.15)), 0.8, 0.08)
+        so = L.mesh_from_bm("soffit", bm)
+        L.assign(so, dark)
+    box_mesh("steps", steps, oak, bevel=0.012)
+    # nosings
+    box_mesh("nosing", [(0, STAIR_GO * i + 0.01, STAIR_RISE * (i + 1) - 0.012, 0.81, 0.03, 0.014) for i in range(STAIR_N)], dark)
+    # stringer (open side, x=+0.8)
+    bm = bmesh.new()
+    _beam(bm, Vector((0.84, -0.05, 0.05)), Vector((0.84, LANDING_Y0, LANDING_Z + 0.05)), 0.04, 0.2)
+    # handrail + balusters along first flight
+    rail_h = 0.9
+    _beam(bm, Vector((0.84, 0.15, STAIR_RISE + rail_h)), Vector((0.84, LANDING_Y0, LANDING_Z + rail_h)), 0.05, 0.045)
+    # landing balustrade along y = LANDING_Y0 from x 0.84 to 1.0 (gap) and return flight rail
+    if return_flight:
+        _beam(bm, Vector((0.96, LANDING_Y0 - 0.02, LANDING_Z + 0.18 + rail_h)), Vector((0.96, LANDING_Y0 - 3.0, LANDING_Z + 1.8 + rail_h)), 0.05, 0.045)
+    rail = L.mesh_from_bm("handrail", bm)
+    L.assign(rail, dark)
+    bm = bmesh.new()
+    y = 0.25
+    while y < LANDING_Y0 - 0.05:
+        zb = STAIR_RISE * (int(y / STAIR_GO) + 1)
+        zt = STAIR_RISE + rail_h + (y - 0.15) * (STAIR_RISE / STAIR_GO)
+        sc = (zt - zb) / 0.78
+        _lathe(bm, Vector((0.84, y, zb)), [(dz * sc, r) for dz, r in BALUSTER])
+        y += 0.25
+    if return_flight:
+        y = LANDING_Y0 - 0.2
+        while y > LANDING_Y0 - 2.9:
+            i = int((LANDING_Y0 - y) / STAIR_GO)
+            zb = LANDING_Z + STAIR_RISE * (i + 1)
+            zt = LANDING_Z + 0.18 + rail_h + (LANDING_Y0 - y) * (STAIR_RISE / STAIR_GO)
+            sc = (zt - zb) / 0.78
+            _lathe(bm, Vector((0.96, y, zb)), [(dz * sc, r) for dz, r in BALUSTER])
+            y -= 0.25
+    bal = L.mesh_from_bm("balusters", bm)
+    bal.visible_shadow = False
+    L.assign(bal, oak)
+    L.smooth(bal)
+    # newel posts with ball finials
+    newels = [(0.84, 0.05, 0.0, 1.25), (0.9, LANDING_Y0, LANDING_Z - 0.4, 1.4)]
+    for i, (x, y_, z0, hgt) in enumerate(newels):
+        box_mesh(f"newel{i}", [(x, y_, z0 + hgt / 2, 0.1, 0.1, hgt / 2), (x, y_, z0 + hgt + 0.03, 0.13, 0.13, 0.03),
+                               (x, y_, z0 + 0.15, 0.12, 0.12, 0.15)], dark, bevel=0.01)
+        b = L.prim("sphere", loc=(x, y_, z0 + hgt + 0.17), segments=16, ring_count=10, radius=0.11)
+        L.assign(b, oak)
+        L.smooth(b)
+    # walls
+    panelled_wall("pw_west", "y", -1.0, floor_y0, 6.0, 0.0, 4.9, side=1, plaster_to=7.0)
+    panelled_wall("pw_land", "x", 5.9, -1.0, -0.25, LANDING_Z, LANDING_Z + 2.3, side=-1)
+    panelled_wall("pw_land2", "x", 5.9, 1.25, 2.75, LANDING_Z, LANDING_Z + 2.3, side=-1)
+    panelled_wall("pw_east", "y", 2.75, -3.0, 6.0, 0.0, 4.9, side=-1, plaster_to=7.0)
+    pl = L.mat_noise_surface("hall_pl", (0.34, 0.32, 0.28), (0.48, 0.45, 0.4), scale=2.5, bump=0.05, voronoi=False, rough=0.9)
+    win_c, win_w, wz0, wz1 = 0.5, 1.4, LANDING_Z + 0.7, LANDING_Z + 4.1
+    wall_with_openings("landwall", "x", 5.9, 3.8, 7.2, [(win_c - 0.05, win_w + 0.1, wz0, wz1)], mat=pl, outward=1)
+    gm = leaded_window("lwin", win_c, win_w, wz0, wz1, 5.92, glow=window * (1.6 if day else 0.5))
+    box_mesh("ceiling", [(0.9, (floor_y0 + 6) / 2, 7.2, 4.5, (6 - floor_y0) / 2, 0.05)], pl)
+    if hall:
+        flag = L.mat_noise_surface("flags", (0.12, 0.11, 0.1), (0.26, 0.24, 0.21), scale=1.4, bump=0.3, voronoi=True, rough=0.6)
+        box_mesh("hallfloor", [(0.0, (floor_y0 + 6) / 2, -0.02, 6, (6 - floor_y0) / 2, 0.02)], flag)
+        panelled_wall("pw_east2", "y", 2.75, floor_y0, -3.0, 0.0, 2.6, side=-1, plaster_to=7.0)
+        rug = L.mat_noise_surface("rug", (0.12, 0.03, 0.02), (0.25, 0.08, 0.04), scale=30, bump=0.1, voronoi=False, rough=1.0)
+        box_mesh("rug", [(0.0, -2.6, 0.005, 1.1, 1.6, 0.005)], rug)
+    # window light into the stair well
+    col = (0.7, 0.78, 0.92)
+    a = L.area((win_c, 6.6, LANDING_Z + 2.4), (math.radians(90), 0, 0), energy=(900 if day else 520) * window, size=0.7, color=col, name="winlight")
+    a.rotation_euler = (math.radians(-80), 0, 0)
+    return {"landing": (0.0, LANDING_Y0 + 0.8, LANDING_Z), "win_mat": gm, "win_light": a}
+
+
+def step_pos(i, x=0.0):
+    """Top-centre of first-flight step i (0 = bottom step)."""
+    return (x, STAIR_GO * i + STAIR_GO / 2, STAIR_RISE * (i + 1))
+
+
+def brown_lady(name="lady", alpha=0.25, emit=0.4, height=1.7, color=(0.72, 0.7, 0.66)):
+    """Translucent veiled figure (our own design): long gown (coat), conical veil + cap, no face. Returns parts with 'mat'."""
+    p = figure(name, color=color, height=height, coat=True)
+    m = p["torso"].data.materials[0]
+    pr = m.node_tree.nodes["Principled BSDF"]
+    pr.inputs["Emission Color"].default_value = (0.85, 0.82, 0.76, 1)
+    pr.inputs["Emission Strength"].default_value = emit
+    pr.inputs["Alpha"].default_value = alpha
+    try:
+        m.surface_render_method = "BLENDED"
+        m.use_transparency_overlap = False
+    except Exception:
+        pass
+    s = height / 1.75
+    veil = L.prim("cone", loc=(0, -0.02 * s, -0.05 * s), vertices=20, radius1=0.26 * s, radius2=0.07 * s, depth=0.55 * s)
+    L.assign(veil, m)
+    L.smooth(veil)
+    veil.parent = p["neck"]
+    cap = L.prim("sphere", loc=(0, -0.01 * s, 0.2 * s), segments=16, ring_count=8, radius=0.11 * s)
+    L.assign(cap, m)
+    cap.parent = p["neck"]
+    p["coat"].scale = (p["coat"].scale[0] * 1.1, p["coat"].scale[1] * 1.1, p["coat"].scale[2] * 1.05)
+    p["mat"] = m
+    return p
+
+
+def key_principled(mat, inp, pairs, interp="LINEAR"):
+    pr = mat.node_tree.nodes["Principled BSDF"]
+    for f, v in pairs:
+        pr.inputs[inp].default_value = v
+        pr.inputs[inp].keyframe_insert("default_value", frame=f)
+    _interp_data(mat.node_tree, interp)
+
+
+def flash_pop(cam_o, f, peak=4000, decay=10, size=2.0, offset=(0.4, 0.3, 0.2), color=(0.95, 0.97, 1.0), name="flash"):
+    """Magnesium flash: area light near the camera, spike at frame f then decays over `decay` frames."""
+    a = L.area((0, 0, 0), (0, 0, 0), energy=0, size=size, color=color, name=name)
+    a.parent = cam_o
+    a.location = offset
+    key_energy(a, [(1, 0), (max(1, f - 1), 0), (f, peak), (f + 2, peak * 0.6), (f + decay, 0)], "LINEAR")
+    a.data.volume_factor = 0.15
+    return a
+
+
+def plate_camera(loc, rot_z=0.0, name="pcam", cap_on=True):
+    """Large-format plate camera on a wooden tripod (faces +Y local). Returns dict root, cap, lens_tip (world-ish local pos)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    wood = L.mat_noise_surface(name + "_wood", (0.12, 0.06, 0.025), (0.3, 0.16, 0.07), scale=12, bump=0.15, voronoi=False, rough=0.4)
+    blk = L.mat_principled(name + "_bell", (0.015, 0.012, 0.01), rough=0.7)
+    brass = mat_brass(name + "_brass")
+    bm = bmesh.new()
+    top = Vector((0, 0, 1.25))
+    for a in (90, 210, 330):
+        r = math.radians(a)
+        _beam(bm, top, Vector((0.55 * math.cos(r), 0.55 * math.sin(r), 0.0)), 0.02, 0.02)
+    tp = L.mesh_from_bm(name + "_tripod", bm)
+    L.assign(tp, wood)
+    tp.parent = root
+    box_mesh(name + "_head", [(0, 0, 1.27, 0.14, 0.14, 0.02), (0, -0.05, 1.42, 0.14, 0.04, 0.14), (0, 0.32, 1.42, 0.12, 0.03, 0.12),
+                              (0, 0.12, 1.3, 0.1, 0.25, 0.015)], wood, parent=root, bevel=0.005)
+    box_mesh(name + "_gg", [(0, -0.095, 1.42, 0.11, 0.003, 0.11)], L.mat_principled(name + "_ggm", (0.3, 0.32, 0.3), rough=0.3), parent=root)
+    # bellows: pleated taper
+    bel = []
+    for k in range(8):
+        t = k / 7
+        y = -0.01 + 0.31 * t
+        hs = 0.13 - 0.03 * t + (0.008 if k % 2 else 0)
+        bel.append((0, y, 1.42, hs, 0.02, hs))
+    box_mesh(name + "_bel", bel, blk, parent=root)
+    lens = L.prim("cyl", loc=(0, 0.42, 1.42), vertices=24, radius=0.045, depth=0.16, rot=(math.pi / 2, 0, 0))
+    L.assign(lens, brass)
+    lens.parent = root
+    ring = L.prim("torus", loc=(0, 0.36, 1.42), major_radius=0.05, minor_radius=0.008, rot=(math.pi / 2, 0, 0))
+    L.assign(ring, brass)
+    ring.parent = root
+    glass = L.prim("cyl", loc=(0, 0.497, 1.42), vertices=24, radius=0.038, depth=0.004, rot=(math.pi / 2, 0, 0))
+    L.assign(glass, L.mat_principled(name + "_lensg", (0.02, 0.03, 0.04), rough=0.02, metal=0.5))
+    glass.parent = root
+    cap = L.prim("cyl", loc=(0, 0.51, 1.42), vertices=24, radius=0.05, depth=0.03, rot=(math.pi / 2, 0, 0))
+    L.assign(cap, L.mat_principled(name + "_capm", (0.02, 0.018, 0.016), rough=0.5))
+    cap.parent = root
+    cl = L.prim("cyl", loc=(0, 0, 0), vertices=12, radius=0.012, depth=0.012)
+    L.assign(cl, brass)
+    cl.parent = cap
+    cl.location = (0, 0, 0.018)
+    if not cap_on:
+        cap.hide_render = True
+    return {"root": root, "cap": cap, "lens": lens}
+
+
+def flash_gun(parent=None, loc=(0, 0, 0), rot=(0, 0, 0), name="fgun"):
+    """Hand flash gun: chrome dish reflector (cone, opens +Y local) + bulb + handle. Returns dict root, dish_mat, bulb_mat."""
+    root = empty(name, loc, parent=parent)
+    root.rotation_euler = rot
+    chrome = L.mat_principled(name + "_chrome", (0.75, 0.75, 0.78), rough=0.12, metal=1.0)
+    d = L.prim("cone", loc=(0, 0.05, 0), vertices=28, radius1=0.02, radius2=0.11, depth=0.1, rot=(-math.pi / 2, 0, 0),
+               end_fill_type="NOTHING")
+    L.assign(d, chrome)
+    d.parent = root
+    bulb_m = L.mat_emission(name + "_bulb", (1.0, 0.98, 0.95), 0.3)
+    b = L.prim("sphere", loc=(0, 0.04, 0), segments=12, ring_count=8, radius=0.025)
+    L.assign(b, bulb_m)
+    b.parent = root
+    h = L.prim("cyl", loc=(0, -0.03, -0.12), vertices=12, radius=0.02, depth=0.22)
+    L.assign(h, L.mat_principled(name + "_h", (0.03, 0.03, 0.03), rough=0.4))
+    h.parent = root
+    return {"root": root, "bulb_mat": bulb_m, "dish": d}
+
+
+def oak_corridor(length=16.0, w=2.4, h=3.0, door_every=4.0):
+    """Upstairs panelled corridor along +Y from y=0: oak floorboards, panelling both sides, doors, beamed plaster ceiling."""
+    fl = L.mat_noise_surface("boards", (0.04, 0.022, 0.01), (0.13, 0.075, 0.035), scale=5, bump=0.2, voronoi=False, rough=0.35)
+    box_mesh("cfloor", [(0, length / 2, -0.02, w / 2 + 0.2, length / 2 + 1, 0.02)], fl)
+    pl = L.mat_noise_surface("c_pl", (0.25, 0.23, 0.2), (0.38, 0.35, 0.3), scale=2.5, bump=0.05, voronoi=False, rough=0.9)
+    box_mesh("cceil", [(0, length / 2, h + 0.02, w / 2 + 0.2, length / 2 + 1, 0.02)], pl)
+    dark = mat_oak("c_beam", 0.6)
+    box_mesh("cbeams", [(0, y, h - 0.1, w / 2, 0.1, 0.1) for y in range(1, int(length), 2)], dark)
+    for sx in (-1, 1):
+        panelled_wall(f"cw{sx}", "y", sx * w / 2, -1.0, length + 1, 0.0, 2.2, side=-sx, plaster_to=h)
+    doors = []
+    y = 2.5
+    dm = mat_oak("c_door", 0.8)
+    while y < length - 1:
+        for sx in (-1, 1):
+            box_mesh(f"door{sx}_{y}", [(sx * (w / 2 - 0.02), y, 1.05, 0.04, 0.45, 1.05)], dm, bevel=0.01)
+            box_mesh(f"dfr{sx}_{y}", [(sx * (w / 2 - 0.03), y, 2.15, 0.05, 0.55, 0.06), (sx * (w / 2 - 0.03), y - 0.5, 1.05, 0.05, 0.05, 1.05),
+                                      (sx * (w / 2 - 0.03), y + 0.5, 1.05, 0.05, 0.05, 1.05)], dark)
+        y += door_every
+    box_mesh("cend", [(0, length + 1, h / 2, w / 2 + 0.2, 0.05, h / 2)], pl)
+    return {"length": length}
+
+
+def darkroom_tray(loc=(0, 0, 0.9), img=None, n=100, reveal=(1, 80)):
+    """Shallow developing tray with liquid surface (animated ripple) over a glass plate whose image fades in (reveal frames)."""
+    root = empty("tray", loc)
+    enamel = L.mat_principled("tray_m", (0.75, 0.73, 0.68), rough=0.35)
+    W, D = 0.36, 0.28
+    box_mesh("tray_b", [(0, 0, 0.003, W, D, 0.003), (W, 0, 0.03, 0.006, D, 0.03), (-W, 0, 0.03, 0.006, D, 0.03),
+                        (0, D, 0.03, W, 0.006, 0.03), (0, -D, 0.03, W, 0.006, 0.03)], enamel, parent=root)
+    # plate with image (fades from black to image)
+    m, nn, l = _nodes("plate_m")
+    p = nn["Principled BSDF"]
+    mix = nn.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    mix.inputs[6].default_value = (0.02, 0.02, 0.02, 1)
+    if img:
+        t = nn.new("ShaderNodeTexImage")
+        t.image = bpy.data.images.load(img)
+        l.new(t.outputs["Color"], mix.inputs[7])
+    else:
+        mix.inputs[7].default_value = (0.4, 0.4, 0.4, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.3
+    mix.inputs[0].default_value = 0.0
+    mix.inputs[0].keyframe_insert("default_value", frame=reveal[0])
+    mix.inputs[0].default_value = 1.0
+    mix.inputs[0].keyframe_insert("default_value", frame=reveal[1])
+    bm = bmesh.new()
+    pw, ph = 0.2, 0.25
+    vs = [bm.verts.new(v) for v in ((-pw, -ph, 0.01), (pw, -ph, 0.01), (pw, ph, 0.01), (-pw, ph, 0.01))]
+    f = bm.faces.new(vs)
+    uv = bm.loops.layers.uv.new()
+    for lp, c in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))):
+        lp[uv].uv = c
+    plate = L.mesh_from_bm("plate", bm)
+    L.assign(plate, m)
+    plate.parent = root
+    plate.rotation_euler = (0, 0, math.radians(-4))
+    # liquid: glossy, transparent-ish, animated bump
+    lm, ln, ll = _nodes("liquid_m")
+    lp_ = ln["Principled BSDF"]
+    lp_.inputs["Base Color"].default_value = (0.02, 0.02, 0.02, 1)
+    lp_.inputs["Roughness"].default_value = 0.04
+    lp_.inputs["Alpha"].default_value = 0.25
+    try:
+        lm.surface_render_method = "BLENDED"
+    except Exception:
+        pass
+    tc = ln.new("ShaderNodeTexCoord")
+    mp = ln.new("ShaderNodeMapping")
+    ll.new(tc.outputs["Object"], mp.inputs["Vector"])
+    wv = ln.new("ShaderNodeTexWave")
+    wv.inputs["Scale"].default_value = 6
+    wv.inputs["Distortion"].default_value = 3
+    ll.new(mp.outputs[0], wv.inputs["Vector"])
+    bp = ln.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.08
+    ll.new(wv.outputs["Fac"], bp.inputs["Height"])
+    ll.new(bp.outputs["Normal"], lp_.inputs["Normal"])
+    mp.inputs["Location"].default_value = (0, 0, 0)
+    mp.inputs["Location"].keyframe_insert("default_value", frame=1)
+    mp.inputs["Location"].default_value = (0.15, 0.08, 0)
+    mp.inputs["Location"].keyframe_insert("default_value", frame=n)
+    liq = box_mesh("liquid", [(0, 0, 0.025, W - 0.006, D - 0.006, 0.0005)], lm, parent=root)
+    return {"root": root, "plate": plate, "plate_mat": m}
+
+
+def manor_exterior():
+    """Large symmetrical 17th-century-style country house (generic): 34 m, 3 floors, central pediment, shaped end gables,
+    tall sash windows, pale stone. Front at y=0 facing -Y."""
+    stone = L.mat_noise_surface("mstone", (0.42, 0.4, 0.35), (0.62, 0.59, 0.52), scale=1.5, bump=0.08, voronoi=False, rough=0.85)
+    roof = L.mat_noise_surface("mroof", (0.08, 0.08, 0.085), (0.18, 0.17, 0.17), scale=6, bump=0.2, voronoi=False, rough=0.7)
+    trim = L.mat_principled("mtrim", (0.7, 0.68, 0.62), rough=0.6)
+    dark = mat_glass_dark("mglass", (0.015, 0.018, 0.022))
+    Wd, Dp, fh = 34.0, 14.0, 3.6
+    Ht = fh * 3
+    box_mesh("mbody", [(0, Dp / 2, Ht / 2, Wd / 2, Dp / 2, Ht / 2)], stone)
+    for sx in (-1, 1):
+        box_mesh(f"mwing{sx}", [(sx * (Wd / 2 - 3.5), -0.6, Ht / 2, 3.5, 0.6, Ht / 2)], stone)
+    _hip_roof("mroof", (0, Dp / 2, Ht), Wd + 0.6, Dp + 0.6, 4.5, roof)
+    bm = bmesh.new()
+    for cx, w, hgt in ((0.0, 9.0, 4.0),):
+        v = [bm.verts.new(p) for p in ((cx - w / 2, -0.25, Ht), (cx + w / 2, -0.25, Ht), (cx, -0.25, Ht + hgt),
+                                        (cx - w / 2, 1.5, Ht), (cx + w / 2, 1.5, Ht), (cx, 1.5, Ht + hgt))]
+        for f in ((0, 1, 2), (3, 5, 4), (0, 3, 4, 1), (1, 4, 5, 2), (2, 5, 3, 0)):
+            bm.faces.new([v[i] for i in f])
+    ped = L.mesh_from_bm("pediment", bm)
+    L.assign(ped, stone)
+    # shaped (Dutch) end gables: stepped blocks + semicircular cap on each wing
+    for sx in (-1, 1):
+        cx = sx * (Wd / 2 - 3.5)
+        box_mesh(f"gable{sx}", [(cx, -1.0, Ht + 0.8, 3.2, 0.25, 0.8), (cx, -1.0, Ht + 2.2, 2.2, 0.25, 0.6), (cx, -1.0, Ht + 3.3, 1.2, 0.25, 0.5)],
+                 stone)
+        c = L.prim("cyl", loc=(cx, -1.0, Ht + 3.8), vertices=24, radius=1.2, depth=0.5, rot=(math.pi / 2, 0, 0))
+        L.assign(c, stone)
+        _hip_roof(f"wroof{sx}", (cx, 0.5, Ht), 7.2, 3.0, 2.5, roof)
+    box_mesh("mcornice", [(0, -0.25, Ht - 0.1, Wd / 2 - 7, 0.25, 0.14), (0, -0.2, fh, Wd / 2 - 7, 0.15, 0.08)], trim)
+    panes, frames = [], []
+    for fl_i in range(3):
+        for c_i in range(13):
+            x = -Wd / 2 + 1.6 + c_i * (Wd - 3.2) / 12
+            yf = -1.22 if abs(x) > Wd / 2 - 7 else -0.02
+            if fl_i == 0 and abs(x) < 1.5:
+                continue
+            z0 = fl_i * fh + 0.9
+            panes.append((x, yf, z0 + 1.0, 0.55, 0.03, 1.0))
+            frames += [(x, yf - 0.03, z0 + 1.0, 0.025, 0.02, 1.0), (x, yf - 0.03, z0 + 1.0, 0.55, 0.02, 0.025),
+                       (x, yf - 0.04, z0 - 0.05, 0.68, 0.06, 0.06), (x, yf - 0.04, z0 + 2.05, 0.68, 0.06, 0.08)]
+    box_mesh("mpanes", panes, dark)
+    box_mesh("mframes", frames, trim)
+    box_mesh("mdoor", [(0, -0.03, 1.5, 1.0, 0.05, 1.5), (0, -0.3, 3.2, 1.6, 0.3, 0.2)], mat_oak("mdoorm", 0.7))
+    box_mesh("mporch", [(sx * 1.4, -0.4, 1.6, 0.18, 0.18, 1.6) for sx in (-1, 1)], trim)
+    ground_box("mlawn", -120, 120, -120, 120, -0.02, L.mat_noise_surface("mgrass", (0.06, 0.08, 0.04), (0.13, 0.16, 0.08), scale=2,
+                                                                          bump=0.2, voronoi=False, rough=1))
+    ground_box("mgravel", -22, 22, -14, -0.5, 0.0, mat_gravel("mgrav"))
+    bare_forest("mtrees", [(-70, -26, -30, 40), (26, 70, -30, 40), (-60, 60, 30, 70)], count=45, seed=13, height=(10, 18))
+
+
+def crisp_shadows(area_max=0.3, radius_max=0.05):
+    """Shrink soft-shadow sizes on all lights: EEVEE soft shadows speckle badly at the pipeline's 2 TAA samples."""
+    for o in bpy.data.objects:
+        if o.type != "LIGHT":
+            continue
+        d = o.data
+        if d.type == "AREA":
+            d.size = min(d.size, area_max)
+        elif d.type != "SUN":
+            d.shadow_soft_size = min(d.shadow_soft_size, radius_max)
+        if o.parent is not None and o.parent.type == "CAMERA":
+            d.use_shadow = False      # camera-mounted fills/flashes: no shadow acne on grazing walls

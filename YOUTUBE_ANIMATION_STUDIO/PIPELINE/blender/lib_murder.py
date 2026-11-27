@@ -1616,3 +1616,1337 @@ def mat_volume_anim(name, color, density):
 def smooth_obj(o):
     o.data.polygons.foreach_set("use_smooth", [True] * len(o.data.polygons))
     return o
+
+
+# ============================================================================ MURDER-03 (D.B. Cooper) builders
+# Stylised Boeing 727 (no livery), rain, storm cloud, lightning, parachute, money, cabin, apron, riverbank, hangar.
+
+def _nn(n, l, kind, **inp):
+    nd = n.new(kind)
+    for k, v in inp.items():
+        if k == "op":
+            nd.operation = v
+        else:
+            nd.inputs[k].default_value = v
+    return nd
+
+
+def _mathn(n, l, op, a, b=None, val=None, clamp=False):
+    m = n.new("ShaderNodeMath")
+    m.operation = op
+    m.use_clamp = clamp
+    if isinstance(a, (int, float)):
+        m.inputs[0].default_value = a
+    else:
+        l.new(a, m.inputs[0])
+    if b is not None:
+        if isinstance(b, (int, float)):
+            m.inputs[1].default_value = b
+        else:
+            l.new(b, m.inputs[1])
+    if val is not None:
+        m.inputs[1].default_value = val
+    return m.outputs[0]
+
+
+def _band(n, l, sock, lo, hi):
+    a = _mathn(n, l, "GREATER_THAN", sock, lo)
+    b = _mathn(n, l, "LESS_THAN", sock, hi)
+    return _mathn(n, l, "MULTIPLY", a, b)
+
+
+def mat_jet_skin(name="jetskin", base=(0.045, 0.055, 0.075), stripe=(0.45, 0.03, 0.025), window=(1.0, 0.72, 0.4),
+                 win_strength=6.0, stripe_z=(0.05, 0.32), win_z=(0.42, 0.72), win_x=(-10.0, 13.0), win_pitch=0.52):
+    """Dark navy-grey metal fuselage with a red cheat-line (object Z band) and warm cabin window dots."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    p.inputs["Metallic"].default_value = 0.55
+    p.inputs["Roughness"].default_value = 0.32
+    tc = n.new("ShaderNodeTexCoord")
+    sp = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sp.inputs[0])
+    band = _band(n, l, sp.outputs["Z"], *stripe_z)
+    mix = n.new("ShaderNodeMix"); mix.data_type = "RGBA"
+    l.new(band, mix.inputs[0])
+    mix.inputs[6].default_value = (*base, 1)
+    mix.inputs[7].default_value = (*stripe, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    # windows
+    fx = _mathn(n, l, "MULTIPLY", sp.outputs["X"], 1.0 / win_pitch)
+    fr = _mathn(n, l, "FRACT", fx)
+    wx = _band(n, l, fr, 0.2, 0.62)
+    wz = _band(n, l, sp.outputs["Z"], *win_z)
+    wr = _band(n, l, sp.outputs["X"], *win_x)
+    w = _mathn(n, l, "MULTIPLY", _mathn(n, l, "MULTIPLY", wx, wz), wr)
+    p.inputs["Emission Color"].default_value = (*window, 1)
+    ws = _mathn(n, l, "MULTIPLY", w, win_strength)
+    l.new(ws, p.inputs["Emission Strength"])
+    # panel-line grime
+    nz = n.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 3.0
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    rr = n.new("ShaderNodeMapRange")
+    rr.inputs["To Min"].default_value = 0.22
+    rr.inputs["To Max"].default_value = 0.5
+    l.new(nz.outputs["Fac"], rr.inputs["Value"])
+    l.new(rr.outputs[0], p.inputs["Roughness"])
+    return m
+
+
+def _loft_x(name, stations, seg=28, mat=None):
+    """Closed tube along X. stations = [(x, radius, zc, yscale)]; capped ends. Returns object."""
+    bm = bmesh.new()
+    rings = []
+    for (x, r, zc, ys) in stations:
+        ring = []
+        for k in range(seg):
+            a = 2 * math.pi * k / seg
+            ring.append(bm.verts.new((x, ys * r * math.cos(a), zc + r * math.sin(a))))
+        rings.append(ring)
+    for i in range(len(rings) - 1):
+        for k in range(seg):
+            bm.faces.new((rings[i][k], rings[i][(k + 1) % seg], rings[i + 1][(k + 1) % seg], rings[i + 1][k]))
+    bm.faces.new(list(reversed(rings[0])))
+    bm.faces.new(rings[-1])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
+    o = L.mesh_from_bm(name, bm)
+    smooth_obj(o)
+    if mat:
+        L.assign(o, mat)
+    return o
+
+
+def _slab(name, outline_top, thick_root, thick_tip, mat=None, mirror_y=False):
+    """Wing/fin slab from a planar 4-point outline (root_le, tip_le, tip_te, root_te) in 3D, thickened along `normal`.
+    outline points are (x, y, z); thickness applied along +-normal of the outline plane."""
+    a, b, c, d = [Vector(p) for p in outline_top]
+    nrm = (b - a).cross(d - a).normalized()
+    th = [thick_root, thick_tip, thick_tip, thick_root]
+    verts = []
+    for p, t in zip((a, b, c, d), th):
+        verts.append(p + nrm * t / 2)
+    for p, t in zip((a, b, c, d), th):
+        verts.append(p - nrm * t / 2)
+    faces = [(0, 1, 2, 3), (7, 6, 5, 4), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)]
+    o = mesh_obj(name, verts, faces, mat=mat)
+    bv = o.modifiers.new("bv", "BEVEL")
+    bv.width = min(thick_tip, thick_root) * 0.45
+    bv.segments = 2
+    if mirror_y:
+        mm = o.modifiers.new("mir", "MIRROR")
+        mm.use_axis = (False, True, False)
+        mm.use_bisect_axis = (False, False, False)
+    return o
+
+
+def jet727(name="jet", loc=(0, 0, 0), rot_z=0.0, stair_open=0.0, skin=None, windows=True, door_open=False, vane=False,
+           stair_light=True, nav_lights=True):
+    """Stylised Boeing 727 (no livery). Nose at +X, tail at -X, belly -Z. Fuselage r 1.9, ~41 m long.
+    Ventral aft airstair hinged at x=-14.3 under the belly: parts['stair_hinge'].rotation_euler.y = 0 (closed)
+    .. -35 deg (open, aft end down). Returns dict of parts."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    P = {"root": root}
+    skin = skin or mat_jet_skin(name + "_skin", win_strength=6.0 if windows else 0.0)
+    trim = L.mat_principled(name + "_trim", (0.05, 0.055, 0.065), rough=0.35, metal=0.6)
+    dark = L.mat_principled(name + "_dark", (0.008, 0.008, 0.01), rough=0.5)
+    light_metal = L.mat_principled(name + "_lm", (0.3, 0.31, 0.33), rough=0.3, metal=0.9)
+    st = [(20.6, 0.02, -0.45, 1), (20.3, 0.45, -0.4, 1), (19.6, 0.95, -0.3, 1), (18.5, 1.4, -0.18, 1), (17.0, 1.75, -0.06, 1),
+          (15.0, 1.9, 0, 1), (-11.5, 1.9, 0, 1), (-13.5, 1.84, 0.08, 1), (-15.5, 1.62, 0.3, 1), (-17.5, 1.3, 0.62, 1),
+          (-19.3, 0.9, 0.95, 1), (-20.6, 0.55, 1.15, 1), (-21.2, 0.3, 1.2, 1)]
+    fus = _loft_x(name + "_fus", st, seg=32, mat=skin)
+    fus.parent = root
+    P["fuselage"] = fus
+    # cockpit windows (dark band)
+    cw = L.prim("cube", loc=(19.0, 0, 0.45))
+    cw.scale = (0.55, 0.95, 0.16)
+    cw.rotation_euler = (0, math.radians(-28), 0)
+    L.assign(cw, L.mat_principled(name + "_cw", (0.01, 0.012, 0.016), rough=0.05, metal=0.3, emit=(0.25, 0.35, 0.5), emit_strength=0.4))
+    cw.parent = root
+    # wings (low, swept) + mirror
+    wing = _slab(name + "_wing", [(3.5, 1.4, -1.25), (-6.4, 16.5, -0.55), (-8.6, 16.5, -0.55), (-4.5, 1.4, -1.25)], 0.55, 0.14,
+                 mat=trim, mirror_y=True)
+    wing.parent = root
+    P["wing"] = wing
+    # wing tip nav lights
+    if nav_lights:
+        for yy, col in ((16.5, (0.1, 1.0, 0.2)), (-16.5, (1.0, 0.05, 0.03))):
+            b = L.prim("sphere", loc=(-7.4, yy, -0.55), radius=0.12, segments=8, ring_count=6)
+            L.assign(b, L.mat_emission(name + f"_nav{yy}", col, 40))
+            b.parent = root
+            b.visible_shadow = False
+    # fin (swept) + T-tail stabiliser
+    fin = _slab(name + "_fin", [(-12.0, 0, 1.6), (-17.3, 0, 8.6), (-20.4, 0, 8.6), (-20.2, 0, 1.4)], 0.42, 0.22, mat=skin)
+    # fix fin orientation: built in XZ plane, thickness along Y automatically
+    fin.parent = root
+    P["fin"] = fin
+    stab = _slab(name + "_stab", [(-16.6, 0.0, 8.75), (-20.4, 5.8, 9.1), (-21.9, 5.8, 9.1), (-20.6, 0.0, 8.75)], 0.32, 0.12,
+                 mat=trim, mirror_y=True)
+    stab.parent = root
+    # engines: two side pods + centre engine (S-duct intake on top, exhaust in the tail cone)
+    for sy in (-1, 1):
+        pod = _loft_x(name + f"_pod{sy}", [(-12.4, 0.62, 0, 1), (-12.6, 0.78, 0, 1), (-14.5, 0.82, 0, 1), (-16.8, 0.7, 0, 1),
+                                           (-17.6, 0.55, 0, 1)], seg=20, mat=trim)
+        pod.location = (0, sy * 2.75, 1.05)
+        pod.parent = root
+        pyl = L.prim("cube", loc=(-15.0, sy * 1.95, 1.0))
+        pyl.scale = (1.3, 0.5, 0.12)
+        L.assign(pyl, trim)
+        pyl.parent = root
+        ink = L.prim("cyl", loc=(-12.42, sy * 2.75, 1.05), vertices=20, radius=0.6, depth=0.06, rot=(0, math.pi / 2, 0))
+        L.assign(ink, dark)
+        ink.parent = root
+        ex = L.prim("cyl", loc=(-17.62, sy * 2.75, 1.05), vertices=20, radius=0.46, depth=0.06, rot=(0, math.pi / 2, 0))
+        L.assign(ex, dark)
+        ex.parent = root
+    duct = _loft_x(name + "_duct", [(-10.6, 0.5, 0, 1.15), (-10.8, 0.7, 0, 1.15), (-12.5, 0.75, 0, 1.1), (-13.5, 0.6, -0.2, 1.0)],
+                   seg=20, mat=skin)
+    duct.location = (0, 0, 2.05)
+    duct.parent = root
+    di = L.prim("cyl", loc=(-10.62, 0, 2.05), vertices=20, radius=0.55, depth=0.05, rot=(0, math.pi / 2, 0))
+    di.scale = (1, 1.12, 1)
+    L.assign(di, dark)
+    di.parent = root
+    cex = L.prim("cyl", loc=(-21.25, 0, 1.2), vertices=20, radius=0.32, depth=0.12, rot=(0, math.pi / 2, 0))
+    L.assign(cex, dark)
+    cex.parent = root
+    # --- ventral aft airstair -------------------------------------------------------------
+    hx, hz = -14.0, -1.78
+    hinge = empty(name + "_stair_hinge", (hx, 0, hz), parent=root)
+    base_ang = math.radians(16)   # closed: follows the rising belly line of the tail cone
+    hinge["base"] = base_ang
+    hinge.rotation_euler = (0, base_ang - math.radians(stair_open), 0)
+    sm_ = L.mat_principled(name + "_stairm", (0.16, 0.165, 0.17), rough=0.4, metal=0.8)
+    ramp = L.prim("cube", loc=(-2.85, 0, -0.07))
+    ramp.scale = (2.85, 0.48, 0.06)
+    L.assign(ramp, skin)
+    ramp.parent = hinge
+    for k in range(11):
+        s = L.prim("cube", loc=(-0.35 - k * 0.5, 0, 0.03))
+        s.scale = (0.13, 0.42, 0.05)
+        L.assign(s, sm_)
+        s.parent = hinge
+    for sy in (-0.47, 0.47):
+        rail = L.prim("cyl", loc=(-2.85, sy, 0.45), vertices=6, radius=0.025, depth=5.6, rot=(0, math.pi / 2, 0))
+        L.assign(rail, light_metal)
+        rail.parent = hinge
+        for k in range(5):
+            post = L.prim("cyl", loc=(-0.3 - k * 1.3, sy, 0.22), vertices=6, radius=0.02, depth=0.46)
+            L.assign(post, light_metal)
+            post.parent = hinge
+    P["stair_hinge"] = hinge
+    P["stair_mat"] = sm_
+    # glowing opening in the belly (covered by the closed stair)
+    gl = L.mat_emission(name + "_open", (1.0, 0.66, 0.32), 9.0)
+    op = L.prim("plane", loc=(0, 0, 0), size=1)
+    op.scale = (2.8, 0.45, 1)
+    op.parent = hinge
+    op.location = (-2.85, 0, 0.004)
+    L.assign(op, gl)
+    op.visible_shadow = False
+    P["opening"] = op
+    # the opening plane must stay with the fuselage, not rotate with the stair: re-parent to root at closed pose
+    bpy.context.view_layer.update()
+    hinge_rot = hinge.rotation_euler.copy()
+    hinge.rotation_euler = (0, base_ang, 0)
+    bpy.context.view_layer.update()
+    mw = op.matrix_world.copy()
+    op.parent = root
+    op.matrix_world = mw
+    hinge.rotation_euler = hinge_rot
+    if stair_light:
+        sp = L.spot((-15.5, 0, -1.4), (0, math.radians(200), 0), energy=900, size_deg=95, blend=0.9, color=(1.0, 0.62, 0.3),
+                    name=name + "_spill", radius=0.3)
+        sp.parent = root
+        pt = L.point((-16.0, 0, -1.6), energy=180, color=(1.0, 0.6, 0.3), radius=0.6, name=name + "_spillpt")
+        pt.parent = root
+        P["spill"] = sp
+        P["spill_pt"] = pt
+    if door_open:
+        d = L.prim("plane", loc=(15.2, -1.93, 0.25), size=1, rot=(math.pi / 2, 0, 0))
+        d.scale = (0.48, 0.95, 1)
+        L.assign(d, L.mat_emission(name + "_door", (1.0, 0.75, 0.45), 6))
+        d.parent = root
+        P["door"] = d
+    if vane:
+        vh = empty(name + "_vane_hinge", (hx + 0.55, -0.75, hz + 0.02), parent=root)
+        pad = L.prim("cube", loc=(0, 0, -0.26))
+        pad.scale = (0.05, 0.16, 0.26)
+        vm = L.mat_principled(name + "_vanem", (0.55, 0.56, 0.58), rough=0.3, metal=0.9)
+        L.assign(pad, vm)
+        pad.parent = vh
+        bk = L.prim("cube", loc=(hx + 0.55, -0.75, hz + 0.06))
+        bk.scale = (0.12, 0.2, 0.05)
+        L.assign(bk, trim)
+        bk.parent = root
+        P["vane_hinge"] = vh
+        P["vane"] = pad
+        P["vane_mat"] = vm
+    if nav_lights:
+        bc = L.prim("sphere", loc=(-1.0, 0, 1.95), radius=0.14, segments=8, ring_count=6)
+        bm_ = L.mat_emission(name + "_beacon", (1.0, 0.05, 0.03), 0.0)
+        L.assign(bc, bm_)
+        bc.parent = root
+        P["beacon_mat"] = bm_
+    return P
+
+
+def stair_anim(P, keys):
+    """keys = [(frame, open_deg)] (0 closed .. 35 fully open)."""
+    h = P["stair_hinge"]
+    for f, deg in keys:
+        h.rotation_euler = (0, h["base"] - math.radians(deg), 0)
+        h.keyframe_insert("rotation_euler", frame=f)
+
+
+def beacon_blink(P, n, every=24, on=3, strength=60):
+    """Red anti-collision beacon blinking."""
+    m = P.get("beacon_mat")
+    if not m:
+        return
+    s = [nd for nd in m.node_tree.nodes if nd.type == "EMISSION"][0].inputs[1]
+    for f0 in range(1, n + 1, every):
+        for f, v in ((f0, strength), (f0 + on, 0.0)):
+            s.default_value = v
+            s.keyframe_insert("default_value", frame=f)
+    for fc in L._fcurves(m.node_tree.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "CONSTANT"
+
+
+def rain(center, size, vel, n, count=1500, length=0.5, width=0.006, period=10, seed=5, name="rain", color=(0.62, 0.68, 0.8),
+         emit=0.5, cam=None, clear=1.2):
+    """Seamless looping rain streaks. Streaks are thin prisms aligned with `vel` (m/s, relative to the camera).
+    The cloud is periodic along the velocity axis and loops every `period` frames (CYCLES modifier), so streaks can
+    move fast without padding the volume. `size` = (along-velocity, side, side) extents of the covered region."""
+    rnd = random.Random(seed)
+    u = Vector(vel).normalized()
+    tmp = Vector((0, 0, 1)) if abs(u.z) < 0.9 else Vector((1, 0, 0))
+    v = u.cross(tmp).normalized()
+    w = u.cross(v).normalized()
+    D = Vector(vel).length * period / FPS
+    K = int(math.ceil(size[0] / D)) + 1
+    per = max(1, int(count / K))
+    c = Vector(center)
+    camp = Vector(cam) if cam else None
+    bm = bmesh.new()
+    base = []
+    for i in range(per):
+        uu = -size[0] / 2 + rnd.uniform(0, D)
+        vv = rnd.uniform(-0.5, 0.5) * size[1]
+        ww = rnd.uniform(-0.5, 0.5) * size[2]
+        base.append((uu, vv, ww, length * rnd.uniform(0.6, 1.3)))
+    for j in range(K):
+        for (uu, vv, ww, ln) in base:
+            p = c + u * (uu + j * D - D) + v * vv + w * ww
+            if camp is not None and (p - camp).length < clear:
+                continue
+            q = p + u * ln
+            r = width
+            a0 = [p + (v * math.cos(t) + w * math.sin(t)) * r for t in (0, 2.094, 4.189)]
+            a1 = [q + (v * math.cos(t) + w * math.sin(t)) * r * 0.3 for t in (0, 2.094, 4.189)]
+            vs0 = [bm.verts.new(x) for x in a0]
+            vs1 = [bm.verts.new(x) for x in a1]
+            for k in range(3):
+                bm.faces.new((vs0[k], vs0[(k + 1) % 3], vs1[(k + 1) % 3], vs1[k]))
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, L.mat_principled(name + "_m", color, rough=0.2, emit=color, emit_strength=emit))
+    o.visible_shadow = False
+    o.location = (0, 0, 0)
+    o.keyframe_insert("location", frame=1)
+    o.location = u * D
+    o.keyframe_insert("location", frame=1 + period)
+    L.linear_fcurves(o)
+    for fc in L._fcurves(o.animation_data.action):
+        fc.modifiers.new("CYCLES")
+    return o
+
+
+def cloud_volume(center, size, density=0.6, scale=0.8, color=(0.32, 0.36, 0.46), contrast=(0.42, 0.7), drift=(0, 0, 0), n=100,
+                 anisotropy=0.3, falloff=True, name="cloud", emit=None, emit_strength=0.0):
+    """Clumpy storm-cloud volume (noise density). drift = texture drift (m/s) so clouds stream past."""
+    o = L.prim("cube", loc=center, name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    m, nn, l = L._mat(name + "_m")
+    for nd in list(nn):
+        if nd.type == "BSDF_PRINCIPLED":
+            nn.remove(nd)
+    v = nn.new("ShaderNodeVolumePrincipled")
+    v.inputs["Color"].default_value = (*color, 1)
+    v.inputs["Anisotropy"].default_value = anisotropy
+    if emit:
+        v.inputs["Emission Color"].default_value = (*emit, 1)
+        v.inputs["Emission Strength"].default_value = emit_strength
+    tc = nn.new("ShaderNodeTexCoord")
+    mp = nn.new("ShaderNodeMapping")
+    l.new(tc.outputs["Generated"], mp.inputs["Vector"])
+    mp.inputs["Scale"].default_value = (size[0] * scale / 10, size[1] * scale / 10, size[2] * scale / 10)
+    nz = nn.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 1.0
+    nz.inputs["Detail"].default_value = 5
+    nz.inputs["Roughness"].default_value = 0.6
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    if any(drift):
+        mp.inputs["Location"].default_value = (0, 0, 0)
+        mp.inputs["Location"].keyframe_insert("default_value", frame=1)
+        mp.inputs["Location"].default_value = tuple(-drift[i] * n / FPS * scale / 10 * size[i] / size[i] for i in range(3))
+        mp.inputs["Location"].keyframe_insert("default_value", frame=n)
+        for fc in L._fcurves(m.node_tree.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = "LINEAR"
+    ramp = nn.new("ShaderNodeMapRange")
+    ramp.inputs["From Min"].default_value = contrast[0]
+    ramp.inputs["From Max"].default_value = contrast[1]
+    l.new(nz.outputs["Fac"], ramp.inputs["Value"])
+    dens = ramp.outputs[0]
+    if falloff:
+        sp = nn.new("ShaderNodeSeparateXYZ")
+        l.new(tc.outputs["Generated"], sp.inputs[0])
+        fz = _mathn(nn, l, "MULTIPLY", _mathn(nn, l, "SINE", _mathn(nn, l, "MULTIPLY", sp.outputs["Z"], math.pi)), 1.0)
+        fx = _mathn(nn, l, "SINE", _mathn(nn, l, "MULTIPLY", sp.outputs["X"], math.pi))
+        fy = _mathn(nn, l, "SINE", _mathn(nn, l, "MULTIPLY", sp.outputs["Y"], math.pi))
+        f = _mathn(nn, l, "MULTIPLY", _mathn(nn, l, "MULTIPLY", fz, fx), fy)
+        f = _mathn(nn, l, "POWER", f, 0.35)
+        dens = _mathn(nn, l, "MULTIPLY", dens, f)
+    d2 = _mathn(nn, l, "MULTIPLY", dens, density)
+    l.new(d2, v.inputs["Density"])
+    l.new(v.outputs[0], nn["Material Output"].inputs["Volume"])
+    L.assign(o, m)
+    o.visible_shadow = False
+    return o
+
+
+def lightning(n, flashes, rot=(math.radians(35), 0, math.radians(30)), energy=12.0, color=(0.7, 0.78, 1.0), name="lightning",
+              world_bg=None, world_base=1.0, world_peak=3.0):
+    """Sun light that is dark except for double-flash strobes at the given frames."""
+    s = L.sun(rot=rot, energy=0.0, color=color, angle=8.0, name=name)
+    d = s.data
+    def kk(f, v):
+        d.energy = v
+        d.keyframe_insert("energy", frame=max(1, f))
+        if world_bg is not None:
+            world_bg.inputs[1].default_value = world_base + (world_peak - world_base) * (v / energy)
+            world_bg.inputs[1].keyframe_insert("default_value", frame=max(1, f))
+    kk(1, 0.0)
+    for f in flashes:
+        kk(f - 1, 0.0)
+        kk(f, energy)
+        kk(f + 1, energy * 0.25)
+        kk(f + 2, energy * 0.9)
+        kk(f + 5, 0.0)
+    for fc in L._fcurves(d.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+    return s
+
+
+def storm_sky(zen=(0.004, 0.006, 0.012), hor=(0.03, 0.038, 0.06), strength=1.0):
+    """Starless dark storm gradient (night_sky without stars). Returns the Background node (for lightning)."""
+    return night_sky(zen=zen, hor=hor, stars=0.0, strength=strength)
+
+
+def parachute(loc=(0, 0, 0), radius=3.2, line_len=5.0, color=(0.78, 0.75, 0.66), stripe=(0.55, 0.12, 0.06), name="chute"):
+    """Round canopy (half-sphere with gore stripes) + suspension lines converging below. Root at the canopy centre;
+    the jumper hangs at (0,0,-line_len). Returns (root, canopy)."""
+    root = empty(name, loc)
+    can = L.prim("sphere", loc=(0, 0, 0), radius=radius, segments=24, ring_count=12, name=name + "_canopy")
+    bpy.context.view_layer.objects.active = can
+    me = can.data
+    bm = bmesh.new()
+    bm.from_mesh(me)
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.z < radius * 0.18], context="VERTS")
+    for v in bm.verts:
+        v.co.z -= radius * 0.18
+        v.co.z *= 0.8
+    bm.to_mesh(me)
+    bm.free()
+    smooth_obj(can)
+    solidify(can, 0.03)
+    m, nn, l = L._mat(name + "_m")
+    p = nn["Principled BSDF"]
+    tc = nn.new("ShaderNodeTexCoord")
+    sp = nn.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sp.inputs[0])
+    at = nn.new("ShaderNodeMath"); at.operation = "ARCTAN2"
+    l.new(sp.outputs["Y"], at.inputs[0]); l.new(sp.outputs["X"], at.inputs[1])
+    g = _mathn(nn, l, "FRACT", _mathn(nn, l, "MULTIPLY", at.outputs[0], 6 / (2 * math.pi)))
+    gt = _mathn(nn, l, "GREATER_THAN", g, 0.5)
+    mix = nn.new("ShaderNodeMix"); mix.data_type = "RGBA"
+    l.new(gt, mix.inputs[0])
+    mix.inputs[6].default_value = (*color, 1)
+    mix.inputs[7].default_value = (*stripe, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.8
+    p.inputs["Subsurface Weight"].default_value = 0.0
+    L.assign(can, m)
+    can.parent = root
+    lm = L.mat_principled(name + "_lines", (0.5, 0.5, 0.48), rough=0.8)
+    rim_z = 0.0
+    for k in range(10):
+        a = 2 * math.pi * k / 10
+        p0 = Vector((radius * 0.98 * math.cos(a), radius * 0.98 * math.sin(a), rim_z))
+        p1 = Vector((0, 0, -line_len))
+        mid = (p0 + p1) / 2
+        dv = p1 - p0
+        cy = L.prim("cyl", loc=mid, vertices=4, radius=0.012, depth=dv.length)
+        cy.rotation_euler = dv.to_track_quat("Z", "Y").to_euler()
+        L.assign(cy, lm)
+        cy.parent = root
+        cy.visible_shadow = False
+    return root, can
+
+
+def mat_bill(name="bill", c=(0.2, 0.3, 0.2), rot=0.0):
+    """Generic green paper money (no currency artwork): pale border + darker centre field via box coords."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    sp = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Generated"], sp.inputs[0])
+    bx = _band(n, l, sp.outputs["X"], 0.08, 0.92)
+    by = _band(n, l, sp.outputs["Y"], 0.12, 0.88)
+    f = _mathn(n, l, "MULTIPLY", bx, by)
+    nz = n.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 40
+    l.new(tc.outputs["Generated"], nz.inputs["Vector"])
+    mix = n.new("ShaderNodeMix"); mix.data_type = "RGBA"
+    l.new(f, mix.inputs[0])
+    mix.inputs[6].default_value = (c[0] * 2.2, c[1] * 2.0, c[2] * 1.9, 1)
+    mix.inputs[7].default_value = (*c, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.85
+    return m
+
+
+def bill_brick(loc, rot_z=0.0, size=(0.156, 0.066, 0.05), band=True, name="brick", mat=None, rot_x=0.0):
+    """Banded stack of generic bills: box + paper band."""
+    o = L.prim("cube", loc=loc, name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    o.rotation_euler = (rot_x, 0, rot_z)
+    L.assign(o, mat or mat_bill(name + "_m"))
+    bv = o.modifiers.new("bv", "BEVEL"); bv.width = 0.004; bv.segments = 2
+    if band:
+        b = L.prim("cube", loc=(0, 0, 0))
+        b.scale = (0.12, 1.04, 1.06)
+        L.assign(b, L.mat_principled(name + "_band", (0.75, 0.68, 0.5), rough=0.8))
+        b.parent = o
+    return o
+
+
+def loose_bills(center, count, n, area=(2.0, 2.0, 2.0), size=(0.156, 0.066), vel=(0, 0, 3.0), spin=6.0, seed=4, name="bills",
+                mat=None):
+    """Individual bills fluttering (each a plane with tumbling keys). vel = drift relative to camera (m/s)."""
+    rnd = random.Random(seed)
+    m = mat or mat_bill(name + "_m")
+    out = []
+    for i in range(count):
+        p = Vector((center[0] + rnd.uniform(-0.5, 0.5) * area[0], center[1] + rnd.uniform(-0.5, 0.5) * area[1],
+                    center[2] + rnd.uniform(-0.5, 0.5) * area[2]))
+        b = L.prim("plane", loc=p, size=1, name=f"{name}{i}")
+        b.scale = (size[0], size[1], 1)
+        L.assign(b, m)
+        b.visible_shadow = False
+        r0 = Vector((rnd.uniform(0, 6), rnd.uniform(0, 6), rnd.uniform(0, 6)))
+        w = Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1))) * spin
+        vv = Vector(vel) + Vector((rnd.uniform(-0.6, 0.6), rnd.uniform(-0.6, 0.6), rnd.uniform(-0.6, 0.6)))
+        for f in (1, n):
+            t = (f - 1) / FPS
+            b.location = p + vv * t
+            b.rotation_euler = tuple(r0[k] + w[k] * t for k in range(3))
+            b.keyframe_insert("location", frame=f)
+            b.keyframe_insert("rotation_euler", frame=f)
+        set_interp(b, "LINEAR")
+        out.append(b)
+    return out
+
+
+def rounded_box(loc, size, color, rough=0.8, bevel=0.3, name="rbox", mat=None, rot=(0, 0, 0)):
+    o = L.prim("cube", loc=loc, name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    o.rotation_euler = rot
+    L.apply_scale(o)
+    bv = o.modifiers.new("bv", "BEVEL")
+    bv.width = min(size) * bevel
+    bv.segments = 4
+    L.assign(o, mat or L.mat_noise_surface(name + "_m", tuple(c * 0.75 for c in color), color, scale=25, bump=0.25,
+                                            voronoi=False, rough=rough))
+    smooth_obj(o)
+    return o
+
+
+def parachute_pack(loc, color=(0.18, 0.2, 0.1), rot_z=0.0, name="pack"):
+    """Rounded canvas parachute pack with two harness straps and a buckle. Returns root."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    b = rounded_box((0, 0, 0.11), (0.46, 0.34, 0.2), color, bevel=0.25, name=name + "_b")
+    b.parent = root
+    sm_ = L.mat_principled(name + "_s", (0.05, 0.05, 0.045), rough=0.7)
+    for x in (-0.12, 0.12):
+        s = L.prim("cube", loc=(x, 0, 0.11))
+        s.scale = (0.025, 0.18, 0.105)
+        L.assign(s, sm_)
+        s.parent = root
+    bk = L.prim("cube", loc=(0, -0.171, 0.12))
+    bk.scale = (0.05, 0.01, 0.035)
+    L.assign(bk, L.mat_principled(name + "_bk", (0.6, 0.6, 0.6), rough=0.3, metal=1.0))
+    bk.parent = root
+    return root
+
+
+def money_bag(loc, color=(0.42, 0.36, 0.22), name="bag"):
+    """Khaki canvas bag with drawstring neck. Returns root."""
+    root = empty(name, loc)
+    b = L.prim("sphere", loc=(0, 0, 0), radius=0.2, segments=16, ring_count=10, name=name + "_b")
+    b.scale = (1.0, 0.7, 1.15)
+    L.add_displace(b, strength=0.03, scale=0.25, name=name + "_d")
+    L.assign(b, L.mat_noise_surface(name + "_m", tuple(c * 0.7 for c in color), color, scale=40, bump=0.4, voronoi=False))
+    smooth_obj(b)
+    b.parent = root
+    nk = L.prim("cone", loc=(0, 0, 0.26), vertices=12, radius1=0.08, radius2=0.03, depth=0.14)
+    L.assign(nk, b.data.materials[0])
+    nk.parent = root
+    t = L.prim("torus", loc=(0, 0, 0.24), major_radius=0.06, minor_radius=0.008)
+    L.assign(t, L.mat_principled(name + "_cord", (0.15, 0.12, 0.08), rough=0.8))
+    t.parent = root
+    return root
+
+
+def cabin_727(length=16.0, rows=12, pitch=0.86, seat_cols=((0.95, 0.7, 0.45), (-0.45, -0.7, -0.95)), name="cabin",
+              seat_a=(0.36, 0.14, 0.04), seat_b=(0.2, 0.08, 0.03), window_col=(0.25, 0.35, 0.55), light=1.0):
+    """1970s narrow-body cabin interior along X (front +X, rear -X). Floor z=0, aisle at y in (-0.25,0.25).
+    Seats: rows at x = -k*pitch. Returns dict (incl. 'row_x')."""
+    out = {}
+    wall = L.mat_principled(name + "_wall", (0.42, 0.38, 0.3), rough=0.7)
+    tube = _loft_x(name + "_tube", [(length / 2, 1.85, 1.05, 1), (-length / 2, 1.85, 1.05, 1)], seg=40, mat=wall)
+    for p in tube.data.polygons:
+        p.flip()
+    tube.data.update()
+    fl = L.prim("cube", loc=(0, 0, -0.05))
+    fl.scale = (length / 2, 1.8, 0.05)
+    L.assign(fl, L.mat_noise_surface(name + "_carpet", (0.06, 0.035, 0.02), (0.13, 0.07, 0.035), scale=60, bump=0.2, voronoi=False))
+    ais = L.prim("plane", loc=(0, 0, 0.002), size=1)
+    ais.scale = (length, 0.5, 1)
+    L.assign(ais, L.mat_noise_surface(name + "_aisle", (0.12, 0.05, 0.02), (0.22, 0.09, 0.03), scale=50, bump=0.1, voronoi=False))
+    # overhead bins
+    binm = L.mat_principled(name + "_bin", (0.55, 0.5, 0.4), rough=0.5)
+    for sy in (-1, 1):
+        b = L.prim("cube", loc=(0, sy * 1.25, 2.02))
+        b.scale = (length / 2, 0.38, 0.17)
+        b.rotation_euler = (sy * 0.35, 0, 0)
+        L.assign(b, binm)
+    strip = L.prim("plane", loc=(0, 0, 2.38), size=1)
+    strip.scale = (length * 0.95, 0.18, 1)
+    strip.rotation_euler = (math.pi, 0, 0)
+    L.assign(strip, L.mat_emission(name + "_strip", (1.0, 0.82, 0.58), 3.0 * light))
+    strip.visible_shadow = False
+    sa = L.mat_noise_surface(name + "_sa", tuple(c * 0.7 for c in seat_a), seat_a, scale=30, bump=0.3, voronoi=False)
+    sb = L.mat_noise_surface(name + "_sb", tuple(c * 0.7 for c in seat_b), seat_b, scale=30, bump=0.3, voronoi=False)
+    wm = L.mat_emission(name + "_win", window_col, 1.2)
+    row_x = []
+    for k in range(rows):
+        x = length / 2 - 1.6 - k * pitch
+        row_x.append(x)
+        for side in seat_cols:
+            for j, y in enumerate(side):
+                m = sa if (k + j) % 2 == 0 else sb
+                cu = rounded_box((x, y, 0.46), (0.46, 0.44, 0.13), seat_a, bevel=0.3, name=f"{name}_c{k}_{j}_{y}", mat=m)
+                bk = rounded_box((x - 0.22, y, 0.82), (0.11, 0.44, 0.66), seat_a, bevel=0.3, name=f"{name}_b{k}_{j}_{y}", mat=m,
+                                 rot=(0, math.radians(-8), 0))
+                hr = rounded_box((x - 0.25, y, 1.2), (0.12, 0.3, 0.14), seat_a, bevel=0.3, name=f"{name}_h{k}_{j}_{y}",
+                                 mat=binm)
+        for sy in (-1, 1):
+            w = L.prim("cyl", loc=(x + 0.1, sy * 1.74, 1.22), vertices=16, radius=0.15, depth=0.06, rot=(math.pi / 2, 0, 0))
+            w.scale = (0.82, 1.15, 1)
+            L.assign(w, wm)
+            w.visible_shadow = False
+    # warm overhead pools
+    for k in range(0, rows, 3):
+        L.point((length / 2 - 1.6 - k * pitch, 0, 2.1), energy=60 * light, color=(1.0, 0.78, 0.52), radius=0.3, name=f"{name}_pl{k}")
+    out.update(row_x=row_x, tube=tube, wall=wall)
+    return out
+
+
+def mat_wet_apron(name="apron"):
+    """Wet tarmac: very dark, low roughness with rougher dry patches (puddle reflections)."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 0.12; nz.inputs["Detail"].default_value = 6
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    rr = n.new("ShaderNodeMapRange")
+    rr.inputs["From Min"].default_value = 0.45; rr.inputs["From Max"].default_value = 0.6
+    rr.inputs["To Min"].default_value = 0.03; rr.inputs["To Max"].default_value = 0.45
+    l.new(nz.outputs["Fac"], rr.inputs["Value"])
+    l.new(rr.outputs[0], p.inputs["Roughness"])
+    n2 = n.new("ShaderNodeTexNoise"); n2.inputs["Scale"].default_value = 4.0
+    l.new(tc.outputs["Object"], n2.inputs["Vector"])
+    cr = n.new("ShaderNodeMapRange")
+    cr.inputs["To Min"].default_value = 0.012; cr.inputs["To Max"].default_value = 0.04
+    l.new(n2.outputs["Fac"], cr.inputs["Value"])
+    cc = n.new("ShaderNodeCombineXYZ")
+    for i in range(3):
+        l.new(cr.outputs[0], cc.inputs[i])
+    l.new(cc.outputs[0], p.inputs["Base Color"])
+    return m
+
+
+def flood_mast(loc, target, height=14.0, energy=60000, color=(1.0, 0.62, 0.28), size_deg=60, name="mast"):
+    """Apron floodlight mast: pole + glowing head + sodium spot aimed at target."""
+    root = empty(name, loc)
+    pm = L.mat_principled(name + "_m", (0.12, 0.12, 0.13), rough=0.5, metal=0.6)
+    pole = L.prim("cyl", loc=(0, 0, height / 2), vertices=8, radius=0.15, depth=height)
+    L.assign(pole, pm)
+    pole.parent = root
+    head = L.prim("cube", loc=(0, 0, height + 0.2))
+    head.scale = (0.9, 0.3, 0.3)
+    L.assign(head, L.mat_emission(name + "_h", color, 25))
+    head.parent = root
+    head.visible_shadow = False
+    sp = L.spot((loc[0], loc[1], loc[2] + height), (0, 0, 0), energy=energy, size_deg=size_deg, blend=0.6, color=color,
+                name=name + "_spot", radius=0.4)
+    tg = empty(name + "_tgt", target)
+    aim(sp, tg)
+    return root, sp
+
+
+def boarding_stairs(loc, rot_z=0.0, height=3.0, length=4.5, width=1.2, name="bstairs"):
+    """Mobile boarding stair truck: stepped incline from ground (local -X end) up to +X end at `height`."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.5, 0.5, 0.48), rough=0.5, metal=0.6)
+    steps = int(height / 0.2)
+    for k in range(steps):
+        s = L.prim("cube", loc=(-length / 2 + (k + 0.5) * length / steps, 0, (k + 0.5) * height / steps))
+        s.scale = (length / steps / 2, width / 2, 0.03)
+        L.assign(s, m)
+        s.parent = root
+    ang = math.atan2(height, length)
+    for sy in (-1, 1):
+        r = L.prim("cube", loc=(0, sy * width / 2, height / 2 + 0.5))
+        r.scale = (math.hypot(length, height) / 2, 0.03, 0.03)
+        r.rotation_euler = (0, -ang, 0)
+        L.assign(r, m)
+        r.parent = root
+        side = L.prim("cube", loc=(0, sy * width / 2, height / 2 - 0.2))
+        side.scale = (math.hypot(length, height) / 2, 0.02, 0.25)
+        side.rotation_euler = (0, -ang, 0)
+        L.assign(side, m)
+        side.parent = root
+    plat = L.prim("cube", loc=(length / 2 + 0.4, 0, height))
+    plat.scale = (0.45, width / 2, 0.05)
+    L.assign(plat, m)
+    plat.parent = root
+    return root
+
+
+def mat_sand(name="sand", c1=(0.26, 0.22, 0.16), c2=(0.48, 0.42, 0.32), wet=False, ripple=True):
+    m = L.mat_noise_surface(name, c1, c2, scale=18, bump=0.25, voronoi=False, rough=0.55 if wet else 0.9)
+    return m
+
+
+def riverbank(x=(-40, 40), y=(-30, 6), res=0.25, water_y=4.0, seed=3, ripple=0.03, name="bank", sand=None):
+    """Sandy bar sloping gently into a flat river at +Y (water surface z=0). Returns (hfun, ground, water)."""
+    def h(px, py):
+        base = (water_y - py) * 0.035 - 0.05
+        mac = 0.25 * noise.noise(Vector((px * 0.05, py * 0.05, seed)))
+        rip = ripple * math.sin(px * 3.2 + 1.3 * noise.noise(Vector((px * 0.3, py * 0.3, seed + 4))) * 4 + py * 0.6)
+        return base + mac + rip
+    nx = int((x[1] - x[0]) / res) + 1
+    ny = int((y[1] - y[0]) / res) + 1
+    g = heightfield(name, x[0], x[1], y[0], y[1], nx, ny, h, mat=sand or mat_sand(name + "_m"))
+    w = sea(size=(300, 200), loc=(0, water_y + 100, 0.0), color=(0.05, 0.06, 0.065), n=150, speed=(0.15, 0.5), name=name + "_river")
+    return h, g, w
+
+
+def driftwood(loc, length=2.5, r=0.12, rot=(0, 0, 0), name="log", seed=1):
+    o = L.prim("cyl", loc=loc, vertices=10, radius=r, depth=length, rot=rot, name=name)
+    L.add_displace(o, strength=0.03, scale=0.3, name=name + "_d")
+    L.assign(o, L.mat_noise_surface(name + "_m", (0.18, 0.16, 0.13), (0.36, 0.33, 0.28), scale=12, bump=0.5, voronoi=False))
+    return o
+
+
+def rotten_bundle(loc, rot_z=0.0, size=(0.156, 0.066, 0.035), seed=1, name="bundle"):
+    """Weathered, swollen packet of generic bills (dark mouldy edges) with a perished rubber band."""
+    o = L.prim("cube", loc=loc, name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    o.rotation_euler = (0, 0, rot_z)
+    L.apply_scale(o)
+    sub = o.modifiers.new("sub", "SUBSURF"); sub.levels = sub.render_levels = 2; sub.subdivision_type = "SIMPLE"
+    L.add_displace(o, strength=0.006, scale=0.03, name=name + "_d")
+    m, n, l = L._mat(name + "_m")
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 60; nz.inputs["Detail"].default_value = 6
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    vl = n.new("ShaderNodeVectorMath"); vl.operation = "LENGTH"
+    sc = n.new("ShaderNodeVectorMath"); sc.operation = "MULTIPLY"
+    sc.inputs[1].default_value = (2 / size[0], 2 / size[1], 0.5 / size[2])
+    l.new(tc.outputs["Object"], sc.inputs[0])
+    l.new(sc.outputs[0], vl.inputs[0])
+    edge = _mathn(n, l, "ADD", vl.outputs["Value"], _mathn(n, l, "MULTIPLY", nz.outputs["Fac"], 0.6))
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.7
+    ramp.color_ramp.elements[0].color = (0.11, 0.16, 0.1, 1)
+    ramp.color_ramp.elements[1].position = 1.35
+    ramp.color_ramp.elements[1].color = (0.02, 0.02, 0.015, 1)
+    l.new(edge, ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.8
+    L.assign(o, m)
+    smooth_obj(o)
+    b = L.prim("cube", loc=(loc[0], loc[1], loc[2]))
+    b.scale = (0.006, size[1] / 2 + 0.003, size[2] / 2 + 0.003)
+    b.rotation_euler = (0, 0, rot_z)
+    L.assign(b, L.mat_principled(name + "_band", (0.15, 0.08, 0.05), rough=0.6))
+    return o
+
+
+def glow_poly(points, color=(0.3, 0.7, 1.0), strength=4.0, bevel=0.01, name="glow", closed=False):
+    """Emissive polyline curve (blueprint / outline graphics). Animate with curve_draw."""
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    sp = cu.splines.new("POLY")
+    pts = list(points) + ([points[0]] if closed else [])
+    sp.points.add(len(pts) - 1)
+    for k, q in enumerate(pts):
+        sp.points[k].co = (*q, 1)
+    cu.bevel_depth = bevel
+    cu.bevel_resolution = 2
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(L.mat_emission(name + "_m", color, strength))
+    o.visible_shadow = False
+    return o
+
+
+def rect_pts(cx, cz, w, h, y=0.0):
+    return [(cx - w / 2, y, cz - h / 2), (cx + w / 2, y, cz - h / 2), (cx + w / 2, y, cz + h / 2), (cx - w / 2, y, cz + h / 2)]
+
+
+def hangar(size=(60, 40, 16), name="hangar", light=1.0):
+    """Dim hangar box: concrete floor, ribbed back wall, row of cool top lights. Centre at origin, floor z=0."""
+    sx, sy, sz = size
+    fl = L.prim("plane", loc=(0, 0, 0), size=1)
+    fl.scale = (sx, sy, 1)
+    L.assign(fl, L.mat_noise_surface(name + "_floor", (0.05, 0.05, 0.05), (0.14, 0.14, 0.14), scale=1.5, bump=0.1, rough=0.35,
+                                     voronoi=False))
+    wm = L.mat_noise_surface(name + "_wall", (0.025, 0.028, 0.032), (0.07, 0.075, 0.08), scale=2, bump=0.2, voronoi=False)
+    bw = L.prim("plane", loc=(0, sy / 2, sz / 2), size=1, rot=(math.pi / 2, 0, 0))
+    bw.scale = (sx, sz, 1)
+    L.assign(bw, wm)
+    rib_m = L.mat_principled(name + "_rib", (0.05, 0.055, 0.06), rough=0.5, metal=0.6)
+    for x in range(int(-sx / 2), int(sx / 2) + 1, 5):
+        r = L.prim("cube", loc=(x, sy / 2 - 0.3, sz / 2))
+        r.scale = (0.25, 0.3, sz / 2)
+        L.assign(r, rib_m)
+    lm = L.mat_emission(name + "_lamp", (0.75, 0.85, 1.0), 12)
+    for x in range(int(-sx / 2) + 5, int(sx / 2), 10):
+        for y in (-6, 6):
+            lp = L.prim("cube", loc=(x, y, sz - 0.3))
+            lp.scale = (0.8, 0.8, 0.08)
+            L.assign(lp, lm)
+            lp.visible_shadow = False
+            L.spot((x, y, sz - 0.5), (0, 0, 0), energy=4000 * light, size_deg=85, blend=0.8, color=(0.75, 0.85, 1.0),
+                   name=f"{name}_sp{x}_{y}", radius=0.5)
+    return fl
+
+
+def suspect_wall(cols=12, rows=8, w=0.42, h=0.56, gap=0.12, origin=(0, 0, 0), seed=3, name="suspects", jitter=0.06):
+    """Big wall of pinned faceless suspect cards (paper + dark silhouette bust + red pin), each as one joined mesh.
+    Cards lie in the XZ plane facing -Y, grid centred on origin. Returns list of 3 objects."""
+    rnd = random.Random(seed)
+    bp, bs, bn = bmesh.new(), bmesh.new(), bmesh.new()
+    W = cols * (w + gap)
+    H = rows * (h + gap)
+    for i in range(cols):
+        for j in range(rows):
+            cx = origin[0] - W / 2 + (i + 0.5) * (w + gap) + rnd.uniform(-jitter, jitter)
+            cz = origin[2] - H / 2 + (j + 0.5) * (h + gap) + rnd.uniform(-jitter, jitter)
+            a = rnd.uniform(-0.08, 0.08)
+            M = Matrix.Translation((cx, origin[1], cz)) @ Matrix.Rotation(a, 4, "Y")
+            bmesh.ops.create_grid(bp, x_segments=1, y_segments=1, size=0.5,
+                                  matrix=M @ Matrix.Rotation(math.pi / 2, 4, "X") @ Matrix.Diagonal((w, h, 1, 1)))
+            # silhouette: head disc + shoulders half-disc
+            bmesh.ops.create_circle(bs, cap_ends=True, segments=16, radius=w * 0.17,
+                                    matrix=M @ Matrix.Translation((0, -0.004, h * 0.1)) @ Matrix.Rotation(math.pi / 2, 4, "X"))
+            bmesh.ops.create_circle(bs, cap_ends=True, segments=20, radius=w * 0.34,
+                                    matrix=M @ Matrix.Translation((0, -0.003, -h * 0.36)) @ Matrix.Rotation(math.pi / 2, 4, "X")
+                                    @ Matrix.Diagonal((1, 0.75, 1, 1)))
+            bmesh.ops.create_uvsphere(bn, u_segments=6, v_segments=4, radius=0.018,
+                                      matrix=M @ Matrix.Translation((0, -0.02, h * 0.42)))
+    paper = L.mesh_from_bm(name + "_paper", bp)
+    L.assign(paper, mat_paper(name + "_pm", (0.6, 0.57, 0.48)))
+    # trim silhouettes to card bottom: shoulders disc extends below card -> squash handled by Diagonal; fine stylised
+    sil = L.mesh_from_bm(name + "_sil", bs)
+    L.assign(sil, L.mat_principled(name + "_sm", (0.03, 0.03, 0.035), rough=0.9))
+    pins = L.mesh_from_bm(name + "_pins", bn)
+    L.assign(pins, L.mat_principled(name + "_pn", (0.6, 0.04, 0.03), rough=0.3))
+    return [paper, sil, pins]
+
+
+def red_string(points, name="string", strength=0.6):
+    """Taut red string between pins (thin curve)."""
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    sp = cu.splines.new("POLY")
+    sp.points.add(len(points) - 1)
+    for k, q in enumerate(points):
+        sp.points[k].co = (*q, 1)
+    cu.bevel_depth = 0.006
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(L.mat_principled(name + "_m", (0.6, 0.02, 0.02), rough=0.5, emit=(0.6, 0.02, 0.02),
+                                             emit_strength=strength))
+    return o
+
+
+def glass_drops(center, size=(3.0, 4.0), count=260, seed=3, name="drops", rmin=0.008, rmax=0.035):
+    """Raindrops on a vertical pane (XZ plane at center.y, facing -Y): one mesh of flattened hemispheres."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    for i in range(count):
+        r = rnd.uniform(rmin, rmax) * (1.0 if rnd.random() > 0.15 else 1.8)
+        x = center[0] + rnd.uniform(-0.5, 0.5) * size[0]
+        z = center[2] + rnd.uniform(-0.5, 0.5) * size[1]
+        bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=5, radius=r,
+                                  matrix=Matrix.Translation((x, center[1], z)) @ Matrix.Diagonal((1, 0.35, 1.25, 1)))
+    o = L.mesh_from_bm(name, bm)
+    smooth_obj(o)
+    L.assign(o, L.mat_principled(name + "_m", (0.5, 0.55, 0.62), rough=0.02, metal=0.0, emit=(0.35, 0.4, 0.5), emit_strength=0.25))
+    return o
+
+
+def bokeh_lights(center, size, count=30, seed=4, colors=((1.0, 0.55, 0.2), (1.0, 0.8, 0.5), (0.6, 0.75, 1.0), (1.0, 0.2, 0.1)),
+                 strength=12, name="bokeh"):
+    """Distant city/airport lights (emissive spheres) for a defocused background."""
+    rnd = random.Random(seed)
+    out = []
+    mats = [L.mat_emission(f"{name}_m{i}", c, strength) for i, c in enumerate(colors)]
+    for i in range(count):
+        p = (center[0] + rnd.uniform(-0.5, 0.5) * size[0], center[1] + rnd.uniform(-0.5, 0.5) * size[1],
+             center[2] + rnd.uniform(-0.5, 0.5) * size[2])
+        s = L.prim("ico", loc=p, subdivisions=1, radius=rnd.uniform(0.06, 0.18))
+        L.assign(s, mats[rnd.randrange(len(mats))])
+        s.visible_shadow = False
+        out.append(s)
+    return out
+
+
+# ============================================================================ MURDER-04 (Zodiac 340) builders
+# Cipher grid of individually keyframable stand-in glyphs (illustrative only, not the real sheet), screens, CRT TV.
+
+F_SANS_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+CIPHER_LET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+CIPHER_GREEK = "ΘΦΣΔΩΓΛΠΨ"
+CIPHER_SHAPES = ["tri", "trio", "dot", "slash", "bslash", "sq", "plus", "circ"]
+
+
+def cipher_specs(n=340, seed=340):
+    """Same generator as BLENDER_PROJECTS/MURDER-04/make_textures.py (kind, glyph, rot90s, mirror)."""
+    rnd = random.Random(seed)
+    out = []
+    for i in range(n):
+        r = rnd.random()
+        if r < 0.62:
+            out.append(("ch", rnd.choice(CIPHER_LET), rnd.choice([0, 0, 0, 1, 2, 3]), rnd.random() < 0.25))
+        elif r < 0.78:
+            out.append(("ch", rnd.choice(CIPHER_GREEK), 0, False))
+        else:
+            out.append(("sh", rnd.choice(CIPHER_SHAPES), 0, False))
+    return out
+
+
+_GLYPH_CACHE = {}
+
+
+def _glyph_mesh(spec, size):
+    """Mesh datablock for a glyph lying in the local XY plane (facing +Z), centred, height ~size. Cached."""
+    key = (spec, round(size, 4))
+    if key in _GLYPH_CACHE:
+        return _GLYPH_CACHE[key]
+    kind, g, rot, mirror = spec
+    s = size * 0.42
+    if kind == "ch":
+        cu = bpy.data.curves.new("gtmp", "FONT")
+        cu.body = g
+        cu.size = size * 0.95
+        cu.extrude = size * 0.04
+        cu.align_x = "CENTER"
+        cu.align_y = "CENTER"
+        f = _font(F_SANS_B)
+        if f:
+            cu.font = f
+        o = L.link(bpy.data.objects.new("gtmp", cu))
+        dg = bpy.context.evaluated_depsgraph_get()
+        me = bpy.data.meshes.new_from_object(o.evaluated_get(dg))
+        bpy.data.objects.remove(o)
+        bpy.data.curves.remove(cu)
+    else:
+        bm = bmesh.new()
+        w = max(size * 0.07, 0.004)
+        if g in ("tri", "trio"):
+            pts = [(0, s), (s, -s), (-s, -s)]
+            if g == "tri":
+                vs = [bm.verts.new((x, y, 0)) for x, y in pts]
+                bm.faces.new(vs)
+            else:
+                for i in range(3):
+                    a, b = Vector((*pts[i], 0)), Vector((*pts[(i + 1) % 3], 0))
+                    _bar(bm, a, b, w)
+        elif g == "dot":
+            bmesh.ops.create_circle(bm, cap_ends=True, segments=16, radius=s * 0.35)
+        elif g == "slash":
+            _bar(bm, Vector((-s, -s, 0)), Vector((s, s, 0)), w * 1.3)
+        elif g == "bslash":
+            _bar(bm, Vector((-s, s, 0)), Vector((s, -s, 0)), w * 1.3)
+        elif g == "sq":
+            c = [(-s, -s), (s, -s), (s, s), (-s, s)]
+            for i in range(4):
+                _bar(bm, Vector((*c[i], 0)), Vector((*c[(i + 1) % 4], 0)), w)
+        elif g == "plus":
+            _bar(bm, Vector((-s, 0, 0)), Vector((s, 0, 0)), w * 1.3)
+            _bar(bm, Vector((0, -s, 0)), Vector((0, s, 0)), w * 1.3)
+        elif g == "circ":
+            k = 20
+            for i in range(k):
+                a0, a1 = 2 * math.pi * i / k, 2 * math.pi * (i + 1) / k
+                _bar(bm, Vector((s * math.cos(a0), s * math.sin(a0), 0)), Vector((s * math.cos(a1), s * math.sin(a1), 0)), w)
+            _bar(bm, Vector((-s, 0, 0)), Vector((s, 0, 0)), w)
+        ext = bmesh.ops.extrude_face_region(bm, geom=bm.faces[:])
+        for v in [e for e in ext["geom"] if isinstance(e, bmesh.types.BMVert)]:
+            v.co.z += size * 0.04
+        me = bpy.data.meshes.new("gsh")
+        bm.to_mesh(me)
+        bm.free()
+    M_ = Matrix.Identity(4)
+    if mirror:
+        M_ = Matrix.Diagonal((-1, 1, 1, 1)) @ M_
+    if rot:
+        M_ = Matrix.Rotation(math.pi / 2 * rot, 4, "Z") @ M_
+    me.transform(M_)
+    if mirror:
+        me.flip_normals()
+    _GLYPH_CACHE[key] = me
+    return me
+
+
+def _bar(bm, a, b, w):
+    d = (b - a)
+    n = Vector((-d.y, d.x, 0)).normalized() * w / 2
+    vs = [bm.verts.new(a + n), bm.verts.new(b + n), bm.verts.new(b - n), bm.verts.new(a - n)]
+    bm.faces.new(vs)
+
+
+def mat_glyph(name="glyph", ink=(0.03, 0.025, 0.035), glow=6.0):
+    """Shared glyph material: base ink; emission colour = object colour RGB, strength = object colour alpha * glow.
+    Keyframe obj.color per glyph (set_glyph) to light it up without per-object materials."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    oi = n.new("ShaderNodeObjectInfo")
+    mix = n.new("ShaderNodeMix"); mix.data_type = "RGBA"
+    mix.inputs[0].default_value = 0.0
+    p.inputs["Base Color"].default_value = (*ink, 1)
+    p.inputs["Roughness"].default_value = 0.6
+    l.new(oi.outputs["Color"], p.inputs["Emission Color"])
+    s = _mathn(n, l, "MULTIPLY", oi.outputs["Alpha"], glow)
+    l.new(s, p.inputs["Emission Strength"])
+    # base colour tint: lerp ink -> object colour by alpha (so lit glyphs are not dark-cored)
+    mx = n.new("ShaderNodeMix"); mx.data_type = "RGBA"
+    l.new(_mathn(n, l, "MINIMUM", oi.outputs["Alpha"], 1.0), mx.inputs[0])
+    mx.inputs[6].default_value = (*ink, 1)
+    l.new(oi.outputs["Color"], mx.inputs[7])
+    l.new(mx.outputs[2], p.inputs["Base Color"])
+    return m
+
+
+def set_glyph(o, frame, rgb=(1, 0.1, 0.05), amount=0.0):
+    o.color = (*rgb, amount)
+    o.keyframe_insert("color", frame=max(1, frame))
+
+
+def cipher_grid(rows=20, cols=17, cw=0.1, ch=0.12, origin=(0, 0, 0), seed=340, paper=True, mat=None, name="cg",
+                paper_col=(0.62, 0.58, 0.48), margin=(0.12, 0.16), glyph_scale=0.78):
+    """Grid of rows x cols stand-in glyph objects in the XZ plane (facing -Y), centred on origin, row 0 at the top.
+    Returns dict: g[r][c] objects, pos(r,c) -> Vector, paper, specs, cw, ch."""
+    specs = cipher_specs(rows * cols, seed)
+    mat = mat or mat_glyph(name + "_gm")
+    W, H = cols * cw, rows * ch
+    ox, oy, oz = origin
+    out = {"g": [], "specs": specs, "cw": cw, "ch": ch, "rows": rows, "cols": cols, "mat": mat}
+
+    def pos(r, c, y=-0.004):
+        return Vector((ox - W / 2 + (c + 0.5) * cw, oy + y, oz + H / 2 - (r + 0.5) * ch))
+    out["pos"] = pos
+    for r in range(rows):
+        row = []
+        for c in range(cols):
+            me = _glyph_mesh(specs[r * cols + c], ch * glyph_scale)
+            o = L.link(bpy.data.objects.new(f"{name}_{r}_{c}", me))
+            o.data.materials.clear()
+            o.data.materials.append(mat)
+            o.location = pos(r, c)
+            o.rotation_euler = (math.pi / 2, 0, 0)
+            o.color = (1, 1, 1, 0)
+            row.append(o)
+        out["g"].append(row)
+    if paper:
+        pp = L.prim("plane", loc=(ox, oy + 0.002, oz), size=1, rot=(math.pi / 2, 0, 0), name=name + "_paper")
+        pp.scale = (W + 2 * margin[0], H + 2 * margin[1], 1)
+        L.assign(pp, mat_paper(name + "_pm", paper_col))
+        out["paper"] = pp
+    return out
+
+
+def letter_obj(ch_, size, mat, loc, name="let"):
+    me = _glyph_mesh(("ch", ch_, 0, False), size)
+    o = L.link(bpy.data.objects.new(name, me))
+    o.data.materials.clear()
+    o.data.materials.append(mat)
+    o.location = loc
+    o.rotation_euler = (math.pi / 2, 0, 0)
+    o.color = (1, 1, 1, 0)
+    return o
+
+
+def hop_path(rows, cols, start=(0, 0), dr=1, dc=2, count=None):
+    """Diagonal reading order (down dr rows, right dc columns, wrapping at the edges)."""
+    r, c = start
+    out = []
+    for k in range(count or rows * cols):
+        out.append((r, c))
+        r = (r + dr) % rows
+        c = (c + dc) % cols
+    return out
+
+
+def mat_screen(name, path, strength=3.0, scroll=(0.0, 0.0), n=100, scale=(1, 1), tint=(1, 1, 1), flicker=0.0, seed=1,
+               steps=None):
+    """Emissive screen with an image; scroll = UV units per second (wrapping); steps = (period_frames, offsets list) for
+    a stepped atlas flicker; flicker = strength jitter depth."""
+    m, nn, l = L._mat(name)
+    for nd in list(nn):
+        if nd.type == "BSDF_PRINCIPLED":
+            nn.remove(nd)
+    tc = nn.new("ShaderNodeTexCoord")
+    mp = nn.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (*scale, 1)
+    l.new(tc.outputs["UV"], mp.inputs["Vector"])
+    tx = nn.new("ShaderNodeTexImage")
+    tx.image = bpy.data.images.load(path, check_existing=True)
+    tx.extension = "REPEAT"
+    l.new(mp.outputs[0], tx.inputs["Vector"])
+    em = nn.new("ShaderNodeEmission")
+    tn = nn.new("ShaderNodeMix"); tn.data_type = "RGBA"; tn.blend_type = "MULTIPLY"
+    tn.inputs[0].default_value = 1.0
+    l.new(tx.outputs["Color"], tn.inputs[6])
+    tn.inputs[7].default_value = (*tint, 1)
+    l.new(tn.outputs[2], em.inputs["Color"])
+    em.inputs["Strength"].default_value = strength
+    l.new(em.outputs[0], nn["Material Output"].inputs["Surface"])
+    loc = mp.inputs["Location"]
+    if any(scroll):
+        loc.default_value = (0, 0, 0)
+        loc.keyframe_insert("default_value", frame=1)
+        loc.default_value = (scroll[0] * n / FPS, scroll[1] * n / FPS, 0)
+        loc.keyframe_insert("default_value", frame=n)
+    if steps:
+        per, offs = steps
+        k = 0
+        for f in range(1, n + 1, per):
+            loc.default_value = (*offs[k % len(offs)], 0)
+            loc.keyframe_insert("default_value", frame=f)
+            k += 1
+    if m.node_tree.animation_data and m.node_tree.animation_data.action:
+        for fc in L._fcurves(m.node_tree.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = "CONSTANT" if steps else "LINEAR"
+    if flicker:
+        rnd = random.Random(seed)
+        st = em.inputs["Strength"]
+        for f in range(1, n + 1, 2):
+            st.default_value = strength * (1 - flicker * rnd.random())
+            st.keyframe_insert("default_value", frame=f)
+    return m, em
+
+
+def monitor(loc=(0, 0, 0), rot_z=0.0, w=0.62, h=0.36, screen_mat=None, name="mon", keyboard=True):
+    """Modern flat monitor on a stand (screen faces -Y locally), optional keyboard. Root at desk level."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    bm_ = L.mat_principled(name + "_b", (0.015, 0.015, 0.017), rough=0.35, metal=0.3)
+    bz = 0.12 + h / 2
+    bez = L.prim("cube", loc=(0, 0.0, bz))
+    bez.scale = (w / 2 + 0.015, 0.018, h / 2 + 0.015)
+    L.assign(bez, bm_)
+    bez.parent = root
+    sc = L.prim("plane", loc=(0, -0.0195, bz), size=1, rot=(math.pi / 2, 0, 0), name=name + "_screen")
+    sc.scale = (w, h, 1)
+    if screen_mat:
+        L.assign(sc, screen_mat)
+    sc.parent = root
+    sc.visible_shadow = False
+    nk = L.prim("cube", loc=(0, 0.05, 0.08))
+    nk.scale = (0.03, 0.015, 0.08)
+    L.assign(nk, bm_)
+    nk.parent = root
+    bs = L.prim("cube", loc=(0, 0.02, 0.006))
+    bs.scale = (0.12, 0.09, 0.006)
+    L.assign(bs, bm_)
+    bs.parent = root
+    if keyboard:
+        kb = L.prim("cube", loc=(0, -0.3, 0.012))
+        kb.scale = (0.22, 0.07, 0.012)
+        L.assign(kb, L.mat_principled(name + "_kb", (0.03, 0.03, 0.035), rough=0.6))
+        kb.parent = root
+    return {"root": root, "screen": sc, "center_z": bz}
+
+
+def crt_tv(loc=(0, 0, 0), rot_z=0.0, screen_mat=None, name="tv", legs=True):
+    """1960s wood-veneer box TV with a slightly convex screen, knobs and splayed legs. Screen faces -Y locally."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    wood = L.mat_noise_surface(name + "_wood", (0.08, 0.04, 0.018), (0.22, 0.11, 0.05), scale=6, bump=0.15, voronoi=False, rough=0.45)
+    z0 = 0.45 if legs else 0.0
+    box = rounded_box((0, 0, z0 + 0.3), (0.82, 0.55, 0.6), (0.2, 0.1, 0.05), bevel=0.08, name=name + "_box", mat=wood)
+    box.parent = root
+    fr = L.prim("cube", loc=(-0.08, -0.276, z0 + 0.3))
+    fr.scale = (0.3, 0.005, 0.24)
+    L.assign(fr, L.mat_principled(name + "_fr", (0.03, 0.03, 0.03), rough=0.4))
+    fr.parent = root
+    sc = L.prim("sphere", loc=(-0.08, -0.12, z0 + 0.3), radius=1.0, segments=32, ring_count=16, name=name + "_screen")
+    sc.scale = (0.27, 0.17, 0.21)
+    bpy.context.view_layer.objects.active = sc
+    me = sc.data
+    bmx = bmesh.new()
+    bmx.from_mesh(me)
+    bmesh.ops.delete(bmx, geom=[v for v in bmx.verts if v.co.y > -0.82], context="VERTS")
+    bmx.to_mesh(me)
+    bmx.free()
+    # UVs: project front view
+    me.uv_layers.new(name="UVMap")
+    uv = me.uv_layers.active.data
+    for poly in me.polygons:
+        for li in poly.loop_indices:
+            v = me.vertices[me.loops[li].vertex_index].co
+            uv[li].uv = (v.x * 0.5 + 0.5, v.z * 0.5 + 0.5)
+    smooth_obj(sc)
+    if screen_mat:
+        L.assign(sc, screen_mat)
+    sc.parent = root
+    sc.visible_shadow = False
+    km = L.mat_principled(name + "_k", (0.5, 0.45, 0.35), rough=0.3, metal=0.8)
+    for kz in (0.42, 0.3, 0.18):
+        k = L.prim("cyl", loc=(0.3, -0.29, z0 + kz), vertices=16, radius=0.03, depth=0.03, rot=(math.pi / 2, 0, 0))
+        L.assign(k, km)
+        k.parent = root
+    gr = L.prim("cube", loc=(0.3, -0.278, z0 + 0.52))
+    gr.scale = (0.07, 0.004, 0.05)
+    L.assign(gr, L.mat_principled(name + "_gr", (0.05, 0.04, 0.03), rough=0.8))
+    gr.parent = root
+    if legs:
+        for sx in (-1, 1):
+            for sy in (-1, 1):
+                lg = L.prim("cyl", loc=(sx * 0.32, sy * 0.18, 0.22), vertices=8, radius=0.018, depth=0.48,
+                            rot=(sy * 0.12, -sx * 0.12, 0))
+                L.assign(lg, wood)
+                lg.parent = root
+    return {"root": root, "screen": sc, "screen_center": (loc[0] - 0.08, loc[1] - 0.29, loc[2] + z0 + 0.3)}
+
+
+def mat_tv_screen(name, path, n, strength=2.5, static=0.35, roll=0.6, tint=(0.82, 0.9, 1.0)):
+    """CRT picture: greyscale image + animated static noise + a rolling brighter band; slight vignette."""
+    m, nn, l = L._mat(name)
+    for nd in list(nn):
+        if nd.type == "BSDF_PRINCIPLED":
+            nn.remove(nd)
+    tc = nn.new("ShaderNodeTexCoord")
+    tx = nn.new("ShaderNodeTexImage")
+    tx.image = bpy.data.images.load(path, check_existing=True)
+    tx.extension = "EXTEND"
+    l.new(tc.outputs["UV"], tx.inputs["Vector"])
+    nz = nn.new("ShaderNodeTexNoise")
+    nz.noise_dimensions = "4D"
+    nz.inputs["Scale"].default_value = 180.0
+    nz.inputs["Detail"].default_value = 1.0
+    l.new(tc.outputs["UV"], nz.inputs["Vector"])
+    w = nz.inputs["W"]
+    for f in range(1, n + 1):
+        w.default_value = f * 7.3
+        w.keyframe_insert("default_value", frame=f)
+    sep = nn.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["UV"], sep.inputs[0])
+    # rolling band
+    band = _mathn(nn, l, "SUBTRACT", sep.outputs["Y"], 0.0)
+    bnode = band.node
+    for f in (1, n):
+        bnode.inputs[1].default_value = 1.2 - roll * (f / FPS) * 1.0
+        bnode.inputs[1].keyframe_insert("default_value", frame=f)
+    fr = _mathn(nn, l, "FRACT", band)
+    bd = _mathn(nn, l, "MULTIPLY", _mathn(nn, l, "POWER", fr, 12.0), 0.5)
+    img = nn.new("ShaderNodeRGBToBW")
+    l.new(tx.outputs["Color"], img.inputs[0])
+    mixs = _mathn(nn, l, "ADD", _mathn(nn, l, "MULTIPLY", img.outputs[0], 1 - static),
+                  _mathn(nn, l, "MULTIPLY", nz.outputs["Fac"], static))
+    tot = _mathn(nn, l, "ADD", mixs, bd)
+    em = nn.new("ShaderNodeEmission")
+    cc = nn.new("ShaderNodeCombineXYZ")
+    for i, t in enumerate(tint):
+        l.new(_mathn(nn, l, "MULTIPLY", tot, t), cc.inputs[i])
+    l.new(cc.outputs[0], em.inputs["Color"])
+    em.inputs["Strength"].default_value = strength
+    l.new(em.outputs[0], nn["Material Output"].inputs["Surface"])
+    if m.node_tree.animation_data and m.node_tree.animation_data.action:
+        for fc in L._fcurves(m.node_tree.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = "LINEAR"
+    return m, em
+
+
+def box_typewriter(loc, rot_z=0.0, color=(0.05, 0.06, 0.055), name="tw"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", color, rough=0.35, metal=0.4)
+    b = rounded_box((0, 0, 0.07), (0.42, 0.34, 0.14), color, bevel=0.15, name=name + "_b", mat=m)
+    b.parent = root
+    pl = L.prim("cyl", loc=(0, 0.12, 0.17), vertices=16, radius=0.04, depth=0.46, rot=(0, math.pi / 2, 0))
+    L.assign(pl, L.mat_principled(name + "_pl", (0.02, 0.02, 0.02), rough=0.5))
+    pl.parent = root
+    km = L.mat_principled(name + "_k", (0.7, 0.68, 0.6), rough=0.4)
+    for r in range(4):
+        for c in range(10):
+            k = L.prim("cyl", loc=(-0.16 + c * 0.035, -0.12 + r * 0.035, 0.145 + r * 0.008), vertices=8, radius=0.012, depth=0.01)
+            L.assign(k, km)
+            k.parent = root
+    sh = L.prim("plane", loc=(0, 0.16, 0.26), size=1, rot=(math.radians(75), 0, 0))
+    sh.scale = (0.2, 0.22, 1)
+    L.assign(sh, mat_paper(name + "_sheet", (0.75, 0.72, 0.62)))
+    sh.parent = root
+    return root
+
+
+def hanging_lamp(loc, energy=300, color=(1.0, 0.72, 0.42), name="hlamp", cord=2.0):
+    shade_m = L.mat_principled(name + "_shade", (0.06, 0.07, 0.06), rough=0.4, metal=0.7)
+    sh = L.prim("cone", loc=loc, vertices=24, radius1=0.25, radius2=0.06, depth=0.22, name=name)
+    L.assign(sh, shade_m)
+    cd = L.prim("cyl", loc=(loc[0], loc[1], loc[2] + cord / 2), vertices=6, radius=0.006, depth=cord)
+    L.assign(cd, shade_m)
+    bulb = L.prim("sphere", loc=(loc[0], loc[1], loc[2] - 0.08), radius=0.05, segments=10, ring_count=6)
+    L.assign(bulb, L.mat_emission(name + "_bulb", (1.0, 0.8, 0.5), 25))
+    bulb.visible_shadow = False
+    sp = L.spot((loc[0], loc[1], loc[2] - 0.1), (0, 0, 0), energy=energy, size_deg=80, blend=0.7, color=color, name=name + "_sp",
+                radius=0.08)
+    return sp
+
+
+def coffee_cup(loc, color=(0.75, 0.72, 0.65), name="cup"):
+    m = L.mat_principled(name + "_m", color, rough=0.25)
+    c = L.prim("cyl", loc=(loc[0], loc[1], loc[2] + 0.045), vertices=20, radius=0.04, depth=0.09, name=name)
+    L.assign(c, m)
+    t = L.prim("torus", loc=(loc[0] + 0.045, loc[1], loc[2] + 0.05), major_radius=0.022, minor_radius=0.006, rot=(math.pi / 2, 0, 0))
+    L.assign(t, m)
+    cf = L.prim("cyl", loc=(loc[0], loc[1], loc[2] + 0.085), vertices=20, radius=0.036, depth=0.002)
+    L.assign(cf, L.mat_principled(name + "_cf", (0.03, 0.015, 0.008), rough=0.1))
+    return c
+
+
+def image_plane(path, loc, size, rot=(math.pi / 2, 0, 0), emit=0.0, name="img", rough=0.8):
+    o = L.prim("plane", loc=loc, size=1, rot=rot, name=name)
+    o.scale = (size[0], size[1], 1)
+    L.assign(o, L.mat_image(name + "_m", path, emit=emit, rough=rough))
+    return o

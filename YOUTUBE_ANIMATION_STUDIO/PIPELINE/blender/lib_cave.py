@@ -1133,3 +1133,619 @@ def offset_band(center_pts, half_w):
         left.append(tuple(p + nrm * w))
         right.append(tuple(p - nrm * w))
     return left + list(reversed(right))
+
+
+# ============================================================================= CAVE-02 (Tham Luang) / CAVE-04 (Nutty Putty)
+# Added by the CAVE-02/04 director. New functions only; nothing above was changed.
+
+def passage(length=30.0, half_w=1.6, half_h=1.4, zc=0.0, y0=0.0, step=0.5, ring=32, seed=1, rough=0.12,
+            w_fn=None, h_fn=None, x_fn=None, z_fn=None, mat=None, name="passage", disp=(0.25, 0.08), floor_flat=0.3):
+    """Straight-ish horizontal tunnel along +Y with an elliptical, inward-facing section (no Catmull/up-vector issues).
+    w_fn(y)/h_fn(y) override half width/height, x_fn(y)/z_fn(y) shift the centre; floor_flat squashes the lower half.
+    Returns (obj, info) with info = dict(cx(y), cz(y), hw(y), hh(y), floor(y), ceil(y))."""
+    rnd = random.Random(seed)
+    off = Vector((rnd.random() * 100, rnd.random() * 100, rnd.random() * 100))
+    W = w_fn or (lambda y: half_w)
+    H = h_fn or (lambda y: half_h)
+    X = x_fn or (lambda y: 0.0)
+    Z = z_fn or (lambda y: zc)
+    nseg = max(2, int(length / step))
+    bm = bmesh.new()
+    rings = []
+    for i in range(nseg + 1):
+        y = y0 + length * i / nseg
+        rv = []
+        for j in range(ring):
+            a = 2 * math.pi * j / ring
+            ca, sa = math.cos(a), math.sin(a)
+            k = 1 + rough * noise.noise(Vector((ca * 1.3, sa * 1.3, y * 0.35)) + off)
+            hz = H(y) * (1 - floor_flat if sa < 0 else 1.0)
+            rv.append(bm.verts.new((X(y) + W(y) * ca * k, y, Z(y) + hz * sa * k)))
+        rings.append(rv)
+    for i in range(nseg):
+        for j in range(ring):
+            bm.faces.new((rings[i][j], rings[i][(j + 1) % ring], rings[i + 1][(j + 1) % ring], rings[i + 1][j]))
+    bm.normal_update()
+    bm.faces.ensure_lookup_table()
+    f0 = bm.faces[0]
+    cen = f0.calc_center_median()
+    if f0.normal.dot(Vector((X(cen.y), cen.y, Z(cen.y))) - cen) < 0:
+        for f in bm.faces:
+            f.normal_flip()
+    o = L.mesh_from_bm(name, bm)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    if disp[0]:
+        L.add_displace(o, strength=disp[0], scale=0.9, name=name + "_d1")
+    if disp[1]:
+        L.add_displace(o, strength=disp[1], scale=0.2, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m"))
+    info = {"cx": X, "cz": Z, "hw": W, "hh": H,
+            "floor": lambda y: Z(y) - H(y) * (1 - floor_flat), "ceil": lambda y: Z(y) + H(y)}
+    return o, info
+
+
+def water_surface(size=(6, 40), center=(0, 0, 0), color=(0.004, 0.012, 0.014), rough=0.05, wave_scale=1.6, bump=0.22,
+                  n=100, flow=(0.0, 0.25), glow_at=None, glow_color=(0.55, 1.0, 0.85), glow_radius=1.2,
+                  name="watersurf", subdiv=0):
+    """Glassy water plane: dark glossy base, animated noise bump (ripples drift with `flow` m/s).
+    glow_at=(x, y) adds a radial emission patch (torch under the surface); returns (obj, glow_strength_socket)."""
+    o = L.prim("plane", loc=center, size=1, name=name)
+    o.scale = (size[0], size[1], 1)
+    L.apply_scale(o)
+    if subdiv:
+        s = o.modifiers.new("sub", "SUBSURF")
+        s.subdivision_type = "SIMPLE"
+        s.levels = s.render_levels = subdiv
+    m, nd, l = L._mat(name + "_m")
+    p = nd["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (*color, 1)
+    p.inputs["Roughness"].default_value = rough
+    try:
+        p.inputs["Specular IOR Level"].default_value = 0.8
+    except Exception:
+        pass
+    tc = nd.new("ShaderNodeTexCoord")
+    mp = nd.new("ShaderNodeMapping")
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = nd.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = wave_scale
+    nz.inputs["Detail"].default_value = 3
+    l.new(mp.outputs["Vector"], nz.inputs["Vector"])
+    bp = nd.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = bump
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    loc_in = mp.inputs["Location"]
+    loc_in.default_value = (0, 0, 0)
+    loc_in.keyframe_insert("default_value", frame=1)
+    loc_in.default_value = (-flow[0] * n / 24, -flow[1] * n / 24, 0.15 * n / 24)
+    loc_in.keyframe_insert("default_value", frame=n)
+    for fc in L._fcurves(m.node_tree.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+    sock = None
+    if glow_at is not None:
+        gx, gy = glow_at[0] - center[0], glow_at[1] - center[1]
+        vm = nd.new("ShaderNodeVectorMath")
+        vm.operation = "DISTANCE"
+        vm.inputs[1].default_value = (gx, gy, 0)
+        l.new(tc.outputs["Object"], vm.inputs[0])
+        mr = nd.new("ShaderNodeMapRange")
+        mr.inputs["From Min"].default_value = 0.0
+        mr.inputs["From Max"].default_value = glow_radius
+        mr.inputs["To Min"].default_value = 1.0
+        mr.inputs["To Max"].default_value = 0.0
+        l.new(vm.outputs["Value"], mr.inputs["Value"])
+        pw = nd.new("ShaderNodeMath")
+        pw.operation = "POWER"
+        pw.inputs[1].default_value = 2.0
+        l.new(mr.outputs["Result"], pw.inputs[0])
+        mul = nd.new("ShaderNodeMath")
+        mul.operation = "MULTIPLY"
+        mul.inputs[1].default_value = 0.0
+        l.new(pw.outputs[0], mul.inputs[0])
+        p.inputs["Emission Color"].default_value = (*glow_color, 1)
+        l.new(mul.outputs[0], p.inputs["Emission Strength"])
+        sock = mul.inputs[1]
+    L.assign(o, m)
+    return o, sock
+
+
+def drip_rings(points, n, period=34, seed=1, color=(0.55, 0.85, 0.9), strength=0.5, rmax=0.45, name="ring"):
+    """Expanding thin rings on a water surface (drips). points = [(x, y, z)]."""
+    rnd = random.Random(seed)
+    m = emis(name + "_m", color, strength)
+    out = []
+    for i, p in enumerate(points):
+        o = L.prim("torus", loc=p, major_radius=1.0, minor_radius=0.006, major_segments=40, minor_segments=4,
+                   name=f"{name}{i}")
+        L.assign(o, m)
+        ph = rnd.randint(0, period)
+        f = 1 - ph
+        while f < n + period:
+            for ff, s in ((f, 0.02), (f + period - 1, rmax), (f + period, 0.0)):
+                if ff >= -period:
+                    o.scale = (s, s, 1.0 if s else 0.0)
+                    o.keyframe_insert("scale", frame=ff)
+            f += period + rnd.randint(4, 14)
+        L.linear_fcurves(o)
+        o.visible_shadow = False
+        out.append(o)
+    return out
+
+
+def rim_figure_mat(name, base=(0.012, 0.012, 0.015), rim=(0.35, 0.85, 1.0), strength=1.5, power=2.5):
+    """Silhouette material with a view-facing fresnel rim in emission (reads against beams and black).
+    Returns (mat, strength_socket)."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (*base, 1)
+    p.inputs["Roughness"].default_value = 0.75
+    lw = n.new("ShaderNodeLayerWeight")
+    lw.inputs["Blend"].default_value = 0.35
+    pw = n.new("ShaderNodeMath")
+    pw.operation = "POWER"
+    pw.inputs[1].default_value = power
+    l.new(lw.outputs["Facing"], pw.inputs[0])
+    mul = n.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    mul.inputs[1].default_value = strength
+    l.new(pw.outputs[0], mul.inputs[0])
+    p.inputs["Emission Color"].default_value = (*rim, 1)
+    l.new(mul.outputs[0], p.inputs["Emission Strength"])
+    return m, mul.inputs[1]
+
+
+def pose_sit(p, height=1.75, lean=-0.25):
+    """Seated, knees hugged (char_figure rig). Pelvis sits on the ground at the root's z."""
+    s = height / 1.75
+    p["pelvis"].location.z = 0.06 * s
+    p["pelvis"].rotation_euler = (lean, 0, 0)
+    for tag in ("L", "R"):
+        p[f"hip{tag}"].rotation_euler = (2.3 - lean, 0, 0)
+        p[f"knee{tag}"].rotation_euler = (-1.61, 0, 0)
+        p[f"shoulder{tag}"].rotation_euler = (0.95 - lean, 0, (0.18 if tag == "L" else -0.18))
+        p[f"elbow{tag}"].rotation_euler = (0.9, 0, 0)
+    p["neck"].rotation_euler = (-0.2, 0, 0)
+
+
+def figure(name="fig", height=1.75, pose="stand", base=(0.012, 0.012, 0.015), rim=(0.35, 0.85, 1.0), rim_strength=1.5,
+           mat=None):
+    """Faceless char_figure with a rim-light material (shared mat optional). pose: stand | sit."""
+    p = L.char_figure(name, color=base, height=height)
+    if mat is None:
+        mat, sock = rim_figure_mat(name + "_rim", base, rim, rim_strength)
+    else:
+        sock = None
+    for k, o in list(p.items()):
+        if o.type == "MESH":
+            o.data.materials.clear()
+            o.data.materials.append(mat)
+    if pose == "sit":
+        pose_sit(p, height)
+    p["mat"] = mat
+    p["rim_sock"] = sock
+    return p
+
+
+def group13(center=(0, 0, 0), face=0.0, spacing=0.62, seed=4, pose="sit", rows=(5, 5, 3), shared=False,
+            rim=(0.35, 0.85, 1.0), rim_strength=1.5, coach_index=11, name="kid"):
+    """13 faceless figures (12 smaller, 1 taller coach) in loose rows facing `face` (radians, 0 = +Y).
+    Returns list of rigs, front row first."""
+    rnd = random.Random(seed)
+    out = []
+    shared_mat = rim_figure_mat(name + "_shared", rim=rim, strength=rim_strength)[0] if shared else None
+    rot = Matrix.Rotation(face, 3, "Z")
+    k = 0
+    for r, cnt in enumerate(rows):
+        for c in range(cnt):
+            x = (c - (cnt - 1) / 2) * spacing + rnd.uniform(-0.1, 0.1) + (0.2 if r % 2 else 0)
+            y = -r * spacing * 0.95 + rnd.uniform(-0.08, 0.08)
+            h = 1.72 if k == coach_index else rnd.uniform(1.28, 1.5)
+            p = figure(f"{name}{k}", height=h, pose=pose, mat=shared_mat, rim=rim, rim_strength=rim_strength)
+            v = rot @ Vector((x, y, 0))
+            p["root"].location = Vector(center) + v
+            p["root"].rotation_euler = (0, 0, face + rnd.uniform(-0.35, 0.35))
+            out.append(p)
+            k += 1
+    return out
+
+
+def rain(center, size, count=2200, n=100, speed=8.0, length=0.32, width=0.005, color=(0.7, 0.78, 0.85), strength=0.5,
+         seed=3, name="rain"):
+    """Falling rain streaks: crossed thin quads in one mesh, object drifts down (additive emission)."""
+    rnd = random.Random(seed)
+    fall = speed * n / 24.0
+    bm = bmesh.new()
+    for i in range(count):
+        c = Vector((rnd.uniform(-0.5, 0.5) * size[0], rnd.uniform(-0.5, 0.5) * size[1],
+                    rnd.uniform(-0.5 * size[2], 0.5 * size[2] + fall)))
+        ln = length * rnd.uniform(0.6, 1.4)
+        for ax in (Vector((width, 0, 0)), Vector((0, width, 0))):
+            vs = [bm.verts.new(c + v) for v in (-ax, ax, ax + Vector((0, 0, ln)), -ax + Vector((0, 0, ln)))]
+            bm.faces.new(vs)
+    o = L.mesh_from_bm(name, bm)
+    o.location = center
+    m, n_, l = L._mat(name + "_m")
+    for nd in list(n_):
+        if nd.type == "BSDF_PRINCIPLED":
+            n_.remove(nd)
+    em = n_.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    em.inputs[1].default_value = strength
+    tr = n_.new("ShaderNodeBsdfTransparent")
+    ad = n_.new("ShaderNodeAddShader")
+    l.new(tr.outputs[0], ad.inputs[0])
+    l.new(em.outputs[0], ad.inputs[1])
+    l.new(ad.outputs[0], n_["Material Output"].inputs["Surface"])
+    _blended(m)
+    L.assign(o, m)
+    o.visible_shadow = False
+    o.keyframe_insert("location", frame=1)
+    o.location = Vector(center) - Vector((0, 0, fall))
+    o.keyframe_insert("location", frame=n)
+    L.linear_fcurves(o)
+    return o
+
+
+def heightfield(size=(60, 60), center=(0, 0, 0), res=0.8, fn=None, mat=None, name="terrain", disp=(0.6, 0.15)):
+    """Grid mesh with z = fn(x, y) (world coordinates relative to center)."""
+    nx, ny = max(2, int(size[0] / res)), max(2, int(size[1] / res))
+    bm = bmesh.new()
+    grid = []
+    for j in range(ny + 1):
+        row = []
+        for i in range(nx + 1):
+            x = -size[0] / 2 + size[0] * i / nx
+            y = -size[1] / 2 + size[1] * j / ny
+            row.append(bm.verts.new((x, y, fn(x + center[0], y + center[1]) if fn else 0.0)))
+        grid.append(row)
+    for j in range(ny):
+        for i in range(nx):
+            bm.faces.new((grid[j][i], grid[j][i + 1], grid[j + 1][i + 1], grid[j + 1][i]))
+    o = L.mesh_from_bm(name, bm)
+    o.location = center
+    if disp[0]:
+        L.add_displace(o, strength=disp[0], scale=2.0, name=name + "_d1")
+    if disp[1]:
+        L.add_displace(o, strength=disp[1], scale=0.4, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m"))
+    return o
+
+
+def jungle(points, size=(0.9, 2.2), seed=1, c1=(0.015, 0.035, 0.012), c2=(0.05, 0.11, 0.035), name="jungle"):
+    """Canopy blobs (displaced icos) at points [(x, y, z)]."""
+    rnd = random.Random(seed)
+    m = L.mat_noise_surface(name + "_m", c1, c2, scale=3, bump=0.8, voronoi=True, rough=0.8)
+    out = []
+    for i, p in enumerate(points):
+        s = rnd.uniform(*size)
+        o = L.prim("ico", loc=(p[0], p[1], p[2] + s * 0.35), subdivisions=2, radius=s, name=f"{name}{i}")
+        o.scale = (rnd.uniform(0.9, 1.3), rnd.uniform(0.9, 1.3), rnd.uniform(0.6, 0.9))
+        L.add_displace(o, strength=s * 0.45, scale=s * 0.35, name=f"{name}{i}_d")
+        L.assign(o, m)
+        out.append(o)
+    return out
+
+
+def cliff_with_mouth(width=4.5, height=3.6, wall=(36, 18), res=0.3, depth=26, seed=2, rock=None, inner_rock=None,
+                     name="mouth", spring=0.45, passage_kw=None):
+    """Cliff face in the XZ plane at y=0 (outside = -Y) with an arched cave mouth at x=0 (floor z=0) and a
+    passage running into +Y. No booleans: faces inside the arch are skipped. Returns dict(wall, passage, info)."""
+    rnd = random.Random(seed)
+    off = rnd.random() * 50
+    hw = width / 2
+    zs = height * spring
+
+    def inside(x, z):
+        if z < -0.6:
+            return False
+        if z <= zs:
+            return abs(x) < hw
+        return (x / hw) ** 2 + ((z - zs) / (height - zs)) ** 2 < 1.0
+
+    W, H = wall
+    nx, nz = int(W / res), int((H + 1.0) / res)
+    bm = bmesh.new()
+    grid = []
+    for j in range(nz + 1):
+        row = []
+        for i in range(nx + 1):
+            x = -W / 2 + W * i / nx
+            z = -1.0 + (H + 1.0) * j / nz
+            r = math.hypot(x / max(hw, 0.1), max(0.0, z) / height)
+            # wall bulges outward away from the mouth, recedes into an alcove near it
+            y = -0.9 * min(1.0, max(0.2, r - 1.0)) * noise.noise(Vector((x * 0.25 + off, z * 0.25, 0.0))) \
+                - 0.6 * min(1.0, max(0.0, r - 1.0)) \
+                + 0.5 * max(0.0, 1.4 - r)
+            row.append(bm.verts.new((x, y, z)))
+        grid.append(row)
+    for j in range(nz):
+        for i in range(nx):
+            cx = -W / 2 + W * (i + 0.5) / nx
+            cz = -1.0 + (H + 1.0) * (j + 0.5) / nz
+            if inside(cx, cz):
+                continue
+            bm.faces.new((grid[j][i], grid[j][i + 1], grid[j + 1][i + 1], grid[j + 1][i]))
+    loose = [v for v in bm.verts if not v.link_faces]
+    bmesh.ops.delete(bm, geom=loose, context="VERTS")
+    # snap the stair-stepped hole rim onto the arch curve
+    for v in bm.verts:
+        x, z = v.co.x, v.co.z
+        if z < -0.3 or abs(x) > hw * 1.8 or z > height * 1.8:
+            continue
+        if not any(e.is_boundary for e in v.link_edges):
+            continue
+        if z <= zs:
+            v.co.x = math.copysign(hw, x if x else 1.0)
+        else:
+            dx, dz = x / hw, (z - zs) / (height - zs)
+            r = math.hypot(dx, dz) or 1.0
+            v.co.x, v.co.z = dx / r * hw, zs + dz / r * (height - zs)
+    bm.normal_update()
+    bm.faces.ensure_lookup_table()
+    if len(bm.faces) and bm.faces[0].normal.y > 0:
+        for f in bm.faces:
+            f.normal_flip()
+    o = L.mesh_from_bm(name + "_wall", bm)
+    L.add_displace(o, strength=0.7, scale=1.6, name=name + "_wd1")
+    L.add_displace(o, strength=0.18, scale=0.3, name=name + "_wd2")
+    L.smooth(o)
+    L.assign(o, rock or L.mat_noise_surface(name + "_rock", (0.06, 0.06, 0.05), (0.34, 0.32, 0.27), scale=0.9, bump=0.9))
+    kw = dict(length=depth, half_w=hw * 1.25, half_h=height * 0.62, zc=height * 0.44, y0=0.8, seed=seed + 3,
+              rough=0.15, floor_flat=0.32, mat=inner_rock or rock_mat(name + "_in", (0.02, 0.02, 0.02),
+                                                                     (0.16, 0.14, 0.12)))
+    kw.update(passage_kw or {})
+    pas, info = passage(name=name + "_pass", **kw)
+    cap = L.prim("plane", loc=(0, kw["y0"] + kw["length"] - 0.6, kw["zc"]), rot=(math.pi / 2, 0, 0), size=14,
+                 name=name + "_endcap")
+    L.assign(cap, L.mat_principled(name + "_capm", (0.01, 0.01, 0.01), rough=0.9))
+    return {"wall": o, "passage": pas, "info": info, "cap": cap}
+
+
+def dive_torch(loc, aim, energy=900, size_deg=24, beam_len=4.0, beam_strength=0.4, color=TORCH, body_len=0.22,
+               name="torchprop"):
+    """Hand-held canister torch prop with lens glow, spot and visible beam, pointing from loc toward aim."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_mode = "QUATERNION"
+    root.rotation_quaternion = (Vector(aim) - Vector(loc)).to_track_quat("-Z", "Y")
+    body = L.prim("cyl", loc=(0, 0, body_len / 2), vertices=16, radius=0.028, depth=body_len, name=name + "_body")
+    L.assign(body, L.mat_principled(name + "_bm", (0.03, 0.03, 0.035), rough=0.35, metal=0.4))
+    body.parent = root
+    head = L.prim("cyl", loc=(0, 0, 0.0), vertices=16, radius=0.038, depth=0.05, name=name + "_head")
+    L.assign(head, L.mat_principled(name + "_hm", (0.15, 0.15, 0.16), rough=0.3, metal=0.8))
+    head.parent = root
+    lens = L.prim("cyl", loc=(0, 0, -0.027), vertices=16, radius=0.032, depth=0.004, name=name + "_lens")
+    lm = emis(name + "_lm", color, 25)
+    L.assign(lens, lm)
+    lens.parent = root
+    sp = L.spot((0, 0, -0.03), (0, 0, 0), energy=energy, size_deg=size_deg, blend=0.45, color=color, name=name + "_sp",
+                radius=0.02)
+    sp.parent = root
+    beam, sock = (None, None)
+    if beam_len:
+        beam, sock = beam_cone(sp, length=beam_len, color=color, strength=beam_strength, name=name + "_beam")
+    return {"root": root, "spot": sp, "beam": beam, "beam_sock": sock, "lens_mat": lm}
+
+
+def tank(loc, rot=(0, 0, 0), length=0.7, r=0.085, color=(0.62, 0.64, 0.66), band=(1.0, 0.78, 0.1), name="tank"):
+    """Scuba cylinder with valve and a coloured band; local axis = Z."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = rot
+    b = L.prim("cyl", loc=(0, 0, 0), vertices=18, radius=r, depth=length, name=name + "_b")
+    L.assign(b, L.mat_principled(name + "_m", color, rough=0.3, metal=0.7))
+    L.smooth(b)
+    b.parent = root
+    cap = L.prim("sphere", loc=(0, 0, length / 2), segments=16, ring_count=8, radius=r, name=name + "_cap")
+    cap.scale = (1, 1, 0.6)
+    L.assign(cap, b.active_material)
+    cap.parent = root
+    v = L.prim("cyl", loc=(0, 0, length / 2 + r * 0.7), vertices=10, radius=r * 0.3, depth=r * 0.9, name=name + "_v")
+    L.assign(v, L.mat_principled(name + "_vm", (0.1, 0.1, 0.1), rough=0.4, metal=0.6))
+    v.parent = root
+    bd = L.prim("cyl", loc=(0, 0, length * 0.18), vertices=18, radius=r * 1.02, depth=length * 0.12, name=name + "_band")
+    L.assign(bd, L.mat_principled(name + "_bdm", band, rough=0.5, emit=band, emit_strength=0.15))
+    bd.parent = root
+    return root
+
+
+def full_face_mask(name="ffm", scale=1.0):
+    """Full-face diving mask: clear visor dome with fresnel rim, black rubber frame, regulator. Faces local -Y."""
+    root = L.link(bpy.data.objects.new(name, None))
+    rub = L.mat_principled(name + "_rub", (0.02, 0.02, 0.022), rough=0.5)
+    vis = L.prim("sphere", loc=(0, -0.02, 0), segments=24, ring_count=12, radius=1.0, name=name + "_visor")
+    vis.scale = (0.11, 0.06, 0.14)
+    L.assign(vis, rim_glass_mat(name + "_glass", (0.55, 0.9, 1.0), strength=2.2, power=2.5, base=0.04))
+    L.smooth(vis)
+    vis.parent = root
+    fr = L.prim("torus", loc=(0, 0.0, 0), rot=(math.pi / 2, 0, 0), major_radius=1.0, minor_radius=0.12, name=name + "_frame")
+    fr.scale = (0.12, 0.15, 0.12)
+    L.assign(fr, rub)
+    fr.parent = root
+    reg = L.prim("cyl", loc=(0, -0.06, -0.1), rot=(math.pi / 2, 0, 0), vertices=16, radius=0.026, depth=0.035,
+                 name=name + "_reg")
+    L.assign(reg, rub)
+    reg.parent = root
+    root.scale = (scale,) * 3
+    return root
+
+
+def wrapped_child(name="child", length=1.25, suit=(0.02, 0.03, 0.04), mask=True, rim=(0.35, 0.85, 1.0), rim_strength=1.2):
+    """Small wrapped figure lying along +Y (head at +Y), wetsuit/hood, optional full-face mask. Faceless.
+    Returns dict(root, chest, head, mask)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    m, sock = rim_figure_mat(name + "_suit", suit, rim, rim_strength)
+    s = length / 1.25
+    body = L.prim("sphere", loc=(0, 0, 0), segments=20, ring_count=12, radius=1.0, name=name + "_body")
+    body.scale = (0.17 * s, 0.5 * s, 0.12 * s)
+    L.assign(body, m)
+    L.smooth(body)
+    body.parent = root
+    chest = L.prim("sphere", loc=(0, 0.2 * s, 0.03 * s), segments=16, ring_count=10, radius=1.0, name=name + "_chest")
+    chest.scale = (0.16 * s, 0.22 * s, 0.11 * s)
+    L.assign(chest, m)
+    L.smooth(chest)
+    chest.parent = root
+    head = L.prim("sphere", loc=(0, 0.6 * s, 0.02 * s), segments=16, ring_count=10, radius=1.0, name=name + "_head")
+    head.scale = (0.1 * s, 0.11 * s, 0.1 * s)
+    L.assign(head, m)
+    L.smooth(head)
+    head.parent = root
+    for k, yy in enumerate((-0.25, 0.05, 0.35)):  # wrap straps
+        st = L.prim("torus", loc=(0, yy * s, 0), rot=(math.pi / 2, 0, 0), major_radius=1.0, minor_radius=0.035,
+                    name=f"{name}_strap{k}")
+        st.scale = (0.175 * s, 0.13 * s, 0.13 * s)
+        L.assign(st, L.mat_principled(name + "_strapm", (0.12, 0.12, 0.11), rough=0.6))
+        st.parent = root
+    mk = None
+    if mask:
+        mk = full_face_mask(name + "_mask", scale=0.85 * s)
+        mk.parent = root
+        mk.location = (0, 0.62 * s, 0.1 * s)
+        mk.rotation_euler = (-math.pi / 2, 0, 0)  # visor faces up (+Z) when lying on the back
+    return {"root": root, "chest": chest, "head": head, "mask": mk, "rim_sock": sock, "mat": m}
+
+
+def stretcher(name="sked", length=1.5, color=(0.85, 0.32, 0.06), child=True):
+    """Small rescue stretcher (shell + wrapped shape). Long axis = local Y."""
+    root = L.link(bpy.data.objects.new(name, None))
+    sh = L.prim("cube", loc=(0, 0, 0.06), name=name + "_shell")
+    sh.scale = (0.28, length / 2, 0.06)
+    L.assign(sh, L.mat_principled(name + "_m", color, rough=0.55))
+    L.bevel(sh, 0.04)
+    sh.parent = root
+    if child:
+        c = wrapped_child(name + "_c", length=length * 0.8, mask=False, rim_strength=0.6)
+        c["root"].parent = root
+        c["root"].location = (0, -0.05, 0.16)
+    return root
+
+
+def work_light(loc, aim, energy=2500, color=(0.95, 0.97, 1.0), size_deg=70, name="wl"):
+    """Tripod work light: pole, glowing panel, spot aimed at `aim`."""
+    x, y, z = loc
+    pole = L.prim("cyl", loc=(x, y, z / 2), vertices=8, radius=0.025, depth=z, name=name + "_pole")
+    L.assign(pole, L.mat_principled(name + "_pm", (0.08, 0.08, 0.08), rough=0.5, metal=0.5))
+    for k in range(3):
+        a = k * 2 * math.pi / 3
+        leg = L.prim("cyl", loc=(x + 0.25 * math.cos(a), y + 0.25 * math.sin(a), 0.3), vertices=6, radius=0.015,
+                     depth=0.75, rot=(0.5 * math.sin(a), -0.5 * math.cos(a), 0), name=name + "_leg")
+        L.assign(leg, pole.active_material)
+    panel = L.prim("cube", loc=loc, name=name + "_panel")
+    panel.scale = (0.22, 0.04, 0.16)
+    panel.rotation_mode = "QUATERNION"
+    panel.rotation_quaternion = (Vector(aim) - Vector(loc)).to_track_quat("-Y", "Z")
+    L.assign(panel, emis(name + "_em", color, 30))
+    sp = L.spot(loc, (0, 0, 0), energy=energy, size_deg=size_deg, blend=0.6, color=color, name=name + "_sp", radius=0.15)
+    sp.rotation_mode = "QUATERNION"
+    sp.rotation_quaternion = (Vector(aim) - Vector(loc)).to_track_quat("-Z", "Y")
+    return sp
+
+
+def topo_relief(size=(16, 16), center=(0, 0, 0), height=3.5, seed=3, base=(0.015, 0.025, 0.025),
+                line_color=CYAN, line_strength=1.6, spacing=0.3, res=0.12, name="topo"):
+    """Dark terrain relief with glowing contour lines (map-room / briefing table look)."""
+    rnd = random.Random(seed)
+    off = Vector((rnd.random() * 40, rnd.random() * 40, 0))
+
+    def fn(x, y):
+        v = Vector((x * 0.12, y * 0.12, 0)) + off
+        return height * (0.5 + 0.5 * noise.noise(v)) * (0.6 + 0.4 * noise.noise(v * 2.3))
+    o = heightfield(size=size, center=center, res=res, fn=lambda x, y: fn(x - center[0], y - center[1]), name=name,
+                    disp=(0, 0))
+    m, n, l = L._mat(name + "_m")
+    p = n["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (*base, 1)
+    p.inputs["Roughness"].default_value = 0.7
+    tc = n.new("ShaderNodeTexCoord")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sep.inputs[0])
+    md = n.new("ShaderNodeMath")
+    md.operation = "PINGPONG"
+    md.inputs[1].default_value = spacing / 2
+    l.new(sep.outputs["Z"], md.inputs[0])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0
+    mr.inputs["From Max"].default_value = spacing * 0.07
+    mr.inputs["To Min"].default_value = 1.0
+    mr.inputs["To Max"].default_value = 0.0
+    l.new(md.outputs[0], mr.inputs["Value"])
+    mul = n.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    mul.inputs[1].default_value = line_strength
+    l.new(mr.outputs["Result"], mul.inputs[0])
+    p.inputs["Emission Color"].default_value = (*line_color, 1)
+    l.new(mul.outputs[0], p.inputs["Emission Strength"])
+    L.assign(o, m)
+    return o, mul.inputs[1]
+
+
+def clip_poly(poly, axis, value, keep_less=True):
+    """Sutherland-Hodgman clip of a 2D polygon [(a, b)] by axis (0/1) <= value (keep_less) or >= value."""
+    def ins(p):
+        return p[axis] <= value if keep_less else p[axis] >= value
+    out = []
+    N = len(poly)
+    for i in range(N):
+        cur, prv = poly[i], poly[i - 1]
+        ci, pi_ = ins(cur), ins(prv)
+        if ci != pi_:
+            t = (value - prv[axis]) / ((cur[axis] - prv[axis]) or 1e-9)
+            out.append((prv[0] + (cur[0] - prv[0]) * t, prv[1] + (cur[1] - prv[1]) * t))
+        if ci:
+            out.append(cur)
+    return out
+
+
+def flat_poly(pts_xz, y, mat, name="fill"):
+    """Flat polygon in the XZ plane at depth y (front-facing -Y) for diagram fills."""
+    bm = bmesh.new()
+    vs = [bm.verts.new((x, y, z)) for x, z in pts_xz]
+    if len(vs) < 3:
+        bm.free()
+        return None
+    bm.faces.new(vs)
+    bmesh.ops.triangulate(bm, faces=bm.faces)
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat)
+    return o
+
+
+def bubble_trail(pos_fn, n, count=40, every=None, rise=0.9, size=0.02, seed=5, spread=0.06, life=(22, 40),
+                 name="btrail", strength=1.6):
+    """Exhalation bubbles spawned at a moving source: pos_fn(frame) -> Vector. Bubbles rise in world space."""
+    rnd = random.Random(seed)
+    m = rim_glass_mat(name + "_m", (0.7, 0.95, 1.0), strength=strength, power=1.5, base=0.15)
+    out = []
+    for i in range(count):
+        f0 = (1 + int(i * (every or max(1, n / count)))) if every else rnd.randint(-20, n)
+        lf = rnd.randint(*life)
+        r = size * rnd.uniform(0.5, 1.4)
+        o = L.prim("sphere", loc=(0, 0, 0), segments=8, ring_count=6, radius=r, name=f"{name}{i}")
+        L.assign(o, m)
+        L.smooth(o)
+        base = Vector(pos_fn(max(1, f0))) + Vector((rnd.uniform(-spread, spread), rnd.uniform(-spread, spread), 0))
+        ph = rnd.uniform(0, 6.28)
+        keys = []
+        for k in range(5):
+            f = f0 + lf * k / 4
+            p = base + Vector((0.04 * math.sin(ph + k * 1.7), 0.04 * math.cos(ph + k * 1.3), rise * (k / 4) * lf / 24))
+            keys.append((f, p))
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=keys[0][0] - 1)
+        o.scale = (1, 1, 1)
+        o.keyframe_insert("scale", frame=keys[0][0])
+        o.keyframe_insert("scale", frame=keys[-1][0] - 1)
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=keys[-1][0])
+        for f, p in keys:
+            o.location = p
+            o.keyframe_insert("location", frame=f)
+        o.visible_shadow = False
+        out.append(o)
+    return out

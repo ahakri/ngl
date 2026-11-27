@@ -363,7 +363,7 @@
           "type": "text",
           "text": "MICHAEL PACKARD\nLOBSTER DIVER",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70
           }
         },
@@ -553,7 +553,7 @@
           "type": "text",
           "text": "AN ACCIDENT?",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 90
           }
         }
@@ -709,9 +709,9 @@
       "overlay": [
         {
           "type": "text",
-          "text": "THROAT ≈ FIST-SIZED\n(EXPERT ESTIMATE)",
+          "text": "THROAT ~ FIST-SIZED\n(EXPERT ESTIMATE)",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70,
             "color": [
               255,
@@ -859,7 +859,7 @@
           "type": "text",
           "text": "JOSIAH MAYO\nCREWMATE",
           "params": {
-            "y": 1250,
+            "y": 1420,
             "size": 70
           }
         }
@@ -899,7 +899,7 @@
           "text": "SOFT-TISSUE DAMAGE\nNO BROKEN BONES",
           "params": {
             "header": "INJURIES (REPORTED)",
-            "y": 1200
+            "y": 150
           }
         }
       ],
