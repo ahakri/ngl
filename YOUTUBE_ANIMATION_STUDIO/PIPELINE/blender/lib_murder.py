@@ -4082,3 +4082,623 @@ def legend_grade(sepia=1.0, cold=0.0, grain=0.05, tint=(1.0, 0.72, 0.42), cold_t
     l.new(img, out.inputs[0])
     sc.compositing_node_group = ng
     return {"sepia": m1.inputs[0], "cold": m2.inputs[0], "grain": gr.inputs[0], "tree": ng}
+
+
+# ============================================================================ MURDER-07 (Oetzi): glacier ice, X-ray line art,
+# CT diagram, lightbox, CT gantry, Copper Age kit, last-meal props, traveller silhouette. Appended; nothing above changed.
+
+def mat_glacier_ice(name="ice", deep=(0.06, 0.26, 0.46), surf=(0.62, 0.8, 0.92), alpha=0.62, glow=0.35, crack=0.35, scale=2.5):
+    """Cloudy blue glacier ice: noise-mixed colour, partial alpha (shows what lies beneath, blurred by cloudiness),
+    voronoi crack bump, faint blue self-glow (subsurface feel). Works on horizontal slabs and vertical panes."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale
+    nz.inputs["Detail"].default_value = 8
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.35
+    ramp.color_ramp.elements[0].color = (*deep, 1)
+    ramp.color_ramp.elements[1].position = 0.7
+    ramp.color_ramp.elements[1].color = (*surf, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.12
+    ra = n.new("ShaderNodeMapRange")
+    ra.inputs["From Min"].default_value = 0.3
+    ra.inputs["From Max"].default_value = 0.7
+    ra.inputs["To Min"].default_value = max(0.0, alpha - 0.25)
+    ra.inputs["To Max"].default_value = min(1.0, alpha + 0.25)
+    l.new(nz.outputs["Fac"], ra.inputs["Value"])
+    l.new(ra.outputs["Result"], p.inputs["Alpha"])
+    p.inputs["Emission Color"].default_value = (*deep, 1)
+    p.inputs["Emission Strength"].default_value = glow
+    vo = n.new("ShaderNodeTexVoronoi")
+    vo.feature = "DISTANCE_TO_EDGE"
+    vo.inputs["Scale"].default_value = scale * 1.6
+    l.new(tc.outputs["Object"], vo.inputs["Vector"])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = crack
+    l.new(vo.outputs["Distance"], bp.inputs["Height"])
+    nz2 = n.new("ShaderNodeTexNoise")
+    nz2.inputs["Scale"].default_value = scale * 12
+    l.new(tc.outputs["Object"], nz2.inputs["Vector"])
+    bp2 = n.new("ShaderNodeBump")
+    bp2.inputs["Strength"].default_value = 0.12
+    l.new(nz2.outputs["Fac"], bp2.inputs["Height"])
+    l.new(bp2.outputs["Normal"], bp.inputs["Normal"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    try:
+        m.surface_render_method = "DITHERED"
+    except Exception:
+        pass
+    return m
+
+
+def abstract_form(loc, length=1.1, rot_z=0.3, color=(0.07, 0.04, 0.022), name="form"):
+    """Unreadable dark-brown lump (a 'shoulder line' under ice): two smooth stretched ellipsoids, no limbs/face."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", color, rough=0.9)
+    for k, (x, sx, sy, sz) in enumerate(((0.0, length * 0.5, 0.17, 0.09), (length * 0.42, length * 0.22, 0.13, 0.07))):
+        o = L.prim("sphere", loc=(x, 0, 0), segments=20, ring_count=10, name=f"{name}_{k}")
+        o.scale = (sx, sy, sz)
+        L.assign(o, m)
+        L.smooth(o)
+        o.parent = root
+    return root
+
+
+def ice_sheet(loc=(0, 0, 0), size=(6.0, 6.0), thick=0.35, mat=None, glow=(0.05, 0.3, 0.6), glow_strength=0.8, form=True,
+              form_loc=(0.15, 0.25), form_rot=0.35, name="icesheet"):
+    """Horizontal ice slab (top at loc.z) over a blue glowing 'deep ice' floor; optional abstract dark form inside."""
+    x, y, z = loc
+    top = L.prim("plane", loc=(x, y, z), size=1, name=name)
+    top.scale = (size[0], size[1], 1)
+    L.apply_scale(top)
+    sd = top.modifiers.new("sub", "SUBSURF")
+    sd.levels = sd.render_levels = 2
+    sd.subdivision_type = "SIMPLE"
+    L.add_displace(top, strength=0.03, scale=0.6, name=name + "_d")
+    L.assign(top, mat or mat_glacier_ice(name + "_m"))
+    fl = L.prim("plane", loc=(x, y, z - thick), size=1, name=name + "_deep")
+    fl.scale = (size[0] * 1.2, size[1] * 1.2, 1)
+    m2, n2, l2 = L._mat(name + "_deepm")
+    p2 = n2["Principled BSDF"]
+    tc = n2.new("ShaderNodeTexCoord")
+    nz = n2.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 1.6
+    l2.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = n2.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (glow[0] * 0.4, glow[1] * 0.4, glow[2] * 0.4, 1)
+    ramp.color_ramp.elements[1].color = (*glow, 1)
+    l2.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    l2.new(ramp.outputs["Color"], p2.inputs["Emission Color"])
+    p2.inputs["Emission Strength"].default_value = glow_strength
+    p2.inputs["Base Color"].default_value = (*glow, 1)
+    L.assign(fl, m2)
+    out = {"top": top, "deep": fl}
+    if form:
+        out["form"] = abstract_form((x + form_loc[0], y + form_loc[1], z - thick * 0.55), rot_z=form_rot, name=name + "_form")
+    return out
+
+
+def melt_beads(center, size=(1.0, 1.0), count=120, seed=3, name="beads", rmin=0.004, rmax=0.02, z_of=None):
+    """Meltwater beads lying on a horizontal surface (flattened hemispheres, glossy). center.z = surface height."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    for i in range(count):
+        r = rnd.uniform(rmin, rmax) * (1.0 if rnd.random() > 0.15 else 1.8)
+        x = center[0] + rnd.uniform(-0.5, 0.5) * size[0]
+        y = center[1] + rnd.uniform(-0.5, 0.5) * size[1]
+        z = z_of(x, y) if z_of else center[2]
+        res = bmesh.ops.create_uvsphere(bm, u_segments=10, v_segments=6, radius=r)
+        for v in res["verts"]:
+            v.co.z = max(0.0, v.co.z) * 0.45
+            v.co.y *= rnd.uniform(1.0, 1.6)
+            v.co += Vector((x, y, z))
+    o = L.mesh_from_bm(name, bm)
+    m = L.mat_principled(name + "_m", (0.5, 0.65, 0.75), rough=0.03)
+    p = m.node_tree.nodes["Principled BSDF"]
+    if "Transmission Weight" in p.inputs:
+        p.inputs["Transmission Weight"].default_value = 0.6
+    p.inputs["Coat Weight"].default_value = 1.0 if "Coat Weight" in p.inputs else 0
+    L.assign(o, m)
+    L.smooth(o)
+    o.visible_shadow = False
+    return o
+
+
+def ice_axe(loc, rot=(0, 0, 0), name="iceaxe", length=0.7, shaft=(0.55, 0.12, 0.06)):
+    """Mountaineering ice axe: shaft + steel head (pick + adze). Root at the spike (bottom)."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    sm = L.mat_principled(name + "_s", shaft, rough=0.45)
+    hm = L.mat_principled(name + "_h", (0.5, 0.52, 0.55), rough=0.3, metal=1.0)
+    s = L.prim("cyl", loc=(0, 0, length / 2), vertices=10, radius=0.016, depth=length)
+    L.assign(s, sm)
+    s.parent = root
+    h = L.prim("cube", loc=(0.04, 0, length + 0.01))
+    h.scale = (0.14, 0.012, 0.02)
+    L.assign(h, hm)
+    h.parent = root
+    pk = L.prim("cone", loc=(0.21, 0, length - 0.005), vertices=4, radius1=0.02, radius2=0.002, depth=0.09, rot=(0, math.radians(100), 0))
+    L.assign(pk, hm)
+    pk.parent = root
+    sp = L.prim("cone", loc=(0, 0, -0.03), vertices=6, radius1=0.016, radius2=0.002, depth=0.06, rot=(math.pi, 0, 0))
+    L.assign(sp, hm)
+    sp.parent = root
+    return root
+
+
+def helicopter(loc=(0, 0, 0), rot_z=0.0, body=(0.42, 0.05, 0.04), stripe=(0.85, 0.85, 0.82), name="heli"):
+    """Simple light helicopter: rounded cabin, dark window band, tail boom + fin, skids, two-blade rotor (key 'rotor')."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    bm_ = L.mat_principled(name + "_b", body, rough=0.35)
+    wm = L.mat_principled(name + "_w", (0.02, 0.025, 0.03), rough=0.08)
+    km = L.mat_principled(name + "_k", (0.05, 0.05, 0.055), rough=0.5, metal=0.6)
+    sm = L.mat_principled(name + "_st", stripe, rough=0.4)
+    cab = L.prim("sphere", loc=(0, 0, 1.25), segments=24, ring_count=12)
+    cab.scale = (1.55, 0.85, 0.85)
+    L.assign(cab, bm_)
+    L.smooth(cab)
+    win = L.prim("sphere", loc=(0.55, 0, 1.38), segments=24, ring_count=12)
+    win.scale = (1.05, 0.8, 0.62)
+    L.assign(win, wm)
+    L.smooth(win)
+    band = L.prim("cube", loc=(-0.3, 0, 1.0))
+    band.scale = (1.0, 0.86, 0.06)
+    L.assign(band, sm)
+    boom = L.prim("cone", loc=(-2.6, 0, 1.45), vertices=12, radius1=0.24, radius2=0.09, depth=3.2, rot=(0, math.radians(-90), 0))
+    L.assign(boom, bm_)
+    fin = L.prim("cube", loc=(-4.15, 0, 1.85))
+    fin.scale = (0.28, 0.03, 0.5)
+    fin.rotation_euler = (0, math.radians(-18), 0)
+    L.assign(fin, bm_)
+    mast = L.prim("cyl", loc=(0, 0, 2.15), vertices=8, radius=0.07, depth=0.3)
+    L.assign(mast, km)
+    for o in (cab, win, band, boom, fin, mast):
+        o.parent = root
+    for sy in (-0.7, 0.7):
+        sk = L.prim("cyl", loc=(0.0, sy, 0.06), vertices=8, radius=0.04, depth=2.6, rot=(0, math.radians(90), 0))
+        L.assign(sk, km)
+        sk.parent = root
+        for sx in (-0.5, 0.6):
+            st = L.prim("cyl", loc=(sx, sy * 0.85, 0.35), vertices=6, radius=0.03, depth=0.6, rot=(math.radians(-12 if sy > 0 else 12), 0, 0))
+            L.assign(st, km)
+            st.parent = root
+    rotor = empty(name + "_rotor", (0, 0, 2.32), parent=root)
+    bl = L.prim("cube", loc=(0, 0, 0))
+    bl.scale = (4.2, 0.1, 0.015)
+    L.assign(bl, km)
+    bl.parent = rotor
+    tr = L.prim("cube", loc=(-4.2, 0.08, 1.95))
+    tr.scale = (0.03, 0.02, 0.5)
+    L.assign(tr, km)
+    tr.parent = root
+    return {"root": root, "rotor": rotor}
+
+
+def kneel_pose(parts, lean=0.35, reach=0.0, frame=None):
+    """Kneeling on both knees, torso leaning forward over the ground (figure faces +Y). reach: arms forward/down."""
+    s = parts["torso"].scale.z / 0.33 if "torso" in parts else 1.0
+    pel = parts["pelvis"]
+    pel.location.z = 0.56 * s
+    pel.rotation_euler = (-lean, 0, 0)
+    for t in ("L", "R"):
+        parts["hip" + t].rotation_euler = (lean + 0.15, 0, 0)
+        parts["knee" + t].rotation_euler = (-1.62, 0, 0)
+        parts["shoulder" + t].rotation_euler = (0.5 + reach, 0, (0.12 if t == "L" else -0.12))
+        parts["elbow" + t].rotation_euler = (0.6, 0, 0)
+    parts["neck"].rotation_euler = (-0.35, 0, 0)
+    if frame is not None:
+        for k in ("pelvis",):
+            parts[k].keyframe_insert("location", frame=frame)
+        for k in ("pelvis", "hipL", "hipR", "kneeL", "kneeR", "shoulderL", "shoulderR", "elbowL", "elbowR", "neck"):
+            parts[k].keyframe_insert("rotation_euler", frame=frame)
+
+
+def glow_lines(name, polylines, color=(0.7, 0.85, 1.0), strength=3.0, bevel=0.004, mat=None):
+    """Many emissive polylines in ONE curve object (fast line art). Returns (obj, emission_node)."""
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    for pts in polylines:
+        if len(pts) < 2:
+            continue
+        sp = cu.splines.new("POLY")
+        sp.points.add(len(pts) - 1)
+        for k, q in enumerate(pts):
+            sp.points[k].co = (*q, 1)
+    cu.bevel_depth = bevel
+    cu.bevel_resolution = 1
+    o = L.link(bpy.data.objects.new(name, cu))
+    m = mat or L.mat_emission(name + "_m", color, strength)
+    o.data.materials.append(m)
+    o.visible_shadow = False
+    em = [nd for nd in m.node_tree.nodes if nd.type == "EMISSION"]
+    return o, (em[0] if em else None)
+
+
+def key_strength(node, pairs, interp="LINEAR"):
+    """Keyframe an emission node's Strength: pairs [(frame, value), ...]."""
+    for f, v in pairs:
+        node.inputs[1].default_value = v
+        node.inputs[1].keyframe_insert("default_value", frame=f)
+    nt = node.id_data
+    if nt.animation_data and nt.animation_data.action:
+        for fc in L._fcurves(nt.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = interp
+
+
+def circle_pts(c, r, n=40, y=0.0, a0=0.0, a1=2 * math.pi):
+    return [(c[0] + r * math.cos(a0 + (a1 - a0) * i / n), y, c[1] + r * math.sin(a0 + (a1 - a0) * i / n)) for i in range(n + 1)]
+
+
+def xray_back_lines(s=1.0, cx=0.0, cz=0.0, y=0.0):
+    """Stylised chest/shoulder line art seen FROM BEHIND (patient's left = viewer's left), in the XZ plane at depth y.
+    Not traced from any radiograph. Film units ~0.9 x 1.1 m at s=1. Returns dict of polyline lists + arrowhead point."""
+    def P(x, z):
+        return (cx + x * s, y, cz + z * s)
+    spine, ribs, clav, scap, hum = [], [], [], [], []
+    spine.append([P(-0.018, z / 100) for z in range(50, -52, -6)])
+    spine.append([P(0.018, z / 100) for z in range(50, -52, -6)])
+    for k in range(15):
+        z = 0.47 - k * 0.068
+        spine.append([P(-0.035, z), P(0.035, z)])
+    for i in range(10):
+        z0 = 0.36 - 0.082 * i
+        W = 0.15 + 0.15 * math.sin(math.pi * (i + 2.5) / 13.0)
+        for sg in (-1, 1):
+            pts = []
+            for k in range(17):
+                t = k / 16
+                x = sg * (0.03 + W * math.sin(t * math.pi / 2))
+                z = z0 + 0.035 * math.sin(t * math.pi) - 0.12 * t * t
+                pts.append(P(x, z))
+            ribs.append(pts)
+    for sg in (-1, 1):
+        clav.append([P(sg * (0.04 + 0.25 * t), 0.43 + 0.035 * t + 0.012 * math.sin(2 * math.pi * t)) for t in [k / 14 for k in range(15)]])
+        scap.append([P(sg * 0.1, 0.37), P(sg * 0.2, 0.395), P(sg * 0.27, 0.36), P(sg * 0.25, 0.27), P(sg * 0.17, 0.05),
+                     P(sg * 0.11, 0.2), P(sg * 0.1, 0.37)])
+        scap.append([P(sg * 0.11, 0.31), P(sg * 0.2, 0.345), P(sg * 0.285, 0.395)])
+        hum.append([P(sg * 0.31 + 0.045 * math.cos(a) * sg, 0.37 + 0.045 * math.sin(a)) for a in [math.radians(v) for v in range(-120, 181, 15)]])
+        hum.append([P(sg * 0.29, 0.33), P(sg * 0.31, 0.1), P(sg * 0.32, -0.12)])
+        hum.append([P(sg * 0.35, 0.335), P(sg * 0.36, 0.1), P(sg * 0.37, -0.12)])
+    tip = (-0.205, 0.34)
+    return {"spine": spine, "ribs": ribs, "clav": clav, "scap": scap, "hum": hum, "arrow": P(*tip), "s": s}
+
+
+def arrowhead(loc, size=0.04, rot_y=0.0, color=(1.0, 0.95, 0.85), strength=6.0, name="arrowhead", y_axis=True):
+    """Small flint arrowhead as an emissive leaf-triangle in the XZ plane (tip up at loc). Returns (obj, emission node)."""
+    vs = [(0, 0, 0), (-size * 0.32, 0, -size * 0.75), (-size * 0.18, 0, -size), (size * 0.18, 0, -size), (size * 0.32, 0, -size * 0.75)]
+    o = mesh_obj(name, vs, [(0, 1, 2, 3, 4)])
+    m = L.mat_emission(name + "_m", color, strength)
+    o.data.materials.append(m)
+    o.location = loc
+    o.rotation_euler = (0, rot_y, 0)
+    o.visible_shadow = False
+    return o, [nd for nd in m.node_tree.nodes if nd.type == "EMISSION"][0]
+
+
+def lightbox(loc=(0, 0, 0), w=1.0, h=1.25, energy=4.0, color=(0.82, 0.9, 1.0), name="lightbox"):
+    """Wall lightbox (front faces -Y): metal frame + emissive diffuser + area light. Returns dict(panel_node, light)."""
+    root = empty(name, loc)
+    fm = L.mat_principled(name + "_f", (0.18, 0.19, 0.2), rough=0.35, metal=0.8)
+    box = L.prim("cube", loc=(0, 0.06, 0))
+    box.scale = (w / 2 + 0.05, 0.05, h / 2 + 0.05)
+    L.assign(box, fm)
+    box.parent = root
+    pan = L.prim("plane", loc=(0, -0.002, 0), size=1, rot=(math.pi / 2, 0, 0), name=name + "_panel")
+    pan.scale = (w, h, 1)
+    pm = L.mat_emission(name + "_pm", color, energy)
+    L.assign(pan, pm)
+    pan.parent = root
+    clip_m = L.mat_principled(name + "_c", (0.6, 0.62, 0.64), rough=0.3, metal=1.0)
+    for x in (-w * 0.3, w * 0.3):
+        c = L.prim("cube", loc=(x, -0.012, h / 2 - 0.02))
+        c.scale = (0.04, 0.008, 0.03)
+        L.assign(c, clip_m)
+        c.parent = root
+    a = L.area((0, -0.25, 0), (math.radians(90), 0, 0), energy=energy * 12, size=max(w, h), color=color, name=name + "_a")
+    a.parent = root
+    node = [nd for nd in pm.node_tree.nodes if nd.type == "EMISSION"][0]
+    return {"root": root, "node": node, "light": a, "panel": pan}
+
+
+def film_sheet(loc, w=0.9, h=1.1, tint=(0.015, 0.03, 0.05), glow=1.0, name="film", parent=None):
+    """X-ray film: dark translucent-looking sheet (emissive dark blue) in XZ facing -Y."""
+    p = L.prim("plane", loc=loc, size=1, rot=(math.pi / 2, 0, 0), name=name)
+    p.scale = (w, h, 1)
+    m, n, l = L._mat(name + "_m")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 3.0
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (tint[0] * 0.6, tint[1] * 0.6, tint[2] * 0.6, 1)
+    ramp.color_ramp.elements[1].color = (tint[0] * 1.8, tint[1] * 1.8, tint[2] * 1.8, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    e = n.new("ShaderNodeEmission")
+    e.inputs[1].default_value = glow
+    l.new(ramp.outputs["Color"], e.inputs[0])
+    l.new(e.outputs[0], n["Material Output"].inputs["Surface"])
+    L.assign(p, m)
+    p.visible_shadow = False
+    if parent:
+        p.parent = parent
+    return p, e
+
+
+def ct_gantry(loc=(0, 0, 0), rot_z=0.0, name="ct", ring_r=0.42, outer=1.05, depth=0.7, color=(0.82, 0.84, 0.86)):
+    """CT scanner: square-ish gantry with circular bore (+X axis through bore), glowing bore ring, table, and an inner
+    rotating ring with emissive markers (key 'spin' empty rotation_euler.x)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    bm = bmesh.new()
+    seg = 48
+    zc = 1.05
+    rings = []
+    for xv in (-depth / 2, depth / 2):
+        outer_r = []
+        inner_r = []
+        for i in range(seg):
+            a = 2 * math.pi * i / seg
+            c, s_ = math.cos(a), math.sin(a)
+            k = max(abs(c), abs(s_))
+            ro = outer / (k ** 0.35)
+            outer_r.append(bm.verts.new((xv, ro * c, zc + ro * s_)))
+            inner_r.append(bm.verts.new((xv, ring_r * c, zc + ring_r * s_)))
+        rings.append((outer_r, inner_r))
+    for i in range(seg):
+        j = (i + 1) % seg
+        for (o_, in_) in rings:
+            bm.faces.new((o_[i], o_[j], in_[j], in_[i]))
+        bm.faces.new((rings[0][0][i], rings[0][0][j], rings[1][0][j], rings[1][0][i]))
+        bm.faces.new((rings[0][1][i], rings[1][1][i], rings[1][1][j], rings[0][1][j]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    g = L.mesh_from_bm(name + "_gantry", bm)
+    L.assign(g, L.mat_principled(name + "_m", color, rough=0.35))
+    L.smooth(g)
+    g.parent = root
+    base = L.prim("cube", loc=(0, 0, 0.2))
+    base.scale = (depth / 2 + 0.05, outer * 0.8, 0.2)
+    L.assign(base, L.mat_principled(name + "_bm", (0.55, 0.57, 0.6), rough=0.4))
+    base.parent = root
+    for xv in (-depth / 2 - 0.004, depth / 2 + 0.004):
+        rg = L.prim("torus", loc=(xv, 0, zc), major_radius=ring_r + 0.015, minor_radius=0.012, rot=(0, math.radians(90), 0),
+                    major_segments=48, minor_segments=6)
+        L.assign(rg, L.mat_emission(name + "_glow", (0.35, 0.75, 1.0), 6.0))
+        rg.parent = root
+    spin = empty(name + "_spin", (0, 0, zc), parent=root)
+    mk = L.mat_emission(name + "_mk", (0.4, 0.85, 1.0), 10.0)
+    for i in range(6):
+        a = 2 * math.pi * i / 6
+        d = L.prim("cube", loc=(-depth / 2 - 0.01, (ring_r + 0.04) * math.cos(a), (ring_r + 0.04) * math.sin(a)))
+        d.scale = (0.006, 0.03, 0.03)
+        L.assign(d, mk)
+        d.parent = spin
+    tm = L.mat_principled(name + "_tm", (0.12, 0.13, 0.15), rough=0.5)
+    top = L.prim("cube", loc=(-1.6, 0, 0.78))
+    top.scale = (1.5, 0.28, 0.04)
+    L.assign(top, L.mat_principled(name + "_pad", (0.75, 0.78, 0.8), rough=0.5))
+    ped = L.prim("cube", loc=(-1.9, 0, 0.38))
+    ped.scale = (0.5, 0.2, 0.38)
+    L.assign(ped, tm)
+    for o in (top, ped):
+        o.parent = root
+    return {"root": root, "spin": spin, "zc": zc, "table_z": 0.82}
+
+
+def copper_axe(loc, rot=(0, 0, 0), name="axe", haft_len=0.6):
+    """Copper Age axe: yew haft with a bent-forward head, trapezoid copper blade bound with leather. Root = haft bottom."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    wood = L.mat_noise_surface(name + "_w", (0.2, 0.09, 0.03), (0.34, 0.17, 0.06), scale=30, bump=0.15, voronoi=False, rough=0.6)
+    cop = L.mat_principled(name + "_c", (0.9, 0.42, 0.2), rough=0.3, metal=1.0)
+    lea = L.mat_principled(name + "_l", (0.12, 0.06, 0.03), rough=0.85)
+    h = L.prim("cyl", loc=(0, 0, haft_len / 2), vertices=12, radius=0.016, depth=haft_len)
+    L.assign(h, wood)
+    hd = L.prim("cyl", loc=(0.05, 0, haft_len + 0.01), vertices=12, radius=0.022, depth=0.13, rot=(0, math.radians(90), 0))
+    L.assign(hd, wood)
+    bl = mesh_obj(name + "_blade", [(0.08, -0.006, -0.025), (0.08, 0.006, -0.025), (0.08, 0.006, 0.025), (0.08, -0.006, 0.025),
+                                    (0.18, -0.002, -0.045), (0.18, 0.002, -0.045), (0.18, 0.002, 0.045), (0.18, -0.002, 0.045)],
+                  [(0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)], mat=cop)
+    bl.location = (0, 0, haft_len + 0.01)
+    wr = L.prim("cyl", loc=(0.07, 0, haft_len + 0.01), vertices=10, radius=0.027, depth=0.04, rot=(0, math.radians(90), 0))
+    L.assign(wr, lea)
+    for o in (h, hd, bl, wr):
+        o.parent = root
+    return root
+
+
+def flint_dagger(loc, rot=(0, 0, 0), name="dagger", scale=1.0):
+    """Small flint dagger (leaf blade, chipped) with an ash-wood handle. Root at the handle end; points +Z."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    root.scale = (scale, scale, scale)
+    fm = L.mat_noise_surface(name + "_f", (0.36, 0.33, 0.28), (0.62, 0.58, 0.5), scale=60, bump=0.8, voronoi=True, rough=0.45)
+    wm = L.mat_noise_surface(name + "_w", (0.32, 0.22, 0.12), (0.5, 0.36, 0.2), scale=40, bump=0.1, voronoi=False, rough=0.7)
+    hd = L.prim("cyl", loc=(0, 0, 0.045), vertices=12, radius=0.011, depth=0.09)
+    hd.scale = (1.0, 0.75, 1.0)
+    L.assign(hd, wm)
+    bl = L.prim("ico", loc=(0, 0, 0.13), subdivisions=3, radius=1.0, name=name + "_blade")
+    bl.scale = (0.017, 0.0045, 0.05)
+    L.apply_scale(bl)
+    for v in bl.data.vertices:  # leaf shape: pointed tip, broad base
+        t = (v.co.z / 0.05 + 1) / 2
+        v.co.x *= 1.15 - 0.85 * t ** 1.4
+    L.assign(bl, fm)
+    for o in (hd, bl):
+        o.parent = root
+    return root
+
+
+def bow_stave(loc, length=1.82, rot=(0, 0, 0), name="bow"):
+    """Unfinished yew longbow stave: tapered both ends, no nocks, no string. Root at centre."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    m = L.mat_noise_surface(name + "_m", (0.32, 0.13, 0.04), (0.52, 0.25, 0.08), scale=18, bump=0.12, voronoi=False, rough=0.55)
+    bm = bmesh.new()
+    seg, ring = 24, 8
+    rows = []
+    for i in range(seg + 1):
+        t = i / seg
+        z = (t - 0.5) * length
+        r = 0.016 * (0.45 + 0.55 * math.sin(t * math.pi) ** 0.5)
+        rows.append([bm.verts.new((r * math.cos(2 * math.pi * k / ring), r * 0.8 * math.sin(2 * math.pi * k / ring), z)) for k in range(ring)])
+    for i in range(seg):
+        for k in range(ring):
+            j = (k + 1) % ring
+            bm.faces.new((rows[i][k], rows[i][j], rows[i + 1][j], rows[i + 1][k]))
+    bm.faces.new(rows[0][::-1])
+    bm.faces.new(rows[-1])
+    o = L.mesh_from_bm(name + "_stave", bm)
+    L.assign(o, m)
+    L.smooth(o)
+    o.parent = root
+    return root
+
+
+def quiver(loc, rot=(0, 0, 0), name="quiver", length=0.9, color=(0.2, 0.12, 0.06)):
+    """Deerskin quiver: slightly flattened tube with a stiffening rod and a few arrow shafts at the top."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    m = L.mat_noise_surface(name + "_m", (color[0] * 0.7, color[1] * 0.7, color[2] * 0.7), color, scale=25, bump=0.3, voronoi=False)
+    t = L.prim("cyl", loc=(0, 0, length / 2), vertices=16, radius=0.06, depth=length)
+    t.scale = (1.0, 0.6, 1.0)
+    L.assign(t, m)
+    L.smooth(t)
+    rod = L.prim("cyl", loc=(0.06, 0, length / 2 + 0.03), vertices=8, radius=0.009, depth=length + 0.06)
+    wm = L.mat_principled(name + "_w", (0.3, 0.2, 0.1), rough=0.6)
+    L.assign(rod, wm)
+    for o in (t, rod):
+        o.parent = root
+    for k, dx in enumerate((-0.025, 0.0, 0.022)):
+        s = L.prim("cyl", loc=(dx, 0, length + 0.05 + 0.02 * k), vertices=6, radius=0.004, depth=0.14)
+        L.assign(s, wm)
+        s.parent = root
+    return root
+
+
+def einkorn_ear(loc, rot=(0, 0, 0), name="ear", length=0.09, seed=1, stalk=0.14):
+    """Einkorn wheat ear: stalk + two rows of flattened grains + short awns. Root at the stalk base."""
+    rnd = random.Random(seed)
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    gm = L.mat_principled(name + "_g", (0.62, 0.47, 0.24), rough=0.6)
+    st = L.prim("cyl", loc=(0, 0, stalk / 2), vertices=6, radius=0.0025, depth=stalk)
+    L.assign(st, gm)
+    st.parent = root
+    bm = bmesh.new()
+    k = int(length / 0.009)
+    for i in range(k):
+        z = stalk + i * 0.009
+        for sg in (-1, 1):
+            res = bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=5, radius=0.0055)
+            for v in res["verts"]:
+                v.co = Vector((v.co.x * 0.7, v.co.y * 0.45, v.co.z * 1.25))
+                v.co.rotate(Euler((0, sg * 0.45, 0)))
+                v.co += Vector((sg * 0.004, 0, z))
+            aw = [bm.verts.new((sg * 0.006, 0, z + 0.004)), bm.verts.new((sg * 0.009 + rnd.uniform(-0.002, 0.002), 0, z + 0.035)),
+                  bm.verts.new((sg * 0.0065, 0.0008, z + 0.004))]
+            bm.faces.new(aw)
+    o = L.mesh_from_bm(name + "_grains", bm)
+    L.assign(o, gm)
+    o.parent = root
+    return root
+
+
+def meat_strip(loc, rot_z=0.0, size=(0.22, 0.06, 0.012), name="meat"):
+    o = rounded_box(loc, size, (0.22, 0.06, 0.035), rough=0.55, bevel=0.4, name=name)
+    o.rotation_euler = (0, 0, rot_z)
+    L.add_displace(o, strength=0.006, scale=0.05, name=name + "_d")
+    return o
+
+
+def herb_sprig(loc, rot_z=0.0, name="herb", seed=2):
+    rnd = random.Random(seed)
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.08, 0.16, 0.05), rough=0.6)
+    st = L.prim("cyl", loc=(0.06, 0, 0.004), vertices=5, radius=0.0018, depth=0.12, rot=(0, math.radians(90), 0))
+    L.assign(st, m)
+    st.parent = root
+    for i in range(9):
+        x = 0.01 + i * 0.012
+        for sg in (-1, 1):
+            lf = L.prim("sphere", loc=(x, sg * 0.008, 0.005), segments=8, ring_count=4)
+            lf.scale = (0.009, 0.004, 0.0012)
+            lf.rotation_euler = (0, 0, sg * rnd.uniform(0.4, 0.8))
+            L.assign(lf, m)
+            lf.parent = root
+    return root
+
+
+def ibex_outline():
+    """Generic ibex side profile (facing +X), units ~1 m long, base at z=0. Returns list of polylines (x, z)."""
+    body = [(-0.45, 0.56), (-0.1, 0.6), (0.2, 0.62), (0.3, 0.72), (0.38, 0.84), (0.45, 0.86), (0.56, 0.74), (0.55, 0.71),
+            (0.5, 0.68), (0.4, 0.64), (0.33, 0.5), (0.3, 0.38), (0.29, 0.04), (0.29, 0.0), (0.24, 0.0), (0.24, 0.04),
+            (0.22, 0.3), (0.0, 0.29), (-0.28, 0.31), (-0.3, 0.2), (-0.27, 0.04), (-0.27, 0.0), (-0.32, 0.0), (-0.34, 0.15),
+            (-0.4, 0.3), (-0.47, 0.44), (-0.5, 0.52), (-0.45, 0.56)]
+    legs2 = [[(0.17, 0.3), (0.16, 0.04), (0.16, 0.0), (0.12, 0.0)], [(-0.2, 0.31), (-0.22, 0.12), (-0.2, 0.0), (-0.24, 0.0)]]
+    horn = [(0.43, 0.87), (0.38, 0.98), (0.28, 1.08), (0.14, 1.12), (0.02, 1.08), (-0.06, 0.98), (-0.08, 0.9)]
+    horn2 = [(0.4, 0.86), (0.35, 0.95), (0.26, 1.03), (0.14, 1.06), (0.04, 1.02), (-0.02, 0.95)]
+    ridges = []
+    for t in (0.2, 0.35, 0.5, 0.65, 0.8):
+        i = int(t * (len(horn) - 1))
+        f = t * (len(horn) - 1) - i
+        a = Vector(horn[i]).lerp(Vector(horn[i + 1]), f)
+        b = Vector(horn2[min(i, len(horn2) - 2)]).lerp(Vector(horn2[min(i + 1, len(horn2) - 1)]), f)
+        ridges.append([tuple(a), tuple(b)])
+    beard = [(0.5, 0.68), (0.49, 0.6)]
+    ear = [(0.4, 0.82), (0.34, 0.86), (0.37, 0.8)]
+    return [body, horn, horn2, beard, ear] + legs2 + ridges
+
+
+def side_figure_outline(h=1.75):
+    """Generic faceless human side profile (facing +X), base z=0. Returns polylines (x, z) and the upper-back point."""
+    s = h / 1.75
+    body = [(0.05, 1.5), (0.08, 1.45), (0.14, 1.3), (0.12, 1.05), (0.09, 0.9), (0.07, 0.52), (0.05, 0.48), (0.06, 0.06), (0.17, 0.0),
+            (-0.07, 0.0), (-0.08, 0.06), (-0.09, 0.3), (-0.08, 0.5), (-0.13, 0.88), (-0.1, 0.98), (-0.13, 1.15), (-0.12, 1.38),
+            (-0.04, 1.5)]
+    head = [(0.02 + 0.11 * math.cos(2 * math.pi * k / 32), 1.62 + 0.115 * math.sin(2 * math.pi * k / 32)) for k in range(33)]
+    arm = [(-0.02, 1.4), (-0.03, 1.12), (0.0, 0.86), (0.03, 0.82)]
+    sc = lambda pl: [(x * s, z * s) for (x, z) in pl]
+    return [sc(body), sc(head), sc(arm)], (-0.115 * s, 1.36 * s)
+
+
+def traveller(name="traveller", height=1.65, color=(0.03, 0.024, 0.02), bow=True, axe=True):
+    """Prehistoric traveller silhouette (faceless): fur cape, round cap, bow stave over the shoulder, axe at the belt."""
+    p = L.char_figure(name, color=color, height=height, coat=True)
+    s = height / 1.75
+    cm = L.mat_principled(name + "_cap", (0.05, 0.035, 0.02), rough=0.9)
+    cap = L.prim("sphere", loc=(0, 0, 0.16 * s), segments=14, ring_count=8)
+    cap.scale = (0.115 * s, 0.125 * s, 0.09 * s)
+    L.assign(cap, cm)
+    cap.parent = p["neck"]
+    cape = L.prim("cone", loc=(0, 0, 0.5 * s), vertices=16, radius1=0.3 * s, radius2=0.12 * s, depth=0.42 * s)
+    cape.scale = (1.0, 0.8, 1.0)
+    L.assign(cape, cm)
+    cape.parent = p["pelvis"]
+    if bow:
+        b = bow_stave((0.08 * s, -0.16 * s, 0.5 * s), length=1.8 * s, rot=(0, math.radians(-28), 0), name=name + "_bow")
+        b.parent = p["pelvis"]
+        p["bow"] = b
+    if axe:
+        a = copper_axe((0.2 * s, 0.02, -0.02), rot=(0, math.radians(180), 0), name=name + "_axe", haft_len=0.5 * s)
+        a.parent = p["pelvis"]
+        a.location = (0.21 * s, 0.0, 0.18 * s)
+        p["axe"] = a
+    return p
+
+
+def pose_keys(parts, frame, names=("pelvis", "hipL", "hipR", "kneeL", "kneeR", "shoulderL", "shoulderR", "elbowL", "elbowR", "neck")):
+    for k in names:
+        parts[k].keyframe_insert("rotation_euler", frame=frame)
+    parts["pelvis"].keyframe_insert("location", frame=frame)

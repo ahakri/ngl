@@ -315,14 +315,17 @@
                 0.45
               ]
             ]
-          }
+          },
+          "start": 0.0,
+          "duration": 2.9
         },
         {
           "type": "stamp",
           "text": "TAMAULIPAS, MEXICO\n6 APRIL 1994",
           "params": {
             "y": 300
-          }
+          },
+          "start": 2.9
         }
       ],
       "sfx": [
@@ -487,7 +490,8 @@
             "style": "paper",
             "title": "SAFETY HANDBOOK",
             "rot": -4,
-            "size": 44
+            "size": 44,
+            "y": 90
           }
         }
       ],
@@ -767,7 +771,8 @@
             "style": "paper",
             "title": "INCIDENT",
             "rot": 2,
-            "size": 44
+            "size": 44,
+            "y": 100
           }
         }
       ],

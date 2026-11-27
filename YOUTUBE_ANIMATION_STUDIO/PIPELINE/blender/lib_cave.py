@@ -2368,3 +2368,89 @@ def pond_mat(name="pond", water=(0.01, 0.035, 0.02), weed=(0.16, 0.3, 0.06), wee
     l.new(ramp.outputs["Color"], rr.inputs["Value"])
     l.new(rr.outputs["Result"], p.inputs["Roughness"])
     return m
+
+
+# ----------------------------------------------------------------------------- CAVE-07 (Zacatón: cenote pool, haul rig)
+
+def grass_island(loc, radius=1.2, seed=1, c1=(0.05, 0.09, 0.025), c2=(0.22, 0.3, 0.08), name="island"):
+    """Floating grass mat (zacate) on a cenote pool: a flat noise-displaced disc plus a few grass tufts."""
+    rnd = random.Random(seed)
+    m = L.mat_noise_surface(name + "_m", c1, c2, scale=3.0, bump=0.8, voronoi=False)
+    o = L.prim("cyl", loc=loc, vertices=24, radius=radius, depth=0.12, name=name)
+    o.scale = (1.0, rnd.uniform(0.6, 1.0), 1.0)
+    o.rotation_euler = (0, 0, rnd.uniform(0, 6.28))
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 2
+    L.add_displace(o, strength=radius * 0.25, scale=radius * 0.35, name=name + "_d")
+    L.assign(o, m)
+    out = [o]
+    for k in range(int(4 + radius * 3)):
+        a = rnd.uniform(0, 6.28)
+        r = radius * 0.7 * math.sqrt(rnd.random())
+        h = rnd.uniform(0.15, 0.4) * (0.6 + radius * 0.3)
+        t = L.prim("cone", loc=(loc[0] + math.cos(a) * r, loc[1] + math.sin(a) * r, loc[2] + h * 0.45), vertices=6,
+                   radius1=rnd.uniform(0.08, 0.2) * (0.6 + radius * 0.3), radius2=0.0, depth=h, name=f"{name}_t{k}")
+        t.rotation_euler = (rnd.uniform(-0.2, 0.2), rnd.uniform(-0.2, 0.2), 0)
+        L.add_displace(t, strength=0.05, scale=0.06, name=f"{name}_td{k}")
+        L.assign(t, m)
+        out.append(t)
+    return out
+
+
+def wildflower(loc, height=0.32, petal=(1.0, 0.82, 0.12), stem=(0.12, 0.22, 0.06), n=0, sway=0.12, name="flower"):
+    """Small wild flower (stem + 5 petals + centre). Root at the base; optional sway keys over n frames."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    sm_ = L.mat_principled(name + "_st", stem, rough=0.7)
+    s = L.prim("cyl", loc=(0, 0, height / 2), vertices=6, radius=0.006, depth=height, name=name + "_stem")
+    L.assign(s, sm_)
+    s.parent = root
+    for k, (lx, lz) in enumerate(((0.03, 0.35), (-0.028, 0.55))):
+        lf = L.prim("sphere", loc=(lx, 0, height * lz), segments=8, ring_count=4, radius=1.0, name=f"{name}_leaf{k}")
+        lf.scale = (0.03, 0.009, 0.006)
+        lf.rotation_euler = (0, (-0.5 if lx > 0 else 0.5), 0)
+        L.assign(lf, sm_)
+        lf.parent = root
+    pm = L.mat_principled(name + "_pm", petal, rough=0.5, emit=petal, emit_strength=0.15)
+    for k in range(5):
+        a = 2 * math.pi * k / 5
+        p = L.prim("sphere", loc=(math.cos(a) * 0.022, math.sin(a) * 0.022, height + 0.004), segments=8, ring_count=4,
+                   radius=1.0, name=f"{name}_p{k}")
+        p.scale = (0.02, 0.011, 0.004)
+        p.rotation_euler = (0, 0, a)
+        L.assign(p, pm)
+        p.parent = root
+    c = L.prim("sphere", loc=(0, 0, height + 0.008), segments=8, ring_count=4, radius=0.009, name=name + "_c")
+    L.assign(c, L.mat_principled(name + "_cm", (0.35, 0.18, 0.03), rough=0.6))
+    c.parent = root
+    if n:
+        for f in range(1, n + 1, 3):
+            root.rotation_euler = (sway * math.sin(f * 0.21), sway * 0.6 * math.sin(f * 0.13 + 1.0), 0)
+            root.keyframe_insert("rotation_euler", frame=f)
+    return root
+
+
+def tripod(top, height=2.2, spread=0.9, color=(0.55, 0.57, 0.6), name="tripod"):
+    """Three-leg haul tripod with a pulley at the apex (top = apex position). Returns (root, pulley_root)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    m = L.mat_principled(name + "_m", color, rough=0.35, metal=0.8)
+    apex = Vector(top)
+    for k in range(3):
+        a = 2 * math.pi * k / 3 + 0.3
+        foot = apex + Vector((math.cos(a) * spread, math.sin(a) * spread, -height))
+        mid = (apex + foot) / 2
+        d = apex - foot
+        leg = L.prim("cyl", loc=tuple(mid), vertices=8, radius=0.025, depth=d.length, name=f"{name}_leg{k}")
+        leg.rotation_mode = "QUATERNION"
+        leg.rotation_quaternion = d.to_track_quat("Z", "Y")
+        L.assign(leg, m)
+        leg.parent = root
+    hub = L.prim("sphere", loc=tuple(apex + Vector((0, 0, 0.03))), segments=10, ring_count=6, radius=0.05,
+                 name=name + "_hub")
+    L.assign(hub, m)
+    hub.parent = root
+    pu = pulley(tuple(apex + Vector((0, 0, -0.07))), name=name + "_pulley")
+    for o in pu.children:
+        o.scale = tuple(v * 2.2 for v in o.scale)
+        o.location = tuple(v * 2.2 for v in o.location)
+    return root, pu
