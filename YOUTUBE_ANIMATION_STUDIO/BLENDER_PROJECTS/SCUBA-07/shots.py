@@ -54,11 +54,25 @@ def _bg_node():
 
 
 def _the_lump(name="lump"):
-    return S.lump(name, size=(0.2, 0.16, 0.09), seed=3,
-                  mat=S.mat_verdigris(name + "_m", c1=(0.04, 0.07, 0.05), c2=(0.2, 0.3, 0.18), crust=(0.45, 0.42, 0.33)))
+    o = S.lump(name, size=(0.2, 0.16, 0.09), seed=3, apply=False,
+                  mat=S.mat_verdigris(name + "_m", c1=(0.035, 0.05, 0.035), c2=(0.16, 0.24, 0.14), crust=(0.4, 0.36, 0.28),
+                                      scale=26.0))
+    o.modifiers["d1"].strength = 0.055
+    o.modifiers["d2"].strength = -0.014
+    d3 = o.modifiers.new("d3", "DISPLACE")
+    t3 = bpy.data.textures.new(name + "_t3", "CLOUDS")
+    t3.noise_scale = 0.012
+    d3.texture = t3
+    d3.strength = 0.006
+    d3.texture_coords = "OBJECT"
+    dg = bpy.context.evaluated_depsgraph_get()
+    me = bpy.data.meshes.new_from_object(o.evaluated_get(dg))
+    o.modifiers.clear()
+    o.data = me
+    return o
 
 
-def _dust(n, center, size, count=600, color=(0.8, 0.85, 0.9), emit=0.3, vel=(0.004, 0.0, 0.006), radius=0.0012, seed=4):
+def _dust(n, center, size, count=600, color=(0.8, 0.85, 0.9), emit=0.3, vel=(0.004, 0.0, 0.006), radius=0.0005, seed=4):
     d = C.cloud(center, size, count=count, radius=radius, color=color, emit=emit, seed=seed)
     C.drift(d, n, vel)
     return d
@@ -73,10 +87,11 @@ def _plinth_set(L, n, xray=False):
     pl.scale = (0.35, 0.35, 0.5)
     L.bevel(pl, 0.01)
     if xray:
-        L.assign(pl, L.mat_principled("plinth_m", (0.01, 0.015, 0.02), rough=0.5))
+        L.assign(pl, L.mat_principled("plinth_m", (0.008, 0.01, 0.012), rough=0.95))
     else:
         L.assign(pl, S.mat_caustic_ground("plinth_m", c1=(0.008, 0.01, 0.012), c2=(0.03, 0.035, 0.04),
-                                          caustic=(0.45, 0.85, 1.0), strength=0.25, scale=1.4, nframes=n, base_scale=30))
+                                          caustic=(0.45, 0.85, 1.0), strength=0.1, scale=4.0, nframes=n, base_scale=30))
+        pl.active_material.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.95
     _spot_at(L, (0.15, -0.1, 1.3), (0, 0, LUMP_Z), 70, 30, (0.8, 0.92, 1.0), "keyspot", blend=0.6)
     _aim_area(L, (0.1, 0.9, 0.35), (0, 0, LUMP_Z), 25, 0.6, (0.3, 0.9, 0.85), "tealrim")
     _aim_area(L, (-0.8, 0.4, 0.3), (0, 0, LUMP_Z), 6, 0.6, (0.3, 0.6, 1.0), "siderim")
@@ -88,7 +103,7 @@ def S01(L, n):
     lp = _the_lump()
     lp.location = (0, 0, LUMP_Z)
     S.keys(lp, "rotation_euler", [(1, (0, 0, 0.15)), (n, (0, 0, 0.55))])
-    _dust(n, (0, 0, 0.25), (0.8, 0.8, 0.5), count=500, emit=0.6)
+    _dust(n, (0, 0, 0.2), (0.6, 0.6, 0.4), count=300, emit=0.5)
     cam = C.camera(lens=85)
     keys = []
     for f in range(1, n + 1, 4):
@@ -115,16 +130,16 @@ def S02(L, n):
     lw.inputs["Blend"].default_value = 0.45
     pw = nt.new("ShaderNodeMath")
     pw.operation = "POWER"
-    pw.inputs[1].default_value = 1.4
+    pw.inputs[1].default_value = 3.0
     lk.new(lw.outputs["Facing"], pw.inputs[0])
     ad = nt.new("ShaderNodeMath")
     ad.operation = "ADD"
     ad.use_clamp = True
-    ad.inputs[1].default_value = 0.05
+    ad.inputs[1].default_value = 0.02
     lk.new(pw.outputs[0], ad.inputs[0])
     em = nt.new("ShaderNodeEmission")
     em.inputs[0].default_value = (*XRAY, 1)
-    em.inputs[1].default_value = 2.5
+    em.inputs[1].default_value = 1.2
     tr = nt.new("ShaderNodeBsdfTransparent")
     xm = nt.new("ShaderNodeMixShader")
     lk.new(ad.outputs[0], xm.inputs[0])
@@ -146,11 +161,11 @@ def S02(L, n):
     C.key_input(sweep, [(1, x0), (f0, x0), (f1, x1), (n, x1)])
     # frozen gear train inside (x-ray line art)
     gm = S.mat_xray("gear_x", XRAY, strength=7.0, power=1.2, base=0.12)
-    for k, (gx, gy, gz, r, t) in enumerate(((-0.035, 0.0, 0.0, 0.042, 48), (0.03, 0.012, 0.012, 0.026, 30),
-                                            (0.058, -0.01, -0.012, 0.016, 18), (-0.072, 0.015, 0.016, 0.018, 20),
-                                            (0.0, -0.02, -0.02, 0.014, 16), (0.02, 0.025, 0.02, 0.032, 36))):
-        g = S.gear(f"xg{k}", teeth=t, r=r, thick=0.003, mat=gm, spokes=4 if r > 0.02 else 0)
-        S.mount(g, (gx, gy, LUMP_Z + gz), normal=(0, -1, 0.35))
+    for k, (gx, gy, gz, r, t) in enumerate(((-0.03, 0.0, 0.0, 0.03, 40), (0.022, 0.01, 0.004, 0.02, 26),
+                                            (0.05, -0.01, -0.006, 0.012, 16), (-0.064, 0.012, 0.006, 0.013, 16),
+                                            (0.0, -0.015, -0.01, 0.01, 12), (0.016, 0.02, 0.008, 0.022, 30))):
+        g = S.gear(f"xg{k}", teeth=t, r=r, thick=0.003, mat=gm, spokes=4 if r > 0.015 else 0)
+        S.mount(g, (gx, gy, LUMP_Z + gz), normal=(0, -1, 0.25))
         g.rotation_euler = (0, 0, k * 0.4)
     # the scan bar (a thin emissive sheet facing the camera) + soft glow
     bar = L.prim("plane", loc=(0, -0.12, LUMP_Z + 0.02), rot=(PI / 2, 0, 0), size=1, name="scanbar")
@@ -179,7 +194,7 @@ def _sea(L, n, mood="storm", sun_e=1.2, wave=1.3, chop=1.1, wind=18, size=200):
     if mood == "storm":
         top, hor, below = (0.08, 0.09, 0.11), (0.3, 0.32, 0.34), (0.02, 0.03, 0.035)
         sd, sc = Vector((0.3, 0.6, 0.35)).normalized(), (0.6, 0.65, 0.7)
-        deep, shallow = (0.01, 0.03, 0.035), (0.06, 0.12, 0.12)
+        deep, shallow = (0.004, 0.015, 0.018), (0.08, 0.16, 0.16)
     elif mood == "overcast":
         top, hor, below = (0.3, 0.36, 0.42), (0.62, 0.64, 0.64), (0.03, 0.05, 0.06)
         sd, sc = Vector((-0.3, 0.5, 0.6)).normalized(), (0.9, 0.9, 0.88)
@@ -235,8 +250,8 @@ def S03(L, n):
         cr = _crew(L, f"crew{k}", (x, y, 0.72), rot_z=PI if k == 2 else 0.0, h=1.65, rim_s=0.3)
         cr["root"].parent = b
     sail = [o for o in bpy.data.objects if o.name.startswith("caique_sail")]
-    C.rain((6, 22, 6), (40, 40, 16), count=2600, n=n, speed=11.0, length=0.6, width=0.012, color=(0.75, 0.8, 0.85),
-           strength=0.5, seed=3)
+    C.rain((6, 22, 6), (40, 40, 16), count=3500, n=n, speed=11.0, length=0.5, width=0.004, color=(0.75, 0.8, 0.85),
+           strength=0.35, seed=3)
     S.splash_drops((0, by0 + 4.4, 0.6), [12, 13, 14, 15, 50, 51, 52, 88, 89, 90, 120], count=60, speed=3.0, seed=4,
                    name="bowspray", size=0.05)
     # one lightning flash (frames 9-13) lighting the sky and the sea
@@ -244,7 +259,7 @@ def S03(L, n):
     C.key_input(bg.inputs[1], [(1, 1.0), (8, 1.0), (9, 6.0), (10, 2.0), (11, 5.0), (13, 1.0), (n, 1.0)])
     C.key_energy(sun, [(1, 1.0), (8, 1.0), (9, 9.0), (10, 2.5), (11, 7.0), (13, 1.0), (n, 1.0)])
     cam = C.camera(lens=28, clip_end=6000)
-    C.aim_cam(cam, n, [(1, (9.5, 8.0, 2.6), (0.0, 19.5, 2.4)), (n, (8.5, 14.5, 2.3), (0.0, 27.5, 2.4))],
+    C.aim_cam(cam, n, [(1, (7.0, 10.5, 2.2), (0.0, 19.5, 1.2)), (n, (6.4, 17.0, 2.0), (0.0, 27.0, 1.2))],
               shake=0.12, rot_shake=0.01, rate=0.5)
     _finish(L)
 
@@ -257,10 +272,10 @@ def _seabed(L, n, depth_z=0.0, vol_center=(0, 2, 5), vol_size=(40, 40, 16), dens
     S.world_volume(color=(0.2, 0.42, 0.5), density=density, anisotropy=0.6, absorption=(0.35, 0.2, 0.15),
                    center=vol_center, size=vol_size)
     sb = L.seabed(size=40, strength=0.45, z=depth_z,
-                  mat=S.mat_caustic_ground("bed", c1=(0.2, 0.2, 0.17), c2=(0.42, 0.4, 0.33), caustic=(0.6, 0.85, 0.9),
-                                           strength=0.25, scale=0.4, nframes=n))
+                  mat=S.mat_caustic_ground("bed", c1=(0.06, 0.07, 0.07), c2=(0.16, 0.17, 0.16), caustic=(0.6, 0.85, 0.9),
+                                           strength=0.05, scale=0.4, nframes=n))
     sb.rotation_euler = (0.1, 0, 0)
-    sun = L.sun(rot=(0.15, 0.1, 0.2), energy=2.6, color=(0.6, 0.85, 1.0), angle=5)
+    sun = L.sun(rot=(0.15, 0.1, 0.2), energy=1.6, color=(0.5, 0.8, 1.0), angle=5)
     if rays:
         S.god_rays(center=(0, 4, depth_z + 13), count=7, length=15, spread=5, tilt=(0.15, 0.05), color=(0.6, 0.9, 1.0),
                    strength=0.8, alpha=0.18, nframes=n)
@@ -276,7 +291,7 @@ def _wreck_props(L, seed=7, center=(0.8, 3.0), z=0.0):
         y = cy + rnd.uniform(-1.6, 2.4)
         zz = z + 0.1 * (y - 0.0) * 0.1 - rnd.uniform(0.05, 0.2)
         a = S.amphora((x, y, zz), rot=(rnd.uniform(1.0, 1.55), rnd.uniform(-0.3, 0.3), rnd.uniform(0, 6.28)),
-                      h=rnd.uniform(0.6, 0.8), name=f"amph{k}", crust=0.5)
+                      h=rnd.uniform(0.75, 0.95), name=f"amph{k}", crust=0.5)
         out.append(a)
     # bronze arm and shoulder of a statue, half out of the silt
     bz = S.mat_bronze("statue_bz", (0.35, 0.24, 0.12), rough=0.4, patina=0.55)
@@ -353,8 +368,8 @@ def S04(L, n):
           radius=0.004)
     _aim_area(L, (3.5, -2.5, 6.0), (0, 1.0, 1.0), 300, 6, (0.5, 0.8, 1.0), "fill")
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (2.6, -3.4, 5.4), (-0.6, 0.4, 5.4)), (land, (2.6, -3.3, 2.6), (0.2, 1.6, 0.6)),
-                       (n, (2.5, -3.0, 2.3), (0.5, 2.2, 0.3))], shake=0.03, rot_shake=0.004, rate=0.4)
+    C.aim_cam(cam, n, [(1, (1.8, -2.6, 5.9), (-0.6, 0.4, 5.6)), (land, (2.0, -1.2, 2.0), (0.4, 2.2, 0.4)),
+                       (n, (1.9, -0.6, 1.6), (0.5, 2.6, 0.25))], shake=0.03, rot_shake=0.004, rate=0.4)
     C.cam_fill(cam, energy=60, color=(0.55, 0.8, 1.0))
     _finish(L)
 
@@ -440,11 +455,11 @@ def S05(L, n):
                  life=(20, 34), name="exb")
     _aim_area(L, tuple(U + Vector((0.6, -0.4, 3.0))), tuple(U + Vector((0, 0, 0.7))), 150, 2.0, (0.6, 0.85, 1.0), "utop")
     _aim_area(L, tuple(U + Vector((-1.0, 1.4, 1.0))), tuple(U + Vector((0, 0, 0.7))), 80, 1.0, (0.3, 0.8, 0.9), "urim")
-    hz = U + Vector((0, 0, 0.62))
+    hz = U + Vector((0, 0, 0.78))
     cam = C.camera(lens=35, clip_end=6000)
     keys = [(1, (2.6, -3.6, dz + 1.7), (0.0, -1.0, dz + 0.9)), (cut - 1, (2.2, -3.0, dz + 1.6), (0.0, -1.0, dz + 0.8)),
-            (cut, tuple(hz + Vector((-0.45, -0.75, 0.12))), tuple(hz)),
-            (n, tuple(hz + Vector((-0.38, -0.62, 0.1))), tuple(hz))]
+            (cut, tuple(hz + Vector((-0.75, -1.35, 0.15))), tuple(hz + Vector((0, 0, -0.08)))),
+            (n, tuple(hz + Vector((-0.65, -1.15, 0.12))), tuple(hz + Vector((0, 0, -0.08))))]
     C.aim_cam(cam, n, keys, shake=0.02, rot_shake=0.004, rate=0.6)
     cam.data.lens = 35
     cam.data.keyframe_insert("lens", frame=cut - 1)
@@ -488,16 +503,16 @@ def S07(L, n):
     cw["shoulderR"].rotation_euler = (1.15, 0, -0.2)
     cw["elbowR"].rotation_euler = (0.4, 0, 0)
     # the insert: one empty helmet on the wet deck (towards the stern)
-    hy = -2.6
+    hy = -1.7
     _helmet_prop(L, (0.1, hy, dz), rot_z=0.25, name="emptyhelm")
     wet = L.prim("plane", loc=(0.1, hy, dz + 0.025), size=1.6, name="wetdeck")
     L.assign(wet, L.mat_principled("wet_m", (0.06, 0.045, 0.03), rough=0.08))
     hz = Vector((0.1, hy, dz + 0.2))
     cam = C.camera(lens=35, clip_end=6000)
-    keys = [(1, (1.9, my - 3.0, dz + 1.5), (0.0, my - 0.4, dz + 0.55)),
-            (cut - 1, (1.55, my - 2.45, dz + 1.4), (0.0, my - 0.4, dz + 0.55)),
-            (cut, tuple(hz + Vector((0.55, -0.95, 0.28))), tuple(hz + Vector((0, 0, -0.1)))),
-            (n, tuple(hz + Vector((0.53, -0.93, 0.27))), tuple(hz + Vector((0, 0, -0.1))))]
+    keys = [(1, (1.9, my - 3.0, dz + 1.3), (0.0, my - 0.4, dz + 0.05)),
+            (cut - 1, (1.55, my - 2.45, dz + 1.2), (0.0, my - 0.4, dz + 0.05)),
+            (cut, tuple(hz + Vector((0.55, -0.95, 0.2))), tuple(hz + Vector((0, 0, -0.32)))),
+            (n, tuple(hz + Vector((0.53, -0.93, 0.19))), tuple(hz + Vector((0, 0, -0.32))))]
     C.aim_cam(cam, n, keys, shake=0.01, rot_shake=0.002)
     cam.data.lens = 35
     cam.data.keyframe_insert("lens", frame=cut - 1)
@@ -546,7 +561,7 @@ def S08(L, n):
                                         voronoi=False))
     shard.parent = basket
     up, over, land = 34, 52, 62
-    path = [(1, (gx + 0.55, -0.4, -0.55)), (up, (gx + 0.45, -0.4, dz + 0.55)), (over, (gx - 0.4, -0.45, dz + 0.65)),
+    path = [(1, (gx + 0.55, -0.4, -0.05)), (up, (gx + 0.45, -0.4, dz + 0.55)), (over, (gx - 0.4, -0.45, dz + 0.65)),
             (land, (gx - 0.75, -0.45, dz + 0.04)), (n, (gx - 0.75, -0.45, dz + 0.04))]
     C.key_loc(basket, path)
     for f, rx in ((1, 0.12), (up, -0.08), (over, 0.1), (land, 0.0), (n, 0.0)):
@@ -582,7 +597,7 @@ def S08(L, n):
         cr["shoulderL"].rotation_euler = (1.4, 0, 0.3)
         cr["shoulderR"].rotation_euler = (1.1, 0, -0.3)
     cam = C.camera(lens=50, clip_end=6000)
-    keys = [(1, (gx + 2.9, -2.6, 0.5), (gx + 0.55, -0.4, -0.2)), (up, (gx + 2.6, -2.4, dz + 0.9), (gx + 0.45, -0.4, dz + 0.5)),
+    keys = [(1, (gx + 2.9, -2.6, 0.7), (gx + 0.55, -0.4, 0.2)), (up, (gx + 2.6, -2.4, dz + 0.9), (gx + 0.45, -0.4, dz + 0.5)),
             (land, (gx + 1.4, -1.8, dz + 1.0), (gx - 0.7, -0.5, dz + 0.15)),
             (n, (gx + 0.15, -1.2, dz + 0.55), tuple(Vector((gx - 0.75, -0.45, dz + 0.04)) + Vector((0.09, -0.12, 0.13))))]
     C.aim_cam(cam, n, keys, shake=0.015, rot_shake=0.003, rate=0.6)
@@ -605,7 +620,8 @@ def S06(L, n):
             if p:
                 p.inputs["Roughness"].default_value = 0.25
     cam = C.camera(lens=50, clip_end=6000)
-    C.aim_cam(cam, n, [(1, (-4.0, -10.0, 12.0), (-2.0, 8.0, 0.0)), (n, (4.0, -10.0, 12.0), (6.0, 8.0, 0.0))])
+    C.aim_cam(cam, n, [(1, (-4.0, -10.0, 4.5), (-2.0, 14.0, 0.0)), (n, (4.0, -10.0, 4.5), (6.0, 14.0, 0.0))])
+    _island(L, (10, 160, -4), (55, 28, 20), seed=2, name="antik")
     # small helmet-diver icons in screen space (parented to the camera) dropping in along the 1901 side
     im = L.mat_emission("icon_m", (0.92, 0.95, 1.0), 2.5)
     d = 1.0
@@ -615,13 +631,13 @@ def S06(L, n):
     def scr(px, py):
         return ((px - 540) / 1080 * ww, -(py - 960) / 1920 * hh, -d)
     for k in range(8):
-        px, py = 545 + k * 52, 1088
+        px, py = 545 + k * 54, 1085
         ic = L.link(bpy.data.objects.new(f"icon{k}", None))
         ic.parent = cam
         ic.location = scr(px, py)
-        hd = L.prim("cyl", loc=(0, 0.007, 0), vertices=16, radius=0.0055, depth=0.0005, name=f"ic_h{k}")
+        hd = L.prim("cyl", loc=(0, 0.0085, 0), vertices=16, radius=0.0068, depth=0.0005, name=f"ic_h{k}")
         bd = L.prim("cube", loc=(0, -0.004, 0), name=f"ic_b{k}")
-        bd.scale = (0.005, 0.006, 0.0003)
+        bd.scale = (0.0062, 0.0075, 0.0003)
         for o in (hd, bd):
             L.assign(o, im)
             o.parent = ic
@@ -683,8 +699,8 @@ def S09(L, n):
     # desk lamp swings onto the tray
     lamp = L.link(bpy.data.objects.new("lamp", None))
     lamp.location = (-0.55, 0.0, 1.35)
-    shade = L.prim("cone", loc=(0, 0, 0.06), vertices=20, radius1=0.12, radius2=0.04, depth=0.14, name="shade")
-    shade.data.flip_normals() if hasattr(shade.data, "flip_normals") else None
+    shade = L.prim("cone", loc=(0, 0, 0.06), vertices=20, radius1=0.12, radius2=0.04, depth=0.14, name="shade",
+                   end_fill_type="NOTHING")
     L.assign(shade, L.mat_principled("shade_m", (0.15, 0.25, 0.12), rough=0.4, metal=0.5))
     shade.parent = lamp
     bulb = L.prim("sphere", loc=(0, 0, 0.0), segments=12, ring_count=8, radius=0.03, name="bulb")
@@ -709,8 +725,10 @@ def S09(L, n):
     S.curl(hp, 1, 0.35)
     sl = L.prim("cyl", loc=(0.55, -0.22, 0.82), rot=(PI / 2, 0, 2.3), vertices=16, radius=0.05, depth=0.35, name="sleeve")
     L.assign(sl, L.mat_principled("sleeve_m", (0.05, 0.05, 0.06), rough=0.85))
-    _dust(n, (-0.2, 0.2, 1.05), (0.8, 0.6, 0.6), count=500, color=(1.0, 0.85, 0.6), emit=0.5, vel=(0.005, 0, 0.004))
-    L.point((0.5, -1.0, 1.6), energy=6, color=(0.7, 0.75, 0.85), radius=0.5, name="cool_amb")
+    _dust(n, (-0.2, 0.2, 1.05), (0.8, 0.6, 0.6), count=400, color=(1.0, 0.85, 0.6), emit=0.5, vel=(0.005, 0, 0.004),
+          radius=0.0004)
+    L.point((0.5, -1.0, 1.6), energy=25, color=(0.7, 0.75, 0.85), radius=0.5, name="cool_amb")
+    L.point((0.0, 0.9, 1.8), energy=12, color=(1.0, 0.75, 0.5), radius=0.5, name="shelf_amb")
     cam = C.camera(lens=50)
     C.aim_cam(cam, n, [(1, (0.25, -0.95, 1.22), (0.0, 0.2, 0.86)), (n, (0.15, -0.62, 1.08), (0.0, 0.2, 0.86))],
               shake=0.003, rot_shake=0.001, rate=0.5)
@@ -723,7 +741,7 @@ def S09(L, n):
 def S10(L, n):
     cut = 80
     S.setup(vol_end=10)
-    L.set_world(color=(0.08, 0.09, 0.1), strength=1.0)
+    L.set_world(color=(0.03, 0.035, 0.04), strength=1.0)
     fl = L.prim("plane", loc=(0, 0, 0), size=14, name="labfloor")
     L.assign(fl, L.mat_principled("labfloor_m", (0.35, 0.37, 0.4), rough=0.35))
     wall = L.prim("plane", loc=(0, 3.0, 2.5), rot=(PI / 2, 0, 0), size=14, name="labwall")
@@ -782,7 +800,7 @@ def S10(L, n):
         for k in range(4):  # rows of tiny lettering (dashes)
             ln = L.prim("cube", loc=(1.55 + rnd.uniform(-0.06, 0.04), 0.7244, 1.02 + 0.012 * k + 0.04 * si % 0.08),
                         name=f"txt{si}_{k}")
-            ln.scale = (rnd.uniform(0.02, 0.05), 0.0002, 0.002)
+            ln.scale = (rnd.uniform(0.01, 0.03), 0.0002, 0.002)
             L.assign(ln, sm_)
             objs.append(ln)
         sets.append(objs)
@@ -803,8 +821,8 @@ def S10(L, n):
                 o.hide_render = True
                 o.keyframe_insert("hide_render", frame=1)
                 C._constant(o)
-    _aim_area(L, (-2.5, -2.5, 3.5), (0, 1.0, 1.0), 900, 4, (0.85, 0.92, 1.0), "labkey")
-    _aim_area(L, (2.5, -1.0, 3.0), (0.5, 1.0, 1.0), 400, 3, (0.8, 0.9, 1.0), "labfill")
+    _aim_area(L, (-2.5, -2.5, 3.5), (0, 1.0, 1.0), 380, 4, (0.85, 0.92, 1.0), "labkey")
+    _aim_area(L, (2.5, -1.0, 3.0), (0.5, 1.0, 1.0), 120, 3, (0.8, 0.9, 1.0), "labfill")
     cam = C.camera(lens=28)
     sc = Vector((1.55, 0.7245, 1.1))
     keys = [(1, (-1.6, -2.2, 1.35), (0.1, 0.6, 1.0)), (cut - 1, (0.6, -2.5, 1.3), (0.35, 0.6, 1.0)),
@@ -832,10 +850,8 @@ def _teeth(r):
 def _blue_void(L, n):
     S.setup(vol_end=12)
     L.set_world(color=(0.004, 0.015, 0.04), strength=1.0)
-    bd = L.prim("plane", loc=(0, 2.5, 0), rot=(PI / 2, 0, 0), size=1, name="void_bg")
-    bd.scale = (12, 12, 1)
-    L.assign(bd, S.mat_caustic_ground("void_m", c1=(0.003, 0.012, 0.03), c2=(0.008, 0.03, 0.06), caustic=(0.25, 0.5, 0.8),
-                                      strength=0.18, scale=0.35, nframes=n, base_scale=4))
+    S.backdrop_z("void_bg", stops=((-6, (0.0, 0.004, 0.012)), (0, (0.006, 0.025, 0.06)), (6, (0.012, 0.045, 0.09))),
+                 loc=(0, 6, 0), size=(40, 40), strength=1.0)
     _dust(n, (0, 0.5, 0), (5, 3, 6), count=700, color=(0.6, 0.8, 1.0), emit=0.3, vel=(0.01, 0, 0.02), radius=0.004)
 
 
@@ -936,7 +952,7 @@ def S12(L, n):
     bar.scale = (0.008, 0.25, 0.004)
     L.assign(bar, bz)
     bar.parent = sun_p
-    sun_m = L.mat_emission("sun_m", (1.0, 0.8, 0.3), 5.0)
+    sun_m = L.mat_emission("sun_m", (1.0, 0.75, 0.25), 2.5)
     sball = L.prim("sphere", loc=(0, 0.47, 0), segments=20, ring_count=10, radius=0.05, name="sun_ball")
     L.assign(sball, sun_m)
     sball.parent = sun_p
@@ -976,7 +992,7 @@ def S12(L, n):
     C.key_loc(ed, [(1, (0.14, 0.47, 0.06)), (ecl0, (0.14, 0.47, 0.06)), (fa, (0.0, 0.47, 0.06)), (ecl1, (0.0, 0.47, 0.06)),
                    (ecl1 + 10, (-0.14, 0.47, 0.06))])
     C.hide_from_frame([ed], f_show=ecl0 - 2, f_hide=ecl1 + 11)
-    S.emit_keys(sun_m, [(1, 5.0), (ecl0, 5.0), (fa, 0.4), (ecl1, 0.4), (ecl1 + 10, 5.0)])
+    S.emit_keys(sun_m, [(1, 2.5), (ecl0, 2.5), (fa, 0.2), (ecl1, 0.2), (ecl1 + 10, 2.5)])
     key = _aim_area(L, (-1.8, -2.6, 2.2), (0, 0, 0), 700, 3, (1.0, 0.85, 0.65), "warmkey")
     C.key_energy(key, [(1, 700), (ecl0, 700), (fa, 180), (ecl1, 180), (ecl1 + 10, 700)])
     _aim_area(L, (1.5, 1.5, 1.2), (0, 0, 0), 400, 3, (0.35, 0.6, 1.0), "bluerim")
@@ -989,7 +1005,7 @@ def S12(L, n):
         pts.append((math.sin(a) * r, -0.075, math.cos(a) * r))
     S.draw_on_curve(pts, sp0, n - 4, color=(1.0, 0.82, 0.35), width=0.006, strength=5.0, name="spiral")
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0.0, -5.9, -0.95), (0.0, 0.0, -0.95)), (n, (0.0, -5.2, -0.82), (0.0, 0.0, -0.82))])
+    C.aim_cam(cam, n, [(1, (0.0, -4.8, -0.78), (0.0, 0.0, -0.78)), (n, (0.0, -4.3, -0.7), (0.0, 0.0, -0.7))])
     _finish(L)
 
 
@@ -1003,25 +1019,25 @@ def S13(L, n):
     _dust(n, (0, 1.0, 0), (12, 2, 8), count=900, color=(0.6, 0.8, 1.0), emit=0.4, vel=(0.05, 0, 0.02), radius=0.006)
     bz = S.mat_bronze("icon_bz", BRONZE, rough=0.3)
     g = S.gear("icon_gear", teeth=30, r=0.42, thick=0.05, mat=bz, spokes=4)
-    gm = S.mount(g, (-1.15, 0.0, 1.5), normal=(0, -1, 0))
+    gm = S.mount(g, (-0.75, 0.0, 2.15), normal=(0, -1, 0))
     S.spin(g, n, 0.12)
     g2 = S.gear("icon_gear2", teeth=14, r=0.2, thick=0.05, mat=bz, spokes=0)
-    S.mount(g2, (-0.5, 0.0, 1.85), normal=(0, -1, 0))
+    S.mount(g2, (-0.11, 0.0, 2.5), normal=(0, -1, 0))
     S.spin(g2, n, -0.12 * 0.42 / 0.2, phase=PI / 14)
     # medieval clock face
-    cx = 4.3
-    face = L.prim("cyl", loc=(cx, 0.0, 1.55), rot=(PI / 2, 0, 0), vertices=48, radius=0.55, depth=0.04, name="clockface")
+    cx, cz = 2.85, 2.2
+    face = L.prim("cyl", loc=(cx, 0.0, cz), rot=(PI / 2, 0, 0), vertices=48, radius=0.55, depth=0.04, name="clockface")
     L.assign(face, L.mat_principled("clock_m", (0.75, 0.68, 0.5), rough=0.5))
-    rim = L.prim("torus", loc=(cx, -0.03, 1.55), rot=(PI / 2, 0, 0), major_radius=0.57, minor_radius=0.04,
+    rim = L.prim("torus", loc=(cx, -0.03, cz), rot=(PI / 2, 0, 0), major_radius=0.57, minor_radius=0.04,
                  major_segments=48, minor_segments=8, name="clockrim")
     L.assign(rim, bz)
     for k in range(12):
         a = 2 * PI * k / 12
-        tk = L.prim("cube", loc=(cx + math.sin(a) * 0.46, -0.03, 1.55 + math.cos(a) * 0.46), rot=(0, a, 0), name="ctick")
+        tk = L.prim("cube", loc=(cx + math.sin(a) * 0.46, -0.03, cz + math.cos(a) * 0.46), rot=(0, a, 0), name="ctick")
         tk.scale = (0.015, 0.005, 0.05)
         L.assign(tk, L.mat_principled("ctick_m", (0.08, 0.06, 0.05), rough=0.5))
     hand = L.link(bpy.data.objects.new("clockhand", None))
-    S.mount(hand, (cx, -0.05, 1.55), normal=(0, -1, 0))
+    S.mount(hand, (cx, -0.05, cz), normal=(0, -1, 0))
     hb = L.prim("cube", loc=(0, 0.18, 0), name="chand")
     hb.scale = (0.015, 0.2, 0.005)
     L.assign(hb, L.mat_principled("chand_m", (0.08, 0.06, 0.05), rough=0.5))
@@ -1029,7 +1045,7 @@ def S13(L, n):
     S.spin(hand, n, 0.05)
     _aim_area(L, (0, -4, 4), (1.5, 0, 1.5), 900, 8, (1.0, 0.92, 0.8), "key")
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0.2, -7.5, 0.4), (0.2, 0, 0.4)), (n, (2.2, -7.5, 0.4), (2.2, 0, 0.4))])
+    C.aim_cam(cam, n, [(1, (0.0, -7.5, 0.4), (0.0, 0, 0.4)), (n, (2.1, -7.5, 0.4), (2.1, 0, 0.4))])
     _finish(L)
 
 
@@ -1041,16 +1057,16 @@ def S14(L, n):
     _island(L, (-35, 70, -5), (45, 22, 18), seed=2, name="antik")
     _island(L, (30, 85, -5), (30, 18, 12), seed=4, name="cove2")
     boat = S.caique("caique")
-    boat["root"].location = (3.0, 16.0, 0.0)
-    boat["root"].rotation_euler = (0, 0, 2.2)
-    S.bob(boat["root"], n + 2, amp=0.05, rate=0.2, tilt=0.015, base=(3.0, 16.0, 0.0))
+    boat["root"].location = (-1.5, 15.0, 0.0)
+    boat["root"].rotation_euler = (0, 0, 2.0)
+    S.bob(boat["root"], n + 2, amp=0.05, rate=0.2, tilt=0.015, base=(-1.5, 15.0, 0.0))
     # helmet breaks the surface; a hand lifts a brown sponge
     hp_ = _helmet_prop(L, (0.0, 4.0, -0.6), rot_z=PI + 0.3, name="surfhelm")
     C.key_loc(hp_, [(1, (0.0, 4.0, -0.55)), (14, (0.0, 4.0, -0.5)), (30, (0.0, 4.0, -0.05)), (up_end, (0.0, 4.0, 0.0))])
-    hd = S.hand("diverhand", color=(0.4, 0.38, 0.33), scale=1.6, glove=True)
+    hd = S.hand("diverhand", color=(0.28, 0.27, 0.24), scale=1.3, glove=False)
     hr = hd["root"]
     hr.rotation_euler = (-PI / 2 + 0.3, 0, 0.3)
-    C.key_loc(hr, [(1, (0.45, 3.7, -0.6)), (24, (0.45, 3.7, -0.5)), (40, (0.45, 3.65, 0.45)), (up_end, (0.45, 3.65, 0.55))])
+    C.key_loc(hr, [(1, (0.45, 3.7, -0.6)), (24, (0.45, 3.7, -0.5)), (40, (0.45, 3.65, 0.32)), (up_end, (0.45, 3.65, 0.4))])
     S.curl(hd, 1, 0.6)
     sp = L.prim("ico", loc=(0, 0.13, 0.0), subdivisions=3, radius=0.09, name="sponge")
     sp.scale = (1.0, 1.0, 0.8)
@@ -1064,8 +1080,8 @@ def S14(L, n):
     S.world_volume(color=(0.15, 0.42, 0.5), density=0.07, anisotropy=0.6, absorption=(0.3, 0.15, 0.1),
                    center=(0, 5, (BED - 0.5) / 2 - 0.15), size=(30, 30, -BED + 0.2))
     sb = L.seabed(size=30, strength=0.25, z=BED,
-                  mat=S.mat_caustic_ground("bed14", c1=(0.15, 0.14, 0.11), c2=(0.3, 0.28, 0.22), caustic=(0.6, 0.85, 0.9),
-                                           strength=0.2, scale=0.5, nframes=n))
+                  mat=S.mat_caustic_ground("bed14", c1=(0.025, 0.03, 0.03), c2=(0.07, 0.075, 0.07), caustic=(0.6, 0.85, 0.9),
+                                           strength=0.04, scale=0.5, nframes=n))
     sb.location = (0, 6, BED)
     LZ = BED + 0.06
     lump_c = Vector((0.0, 6.0, LZ))
@@ -1073,8 +1089,8 @@ def S14(L, n):
     lp.location = tuple(lump_c)
     lp.rotation_euler = (0, 0, 0.15)
     mound = L.prim("sphere", loc=tuple(lump_c + Vector((0, 0, -0.06))), segments=24, ring_count=12, radius=1.0, name="mound")
-    mound.scale = (0.25, 0.22, 0.05)
-    L.assign(mound, L.mat_noise_surface("mound_m", (0.08, 0.075, 0.06), (0.2, 0.19, 0.15), scale=20, bump=0.6,
+    mound.scale = (0.3, 0.26, 0.03)
+    L.assign(mound, L.mat_noise_surface("mound_m", (0.02, 0.025, 0.025), (0.07, 0.075, 0.07), scale=20, bump=0.6,
                                         voronoi=False))
     _spot_at(L, tuple(lump_c + Vector((0.15, -0.1, 1.3))), tuple(lump_c), 0, 30, (0.8, 0.92, 1.0), "endspot", blend=0.6)
     endspot = bpy.data.objects["endspot"]
