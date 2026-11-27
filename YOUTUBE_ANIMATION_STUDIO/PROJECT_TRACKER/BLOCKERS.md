@@ -8,5 +8,5 @@
 - RESOLVED: CAVE-04 (Nutty Putty) fact-check completed (16 claims, ≥2 sources each).
 - RESOLVED: MURDER-04 (Zodiac 340) fact-check VERIFIED.
 - 2026-11-27 ~09:00–12:00 UTC: account 5-hour usage limit hit (12 concurrent agents). All agents paused; the worker restarts killed the render queue mid HAUNT-01. Resumed 12:38 UTC. Mitigation: ≤4–5 concurrent agents; render queue now launched with setsid so it survives worker restarts.
-- SCUBA-06 (Rodney Fox: lines L03, L05) and MURDER-05 (Hinterkaifeck: line L17) fact-checks are PROVISIONAL ( verified fallback wording exists). CAVE-05/06 scripting completed after resume (VERIFIED).
+- RESOLVED 2026-11-27: SCUBA-06 L05 verified, L03 replaced by verified fallback; MURDER-05 L17 verified. (Was: SCUBA-06 and MURDER-05 fact-checks PROVISIONAL ( verified fallback wording exists). CAVE-05/06 scripting completed after resume (VERIFIED).
 - 2026-11-27: QC found true peak -0.4 dBTP on MURDER-01 (spec -1). Fixed: alimiter after loudnorm in compose; qc_check now fails on TP > -1; HAUNT-01/MURDER-01 audio re-muxed (-1.4 dBTP).

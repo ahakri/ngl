@@ -1,1008 +1,1007 @@
 {
-  "id": "SCUBA-06",
-  "title": "462 Stitches, Then He Went Back In",
-  "category": "scuba",
-  "voice": "bm_george",
-  "speed": 1.08,
-  "mood": "scuba",
-  "target_seconds": 58,
-  "lines": [
+ "id": "SCUBA-06",
+ "title": "462 Stitches, Then He Went Back In",
+ "category": "scuba",
+ "voice": "bm_george",
+ "speed": 1.08,
+ "mood": "scuba",
+ "target_seconds": 58,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "A great white shark seized this man around the chest.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "great",
+    "white",
+    "chest"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "South Australia, 1963. A spearfishing championship at Aldinga Beach.",
+   "pause_after": 0.2,
+   "shot": "S02",
+   "emphasis": [
+    "1963",
+    "Aldinga"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Rodney Fox was hunting fish with a speargun.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "speargun."
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "The jaws closed around him and wouldn't let go.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "wouldn't",
+    "let",
+    "go"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "He reached for the shark's eyes. It released him.",
+   "pause_after": 0.5,
+   "shot": "S05",
+   "emphasis": [
+    "eyes",
+    "released"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Then it came back and seized his float.",
+   "pause_after": 0.2,
+   "shot": "S06",
+   "emphasis": [
+    "came",
+    "back",
+    "float"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "He fought free of the line.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "fought",
+    "free"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "He was pulled out, barely alive.",
+   "pause_after": 0.3,
+   "shot": "S08",
+   "emphasis": [
+    "barely",
+    "alive"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Broken ribs. A punctured lung.",
+   "pause_after": 0.2,
+   "shot": "S09",
+   "emphasis": [
+    "ribs",
+    "lung"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "It took four hundred and sixty-two stitches to close the wounds.",
+   "pause_after": 0.4,
+   "shot": "S10",
+   "emphasis": [
+    "sixty-two",
+    "stitches"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Fox still wanted to go back in the water.",
+   "pause_after": 0.2,
+   "shot": "S11",
+   "emphasis": [
+    "back",
+    "water"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "So he built a cage.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "cage"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Steel between him and the jaws.",
+   "pause_after": 0.2,
+   "shot": "S13",
+   "emphasis": [
+    "Steel",
+    "jaws"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "From that cage, Ron Taylor filmed great whites underwater.",
+   "pause_after": 0.15,
+   "shot": "S14",
+   "emphasis": [
+    "Ron",
+    "Taylor"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Some of the first footage of its kind.",
+   "pause_after": 0.25,
+   "shot": "S15",
+   "emphasis": [
+    "first"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "He ran cage-diving trips for decades.",
+   "pause_after": 0.2,
+   "shot": "S16",
+   "emphasis": [
+    "decades"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "He co-founded a foundation to study and protect great whites.",
+   "pause_after": 0.35,
+   "shot": "S17",
+   "emphasis": [
+    "study",
+    "protect"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "The shark that nearly killed him turned him into its defender.",
+   "pause_after": 0.0,
+   "shot": "S18",
+   "emphasis": [
+    "defender"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "open_water",
+   "description": "Frame 1 is mid-story: looking UP from below — a lone spearfisher silhouetted at the bright, rippling surface, orange float beside him. From the bottom of frame a huge dark shark shape rises slowly into the light toward him. Shot ends just before contact.",
+   "camera": "Low angle from 6 m below, looking up, 24 mm; slow push-in starting on frame 1; shark enters bottom third",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
+    "orange spearfishing float on a thin line tied to fox_1963's belt"
+   ],
+   "lighting": "Bright surface caustics and sun shafts; shark in shadow until the last second",
+   "fx": [
+    "god_rays",
+    "caustics_light",
+    "particle_cloud (light)"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "A great white shark seized this man around the chest.",
-      "pause_after": 0.2,
-      "shot": "S01",
-      "emphasis": [
-        "great",
-        "white",
-        "chest"
+     "type": "text",
+     "text": "GREAT WHITE",
+     "params": {
+      "y": 420,
+      "size": 140,
+      "color": [
+       255,
+       220,
+       60
       ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "L02",
-      "text": "South Australia, 1963. A spearfishing championship at Aldinga Beach.",
-      "pause_after": 0.2,
-      "shot": "S02",
-      "emphasis": [
+     "name": "heartbeat",
+     "offset": 0.6,
+     "gain": 0.45
+    },
+    {
+     "name": "riser",
+     "offset": 1.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "map",
+   "description": "Map card: South Australia coastline, Gulf St Vincent, pin drops at Aldinga Beach south of Adelaide. Then a sunny beach establishing beat: shallow reef, a few small boats, swimmers' floats dotting the water (competition).",
+   "camera": "2D map push (first 1.8 s), then 35 mm wide from the water line, slight handheld",
+   "characters": [
+    "competitors (char_figure silhouettes, distant)"
+   ],
+   "lighting": "Midday summer sun, sky_gradient clear blue",
+   "fx": [
+    "ocean surface",
+    "coral_field/seabed visible through shallow water"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "ALDINGA BEACH",
+     "params": {
+      "land": [
+       [
+        0,
+        0
+       ],
+       [
+        0.45,
+        0
+       ],
+       [
+        0.5,
+        0.3
+       ],
+       [
+        0.42,
+        0.55
+       ],
+       [
+        0.48,
+        1
+       ],
+       [
+        0,
+        1
+       ]
+      ],
+      "points": [
+       [
+        0.9,
+        0.2
+       ],
+       [
+        0.6,
+        0.5
+       ],
+       [
+        0.46,
+        0.62
+       ]
+      ],
+      "pin": -1
+     },
+     "start": 0.0,
+     "duration": 1.9
+    },
+    {
+     "type": "stamp",
+     "text": "SOUTH AUSTRALIA\n8 DEC 1963",
+     "params": {},
+     "start": 1.9
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "open_water",
+   "description": "Close on the spearfisher at the surface: snorkel, mask, a deep breath, then a duck-dive. A ghosted scuba tank icon appears beside him and gets a red strike-through; a breath-hold timer starts.",
+   "camera": "Half-over/half-under split at the water line, 28 mm, follow the duck-dive",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
+    "orange spearfishing float on a thin line tied to fox_1963's belt"
+   ],
+   "lighting": "Bright sun above, blue below",
+   "fx": [
+    "ocean surface",
+    "bubbles (small, from snorkel purge)"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "NO TANK",
+     "params": {
+      "y": 430,
+      "size": 110,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    },
+    {
+     "type": "timer",
+     "text": "BREATH-HOLD",
+     "params": {
+      "fmt": "mmss",
+      "from": 0,
+      "to": 25,
+      "y": 1450
+     },
+     "start": 1.6
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.3,
+     "gain": 0.6
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "open_water",
+   "description": "Strike, implied only: side view, the diver gliding down toward the reef; the shark's silhouette fills the frame from the left and a single white flash covers the moment of contact. After the flash: only churned bubbles and silt where he was — no blood, no body detail.",
+   "camera": "Side-on 35 mm, whip pan with the shark; flash frame at contact, then hold on bubbles",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
+   ],
+   "lighting": "Blue daylight; flash frame pure white",
+   "fx": [
+    "bubbles_stream (burst)",
+    "particle_cloud (silt burst)"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.6,
+     "gain": 0.7
+    },
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.6
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.7,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:abstract close-up — shark eye and silhouette hand",
+   "description": "Extreme close-up of the shark's dark, round eye (stylised black sphere, sheen) in blue water; a faceless silhouette hand reaches into frame toward it. Cut on the touch: the shark body peels away, and the diver silhouette tumbles free in a cloud of bubbles.",
+   "camera": "50 mm macro on the eye, then quick pull-back 24 mm as the shark turns away",
+   "characters": [
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open) (eye)",
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank) (hand, then whole silhouette)"
+   ],
+   "lighting": "Low-contrast blue; rim light on the eye",
+   "fx": [
+    "bubbles_stream",
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "open_water",
+   "description": "From below: the orange float at the surface jerks and is dragged under by the shark's silhouette; the line snaps taut, angling down out of frame.",
+   "camera": "Low angle up at the surface, 24 mm, tilt down following the taut line",
+   "characters": [
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open) (silhouette)",
+    "orange spearfishing float on a thin line tied to fox_1963's belt"
+   ],
+   "lighting": "Surface glow; shark dark",
+   "fx": [
+    "bubbles_stream",
+    "ripple rings at the surface"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.5,
+     "gain": 0.6
+    },
+    {
+     "name": "rumble",
+     "offset": 0.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "open_water",
+   "description": "The line, taut, crossing frame; silhouette hands work at the knot at the belt; the line slips loose and whips away into the blue.",
+   "camera": "Close 40 mm on the belt and line, handheld shake",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank) (hands and belt only)"
+   ],
+   "lighting": "Blue, flickering caustics",
+   "fx": [
+    "bubbles_stream",
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "open_water",
+   "description": "Surface, above water: a small wooden dinghy (simple boat prop, 4 m) reaches the floating figure; two faceless silhouettes haul him over the gunwale. Wide, no detail of injuries; the figure is a dark shape.",
+   "camera": "35 mm from the water line, slight handheld, boat moves left to right",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
+    "rescuers x2 (char_figure silhouettes, 1960s clothing)"
+   ],
+   "lighting": "Sun now behind cloud: desaturated, flat light",
+   "fx": [
+    "ocean surface",
+    "splash particles"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "creak",
+     "offset": 0.8,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 1.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:2.5D medical outline diagram",
+   "description": "Black background, white line-art outline of a human torso (front view, no flesh, no skin). Rib lines on the left side flicker red one by one; the left lung outline deflates. Purely schematic.",
+   "camera": "Static 50 mm, slight push",
+   "characters": [
+    "generic body outline (diagram, faceless)"
+   ],
+   "lighting": "Flat diagram, white lines, red accent",
+   "fx": [
+    "line draw-on",
+    "red flicker"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.5,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:2.5D medical outline diagram",
+   "description": "Same outline: a dotted stitch line draws across the chest and arm as short white tick marks (like a sewing pattern), while a counter climbs to 462.",
+   "camera": "Static, slow push; counter stops with a small shake",
+   "characters": [
+    "generic body outline (diagram)"
+   ],
+   "lighting": "Flat diagram, yellow counter",
+   "fx": [
+    "dotted line draw-on"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "STITCHES",
+     "params": {
+      "from": 0,
+      "to": 462,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 3.2,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "open_water",
+   "description": "Mid-turn: the same reef water as S03, empty and calm. A faceless figure stands waist-deep at the water's edge, looking out (seen from behind).",
+   "camera": "35 mm from behind the figure at the shoreline, slow push",
+   "characters": [
+    "fox_later (faceless figure, from behind)"
+   ],
+   "lighting": "Late-afternoon warm sun, long reflections",
+   "fx": [
+    "ocean surface",
+    "splash particles",
+    "bubbles_stream"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "open_water",
+   "description": "A steel cage frame (see S13 prop) swings off a small boat's davit and drops into the water with a splash; camera dips under the surface to see it sink and settle on its line.",
+   "camera": "Half-over/half-under at the water line, 28 mm, dip under as it lands",
+   "characters": [
+    "boat crew (char_figure silhouettes)"
+   ],
+   "lighting": "Late-afternoon warm sun above, blue below",
+   "fx": [
+    "ocean surface",
+    "splash particles",
+    "bubbles_stream"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THE CAGE",
+     "params": {
+      "y": 430,
+      "size": 120,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "boom",
+     "offset": 0.7,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "open_water",
+   "description": "Underwater: a simple two-person cage (new prop: 2 x 1.2 x 1.8 m box frame of steel cylinders, bars 0.25 m apart, top hatch, float drums on top) hangs from a surface line. A diver inside — now on scuba (single tank) — grips the bars. A great white glides past outside the bars.",
+   "camera": "Inside the cage looking out through the bars, 24 mm; shark crosses frame left to right",
+   "characters": [
+    "fox_later (stylised diver, single tank, faceless)",
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
+   ],
+   "lighting": "Blue-green daylight, god rays through the bars",
+   "fx": [
+    "god_rays",
+    "bubbles_stream (diver)",
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "open_water",
+   "description": "A second diver (faceless, holding a boxy 1960s film camera in an underwater housing) films through the cage bars as a great white approaches.",
+   "camera": "Over-the-shoulder 35 mm, slow push toward the camera housing",
+   "characters": [
+    "ron_taylor_figure (faceless diver with cine camera)",
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
+   ],
+   "lighting": "Blue daylight through the bars",
+   "fx": [
+    "bubbles_stream",
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.1,
+     "gain": 0.4
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "open_water",
+   "description": "The camera's 'film' view: 16 mm-style grain, sepia-teal grade, gate weave; the great white passes close to the lens and turns away.",
+   "camera": "Camera POV with film grain + scanlines (compositor), 18 mm, slight sway",
+   "characters": [
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
+   ],
+   "lighting": "Vintage film grade",
+   "fx": [
+    "film grain/scanlines",
+    "particle_cloud"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "FIRST FOOTAGE",
+     "params": {
+      "y": 430,
+      "size": 100,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "open_water",
+   "description": "Modern day (no date shown): a dive boat on blue open water off a rocky coast, cage alongside; time-lapse of trips — light cycles, boat leaves and returns.",
+   "camera": "Wide drone-style crane, 28 mm",
+   "characters": [
+    "guests (char_figure silhouettes on deck)"
+   ],
+   "lighting": "Bright day, cycling sun angle",
+   "fx": [
+    "ocean surface",
+    "wake"
+   ],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "",
+     "params": {
+      "events": [
+       [
         "1963",
-        "Aldinga"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "Rodney Fox had no tank. He dived on a single breath.",
-      "pause_after": 0.25,
-      "shot": "S03",
-      "emphasis": [
-        "single",
-        "breath"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "The jaws closed around him and wouldn't let go.",
-      "pause_after": 0.2,
-      "shot": "S04",
-      "emphasis": [
-        "wouldn't",
-        "let",
-        "go"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "He reached for the shark's eyes. It released him.",
-      "pause_after": 0.5,
-      "shot": "S05",
-      "emphasis": [
-        "eyes",
-        "released"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "Then it came back and seized his float.",
-      "pause_after": 0.2,
-      "shot": "S06",
-      "emphasis": [
-        "came",
-        "back",
-        "float"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "He fought free of the line.",
-      "pause_after": 0.25,
-      "shot": "S07",
-      "emphasis": [
-        "fought",
-        "free"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "He was pulled out, barely alive.",
-      "pause_after": 0.3,
-      "shot": "S08",
-      "emphasis": [
-        "barely",
-        "alive"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Broken ribs. A punctured lung.",
-      "pause_after": 0.2,
-      "shot": "S09",
-      "emphasis": [
-        "ribs",
-        "lung"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "It took four hundred and sixty-two stitches to close the wounds.",
-      "pause_after": 0.4,
-      "shot": "S10",
-      "emphasis": [
-        "sixty-two",
-        "stitches"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Fox still wanted to go back in the water.",
-      "pause_after": 0.2,
-      "shot": "S11",
-      "emphasis": [
-        "back",
-        "water"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "So he built a cage.",
-      "pause_after": 0.3,
-      "shot": "S12",
-      "emphasis": [
-        "cage"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Steel between him and the jaws.",
-      "pause_after": 0.2,
-      "shot": "S13",
-      "emphasis": [
-        "Steel",
-        "jaws"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "From that cage, Ron Taylor filmed great whites underwater.",
-      "pause_after": 0.15,
-      "shot": "S14",
-      "emphasis": [
-        "Ron",
-        "Taylor"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "Some of the first footage of its kind.",
-      "pause_after": 0.25,
-      "shot": "S15",
-      "emphasis": [
-        "first"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "He ran cage-diving trips for decades.",
-      "pause_after": 0.2,
-      "shot": "S16",
-      "emphasis": [
-        "decades"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "He co-founded a foundation to study and protect great whites.",
-      "pause_after": 0.35,
-      "shot": "S17",
-      "emphasis": [
-        "study",
-        "protect"
-      ]
-    },
-    {
-      "id": "L18",
-      "text": "The shark that nearly killed him turned him into its defender.",
-      "pause_after": 0.0,
-      "shot": "S18",
-      "emphasis": [
-        "defender"
-      ]
+        "attack"
+       ],
+       [
+        "1960s",
+        "first cage"
+       ],
+       [
+        "1976+",
+        "cage trips"
+       ]
+      ],
+      "y": 1560
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "open_water",
-      "description": "Frame 1 is mid-story: looking UP from below — a lone spearfisher silhouetted at the bright, rippling surface, orange float beside him. From the bottom of frame a huge dark shark shape rises slowly into the light toward him. Shot ends just before contact.",
-      "camera": "Low angle from 6 m below, looking up, 24 mm; slow push-in starting on frame 1; shark enters bottom third",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
-        "orange spearfishing float on a thin line tied to fox_1963's belt"
-      ],
-      "lighting": "Bright surface caustics and sun shafts; shark in shadow until the last second",
-      "fx": [
-        "god_rays",
-        "caustics_light",
-        "particle_cloud (light)"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "GREAT WHITE",
-          "params": {
-            "y": 420,
-            "size": 140,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "heartbeat",
-          "offset": 0.6,
-          "gain": 0.45
-        },
-        {
-          "name": "riser",
-          "offset": 1.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "map",
-      "description": "Map card: South Australia coastline, Gulf St Vincent, pin drops at Aldinga Beach south of Adelaide. Then a sunny beach establishing beat: shallow reef, a few small boats, swimmers' floats dotting the water (competition).",
-      "camera": "2D map push (first 1.8 s), then 35 mm wide from the water line, slight handheld",
-      "characters": [
-        "competitors (char_figure silhouettes, distant)"
-      ],
-      "lighting": "Midday summer sun, sky_gradient clear blue",
-      "fx": [
-        "ocean surface",
-        "coral_field/seabed visible through shallow water"
-      ],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "ALDINGA BEACH",
-          "params": {
-            "land": [
-              [
-                0,
-                0
-              ],
-              [
-                0.45,
-                0
-              ],
-              [
-                0.5,
-                0.3
-              ],
-              [
-                0.42,
-                0.55
-              ],
-              [
-                0.48,
-                1
-              ],
-              [
-                0,
-                1
-              ]
-            ],
-            "points": [
-              [
-                0.9,
-                0.2
-              ],
-              [
-                0.6,
-                0.5
-              ],
-              [
-                0.46,
-                0.62
-              ]
-            ],
-            "pin": -1
-          },
-          "start": 0.0,
-          "duration": 1.9
-        },
-        {
-          "type": "stamp",
-          "text": "SOUTH AUSTRALIA\n8 DEC 1963",
-          "params": {},
-          "start": 1.9
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.8,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "open_water",
-      "description": "Close on the spearfisher at the surface: snorkel, mask, a deep breath, then a duck-dive. A ghosted scuba tank icon appears beside him and gets a red strike-through; a breath-hold timer starts.",
-      "camera": "Half-over/half-under split at the water line, 28 mm, follow the duck-dive",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
-        "orange spearfishing float on a thin line tied to fox_1963's belt"
-      ],
-      "lighting": "Bright sun above, blue below",
-      "fx": [
-        "ocean surface",
-        "bubbles (small, from snorkel purge)"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "NO TANK",
-          "params": {
-            "y": 430,
-            "size": 110,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        },
-        {
-          "type": "timer",
-          "text": "BREATH-HOLD",
-          "params": {
-            "fmt": "mmss",
-            "from": 0,
-            "to": 25,
-            "y": 1450
-          },
-          "start": 1.6
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.3,
-          "gain": 0.6
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.4,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "open_water",
-      "description": "Strike, implied only: side view, the diver gliding down toward the reef; the shark's silhouette fills the frame from the left and a single white flash covers the moment of contact. After the flash: only churned bubbles and silt where he was — no blood, no body detail.",
-      "camera": "Side-on 35 mm, whip pan with the shark; flash frame at contact, then hold on bubbles",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
-      ],
-      "lighting": "Blue daylight; flash frame pure white",
-      "fx": [
-        "bubbles_stream (burst)",
-        "particle_cloud (silt burst)"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "boom",
-          "offset": 0.6,
-          "gain": 0.7
-        },
-        {
-          "name": "hit",
-          "offset": 0.6,
-          "gain": 0.6
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.7,
-          "gain": 0.7
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "other:abstract close-up — shark eye and silhouette hand",
-      "description": "Extreme close-up of the shark's dark, round eye (stylised black sphere, sheen) in blue water; a faceless silhouette hand reaches into frame toward it. Cut on the touch: the shark body peels away, and the diver silhouette tumbles free in a cloud of bubbles.",
-      "camera": "50 mm macro on the eye, then quick pull-back 24 mm as the shark turns away",
-      "characters": [
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open) (eye)",
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank) (hand, then whole silhouette)"
-      ],
-      "lighting": "Low-contrast blue; rim light on the eye",
-      "fx": [
-        "bubbles_stream",
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.4,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "open_water",
-      "description": "From below: the orange float at the surface jerks and is dragged under by the shark's silhouette; the line snaps taut, angling down out of frame.",
-      "camera": "Low angle up at the surface, 24 mm, tilt down following the taut line",
-      "characters": [
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open) (silhouette)",
-        "orange spearfishing float on a thin line tied to fox_1963's belt"
-      ],
-      "lighting": "Surface glow; shark dark",
-      "fx": [
-        "bubbles_stream",
-        "ripple rings at the surface"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.5,
-          "gain": 0.6
-        },
-        {
-          "name": "rumble",
-          "offset": 0.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "open_water",
-      "description": "The line, taut, crossing frame; silhouette hands work at the knot at the belt; the line slips loose and whips away into the blue.",
-      "camera": "Close 40 mm on the belt and line, handheld shake",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank) (hands and belt only)"
-      ],
-      "lighting": "Blue, flickering caustics",
-      "fx": [
-        "bubbles_stream",
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.2,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "open_water",
-      "description": "Surface, above water: a small wooden dinghy (simple boat prop, 4 m) reaches the floating figure; two faceless silhouettes haul him over the gunwale. Wide, no detail of injuries; the figure is a dark shape.",
-      "camera": "35 mm from the water line, slight handheld, boat moves left to right",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
-        "rescuers x2 (char_figure silhouettes, 1960s clothing)"
-      ],
-      "lighting": "Sun now behind cloud: desaturated, flat light",
-      "fx": [
-        "ocean surface",
-        "splash particles"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "creak",
-          "offset": 0.8,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 1.2,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:2.5D medical outline diagram",
-      "description": "Black background, white line-art outline of a human torso (front view, no flesh, no skin). Rib lines on the left side flicker red one by one; the left lung outline deflates. Purely schematic.",
-      "camera": "Static 50 mm, slight push",
-      "characters": [
-        "generic body outline (diagram, faceless)"
-      ],
-      "lighting": "Flat diagram, white lines, red accent",
-      "fx": [
-        "line draw-on",
-        "red flicker"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "heartbeat",
-          "offset": 0.5,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:2.5D medical outline diagram",
-      "description": "Same outline: a dotted stitch line draws across the chest and arm as short white tick marks (like a sewing pattern), while a counter climbs to 462.",
-      "camera": "Static, slow push; counter stops with a small shake",
-      "characters": [
-        "generic body outline (diagram)"
-      ],
-      "lighting": "Flat diagram, yellow counter",
-      "fx": [
-        "dotted line draw-on"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "STITCHES",
-          "params": {
-            "from": 0,
-            "to": 462,
-            "y": 380
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "hit",
-          "offset": 3.2,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "open_water",
-      "description": "Mid-turn: the same reef water as S03, empty and calm. A faceless figure stands waist-deep at the water's edge, looking out (seen from behind).",
-      "camera": "35 mm from behind the figure at the shoreline, slow push",
-      "characters": [
-        "fox_later (faceless figure, from behind)"
-      ],
-      "lighting": "Late-afternoon warm sun, long reflections",
-      "fx": [
-        "ocean surface",
-        "splash particles",
-        "bubbles_stream"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "heartbeat",
-          "offset": 0.8,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "open_water",
-      "description": "A steel cage frame (see S13 prop) swings off a small boat's davit and drops into the water with a splash; camera dips under the surface to see it sink and settle on its line.",
-      "camera": "Half-over/half-under at the water line, 28 mm, dip under as it lands",
-      "characters": [
-        "boat crew (char_figure silhouettes)"
-      ],
-      "lighting": "Late-afternoon warm sun above, blue below",
-      "fx": [
-        "ocean surface",
-        "splash particles",
-        "bubbles_stream"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THE CAGE",
-          "params": {
-            "y": 430,
-            "size": 120,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "metal_groan",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "boom",
-          "offset": 0.7,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "open_water",
-      "description": "Underwater: a simple two-person cage (new prop: 2 x 1.2 x 1.8 m box frame of steel cylinders, bars 0.25 m apart, top hatch, float drums on top) hangs from a surface line. A diver inside — now on scuba (single tank) — grips the bars. A great white glides past outside the bars.",
-      "camera": "Inside the cage looking out through the bars, 24 mm; shark crosses frame left to right",
-      "characters": [
-        "fox_later (stylised diver, single tank, faceless)",
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
-      ],
-      "lighting": "Blue-green daylight, god rays through the bars",
-      "fx": [
-        "god_rays",
-        "bubbles_stream (diver)",
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "metal_groan",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "open_water",
-      "description": "A second diver (faceless, holding a boxy 1960s film camera in an underwater housing) films through the cage bars as a great white approaches.",
-      "camera": "Over-the-shoulder 35 mm, slow push toward the camera housing",
-      "characters": [
-        "ron_taylor_figure (faceless diver with cine camera)",
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
-      ],
-      "lighting": "Blue daylight through the bars",
-      "fx": [
-        "bubbles_stream",
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.1,
-          "gain": 0.4
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "open_water",
-      "description": "The camera's 'film' view: 16 mm-style grain, sepia-teal grade, gate weave; the great white passes close to the lens and turns away.",
-      "camera": "Camera POV with film grain + scanlines (compositor), 18 mm, slight sway",
-      "characters": [
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)"
-      ],
-      "lighting": "Vintage film grade",
-      "fx": [
-        "film grain/scanlines",
-        "particle_cloud"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "FIRST FOOTAGE",
-          "params": {
-            "y": 430,
-            "size": 100,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 1.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "open_water",
-      "description": "Modern day (no date shown): a dive boat on blue open water off a rocky coast, cage alongside; time-lapse of trips — light cycles, boat leaves and returns.",
-      "camera": "Wide drone-style crane, 28 mm",
-      "characters": [
-        "guests (char_figure silhouettes on deck)"
-      ],
-      "lighting": "Bright day, cycling sun angle",
-      "fx": [
-        "ocean surface",
-        "wake"
-      ],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "",
-          "params": {
-            "events": [
-              [
-                "1963",
-                "attack"
-              ],
-              [
-                "1960s",
-                "first cage"
-              ],
-              [
-                "1976+",
-                "cage trips"
-              ]
-            ],
-            "y": 1560
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "open_water",
-      "description": "Calm underwater shot: a great white passes a cage slowly; a tag/data overlay style (2.5D) tracks the shark like a research readout.",
-      "camera": "35 mm, slow tracking parallel to the shark",
-      "characters": [
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
-        "researcher diver in cage (faceless)"
-      ],
-      "lighting": "Soft blue daylight",
-      "fx": [
-        "particle_cloud",
-        "god_rays"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "STUDY + PROTECT\nGREAT WHITES",
-          "params": {
-            "header": "FOX SHARK RESEARCH FOUNDATION",
-            "y": 1420
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S18",
-      "lines": [
-        "L18"
-      ],
-      "environment": "open_water",
-      "description": "Loop match: identical framing to S01 — looking up at a lone silhouette at the bright surface, a shark shape rising from the bottom of frame. Music drops out; hard cut back to S01.",
-      "camera": "Matches S01 exactly at the last frame; 24 mm low angle up, slow push",
-      "characters": [
-        "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
-        "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
-        "orange spearfishing float on a thin line tied to fox_1963's belt"
-      ],
-      "lighting": "As S01",
-      "fx": [
-        "god_rays",
-        "caustics_light"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "heartbeat",
-          "offset": 2.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "whoosh",
+     "offset": 1.0,
+     "gain": 0.4
     }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "open_water",
+   "description": "Calm underwater shot: a great white passes a cage slowly; a tag/data overlay style (2.5D) tracks the shark like a research readout.",
+   "camera": "35 mm, slow tracking parallel to the shark",
+   "characters": [
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
+    "researcher diver in cage (faceless)"
+   ],
+   "lighting": "Soft blue daylight",
+   "fx": [
+    "particle_cloud",
+    "god_rays"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "STUDY + PROTECT\nGREAT WHITES",
+     "params": {
+      "header": "FOX SHARK RESEARCH FOUNDATION",
+      "y": 1420
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "open_water",
+   "description": "Loop match: identical framing to S01 — looking up at a lone silhouette at the bright surface, a shark shape rising from the bottom of frame. Music drops out; hard cut back to S01.",
+   "camera": "Matches S01 exactly at the last frame; 24 mm low angle up, slow push",
+   "characters": [
+    "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
+    "white_shark (shark builder, ~4.5 m, grey back / white belly, stylised, no teeth shown open)",
+    "orange spearfishing float on a thin line tied to fox_1963's belt"
+   ],
+   "lighting": "As S01",
+   "fx": [
+    "god_rays",
+    "caustics_light"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 2.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
   ],
-  "music_curve": [
-    [
-      0,
-      0.5
-    ],
-    [
-      6,
-      0.6
-    ],
-    [
-      11,
-      0.85
-    ],
-    [
-      14,
-      0.0
-    ],
-    [
-      16,
-      0.6
-    ],
-    [
-      24,
-      0.7
-    ],
-    [
-      28,
-      0.4
-    ],
-    [
-      32,
-      0.65
-    ],
-    [
-      44,
-      0.8
-    ],
-    [
-      52,
-      0.9
-    ],
-    [
-      57,
-      0.3
-    ],
-    [
-      59,
-      0.0
-    ]
+  [
+   6,
+   0.6
   ],
-  "loop_line": "The shark that nearly killed him turned him into its defender."
+  [
+   11,
+   0.85
+  ],
+  [
+   14,
+   0.0
+  ],
+  [
+   16,
+   0.6
+  ],
+  [
+   24,
+   0.7
+  ],
+  [
+   28,
+   0.4
+  ],
+  [
+   32,
+   0.65
+  ],
+  [
+   44,
+   0.8
+  ],
+  [
+   52,
+   0.9
+  ],
+  [
+   57,
+   0.3
+  ],
+  [
+   59,
+   0.0
+  ]
+ ],
+ "loop_line": "The shark that nearly killed him turned him into its defender."
 }

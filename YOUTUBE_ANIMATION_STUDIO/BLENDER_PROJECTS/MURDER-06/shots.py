@@ -214,8 +214,9 @@ def legend_cabin(L, n, steam_until=None, props=True):
     steams = []
     for i, (x, y) in enumerate(cups + [(0.47, 0.42)]):
         z0 = 0.87 if i < 2 else 0.98
-        st = M.cloud_volume((x, y, z0 + 0.22), (0.12, 0.12, 0.45), density=4.0, scale=6.0, contrast=(0.45, 0.75),
-                            drift=(0.0, 0.0, 0.25), n=steam_until or n, color=(0.95, 0.92, 0.88), name=f"steam{i}")
+        st = M.cloud_volume((x, y, z0 + 0.22), (0.12, 0.12, 0.45), density=1.2, scale=5.0, contrast=(0.4, 0.75),
+                            drift=(0.0, 0.0, 0.25), n=steam_until or n, color=(0.95, 0.92, 0.88), name=f"steam{i}",
+                            emit=(0.9, 0.86, 0.8), emit_strength=1.2, anisotropy=0.0)
         steams.append(st)
     # warm practical lamp (hanging) + porthole daylight
     lamp = M.hanging_lamp((0.2, 0.3, 1.75), energy=140, color=(1.0, 0.7, 0.4), name="cabinlamp", cord=0.4)
@@ -391,7 +392,7 @@ def S08(L, n):
     L.assign(cv, wm)
     cv.parent = r
     L.area((2.5, -4.5, DZ + 3.5), (R(55), 0, R(30)), energy=250, size=3, color=DAY, name="deckfill")
-    cam, ct = cam_path(n, (2.4, -3.6, DZ + 2.6), (1.4, -2.9, DZ + 1.7), (0.6, -0.6, DZ + 1.2), (0.2, -1.45, DZ), lens=50,
+    cam, ct = cam_path(n, (2.2, -4.4, DZ + 2.8), (0.6, -3.5, DZ + 2.3), (0.4, -0.6, DZ + 1.2), (0.45, -1.8, DZ), lens=50,
                        parent=r)
     L.bake_static()
 
@@ -430,7 +431,7 @@ def S18(L, n):
     M.cloud_volume((-14, 0, DZ + 2.5), (30, 20, 5), density=0.25, scale=0.9, drift=(0, 2.5, 0), n=n, color=(0.7, 0.75, 0.74),
                    name="fogroll")
     L.area((-10, 3, DZ + 4), (R(50), 0, R(150)), energy=400, size=4, color=DAY, name="wheelfill")
-    cam, ct = cam_path(n, (-8.6, 0.6, DZ + 1.9), (-10.6, 0.3, DZ + 1.75), (-13.35, 0.0, DZ + 1.35), (-13.35, 0.0, DZ + 1.3), lens=35,
+    cam, ct = cam_path(n, (-15.3, 0.7, DZ + 1.85), (-14.75, 0.4, DZ + 1.7), (-13.35, 0.0, DZ + 1.35), (-13.2, 0.0, DZ + 1.3), lens=35,
                        parent=r)
     L.bake_static()
 
@@ -511,7 +512,7 @@ def S06(L, n):
 def hold_barrels():
     me = M.barrel_mesh("barrel", r=0.32, h=0.95)
     stencil = L.mat_principled("stencil", (0.75, 0.72, 0.62), rough=0.8)
-    rows = [(-2.0, 15.0, 1.25, 3, True), (-2.0, 15.0, -1.25 - 0.0, 3, True), (-2.0, 15.0, 2.3, 3, True), (-2.0, 15.0, -2.3, 3, True)]
+    rows = [(-2.0, 15.0, 1.0, 3, True), (-2.0, 15.0, -1.0, 3, True), (-2.0, 15.0, 2.05, 3, True), (-2.0, 15.0, -2.05, 3, True)]
     objs = M.barrel_stacks(rows, me, stencil=(3, 6, 10, 14), stencil_mat=stencil)
     return objs
 
@@ -545,14 +546,15 @@ def S07(L, n):
     w.scale = (18, 1.3, 1)
     L.assign(w, wm)
     # grey shaft through the open hatch + hanging lantern
-    L.spot((8.0, 0.0, 5.0), (0, 0, 0), energy=4000, size_deg=30, blend=0.3, color=(0.75, 0.82, 0.85), name="hatchshaft")
-    L.point((3.0, 0.0, 2.2), energy=60, color=(1.0, 0.65, 0.35), radius=0.1, name="lantern")
+    L.spot((8.0, 0.0, 5.0), (0, 0, 0), energy=15000, size_deg=30, blend=0.3, color=(0.75, 0.82, 0.85), name="hatchshaft")
+    L.point((3.0, 0.0, 2.2), energy=250, color=(1.0, 0.65, 0.35), radius=0.1, name="lantern")
+    L.point((0.5, 0.0, 2.0), energy=120, color=(1.0, 0.65, 0.35), radius=0.1, name="lantern2")
     M.lantern((3.0, 0.0, 2.0), energy=0.0, name="hlantern")
-    L.water_volume(center=(6, 0, 1.3), size=(20, 6.4, 2.6), color=(0.8, 0.8, 0.78), density=0.05, anisotropy=0.6, name="holdair")
+    L.water_volume(center=(6, 0, 1.3), size=(20, 6.4, 2.6), color=(0.8, 0.8, 0.78), density=0.025, anisotropy=0.6, name="holdair")
     L.particle_cloud((6, 0, 1.4), (12, 1.2, 2.0), count=600, radius=0.002, drift=(0.0, 0, 0.01), seed=4, nframes=n, name="dust")
-    cam, ct = cam_path(n, (-1.2, 0.0, 1.25), (2.6, 0.0, 1.25), (8.0, 0.0, 1.1), (10.0, 0.0, 1.2), lens=24, ease=False)
+    cam, ct = cam_path(n, (-1.2, 0.0, 1.3), (2.6, 0.0, 1.3), (8.0, 0.0, 1.0), (10.0, 0.0, 1.05), lens=24, ease=False)
     L.handheld(cam, n, amp=0.01, rate=0.5, rot_amp=0.003)
-    L.cam_light(cam, energy=25, color=(0.7, 0.75, 0.8))
+    L.cam_light(cam, energy=120, color=(0.7, 0.75, 0.8))
     L.bake_static()
 
 
@@ -578,9 +580,9 @@ def S14(L, n):
     for f, e in ((1, 0), (fo - 1, 0), (fo + 1, 12000), (fo + 6, 6000), (n, 4500)):
         shaft.data.energy = e
         shaft.data.keyframe_insert("energy", frame=f)
-    L.point((1.0, 0.0, 1.8), energy=40, color=(1.0, 0.65, 0.35), radius=0.1, name="lantern")
-    M.cloud_volume((4.0, 0.0, 1.2), (12, 2.2, 2.4), density=0.5, scale=1.2, contrast=(0.4, 0.75), drift=(0.4, 0.1, 0.15), n=n,
-                   color=(0.55, 0.75, 0.5), name="fumes", emit=(0.25, 0.4, 0.2), emit_strength=0.15)
+    L.point((1.0, 0.0, 1.8), energy=150, color=(1.0, 0.65, 0.35), radius=0.1, name="lantern")
+    M.cloud_volume((4.0, 0.0, 1.2), (12, 2.2, 2.4), density=0.12, scale=1.2, contrast=(0.45, 0.75), drift=(0.4, 0.1, 0.15), n=n,
+                   color=(0.6, 0.8, 0.55), name="fumes", emit=(0.25, 0.4, 0.2), emit_strength=0.04)
     L.water_volume(center=(4, 0, 1.3), size=(16, 6.4, 2.6), color=(0.8, 0.82, 0.8), density=0.03, anisotropy=0.6, name="holdair")
     cam, ct = cam_path(n, (0.2, 0.25, 0.45), (0.8, 0.2, 0.5), (4.6, 0.0, 2.5), (4.8, 0.0, 2.7), lens=24)
     L.cam_light(cam, energy=20, color=(0.6, 0.75, 0.6))
@@ -728,7 +730,7 @@ def S12(L, n):
     c.target = tg
     c.track_axis = "TRACK_NEGATIVE_Z"
     c.up_axis = "UP_Y"
-    for f, a, r_, tp in ((1, R(-150), 2.4, (0.0, 0.85, 0.95)), (int(n * 0.5), R(-120), 2.3, (0.3, 0.75, 0.9)), (n, R(-95), 1.9, (1.25, 0.55, 0.66))):
+    for f, a, r_, tp in ((1, R(-150), 2.9, (0.0, 0.85, 0.95)), (int(n * 0.5), R(-120), 2.7, (0.3, 0.75, 0.9)), (n, R(-85), 1.75, (1.3, 0.55, 0.66))):
         cam.location = (ctr.x + r_ * math.cos(a), ctr.y + r_ * math.sin(a), 1.45 - 0.15 * (f / n))
         cam.keyframe_insert("location", frame=f)
         tg.location = tp

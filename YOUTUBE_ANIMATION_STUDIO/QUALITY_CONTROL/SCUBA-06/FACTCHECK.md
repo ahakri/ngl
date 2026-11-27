@@ -59,3 +59,8 @@ If either fails, swap in the fallback line given in the table (both fallbacks ar
 
 ## Ethics
 Rodney Fox appears only as a faceless stylised figure. The attack is implied only (shadow, flash, cut to black). There is no blood, bite or wound imagery, and injuries appear only as an abstract line-diagram. Rescuers are unnamed silhouettes. There is no dialogue, and no quotes from Fox in the narration.
+
+## Director re-check (2026-11-27)
+- L05 (reached for the shark's eyes; it released him): now VERIFIED — 1963 Press report via Papers Past (https://paperspast.natlib.govt.nz/newspapers/CHP19631210.2.137) + Fox's own account in McSweeney's interview (https://mcsweeneys.net/articles/it-was-just-a-shark-an-interview-with-rodney-fox-on-being-attacked-surviving-and-returning-to-the-water-part-two); also Illawarra Mercury feature. Sources differ on exact sequence (eyes vs float bite), the line stays general.
+- L03: breath-hold not explicitly confirmed by any snippet → fallback applied: "Rodney Fox was hunting fish with a speargun." (spearfishing championship confirmed by Wikipedia, Papers Past, Illawarra Mercury).
+**Overall status: VERIFIED.**

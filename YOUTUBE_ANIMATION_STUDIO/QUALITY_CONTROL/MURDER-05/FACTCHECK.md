@@ -40,3 +40,7 @@ The case's pre-crime details (footprints, attic footsteps, newspaper, key) are k
 
 ## Ad-safety review
 Single non-graphic statement of the killings; no imagery of victims, weapon, or the barn interior where victims were found; no child imagery; memorial card. Remains in the moderate-risk band noted in RESEARCH_REPORT §7 (child victims excluded from the Jan 2026 relaxation) — expect possible limited ads.
+
+## Director re-check (2026-11-27)
+- L17 (2007 Fürstenfeldbruck police-academy review narrowed it to one suspect, never publicly named): VERIFIED via Mental Floss (https://www.mentalfloss.com/article/502044/chilling-story-hinterkaifeck-killings-germanys-most-famous-unsolved-crime), Gizmodo (https://gizmodo.com/the-creepy-1922-mass-slaughter-that-shocked-a-nation-a-1727227302) and All That's Interesting; narration keeps "reportedly".
+**Overall status: VERIFIED.**
