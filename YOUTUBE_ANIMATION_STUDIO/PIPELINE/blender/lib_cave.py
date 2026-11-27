@@ -888,7 +888,7 @@ def bushes(count=60, rmin=12, rmax=55, seed=4, z=0.0, color=(0.12, 0.11, 0.06), 
 
 def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6, 4), outline_color=CYAN,
              water_top=(0.02, 0.16, 0.18), water_bot=(0.0, 0.01, 0.015), rock_mat_=None, outline_strength=4.0,
-             snow=None, name="xs", water_poly=None):
+             snow=None, name="xs", water_poly=None, outer_poly=None):
     """Rock slab (XZ plane, facing -Y) with a cave void cut from a polygon [(x, depth_m), ...] (clockwise or ccw).
     Returns dict(rock, water, outline, P) where P(x, depth) -> world Vector on the front face."""
     def P(x, d, y=None):
@@ -896,9 +896,21 @@ def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6,
     pts2 = [(x * x_scale, depth_to_z(d)) for x, d in poly]
     # rock block
     x0, x1, z0, z1 = extent
-    rock = L.prim("cube", loc=((x0 + x1) / 2, (slab[0] + slab[1]) / 2, (z0 + z1) / 2), name=name + "_rock")
-    rock.scale = ((x1 - x0) / 2, (slab[1] - slab[0]) / 2, (z1 - z0) / 2)
-    L.apply_scale(rock)
+    if outer_poly:  # prism from an (x, z) outline, e.g. a mountain silhouette
+        bm = bmesh.new()
+        fr = [bm.verts.new((x, slab[0], z)) for x, z in outer_poly]
+        bk = [bm.verts.new((x, slab[1], z)) for x, z in outer_poly]
+        bm.faces.new(fr)
+        bm.faces.new(list(reversed(bk)))
+        N0 = len(outer_poly)
+        for i in range(N0):
+            bm.faces.new((fr[i], fr[(i + 1) % N0], bk[(i + 1) % N0], bk[i]))
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        rock = L.mesh_from_bm(name + "_rock", bm)
+    else:
+        rock = L.prim("cube", loc=((x0 + x1) / 2, (slab[0] + slab[1]) / 2, (z0 + z1) / 2), name=name + "_rock")
+        rock.scale = ((x1 - x0) / 2, (slab[1] - slab[0]) / 2, (z1 - z0) / 2)
+        L.apply_scale(rock)
     L.assign(rock, rock_mat_ or L.mat_noise_surface(name + "_rockm", (0.03, 0.035, 0.04), (0.11, 0.12, 0.13), scale=1.2,
                                                      bump=0.25, rough=0.9))
     # void prism
@@ -1103,3 +1115,18 @@ def tunnel(path_pts, radius=2.0, seed=1, rough=0.5, mat=None, name="tunnel", fla
             co, idx, dist = kd.find(v.co)
             v.co.z = co.z + (v.co.z - co.z) * (1 - flatten)
     return o, samples
+
+
+def offset_band(center_pts, half_w):
+    """Polygon (x, z) around a 2D polyline [(x, z)] with half width (for tunnels in a section diagram)."""
+    P = [Vector((x, z)) for x, z in center_pts]
+    left, right = [], []
+    for i, p in enumerate(P):
+        a = P[max(0, i - 1)]
+        b = P[min(len(P) - 1, i + 1)]
+        t = (b - a).normalized()
+        nrm = Vector((-t.y, t.x))
+        w = half_w[i] if isinstance(half_w, (list, tuple)) else half_w
+        left.append(tuple(p + nrm * w))
+        right.append(tuple(p - nrm * w))
+    return left + list(reversed(right))

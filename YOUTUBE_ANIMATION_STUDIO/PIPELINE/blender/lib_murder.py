@@ -1173,6 +1173,8 @@ def desk_lamp(loc, target, energy=60, rot_z=0.0, name="desklamp"):
     for o in (base, arm, arm2, sh):
         L.assign(o, mt)
         o.parent = root
+    sh.visible_shadow = False
+    arm2.visible_shadow = False
     bulb = L.prim("sphere", loc=(0, -0.33, 0.55), radius=0.035, segments=10, ring_count=6)
     L.assign(bulb, L.mat_emission(name + "_b", (1.0, 0.8, 0.5), 20))
     bulb.parent = root
@@ -1185,7 +1187,7 @@ def desk_lamp(loc, target, energy=60, rot_z=0.0, name="desklamp"):
     return root, sp
 
 
-def book(loc, size=(0.13, 0.19, 0.022), cover=(0.25, 0.12, 0.08), title=None, rot_z=0.0, name="book"):
+def book(loc, size=(0.13, 0.19, 0.022), cover=(0.1, 0.05, 0.035), title=None, rot_z=0.0, name="book"):
     """Small hardback: cover box + paper block; optional title text on top."""
     root = empty(name, loc)
     root.rotation_euler = (0, 0, rot_z)
@@ -1247,16 +1249,23 @@ def suitcase(loc, size=(0.62, 0.2, 0.42), color=(0.2, 0.1, 0.05), rot_z=0.0, nam
     L.assign(hd, lm)
     hd.parent = root
     if tag_string:
-        sm = L.mat_principled(name + "_str", (0.6, 0.55, 0.45), rough=0.9)
-        s1 = L.prim("cyl", loc=(0.03, -0.01, h - 0.02), vertices=6, radius=0.0025, depth=0.12, rot=(0.25, 0.15, 0))
-        L.assign(s1, sm)
-        s1.parent = root
-        s2 = L.prim("cyl", loc=(0.045, -0.02, h - 0.1), vertices=6, radius=0.0025, depth=0.06, rot=(0.6, -0.3, 0))
-        L.assign(s2, sm)
-        s2.parent = root
-        # torn stub of a tag (tiny paper triangle) - the label itself is gone
-        tb = mesh_obj(name + "_stub", [(0, 0, 0), (0.02, 0, -0.012), (0.004, 0, -0.03)], [(0, 1, 2)], mat=mat_paper(name + "_tp"))
-        tb.location = (0.05, -0.03, h - 0.13)
+        # empty luggage-tag string: loop through the handle, hanging down the front; only a torn stub of the tag left
+        sm = L.mat_principled(name + "_str", (0.75, 0.7, 0.58), rough=0.9, emit=(0.4, 0.37, 0.3), emit_strength=0.15)
+        cu = bpy.data.curves.new(name + "_strc", "CURVE")
+        cu.dimensions = "3D"
+        sp = cu.splines.new("BEZIER")
+        pts = [(0.02, 0.0, h + 0.06), (0.035, -d / 2 - 0.012, h - 0.02), (0.03, -d / 2 - 0.016, h - 0.12), (0.05, -d / 2 - 0.014, h - 0.2)]
+        sp.bezier_points.add(len(pts) - 1)
+        for bp, p in zip(sp.bezier_points, pts):
+            bp.co = p
+            bp.handle_left_type = bp.handle_right_type = "AUTO"
+        cu.bevel_depth = 0.0028
+        so = L.link(bpy.data.objects.new(name + "_string", cu))
+        so.data.materials.append(sm)
+        so.parent = root
+        tb = mesh_obj(name + "_stub", [(0, 0, 0), (0.022, 0, -0.01), (0.012, 0, -0.03), (-0.004, 0, -0.026)], [(0, 1, 2, 3)],
+                      mat=mat_paper(name + "_tp", (0.75, 0.7, 0.55)))
+        tb.location = (0.045, -d / 2 - 0.016, h - 0.2)
         tb.parent = root
     return root
 
@@ -1336,11 +1345,17 @@ def rolled_scrap(loc, length=0.06, height=0.014, rot_z=0.0, turns=2.1, name="scr
         bm.free()
         bpy.data.objects.remove(t)
     o.parent = root
-    solidify(o, 0.0003)
-    bd = o.modifiers.new("curl", "SIMPLE_DEFORM")
-    bd.deform_method = "BEND"
-    bd.deform_axis = "X"
-    bd.angle = 2 * math.pi * turns
+    # rolled state as a shape key: strip wound around an axis parallel to X, starting at y=0
+    r0 = length / (2 * math.pi * turns)
+    o.shape_key_add(name="Basis")
+    key = o.shape_key_add(name="rolled")
+    for v, kv in zip(o.data.vertices, key.data):
+        x, y, z = v.co
+        th = y / r0
+        r = r0 + 0.0005 * th / (2 * math.pi) - z
+        kv.co = (x, r * math.sin(th), r0 - r * math.cos(th))
+    key.value = 1.0
+    bd = key
     return root, o, bd
 
 
@@ -1461,8 +1476,8 @@ def test_tube(loc, glow=(0.3, 0.9, 1.0), strength=3.0, name="tube"):
     root = empty(name, loc)
     gm = L.mat_principled(name + "_glass", (0.8, 0.9, 0.95), rough=0.05)
     p = gm.node_tree.nodes["Principled BSDF"]
-    if "Transmission Weight" in p.inputs:
-        p.inputs["Transmission Weight"].default_value = 0.9
+    if "Coat Weight" in p.inputs:
+        p.inputs["Coat Weight"].default_value = 0.5
     t = L.prim("cyl", loc=(0, 0, 0.06), vertices=20, radius=0.012, depth=0.12)
     L.assign(t, gm)
     t.parent = root
@@ -1489,6 +1504,7 @@ def work_light(loc, target, energy=2500, name="worklight"):
     head.scale = (0.18, 0.08, 0.13)
     L.assign(head, L.mat_principled(name + "_y", (0.7, 0.5, 0.05), rough=0.5))
     head.parent = root
+    head.visible_shadow = False
     lens = L.prim("plane", loc=(0, -0.085, 1.75), size=1, rot=(math.pi / 2, 0, 0))
     lens.scale = (0.15, 0.1, 1)
     L.assign(lens, L.mat_emission(name + "_lens", (1, 0.98, 0.95), 40))

@@ -1,0 +1,838 @@
+{
+ "id": "HAUNT-05",
+ "title": "The Tunnel Built to Hide the Dead",
+ "category": "haunted",
+ "voice": "am_onyx",
+ "speed": 1.07,
+ "mood": "haunted",
+ "target_seconds": 50,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "This tunnel was reportedly built so patients wouldn't see the dead leave.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "tunnel",
+    "dead"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Waverly Hills, Kentucky. A tuberculosis hospital.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "Waverly",
+    "tuberculosis"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Opened in 1910. By 1926, five storeys stood on the hill.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "1910",
+    "five"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "And about five hundred feet of concrete tunnel ran down it.",
+   "pause_after": 0.3,
+   "shot": "S04",
+   "emphasis": [
+    "five",
+    "hundred"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "So many died that staff, it's said, moved the bodies out of sight, for morale.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "bodies",
+    "sight"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "It closed in 1961, after antibiotics beat back the disease.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "1961",
+    "antibiotics"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "But visitors say something stayed.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "stayed"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Shadow figures on the fourth floor.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "Shadow",
+    "fourth"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "A little boy who rolls a ball back.",
+   "pause_after": 0.35,
+   "shot": "S08",
+   "emphasis": [
+    "boy",
+    "ball"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Legend says sixty-three thousand people died here.",
+   "pause_after": 0.3,
+   "shot": "S09",
+   "emphasis": [
+    "sixty-three",
+    "thousand"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Historians estimate closer to six to eight thousand.",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "six",
+    "eight"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Sceptics note the building now sells ghost tours.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "ghost",
+    "tours"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "And long concrete halls echo.",
+   "pause_after": 0.9,
+   "shot": "S12",
+   "emphasis": [
+    "echo"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "So who sends the ball back?",
+   "pause_after": 0.35,
+   "shot": "S13",
+   "emphasis": [
+    "who",
+    "ball"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Ask anyone at Waverly, and they'll tell you:",
+   "pause_after": 0.1,
+   "shot": "S14",
+   "emphasis": [
+    "Waverly"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:body_chute_tunnel",
+   "description": "Cold open, frame 1 already moving. Body-chute tunnel (corridor variant): straight concrete tube 2.4 m wide x 2.6 m high, flat floor and shallow-arched ceiling, 60 m visible, the whole tube tilted 12 degrees downhill; left half of the floor is concrete steps, right half a smooth ramp with two steel rails (thin boxes) and a cable between them; bare-bulb cage lamps every 6 m (emissive sphere + point light), water stains (noise-darkened concrete), drain gutter. Gurney prop: steel frame box 1.9x0.6 m at 0.8 m height on four caster cylinders, folded white sheet slab on top, no body. Looking DOWN the slope from the top landing. WRONG DETAIL: the empty gurney, 3 m ahead of camera on the rails, is rolling slowly downhill by itself (0.4 m/s, accelerating slightly), into the dark between two lamps. One far lamp is out.",
+   "camera": "slow follow push down the slope behind the gurney, 24 mm, 1.0 m height, starts moving at frame 1, very slight handheld",
+   "characters": [
+    "none (empty gurney)"
+   ],
+   "lighting": "warm bare bulbs every 6 m, falling off into black; cold blue spill from the top doorway behind camera",
+   "fx": [
+    "dust motes",
+    "thin fog_volume",
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200,
+      "sub": "purpose reported by secondary sources"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE BODY CHUTE",
+     "params": {
+      "y": 420,
+      "size": 92
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "rumble",
+     "offset": 0.2,
+     "gain": 0.25
+    },
+    {
+     "name": "hit",
+     "offset": 0.15,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:sanatorium_exterior",
+   "description": "Sanatorium facade (stylised, not a likeness): long flat-roofed five-storey block, 80 m central range plus two short wings angled back 30 degrees, built from box_mesh; each storey has a continuous band of open sun-porch bays (30 bays per floor = 150 dark window openings), parapet line, central entrance block one storey taller. Pale stucco material with dark water streaks. Sits on a hill (ground mesh with 15-degree slope) among bare trees (tree/forest builder). Dusk, overcast. Every window band dark except one bay on the fourth floor, very faint.",
+   "camera": "slow crane up from behind bare branches, 35 mm, low angle from the foot of the hill",
+   "characters": [
+    "none"
+   ],
+   "lighting": "cold dusk sky (sun light, low, blue-grey), no interior light except one faint 4th-floor bay",
+   "fx": [
+    "ground fog_volume",
+    "crows: 3 small dark particles crossing (optional)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "TB sanatorium, Louisville"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "WAVERLY HILLS SANATORIUM\nLOUISVILLE, KENTUCKY",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "timeline",
+   "description": "2.5D timeline over the facade (blurred, darkened 50%): events appear in sequence. As '1926' lands, the background racks focus to the five-storey block.",
+   "camera": "graphic; background slow push 5%",
+   "characters": [
+    "none"
+   ],
+   "lighting": "dusk background",
+   "fx": [
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "opened 26 Jul 1910; new building 17 Oct 1926"
+     }
+    },
+    {
+     "type": "timeline",
+     "text": "",
+     "params": {
+      "events": [
+       [
+        "1910",
+        "small TB hospital, ~50 beds"
+       ],
+       [
+        "1926",
+        "five-storey building"
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:body_chute_tunnel",
+   "description": "Same tunnel from the BOTTOM, looking UP the slope: the lamps climb away in a long line to a tiny lit doorway at the top. Steps on the left, rails on the right. A counter overlay climbs to '~500 FT' as the camera rises.",
+   "camera": "pedestal up 1 m + slow push, 50 mm (compresses the length), centred on the vanishing point",
+   "characters": [
+    "none"
+   ],
+   "lighting": "receding bare bulbs; top doorway faint blue",
+   "fx": [
+    "dust motes",
+    "drip particles (a few)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "tunnel exists, ~500 ft long"
+     }
+    },
+    {
+     "type": "counter",
+     "text": "TUNNEL LENGTH, APPROX. FEET",
+     "params": {
+      "from": 0,
+      "to": 500,
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "click",
+     "offset": 0.8,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:body_chute_tunnel",
+   "description": "Mid-tunnel, side angle. A faceless orderly silhouette (char_figure, white coat = pale grey, no face) eases the gurney (sheet folded flat, NO body shape) down the rails into the dark, walking backwards on the steps beside it, then stops and looks up toward the top, as if checking no one is watching.",
+   "camera": "locked-off side wide, 28 mm, then 5% push as the figure stops",
+   "characters": [
+    "orderly silhouette (faceless, pale coat)"
+   ],
+   "lighting": "one bulb overhead, swinging slightly (moving point light), long shadows on the curved wall",
+   "fx": [
+    "dust",
+    "swinging light"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200,
+      "sub": "reported purpose: morale"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "metal_groan",
+     "offset": 0.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:sanatorium_exterior",
+   "description": "Facade again, closer on the window bands; the few faint lights switch off floor by floor (bottom to top) as a document card slides up.",
+   "camera": "slow lateral dolly left, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "night falling; window lights blink out",
+   "fx": [
+    "fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "closed June 1961; antibiotics cut TB cases"
+     }
+    },
+    {
+     "type": "document",
+     "text": "TB SANATORIUM CLOSED\nJune 1961\nStreptomycin & new drugs empty the wards",
+     "params": {
+      "title": "1961",
+      "style": "paper"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.35
+    },
+    {
+     "name": "click",
+     "offset": 1.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07",
+    "L08"
+   ],
+   "environment": "corridor",
+   "description": "4th-floor corridor (corridor builder): 3 m wide, 40 m long; right wall is an open sun-porch band (window openings, no glass, moonlight spilling in as stripes); left wall doors every 4 m, some ajar; peeling paint (noise mask light/dark), debris boxes on the floor. Flashlight POV moving down the corridor. Halfway down (L08), a tall shadow figure (char_figure, pure black, no features) steps across a doorway at the far end and is gone; it occludes the moonlight stripes as it passes.",
+   "camera": "handheld walk forward, 24 mm, flashlight cone parented to camera",
+   "characters": [
+    "shadow figure (black silhouette, far end, 1 s on screen)"
+   ],
+   "lighting": "flashlight cone + cold moonlight stripes through sun-porch openings",
+   "fx": [
+    "dust in flashlight cone",
+    "handheld"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "visitors' and investigators' reports"
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "4TH FLOOR",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.2
+    },
+    {
+     "name": "whoosh",
+     "offset": 2.2,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L09"
+   ],
+   "environment": "corridor",
+   "description": "Same corridor at floor level: a small red rubber ball (sphere r=3.5 cm, slightly scuffed) sits still in a moonlight stripe. Flashlight finds it. Nothing moves.",
+   "camera": "low 10 cm above floor, 50 mm, slow push toward the ball, shallow depth of field",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight stripe + flashlight edge",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "visitors' reports"
+     }
+    },
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 290,
+      "sub": "the boy with the ball"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.12
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:counter_graphic",
+   "description": "Pattern interrupt: black frame with the corridor faint behind; a big counter rolls up fast to '63,000'.",
+   "camera": "graphic, slow zoom in on the number",
+   "characters": [
+    "none"
+   ],
+   "lighting": "dark",
+   "fx": [
+    "film grain",
+    "scanlines"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "popular, unsupported figure"
+     }
+    },
+    {
+     "type": "counter",
+     "text": "THE LEGEND: DEATHS",
+     "params": {
+      "from": 0,
+      "to": 63000,
+      "y": 880
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:counter_graphic",
+   "description": "The 63,000 gets a red strike-through line; below it '6,000-8,000' types in, white. Behind, the corridor slowly reappears.",
+   "camera": "graphic, slight drift up",
+   "characters": [
+    "none"
+   ],
+   "lighting": "dark",
+   "fx": [
+    "film grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "historians' estimates via secondary sources"
+     }
+    },
+    {
+     "type": "text",
+     "text": "6,000 - 8,000",
+     "params": {
+      "y": 1150,
+      "size": 110
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Evidence board (plane with cork texture), card 'WHAT SCEPTICS SAY'; a second card slides in: a simple ticket icon + 'PAID GHOST TOURS'.",
+   "camera": "flat front, slow push, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single desk lamp from top-left",
+   "fx": [
+    "paper flutter"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "tours run by the owners"
+     }
+    },
+    {
+     "type": "card",
+     "text": "The building now sells\nghost tours",
+     "params": {
+      "header": "WHAT SCEPTICS SAY",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L13"
+   ],
+   "environment": "corridor",
+   "description": "Back in the 4th-floor corridor, wide, same framing as the S08 floor shot but 1.5 m higher and wider: the ball is GONE from the moonlight stripe. Music drops to silence; the shot holds through a 0.9 s dead-air pause; only a faint echo tail of the narration.",
+   "camera": "locked-off, 28 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight stripes only, flashlight off",
+   "fx": [
+    "dust motes (very slow)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200,
+      "sub": "sceptics: acoustics and draughts"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L14"
+   ],
+   "environment": "corridor",
+   "description": "DEAD-AIR REVEAL: identical framing to S12. Out of the dark at the far end, the red ball rolls slowly toward camera, crossing three moonlight stripes, and stops 1 m from the lens. One soft bounce sound only.",
+   "camera": "locked-off, then slowest possible push (2%)",
+   "characters": [
+    "none"
+   ],
+   "lighting": "moonlight stripes",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.1,
+     "gain": 0.2
+    },
+    {
+     "name": "click",
+     "offset": 1.9,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:body_chute_tunnel",
+   "description": "Loop frame: identical to S01 frame 1 (top of the tunnel looking down, gurney back at the top, the far lamp out). The gurney gives a tiny jolt as the cut lands, ready to roll again.",
+   "camera": "match S01 start position, begin the same push",
+   "characters": [
+    "none"
+   ],
+   "lighting": "same as S01",
+   "fx": [
+    "dust motes",
+    "film grain"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.35
+  ],
+  [
+   6,
+   0.5
+  ],
+  [
+   16,
+   0.65
+  ],
+  [
+   26,
+   0.75
+  ],
+  [
+   33,
+   0.6
+  ],
+  [
+   38,
+   0.4
+  ],
+  [
+   41,
+   0.0
+  ],
+  [
+   44,
+   0.0
+  ],
+  [
+   46,
+   0.35
+  ],
+  [
+   50,
+   0.35
+  ]
+ ],
+ "loop_line": "Ask anyone at Waverly, and they'll tell you:"
+}

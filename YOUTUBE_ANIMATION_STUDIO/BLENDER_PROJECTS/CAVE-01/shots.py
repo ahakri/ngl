@@ -53,6 +53,8 @@ def S01(L, n):
     L.spot((0.5, 1.0, 9), (0, 0, 0), energy=160, size_deg=60, blend=1.0, color=(0.3, 0.75, 0.8), name="cyanrim")
     s = C.cloud((-0.4, 0.4, 0.6), (4.5, 3.6, 1.3), count=2200, radius=0.004, emit=0.05, seed=11)
     C.drift(s, n, (0.05, 0.02, 0.025))
+    C.rim_light((0, 0.1, 0.1), (0.6, 3.5, 1.2), energy=500, color=(0.35, 0.8, 0.95), size_deg=30, name="backrim")
+    C.cam_fill(cam, energy=14)
     L.bake_static()
 
 
@@ -61,23 +63,24 @@ def S01(L, n):
 def S02(L, n):
     _deep(L, n, density=0.05)
     _bottom_set(L, n)
-    d = C.diver("shaw", fins=SHAW_FINS, light_energy=2200, beam_len=4.0, beam_strength=0.55)
+    d = C.diver("shaw", fins=SHAW_FINS, light_energy=2400, beam_len=2.6, beam_strength=0.18, beam_deg=26)
     r = d["root"]
-    r.location = (-1.05, 0.35, 1.45)
-    r.rotation_euler = (-0.12, 0, -math.pi / 2)  # facing +X, slight head-down
-    d["torch"].rotation_euler = (math.pi / 2 - 0.85, 0, 0)  # beam angled down onto the shape
+    r.location = (-0.9, 0.25, 1.35)
+    r.rotation_euler = (-0.1, 0, -math.pi / 2)  # facing +X, slight head-down
+    d["torch"].rotation_euler = (math.pi / 2 - 1.05, 0, 0)  # beam angled steeply down onto the shape
     for f in range(1, n + 1, 3):
-        r.location.z = 1.45 + 0.03 * math.sin(f / 24 * 2.2)
+        r.location.z = 1.35 + 0.03 * math.sin(f / 24 * 2.2)
         r.keyframe_insert("location", frame=f)
     L.anim_swim(d, n, kick_rate=0.35, amp=0.12)
-    L.spot((-1.0, 0.4, 6.5), (0, 0, 0), energy=700, size_deg=35, blend=0.8, color=(0.35, 0.8, 0.85), name="rimtop")
+    C.rim_light((-0.9, 0.25, 1.35), (-0.6, 2.8, 2.6), energy=900, color=(0.35, 0.85, 1.0), size_deg=35, name="rimtop")
+    C.rim_light((-0.9, 0.25, 1.35), (0.4, 3.0, -0.2), energy=500, color=(0.3, 0.7, 0.9), size_deg=35, name="rimlow")
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (1.15, -2.55, 1.2), (-0.55, 0.3, 0.55)), (n, (1.55, -3.6, 1.55), (-0.55, 0.3, 0.45))],
+    C.aim_cam(cam, n, [(1, (0.55, -2.3, 0.45), (-0.55, 0.2, 0.95)), (n, (0.8, -3.3, 0.55), (-0.55, 0.2, 0.85))],
               shake=0.012, rot_shake=0.003)
-    fins = C.cloud((-2.15, 0.35, 0.55), (1.2, 1.2, 1.0), count=900, radius=0.007, emit=0.05, shape="sphere", seed=5)
-    C.drift(fins, n, (0, 0, 0.18))
-    C.key_scale(fins, [(1, 0.7), (n, 1.25)])
-    amb = C.cloud((0, 0, 1.2), (6, 6, 3), count=1400, radius=0.005, emit=0.03, seed=9)
+    C.cam_fill(cam, energy=10)
+    fins = C.cloud((-2.0, 0.25, 0.5), (1.4, 1.0, 0.7), count=700, radius=0.005, emit=0.05, seed=5)
+    C.drift(fins, n, (0, 0, 0.2))
+    amb = C.cloud((0, 0.5, 1.0), (5, 4, 2.4), count=1400, radius=0.004, emit=0.04, seed=9)
     C.drift(amb, n, (0.03, 0.0, 0.02))
     L.bake_static()
 
@@ -85,7 +88,7 @@ def S02(L, n):
 # ============================================================================ cross-section diagram (S03 / S09 / S13)
 
 XS_Z0, XS_K = 2.18, 0.01082
-XS_X = 0.9
+XS_X = 0.62
 
 
 def dz(d):
@@ -102,7 +105,7 @@ BOES = [(-1.7, -45), (-1.3, -25), (-0.95, -15), (-0.6, -4), (-0.42, 0), (-0.22, 
 def _xs(L, n, cz=0.0):
     C.world_black((0.0, 0.0, 0.0))
     wpoly = [p for p in BOES if p[1] >= 0]
-    xs = C.xsection(BOES, dz, x_scale=XS_X, extent=(-4, 4, dz(310), dz(-25)), water_poly=wpoly, name="boes")
+    xs = C.xsection(BOES, dz, x_scale=XS_X, extent=(-4, 4, -7.5, dz(-25)), water_poly=wpoly, name="boes")
     P = xs["P"]
     # ground surface strip (sand) and a few scrub dots
     sand = C.emis("sand_line", (0.85, 0.62, 0.35), 2.5)
@@ -113,13 +116,13 @@ def _xs(L, n, cz=0.0):
     C.curve([tuple(P(-0.42, 0)), tuple(P(0.42, 0))], thickness=0.02, mat=C.emis("poolline", (0.7, 1, 1), 6), name="pool")
     # depth ruler (left)
     rm = C.emis("ruler", (0.75, 0.8, 0.82), 1.6)
-    rx = -2.22
+    rx = -1.62
     C.curve([(rx, -0.43, dz(0)), (rx, -0.43, dz(283))], thickness=0.008, mat=rm, name="ruler")
     for dd in range(0, 281, 25):
         w = 0.1 if dd % 100 == 0 else 0.05
         C.curve([(rx - w, -0.43, dz(dd)), (rx, -0.43, dz(dd))], thickness=0.008, mat=rm, name="tick")
     for dd, lab in ((0, "0 M"), (100, "100"), (200, "200"), (270, "270")):
-        C.text(lab, (rx - 0.14, -0.45, dz(dd)), size=0.13, color=(0.85, 0.9, 0.92), strength=2.0, align="RIGHT",
+        C.text(lab, (rx - 0.14, -0.45, dz(dd)), size=0.2, color=(0.85, 0.9, 0.92), strength=2.0, align="RIGHT",
                name="lab")
     # lighting for the slab bevel / depth
     L.area((-3, -4, 4), (math.radians(60), 0, math.radians(-35)), energy=600, size=4, color=(0.7, 0.85, 1.0))
@@ -196,7 +199,7 @@ def S09(L, n):
     rv = C.dotted_path([tuple(P(-1.95, 220)), tuple(P(1.95, 220))], spacing=0.1, r=0.018, color=(1, 0.7, 0.3),
                        strength=4, name="rv")
     C.pop_in(rv, [60 + i // 2 for i in range(len(rv))], dur=4)
-    lab = C.text("220 M", (-2.08, -0.45, dz(220)), size=0.13, color=(1, 0.75, 0.4), strength=4, align="RIGHT",
+    lab = C.text("220 M", (-1.76, -0.45, dz(220) + 0.13), size=0.17, color=(1, 0.75, 0.4), strength=4, align="RIGHT",
                  name="rvlab")
     C.hide_from_frame([lab], f_show=60)
     L.bake_static()
@@ -228,7 +231,7 @@ def S13(L, n):
     em = rvm.node_tree.nodes["Emission"].inputs[1]
     C.key_input(em, [(f, 6.0 if (f // 9) % 2 == 0 else 0.6) for f in range(1, n + 1, 9)])
     C.constant_keys(rvm.node_tree)
-    C.text("220 M", (-2.08, -0.45, dz(220)), size=0.13, color=(1, 0.3, 0.2), strength=4, align="RIGHT", name="rvlab")
+    C.text("220 M", (-1.76, -0.45, dz(220) + 0.13), size=0.17, color=(1, 0.3, 0.2), strength=4, align="RIGHT", name="rvlab")
     # empty marker ring where Shaw should be
     ring = L.prim("torus", loc=tuple(P(-0.25, 220) + Vector((0, -0.02, 0))), rot=(math.pi / 2, 0, 0),
                   major_radius=0.12, minor_radius=0.008, name="emptyring")
@@ -248,18 +251,20 @@ def _desert(L, n, tod="dawn"):
         C.sun_from(sd, energy=4.5, color=(1.0, 0.78, 0.55), angle=1.0)
     elif tod == "dusk":
         sd = C.sun_dir(2.5, 0)  # sun straight ahead (+Y), behind the figure
-        C.sky_world(top=(0.12, 0.1, 0.2), horizon=(1.0, 0.42, 0.12), ground=(0.04, 0.025, 0.02), sun_dir=sd,
-                    sun_color=(1.0, 0.55, 0.2), sun_glow=6.0, strength=1.0, glow_pow=20)
+        C.sky_world(top=(0.06, 0.05, 0.14), horizon=(1.0, 0.3, 0.04), ground=(0.03, 0.02, 0.015), sun_dir=sd,
+                    sun_color=(1.0, 0.45, 0.1), sun_glow=8.0, strength=1.2, glow_pow=12)
         C.sun_from(sd, energy=2.5, color=(1.0, 0.55, 0.25), angle=2.0)
     else:  # sunrise gold
         sd = C.sun_dir(7, 60)
         C.sky_world(top=(0.35, 0.45, 0.65), horizon=(1.0, 0.7, 0.35), ground=(0.15, 0.1, 0.06), sun_dir=sd,
                     sun_color=(1.0, 0.7, 0.35), sun_glow=4.0, strength=1.0)
         C.sun_from(sd, energy=5.0, color=(1.0, 0.72, 0.45), angle=1.0)
-    cr = C.crater(R=9.0, depth=14.0, seed=2,
-                  pool_mat=L.mat_principled("pool_m", (0.01, 0.09, 0.08), rough=0.03, emit=(0.02, 0.18, 0.16),
-                                            emit_strength=0.6))
-    C.bushes(count=70, rmin=11.5, rmax=60, seed=4)
+    cr = C.crater(R=9.0, depth=22.0, seed=2,
+                  ground_mat=L.mat_noise_surface("desert_sand", (0.2, 0.11, 0.05), (0.5, 0.33, 0.17), scale=0.8,
+                                                 bump=0.3, voronoi=False),
+                  pool_mat=L.mat_principled("pool_m", (0.005, 0.05, 0.045), rough=0.03, emit=(0.01, 0.12, 0.1),
+                                            emit_strength=0.5))
+    C.bushes(count=90, rmin=11.5, rmax=60, seed=4, size=(0.5, 1.3), color=(0.1, 0.1, 0.04))
     for i, (x, y) in enumerate(((-14, 6), (15, -4), (-11, -12), (19, 13), (-22, -3))):
         L.tree((x, y, 0), height=random.Random(i).uniform(2.5, 4), seed=i + 3)
     return cr, sd
@@ -279,10 +284,10 @@ def S04(L, n):
     C.line([(2.0, -3.1, pz + 0.3), (2.0, -3.1, pz - 6)], thickness=0.02, emit=1.0, name="shotline")
     # line from rim down to platform
     C.line([(4.5, -8.2, 0.5), (3.6, -6.5, -4), (2.6, -4.0, pz + 0.2)], thickness=0.018, emit=0.3, name="rimline")
-    dust = C.cloud((0, -6, 3), (40, 30, 8), count=1600, radius=0.03, color=(1.0, 0.85, 0.6), emit=0.15, seed=3)
+    dust = C.cloud((0, -4, 2), (30, 24, 6), count=1600, radius=0.008, color=(1.0, 0.85, 0.6), emit=0.4, seed=3)
     C.drift(dust, n, (0.4, 0.1, 0.05))
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (-5.5, -27, 21), (0, -1, -3)), (n, (-2.5, -15.5, 9.5), (1.0, -1.5, -11.5))],
+    C.aim_cam(cam, n, [(1, (-5.5, -27, 21), (0, -1, -5)), (n, (-2.0, -14, 10.5), (0.8, -1.2, -19))],
               shake=0.03, rot_shake=0.002, rate=0.3)
     L.bake_static()
 
@@ -310,7 +315,7 @@ def S08(L, n):
     shaw["root"].rotation_euler = (0, 0, 0)  # faces +Y into the hole
     shaw["neck"].rotation_euler = (0.35, 0, 0)  # head tilted down
     team = []
-    for i, (x, y, rz) in enumerate(((2.6, rim_y - 2.6, 0.9), (3.6, rim_y - 1.6, -1.2), (-2.9, rim_y - 2.2, 2.0))):
+    for i, (x, y, rz) in enumerate(((1.5, rim_y - 2.4, 0.9), (2.3, rim_y - 1.4, -1.2), (-1.6, rim_y - 1.9, 2.0))):
         f = L.char_figure(f"team{i}", color=(0.012, 0.012, 0.014), height=1.7 + 0.06 * i)
         f["root"].location = (x, y, 0.25)
         f["root"].rotation_euler = (0, 0, rz)
@@ -321,13 +326,13 @@ def S08(L, n):
         t0["pelvis"].rotation_euler = (a, 0, 0)
         t0["pelvis"].keyframe_insert("rotation_euler", frame=fr)
     L.anim_walk(team[2], 1, n, stride=0.35, rate=0.7,
-                travel=((-2.9, rim_y - 2.2, 0.25), (-2.2, rim_y - 3.0, 0.25)))
-    _team_props(L, (3.0, rim_y - 3.2))
+                travel=((-1.6, rim_y - 1.9, 0.25), (-1.3, rim_y - 2.6, 0.25)))
+    _team_props(L, (1.7, rim_y - 3.0))
     dust = C.cloud((0, rim_y - 3, 1.2), (14, 10, 3), count=900, radius=0.012, color=(1, 0.7, 0.4), emit=0.4, seed=8)
     C.drift(dust, n, (0.25, 0.05, 0.02))
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (0.9, rim_y - 6.8, 0.55), (0.0, rim_y + 4.0, 2.2)),
-                       (n, (0.75, rim_y - 5.2, 0.6), (0.0, rim_y + 4.0, 2.0))], shake=0.015, rot_shake=0.002)
+    C.aim_cam(cam, n, [(1, (0.6, rim_y - 7.5, 1.9), (0.0, rim_y + 10.0, -1.2)),
+                       (n, (0.5, rim_y - 5.8, 1.8), (0.0, rim_y + 10.0, -1.4))], shake=0.015, rot_shake=0.002)
     L.bake_static()
 
 
@@ -350,7 +355,7 @@ def S19(L, n):
     con.target = tgt
     con.track_axis = "TRACK_NEGATIVE_Z"
     con.up_axis = "UP_Y"
-    C.key_energy(sp, [(1, 0), (cut - 1, 0), (cut, 2600), (n, 2600)])
+    C.key_energy(sp, [(1, 0), (cut - 1, 0), (cut, 1300), (n, 1300)])
     C.constant_keys(sp.data)
     s = C.cloud(tuple(OFF + Vector((0, -0.6, 0.55))), (4.5, 5, 1.3), count=1800, radius=0.0055, emit=0.03, seed=11)
     C.drift(s, n, (0.05, 0.02, 0.025))
@@ -366,11 +371,11 @@ def S19(L, n):
     mist = C.cloud((0, 0, pz + 1.0), (14, 14, 1.5), count=900, radius=0.02, color=(1, 0.85, 0.65), emit=0.25, seed=4)
     C.drift(mist, n, (0.1, 0.05, 0.01))
     cam = C.camera(lens=28)
-    o1 = tuple(OFF + Vector((0.55, -3.4, 0.42)))
-    t1 = tuple(OFF + Vector((0.02, -0.4, -0.42)))
-    o2 = tuple(OFF + Vector((0.45, -2.8, 0.4)))
-    t2 = tuple(OFF + Vector((0.02, -0.3, -0.4)))
-    C.aim_cam(cam, n, [(1, (2.5, -16, 9), (0, 0, -10)), (cut - 1, (0.6, -4.2, pz + 1.6), (0, 0.5, pz - 0.3)),
+    o1 = tuple(OFF + Vector((0.55, -3.5, 1.0)))
+    t1 = tuple(OFF + Vector((0.0, -0.2, -0.5)))
+    o2 = tuple(OFF + Vector((0.5, -3.2, 0.95)))
+    t2 = tuple(OFF + Vector((0.0, -0.15, -0.5)))
+    C.aim_cam(cam, n, [(1, (1.2, -4.5, 12), (0, 0.5, pz)), (cut - 1, (0.6, -3.0, pz + 2.2), (0, 1.0, pz - 0.5)),
                        (cut, o1, t1), (n, o2, t2)], shake=0.015, rot_shake=0.002)
     lens = cam.data
     lens.lens = 28
@@ -408,12 +413,12 @@ def S05(L, n):
         r.location = (0.05, -0.15, z0 + (z1 - z0) * (0.15 * t + 0.85 * t * t * (3 - 2 * t)))
         r.keyframe_insert("location", frame=f)
     L.anim_swim(d, n, kick_rate=0.6, amp=0.2)
-    p = C.cloud((0, 0, -9), (6, 6, 24), count=3600, radius=0.01, emit=0.06, seed=3)
+    p = C.cloud((0, 0, -9), (6, 6, 24), count=3600, radius=0.006, emit=0.08, seed=3)
     keys = []
     for f in range(1, n + 1, 6):
         t = (f - 1) / (n - 1)
         zz = z0 + (z1 - z0) * (0.15 * t + 0.85 * t * t * (3 - 2 * t))
-        keys.append((f, (0.05, -0.15 + 1.35, zz + 2.7), (0.05, -0.35, zz - 3.5), 5.0 * t))
+        keys.append((f, (0.05, -0.15 + 1.9, zz + 3.4), (0.05, -0.35, zz - 3.5), 5.0 * t))
     cam = C.camera(lens=20)
     C.aim_cam(cam, n, keys, shake=0.02, rot_shake=0.004, fn=lambda x: x)
     C.cam_fill(cam, energy=60, color=(0.5, 0.85, 0.95))
@@ -428,10 +433,8 @@ def S06(L, n):
     # silt slope: tilt a second floor patch
     C.rocks([(2.0, 2.5, 0), (-2.4, 3.0, 0), (1.4, 0.2, 0), (-1.8, -0.4, 0), (3.2, 5, 0), (0.6, 4.5, 0)], count=6,
             size=(0.35, 0.9), seed=12)
-    fin = L.prim("cube", loc=(-0.55, 0.9, 0.12), rot=(0.9, 0.35, 0.4), name="lostfin")
-    fin.scale = (0.11, 0.24, 0.012)
-    L.assign(fin, L.mat_principled("lostfin_m", (0.32, 0.33, 0.34), rough=0.6))
-    L.bevel(fin, 0.008)
+    fin = C.fin_blade((-0.6, 0.75, -0.08), (1.05, 0.25, 0.35), mat=L.mat_principled("lostfin_m", (0.14, 0.145, 0.15),
+                                                                                     rough=0.5), name="lostfin")
     strap = L.prim("torus", loc=(-0.6, 0.72, 0.03), rot=(0.4, 0.3, 0), major_radius=0.07, minor_radius=0.012,
                    name="strap")
     L.assign(strap, L.mat_principled("strap_m", (0.1, 0.1, 0.1)))
@@ -469,6 +472,7 @@ def S07(L, n):
     near = C.cloud((0.5, -2.2, 0.8), (2, 1.2, 1.6), count=500, radius=0.006, emit=0.15, seed=21)
     C.drift(near, n, (0.04, 0, 0.03))
     L.spot((0, 0, 6), (0, 0, 0), energy=400, size_deg=50, blend=1, color=(0.3, 0.8, 0.85), name="cyan")
+    C.rim_light((0, 0.1, 0.1), (0.5, 3.5, 1.0), energy=500, color=(0.35, 0.8, 0.95), size_deg=30, name="backrim")
     L.bake_static()
 
 
@@ -478,7 +482,7 @@ def S10(L, n):
     _deep(L, n, density=0.05)
     env, (lost, lp) = _bottom_set(L, n, shape=True)
     lost.rotation_euler = (0, 0, 0.0)
-    d = C.diver("shaw", fins=SHAW_FINS, light_energy=1800, beam_len=3.0, beam_strength=0.45, beam_deg=30)
+    d = C.diver("shaw", fins=SHAW_FINS, light_energy=1500, beam=False, beam_deg=40)
     r = d["root"]
     C.pose_upright_kneel(d, lean=0.45)
     r.rotation_euler.z = -math.pi / 2
@@ -495,7 +499,7 @@ def S10(L, n):
             sh.rotation_euler = (-1.05 - 0.2 * math.sin(f * 0.12 + ph), 0, (-0.3 if tag == "L" else 0.3))
             sh.keyframe_insert("rotation_euler", frame=f)
     # body bag: dark cloth unfolding beside the shape
-    bm_ = L.mat_principled("bag_m", (0.035, 0.035, 0.04), rough=0.55)
+    bm_ = L.mat_principled("bag_m", (0.08, 0.085, 0.1), rough=0.35)
     bag = L.prim("plane", loc=(-0.35, -0.05, 0.06), size=1, name="bag")
     sub = bag.modifiers.new("sub", "SUBSURF")
     sub.subdivision_type = "SIMPLE"
@@ -515,7 +519,7 @@ def S10(L, n):
     # silt lifting at the knees
     knees = C.cloud((-0.8, -0.15, 0.12), (1.0, 1.0, 0.35), count=1400, radius=0.006, emit=0.06, shape="sphere",
                     seed=4)
-    C.key_scale(knees, [(1, 0.4), (n, 1.6)])
+    C.key_scale(knees, [(1, 0.6), (n, 1.4)])
     C.drift(knees, n, (0.02, 0, 0.12))
     puff, dens, _ = C.noisy_volume((-0.7, -0.1, 0.2), (1.6, 1.6, 0.7), density=2.0, scale=2.5, name="kneepuff")
     C.key_input(dens, [(1, 0.2), (n, 3.5)])
@@ -525,47 +529,59 @@ def S10(L, n):
     keys = []
     ctr = Vector((-0.45, -0.05, 0.5))
     for f, ang in ((1, -0.18), (n, 0.17)):
-        pos = ctr + Vector((math.sin(ang) * 3.3, -math.cos(ang) * 3.3, -0.12))
+        pos = ctr + Vector((math.sin(ang) * 2.5, -math.cos(ang) * 2.5, -0.05))
         keys.append((f, tuple(pos), tuple(ctr + Vector((0, 0, -0.32)))))
     C.aim_cam(cam, n, keys, shake=0.01, rot_shake=0.002)
-    C.cam_fill(cam, energy=12)
+    C.cam_fill(cam, energy=30)
+    C.rim_light((-0.95, -0.15, 0.9), (-1.2, 2.6, 2.2), energy=1100, color=(0.35, 0.85, 1.0), size_deg=35, name="rim1")
+    C.rim_light((-0.95, -0.15, 0.9), (-2.4, -0.5, 1.4), energy=500, color=(0.3, 0.7, 0.9), size_deg=35, name="rim2")
     L.bake_static()
 
 
 # ============================================================================ S11 macro breathing loop
 
 def S11(L, n):
+    """Two breathing loops (rings of gas): surface = sparse, fast; 270 m = packed tight, crawling."""
     C.world_black((0.003, 0.006, 0.01))
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0, -6.0, -0.52), (0, 0, -0.52)), (n, (0, -5.55, -0.5), (0, 0, -0.5))])
-    ztop, zbot, rad = 0.38, -0.38, 0.2
-    glass = C.rim_glass_mat("tube_glass", (0.55, 0.95, 1.0), strength=2.5, power=3.0, base=0.04)
-    tubes = []
-    for z in (ztop, zbot):
-        t = L.prim("cyl", loc=(0, 0, z), rot=(0, math.pi / 2, 0), vertices=48, radius=rad, depth=6, name="tube")
-        L.assign(t, glass)
-        L.smooth(t)
-        tubes.append(t)
-    # sparse fast flow (surface)
-    top = C.cloud((0, 0, ztop), (9.0, 2 * rad * 0.85, 2 * rad * 0.85), count=230, radius=0.016, color=C.CYAN,
-                  emit=4.0, shape="cylx", seed=2, name="gas_top")
-    C.key_loc(top, [(1, (-2.0, 0, ztop)), (n, (2.6, 0, ztop))])
-    L.linear_fcurves(top)
-    # dense, slow crawl (270 m)
-    bot = C.cloud((0, 0, zbot), (4.0, 2 * rad * 0.85, 2 * rad * 0.85), count=2600, radius=0.012, color=C.CYAN,
-                  emit=2.5, shape="cylx", seed=3, name="gas_bot")
-    C.key_loc(bot, [(1, (-0.1, 0, zbot)), (n, (0.35, 0, zbot))])
-    L.linear_fcurves(bot)
-    # labouring breath: dense gas compresses/relaxes with the breaths (0.0 s, 1.8 s)
+    C.aim_cam(cam, n, [(1, (0, -6.2, 0.9), (0, 0, -0.45)), (n, (0, -5.6, 0.85), (0, 0, -0.42))])
+    L.dof(cam, distance=6.0, fstop=2.8)
+    glass = C.rim_glass_mat("tube_glass", (0.55, 0.95, 1.0), strength=2.2, power=2.5, base=0.05)
+    mouth_m = L.mat_principled("mouth", (0.06, 0.065, 0.07), rough=0.35)
+    rings = []
+    for k, (z, count, rad, rev, emit) in enumerate(((0.42, 70, 0.008, 1.6, 6.0), (-0.42, 1500, 0.0055, 0.12, 3.0))):
+        piv = L.link(bpy.data.objects.new(f"loop{k}", None))
+        piv.location = (0, 0, z)
+        piv.rotation_euler = (0.38, 0, 0)
+        tor = L.prim("torus", loc=(0, 0, 0), major_radius=0.85, minor_radius=0.13, major_segments=64,
+                     minor_segments=16, name=f"tube{k}")
+        L.assign(tor, glass)
+        L.smooth(tor)
+        tor.parent = piv
+        mp = L.prim("cube", loc=(0, -0.85, 0), name=f"mouthpiece{k}")
+        mp.scale = (0.2, 0.09, 0.11)
+        L.bevel(mp, 0.03)
+        L.assign(mp, mouth_m)
+        mp.parent = piv
+        gas = C.cloud((0, 0, 0), (0.85, 0.1, 0), count=count, radius=rad, color=C.CYAN, emit=emit, shape="torus",
+                      seed=3 + k, name=f"gas{k}")
+        gas.parent = piv
+        gas.location = (0, 0, 0)
+        gas.rotation_euler = (0, 0, 0)
+        gas.keyframe_insert("rotation_euler", frame=1)
+        gas.rotation_euler = (0, 0, rev * 2 * math.pi * n / 24 / 3.0)
+        gas.keyframe_insert("rotation_euler", frame=n)
+        L.linear_fcurves(gas)
+        rings.append((piv, tor, gas))
+    # laboured breaths (0.0 s and 1.8 s): the dense loop squeezes
     b2 = int(1.8 * 24)
-    C.key_scale(bot, [(1, 1.0), (14, (1.0, 1.08, 1.08)), (30, 1.0), (b2, 1.0), (b2 + 14, (1.0, 1.08, 1.08)), (n, 1.0)])
-    for t in tubes[1:]:
-        C.key_scale(t, [(1, 1.0), (14, (1.06, 1.06, 1.0)), (30, 1.0), (b2, 1.0), (b2 + 14, (1.06, 1.06, 1.0)), (n, 1.0)])
-    div = C.curve([(-3, 0.3, 0.0), (3, 0.3, 0.0)], thickness=0.004, mat=C.emis("div", (0.6, 0.7, 0.75), 1.5),
-                  name="divider")
-    L.area((0, 1.5, 2.0), (math.radians(-120), 0, 0), energy=150, size=5, color=(0.6, 0.9, 1.0))
-    L.area((0, 1.5, -2.0), (math.radians(-60), 0, 0), energy=150, size=5, color=(0.6, 0.9, 1.0))
-    bg = L.prim("plane", loc=(0, 2.5, -0.5), rot=(math.pi / 2, 0, 0), size=12, name="backdrop")
+    for o in (rings[1][1], rings[1][2]):
+        C.key_scale(o, [(1, 1.0), (12, (1.0, 1.0, 1.25)), (28, 1.0), (b2, 1.0), (b2 + 12, (1.0, 1.0, 1.25)), (n, 1.0)])
+    C.curve([(-3, 0.5, 0.0), (3, 0.5, 0.0)], thickness=0.004, mat=C.emis("div", (0.6, 0.7, 0.75), 1.2), name="divider")
+    L.area((0, 1.5, 2.5), (math.radians(-130), 0, 0), energy=120, size=5, color=(0.6, 0.9, 1.0))
+    L.area((0, 1.5, -2.5), (math.radians(-50), 0, 0), energy=120, size=5, color=(0.6, 0.9, 1.0))
+    L.area((0, -4, 0), (math.radians(90), 0, 0), energy=40, size=6, color=(0.8, 0.9, 1.0))
+    bg = L.prim("plane", loc=(0, 3.5, -0.5), rot=(math.pi / 2, 0, 0), size=14, name="backdrop")
     L.assign(bg, L.mat_principled("bd", (0.01, 0.02, 0.03), rough=0.9))
     L.bake_static()
 
@@ -602,7 +618,7 @@ def S12(L, n):
     torch = L.spot((0.16, 0, 0.1), (0, math.radians(100), 0), energy=2600, size_deg=24, blend=0.4, color=C.TORCH,
                    name="torch", radius=0.02)
     torch.parent = rig
-    cone, sock = C.beam_cone(torch, length=4.0, strength=0.5, name="snagbeam")
+    cone, sock = C.beam_cone(torch, length=3.0, strength=0.25, name="snagbeam")
     # lines looping around the arm + canister and trailing off taut
     lm = L.mat_principled("snagline", (0.95, 0.93, 0.85), rough=0.4, emit=(0.8, 0.8, 0.75), emit_strength=0.8)
     h1 = C.curve(C.helix((-0.12, 0, 0.04), (1, 0, 0), 0.1, 2.3, 0.45, phase=0.3, wobble=0.25, seed=2),
@@ -627,14 +643,14 @@ def S12(L, n):
         rig.keyframe_insert("rotation_euler", frame=f)
     # torch flicker, then swallowed
     L.flicker(torch, n, base=2600, seed=4, depth=0.35, rate=0.9, blackouts=((88, 90), (101, 102)))
-    C.key_input(sock, [(1, 0.5), (60, 0.45), (n, 0.12)])
+    C.key_input(sock, [(1, 0.25), (60, 0.2), (n, 0.05)])
     # silt explodes from the floor and engulfs the beam
     plume, dens, nz = C.noisy_volume((0.9, 0.2, 0.0), (3.2, 2.6, 2.2), color=(0.55, 0.48, 0.38), density=1.0,
                                      scale=1.6, name="plume")
-    C.key_input(dens, [(1, 0.0), (20, 0.05), (50, 1.2), (85, 4.0), (n, 7.0)])
+    C.key_input(dens, [(1, 0.0), (20, 0.1), (50, 2.5), (85, 7.0), (n, 12.0)])
     C.key_scale(plume, [(1, 0.5), (50, 0.9), (n, 1.3)])
-    burst = C.cloud((0.5, 0.1, -0.3), (1.2, 1.0, 0.5), count=3000, radius=0.007, emit=0.06, shape="sphere", seed=8)
-    C.key_scale(burst, [(1, 0.2), (22, 0.4), (60, 1.6), (n, 3.0)])
+    burst = C.cloud((0.5, 0.1, -0.3), (2.4, 2.0, 1.2), count=4000, radius=0.0035, emit=0.08, shape="sphere", seed=8)
+    C.key_scale(burst, [(1, 0.25), (22, 0.4), (60, 1.0), (n, 1.6)])
     C.drift(burst, n, (0.1, 0.05, 0.3))
     cam = C.camera(lens=50)
     # micro-pushes on each sentence start (~0, 1.6 s, 3.1 s)
@@ -642,7 +658,8 @@ def S12(L, n):
                        (40, (0.12, -1.3, 0.6), (0.06, 0, 0.42)), (72, (0.11, -1.25, 0.6), (0.07, 0, 0.42)),
                        (76, (0.1, -1.1, 0.58), (0.08, 0, 0.42)), (n, (0.1, -1.05, 0.58), (0.1, 0, 0.42))],
               shake=0.012, rot_shake=0.01, rate=1.4, shake_keys=[(1, 0.4), (n, 2.2)])
-    C.cam_fill(cam, energy=10)
+    C.cam_fill(cam, energy=25)
+    C.rim_light((0, 0, 0.5), (-0.6, 2.0, 1.6), energy=600, color=(0.35, 0.85, 1.0), size_deg=40, name="armrim")
     L.bake_static()
 
 
@@ -683,10 +700,16 @@ def S14(L, n):
     keys = []
     for f, z in path[::3] + [path[-1]]:
         t = (f - 1) / (n - 1)
-        keys.append((f, (0.4, -2.0, z + 2.3), (0.0, 0.6, z - 1.3), 8.0 * C.sm(t)))
+        keys.append((f, (0.35, -1.35, z + 1.55), (0.0, 0.5, z - 0.9), 8.0 * C.sm(t)))
     C.aim_cam(cam, n, keys, shake=0.015, rot_shake=0.004, fn=lambda x: x)
     L.dof(cam, target=d["torso"], fstop=1.2)
-    C.cam_fill(cam, energy=15, color=(0.4, 0.6, 0.9))
+    C.cam_fill(cam, energy=40, color=(0.4, 0.6, 0.9))
+    rl = L.spot((0, 2.2, 1.8), (0, 0, 0), energy=900, size_deg=40, blend=0.7, color=(0.35, 0.8, 1.0), name="srim")
+    rl.parent = r
+    con = rl.constraints.new("TRACK_TO")
+    con.target = d["torso"]
+    con.track_axis = "TRACK_NEGATIVE_Z"
+    con.up_axis = "UP_Y"
     L.bake_static()
 
 
@@ -799,7 +822,7 @@ def S16(L, n):
     for i in range(16):
         if i == 8:
             hi_z = z
-            z -= 0.12
+            z -= 0.3
             continue
         w = rnd.uniform(1.3, 1.8) if i % 5 != 4 else rnd.uniform(0.6, 1.0)
         b = L.prim("cube", loc=(-0.9 + w / 2, -0.005, z), name="txtbar")
@@ -808,18 +831,21 @@ def S16(L, n):
         b.parent = page
         z -= 0.1
     hl = L.prim("cube", loc=(-0.95, -0.006, hi_z), name="highlight")
-    hl.scale = (0.0, 0.002, 0.055)
+    hl.scale = (0.0, 0.002, 0.075)
     L.assign(hl, L.mat_principled("hl", (1.0, 0.85, 0.1), emit=(1, 0.8, 0.1), emit_strength=0.6))
     hl.parent = page
     # grow highlight from left edge
-    for f, w in ((1, 0.0), (int(n * 0.35), 0.0), (int(n * 0.7), 1.9), (n, 1.9)):
-        hl.scale = (w / 2, 0.002, 0.055)
+    for f, w in ((1, 0.0), (int(n * 0.35), 0.0), (int(n * 0.7), 1.65), (n, 1.65)):
+        hl.scale = (w / 2, 0.002, 0.075)
         hl.location = (-0.95 + w / 2, -0.006, hi_z)
         hl.keyframe_insert("scale", frame=f)
         hl.keyframe_insert("location", frame=f)
-    ht = C.text("EXTREME HYPERCAPNIA → UNCONSCIOUSNESS", (-0.9, -0.012, hi_z), size=0.085,
-                font=C.FONT_SANS_B, align="LEFT", mat=ink, name="hline")
+    ht = C.text("EXTREME HYPERCAPNIA", (-0.9, -0.012, hi_z), size=0.12, font=C.FONT_SANS_B, align="LEFT", mat=ink,
+                name="hline")
     ht.parent = page
+    ht2 = C.text("\u2192 UNCONSCIOUSNESS", (-0.9, -0.012, hi_z - 0.17), size=0.1, font=C.FONT_SANS_B, align="LEFT",
+                 mat=ink, name="hline2")
+    ht2.parent = page
     # page slides in with a small 3D tilt and settles flat
     C.key_loc(page, [(1, (0.2, 0, -2.6)), (16, (0, 0, 0)), (n, (0, 0, 0.05))])
     page.rotation_euler = (0.35, 0, -0.12)
@@ -830,25 +856,55 @@ def S16(L, n):
     L.area((2, -2, -1), (math.radians(110), 0, math.radians(40)), energy=150, size=3, color=(0.6, 0.75, 1.0))
     cam = C.camera(lens=35)
     C.aim_cam(cam, n, [(1, (0.2, -5.2, 0.4), (0.0, 0, 0.3)), (16, (0.1, -4.8, 0.4), (0.0, 0, 0.3)),
-                       (n, (0.1, -2.35, hi_z + 0.05), (0.1, 0, hi_z - 0.05))], shake=0.004, rot_shake=0.001)
+                       (n, (-0.05, -3.1, hi_z - 0.05), (-0.05, 0, hi_z - 0.12))], shake=0.004, rot_shake=0.001)
     L.bake_static()
 
 
 # ============================================================================ S17 / S18 shaft looking up to daylight
 
 def _upshaft(L, n, density=0.04, sun_e=6.0):
+    """Looking up the Boesmansgat throat: rock tube lit cyan from above, bright surface disc, light shafts."""
     C.world_black((0.0, 0.01, 0.015))
     C.render_quality(vol_end=40, vol_samples=64)
     C.water(center=(0, 0, -15), size=(14, 14, 32), color=(0.4, 0.75, 0.8), density=density, absorption=(0.06, 0.2, 0.18))
     C.shaft(1.0, -34, lambda z, a: 2.6 + 0.6 * math.sin(a * 2 + 0.4) + 0.3 * math.sin(a * 5 + z * 0.2) +
             (0.06 * (z + 34) if z < -14 else 1.2), step=0.8, ring=36, seed=9, rough=0.25, name="upshaft",
-            disp=(0.6, 0.18), mat=C.rock_mat("uprock", (0.02, 0.04, 0.045), (0.2, 0.3, 0.3), scale=1.3))
+            disp=(0.6, 0.18), mat=C.rock_mat("uprock", (0.03, 0.06, 0.065), (0.3, 0.42, 0.42), scale=1.3))
     C.sun_from((0.18, 0.12, 1.0), energy=sun_e, color=(0.8, 0.95, 1.0), angle=2)
-    s, surf = L.caustics_light(loc=(0, 0, 0.6), energy=0.0, animate_frames=n)
-    s.data.energy = 0.0
-    surf.scale = (0.06, 0.06, 1)
-    em = surf.active_material.node_tree.nodes["Emission"]
-    em.inputs[1].default_value = 7.0
+    # surface: smooth bright disc with gentle ripple (no speckle)
+    surf = L.prim("cyl", loc=(0, 0, 0.6), vertices=64, radius=6, depth=0.02, name="surface")
+    m, nn, ll = L._mat("surface_m")
+    for nd in list(nn):
+        if nd.type == "BSDF_PRINCIPLED":
+            nn.remove(nd)
+    tc = nn.new("ShaderNodeTexCoord")
+    vr = nn.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = 0.9
+    mp = nn.new("ShaderNodeMapping")
+    ll.new(tc.outputs["Object"], mp.inputs["Vector"])
+    ll.new(mp.outputs[0], vr.inputs["Vector"])
+    C.key_input(mp.inputs["Location"], [(1, (0, 0, 0)), (n, (0.6, 0.4, 0))])
+    ramp = nn.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (1, 1, 1, 1)
+    ramp.color_ramp.elements[1].color = (0.55, 0.85, 0.95, 1)
+    ramp.color_ramp.elements[1].position = 0.35
+    ll.new(vr.outputs["Distance"], ramp.inputs["Fac"])
+    em = nn.new("ShaderNodeEmission")
+    em.inputs[1].default_value = 9.0
+    ll.new(ramp.outputs[0], em.inputs[0])
+    ll.new(em.outputs[0], nn["Material Output"].inputs["Surface"])
+    L.assign(surf, m)
+    # cyan bounce down the shaft so the rock tube reads
+    for z, e in ((-2, 600), (-7, 450), (-12, 300)):
+        L.point((0.3, 0.2, z), energy=e, color=(0.45, 0.85, 0.95), radius=1.0, name="bounce")
+    # fake god rays from the surface
+    rnd = random.Random(4)
+    for i in range(7):
+        sp = L.spot((rnd.uniform(-1.6, 1.6), rnd.uniform(-1.6, 1.6), 0.4), (rnd.uniform(-0.12, 0.12), rnd.uniform(-0.12, 0.12), 0),
+                    energy=0, size_deg=rnd.uniform(5, 9), name="ray")
+        cone, sock = C.beam_cone(sp, length=rnd.uniform(9, 15), color=(0.75, 0.95, 1.0), strength=rnd.uniform(0.25, 0.45),
+                                 name="rayc")
+        C.key_input(sock, [(1, sock.default_value), (n // 2, sock.default_value * rnd.uniform(0.5, 1.4)), (n, sock.default_value)])
     return surf
 
 
@@ -857,35 +913,29 @@ def S17(L, n):
     top = Vector((0.2, 0.3, 0.5))
     lm = L.mat_principled("haul", (0.95, 0.95, 0.9), rough=0.4, emit=(0.9, 0.9, 0.85), emit_strength=1.0)
     tagm = L.mat_principled("haultag", (1.0, 0.6, 0.15), emit=(1, 0.55, 0.1), emit_strength=2.0)
-    lines = []
     for i, b in enumerate(((-0.9, -0.6, -34), (0.7, -0.9, -34), (1.4, 0.8, -34))):
         pts = [tuple(Vector(b)), tuple(top + Vector((0.05 * i, 0, 0)))]
-        o = C.curve(pts, thickness=0.012, mat=lm, name=f"haul{i}")
-        lines.append(pts)
+        C.curve(pts, thickness=0.012, mat=lm, name=f"haul{i}")
         tags = []
         for k in range(14):
             t = L.prim("cube", loc=(0, 0, 0), name="ht")
             t.scale = (0.03, 0.03, 0.06)
             L.assign(t, tagm if k % 3 == 0 else lm)
             tags.append(t)
-        # hand-over-hand: surge, pause, surge
         for k, t in enumerate(tags):
             base = k / 14.0
-            keys = []
             prog = 0.0
             for f in range(1, n + 1, 2):
                 cyc = (f + i * 7) % 22
                 if cyc < 12:
                     prog += 0.0065
-                keys.append((f, prog))
-            for f, pr in keys:
-                tt = (base + pr) % 1.0
+                tt = (base + prog) % 1.0
                 t.location = C.along(pts, 0.45 + tt * 0.55)
                 t.keyframe_insert("location", frame=f)
-    p = C.cloud((0, 0, -16), (5, 5, 10), count=2400, radius=0.01, emit=0.08, seed=5)
+    p = C.cloud((0, 0, -16), (5, 5, 10), count=2400, radius=0.006, emit=0.1, seed=5)
     C.drift(p, n, (0.02, 0.01, 0.12))
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (0.9, -1.1, -19.5), (0.25, 0.3, 0)), (n, (0.8, -0.9, -18.6), (0.2, 0.3, 0))],
+    C.aim_cam(cam, n, [(1, (1.1, -1.3, -19.5), (0.2, 0.3, 0)), (n, (1.0, -1.1, -18.6), (0.2, 0.3, 0))],
               shake=0.02, rot_shake=0.003)
     L.bake_static()
 
@@ -893,6 +943,9 @@ def S17(L, n):
 def S18(L, n):
     _upshaft(L, n, density=0.05, sun_e=7)
     sil = L.mat_principled("sil", (0.01, 0.012, 0.014), rough=0.8)
+    cam_p = Vector((1.6, -1.8, -15.0))
+    tgt = Vector((0.0, 0.3, 0.0))
+    mid0 = cam_p.lerp(tgt, 0.42)
     grp = L.link(bpy.data.objects.new("pair", None))
     for i, (x, rz) in enumerate(((-0.17, 0.18), (0.17, -0.12))):
         o = L.prim("sphere", loc=(x, 0, 0), segments=20, ring_count=12, name=f"shape{i}")
@@ -901,28 +954,23 @@ def S18(L, n):
         L.assign(o, sil)
         L.smooth(o)
         o.parent = grp
-        t = L.prim("cyl", loc=(x * 1.2, 0.08, -0.15), vertices=12, radius=0.07, depth=0.55, name=f"tank{i}")
-        L.assign(t, sil)
-        t.parent = grp
-    loop = L.prim("torus", loc=(0, 0, 0.1), major_radius=0.42, minor_radius=0.012, name="loop")
-    loop.scale = (1, 0.55, 1)
-    L.assign(loop, L.mat_principled("loopm", (0.95, 0.95, 0.9), emit=(0.95, 0.95, 0.9), emit_strength=2.0))
-    loop.parent = grp
-    loop2 = L.prim("torus", loc=(0, 0, -0.35), rot=(0.15, 0, 0), major_radius=0.4, minor_radius=0.01, name="loop2")
-    loop2.scale = (1, 0.6, 1)
-    L.assign(loop2, loop.active_material)
-    loop2.parent = grp
-    haul = C.curve([(0, 0, 0.1), (0.15, 0.2, 9)], thickness=0.01, mat=loop.active_material, name="haulline")
+    lm = L.mat_principled("loopm", (0.95, 0.95, 0.9), emit=(0.95, 0.95, 0.9), emit_strength=2.0)
+    for z, rr in ((0.25, 0.42), (-0.3, 0.4)):
+        loop = L.prim("torus", loc=(0, 0, z), major_radius=rr, minor_radius=0.012, name="loop")
+        loop.scale = (1, 0.6, 1)
+        L.assign(loop, lm)
+        loop.parent = grp
+    haul = C.curve([(0, 0, 0.85), (0.1, 0.15, 14)], thickness=0.01, mat=lm, name="haulline")
     haul.parent = grp
-    C.key_loc(grp, [(1, (0.2, 0.3, -9.5)), (n, (0.2, 0.3, -8.4))])
+    C.key_loc(grp, [(1, tuple(mid0)), (n, tuple(mid0 + Vector((0, 0, 1.0))))])
     L.linear_fcurves(grp)
-    grp.rotation_euler = (0, 0, 0)
+    grp.rotation_euler = (0.25, -0.35, 0)
     grp.keyframe_insert("rotation_euler", frame=1)
-    grp.rotation_euler = (0, 0, 0.25)
+    grp.rotation_euler = (0.25, -0.35, 0.3)
     grp.keyframe_insert("rotation_euler", frame=n)
-    p = C.cloud((0, 0, -10), (5, 5, 8), count=2000, radius=0.01, emit=0.08, seed=7)
+    p = C.cloud((0, 0, -10), (5, 5, 8), count=2000, radius=0.006, emit=0.1, seed=7)
     C.drift(p, n, (0.02, 0.0, 0.08))
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (0.55, -1.2, -15.0), (0.2, 0.35, 0)), (n, (0.5, -1.1, -14.7), (0.2, 0.35, 0))],
+    C.aim_cam(cam, n, [(1, tuple(cam_p), tuple(tgt)), (n, tuple(cam_p + Vector((0, 0, 0.3))), tuple(tgt))],
               shake=0.012, rot_shake=0.002)
     L.bake_static()

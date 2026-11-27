@@ -26,7 +26,7 @@ def desk_scene(L, n, lamp_energy=14, lamp_loc=(-0.55, 0.08, 0.0), lamp_target=(0
     w = L.prim("plane", loc=(0, 0.9, 0.6), size=1, rot=(math.pi / 2, 0, 0))
     w.scale = (4, 2, 1)
     L.assign(w, L.mat_noise_surface("deskwall", (0.012, 0.012, 0.014), (0.03, 0.03, 0.034), scale=4, bump=0.1, voronoi=False))
-    root, sp = M.desk_lamp(lamp_loc, lamp_target, energy=lamp_energy * 4.5, rot_z=R(lamp_rot))
+    root, sp = M.desk_lamp(lamp_loc, lamp_target, energy=lamp_energy * 1.2, rot_z=R(lamp_rot))
     # cold moonlight-ish fill from the right (desaturated murder palette)
     if cold_fill:
         L.area((0.8, -0.5, 0.7), (R(60), 0, R(55)), energy=cold_fill * 3, size=1.0, color=(0.55, 0.65, 0.9), name="coldfill")
@@ -39,18 +39,18 @@ def desk_scene(L, n, lamp_energy=14, lamp_loc=(-0.55, 0.08, 0.0), lamp_target=(0
 def sand_grains(center=(0, 0, 0), size=(0.16, 0.12), count=160):
     L = M.L
     m = L.mat_principled("grain", (0.55, 0.45, 0.3), rough=0.8)
-    return L.particle_cloud((center[0], center[1], 0.0007), (size[0], size[1], 0.0004), count=count, radius=0.0009, mat=m,
+    return L.particle_cloud((center[0], center[1], 0.0007), (size[0], size[1], 0.0004), count=count, radius=0.0004, mat=m,
                             drift=(0, 0, 0), nframes=2, name="grains")
 
 
-S01_C0 = (0.06, -0.33, 0.16)
-S01_C1 = (0.04, -0.25, 0.12)
-S01_T = (0.0, 0.0, 0.004)
+S01_C0 = (0.05, -0.27, 0.12)
+S01_C1 = (0.045, -0.2, 0.09)
+S01_T = (0.03, -0.01, -0.012)
 
 
 def macro_scrap(L, n, c_from, c_to, unroll=None, tweezers_anim=False):
     desk_scene(L, n, lamp_energy=10, lamp_target=(0, 0, 0))
-    root, paper, bd = M.rolled_scrap((0.0, -0.028, 0.0045), rot_z=R(-8))
+    root, paper, bd = M.rolled_scrap((0.0, -0.028, 0.0003), rot_z=R(-82))
     sand_grains()
     tw = None
     if tweezers_anim:
@@ -67,20 +67,20 @@ def S01(L, n):
     # tweezers come down, grip the free end, lift and the strip unrolls
     f_grip, f_end = int(n * 0.4), n
     tw.keyframe_insert("location", frame=1)
-    tw.location = (0.004, 0.034, 0.012)
+    tw.location = (0.002, -0.026, 0.006)
     tw.rotation_euler = (R(-10), R(8), 0)
     tw.keyframe_insert("location", frame=f_grip)
     tw.keyframe_insert("rotation_euler", frame=f_grip)
     tw.rotation_euler = (R(-25), R(20), 0)
     tw.keyframe_insert("rotation_euler", frame=1)
-    tw.location = (0.004, 0.06, 0.03)
+    tw.location = (0.058, -0.02, 0.004)
     tw.rotation_euler = (R(-10), R(8), 0)
     tw.keyframe_insert("location", frame=f_end)
     tw.keyframe_insert("rotation_euler", frame=f_end)
-    bd.angle = 2 * math.pi * 2.1
-    paper.keyframe_insert('modifiers["curl"].angle', frame=f_grip)
-    bd.angle = R(40)
-    paper.keyframe_insert('modifiers["curl"].angle', frame=f_end)
+    bd.value = 1.0
+    bd.keyframe_insert("value", frame=f_grip)
+    bd.value = 0.08
+    bd.keyframe_insert("value", frame=f_end)
     L.bake_static()
 
 
@@ -94,7 +94,7 @@ def S02(L, n):
     # macro plate under the scrap overlay: unrolled strip, slow zoom, very shallow focus
     desk_scene(L, n, lamp_energy=9)
     root, paper, bd = M.rolled_scrap((0.0, -0.03, 0.0005), rot_z=R(-80))
-    bd.angle = R(15)
+    bd.value = 0.0
     sand_grains()
     cam, ct = L.camera(loc=(0.0, -0.2, 0.22), target=(0, 0, 0), lens=85)
     L.cam_keys(cam, [(1, (0.0, -0.2, 0.22)), (n, (0.0, -0.16, 0.18))])
@@ -205,8 +205,8 @@ def S04(L, n):
 
 def S19(L, n):
     beach(L, n, dawn=1.0, figure=False, lamps=True, mist=0.02)
-    cam, ct = L.camera(loc=(-8.0, -9.0, 1.2), target=(10, -1.5, 1.4), lens=28)
-    L.cam_keys(cam, [(1, (-8.0, -9.0, 1.2)), (n, (-6.0, -8.0, 1.2))])
+    cam, ct = L.camera(loc=(-7.0, -19.0, 1.5), target=(10, -8.0, 1.2), lens=28)
+    L.cam_keys(cam, [(1, (-7.0, -19.0, 1.5)), (n, (-5.0, -18.0, 1.5))])
     lin(cam)
     L.bake_static()
 
@@ -223,12 +223,12 @@ def S05(L, n):
         t = L.prim("cyl", loc=(0.03 * i - 0.02, 0.2 + 0.045 + 0.004 * i, 0.054), vertices=4, radius=0.0007, depth=0.015,
                    rot=(math.pi / 2, 0, 0.6 * i))
         L.assign(t, th)
-    c0, c1 = (0.12, -0.12, 0.62), (0.01, 0.18, 0.42)
-    cam, ct = L.camera(loc=c0, target=(0.06, -0.1, 0), lens=50)
+    c0, c1 = (0.05, -0.05, 1.0), (0.0, 0.17, 0.5)
+    cam, ct = L.camera(loc=c0, target=(0.04, -0.02, 0), lens=50)
     L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
     ct.keyframe_insert("location", frame=1)
-    ct.location = (0.0, 0.2, 0.05)
+    ct.location = (0.0, 0.2, 0.0)
     ct.keyframe_insert("location", frame=n)
     lin(ct)
     L.bake_static()
@@ -253,7 +253,7 @@ def cloakroom(L, n, lamp_e=260):
     bulb = L.prim("sphere", loc=(0.3, -0.2, 2.98), radius=0.06, segments=12, ring_count=8)
     L.assign(bulb, L.mat_emission("bulb", (1.0, 0.75, 0.45), 30))
     bulb.visible_shadow = False
-    lamp = L.spot((0.3, -0.2, 2.95), (R(18), 0, 0), energy=lamp_e * 3, size_deg=80, blend=0.7, color=(1.0, 0.72, 0.42), name="lamp", radius=0.08)
+    lamp = L.spot((0.3, -0.2, 2.95), (R(18), 0, 0), energy=lamp_e * 1.6, size_deg=80, blend=0.7, color=(1.0, 0.72, 0.42), name="lamp", radius=0.08)
     L.flicker(lamp, n, depth=0.15, rate=0.5, seed=3)
     L.area((-3, -3, 2.5), (R(60), 0, R(-40)), energy=25, size=3, color=(0.5, 0.6, 0.85), name="coldfill")
     L.particle_cloud((0.3, 0.2, 1.6), (2.0, 1.5, 2.0), count=150, radius=0.0018, drift=(0.02, 0, -0.01), nframes=n,
@@ -279,8 +279,8 @@ def S06(L, n):
 def S07(L, n):
     case, lamp = cloakroom(L, n)
     case.location = (0.3, 0.72, 1.32)
-    c0, c1 = (0.62, 0.05, 1.86), (0.55, 0.16, 1.82)
-    cam, ct = L.camera(loc=c0, target=(0.36, 0.68, 1.65), lens=50)
+    c0, c1 = (0.55, -0.05, 1.8), (0.5, 0.08, 1.77)
+    cam, ct = L.camera(loc=c0, target=(0.34, 0.6, 1.66), lens=50)
     L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
     L.dof(cam, distance=0.62, fstop=2.8)
@@ -307,10 +307,10 @@ def S08(L, n):
     bk.keyframe_insert("location", frame=8)
     bk.location = (0.0, 0.03, 0.0)
     bk.keyframe_insert("location", frame=10)
-    M.snow_burst((0.0, 0.03, 0.01), n, 6, count=250, radius=0.0012, spread=0.25, rise=0.05, seed=81, name="puff", emit=0.4)
+    M.snow_burst((0.0, 0.03, 0.01), n, 6, count=60, radius=0.0006, spread=0.2, rise=0.03, seed=81, name="puff", emit=0.2, dur=12)
     # the scrap slides in and aligns with the book's edge (the matched tear)
     root, paper, bd = M.rolled_scrap((0.25, -0.12, 0.0006), rot_z=R(-96))
-    bd.angle = R(6)
+    bd.value = 0.0
     root.keyframe_insert("location", frame=1)
     root.keyframe_insert("location", frame=22)
     root.location = (0.095, -0.06, 0.0006)
@@ -343,7 +343,7 @@ def S09(L, n):
     cam, ct = L.camera(loc=c0, target=(0.0, 0.01, 0.022), lens=85)
     L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
-    L.dof(cam, target=bk, fstop=4.0)
+    L.dof(cam, target=bk, fstop=9.0)
     L.bake_static()
 
 
@@ -390,7 +390,7 @@ def back_cover(L, n, flip=True, uv=True):
         bk.location = (0, 0, 0.022)
         bk.rotation_euler = (0, math.pi, 0)
     if uv:
-        uvl = L.area((-0.3, 0, 0.25), (0, R(-40), 0), energy=1.2, size=0.15, color=(0.5, 0.2, 1.0), name="uv")
+        uvl = L.area((-0.3, 0, 0.25), (0, R(-40), 0), energy=0.25, size=0.15, color=(0.5, 0.2, 1.0), name="uv")
         uvl.keyframe_insert("location", frame=20)
         uvl.location = (0.3, 0, 0.25)
         uvl.rotation_euler = (0, R(40), 0)
@@ -418,7 +418,7 @@ def code_plate(L, n, z0, z1, blur=True):
     L.cam_keys(cam, [(1, (0.03, -0.12, z0)), (n, (0.02, -0.1, z1))])
     lin(cam)
     if blur:
-        L.dof(cam, distance=0.08, fstop=1.4)
+        L.dof(cam, distance=z0, fstop=2.8)
     L.bake_static()
 
 
@@ -436,8 +436,10 @@ def S21(L, n):
 
 def S12(L, n):
     # inquest beat: dim desk plate, the plaster bust silhouette far back in the dark, lamp low
-    desk_scene(L, n, lamp_energy=8, lamp_target=(0.1, 0.25, 0.1), cold_fill=0.8)
-    M.plaster_bust((0.12, 0.35, 0.0), scale=0.7)
+    desk_scene(L, n, lamp_energy=8, lamp_target=(-0.12, -0.05, 0.0), cold_fill=0.6)
+    M.plaster_bust((0.14, 0.6, 0.0), scale=0.75)
+    rim = L.spot((0.5, 1.1, 0.6), (0, 0, 0), energy=6, size_deg=30, color=(0.6, 0.7, 1.0), name="bustrim")
+    M.aim(rim, M.empty("bt", (0.14, 0.6, 0.3)))
     M.book((-0.12, -0.05, 0.0), title=BOOK_TITLE, rot_z=R(15))
     cam, ct = L.camera(loc=(-0.05, -0.75, 0.32), target=(0.05, 0.2, 0.12), lens=50)
     L.cam_keys(cam, [(1, (-0.05, -0.75, 0.32)), (n, (0.0, -0.62, 0.29))])
@@ -448,7 +450,7 @@ def S12(L, n):
 
 # ----------------------------------------------------------------------------- S13 theory board
 
-CARDS = [("SPY", (-0.6, -0.01, 1.05), R(-4)), ("LOST\nLOVE", (0.55, -0.01, 0.15), R(5)), ("SUICIDE", (-0.45, -0.01, -0.85), R(-3))]
+CARDS = [("SPY", (-0.6, -0.01, 1.2), R(-4)), ("LOST\nLOVE", (0.55, -0.01, 0.35), R(5)), ("SUICIDE", (-0.45, -0.01, -0.5), R(-3))]
 
 
 def S13(L, n):
@@ -550,7 +552,7 @@ def S15(L, n):
     tiles = M.mat_grid("tiles", color=(0.25, 0.27, 0.3), bg=(0.5, 0.53, 0.55), scale=7, width=0.05, strength=0.05)[0]
     wall = L.prim("plane", loc=(0, 0.6, 0.6), size=1, rot=(math.pi / 2, 0, 0))
     wall.scale = (3, 1.4, 1)
-    wp = L.mat_noise_surface("labwall", (0.18, 0.2, 0.22), (0.3, 0.32, 0.34), scale=3, bump=0.05, voronoi=False)
+    wp = L.mat_noise_surface("labwall", (0.06, 0.07, 0.08), (0.12, 0.13, 0.15), scale=3, bump=0.05, voronoi=False)
     L.assign(wall, wp)
     M.plaster_bust((-0.18, 0.15, 0.0), scale=0.75)
     tube, liq = M.test_tube((0.16, -0.02, 0.0))
@@ -569,7 +571,7 @@ def S15(L, n):
     tw.keyframe_insert("rotation_euler", frame=int(n * 0.6))
     tw.location = (0.16, -0.02, 0.17)
     tw.keyframe_insert("location", frame=n)
-    lp = L.area((0, -0.2, 0.9), (R(12), 0, 0), energy=18, size=0.6, color=(0.85, 0.93, 1.0), name="lablight")
+    lp = L.area((0, -0.2, 0.9), (R(12), 0, 0), energy=7, size=0.6, color=(0.85, 0.93, 1.0), name="lablight")
     L.point((0.16, -0.06, 0.08), energy=0.6, color=(0.3, 0.9, 1.0), radius=0.02, name="tubeglow")
     c0, c1 = (-0.1, -0.85, 0.32), (0.1, -0.45, 0.2)
     cam, ct = L.camera(loc=c0, target=(-0.02, 0.05, 0.15), lens=50)
@@ -651,7 +653,7 @@ def S17(L, n):
     fill.scale = (1.15, 0.01, 0.32)
     L.assign(fill, L.mat_emission("slotfill", (1.0, 0.55, 0.2), 1.2))
     M.hide_until(fill, 6)
-    L.particle_cloud((0, -0.5, 0.5), (8, 2, 8), count=600, radius=0.012, drift=(0, 0, 0.05), nframes=n,
+    L.particle_cloud((0, -0.5, 0.5), (8, 2, 8), count=150, radius=0.01, drift=(0, 0, 0.05), nframes=n,
                      mat=L.mat_emission("embers", (1.0, 0.6, 0.25), 3.0))
     cam, ct = L.camera(loc=(0, -12.5, 1.6), target=(0, 0, 1.4), lens=35)
     L.cam_keys(cam, [(1, (0, -12.5, 1.6)), (n, (0, -7.0, 0.2))])

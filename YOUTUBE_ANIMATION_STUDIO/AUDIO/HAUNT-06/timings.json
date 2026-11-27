@@ -1,0 +1,698 @@
+{
+ "duration": 46.89,
+ "voice": "am_onyx",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.83,
+   "text": "August 10th, 1991. Ghost hunters photographed this empty gravestone.",
+   "words": [
+    {
+     "w": "August",
+     "start": 0.18,
+     "end": 0.57
+    },
+    {
+     "w": "10th,",
+     "start": 0.57,
+     "end": 0.9
+    },
+    {
+     "w": "1991.",
+     "start": 0.9,
+     "end": 1.74
+    },
+    {
+     "w": "Ghost",
+     "start": 1.74,
+     "end": 2.2
+    },
+    {
+     "w": "hunters",
+     "start": 2.2,
+     "end": 2.54
+    },
+    {
+     "w": "photographed",
+     "start": 2.54,
+     "end": 3.45
+    },
+    {
+     "w": "this",
+     "start": 3.45,
+     "end": 3.67
+    },
+    {
+     "w": "empty",
+     "start": 3.67,
+     "end": 3.98
+    },
+    {
+     "w": "gravestone.",
+     "start": 3.98,
+     "end": 4.77
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 5.08,
+   "end": 7.93,
+   "text": "Bachelor's Grove Cemetery, outside Chicago.",
+   "words": [
+    {
+     "w": "Bachelor's",
+     "start": 5.11,
+     "end": 5.65
+    },
+    {
+     "w": "Grove",
+     "start": 5.65,
+     "end": 6.04
+    },
+    {
+     "w": "Cemetery,",
+     "start": 6.04,
+     "end": 6.69
+    },
+    {
+     "w": "outside",
+     "start": 6.69,
+     "end": 7.29
+    },
+    {
+     "w": "Chicago.",
+     "start": 7.29,
+     "end": 7.87
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 8.18,
+   "end": 11.5,
+   "text": "Abandoned, inside a forest preserve, and badly vandalised.",
+   "words": [
+    {
+     "w": "Abandoned,",
+     "start": 8.21,
+     "end": 8.74
+    },
+    {
+     "w": "inside",
+     "start": 8.74,
+     "end": 9.19
+    },
+    {
+     "w": "a",
+     "start": 9.19,
+     "end": 9.32
+    },
+    {
+     "w": "forest",
+     "start": 9.32,
+     "end": 9.7
+    },
+    {
+     "w": "preserve,",
+     "start": 9.7,
+     "end": 10.26
+    },
+    {
+     "w": "and",
+     "start": 10.26,
+     "end": 10.42
+    },
+    {
+     "w": "badly",
+     "start": 10.42,
+     "end": 10.8
+    },
+    {
+     "w": "vandalised.",
+     "start": 10.8,
+     "end": 11.44
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 11.8,
+   "end": 15.86,
+   "text": "Locals tell of floating lights, and a farmhouse that vanishes as you approach.",
+   "words": [
+    {
+     "w": "Locals",
+     "start": 11.83,
+     "end": 12.25
+    },
+    {
+     "w": "tell",
+     "start": 12.25,
+     "end": 12.53
+    },
+    {
+     "w": "of",
+     "start": 12.53,
+     "end": 12.6
+    },
+    {
+     "w": "floating",
+     "start": 12.6,
+     "end": 13.15
+    },
+    {
+     "w": "lights,",
+     "start": 13.15,
+     "end": 13.44
+    },
+    {
+     "w": "and",
+     "start": 13.44,
+     "end": 13.65
+    },
+    {
+     "w": "a",
+     "start": 13.65,
+     "end": 13.72
+    },
+    {
+     "w": "farmhouse",
+     "start": 13.72,
+     "end": 14.39
+    },
+    {
+     "w": "that",
+     "start": 14.39,
+     "end": 14.59
+    },
+    {
+     "w": "vanishes",
+     "start": 14.59,
+     "end": 15.09
+    },
+    {
+     "w": "as",
+     "start": 15.09,
+     "end": 15.11
+    },
+    {
+     "w": "you",
+     "start": 15.11,
+     "end": 15.31
+    },
+    {
+     "w": "approach.",
+     "start": 15.31,
+     "end": 15.8
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 16.16,
+   "end": 20.42,
+   "text": "That night, the Ghost Research Society said its equipment acted strangely here.",
+   "words": [
+    {
+     "w": "That",
+     "start": 16.19,
+     "end": 16.36
+    },
+    {
+     "w": "night,",
+     "start": 16.36,
+     "end": 16.74
+    },
+    {
+     "w": "the",
+     "start": 16.74,
+     "end": 16.76
+    },
+    {
+     "w": "Ghost",
+     "start": 16.76,
+     "end": 17.14
+    },
+    {
+     "w": "Research",
+     "start": 17.14,
+     "end": 17.63
+    },
+    {
+     "w": "Society",
+     "start": 17.63,
+     "end": 18.17
+    },
+    {
+     "w": "said",
+     "start": 18.17,
+     "end": 18.36
+    },
+    {
+     "w": "its",
+     "start": 18.36,
+     "end": 18.52
+    },
+    {
+     "w": "equipment",
+     "start": 18.52,
+     "end": 19.2
+    },
+    {
+     "w": "acted",
+     "start": 19.2,
+     "end": 19.55
+    },
+    {
+     "w": "strangely",
+     "start": 19.55,
+     "end": 20.12
+    },
+    {
+     "w": "here.",
+     "start": 20.12,
+     "end": 20.36
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 20.67,
+   "end": 24.14,
+   "text": "One member was shooting black-and-white infrared film in that spot.",
+   "words": [
+    {
+     "w": "One",
+     "start": 20.7,
+     "end": 20.98
+    },
+    {
+     "w": "member",
+     "start": 20.98,
+     "end": 21.25
+    },
+    {
+     "w": "was",
+     "start": 21.25,
+     "end": 21.41
+    },
+    {
+     "w": "shooting",
+     "start": 21.41,
+     "end": 21.74
+    },
+    {
+     "w": "black-and-white",
+     "start": 21.74,
+     "end": 22.47
+    },
+    {
+     "w": "infrared",
+     "start": 22.47,
+     "end": 23.03
+    },
+    {
+     "w": "film",
+     "start": 23.03,
+     "end": 23.39
+    },
+    {
+     "w": "in",
+     "start": 23.39,
+     "end": 23.46
+    },
+    {
+     "w": "that",
+     "start": 23.46,
+     "end": 23.79
+    },
+    {
+     "w": "spot.",
+     "start": 23.79,
+     "end": 24.08
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 24.39,
+   "end": 26.53,
+   "text": "Nobody saw anyone on the stone.",
+   "words": [
+    {
+     "w": "Nobody",
+     "start": 24.42,
+     "end": 24.93
+    },
+    {
+     "w": "saw",
+     "start": 24.93,
+     "end": 25.19
+    },
+    {
+     "w": "anyone",
+     "start": 25.19,
+     "end": 25.75
+    },
+    {
+     "w": "on",
+     "start": 25.75,
+     "end": 26.01
+    },
+    {
+     "w": "the",
+     "start": 26.01,
+     "end": 26.02
+    },
+    {
+     "w": "stone.",
+     "start": 26.02,
+     "end": 26.47
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 26.88,
+   "end": 28.56,
+   "text": "Then the film was developed.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 26.91,
+     "end": 27.24
+    },
+    {
+     "w": "the",
+     "start": 27.24,
+     "end": 27.3
+    },
+    {
+     "w": "film",
+     "start": 27.3,
+     "end": 27.69
+    },
+    {
+     "w": "was",
+     "start": 27.69,
+     "end": 27.84
+    },
+    {
+     "w": "developed.",
+     "start": 27.84,
+     "end": 28.5
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 28.91,
+   "end": 32.69,
+   "text": "A woman. See-through. Seated on the gravestone, in an old-fashioned dress.",
+   "words": [
+    {
+     "w": "A",
+     "start": 28.94,
+     "end": 29.05
+    },
+    {
+     "w": "woman.",
+     "start": 29.05,
+     "end": 29.47
+    },
+    {
+     "w": "See-through.",
+     "start": 29.47,
+     "end": 29.98
+    },
+    {
+     "w": "Seated",
+     "start": 29.98,
+     "end": 30.34
+    },
+    {
+     "w": "on",
+     "start": 30.34,
+     "end": 30.59
+    },
+    {
+     "w": "the",
+     "start": 30.59,
+     "end": 30.63
+    },
+    {
+     "w": "gravestone,",
+     "start": 30.63,
+     "end": 31.28
+    },
+    {
+     "w": "in",
+     "start": 31.28,
+     "end": 31.47
+    },
+    {
+     "w": "an",
+     "start": 31.47,
+     "end": 31.69
+    },
+    {
+     "w": "old-fashioned",
+     "start": 31.69,
+     "end": 32.28
+    },
+    {
+     "w": "dress.",
+     "start": 32.28,
+     "end": 32.63
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 33.04,
+   "end": 36.19,
+   "text": "It became one of the most famous ghost photos ever taken.",
+   "words": [
+    {
+     "w": "It",
+     "start": 33.07,
+     "end": 33.16
+    },
+    {
+     "w": "became",
+     "start": 33.16,
+     "end": 33.63
+    },
+    {
+     "w": "one",
+     "start": 33.63,
+     "end": 33.73
+    },
+    {
+     "w": "of",
+     "start": 33.73,
+     "end": 33.96
+    },
+    {
+     "w": "the",
+     "start": 33.96,
+     "end": 34.07
+    },
+    {
+     "w": "most",
+     "start": 34.07,
+     "end": 34.4
+    },
+    {
+     "w": "famous",
+     "start": 34.4,
+     "end": 34.79
+    },
+    {
+     "w": "ghost",
+     "start": 34.79,
+     "end": 35.03
+    },
+    {
+     "w": "photos",
+     "start": 35.03,
+     "end": 35.51
+    },
+    {
+     "w": "ever",
+     "start": 35.51,
+     "end": 35.7
+    },
+    {
+     "w": "taken.",
+     "start": 35.7,
+     "end": 36.13
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 36.44,
+   "end": 40.1,
+   "text": "Sceptics suspect a double exposure: two images on one frame.",
+   "words": [
+    {
+     "w": "Sceptics",
+     "start": 36.47,
+     "end": 36.96
+    },
+    {
+     "w": "suspect",
+     "start": 36.96,
+     "end": 37.45
+    },
+    {
+     "w": "a",
+     "start": 37.45,
+     "end": 37.6
+    },
+    {
+     "w": "double",
+     "start": 37.6,
+     "end": 37.97
+    },
+    {
+     "w": "exposure:",
+     "start": 37.97,
+     "end": 38.5
+    },
+    {
+     "w": "two",
+     "start": 38.5,
+     "end": 38.79
+    },
+    {
+     "w": "images",
+     "start": 38.79,
+     "end": 39.2
+    },
+    {
+     "w": "on",
+     "start": 39.2,
+     "end": 39.4
+    },
+    {
+     "w": "one",
+     "start": 39.4,
+     "end": 39.69
+    },
+    {
+     "w": "frame.",
+     "start": 39.69,
+     "end": 40.04
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 40.4,
+   "end": 42.38,
+   "text": "Nobody has proved it either way.",
+   "words": [
+    {
+     "w": "Nobody",
+     "start": 40.43,
+     "end": 41.03
+    },
+    {
+     "w": "has",
+     "start": 41.03,
+     "end": 41.16
+    },
+    {
+     "w": "proved",
+     "start": 41.16,
+     "end": 41.66
+    },
+    {
+     "w": "it",
+     "start": 41.66,
+     "end": 41.83
+    },
+    {
+     "w": "either",
+     "start": 41.83,
+     "end": 42.01
+    },
+    {
+     "w": "way.",
+     "start": 42.01,
+     "end": 42.32
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 43.28,
+   "end": 44.49,
+   "text": "Or who she was.",
+   "words": [
+    {
+     "w": "Or",
+     "start": 43.31,
+     "end": 43.51
+    },
+    {
+     "w": "who",
+     "start": 43.51,
+     "end": 43.97
+    },
+    {
+     "w": "she",
+     "start": 43.97,
+     "end": 44.23
+    },
+    {
+     "w": "was.",
+     "start": 44.23,
+     "end": 44.43
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 44.84,
+   "end": 46.19,
+   "text": "All we know is that on",
+   "words": [
+    {
+     "w": "All",
+     "start": 44.87,
+     "end": 45.06
+    },
+    {
+     "w": "we",
+     "start": 45.06,
+     "end": 45.37
+    },
+    {
+     "w": "know",
+     "start": 45.37,
+     "end": 45.61
+    },
+    {
+     "w": "is",
+     "start": 45.61,
+     "end": 45.64
+    },
+    {
+     "w": "that",
+     "start": 45.64,
+     "end": 45.96
+    },
+    {
+     "w": "on",
+     "start": 45.96,
+     "end": 46.13
+    }
+   ]
+  }
+ ]
+}

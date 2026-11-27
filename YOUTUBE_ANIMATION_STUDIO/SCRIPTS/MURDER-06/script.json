@@ -1,0 +1,1102 @@
+{
+ "id": "MURDER-06",
+ "title": "The Ghost Ship's Creepiest Detail Was Fiction",
+ "category": "murder",
+ "voice": "am_michael",
+ "speed": 1.06,
+ "mood": "murder",
+ "target_seconds": 72,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Found sailing the Atlantic. Nobody on board.",
+   "pause_after": 0.4,
+   "shot": "S01",
+   "emphasis": [
+    "Nobody"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "You know the legend: warm tea, breakfast on the table.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "warm",
+    "tea"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Most of that is fiction. Even the name.",
+   "pause_after": 0.35,
+   "shot": "S03",
+   "emphasis": [
+    "fiction",
+    "name"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "December 1872, east of the Azores. Another crew spots a ship drifting.",
+   "pause_after": 0.25,
+   "shot": "S04",
+   "emphasis": [
+    "1872",
+    "drifting"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "The Mary Celeste. Her lifeboat: gone.",
+   "pause_after": 0.35,
+   "shot": "S05",
+   "emphasis": [
+    "Mary",
+    "gone"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Six months of food and water still aboard.",
+   "pause_after": 0.2,
+   "shot": "S06",
+   "emphasis": [
+    "Six",
+    "months"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Seventeen hundred barrels of alcohol in the hold.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "alcohol"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "A sounding rod lay on deck, as if someone had checked for leaks.",
+   "pause_after": 0.25,
+   "shot": "S08",
+   "emphasis": [
+    "sounding",
+    "rod"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Three and a half feet of water below. Yet she was seaworthy.",
+   "pause_after": 0.45,
+   "shot": "S09",
+   "emphasis": [
+    "seaworthy"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "So where did the warm tea come from?",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "warm",
+    "tea"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "In 1884, an anonymous magazine story renamed her Marie Celeste.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "Marie"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Many readers took it as fact. The author: Arthur Conan Doyle, before Sherlock Holmes.",
+   "pause_after": 0.4,
+   "shot": "S12",
+   "emphasis": [
+    "Conan",
+    "Doyle",
+    "Sherlock"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "The cosy breakfast scenes came from retellings like these. Not from the ship.",
+   "pause_after": 0.4,
+   "shot": "S13",
+   "emphasis": [
+    "retellings",
+    "Not"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The leading theories are ordinary.",
+   "pause_after": 0.2,
+   "shot": "S14",
+   "emphasis": [
+    "ordinary"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Alcohol fumes, and fear of an explosion.",
+   "pause_after": 0.2,
+   "shot": "S14",
+   "emphasis": [
+    "fumes"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Or a broken pump, and fear she was sinking.",
+   "pause_after": 0.3,
+   "shot": "S15",
+   "emphasis": [
+    "pump",
+    "sinking"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "Either way, they may have taken the lifeboat, and lost the ship.",
+   "pause_after": 0.45,
+   "shot": "S16",
+   "emphasis": [
+    "lost"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "Captain Briggs, his wife Sarah, two-year-old Sophia and seven crew were never found.",
+   "pause_after": 0.45,
+   "shot": "S17",
+   "emphasis": [
+    "never"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "Would you have left? Tell me below.",
+   "pause_after": 0.45,
+   "shot": "S18",
+   "emphasis": [
+    "left"
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "After the last log entry, nine days passed. Until she was...",
+   "pause_after": 0.0,
+   "shot": "S19",
+   "emphasis": [
+    "nine",
+    "days"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:open sea in fog",
+   "description": "Ship (build once, reuse; all primitives): two-masted brigantine ~31 m. Hull = box 31x7.5x4 m tapered at bow via bmesh (bow vertices scaled to 0.15 width, raised sheer 0.6 m), dark tarred-wood material, white waterline stripe; deck = plane with plank texture; low deckhouse box 6x4x1.6 m aft of mainmast; foremast = cylinder 0.35 m dia x 26 m with three square-sail yards (cylinders) and square sails (subdivided planes, slight cloth bulge via shape key, two of them furled = thin rolled cylinders); mainmast = cylinder x 27 m with a fore-and-aft gaff sail (quad plane between boom and gaff cylinders); bowsprit cylinder; rigging = curve lines; stern davits = two curved bent cylinders with EMPTY falls hanging (thin rope curves). Frame 1 already moving: the brigantine glides out of a fog bank toward camera at a slight angle, sails half-set and slack, deck empty, the wheel (torus + spokes at the stern) turning slightly on its own. Sea surface swelling.",
+   "camera": "low near-water angle, 35mm, slow push toward the bow, handheld amp 0.02 (boat-bob)",
+   "characters": [],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog",
+   "fx": [
+    "fog_volume density 0.05 drifting",
+    "sea spray particles at bow"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "start": 0.6,
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "creak",
+     "offset": 0.4,
+     "gain": 0.45
+    },
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "room",
+   "description": "LEGEND VERSION (stylised, desaturated sepia grade + film-grain): a cosy cabin (studio_lib room 4x3 m, wood panels) with a table set for breakfast: plates (flat cylinders), cups with rising steam wisps, a teapot (sphere + spout cylinder). Clearly marked as the legend.",
+   "camera": "slow dolly across the table 50mm, steam in foreground",
+   "characters": [],
+   "lighting": "warm lamp glow, sepia grade",
+   "fx": [
+    "steam wisps from cups (particle smoke, small)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "start": 0.2,
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE LEGEND",
+     "start": 0.4,
+     "params": {
+      "size": 90,
+      "y": 1400
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "room",
+   "description": "Same cabin: the steam freezes, the image desaturates to grey and a red diagonal stamp hits: FICTION. A brass name board on the wall reading 'MARIE CELESTE' flickers.",
+   "camera": "static, slight zoom-in 3%",
+   "characters": [],
+   "lighting": "lamp flickers out to cold grey",
+   "fx": [
+    "colour grade sepia -> grey",
+    "flicker"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "FICTION",
+     "start": 0.4,
+     "params": {
+      "size": 150,
+      "y": 760,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.4,
+     "gain": 0.6
+    },
+    {
+     "name": "static",
+     "offset": 0.9,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "map",
+   "description": "Map card: stylised North Atlantic: Portugal/Spain coast outline right, Azores dots left. A dotted line marks the brigantine's position east of the Azores; a second ship icon (the Dei Gratia) approaches from the west. Date stamp types on.",
+   "camera": "2D overlay over dark sea plate, slow zoom",
+   "characters": [],
+   "lighting": "background dim green-grey",
+   "fx": [
+    "fog in background plate"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "EAST OF THE AZORES\nNorth Atlantic",
+     "params": {
+      "land": [
+       [
+        0.78,
+        0.2
+       ],
+       [
+        0.95,
+        0.2
+       ],
+       [
+        0.95,
+        0.8
+       ],
+       [
+        0.82,
+        0.78
+       ],
+       [
+        0.8,
+        0.5
+       ]
+      ],
+      "points": [
+       [
+        0.1,
+        0.55
+       ],
+       [
+        0.35,
+        0.5
+       ],
+       [
+        0.5,
+        0.47
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "4 DECEMBER 1872\nSPOTTED BY THE DEI GRATIA",
+     "start": 0.3,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.3,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:ship deck, stern",
+   "description": "Stern of the brigantine: name board on the transom reads MARY CELESTE (text3d, painted white). Camera rises to the davits: two empty curved davit arms with cut rope ends swinging. No lifeboat.",
+   "camera": "crane up 35mm from transom name to empty davits",
+   "characters": [],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog",
+   "fx": [
+    "fog",
+    "rope swing (simple sine rotation)"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "LIFEBOAT: GONE",
+     "start": 1.2,
+     "params": {
+      "size": 90,
+      "y": 1400
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:ship galley / storeroom",
+   "description": "Small storeroom below deck: shelves (luggage_shelf builder) stacked with sacks, small casks and water barrels; a flashlight/lantern sweeps across them.",
+   "camera": "handheld 28mm lantern POV pan right",
+   "characters": [],
+   "lighting": "lantern warm spot from camera, darkness",
+   "fx": [
+    "dust in beam"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "~6 months of food and water",
+     "start": 0.5,
+     "params": {
+      "header": "FOUND ABOARD",
+      "y": 1300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:cargo hold",
+   "description": "Cargo hold: rows of barrels (cylinders with mid bulge via simple deform, dark oak with iron hoops = thin torus rings) stacked in tiers into darkness, stencilled 'ALCOHOL' on a few. Water glints on the floor between rows.",
+   "camera": "slow dolly down the aisle between barrel stacks, 24mm",
+   "characters": [],
+   "lighting": "shafts of grey light from an open hatch + lantern",
+   "fx": [
+    "dust",
+    "water surface on floor (reflective plane, low ripple)"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "BARRELS OF ALCOHOL",
+     "params": {
+      "from": 0,
+      "to": 1701
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:ship deck",
+   "description": "Close-up on the empty deck: an iron sounding rod (thin cylinder 1.2 m with notch marks, on a coiled line) lies on the planks next to an open pump-well cover. Camera tilts down to it.",
+   "camera": "slow tilt-down + push 50mm",
+   "characters": [],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog",
+   "fx": [
+    "light fog",
+    "water droplets on deck"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "SOUNDING ROD",
+     "start": 0.5,
+     "params": {
+      "size": 80,
+      "y": 1400
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.2,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:ship cross-section",
+   "description": "Cutaway diagram: the brigantine hull in side section (lib_murder.section_diagram style: flat-shaded, cyan line on black), a water level rises to a marked line at 3.5 ft in the hold, while the outer waterline stays normal. Then hull glows green: FLOATING.",
+   "camera": "orthographic side view (lib_murder.ortho), slow zoom",
+   "characters": [],
+   "lighting": "emissive diagram lines",
+   "fx": [
+    "water fill animation"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "WATER IN HOLD",
+     "params": {
+      "from": 0,
+      "to": 3.5,
+      "unit": "ft",
+      "max": 12
+     }
+    },
+    {
+     "type": "text",
+     "text": "STILL SEAWORTHY",
+     "start": 2.0,
+     "params": {
+      "size": 80,
+      "y": 1450
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "sonar",
+     "offset": 1.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "room",
+   "description": "MID-POINT TURN. Flash cut back to the sepia legend cabin, push straight into a steaming cup.",
+   "camera": "fast push-in 35mm -> 85mm into the cup",
+   "characters": [],
+   "lighting": "sepia warm",
+   "fx": [
+    "steam"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "sting",
+     "offset": 1.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "document",
+   "description": "Document reveal: a Victorian magazine page slides in (paper style), title block and dense columns of illegible placeholder text; a highlighted line shows the name 'MARIE CELESTE'. No real page facsimile reproduced; recreated generically.",
+   "camera": "top-down, slight rotation",
+   "characters": [],
+   "lighting": "warm desk-lamp plate",
+   "fx": [
+    "paper grain"
+   ],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "\"...the Marie Celeste...\"\n(fictional story, published anonymously)",
+     "params": {
+      "style": "paper",
+      "title": "CORNHILL MAGAZINE - JANUARY 1884"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.5,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:study desk",
+   "description": "Victorian writing desk (lib_murder.desk + desk_lamp + book props): a pen rests on a manuscript; a faceless silhouette (char_figure, seated, back to camera) at the desk. A deerstalker hat (simple cap + flaps from primitives) sits on a side table, catching the light at the end of the shot.",
+   "camera": "slow arc 40mm around the desk, ends on the hat",
+   "characters": [
+    "writer silhouette (char_figure seated, back to camera, no face)"
+   ],
+   "lighting": "warm oil lamp + dark room",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "CONAN DOYLE",
+     "start": 1.6,
+     "params": {
+      "size": 120,
+      "y": 720
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 1.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "room",
+   "description": "The sepia legend cabin (from S02) dissolves away piece by piece (objects scale to zero), revealing a neutral, empty grey cabin (no food, no props asserted as found; deliberately non-specific). Overlay: two columns LEGEND vs RECORD.",
+   "camera": "static 35mm, slight push",
+   "characters": [],
+   "lighting": "sepia -> cold grey daylight from a skylight",
+   "fx": [
+    "dissolve of legend props",
+    "water drips"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Warm tea, half-eaten meals:\nadded in later retellings",
+     "start": 0.6,
+     "params": {
+      "header": "LEGEND vs RECORD",
+      "y": 1250
+     }
+    },
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "rumble",
+     "offset": 0.5,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14",
+    "L15"
+   ],
+   "environment": "other:cargo hold",
+   "description": "Opens on a THEORIES title over the barrel hold (L14), then: a translucent, faint wavering haze (volume with low density, slight green tint) drifts between barrels; a hatch overhead slams open (rotation key) with a burst of pale light. Theory visualisation only.",
+   "camera": "low 24mm looking up toward the hatch",
+   "characters": [],
+   "lighting": "dim + flash of pale light through hatch at 2.9 s",
+   "fx": [
+    "vapour haze (volume_puff, green-tinted, low density)",
+    "flash"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "title",
+     "text": "THEORIES",
+     "start": 0.0,
+     "params": {
+      "size": 120,
+      "y": 600
+     }
+    },
+    {
+     "type": "text",
+     "text": "FUMES?",
+     "start": 2.2,
+     "params": {
+      "size": 110,
+      "y": 900
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "boom",
+     "offset": 2.9,
+     "gain": 0.5
+    },
+    {
+     "name": "whoosh",
+     "offset": 2.9,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:ship deck",
+   "description": "Deck pump (two cylinders + lever) partly dismantled: parts lying beside it on the deck; water sloshing in the pump well. Theory visualisation only.",
+   "camera": "close 50mm, slow orbit 20 deg",
+   "characters": [],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog",
+   "fx": [
+    "water slosh",
+    "fog"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "SINKING?",
+     "start": 0.6,
+     "params": {
+      "size": 110,
+      "y": 760
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "creak",
+     "offset": 0.9,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:open sea in fog",
+   "description": "DRAMATISATION: a small open lifeboat (half-ellipsoid hull, 6 m) with dim, faceless silhouettes floats in fog while the brigantine, sails filled, slowly pulls away and vanishes into the fog. No harm shown.",
+   "camera": "from lifeboat level, 35mm, locked; ship recedes",
+   "characters": [
+    "8-10 tiny seated silhouettes in lifeboat (char_figure, no faces, low detail)"
+   ],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog, fog thickening",
+   "fx": [
+    "fog_volume density rising 0.04 -> 0.08",
+    "spray"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "creak",
+     "offset": 0.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L18"
+   ],
+   "environment": "other:sea, memorial",
+   "description": "Respect card: calm grey sea at dusk, a single lantern (point light inside glass cylinder) floats/bobs on a small plank. Memorial overlay with the names.",
+   "camera": "slow push 50mm",
+   "characters": [],
+   "lighting": "dusk grey + warm lantern",
+   "fx": [
+    "light fog"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Capt. Benjamin Briggs, Sarah Briggs,\nSophia Briggs (2) and seven crew",
+     "start": 0.3,
+     "params": {
+      "header": "NEVER FOUND - 1872",
+      "y": 1200
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L19"
+   ],
+   "environment": "other:ship deck",
+   "description": "The empty deck at the wheel, seen from behind: wheel turning by itself a few degrees, fog rolling across.",
+   "camera": "slow push 35mm toward the wheel",
+   "characters": [],
+   "lighting": "overcast grey-green daylight (sun 0.6 soft, colour 0.75/0.85/0.8), thick fog",
+   "fx": [
+    "fog"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "WOULD YOU LEAVE?",
+     "start": 0.3,
+     "params": {
+      "size": 95,
+      "y": 720
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "Sources in description",
+     "start": 0.8,
+     "params": {
+      "y": 1550
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S19",
+   "lines": [
+    "L20"
+   ],
+   "environment": "other:open sea in fog",
+   "description": "LOOP FRAME: timeline tick '25 NOV last log entry -> 4 DEC found' flashes small, then the frame settles into S01's exact opening composition (ship emerging from fog) for a seamless cut to frame 1.",
+   "camera": "matches S01 start, push",
+   "characters": [],
+   "lighting": "as S01",
+   "fx": [
+    "fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "9 DAYS",
+     "params": {
+      "events": [
+       [
+        "25 NOV",
+        "last log entry"
+       ],
+       [
+        "4 DEC",
+        "found"
+       ]
+      ],
+      "highlight_last": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.55
+  ],
+  [
+   15.7,
+   0.65
+  ],
+  [
+   30.8,
+   0.75
+  ],
+  [
+   31.3,
+   0.45
+  ],
+  [
+   31.8,
+   0.9
+  ],
+  [
+   61.7,
+   1.0
+  ],
+  [
+   66.7,
+   0.6
+  ],
+  [
+   71.7,
+   0.55
+  ]
+ ],
+ "loop_line": "After the last log entry, nine days passed. Until she was..."
+}

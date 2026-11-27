@@ -1,851 +1,852 @@
 {
-  "id": "HAUNT-02",
-  "title": "The Real Room 217",
-  "category": "haunted",
-  "voice": "am_onyx",
-  "speed": 1.05,
-  "mood": "haunted",
-  "target_seconds": 50,
-  "lines": [
+ "id": "HAUNT-02",
+ "title": "The Real Room 217",
+ "category": "haunted",
+ "voice": "am_onyx",
+ "speed": 1.05,
+ "mood": "haunted",
+ "target_seconds": 50,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "In 1974, Stephen King checked into Room 217.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "217"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "The Stanley Hotel, Colorado. Closing for winter. Nearly empty.",
+   "pause_after": 0.25,
+   "shot": "S02",
+   "emphasis": [
+    "Stanley",
+    "winter"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "That night he dreamed of a fire hose chasing his son.",
+   "pause_after": 0.3,
+   "shot": "S03",
+   "emphasis": [
+    "fire",
+    "hose"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "One cigarette later, he had the bones of The Shining.",
+   "pause_after": 0.3,
+   "shot": "S04",
+   "emphasis": [
+    "Shining"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "But the staff tell an older story.",
+   "pause_after": 0.35,
+   "shot": "S05",
+   "emphasis": [
+    "older"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "June 1911. Gas is leaking in 217.",
+   "pause_after": 0.25,
+   "shot": "S06",
+   "emphasis": [
+    "1911",
+    "leaking"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Chambermaid Elizabeth Wilson walks in with a lit candle.",
+   "pause_after": 0.4,
+   "shot": "S07",
+   "emphasis": [
+    "Elizabeth",
+    "Wilson",
+    "candle"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "The blast drops her through the floor, into the dining room.",
+   "pause_after": 0.35,
+   "shot": "S08",
+   "emphasis": [
+    "blast"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Guests now report unpacked suitcases, lights switching on and off.",
+   "pause_after": 0.25,
+   "shot": "S09",
+   "emphasis": [
+    "unpacked"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "The legend says she's still on shift.",
+   "pause_after": 0.4,
+   "shot": "S10",
+   "emphasis": [
+    "still"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "But the record says Elizabeth Wilson survived.",
+   "pause_after": 0.2,
+   "shot": "S11",
+   "emphasis": [
+    "survived"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "She went back to work at the hotel.",
+   "pause_after": 0.25,
+   "shot": "S12",
+   "emphasis": [
+    "work"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "The woman said to haunt 217 didn't die in it.",
+   "pause_after": 0.3,
+   "shot": "S13",
+   "emphasis": [
+    "didn't",
+    "die"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "And the hotel sells ghost tours.",
+   "pause_after": 0.9,
+   "shot": "S14",
+   "emphasis": [
+    "ghost",
+    "tours"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "So who unpacked this suitcase?",
+   "pause_after": 0.35,
+   "shot": "S15",
+   "emphasis": [
+    "who"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Nobody knows. But it started like this:",
+   "pause_after": 0.1,
+   "shot": "S16",
+   "emphasis": [
+    "started"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "corridor",
+   "description": "Cold open, moving at frame 1: Edwardian hotel corridor (corridor builder: white-painted panelled walls, dark-red patterned carpet, brass wall sconces, numbered doors in pairs), night, empty, long perspective. Door '217' (brass numbers) on the right, ajar ~10 cm; a thin line of warm light spills from it across the carpet - the WRONG DETAIL.",
+   "camera": "slow dolly forward down the corridor centre line, 24 mm, eye height 1.6 m",
+   "characters": [
+    "none"
+   ],
+   "lighting": "sconces dimmed to 30%, warm spill from 217, cold blue at the far end",
+   "fx": [
+    "dust motes in sconce light"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "In 1974, Stephen King checked into Room 217.",
-      "pause_after": 0.2,
-      "shot": "S01",
-      "emphasis": [
-        "217"
-      ]
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "King's own account, 1974"
+     }
     },
     {
-      "id": "L02",
-      "text": "The Stanley Hotel, Colorado. Closing for winter. Nearly empty.",
-      "pause_after": 0.25,
-      "shot": "S02",
-      "emphasis": [
-        "Stanley",
-        "winter"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "That night he dreamed of a fire hose chasing his son.",
-      "pause_after": 0.3,
-      "shot": "S03",
-      "emphasis": [
-        "fire",
-        "hose"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "One cigarette later, he had the bones of The Shining.",
-      "pause_after": 0.3,
-      "shot": "S04",
-      "emphasis": [
-        "Shining"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "But the staff tell an older story.",
-      "pause_after": 0.35,
-      "shot": "S05",
-      "emphasis": [
-        "older"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "June 1911. Gas is leaking in 217.",
-      "pause_after": 0.25,
-      "shot": "S06",
-      "emphasis": [
-        "1911",
-        "leaking"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Chambermaid Elizabeth Wilson walks in with a lit candle.",
-      "pause_after": 0.4,
-      "shot": "S07",
-      "emphasis": [
-        "Elizabeth",
-        "Wilson",
-        "candle"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "The blast drops her through the floor, into the dining room.",
-      "pause_after": 0.35,
-      "shot": "S08",
-      "emphasis": [
-        "blast"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Guests now report unpacked suitcases, lights switching on and off.",
-      "pause_after": 0.25,
-      "shot": "S09",
-      "emphasis": [
-        "unpacked"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "The legend says she's still on shift.",
-      "pause_after": 0.4,
-      "shot": "S10",
-      "emphasis": [
-        "still"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "But the record says Elizabeth Wilson survived.",
-      "pause_after": 0.2,
-      "shot": "S11",
-      "emphasis": [
-        "survived"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "She went back to work at the hotel.",
-      "pause_after": 0.25,
-      "shot": "S12",
-      "emphasis": [
-        "work"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "The woman said to haunt 217 didn't die in it.",
-      "pause_after": 0.3,
-      "shot": "S13",
-      "emphasis": [
-        "didn't",
-        "die"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "And the hotel sells ghost tours.",
-      "pause_after": 0.9,
-      "shot": "S14",
-      "emphasis": [
-        "ghost",
-        "tours"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "So who unpacked this suitcase?",
-      "pause_after": 0.35,
-      "shot": "S15",
-      "emphasis": [
-        "who"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Nobody knows. But it started like this:",
-      "pause_after": 0.1,
-      "shot": "S16",
-      "emphasis": [
-        "started"
-      ]
+     "type": "text",
+     "text": "ROOM 217",
+     "params": {
+      "y": 420,
+      "size": 120
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "corridor",
-      "description": "Cold open, moving at frame 1: Edwardian hotel corridor (corridor builder: white-painted panelled walls, dark-red patterned carpet, brass wall sconces, numbered doors in pairs), night, empty, long perspective. Door '217' (brass numbers) on the right, ajar ~10 cm; a thin line of warm light spills from it across the carpet - the WRONG DETAIL.",
-      "camera": "slow dolly forward down the corridor centre line, 24 mm, eye height 1.6 m",
-      "characters": [
-        "none"
-      ],
-      "lighting": "sconces dimmed to 30%, warm spill from 217, cold blue at the far end",
-      "fx": [
-        "dust motes in sconce light"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "King's own account, 1974"
-          }
-        },
-        {
-          "type": "text",
-          "text": "ROOM 217",
-          "params": {
-            "y": 420,
-            "size": 120
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "door_creak",
-          "offset": 0.2,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "house_exterior",
-      "description": "Grand hotel facade variant of house_exterior: long white three/four-storey building, red roof, central cupola, rows of windows (only two lit), set below dark mountains in fog; first snow flurries.",
-      "camera": "slow crane down + push, 35 mm, from the driveway",
-      "characters": [
-        "none"
-      ],
-      "lighting": "cold blue night, two warm windows, moon behind fog",
-      "fx": [
-        "fog_volume",
-        "snow particles"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "THE STANLEY HOTEL\nESTES PARK, COLORADO - 1974",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 160,
-            "sub": "closing for winter"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.45
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "corridor",
-      "description": "Dream sequence, desaturated: the corridor at a dutch angle. A canvas fire hose (simple tube along a path, brass nozzle) slithers along the carpet like a snake toward camera. No child shown; a small shadow runs across the far wall.",
-      "camera": "low handheld at carpet level, 20 mm, dutch 12 degrees",
-      "characters": [
-        "small running shadow only (no figure)"
-      ],
-      "lighting": "sconces strobing (flicker)",
-      "fx": [
-        "flicker",
-        "slight chromatic blur"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "King's own account of the dream"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 290,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "riser",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "footsteps",
-          "offset": 0.3,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "room",
-      "description": "Room 217 interior (room builder: high ceiling, tall sash window with mountain view, white wainscoting): brass bed with white cover, wardrobe (box prop), writing desk + chair, a closed brown leather suitcase (box prop with handle) on a luggage rack at the bed's foot. Night. Balcony door/window open; a faceless male silhouette (char_figure, sweater) stands at the window, back to camera; a cigarette ember glows and a smoke wisp rises. On the desk, a typewriter prop (box + roller cylinder + key-bank wedge).",
-      "camera": "slow push from behind the bed, 35 mm",
-      "characters": [
-        "writer silhouette (faceless, back to camera)"
-      ],
-      "lighting": "moonlight through window, ember point-light",
-      "fx": [
-        "smoke wisp particle",
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "King's own account"
-          }
-        },
-        {
-          "type": "document",
-          "text": "THE SHINING",
-          "params": {
-            "title": "novel, published 1977",
-            "style": "paper"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 1.2,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "corridor",
-      "description": "Corridor again, now from the far end looking back at 217 (reverse angle). The ajar door's light is the only warm point.",
-      "camera": "static wide, 28 mm, slow 3% push",
-      "characters": [
-        "none"
-      ],
-      "lighting": "sconces off, only 217's spill + cold window at corridor end",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "FOLKLORE",
-          "params": {
-            "y": 200,
-            "sub": "staff / ghost-tour story"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "room",
-      "description": "1911 flashback, sepia grade: Room 217 with period furnishings, no guests. A wall gas lamp fixture (small brass bracket + glass globe) on the wall; heat-shimmer distortion around it suggests leaking gas.",
-      "camera": "slow push toward the lamp, 50 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "dim daylight through curtains, sepia",
-      "fx": [
-        "heat shimmer",
-        "film scratches",
-        "grain"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "JUNE 1911",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 160,
-            "sub": "1911 reports; details vary"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.15
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "room",
-      "description": "Same sepia room. Door opens; a faceless female silhouette in a long dress and apron (char_figure, coat=apron) enters, a lit candle in hand; the flame is the brightest point.",
-      "camera": "static mid-wide from the window side, 35 mm",
-      "characters": [
-        "chambermaid silhouette (faceless, long dress, apron, candle)"
-      ],
-      "lighting": "candle point light, sepia",
-      "fx": [
-        "candle flicker",
-        "grain"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "named in hotel history accounts"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "door_creak",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "footsteps",
-          "offset": 0.8,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:white_flash",
-      "description": "The candle flame meets the shimmer: hard white flash fills the frame, then a wide shot of the corridor from below with dust raining down and a ragged hole in the floor (simple boolean hole) - no person shown, no injury.",
-      "camera": "flash -> static low angle, 24 mm, camera shake 0.5 s",
-      "characters": [
-        "none"
-      ],
-      "lighting": "white flash, then dusty grey",
-      "fx": [
-        "flash",
-        "dust particle_cloud",
-        "camera shake"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "explosion, 25 June 1911 (reported)"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 290,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "boom",
-          "offset": 0.0,
-          "gain": 0.8
-        },
-        {
-          "name": "rumble",
-          "offset": 0.3,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "room",
-      "description": "Present day, Room 217 (Room 217 interior (room builder: high ceiling, tall sash window with mountain view, white wainscoting): brass bed with white cover, wardrobe (box prop), writing desk + chair, a closed brown leather suitcase (box prop with handle) on a luggage rack at the bed's foot). Clean colour grade. The desk lamp flicks off, then on. The suitcase sits CLOSED on the rack. Lock this camera position: S15 reuses it exactly.",
-      "camera": "slow orbit around the bed, 28 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "warm bedside lamp, cool window",
-      "fx": [
-        "flicker (two dips)"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200,
-            "sub": "guest reports, as told on tours"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.9,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 1.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "corridor",
-      "description": "Corridor, far end: the faint faceless silhouette of the chambermaid (semi-transparent, 30% opacity) standing still beside a linen trolley (box on four small wheels). Barely readable.",
-      "camera": "static long lens 85 mm down the corridor",
-      "characters": [
-        "chambermaid silhouette (faint, still)"
-      ],
-      "lighting": "cold blue, one sconce on",
-      "fx": [
-        "fog_volume (thin)"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "FOLKLORE",
-          "params": {
-            "y": 200,
-            "sub": "local legend"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.3,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:evidence_board",
-      "description": "Pattern interrupt: corkboard evidence board. Card 'WHAT THE RECORD SAYS' slams on, then three lines type in. Simple ankle-bone/bandage icon (no injury image).",
-      "camera": "flat front, slow push, 50 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "single desk lamp",
-      "fx": [
-        "paper flutter"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "survived; returned to work (reported)"
-          }
-        },
-        {
-          "type": "card",
-          "text": "Survived the 1911 blast\nTwo broken ankles\nReturned to work (years)",
-          "params": {
-            "header": "WHAT THE RECORD SAYS",
-            "y": 1150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "typewriter",
-          "offset": 1.1,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "corridor",
-      "description": "Daylight version of the corridor (warm, sunlit, colour slowly returning from sepia): the faceless chambermaid silhouette (long dress, apron) walks away from camera carrying a folded stack of white linen (box prop). Ordinary, alive, working.",
-      "camera": "slow follow dolly behind her, 35 mm",
-      "characters": [
-        "chambermaid silhouette (faceless, apron, linen stack)"
-      ],
-      "lighting": "warm daylight from corridor-end window",
-      "fx": [
-        "dust in sunbeams"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "returned to work at the hotel (reported)"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 290,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "footsteps",
-          "offset": 0.2,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:evidence_board",
-      "description": "Same board: push onto a final card 'DIED HERE? NO.' with a red line through 'DIED IN 217'.",
-      "camera": "push-in 10%, 50 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "desk lamp",
-      "fx": [
-        "none"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "she survived the blast"
-          }
-        },
-        {
-          "type": "text",
-          "text": "SHE DIDN'T\nDIE HERE",
-          "params": {
-            "y": 520,
-            "size": 110
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "corridor",
-      "description": "Night corridor: a small group of 5 faceless silhouettes (char_figure, coats) shuffle past door 217 behind a guide silhouette holding a lantern (point light in a small box frame). The door stays shut. The group exits frame right before the line ends; the final 0.9 s is an empty corridor in total silence (dead air).",
-      "camera": "static wide, 28 mm, group crosses frame left to right",
-      "characters": [
-        "tour guide silhouette (lantern)",
-        "4 tourist silhouettes"
-      ],
-      "lighting": "lantern point-light only, cold ambient",
-      "fx": [
-        "lantern flicker",
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200,
-            "sub": "hotel runs ghost tours"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "footsteps",
-          "offset": 0.0,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "room",
-      "description": "DEAD-AIR REVEAL: the tour shot (S14) ends in 0.9 s of total silence; hard cut on a single soft click to Room 217 in exactly the S09 composition. The suitcase that was CLOSED in S09 is now OPEN and EMPTY; the clothes are folded in neat squares on the bed, shoes paired beneath it. Nothing else moves. Narration L15 lands after the click.",
-      "camera": "slowest push (3%) toward the folded clothes, 28 mm",
-      "characters": [
-        "none"
-      ],
-      "lighting": "bedside lamp",
-      "fx": [
-        "none"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 200,
-            "sub": "recreation"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "corridor",
-      "description": "Loop frame: back to the S01 corridor composition - but door 217 is now CLOSED and the light under it goes out. Then cut to the S01 start frame (door ajar) so the end flows into line 1.",
-      "camera": "match S01 start position, begin the same dolly",
-      "characters": [
-        "none"
-      ],
-      "lighting": "same as S01; spill light extinguishes at 1.5 s",
-      "fx": [
-        "dust motes"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "door_creak",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
+     "name": "door_creak",
+     "offset": 0.2,
+     "gain": 0.3
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "house_exterior",
+   "description": "Grand hotel facade variant of house_exterior: long white three/four-storey building, red roof, central cupola, rows of windows (only two lit), set below dark mountains in fog; first snow flurries.",
+   "camera": "slow crane down + push, 35 mm, from the driveway",
+   "characters": [
+    "none"
+   ],
+   "lighting": "cold blue night, two warm windows, moon behind fog",
+   "fx": [
+    "fog_volume",
+    "snow particles"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "THE STANLEY HOTEL\nESTES PARK, COLORADO - 1974",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 160,
+      "sub": "closing for winter"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.45
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "corridor",
+   "description": "Dream sequence, desaturated: the corridor at a dutch angle. A canvas fire hose (simple tube along a path, brass nozzle) slithers along the carpet like a snake toward camera. No child shown; a small shadow runs across the far wall.",
+   "camera": "low handheld at carpet level, 20 mm, dutch 12 degrees",
+   "characters": [
+    "small running shadow only (no figure)"
+   ],
+   "lighting": "sconces strobing (flicker)",
+   "fx": [
+    "flicker",
+    "slight chromatic blur"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "King's own account of the dream"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "room",
+   "description": "Room 217 interior (room builder: high ceiling, tall sash window with mountain view, white wainscoting): brass bed with white cover, wardrobe (box prop), writing desk + chair, a closed brown leather suitcase (box prop with handle) on a luggage rack at the bed's foot. Night. Balcony door/window open; a faceless male silhouette (char_figure, sweater) stands at the window, back to camera; a cigarette ember glows and a smoke wisp rises. On the desk, a typewriter prop (box + roller cylinder + key-bank wedge).",
+   "camera": "slow push from behind the bed, 35 mm",
+   "characters": [
+    "writer silhouette (faceless, back to camera)"
+   ],
+   "lighting": "moonlight through window, ember point-light",
+   "fx": [
+    "smoke wisp particle",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "King's own account"
+     }
+    },
+    {
+     "type": "document",
+     "text": "THE SHINING",
+     "params": {
+      "title": "novel, published 1977",
+      "style": "scrap"
+     },
+     "start": 1.4
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 1.2,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "corridor",
+   "description": "Corridor again, now from the far end looking back at 217 (reverse angle). The ajar door's light is the only warm point.",
+   "camera": "static wide, 28 mm, slow 3% push",
+   "characters": [
+    "none"
+   ],
+   "lighting": "sconces off, only 217's spill + cold window at corridor end",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "staff / ghost-tour story"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "room",
+   "description": "1911 flashback, sepia grade: Room 217 with period furnishings, no guests. A wall gas lamp fixture (small brass bracket + glass globe) on the wall; heat-shimmer distortion around it suggests leaking gas.",
+   "camera": "slow push toward the lamp, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "dim daylight through curtains, sepia",
+   "fx": [
+    "heat shimmer",
+    "film scratches",
+    "grain"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "JUNE 1911",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 160,
+      "sub": "1911 reports; details vary"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.15
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "room",
+   "description": "Same sepia room. Door opens; a faceless female silhouette in a long dress and apron (char_figure, coat=apron) enters, a lit candle in hand; the flame is the brightest point.",
+   "camera": "static mid-wide from the window side, 35 mm",
+   "characters": [
+    "chambermaid silhouette (faceless, long dress, apron, candle)"
+   ],
+   "lighting": "candle point light, sepia",
+   "fx": [
+    "candle flicker",
+    "grain"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "named in hotel history accounts"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "door_creak",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:white_flash",
+   "description": "The candle flame meets the shimmer: hard white flash fills the frame, then a wide shot of the corridor from below with dust raining down and a ragged hole in the floor (simple boolean hole) - no person shown, no injury.",
+   "camera": "flash -> static low angle, 24 mm, camera shake 0.5 s",
+   "characters": [
+    "none"
+   ],
+   "lighting": "white flash, then dusty grey",
+   "fx": [
+    "flash",
+    "dust particle_cloud",
+    "camera shake"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "explosion, 25 June 1911 (reported)"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.8
+    },
+    {
+     "name": "rumble",
+     "offset": 0.3,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "room",
+   "description": "Present day, Room 217 (Room 217 interior (room builder: high ceiling, tall sash window with mountain view, white wainscoting): brass bed with white cover, wardrobe (box prop), writing desk + chair, a closed brown leather suitcase (box prop with handle) on a luggage rack at the bed's foot). Clean colour grade. The desk lamp flicks off, then on. The suitcase sits CLOSED on the rack. Lock this camera position: S15 reuses it exactly.",
+   "camera": "slow orbit around the bed, 28 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "warm bedside lamp, cool window",
+   "fx": [
+    "flicker (two dips)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200,
+      "sub": "guest reports, as told on tours"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.9,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "corridor",
+   "description": "Corridor, far end: the faint faceless silhouette of the chambermaid (semi-transparent, 30% opacity) standing still beside a linen trolley (box on four small wheels). Barely readable.",
+   "camera": "static long lens 85 mm down the corridor",
+   "characters": [
+    "chambermaid silhouette (faint, still)"
+   ],
+   "lighting": "cold blue, one sconce on",
+   "fx": [
+    "fog_volume (thin)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "FOLKLORE",
+     "params": {
+      "y": 200,
+      "sub": "local legend"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Pattern interrupt: corkboard evidence board. Card 'WHAT THE RECORD SAYS' slams on, then three lines type in. Simple ankle-bone/bandage icon (no injury image).",
+   "camera": "flat front, slow push, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "single desk lamp",
+   "fx": [
+    "paper flutter"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "survived; returned to work (reported)"
+     }
+    },
+    {
+     "type": "card",
+     "text": "Survived the 1911 blast\nTwo broken ankles\nReturned to work (years)",
+     "params": {
+      "header": "WHAT THE RECORD SAYS",
+      "y": 1150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "typewriter",
+     "offset": 1.1,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "corridor",
+   "description": "Daylight version of the corridor (warm, sunlit, colour slowly returning from sepia): the faceless chambermaid silhouette (long dress, apron) walks away from camera carrying a folded stack of white linen (box prop). Ordinary, alive, working.",
+   "camera": "slow follow dolly behind her, 35 mm",
+   "characters": [
+    "chambermaid silhouette (faceless, apron, linen stack)"
+   ],
+   "lighting": "warm daylight from corridor-end window",
+   "fx": [
+    "dust in sunbeams"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "returned to work at the hotel (reported)"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 290,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.2,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:evidence_board",
+   "description": "Same board: push onto a final card 'DIED HERE? NO.' with a red line through 'DIED IN 217'.",
+   "camera": "push-in 10%, 50 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "desk lamp",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "she survived the blast"
+     }
+    },
+    {
+     "type": "text",
+     "text": "SHE DIDN'T\nDIE HERE",
+     "params": {
+      "y": 520,
+      "size": 110
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "corridor",
+   "description": "Night corridor: a small group of 5 faceless silhouettes (char_figure, coats) shuffle past door 217 behind a guide silhouette holding a lantern (point light in a small box frame). The door stays shut. The group exits frame right before the line ends; the final 0.9 s is an empty corridor in total silence (dead air).",
+   "camera": "static wide, 28 mm, group crosses frame left to right",
+   "characters": [
+    "tour guide silhouette (lantern)",
+    "4 tourist silhouettes"
+   ],
+   "lighting": "lantern point-light only, cold ambient",
+   "fx": [
+    "lantern flicker",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200,
+      "sub": "hotel runs ghost tours"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "room",
+   "description": "DEAD-AIR REVEAL: the tour shot (S14) ends in 0.9 s of total silence; hard cut on a single soft click to Room 217 in exactly the S09 composition. The suitcase that was CLOSED in S09 is now OPEN and EMPTY; the clothes are folded in neat squares on the bed, shoes paired beneath it. Nothing else moves. Narration L15 lands after the click.",
+   "camera": "slowest push (3%) toward the folded clothes, 28 mm",
+   "characters": [
+    "none"
+   ],
+   "lighting": "bedside lamp",
+   "fx": [
+    "none"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200,
+      "sub": "recreation"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "corridor",
+   "description": "Loop frame: back to the S01 corridor composition - but door 217 is now CLOSED and the light under it goes out. Then cut to the S01 start frame (door ajar) so the end flows into line 1.",
+   "camera": "match S01 start position, begin the same dolly",
+   "characters": [
+    "none"
+   ],
+   "lighting": "same as S01; spill light extinguishes at 1.5 s",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "door_creak",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.35
   ],
-  "music_curve": [
-    [
-      0,
-      0.35
-    ],
-    [
-      5,
-      0.55
-    ],
-    [
-      15,
-      0.65
-    ],
-    [
-      19,
-      0.4
-    ],
-    [
-      26,
-      0.8
-    ],
-    [
-      30,
-      0.5
-    ],
-    [
-      36,
-      0.6
-    ],
-    [
-      44,
-      0.0
-    ],
-    [
-      47,
-      0.0
-    ],
-    [
-      49,
-      0.35
-    ],
-    [
-      52,
-      0.35
-    ]
+  [
+   5,
+   0.55
   ],
-  "loop_line": "Nobody knows. But it started like this:"
+  [
+   15,
+   0.65
+  ],
+  [
+   19,
+   0.4
+  ],
+  [
+   26,
+   0.8
+  ],
+  [
+   30,
+   0.5
+  ],
+  [
+   36,
+   0.6
+  ],
+  [
+   44,
+   0.0
+  ],
+  [
+   47,
+   0.0
+  ],
+  [
+   49,
+   0.35
+  ],
+  [
+   52,
+   0.35
+  ]
+ ],
+ "loop_line": "Nobody knows. But it started like this:"
 }

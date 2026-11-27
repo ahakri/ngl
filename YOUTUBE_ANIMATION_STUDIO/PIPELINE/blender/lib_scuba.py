@@ -85,18 +85,31 @@ def sky_gradient(top=(0.25, 0.45, 0.8), horizon=(0.9, 0.75, 0.55), strength=1.0,
         dot.operation = "DOT_PRODUCT"
         dot.inputs[1].default_value = d
         nt.links.new(nrm.outputs[0], dot.inputs[0])
+        # crisp disc (~2-3 deg) + soft halo
         r2 = nt.nodes.new("ShaderNodeMapRange")
-        r2.inputs["From Min"].default_value = 1 - sun_size * 6
-        r2.inputs["From Max"].default_value = 1.0
+        r2.inputs["From Min"].default_value = 1 - sun_size * 0.08
+        r2.inputs["From Max"].default_value = 1 - sun_size * 0.05
         nt.links.new(dot.outputs["Value"], r2.inputs["Value"])
+        disc = nt.nodes.new("ShaderNodeMath")
+        disc.operation = "MULTIPLY"
+        disc.inputs[1].default_value = sun_strength
+        nt.links.new(r2.outputs[0], disc.inputs[0])
+        r3 = nt.nodes.new("ShaderNodeMapRange")
+        r3.inputs["From Min"].default_value = 0.82
+        r3.inputs["From Max"].default_value = 1.0
+        nt.links.new(dot.outputs["Value"], r3.inputs["Value"])
         pw = nt.nodes.new("ShaderNodeMath")
         pw.operation = "POWER"
-        pw.inputs[1].default_value = 3.0
-        nt.links.new(r2.outputs[0], pw.inputs[0])
+        pw.inputs[1].default_value = 5.0
+        nt.links.new(r3.outputs[0], pw.inputs[0])
+        halo = nt.nodes.new("ShaderNodeMath")
+        halo.operation = "MULTIPLY"
+        halo.inputs[1].default_value = 0.6
+        nt.links.new(pw.outputs[0], halo.inputs[0])
         mul = nt.nodes.new("ShaderNodeMath")
-        mul.operation = "MULTIPLY"
-        mul.inputs[1].default_value = sun_strength
-        nt.links.new(pw.outputs[0], mul.inputs[0])
+        mul.operation = "ADD"
+        nt.links.new(disc.outputs[0], mul.inputs[0])
+        nt.links.new(halo.outputs[0], mul.inputs[1])
         mix = nt.nodes.new("ShaderNodeMix")
         mix.data_type = "RGBA"
         mix.blend_type = "ADD"
@@ -115,18 +128,14 @@ def sky_gradient(top=(0.25, 0.45, 0.8), horizon=(0.9, 0.75, 0.55), strength=1.0,
     return w
 
 
-def world_volume(color=(0.2, 0.5, 0.6), density=0.03, anisotropy=0.6, absorption=None):
-    w = bpy.context.scene.world
-    nt = w.node_tree
-    out = [n for n in nt.nodes if n.type == "OUTPUT_WORLD"][0]
-    vol = nt.nodes.new("ShaderNodeVolumePrincipled")
-    vol.inputs["Color"].default_value = (*color, 1)
-    vol.inputs["Density"].default_value = density
-    vol.inputs["Anisotropy"].default_value = anisotropy
-    if absorption:
-        vol.inputs["Absorption Color"].default_value = (*absorption, 1)
-    nt.links.new(vol.outputs[0], out.inputs["Volume"])
-    return vol
+def world_volume(color=(0.2, 0.5, 0.6), density=0.03, anisotropy=0.6, absorption=None, center=(0, 0, 0), size=(120, 120, 60)):
+    """Scene-wide water/haze as a big volume *cube* (an EEVEE world volume would absorb the sun completely, since
+    sun light travels an infinite distance through it). Returns the Principled Volume node (animatable)."""
+    o = L.water_volume(center=center, size=size, color=color, density=density, anisotropy=anisotropy,
+                       absorption=absorption, name="sceneVolume")
+    o.visible_shadow = False
+    return [nd for nd in o.data.materials[0].node_tree.nodes if nd.type == "PRINCIPLED_VOLUME"][0]
+
 
 # ----------------------------------------------------------------------------- materials
 
@@ -303,7 +312,7 @@ def mat_ocean(name="ocean", deep=(0.0, 0.09, 0.14), shallow=(0.0, 0.32, 0.38), r
         at = n.new("ShaderNodeAttribute")
         at.attribute_name = "foam"
         mr = n.new("ShaderNodeMapRange")
-        mr.inputs["From Min"].default_value = 0.35
+        mr.inputs["From Min"].default_value = 0.65
         mr.inputs["From Max"].default_value = 1.0
         l.new(at.outputs["Fac"], mr.inputs["Value"])
         fm = n.new("ShaderNodeMix")
@@ -313,6 +322,16 @@ def mat_ocean(name="ocean", deep=(0.0, 0.09, 0.14), shallow=(0.0, 0.32, 0.38), r
         fm.inputs[7].default_value = (0.85, 0.92, 0.95, 1)
         col = fm.outputs[2]
     l.new(col, p.inputs["Base Color"])
+    # fine capillary ripples (glitter + texture the Ocean modifier is too coarse to give)
+    tcx = n.new("ShaderNodeTexCoord")
+    rn = n.new("ShaderNodeTexNoise")
+    rn.inputs["Scale"].default_value = 1.6
+    rn.inputs["Detail"].default_value = 6
+    l.new(tcx.outputs["Object"], rn.inputs["Vector"])
+    rb = n.new("ShaderNodeBump")
+    rb.inputs["Strength"].default_value = 0.25
+    l.new(rn.outputs["Fac"], rb.inputs["Height"])
+    l.new(rb.outputs["Normal"], p.inputs["Normal"])
     out = n["Material Output"]
     geo = n.new("ShaderNodeNewGeometry")
     em = n.new("ShaderNodeEmission")
@@ -376,7 +395,7 @@ def caustic_into(m, vec_socket, p, caustic=(0.75, 1.0, 1.0), strength=1.2, scale
         _linear_node_anim(m)
     mr = n.new("ShaderNodeMapRange")
     mr.inputs["From Min"].default_value = 0.0
-    mr.inputs["From Max"].default_value = 0.09
+    mr.inputs["From Max"].default_value = 0.045
     mr.inputs["To Min"].default_value = 1.0
     mr.inputs["To Max"].default_value = 0.0
     l.new(vr.outputs["Distance"], mr.inputs["Value"])
@@ -501,6 +520,7 @@ def ocean(size=60, nframes=120, wave_scale=0.6, choppiness=0.9, resolution=10, s
     L.linear_fcurves(o)
     L.smooth(o)
     L.assign(o, mat or mat_ocean())
+    o.visible_shadow = False
     return o
 
 
@@ -836,7 +856,7 @@ def wake(start=(0, 0, 0.02), length=60, width0=2.0, width1=12, angle=0.0, name="
     for f in bm.faces:
         for lp in f.loops:
             idx = [k for k, p in enumerate(vs) if lp.vert in p][0]
-            lp[uv] = (1.0 if lp.vert == vs[idx][0] else 0.0, idx / segs)
+            lp[uv].uv = (1.0 if lp.vert == vs[idx][0] else 0.0, idx / segs)
     o = L.mesh_from_bm(name, bm)
     m, n, l = _m(name + "_m")
     for nd in list(n):

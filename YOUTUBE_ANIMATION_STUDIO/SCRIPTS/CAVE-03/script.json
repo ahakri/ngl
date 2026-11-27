@@ -237,21 +237,22 @@
       "fx": [],
       "overlay": [
         {
-          "type": "map",
-          "text": "PLURA → STEINUGLEFLÅGET · ~2 KM",
+          "type": "stamp",
+          "text": "PLURA → STEINUGLEFLÅGET\n~2 KM THROUGH THE MOUNTAIN",
           "params": {
-            "route": "U-shape",
-            "markers": [
-              "SQUEEZE ~110 M"
-            ]
+            "y": 260
           }
         },
         {
           "type": "depth",
-          "text": "100+ M",
+          "text": "SQUEEZE",
           "params": {
-            "anchor": "squeeze"
-          }
+            "from": 0,
+            "to": 110,
+            "max": 140,
+            "speed": 0.9
+          },
+          "start": 2.2
         }
       ],
       "sfx": [
@@ -287,9 +288,9 @@
       "overlay": [
         {
           "type": "stamp",
-          "text": "6 FEB 2014 · PLURDALEN, NORWAY",
+          "text": "6 FEB 2014\nPLURDALEN, NORWAY",
           "params": {
-            "position": "top"
+            "y": 300
           }
         }
       ],
@@ -327,7 +328,8 @@
           "type": "text",
           "text": "5 IN · 3 OUT",
           "params": {
-            "position": "upper-third"
+            "y": 560,
+            "size": 120
           }
         }
       ],
@@ -358,12 +360,12 @@
       "fx": [],
       "overlay": [
         {
-          "type": "map",
+          "type": "stamp",
           "text": "PLURA · RANA, NORWAY",
           "params": {
-            "zoom": "Scandinavia→Rana",
-            "pin": "Plura"
-          }
+            "y": 300
+          },
+          "start": 1.6
         }
       ],
       "sfx": [
@@ -398,7 +400,8 @@
           "type": "text",
           "text": "THROUGH-DIVE",
           "params": {
-            "position": "top"
+            "y": 380,
+            "size": 96
           }
         }
       ],
@@ -439,15 +442,19 @@
           "type": "text",
           "text": "~2 °C",
           "params": {
-            "position": "top-left"
-          }
+            "y": 360,
+            "size": 96
+          },
+          "duration": 1.6
         },
         {
-          "type": "timer",
-          "text": "+2:00 H",
+          "type": "text",
+          "text": "+2 HRS: TEAM TWO",
           "params": {
-            "position": "top-right"
-          }
+            "y": 360,
+            "size": 80
+          },
+          "start": 1.8
         }
       ],
       "sfx": [
@@ -488,13 +495,19 @@
       "overlay": [
         {
           "type": "depth",
-          "text": "~110 M",
-          "params": {}
+          "text": "",
+          "params": {
+            "from": 100,
+            "to": 110,
+            "max": 140
+          }
         },
         {
           "type": "label",
-          "text": "REPORTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -560,8 +573,10 @@
       "overlay": [
         {
           "type": "label",
-          "text": "REPORTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -623,10 +638,11 @@
       "fx": [],
       "overlay": [
         {
-          "type": "timer",
+          "type": "text",
           "text": "TEAM 2",
           "params": {
-            "position": "top"
+            "y": 360,
+            "size": 100
           }
         }
       ],
@@ -658,8 +674,10 @@
       "overlay": [
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -696,13 +714,16 @@
           "type": "text",
           "text": "NO WAY FORWARD",
           "params": {
-            "position": "upper-third"
+            "y": 520,
+            "size": 100
           }
         },
         {
           "type": "label",
-          "text": "REPORTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -729,10 +750,11 @@
       "fx": [],
       "overlay": [
         {
-          "type": "map",
+          "type": "text",
           "text": "BACK TO PLURA",
           "params": {
-            "route": "reverse"
+            "y": 380,
+            "size": 96
           }
         }
       ],
@@ -769,17 +791,20 @@
       ],
       "overlay": [
         {
-          "type": "timer",
-          "text": "DECO: HOURS",
+          "type": "text",
+          "text": "HOURS OF DECO",
           "params": {
-            "count": "up",
-            "fast": true
-          }
+            "y": 380,
+            "size": 90
+          },
+          "duration": 3.4
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -816,16 +841,20 @@
       ],
       "overlay": [
         {
-          "type": "document",
-          "text": "RECOVERY FAILED · DIVING BANNED",
+          "type": "card",
+          "text": "OFFICIAL RECOVERY FAILED\nDIVING BANNED IN PLURA",
           "params": {
-            "style": "notice"
+            "header": "NOTICE",
+            "y": 560,
+            "mood": "murder"
           }
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -863,9 +892,10 @@
           "type": "text",
           "text": "PART 2 →",
           "params": {
-            "position": "upper-right-safe",
-            "size": "small"
-          }
+            "y": 330,
+            "size": 60
+          },
+          "start": 3.2
         }
       ],
       "sfx": [

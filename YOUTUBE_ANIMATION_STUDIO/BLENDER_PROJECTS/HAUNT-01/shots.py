@@ -23,7 +23,7 @@ def S01(L, n):
 
 
 # --------------------------------------------------------------------------- S02 street exterior
-def _street(L, n, lit=("U1",), open_win=None):
+def _street(L, n, lit=("U1",), open_win=None, lamp_e=5000):
     H.eevee_quality(raytrace=True)
     L.set_world((0.012, 0.018, 0.035), 1.0)
     road = L.prim("plane", loc=(0, -4.5, 0.0), size=1)
@@ -37,7 +37,7 @@ def _street(L, n, lit=("U1",), open_win=None):
     for i, x in enumerate((-11.0, 0.0, 11.0)):
         houses.append(H.semi_pair(f"semi{i}", (x, 0, 0), lit=(lit if i == 1 else (("U3",) if i == 0 else ())),
                                   open_win=(open_win if i == 1 else None), brick=bricks[i % 2], seed=i))
-    lamp = H.streetlamp((1.6, -4.9, 0), height=5.5, energy=5000, face=math.pi, arm=1.0)
+    lamp = H.streetlamp((1.6, -4.9, 0), height=5.5, energy=lamp_e, face=math.pi, arm=1.0)
     H.streetlamp((-17.0, -4.9, 0), height=5.5, energy=500, face=math.pi, arm=1.0, name="slamp2")
     # back-row rooftops / sky glow
     L.sun(rot=(0.9, 0.0, 2.6), energy=0.25, color=(0.5, 0.6, 1.0), angle=8)
@@ -56,7 +56,7 @@ def S02(L, n):
 
 # --------------------------------------------------------------------------- S03 the house: mother on the phone
 def S03(L, n):
-    houses, lamp = _street(L, n, lit=("U1",), open_win="D0")
+    houses, lamp = _street(L, n, lit=("U1",), open_win="D0", lamp_e=1800)
     # interior behind the downstairs-left window D0 (x=-3.0 in house 1)
     wx = -3.0
     H.box_mesh("int_back", [(wx, 2.6, 1.5, 2.0, 0.05, 1.5)], H.mat_wallpaper("wp_hall", base=(0.45, 0.33, 0.18), stripe=(0.35, 0.25, 0.12),
@@ -213,6 +213,7 @@ def S05(L, n):
     hb_m = L.mat_emission("hbulb", (1.0, 0.8, 0.55), 15)
     hb = L.prim("sphere", loc=(-0.1, 0.3, Hh - 0.4), segments=12, ring_count=8, radius=0.04)
     L.assign(hb, hb_m)
+    hb.visible_shadow = False
     L.point((-0.1, 0.3, Hh - 0.5), energy=60, color=(1.0, 0.72, 0.45), radius=0.05, name="hbulb_l")
     # investigators enter (walk toward camera)
     a = H.figure("invA", height=1.88, coat=True)
@@ -249,7 +250,7 @@ def S06(L, n):
     keys = []
     for f, th in ((1, -80), (n, -58)):
         a = math.radians(th)
-        keys.append((f, (rc[0] + 0.8 * math.cos(a), rc[1] + 0.8 * math.sin(a), rc[2] + 0.72), (rc[0], rc[1] + 0.0, rc[2] - 0.1)))
+        keys.append((f, (rc[0] + 0.8 * math.cos(a), rc[1] + 0.8 * math.sin(a), rc[2] + 0.72), (rc[0] - 0.07, rc[1] - 0.02, rc[2] - 0.1)))
     c = H.cam(keys[0][1], keys[0][2], lens=70)
     H.cam_move(c, keys, ease=False)
     L.dof(c, distance=1.07, fstop=2.2)
@@ -257,7 +258,8 @@ def S06(L, n):
     L.spot((rc[0] + 0.6, rc[1] + 0.25, 1.4), (0, 0, 0), energy=25, size_deg=50, blend=1, color=(0.55, 0.68, 1.0), name="rim")
     rim = [o for o in __import__("bpy").data.objects if o.name == "rim"][0]
     H.aim(rim, (rc[0] + 0.6, rc[1] + 0.25, 1.4), rc)
-    H.dust(rc, (0.8, 0.6, 0.5), n, count=250, radius=0.0015, emit=0.15, name="macrodust")
+    H.dust(rc, (0.5, 0.4, 0.3), n, count=60, radius=0.0012, emit=0.1, name="macrodust")
+    L.area((rc[0] - 0.1, rc[1] - 0.3, rc[2] + 0.9), (0.3, 0, 0), energy=6, size=0.6, color=(0.7, 0.78, 1.0), name="deckkey")
     L.bake_static()
 
 
@@ -327,9 +329,9 @@ def S09(L, n):
     # 'bedside lamp low': a lamp knocked to the floor by the left bed, throwing the chair's shadow onto the east wall
     lp = H.bedside_lamp((-1.05, 1.35, 0.55), on=True, energy=0.0, name="lowlamp")
     lp["root"].rotation_euler = (0, math.radians(-70), 0.1)
-    key = L.spot((-1.15, 1.12, 0.72), (0, 0, 0), energy=280, size_deg=70, blend=0.35, color=(1.0, 0.7, 0.4), name="lowkey", radius=0.015)
+    key = L.spot((-1.15, 1.12, 0.72), (0, 0, 0), energy=200, size_deg=70, blend=0.35, color=(1.0, 0.7, 0.4), name="lowkey", radius=0.015)
     H.aim(key, (-1.15, 1.12, 0.72), (1.65, 1.0, 1.3))
-    H.flicker_lamp({"light": key, "shade_mat": lp["shade_mat"]}, n, 280, 1.6, seed=9, depth=0.12, rate=0.2)
+    H.flicker_lamp({"light": key, "shade_mat": lp["shade_mat"]}, n, 200, 1.6, seed=9, depth=0.12, rate=0.2)
     st, tg0, tg1 = (-1.45, -1.62, 2.28), (1.0, 0.9, 1.75), (1.0, 0.9, 1.4)
     c = H.cam(st, tg0, lens=20)
     H.cam_move(c, [(1, st, tg0), (n, (-1.4, -1.55, 2.25), tg1)])
@@ -367,7 +369,7 @@ def _board(L, n, slide=True):
         L.guideline(pts, mat=redm, thickness=0.012, name=f"wave{k}").parent = vc
     red = L.mat_principled("string", (0.6, 0.02, 0.02), rough=0.5)
     L.guideline([(0.0, -0.05, 1.43), (-0.08, -0.05, 0.78)], mat=red, thickness=0.005, name="str1")
-    L.guideline([(-0.08, -0.05, 0.78), (0.12, -0.05, -0.38)], mat=red, thickness=0.005, name="str2")
+    L.guideline([(-0.08, -0.05, 0.78), (-0.75, -0.05, 0.45), (-0.78, -0.05, -0.2), (0.12, -0.05, -0.38)], mat=red, thickness=0.005, name="str2")
     H.box_mesh("scraps", [(0.95, -0.006, 0.55, 0.2, 0.002, 0.26, 0.1), (-0.95, -0.006, -0.5, 0.22, 0.002, 0.16, -0.08),
                           (-0.85, -0.006, 1.0, 0.2, 0.002, 0.15, 0.05), (0.9, -0.006, -1.4, 0.25, 0.002, 0.2, -0.05)],
                H.mat_paper("scrap", (0.6, 0.57, 0.48)))
@@ -399,8 +401,8 @@ def S10(L, n):
 
 def S11(L, n):
     _board(L, n, slide=False)
-    c = H.cam((0.1, -3.6, -0.6), (0.12, 0, -0.95), lens=50)
-    H.cam_move(c, [(1, (0.1, -3.6, -0.6), (0.12, 0, -0.95)), (n, (0.14, -3.25, -0.62), (0.14, 0, -0.98))])
+    c = H.cam((0.2, -3.6, -0.6), (0.2, 0, -0.95), lens=50)
+    H.cam_move(c, [(1, (0.2, -3.6, -0.6), (0.2, 0, -0.95)), (n, (0.2, -3.25, -0.62), (0.2, 0, -0.98))])
     L.bake_static()
 
 

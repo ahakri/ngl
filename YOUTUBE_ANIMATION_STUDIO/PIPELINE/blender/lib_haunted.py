@@ -800,7 +800,7 @@ def enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=None, reels_spin=Tru
     rec = tape_recorder(REC_POS[0], REC_POS[1], n=n, rec_on=rec_on, rec_on_frame=rec_on_frame, reels_spin=reels_spin)
     # chest of drawers by the door (or face-down)
     if toppled:
-        chest_of_drawers((0.45, -0.05, 0.2), rot=(math.pi / 2, 0, 0.35), name="chest")
+        chest_of_drawers((0.5, 0.55, 0.2), rot=(math.pi / 2, 0, 0.35), name="chest")
     else:
         chest_of_drawers((1.25, -1.45, 0), rot=(0, 0, -math.pi / 2), name="chest")
     # chair
@@ -861,9 +861,9 @@ def semi_pair(name, origin=(0, 0, 0), w=10.0, d=7.0, fh=2.7, lit=(), open_win=No
     root = empty(name, origin)
     fw = wall_with_openings(name + "_front", "x", 0, w, H2, openings_front, mat=brick, outward=1, t=0.25)
     fw.parent = root
-    body = box_mesh(name + "_body", [(0, d / 2 + 0.25, H2 / 2, w / 2, d / 2, H2 / 2)], brick, parent=root)
-    # interior darkness box behind openings
-    box_mesh(name + "_inner", [(0, 0.6, H2 / 2, w / 2 - 0.05, 0.02, H2 / 2)], L.mat_principled(name + "_dk", (0.01, 0.01, 0.01)), parent=root)
+    # body starts 2.8 m back so an 'open' window can show a built interior; side walls close the gap
+    body = box_mesh(name + "_body", [(0, (d + 0.25 + 2.8) / 2, H2 / 2, w / 2, (d + 0.25 - 2.8) / 2, H2 / 2),
+                                     (-w / 2 + 0.1, 1.5, H2 / 2, 0.1, 1.3, H2 / 2), (w / 2 - 0.1, 1.5, H2 / 2, 0.1, 1.3, H2 / 2)], brick, parent=root)
     # roof
     roofm = L.mat_noise_surface(name + "_tiles", (0.05, 0.045, 0.045), (0.13, 0.11, 0.1), scale=14, bump=0.4, voronoi=False, rough=0.6)
     bm = bmesh.new()
@@ -1006,3 +1006,600 @@ def waveform_curve(name, length=12.0, pts=600, amp=0.5, seed=4, z=0.0, y=0.0, th
     o = L.link(bpy.data.objects.new(name, cu))
     o.data.materials.append(L.mat_emission(name + "_m", color, strength))
     return o
+
+
+# ============================================================================ STANLEY HOTEL sets (HAUNT-02)
+
+CORR_W, CORR_H, CORR_LEN = 2.4, 3.0, 24.0
+DOOR_YS = (2.5, 6.0, 9.5, 13.0, 16.5, 20.0)
+D217_Y = 9.5                    # door 217: right-hand wall (x=+CORR_W/2)
+CORR_CAM = dict(start=(0.0, -0.6, 1.6), end=(0.05, 4.2, 1.6), target=(0.0, 14.0, 1.35), lens=24)
+
+
+def mat_white_wall(name="hotelwall", c=(0.72, 0.69, 0.6)):
+    return L.mat_noise_surface(name, tuple(v * 0.9 for v in c), c, scale=3, bump=0.08, voronoi=False, rough=0.7)
+
+
+def sconce(loc, face_x, level=1.0, color=(1.0, 0.7, 0.38), name="sconce", energy=45):
+    """Brass wall sconce (backplate, arm, two small fabric shades) + point light. face_x = +1 if on the -x wall facing +x."""
+    root = empty(name, loc)
+    b = mat_brass(name + "_b")
+    box_mesh(name + "_plate", [(0, 0, 0, 0.012, 0.06, 0.12), (face_x * 0.08, 0, -0.02, 0.08, 0.012, 0.012),
+                               (face_x * 0.15, 0, 0.0, 0.012, 0.16, 0.012)], b, parent=root)
+    sm = L.mat_principled(name + "_shade", (0.8, 0.62, 0.4), rough=1.0, emit=color, emit_strength=3.5 * level)
+    for sy in (-1, 1):
+        s = L.prim("cone", loc=(face_x * 0.15, sy * 0.15, 0.09), vertices=16, radius1=0.075, radius2=0.04, depth=0.12,
+                   end_fill_type="NOTHING")
+        L.assign(s, sm)
+        s.parent = root
+    li = L.point((0, 0, 0), energy=energy * level, color=color, radius=0.08, name=name + "_l")
+    li.parent = root
+    li.location = (face_x * 0.2, 0, 0.1)
+    return {"root": root, "light": li, "mat": sm}
+
+
+def door_number(text, wall_x, y, z=1.62, side=1, name="num"):
+    """Brass numerals on a door. side=+1 for right wall (x=+), faces -x."""
+    rot = (math.pi / 2, 0, -math.pi / 2) if side > 0 else (math.pi / 2, 0, math.pi / 2)
+    t = L.text3d(text, loc=(wall_x - side * 0.03, y, z), rot=rot, size=0.11, extrude=0.006, mat=mat_brass(name + "_m"), name=name)
+    return t
+
+
+def hotel_corridor(n, mode="night", sconce_level=0.3, d217="ajar", spill=1.0, far_window=1.0, fog=0.03, doors_lit=False,
+                   dust_count=500, length=CORR_LEN):
+    """Edwardian hotel corridor along +Y: white panelled walls (wainscot + chair rail), dark-red patterned carpet,
+    brass sconces between doors, numbered doors in pairs, cold window at the far end. Door 217 on the right at y=9.5.
+    mode: night | day | dream.  d217: 'ajar' | 'closed' | 'open'."""
+    W, Hh, Ln = CORR_W, CORR_H, length
+    wall = mat_white_wall()
+    wains = L.mat_principled("wainscot", (0.78, 0.76, 0.7), rough=0.45)
+    trim = L.mat_principled("ctrim", (0.85, 0.83, 0.78), rough=0.4)
+    doorm = L.mat_principled("hdoor", (0.16, 0.07, 0.035), rough=0.4)
+    fl = L.prim("plane", loc=(0, Ln / 2, 0), size=1)
+    fl.scale = (W + 0.2, Ln + 2, 1)
+    L.assign(fl, mat_hotel_carpet())
+    cl = L.prim("plane", loc=(0, Ln / 2, Hh), size=1, rot=(math.pi, 0, 0))
+    cl.scale = (W + 0.2, Ln + 2, 1)
+    L.assign(cl, L.mat_principled("hceil", (0.7, 0.68, 0.62), rough=0.8))
+    op = [(y, 0.95, 0.0, 2.2) for y in DOOR_YS]
+    for side in (-1, 1):
+        wo = wall_with_openings(f"cw{side}", "y", side * W / 2, Ln + 2, Hh, [(y - Ln / 2 - 0.0, w, b, t) for (y, w, b, t) in op],
+                                mat=wall, outward=side)
+        wo.location.y = Ln / 2
+        # wainscot panels between doors, chair rail, skirting
+        boxes = [(side * (W / 2 - 0.012), Ln / 2, 0.95, 0.012, Ln / 2 + 1, 0.025), (side * (W / 2 - 0.015), Ln / 2, 0.08, 0.015, Ln / 2 + 1, 0.08),
+                 (side * (W / 2 - 0.01), Ln / 2, 2.55, 0.01, Ln / 2 + 1, 0.04)]
+        edges = [-1.0] + [y for y in DOOR_YS] + [Ln + 1]
+        for a, b in zip(edges[:-1], edges[1:]):
+            a0, b0 = a + 0.6, b - 0.6
+            if b0 - a0 < 0.6:
+                continue
+            k = max(1, int((b0 - a0) / 1.1))
+            pw = (b0 - a0) / k
+            for i in range(k):
+                cy = a0 + pw * (i + 0.5)
+                hw = pw / 2 - 0.08
+                for (zz, hz, hy) in ((0.25, 0.012, hw), (0.75, 0.012, hw)):
+                    boxes.append((side * (W / 2 - 0.012), cy, zz, 0.008, hy, hz))
+                boxes.append((side * (W / 2 - 0.012), cy - hw, 0.5, 0.008, 0.012, 0.25))
+                boxes.append((side * (W / 2 - 0.012), cy + hw, 0.5, 0.008, 0.012, 0.25))
+        box_mesh(f"wains{side}", boxes, trim)
+        # door casings + slabs + numbers
+        cas = []
+        for i, y in enumerate(DOOR_YS):
+            cas += [(side * (W / 2 - 0.02), y - 0.53, 1.12, 0.03, 0.06, 1.12), (side * (W / 2 - 0.02), y + 0.53, 1.12, 0.03, 0.06, 1.12),
+                    (side * (W / 2 - 0.02), y, 2.27, 0.03, 0.6, 0.07)]
+        box_mesh(f"casing{side}", cas, trim)
+    out = {"sconces": [], "doors": {}}
+    for i, y in enumerate(DOOR_YS):
+        for side in (-1, 1):
+            num = 213 + 2 * i if side > 0 else 212 + 2 * i   # right side: 213, 215, 217 (y=9.5), ...
+            hinge_y = y - 0.47 if side > 0 else y + 0.47
+            ang = 0.0
+            if num == 217:
+                ang = {"ajar": 0.13, "closed": 0.0, "open": 1.2}[d217]
+            # door rotates into the room (away from corridor)
+            piv, slab = door_slab(f"door{num}", (side * (W / 2 + 0.05), hinge_y, 0), width=0.94, height=2.2, mat=doorm)
+            piv.rotation_euler = (0, 0, (math.pi / 2 - ang) if side > 0 else (-math.pi / 2 - ang))
+            out["doors"][num] = piv
+            door_number(str(num), side * (W / 2 + 0.05), y, side=side, name=f"n{num}")
+    # room behind 217 (warm light spilling through the gap)
+    rx = W / 2 + 0.06
+    box_mesh("r217", [(rx + 2.0, D217_Y, -0.01, 2.0, 1.6, 0.01), (rx + 4.0, D217_Y, 1.5, 0.05, 1.6, 1.5), (rx + 2.0, D217_Y + 1.6, 1.5, 2.0, 0.05, 1.5),
+                      (rx + 2.0, D217_Y - 1.6, 1.5, 2.0, 0.05, 1.5), (rx + 2.0, D217_Y, 3.0, 2.0, 1.6, 0.05)],
+             L.mat_principled("r217m", (0.6, 0.45, 0.3), rough=0.8))
+    sp = L.point((rx + 0.9, D217_Y + 0.2, 1.3), energy=650 * spill, color=(1.0, 0.62, 0.3), radius=0.15, name="spill217")
+    out["spill"] = sp
+    # under-door glow strip (used when closed)
+    strip_m = L.mat_emission("understrip", (1.0, 0.6, 0.28), 4.0 * spill if d217 == "closed" else 0.0)
+    out["strip"] = box_mesh("strip217", [(W / 2 - 0.02, D217_Y, 0.004, 0.06, 0.45, 0.003)], strip_m)
+    out["strip_mat"] = strip_m
+    # sconces between door pairs (both walls)
+    col = (1.0, 0.7, 0.38) if mode != "dream" else (0.85, 0.9, 1.0)
+    ys = [y + 1.75 for y in DOOR_YS[:-1]] + [0.75]
+    for j, y in enumerate(ys):
+        for side in (-1, 1):
+            sc = sconce((side * (W / 2 - 0.01), y, 1.95), -side, level=sconce_level, color=col, name=f"sc{j}{'R' if side > 0 else 'L'}")
+            out["sconces"].append(sc)
+    # far window (cold blue night / warm day)
+    endm = wall
+    wall_with_openings("cend", "x", Ln, W + 0.2, Hh, [(0, 1.1, 0.8, 2.6)], mat=endm, outward=1)
+    window_frame("cendwin", "x", Ln + 0.05, 0, 1.1, 0.8, 2.6, mat=trim)
+    if mode == "day":
+        wc, we = (1.0, 0.82, 0.55), 6.0
+    else:
+        wc, we = (0.35, 0.5, 0.9), 2.5 * far_window
+    box_mesh("cendsky", [(0, Ln + 1.0, 1.7, 1.2, 0.02, 1.2)], L.mat_emission("cendsky_m", wc, we))
+    wl = L.area((0, Ln - 0.2, 1.8), (math.pi / 2, 0, 0), energy=(400 if mode == "day" else 120 * far_window), size=1.2, color=wc, name="farwin")
+    wl.rotation_euler = (-math.pi / 2, 0, 0)
+    out["farwin"] = wl
+    box_mesh("cback", [(0, -1.0, Hh / 2, W / 2 + 0.2, 0.05, Hh / 2)], wall)
+    if fog:
+        out["fog"] = room_fog((0, Ln / 2, Hh / 2), (W, Ln + 2, Hh), density=fog, color=(0.75, 0.72, 0.68))
+    if dust_count:
+        out["dust"] = dust((0, 6.0, 1.6), (W * 0.8, 9.0, 2.2), n, count=dust_count, radius=0.003, emit=0.06)
+    return out
+
+
+def corridor_camera(n, mode="push", frac=1.0):
+    c = CORR_CAM
+    cm = cam(c["start"], c["target"], lens=c["lens"])
+    if mode == "push":
+        e = tuple(c["start"][i] + (c["end"][i] - c["start"][i]) * frac for i in range(3))
+        cam_move(cm, [(1, c["start"], c["target"]), (n, e, c["target"])], ease=False)
+    L.cam_light(cm, energy=12, color=(0.9, 0.85, 0.8), size_deg=70)
+    return cm
+
+
+def hotel_facade(n, lit=("W2_7", "W3_14"), snow=True):
+    """Grand white 4-storey hotel (Georgian-revival): long central block with red hipped roof, projecting end pavilions,
+    central portico + cupola, rows of windows; on a slope below fog-shrouded mountains."""
+    white = L.mat_noise_surface("facade", (0.55, 0.55, 0.52), (0.72, 0.71, 0.67), scale=2, bump=0.05, voronoi=False, rough=0.7)
+    red = L.mat_noise_surface("redroof", (0.22, 0.03, 0.02), (0.38, 0.07, 0.04), scale=10, bump=0.3, voronoi=False, rough=0.55)
+    trim = L.mat_principled("ftrim", (0.8, 0.8, 0.76), rough=0.5)
+    dark = mat_glass_dark("fglass", (0.008, 0.01, 0.016))
+    litm = L.mat_emission("flit", (1.0, 0.66, 0.32), 5.0)
+    root = empty("hotel")
+    Wd, Dp, fh, fl = 44.0, 12.0, 3.4, 4
+    Ht = fh * fl
+    box_mesh("hbody", [(0, Dp / 2, Ht / 2, Wd / 2, Dp / 2, Ht / 2)], white)
+    for sx in (-1, 1):  # end pavilions
+        box_mesh(f"pav{sx}", [(sx * (Wd / 2 - 3.5), Dp / 2 - 1.2, (Ht + 1.2) / 2, 3.6, Dp / 2 + 1.2, (Ht + 1.2) / 2)], white)
+        _hip_roof(f"pavroof{sx}", (sx * (Wd / 2 - 3.5), Dp / 2 - 1.2, Ht + 1.2), 7.6, Dp + 3.0, 3.2, red)
+    _hip_roof("mainroof", (0, Dp / 2, Ht), Wd + 0.6, Dp + 0.6, 4.2, red)
+    # cornice bands
+    box_mesh("cornice", [(0, -0.15, Ht - 0.1, Wd / 2 + 0.1, 0.2, 0.15), (0, -0.1, fh + 0.0, Wd / 2, 0.12, 0.08)], trim)
+    # windows
+    panes, lits, frames = [], [], []
+    cols = 18
+    for fl_i in range(fl):
+        for c_i in range(cols):
+            x = -Wd / 2 + 2.6 + c_i * (Wd - 5.2) / (cols - 1)
+            if abs(x) < 3.2 and fl_i == 0:
+                continue
+            z0 = fl_i * fh + 1.0
+            key = f"W{fl_i}_{c_i}"
+            ycut = -0.02 if abs(abs(x) - (Wd / 2 - 3.5)) > 3.6 else -2.42
+            b = (x, ycut, z0 + 0.85, 0.5, 0.03, 0.85)
+            (lits if key in lit else panes).append(b)
+            frames.append((x, ycut - 0.02, z0 - 0.05, 0.62, 0.06, 0.06))
+            frames.append((x, ycut - 0.02, z0 + 1.82, 0.62, 0.06, 0.1))
+    box_mesh("fpanes", panes, dark)
+    if lits:
+        box_mesh("flits", lits, litm)
+        for b in lits:
+            L.point((b[0], 0.8, b[2]), energy=120, color=(1.0, 0.66, 0.32), radius=0.4, name="litwin")
+    box_mesh("fframes", frames, trim)
+    # portico + cupola
+    box_mesh("portico", [(0, -2.2, 4.2, 3.6, 2.2, 0.3)] + [(sx * 3.2, -4.0, 2.0, 0.22, 0.22, 2.0) for sx in (-1, -0.35, 0.35, 1)], white)
+    box_mesh("pdoor", [(0, -0.03, 1.6, 1.2, 0.05, 1.6)], L.mat_emission("pdoorlit", (1.0, 0.6, 0.3), 0.9))
+    cz = Ht + 4.2
+    cu = L.prim("cyl", loc=(0, Dp / 2, cz + 1.2), vertices=12, radius=1.6, depth=2.4)
+    L.assign(cu, white)
+    cr = L.prim("cone", loc=(0, Dp / 2, cz + 3.4), vertices=12, radius1=1.9, radius2=0.1, depth=2.2)
+    L.assign(cr, red)
+    sp = L.prim("cyl", loc=(0, Dp / 2, cz + 5.0), vertices=6, radius=0.06, depth=1.2)
+    L.assign(sp, trim)
+    # hillside + driveway
+    g = L.prim("plane", loc=(0, 20, -0.05), size=260)
+    sub = g.modifiers.new("sub", "SUBSURF")
+    sub.subdivision_type = "SIMPLE"
+    sub.levels = sub.render_levels = 5
+    L.add_displace(g, strength=1.2, scale=8, name="hill_d")
+    snowg = L.mat_noise_surface("snowground", (0.25, 0.27, 0.3), (0.5, 0.52, 0.56), scale=4, bump=0.2, voronoi=False, rough=0.8)
+    L.assign(g, snowg)
+    drive = L.prim("plane", loc=(0, -30, 0.05), size=1)
+    drive.scale = (7, 52, 1)
+    L.assign(drive, L.mat_noise_surface("drive", (0.04, 0.04, 0.045), (0.1, 0.1, 0.11), scale=15, bump=0.1, voronoi=False, rough=0.5))
+    # mountains
+    mm = L.mat_noise_surface("mount", (0.05, 0.06, 0.08), (0.2, 0.22, 0.28), scale=0.08, bump=0.6, voronoi=False, rough=0.9)
+    for i, (x, y, h, r) in enumerate(((-70, 170, 75, 75), (10, 210, 105, 95), (95, 180, 80, 80), (-140, 230, 95, 90), (160, 240, 90, 85))):
+        o = L.prim("cone", loc=(x, y, h / 2 - 5), vertices=24, radius1=r, radius2=2, depth=h)
+        o.modifiers.new("sub", "SUBSURF").levels = 2
+        L.add_displace(o, strength=8, scale=20, name=f"mt{i}")
+        L.assign(o, mm)
+    # pine silhouettes along the slope
+    pm = L.mat_principled("pine", (0.01, 0.02, 0.015), rough=1)
+    rnd = random.Random(4)
+    pines = []
+    for i in range(60):
+        x = rnd.uniform(-80, 80)
+        y = rnd.uniform(18, 70)
+        if abs(x) < 30 and y < 25:
+            continue
+        h = rnd.uniform(6, 12)
+        pines.append((x, y, h))
+    for x, y, h in pines:
+        o = L.prim("cone", loc=(x, y, h / 2), vertices=6, radius1=h * 0.22, radius2=0.0, depth=h)
+        L.assign(o, pm)
+    return root
+
+
+def _hip_roof(name, c, w, d, h, mat):
+    cx, cy, cz = c
+    bm = bmesh.new()
+    r = min(w, d) / 2 * 0.95
+    v = [bm.verts.new(p) for p in ((cx - w / 2, cy - d / 2, cz), (cx + w / 2, cy - d / 2, cz), (cx + w / 2, cy + d / 2, cz), (cx - w / 2, cy + d / 2, cz),
+                                   (cx - w / 2 + r, cy, cz + h), (cx + w / 2 - r, cy, cz + h))]
+    for f in ((0, 1, 5, 4), (2, 3, 4, 5), (1, 2, 5), (3, 0, 4)):
+        bm.faces.new([v[i] for i in f])
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat)
+    return o
+
+
+def snowfall(center, size, n, count=1500, speed=0.9, seed=31, name="snow"):
+    m = L.mat_principled(name + "_m", (0.9, 0.92, 0.95), rough=1, emit=(0.6, 0.65, 0.75), emit_strength=0.25)
+    return L.particle_cloud(center, size, count=count, radius=0.05, mat=m, drift=(0.3, 0.0, -speed), seed=seed, nframes=n, name=name)
+
+
+def brass_bed(loc, name="bbed", w=1.5, l=2.0):
+    root = empty(name, loc)
+    br = mat_brass(name + "_brass")
+    white = L.mat_principled(name + "_cover", (0.82, 0.8, 0.76), rough=0.85)
+    for sy, hh in ((1, 1.35), (-1, 0.95)):
+        y = sy * l / 2
+        for sx in (-1, 1):
+            p = L.prim("cyl", loc=(sx * w / 2, y, hh / 2), vertices=10, radius=0.025, depth=hh)
+            L.assign(p, br)
+            p.parent = root
+            k = L.prim("sphere", loc=(sx * w / 2, y, hh + 0.03), segments=10, ring_count=6, radius=0.045)
+            L.assign(k, br)
+            k.parent = root
+        for z in (hh - 0.05, hh - 0.35):
+            r = L.prim("cyl", loc=(0, y, z), vertices=8, radius=0.016, depth=w, rot=(0, math.pi / 2, 0))
+            L.assign(r, br)
+            r.parent = root
+        for k in range(5):
+            x = -w / 2 + w * (k + 1) / 6
+            r = L.prim("cyl", loc=(x, y, (hh - 0.35 + hh - 0.05) / 2), vertices=8, radius=0.01, depth=0.3)
+            L.assign(r, br)
+            r.parent = root
+    box_mesh(name + "_mat", [(0, 0, 0.5, w / 2 - 0.02, l / 2 - 0.03, 0.12)], white, parent=root, bevel=0.05)
+    box_mesh(name + "_cov", [(0, -0.12, 0.64, w / 2 + 0.03, l / 2 - 0.2, 0.025)], white, parent=root, bevel=0.03)
+    for sx in (-1, 1):
+        box_mesh(f"{name}_skirt{sx}", [(sx * (w / 2 + 0.05), -0.05, 0.42, 0.01, l / 2 - 0.08, 0.22)], white, parent=root)
+    pil = box_mesh(name + "_pil", [(sx * 0.35, l / 2 - 0.3, 0.7, 0.3, 0.16, 0.06) for sx in (-1, 1)], white, parent=root, bevel=0.05)
+    return root
+
+
+def suitcase(loc, rot_z=0.0, state="closed", name="case"):
+    """Brown leather suitcase 70x44x20 cm. state closed | open (lid hinged back, empty lining)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    lea = L.mat_noise_surface(name + "_lea", (0.13, 0.06, 0.025), (0.24, 0.12, 0.05), scale=25, bump=0.15, voronoi=False, rough=0.55)
+    lining = L.mat_principled(name + "_lin", (0.35, 0.08, 0.06), rough=0.9)
+    br = mat_brass(name + "_br")
+    W, D, Hb = 0.7, 0.44, 0.1
+    if state == "closed":
+        box_mesh(name + "_body", [(0, 0, 0.1, W / 2, D / 2, 0.1)], lea, parent=root, bevel=0.02)
+        box_mesh(name + "_straps", [(sx * 0.2, 0, 0.1, 0.025, D / 2 + 0.005, 0.102) for sx in (-1, 1)],
+                 L.mat_principled(name + "_st", (0.08, 0.04, 0.02), rough=0.5), parent=root)
+        box_mesh(name + "_locks", [(sx * 0.2, -D / 2 - 0.008, 0.17, 0.02, 0.006, 0.015) for sx in (-1, 1)], br, parent=root)
+        h = L.prim("torus", loc=(0, -D / 2 - 0.01, 0.2), major_radius=0.07, minor_radius=0.012, rot=(0, 0, 0))
+        h.rotation_euler = (math.pi / 2, 0, 0)
+        h.scale = (1, 0.6, 1)
+        L.assign(h, lea)
+        h.parent = root
+    else:
+        t = 0.015
+        box_mesh(name + "_base", [(0, 0, 0.005, W / 2, D / 2, 0.005), (0, -D / 2 + t / 2, Hb / 2, W / 2, t / 2, Hb / 2),
+                                  (0, D / 2 - t / 2, Hb / 2, W / 2, t / 2, Hb / 2), (-W / 2 + t / 2, 0, Hb / 2, t / 2, D / 2, Hb / 2),
+                                  (W / 2 - t / 2, 0, Hb / 2, t / 2, D / 2, Hb / 2)], lea, parent=root)
+        box_mesh(name + "_lining", [(0, 0, 0.012, W / 2 - t, D / 2 - t, 0.002)], lining, parent=root)
+        hp = empty(name + "_hinge", (0, D / 2, Hb), parent=root)
+        box_mesh(name + "_lid", [(0, -D / 2, 0.05, W / 2, D / 2, 0.005), (0, -D / 2, 0.025, W / 2 - t, D / 2 - t, 0.002)], lea, parent=hp)
+        box_mesh(name + "_lidlin", [(0, -D / 2, 0.012, W / 2 - t, D / 2 - t, 0.002)], lining, parent=hp)
+        hp.rotation_euler = (math.radians(105), 0, 0)
+    return root
+
+
+def luggage_rack(loc, rot_z=0.0, name="rack"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.12, 0.06, 0.03), rough=0.45)
+    box_mesh(name + "_g", [(sx * 0.33, sy * 0.2, 0.25, 0.02, 0.02, 0.25) for sx in (-1, 1) for sy in (-1, 1)] +
+             [(0, sy * 0.2, 0.49, 0.36, 0.02, 0.015) for sy in (-1, 1)] +
+             [(x, 0, 0.5, 0.03, 0.22, 0.004) for x in (-0.24, -0.08, 0.08, 0.24)], m, parent=root)
+    return root
+
+
+def folded_clothes(loc, rot_z=0.0, name="clothes"):
+    """Four neat folded squares (shirt, sweater, trousers, cardigan) + returns root."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    cols = [(0.7, 0.68, 0.62), (0.12, 0.18, 0.3), (0.25, 0.22, 0.18), (0.42, 0.1, 0.08)]
+    pos = [(-0.36, 0.0), (-0.12, 0.0), (0.12, 0.0), (0.36, 0.0)]
+    for i, ((x, y), c) in enumerate(zip(pos, cols)):
+        box_mesh(f"{name}{i}", [(x, y, 0.025, 0.105, 0.14, 0.025)], L.mat_principled(f"{name}{i}_m", c, rough=0.95), parent=root, bevel=0.012)
+    return root
+
+
+def shoes_pair(loc, rot_z=0.0, name="shoes"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.04, 0.025, 0.015), rough=0.25)
+    for sx in (-1, 1):
+        s = L.prim("sphere", loc=(sx * 0.07, 0, 0.045), segments=16, ring_count=8, radius=0.1)
+        s.scale = (0.45, 1.3, 0.42)
+        L.assign(s, m)
+        s.parent = root
+    return root
+
+
+def typewriter(loc, rot_z=0.0, name="tw"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.02, 0.02, 0.022), rough=0.3, metal=0.3)
+    keys = L.mat_principled(name + "_k", (0.7, 0.68, 0.6), rough=0.4)
+    box_mesh(name + "_b", [(0, 0, 0.06, 0.2, 0.17, 0.06), (0, 0.08, 0.13, 0.2, 0.06, 0.04)], m, parent=root, bevel=0.01)
+    r = L.prim("cyl", loc=(0, 0.1, 0.19), vertices=16, radius=0.03, depth=0.46, rot=(0, math.pi / 2, 0))
+    L.assign(r, m)
+    r.parent = root
+    pp = box_mesh(name + "_paper", [(0, 0.12, 0.3, 0.1, 0.004, 0.13)], mat_paper(name + "_p", (0.85, 0.83, 0.76)), parent=root)
+    pp.rotation_euler = (-0.25, 0, 0)
+    box_mesh(name + "_keys", [(-0.15 + 0.03 * i, -0.08 - 0.03 * r_, 0.1 + 0.015 * r_, 0.011, 0.011, 0.006) for r_ in range(3) for i in range(11)],
+             keys, parent=root)
+    return root
+
+
+def room217(n, era="modern", case_state="closed", lamp_on=True, lamp_energy=35, moon=1.0, gaslamp=False, fog=0.02,
+            dust_count=400, door_angle=0.0):
+    """Room 217: 4.2 x 5.0 x 3.3 m. Tall sash window on E wall (mountain view), white wainscoting, brass bed (head on N wall),
+    wardrobe on W wall, writing desk + chair + typewriter under the window, luggage rack + suitcase at the bed foot.
+    Door on S wall at x=-1.2. era '1911': sepia palette, gas lamp on W wall, no luggage."""
+    W, D, Hh = 4.2, 5.0, 3.3
+    sep = era == "1911"
+    wallc = (0.62, 0.52, 0.38) if sep else (0.66, 0.64, 0.58)
+    wall = L.mat_noise_surface("w217", tuple(v * 0.85 for v in wallc), wallc, scale=2.5, bump=0.06, voronoi=False, rough=0.75)
+    trim = L.mat_principled("t217", (0.72, 0.64, 0.5) if sep else (0.84, 0.83, 0.78), rough=0.45)
+    fl = L.prim("plane", loc=(0, 0, 0), size=1)
+    fl.scale = (W + 0.4, D + 0.4, 1)
+    L.assign(fl, mat_hotel_carpet("c217", red=(0.2, 0.08, 0.03) if sep else (0.16, 0.025, 0.02), k=1.6))
+    cl = L.prim("plane", loc=(0, 0, Hh), size=1, rot=(math.pi, 0, 0))
+    cl.scale = (W + 0.4, D + 0.4, 1)
+    L.assign(cl, trim)
+    win = (0.6, 1.2, 0.75, 2.85)
+    door = (-1.2, 0.95, 0.0, 2.25)
+    wall_with_openings("w217N", "x", D / 2, W + 0.2, Hh, [], mat=wall, outward=1)
+    wall_with_openings("w217S", "x", -D / 2, W + 0.2, Hh, [door], mat=wall, outward=-1)
+    wall_with_openings("w217E", "y", W / 2, D, Hh, [win], mat=wall, outward=1)
+    wall_with_openings("w217W", "y", -W / 2, D, Hh, [], mat=wall, outward=-1)
+    # wainscoting (rail + panel frames) on all walls
+    bx = []
+    for (ax, fixed, Lw) in (("x", D / 2 - 0.012, W), ("x", -D / 2 + 0.012, W), ("y", W / 2 - 0.012, D), ("y", -W / 2 + 0.012, D)):
+        def B(a, z, ha, hz, th=0.012):
+            bx.append((a, fixed, z, ha, th, hz) if ax == "x" else (fixed, a, z, th, ha, hz))
+        B(0, 1.0, Lw / 2, 0.03, 0.02)
+        B(0, 0.08, Lw / 2, 0.08, 0.016)
+        k = int(Lw / 0.9)
+        for i in range(k):
+            a = -Lw / 2 + (i + 0.5) * Lw / k
+            hw = Lw / k / 2 - 0.1
+            B(a, 0.3, hw, 0.012)
+            B(a, 0.82, hw, 0.012)
+            B(a - hw, 0.56, 0.012, 0.26)
+            B(a + hw, 0.56, 0.012, 0.26)
+    box_mesh("wains217", bx, trim)
+    window_frame("win217", "y", W / 2 + 0.05, win[0], win[1], win[2], win[3], mat=trim)
+    # mountain view outside the window
+    view = L.prim("plane", loc=(W / 2 + 4, win[0], 1.8), size=1, rot=(math.pi / 2, 0, math.pi / 2))
+    view.scale = (9, 6, 1)
+    vm, vn, vl = _nodes("view217")
+    for nd in list(vn):
+        if nd.type == "BSDF_PRINCIPLED":
+            vn.remove(nd)
+    tc = vn.new("ShaderNodeTexCoord")
+    sx_ = vn.new("ShaderNodeSeparateXYZ")
+    vl.new(tc.outputs["Generated"], sx_.inputs[0])
+    nz = vn.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 3.0
+    nz.inputs["Detail"].default_value = 6
+    sep_x = vn.new("ShaderNodeCombineXYZ")
+    vl.new(sx_.outputs[0], sep_x.inputs[0])
+    vl.new(sep_x.outputs[0], nz.inputs["Vector"])
+    ridge = _math(vn, vl, "ADD", _math(vn, vl, "MULTIPLY", nz.outputs["Fac"], 0.35), 0.25)
+    mask = _math(vn, vl, "GREATER_THAN", sx_.outputs[1], ridge)
+    if sep:
+        sky_c, mt_c, st = (0.75, 0.6, 0.4), (0.3, 0.24, 0.16), 1.2
+    else:
+        sky_c, mt_c, st = (0.12, 0.18, 0.32), (0.02, 0.03, 0.05), 1.0 * moon
+    rr = _ramp(vn, [(0.0, mt_c), (1.0, sky_c)], interp="CONSTANT")
+    rr.color_ramp.elements[1].position = 0.5
+    vl.new(mask, rr.inputs[0])
+    em = vn.new("ShaderNodeEmission")
+    em.inputs[1].default_value = st
+    vl.new(rr.outputs[0], em.inputs[0])
+    vl.new(em.outputs[0], vn["Material Output"].inputs["Surface"])
+    L.assign(view, vm)
+    # curtains
+    cm = L.mat_principled("drape217", (0.35, 0.22, 0.1) if sep else (0.3, 0.05, 0.04), rough=1)
+    curtain("dr1", win[0] - 0.85, 0.5, 2.6, 3.05, axis="y", fixed=W / 2 - 0.1, folds=5, mat=cm, seed=3)
+    curtain("dr2", win[0] + 0.85, 0.5, 2.6, 3.05, axis="y", fixed=W / 2 - 0.1, folds=5, mat=cm, seed=4)
+    # furniture
+    bed = brass_bed((-0.2, 1.4, 0))
+    wood = L.mat_principled("wood217", (0.15, 0.08, 0.035) if not sep else (0.2, 0.12, 0.05), rough=0.45)
+    box_mesh("wardrobe", [(-W / 2 + 0.33, -1.0, 1.1, 0.3, 0.6, 1.1), (-W / 2 + 0.33, -1.0, 2.25, 0.34, 0.64, 0.05)], wood, bevel=0.01)
+    box_mesh("wardoors", [(-W / 2 + 0.64, -1.0 + sy * 0.29, 1.1, 0.01, 0.27, 1.0) for sy in (-1, 1)], L.mat_principled("wd2", (0.2, 0.11, 0.05), rough=0.4))
+    box_mesh("desk", [(W / 2 - 0.4, -0.9, 0.76, 0.32, 0.6, 0.025)] + [(W / 2 - 0.4 + sx * 0.28, -0.9 + sy * 0.55, 0.38, 0.02, 0.02, 0.38)
+                                                                   for sx in (-1, 1) for sy in (-1, 1)], wood)
+    wood_chair((W / 2 - 0.95, -0.95, 0), math.radians(90), name="dchair", col=(0.15, 0.08, 0.035))
+    box_mesh("nightstand", [(0.85, 2.15, 0.3, 0.22, 0.2, 0.3)], wood)
+    out = {}
+    if not sep:
+        out["tw"] = typewriter((W / 2 - 0.4, -0.85, 0.785), math.radians(-90))
+        luggage_rack((-0.2, -0.05, 0), 0.0)
+        out["case"] = suitcase((-0.2, -0.05, 0.505), 0.0, state=case_state)
+        out["bedlamp"] = bedside_lamp((0.85, 2.15, 0.6), on=lamp_on, energy=lamp_energy, name="lamp217")
+        out["desklamp"] = bedside_lamp((W / 2 - 0.25, -1.3, 0.785), on=lamp_on, energy=lamp_energy * 0.8, name="desklamp217",
+                                       shade_col=(0.25, 0.45, 0.3))
+    # door (S wall)
+    piv, slab = door_slab("d217in", (door[0] - 0.47, -D / 2 - 0.05, 0), width=0.94, height=2.2,
+                          mat=L.mat_principled("d217m", (0.16, 0.07, 0.035), rough=0.4))
+    piv.rotation_euler = (0, 0, door_angle)
+    out["door"] = piv
+    # moonlight / daylight through the window
+    if sep:
+        ml = L.area((W / 2 + 0.8, win[0], 2.0), (0, -math.pi / 2, 0), energy=500, size=1.4, color=(1.0, 0.82, 0.58), name="daywin")
+        L.area((0, 0, Hh - 0.05), (0, 0, 0), energy=70, size=3, color=(0.9, 0.75, 0.55), name="sepfill")
+    else:
+        ml = L.spot((W / 2 + 2.5, win[0] + 0.4, 3.6), (0, 0, 0), energy=1500 * moon, size_deg=35, blend=0.3, color=(0.55, 0.68, 1.0),
+                    name="moon217", radius=0.05)
+        aim(ml, (W / 2 + 2.5, win[0] + 0.4, 3.6), (-0.4, 0.4, 0.2))
+        L.area((0, 0, Hh - 0.05), (0, 0, 0), energy=30 * moon, size=3, color=(0.55, 0.62, 0.9), name="ambf217")
+    out["win_light"] = ml
+    if gaslamp:
+        out["gas"] = gas_lamp((-W / 2 + 0.02, 0.9, 1.9), sep)
+    if fog:
+        out["fog"] = room_fog((0, 0, Hh / 2), (W, D, Hh), density=fog, color=(0.8, 0.72, 0.6) if sep else (0.65, 0.68, 0.8))
+    if dust_count:
+        out["dust"] = dust((0, 0, 1.5), (W * 0.8, D * 0.8, 2.2), n, count=dust_count, radius=0.0025, emit=0.05)
+    return out
+
+
+def gas_lamp(loc, sepia=True, name="gas"):
+    """Wall gas bracket on the W wall (faces +x): brass arm + frosted glass globe with small flame glow + a shimmer volume."""
+    root = empty(name, loc)
+    br = mat_brass(name + "_b")
+    box_mesh(name + "_arm", [(0.0, 0, 0, 0.015, 0.06, 0.09), (0.12, 0, 0.0, 0.12, 0.012, 0.012), (0.24, 0, 0.06, 0.012, 0.012, 0.06)], br, parent=root)
+    gm = L.mat_principled(name + "_glass", (0.9, 0.85, 0.72), rough=0.3, emit=(1.0, 0.75, 0.45), emit_strength=1.2, alpha=0.7)
+    g = L.prim("sphere", loc=(0.24, 0, 0.2), segments=20, ring_count=12, radius=0.09)
+    L.assign(g, gm)
+    g.parent = root
+    li = L.point((0, 0, 0), energy=25, color=(1.0, 0.72, 0.42), radius=0.05, name=name + "_l")
+    li.parent = root
+    li.location = (0.24, 0, 0.2)
+    # heat shimmer: small volume with animated noise density
+    m, n_, l = _nodes(name + "_shim")
+    for nd in list(n_):
+        if nd.type == "BSDF_PRINCIPLED":
+            n_.remove(nd)
+    tc = n_.new("ShaderNodeTexCoord")
+    mp = n_.new("ShaderNodeMapping")
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = n_.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 6
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    v = n_.new("ShaderNodeVolumePrincipled")
+    v.inputs["Color"].default_value = (0.9, 0.8, 0.6, 1)
+    dens = _math(n_, l, "MULTIPLY", _math(n_, l, "MAXIMUM", _math(n_, l, "SUBTRACT", nz.outputs["Fac"], 0.5), 0.0), 2.5)
+    l.new(dens, v.inputs["Density"])
+    l.new(v.outputs[0], n_["Material Output"].inputs["Volume"])
+    sh = L.prim("cube", loc=(0.3, 0, 0.45), name=name + "_shimmer")
+    sh.scale = (0.25, 0.3, 0.35)
+    L.assign(sh, m)
+    sh.parent = root
+    mp.inputs["Location"].default_value = (0, 0, 0)
+    mp.inputs["Location"].keyframe_insert("default_value", frame=1)
+    mp.inputs["Location"].default_value = (0.2, 0.1, -1.5)
+    mp.inputs["Location"].keyframe_insert("default_value", frame=200)
+    return {"root": root, "light": li, "glass": gm}
+
+
+def candle(parent=None, loc=(0, 0, 0), name="candle", energy=40):
+    root = empty(name, loc, parent=parent)
+    wax = L.mat_principled(name + "_wax", (0.85, 0.82, 0.7), rough=0.6)
+    holder = mat_brass(name + "_h")
+    d = L.prim("cyl", loc=(0, 0, 0), vertices=16, radius=0.06, depth=0.015)
+    L.assign(d, holder)
+    d.parent = root
+    c = L.prim("cyl", loc=(0, 0, 0.07), vertices=12, radius=0.015, depth=0.13)
+    L.assign(c, wax)
+    c.parent = root
+    fm = L.mat_emission(name + "_f", (1.0, 0.7, 0.3), 25)
+    f = L.prim("sphere", loc=(0, 0, 0.155), segments=10, ring_count=6, radius=0.012)
+    f.scale = (1, 1, 2.0)
+    L.assign(f, fm)
+    f.parent = root
+    li = L.point((0, 0, 0), energy=energy, color=(1.0, 0.65, 0.3), radius=0.02, name=name + "_l")
+    li.parent = root
+    li.location = (0, 0, 0.2)
+    return {"root": root, "light": li, "flame": fm}
+
+
+def linen_trolley(loc, rot_z=0.0, name="trolley"):
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.3, 0.28, 0.25), rough=0.6, metal=0.4)
+    lin = L.mat_principled(name + "_lin", (0.75, 0.74, 0.7), rough=0.9)
+    box_mesh(name + "_f", [(0, 0, 0.18, 0.45, 0.25, 0.015), (0, 0, 0.62, 0.45, 0.25, 0.015)] +
+             [(sx * 0.43, sy * 0.23, 0.45, 0.015, 0.015, 0.35) for sx in (-1, 1) for sy in (-1, 1)], m, parent=root)
+    box_mesh(name + "_lin", [(sx * 0.2, 0, 0.7, 0.18, 0.2, 0.06) for sx in (-1, 1)] + [(0, 0, 0.27, 0.38, 0.2, 0.07)], lin, parent=root, bevel=0.02)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            w = L.prim("cyl", loc=(sx * 0.4, sy * 0.2, 0.05), vertices=10, radius=0.05, depth=0.03, rot=(0, math.pi / 2, 0))
+            L.assign(w, m)
+            w.parent = root
+    return root
+
+
+def fire_hose(points, n, start_frac=0.15, end_frame=None, name="hose", radius=0.045):
+    """Canvas fire hose along a polyline that 'grows' toward camera (bevel factor) with a brass nozzle riding the head."""
+    pts = [Vector(p) for p in points]
+    # dense resample
+    dense = []
+    for i in range(len(pts) - 1):
+        for k in range(12):
+            dense.append(pts[i].lerp(pts[i + 1], k / 12))
+    dense.append(pts[-1])
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    cu.bevel_depth = radius
+    cu.bevel_resolution = 3
+    sp = cu.splines.new("POLY")
+    sp.points.add(len(dense) - 1)
+    for i, p in enumerate(dense):
+        sp.points[i].co = (*p, 1)
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(L.mat_noise_surface(name + "_m", (0.45, 0.4, 0.3), (0.65, 0.6, 0.48), scale=40, bump=0.3, voronoi=False, rough=0.9))
+    try:
+        cu.bevel_factor_mapping_end = "SPLINE"
+    except Exception:
+        pass
+    ef = end_frame or n
+    cu.bevel_factor_end = start_frac
+    cu.keyframe_insert("bevel_factor_end", frame=1)
+    cu.bevel_factor_end = 1.0
+    cu.keyframe_insert("bevel_factor_end", frame=ef)
+    # nozzle follows head: precompute arc length
+    seg = [0.0]
+    for i in range(1, len(dense)):
+        seg.append(seg[-1] + (dense[i] - dense[i - 1]).length)
+    total = seg[-1]
+    noz = L.prim("cone", loc=(0, 0, 0), vertices=16, radius1=radius * 1.3, radius2=radius * 0.5, depth=0.32)
+    L.assign(noz, mat_brass(name + "_noz"))
+    fc = None
+    for f in range(1, ef + 1, 2):
+        u = start_frac + (1 - start_frac) * (f - 1) / max(1, ef - 1)
+        # bevel factor is linear in spline param (points evenly param'd), so index by u directly
+        fi = u * (len(dense) - 1)
+        i0 = min(int(fi), len(dense) - 2)
+        p = dense[i0].lerp(dense[i0 + 1], fi - i0)
+        d = (dense[i0 + 1] - dense[i0]).normalized()
+        noz.location = p + d * 0.16
+        noz.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
+        noz.keyframe_insert("location", frame=f)
+        noz.keyframe_insert("rotation_euler", frame=f)
+    L.linear_fcurves(noz)
+    _interp_data(cu, "LINEAR")
+    return o, noz

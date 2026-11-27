@@ -187,7 +187,7 @@ def S04(L, n):
     M.heightfield("slopeB", -60, 60, -280, 40, 160, 400, h, mat=M.mat_snow("slopeB_m"))
     M.print_decals(prints, h, name="tracks", color=(0.05, 0.07, 0.12), lift=0.05, scale=1.0)
     t = M.tent(loc=(0, 0, pz), slit=False, snow_amt=0.0, inner_light=60)
-    glow = L.point((0, -2.5, pz + 1.0), energy=400, color=(1.0, 0.6, 0.3), radius=0.5, name="tentglow")
+    glow = L.point((0, -2.5, pz + 1.0), energy=90, color=(1.0, 0.6, 0.3), radius=0.5, name="tentglow")
     spots = M.scatter_spots((-60, 60, -280, -180), 560, h, seed=5, h=(9, 16))
     spots += M.scatter_spots((-60, 60, -185, -165), 50, h, seed=6, h=(6, 11))
     M.conifer_forest("forest", spots, seed=5)
@@ -214,7 +214,6 @@ def S05(L, n):
     prints = M.trail((0, -1.5), (-6, -60), step=0.7, gap=0.12, seed=7, wobble=0.6)
     h, pz, _ = slope_terrain(x=(-60, 60), y=(-120, 60), res=0.6)
     M.print_decals(prints, h, color=(0.1, 0.13, 0.2))
-    tent_at(pz, inner=6.0, banks=False)
     forest_band(h, -130, -95, count=160)
     cy = 9.0
     c0, c1 = (-7, cy, h(-7, cy) + 3.5), (5, cy, h(5, cy) + 3.5)
@@ -267,7 +266,7 @@ def S06(L, n):
 
 # ----------------------------------------------------------------------------- S07 / S08 evidence board
 
-CARDS = [("ALIENS", (-0.55, -0.01, 1.05), R(-5)), ("WEAPONS\nTEST", (0.5, -0.01, 0.05), R(4)), ("ATTACK", (-0.4, -0.01, -1.0), R(-3))]
+CARDS = [("ALIENS", (-0.55, -0.01, 1.25), R(-5)), ("WEAPONS\nTEST", (0.5, -0.01, 0.3), R(4)), ("ATTACK", (-0.4, -0.01, -0.65), R(-3))]
 
 
 def board_scene(L, n):
@@ -385,8 +384,9 @@ def S10(L, n):
     curve([(px, py, pz2), (px, py + ln, pz2 + ln * tg)], "slopeline")
     arc = [(px, py + 4 * math.cos(a), pz2 + 4 * math.sin(a)) for a in [R(SLOPE) * k / 16 for k in range(17)]]
     curve(arc, "arc")
-    cam, ct = L.camera(loc=(-26, 7, pz + 3.0), target=(0, 6, pz + 1.6), lens=50)
-    L.cam_keys(cam, [(1, (-26, 5, pz + 3.0)), (n, (-26, 9, pz + 3.2))])
+    ca, cb = (-26, 5, h(-26, 5) + 2.2), (-26, 9, h(-26, 9) + 2.2)
+    cam, ct = L.camera(loc=ca, target=(0, 6, pz + 1.6), lens=50)
+    L.cam_keys(cam, [(1, ca), (n, cb)])
     lin(cam)
     ct.keyframe_insert("location", frame=1)
     ct.location = (0, 9, pz + 1.8)
@@ -646,7 +646,6 @@ def S15(L, n):
     tent.location = (cxp * (1 - 1.05), 0, zp * (1 - 0.55))
     tent.keyframe_insert("scale", frame=f_go + 18)
     tent.keyframe_insert("location", frame=f_go + 18)
-    M.snow_burst((a + 0.6, -0.9, zs(a) + 0.2), n, f_go + 13, count=500, radius=0.012, spread=1.4, rise=0.6, seed=151, emit=1.0)
     M.shake(cam, [f_crack, f_go + 13], amp=0.06, decay=8)
     L.bake_static()
 
@@ -712,8 +711,10 @@ def S16(L, n):
     r.keyframe_insert("scale", frame=f_hit - 1)
     r.scale = (1.02, 1.05, 0.6)
     r.keyframe_insert("scale", frame=f_hit + 4)
-    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=400, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
+    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=120, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
     rim.data.specular_factor = 0.0
+    fl = L.area((7.5, 0.5, pz + 2.5), (R(70), 0, R(90)), energy=260, size=4, color=(0.6, 0.7, 1.0), name="slabfill")
+    fl.data.specular_factor = 0.0
     M.snow_burst((0, 0.6, pz + 1.0), n, f_hit, count=900, radius=0.012, spread=3.0, rise=0.9, seed=161, emit=0.3)
     M.volume_puff((0, 0.5, pz + 1.0), f_hit, n, size=2.6, density=0.5)
     c0, c1 = (6.4, -1.6, pz + 1.3), (5.9, -1.4, pz + 1.25)
@@ -750,7 +751,7 @@ def S17(L, n):
     M.snowfall((0, -1, pz + 1.5), (9, 8, 4), n, count=1200, radius=0.008, fall=0.25, wind=(0.3, 0, 0), seed=171, cam=(c0, c1), clear=1.0,
                emit=0.15)
     M.fog((0, 0, pz + 1), (40, 40, 5), density=0.045)
-    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=300, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
+    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=60, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
     rim.data.specular_factor = 0.0
     cam, ct = L.camera(loc=c0, target=(0, 0.3, pz + 0.55), lens=35)
     L.cam_keys(cam, [(1, c0), (n, c1)])
@@ -824,7 +825,7 @@ def S19(L, n):
         y0 = -56 - 2.5 * i
         L.anim_walk(p, 1, n, stride=0.45, rate=0.9, travel=((x0, y0, h(x0, y0)), (x0 - 0.3, y0 - 4.5, h(x0, y0 - 4.5))))
     c0, c1 = (0.4, -12, h(0, -12) + 2.0), (0.1, -12.5, h(0, -12) + 2.0)
-    M.snowfall((0, -45, h(0, -45) + 3), (14, 20, 10), n, count=700, radius=0.03, fall=0.8, wind=(1.4, 0, 0), seed=191, cam=(c0, c1),
+    M.snowfall((0, -45, h(0, -45) + 3), (14, 20, 10), n, count=350, radius=0.025, fall=0.8, wind=(1.4, 0, 0), seed=191, cam=(c0, c1),
                clear=22, emit=0.1)
     cam, ct = L.camera(loc=c0, target=(0, -62, h(0, -62) + 3.2), lens=85)
     L.cam_keys(cam, [(1, c0), (n, c1)])
