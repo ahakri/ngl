@@ -9,7 +9,7 @@ RUN npm --prefix web run build && rm -rf web/node_modules
 
 FROM node:22-slim
 WORKDIR /app
-ENV NODE_ENV=production PORT=8080 DATABASE_PATH=/data/uptake.db NODE_NO_WARNINGS=1
+ENV NODE_ENV=production PORT=8080 DATABASE_PATH=/data/rangefinder.db NODE_NO_WARNINGS=1
 COPY --from=build /app /app
 VOLUME /data
 EXPOSE 8080

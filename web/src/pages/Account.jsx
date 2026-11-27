@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, Navigate, useSearchParams } from 'react-router-dom';
 import { api } from '../api.js';
 import { useSession } from '../hooks.js';
-import { fullDay } from '../format.js';
+import { fullDay, quarter, usdFull } from '../format.js';
 
 function AuthForm() {
   const { refresh } = useSession();
@@ -27,7 +27,7 @@ function AuthForm() {
   return (
     <div className="card" style={{ maxWidth: 440 }}>
       <h2>{mode === 'signup' ? 'Create your account' : 'Sign in'}</h2>
-      <p className="sub" style={{ marginBottom: 14 }}>{mode === 'signup' ? 'Free plan, no card needed. You get an API key straight away.' : 'Welcome back.'}</p>
+      <p className="sub" style={{ marginBottom: 14 }}>{mode === 'signup' ? 'Free, no card needed. Your email is never shown to anyone.' : 'Welcome back.'}</p>
       <form className="auth" onSubmit={submit}>
         <label>Email<input type="email" autoComplete="email" required {...field('email')} /></label>
         <label>Password<input type="password" autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} minLength={10} required {...field('password')} /></label>
@@ -72,7 +72,7 @@ function PasswordCard() {
 }
 
 export default function Account() {
-  const { user, me, ready, config, refresh } = useSession();
+  const { user, me, meta, ready, config, refresh } = useSession();
   const [params] = useSearchParams();
   const [fresh, setFresh] = useState(null);
   const [name, setName] = useState('');
@@ -81,6 +81,8 @@ export default function Account() {
 
   if (!ready) return <div className="skeleton">Loading…</div>;
   if (!user) return <AuthForm />;
+  if (params.get('next') === 'submit') return <Navigate to="/submit" replace />;
+  if (!me) return <div className="skeleton">Loading…</div>;
 
   const run = async (fn) => {
     setError(null);
@@ -107,15 +109,37 @@ export default function Account() {
         <div><h1>Account</h1><p className="sub">{user.email}</p></div>
         <button className="btn" onClick={() => run(() => api.post('/api/auth/logout'))}>Sign out</button>
       </div>
-      {params.get('upgraded') && <div className="notice">Payment received — your plan updates as soon as Stripe confirms it, usually within a few seconds.</div>}
-      {params.get('next') && user.plan === 'free' && <div className="notice lock"><span>You're signed in. Continue to choose a plan.</span><Link className="btn small primary" to="/pricing">Choose plan</Link></div>}
+      {params.get('upgraded') && <div className="notice">Payment received — your access updates as soon as Stripe confirms it, usually within a few seconds.</div>}
       {error && <div className="notice error" role="alert">{error}</div>}
 
       <div className="grid three">
-        <div className="card tile"><div className="label">Plan</div><div className="value">{config?.plans[user.plan]?.name || user.plan}</div>
-          <div className="note">{user.plan === 'free' ? <Link to="/pricing">Upgrade</Link> : user.has_subscription && config?.billing ? <button className="btn small" onClick={() => run(async () => window.location.assign((await api.post('/api/billing/portal')).url))}>Manage billing</button> : 'Active'}</div></div>
+        <div className="card tile"><div className="label">Access</div><div className="value">{me.tier_name}</div>
+          <div className="note">{me.tier === 'free' ? <><Link to="/submit">Share a deal</Link> or <Link to="/pricing">subscribe</Link> to unlock the data</> : me.tier === 'contributor' ? 'Unlocked by sharing a deal' : user.has_subscription && config?.billing ? <button className="btn small" onClick={() => run(async () => window.location.assign((await api.post('/api/billing/portal')).url))}>Manage billing</button> : 'Active subscription'}</div></div>
         <div className="card tile"><div className="label">API requests today</div><div className="value">{today.toLocaleString('en-US')}</div><div className="note">of {me.limits.daily_requests.toLocaleString('en-US')} per day</div></div>
-        <div className="card tile"><div className="label">History</div><div className="value">{me.limits.history_days > 1000 ? 'Full' : `${me.limits.history_days} days`}</div><div className="note">{me.limits.export ? 'CSV export included' : 'CSV export on Pro and Team'}</div></div>
+        <div className="card tile"><div className="label">Deals shared</div><div className="value">{me.deals.length}</div><div className="note">{me.limits.export ? 'CSV export included' : 'CSV export on Pro and Team'}</div></div>
+      </div>
+
+      <div className="card">
+        <div className="row between"><h2>Your deals</h2><Link className="btn small primary" to="/submit">Share a deal</Link></div>
+        <p className="sub">Only you can see this list. Withdrawing a deal deletes it; if it was your only one, contributor access ends.</p>
+        {me.deals.length ? (
+          <div className="table-wrap" style={{ marginTop: 8 }}>
+            <table>
+              <thead><tr><th>Deal</th><th className="num">Total</th><th>Signed</th><th>Status</th><th /></tr></thead>
+              <tbody>
+                {me.deals.map((d) => (
+                  <tr key={d.id}>
+                    <td className="name">{meta?.dimensions.deal_type[d.deal_type]}<div className="vendor">{meta?.dimensions.sport[d.sport]} · {meta?.dimensions.payer_type[d.payer_type]}</div></td>
+                    <td className="num">{usdFull(d.total_usd)}</td>
+                    <td>{quarter(d.signed_quarter)}</td>
+                    <td><span className="status">{d.status === 'approved' ? (d.verified ? 'Published · verified' : 'Published') : d.status === 'pending' ? 'In review' : 'Not accepted'}</span></td>
+                    <td className="num"><button className="btn small" onClick={() => { if (window.confirm('Withdraw this deal? It will be deleted from the database.')) run(() => api.del(`/api/deals/${d.id}`)); }}>Withdraw</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : <p className="sub" style={{ marginTop: 8 }}>You have not shared a deal yet.</p>}
       </div>
 
       <div className="card">

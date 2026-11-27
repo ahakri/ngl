@@ -1,14 +1,17 @@
 {
-  "name": "uptake",
+  "name": "rangefinder",
   "version": "0.1.0",
   "private": true,
-  "description": "Uptake — AI ecosystem adoption data. Daily adoption, momentum and market-share signals for AI developer tooling and open models.",
+  "description": "Rangefinder \u2014 anonymous, crowd-sourced NIL deal benchmarks. Athletes share a deal to see what comparable deals pay; agents, brands, collectives and athletic departments subscribe.",
   "type": "module",
-  "engines": { "node": ">=22.13" },
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "start": "node server/index.js",
     "dev": "node --watch server/index.js",
-    "collect": "node server/collect.js",
+    "demo:seed": "node server/demo.js seed",
+    "demo:purge": "node server/demo.js purge",
     "test": "node --test",
     "web:dev": "npm --prefix web run dev",
     "web:build": "npm --prefix web run build",

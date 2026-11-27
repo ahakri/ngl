@@ -4,14 +4,14 @@ import { api } from '../api.js';
 import { useSession } from '../hooks.js';
 
 export function PlanCards() {
-  const { user, config } = useSession();
+  const { user, me, config } = useSession();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(null);
   if (!config) return <div className="skeleton">Loading…</div>;
 
   const choose = async (plan) => {
-    if (!user) return navigate(`/account?next=${plan}`);
+    if (!user) return navigate(`/account?next=pricing`);
     setBusy(plan);
     setError(null);
     try {
@@ -24,10 +24,10 @@ export function PlanCards() {
   };
 
   const action = (key) => {
-    if (user?.plan === key) return <span className="btn" aria-disabled="true">Current plan</span>;
-    if (key === 'free') return user ? null : <Link className="btn" to="/account">Create free account</Link>;
-    if (config.billing) return <button className={`btn ${key === 'pro' ? 'primary' : ''}`} disabled={busy === key} onClick={() => choose(key)}>{busy === key ? 'Redirecting…' : `Get ${config.plans[key].name}`}</button>;
-    if (config.sales_email) return <a className={`btn ${key === 'pro' ? 'primary' : ''}`} href={`mailto:${config.sales_email}?subject=Uptake ${config.plans[key].name}`}>Contact sales</a>;
+    if (me?.tier === key) return <span className="btn" aria-disabled="true">Your current access</span>;
+    if (key === 'contributor') return <Link className="btn" to={user ? '/submit' : '/account?next=submit'}>Share a deal</Link>;
+    if (config.billing) return <button className={`btn ${key === 'pro' ? 'primary' : ''}`} disabled={busy === key} onClick={() => choose(key)}>{busy === key ? 'Redirecting…' : `Get ${config.tiers[key].name}`}</button>;
+    if (config.sales_email) return <a className={`btn ${key === 'pro' ? 'primary' : ''}`} href={`mailto:${config.sales_email}?subject=Rangefinder ${config.tiers[key].name}`}>Contact sales</a>;
     return <span className="sub">Checkout opens soon.</span>;
   };
 
@@ -35,12 +35,12 @@ export function PlanCards() {
     <>
       {error && <div className="notice error" style={{ marginBottom: 12 }}>{error}</div>}
       <div className="grid three">
-        {Object.entries(config.plans).map(([key, p]) => (
+        {Object.entries(config.tiers).map(([key, t]) => (
           <div key={key} className={`card plan ${key === 'pro' ? 'featured' : ''}`}>
-            <h3>{p.name}</h3>
-            <p className="sub">{p.tagline}</p>
-            <div className="price" style={{ marginTop: 10 }}>${p.price.toLocaleString('en-US')}<small> / month</small></div>
-            <ul>{p.features.map((f) => <li key={f}>{f}</li>)}</ul>
+            <h3>{t.name}</h3>
+            <p className="sub">{t.tagline}</p>
+            <div className="price" style={{ marginTop: 10 }}>{t.price ? <>${t.price.toLocaleString('en-US')}<small> / month</small></> : <>Free<small> with a deal</small></>}</div>
+            <ul>{t.features.map((f) => <li key={f}>{f}</li>)}</ul>
             {action(key)}
           </div>
         ))}
@@ -54,15 +54,16 @@ export default function Pricing() {
     <div className="stack">
       <div>
         <h1>Pricing</h1>
-        <p className="sub" style={{ maxWidth: 640 }}>One dataset, three depths. Every plan sees the same numbers, computed the same way — paid plans add history, coverage, exports and volume.</p>
+        <p className="sub" style={{ maxWidth: 660 }}>Athletes pay with data, not money. Everyone who uses the benchmarks professionally subscribes, and that funds the database.</p>
       </div>
       <PlanCards />
       <div className="card">
         <h2>Questions</h2>
         <div className="stack" style={{ gap: 12, marginTop: 10 }}>
-          <div><h3>Where does the data come from?</h3><p className="sub">Public aggregate statistics: PyPI's download logs, the npm registry's download counts, the Hugging Face Hub and Hacker News. Uptake adds cleaning, break detection, category definitions and the derived signals.</p></div>
-          <div><h3>Are downloads the same as users?</h3><p className="sub">No. Downloads include CI and automated installs, so absolute numbers overstate people. That is why Uptake leads with share and growth inside a category, where the same bias applies to every competitor.</p></div>
-          <div><h3>Can I redistribute the data?</h3><p className="sub">Free and Pro are for use inside your own organisation. Team includes an internal redistribution licence; talk to us about external publication.</p></div>
+          <div><h3>Where does the data come from?</h3><p className="sub">Only from athletes, who share the terms of their own deals. Every submission is screened for outliers, unusual ones are reviewed by a person, and deals a moderator has seen proof of are marked verified.</p></div>
+          <div><h3>Can an athlete be identified?</h3><p className="sub">We never collect names, schools, teams or brand names. Followers are shown as ranges, amounts are rounded, and no statistic or list is shown for a group of fewer than five deals.</p></div>
+          <div><h3>Is this an official fair-market-value ruling?</h3><p className="sub">No. Rangefinder is independent market context. It is not affiliated with NIL Go or the College Sports Commission and cannot predict or replace their decisions.</p></div>
+          <div><h3>Can I redistribute the data?</h3><p className="sub">Pro is for use inside your own organisation, including in reports for the athletes and clients you represent. Team adds an internal redistribution licence.</p></div>
         </div>
       </div>
     </div>

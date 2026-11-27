@@ -147,3 +147,24 @@ pre { background: var(--surface-2); border: 1px solid var(--border); border-radi
 .docs p, .docs li { color: var(--text-secondary); } .docs ul { padding-left: 18px; margin: 6px 0; }
 .skeleton { color: var(--text-tertiary); padding: 30px 0; text-align: center; }
 @media (max-width: 640px) { h1 { font-size: 23px; } .hide-sm { display: none; } }
+
+.banner { background: var(--surface-2); border-bottom: 1px solid var(--border); font-size: 13px; padding: 7px 0; color: var(--text-secondary); }
+.banner b { color: var(--text-primary); }
+.filters { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); }
+.form-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%), linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%); background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 30px; }
+.field-error { color: var(--bad); font-size: 12.5px; }
+label.check { flex-direction: row; align-items: flex-start; gap: 9px; color: var(--text-primary); font-size: 14px; }
+label.check input { margin-top: 3px; }
+.hint { color: var(--text-tertiary); font-size: 12.5px; }
+.steps { counter-reset: step; }
+.steps .card::before { counter-increment: step; content: counter(step); display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-contrast); align-items: center; justify-content: center; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+.verdict { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }
+.status { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border); }
+.rangebar text { font-family: var(--sans); }
+@media print {
+  .nav, footer, .banner, .no-print { display: none !important; }
+  body { background: #fff; }
+  .card { border-color: #bbb; break-inside: avoid; }
+  main { padding: 0; }
+}

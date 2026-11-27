@@ -19,22 +19,5 @@ export function useData(path) {
   return state;
 }
 
-export const SessionContext = createContext({ user: null, refresh: () => {}, config: null });
+export const SessionContext = createContext({ user: null, me: null, meta: null, config: null, refresh: () => {} });
 export const useSession = () => useContext(SessionContext);
-
-export function useEcosystem() {
-  const [eco, setEco] = useState(() => {
-    try {
-      return localStorage.getItem('uptake.eco') === 'npm' ? 'npm' : 'pypi';
-    } catch {
-      return 'pypi';
-    }
-  });
-  const set = (e) => {
-    setEco(e);
-    try {
-      localStorage.setItem('uptake.eco', e);
-    } catch { /* storage unavailable */ }
-  };
-  return [eco, set];
-}

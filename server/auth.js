@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { today } from './db.js';
 
 const SESSION_DAYS = 30;
-export const SESSION_COOKIE = 'uptake_session';
+export const SESSION_COOKIE = 'rf_session';
 const sha = (s) => crypto.createHash('sha256').update(s).digest('hex');
 const now = () => new Date().toISOString();
 
@@ -82,7 +82,7 @@ export function createApiKey(db, userId, name) {
   name = String(name || '').trim().slice(0, 60) || 'default';
   const active = db.prepare('SELECT COUNT(*) AS n FROM api_keys WHERE user_id = ? AND revoked_at IS NULL').get(userId).n;
   if (active >= MAX_KEYS) throw new AuthError(`You can have at most ${MAX_KEYS} active keys. Revoke one first.`);
-  const key = `upk_${crypto.randomBytes(30).toString('base64url')}`;
+  const key = `rfk_${crypto.randomBytes(30).toString('base64url')}`;
   const prefix = key.slice(0, 10);
   const id = db.prepare('INSERT INTO api_keys (user_id, name, prefix, key_hash, created_at) VALUES (?, ?, ?, ?, ?)').run(userId, name, prefix, sha(key), now()).lastInsertRowid;
   return { id: Number(id), name, prefix, key }; // the full key is returned exactly once
@@ -95,7 +95,7 @@ export const revokeApiKey = (db, userId, id) =>
   db.prepare('UPDATE api_keys SET revoked_at = ? WHERE id = ? AND user_id = ? AND revoked_at IS NULL').run(now(), id, userId).changes > 0;
 
 export function userFromApiKey(db, key) {
-  if (!key || !key.startsWith('upk_')) return null;
+  if (!key || !key.startsWith('rfk_')) return null;
   const row = db.prepare('SELECT id, user_id FROM api_keys WHERE key_hash = ? AND revoked_at IS NULL').get(sha(key));
   if (!row) return null;
   db.prepare('UPDATE api_keys SET last_used_at = ? WHERE id = ?').run(now(), row.id);

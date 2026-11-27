@@ -1,4 +1,4 @@
-// Thin client for the Uptake API. The browser authenticates with the session cookie.
+// Thin client for the Rangefinder API. The browser authenticates with the session cookie.
 async function request(path, opts = {}) {
   const res = await fetch(path, {
     credentials: 'same-origin',
@@ -11,6 +11,7 @@ async function request(path, opts = {}) {
     const err = new Error(body.error?.message || `Request failed (${res.status})`);
     err.status = res.status;
     err.code = body.error?.code;
+    err.fields = body.error?.fields;
     throw err;
   }
   return body;

@@ -1,50 +1,57 @@
-# Niche selection: why AI ecosystem adoption data
+# Niche selection: why NIL deal data
 
-Research run 27 Nov 2026. The brief: a data business that derives trends and data about a community and sells it. Four candidate niches were compared; the AI developer ecosystem won.
+Research run 27 Nov 2026. The test was strict: a community where the data is in **high demand**, **genuinely scarce**, and where buyers have **money and a reason to pay now**.
+
+## What "scarce" means
+
+A first version of this project sold cleaned-up public download statistics. It failed the test: the raw inputs were free to anyone. Data is only scarce when it is published nowhere, and the durable businesses in that position get it from the community itself — members contribute their own numbers to see everyone else's ("give to get"). RepVue does this with sales reps and sells aggregate data on sales organisations to financial institutions; Levels.fyi does it with tech pay and sells a data subscription and API; Pave does it between companies.
 
 ## The decision
 
-**Sell adoption, momentum and market-share data on the AI developer ecosystem** — which model SDKs, agent frameworks, vector databases and open models developers are actually pulling — to investors, AI infrastructure vendors and product/GTM teams.
+**An anonymous, athlete-contributed database of college NIL deal terms**, free to athletes who share a deal, sold to agents, brands, collectives and athletic departments.
 
-| | AI ecosystem adoption | Reddit/forum audience intel | Collectibles price data | Open-source startup signals |
-|---|---|---|---|---|
-| Buyer budget | High: funds, vendors | Low: indie founders, $29–199/mo | Medium: sellers, apps | High per seat, few buyers |
-| Demand trend | Rising — buyers want data that quantifies the AI boom | Proven, but orphaned | Proven | Steady |
-| Data access | Open public APIs | Needs a commercial Reddit licence | Marketplace data, hard to source cleanly | Open |
-| Competition | Fragmented, mostly free and uncleaned | Many small clones | Crowded | Free incumbents |
-| Main risk | Free alternatives; must win on cleaning and framing | Platform can switch you off | Sourcing and incumbents | Small market |
+## Why NIL
 
-## Evidence
+- **A rule created the demand.** Since June 2025, third-party NIL deals of $600 or more go through the NIL Go clearinghouse, which tests each against a "range of compensation" for similar athletes. By mid-2026 it had approved about $355M across roughly 34,000 deals and rejected close to $90M.
+- **Being wrong is expensive.** In one two-month window the average rejected deal was $51,593 against $14,792 for approved ones. A collectives' association reported 120 of 384 submitted deals rejected and 192 unanswered. Legal guidance now tells both sides to benchmark an offer against comparable contracts and document the basis.
+- **The comparables do not exist.** NIL Go's model is unpublished — critics note its outputs are not dated, versioned or released. Public "valuations" are estimates of an athlete's worth, not what anyone was paid. The tools that claim real deals are small: one cites about 1,200, another lists 221 records. No anonymous athlete-submitted database turned up.
+- **Buyers have budgets.** Agencies, collectives, brands and athletic departments are all on the hook for getting a number right.
+- **Only the community can supply it.** Deal terms sit in private contracts. That is the moat, and also the hard part.
 
-- **Buyers are spending more.** Investment managers spent about $2.8B on alternative data in 2025, up 17% year on year, and budget confidence is at a three-year high (Neudata, 2026). Buyers average ~20 dataset subscriptions and ~$1.6M a year (cited by IMARC).
-- **This exact category is in demand.** Neudata's head of research: demand is growing for datasets that help investors quantify the AI boom itself. Web-derived datasets already take the largest share of spend.
-- **The syndicated model has the best margins.** One dataset sold to many buyers, on auto-renewing subscriptions, is the highest-margin shape of data business — and that is what this is.
-- **The data is public but raw.** Researchers already treat Hugging Face downloads as the primary open-model adoption signal (ATOM report), and investors treat repository and package activity as underused alternative data. What exists is free dashboards with no cleaning, no category definitions and no share math.
-- **Platform risk killed the nearest alternative.** GummySearch (Reddit audience research, ~$29–199/mo) shut down on 30 Nov 2025 because it could not get a commercial Reddit data licence. A business built on PyPI, npm and Hugging Face public statistics does not carry that dependency.
+## What was rejected
 
-## Where the product has to earn its price
+| Niche | Why not |
+|---|---|
+| Creator sponsorship rates | Real demand (~$43.9B US creator ad spend in 2026), but FYPM already holds 16,000–24,000 crowd-sourced deal reviews, with Clara, Creator Rates and Collabstr behind it. Supply exists. |
+| Physician and locum pay | Marit Health already runs give-to-get with 17,000+ salaries. |
+| Therapist insurance reimbursement rates | Scarce and wanted, but buyers are individual clinicians with small budgets, contracts often forbid sharing rates, and a crowd-sourced tracker has already started. |
+| Indie game publishing terms | Scarce (one law firm's sample of ~130 contracts is the benchmark) but the buyers are small studios. |
+| Home-services quotes | Several entrants already (Estq, TruePrice, and others). |
+| Small-business financial benchmarks | Trade associations and accounting platforms already cover most verticals. |
+| Newsletter and podcast ad rates | Vendor marketplaces publish their own benchmarks; small market. |
 
-Raw download counts are free, so the value is in what is hard to do yourself:
+## The risks, plainly
 
-1. **Cleaning.** While building this, the collector found that PyPI's reported downloads fell ~52% across every package on 25 Aug 2026 — a counting change, not a collapse — and that npm reported zero downloads on three days in October. Naive charts of either are wrong. Uptake detects both automatically.
-2. **Competitive sets.** 87 projects hand-mapped into 9 categories, so share and rank mean something.
-3. **Signals.** Growth, acceleration, share change, momentum and breakout flags, comparable across projects.
-
-## Risks to manage
-
-- **Downloads are not users.** CI and bots inflate counts. Mitigation: lead with within-category share and growth, where the bias is shared; say so plainly in the docs.
-- **Upstream terms.** The sources are public APIs, but each has terms of use. Before charging customers, have the PyPI/pypistats, npm, Hugging Face and Algolia HN terms reviewed for commercial redistribution of derived statistics.
-- **Free substitutes.** pypistats, npm-stat and the Hub itself are free. The paid product must stay ahead on history, cleaning and coverage (next: GitHub, Docker Hub, OpenRouter usage, job postings).
-- **Hugging Face history accrues only from launch.** The Hub publishes trailing-30-day counts only, so model trend lines build up one daily snapshot at a time.
+1. **Cold start.** The product is worth nothing until athletes contribute. The first few hundred deals have to be recruited by hand — through athletes, agents, collectives or compliance staff who will seed it. This is a distribution problem that software does not solve.
+2. **Accuracy.** Submissions are self-reported. Screening and moderation help; document-based verification is the next step and carries its own privacy burden.
+3. **Confidentiality clauses.** Some contracts restrict disclosure. Contributors attest that sharing is allowed, and no names or brands are collected, but this needs a lawyer's review before launch.
+4. **Regulation moves.** The NIL Go process is contested and could change. Demand for comparables predates it, but the urgency is tied to it.
+5. **Incumbents.** Opendorse, Teamworks/INFLCR and On3 have distribution and could build this. Their data comes from their own marketplaces or from estimates, not from a neutral athlete-side pool.
 
 ## Sources
 
-- Neudata, State of the alternative data market 2026 — https://www.neudata.co/blog/state-of-the-alternative-data-market-2026
-- Neudata, The Future of Alternative and Market Data 2026 — https://www.neudata.co/blog/the-future-of-alternative-and-market-data-2026-budget-confidence-hits-a-3-year-high-while-ai-drives-operational-efficiencies
-- IMARC, Alternative Data Market — https://www.imarcgroup.com/alternative-data-market
-- Towards Data Science, evaluating data businesses — https://towardsdatascience.com/data-business-evaluation-9171fb3aa90d/
-- Hugging Face, State of Open Source, Spring 2026 — https://huggingface.co/blog/huggingface/state-of-os-hf-spring-2026
-- ATOM report (open-model adoption methodology) — https://arxiv.org/pdf/2604.07190
-- Matt Rickard, Alternative Data on Developer Products — https://matt-rickard.com/data-on-developer-products
-- GummySearch closing notice — https://gummysearch.com/final-chapter/
-- Reddit data-licensing revenue (Motley Fool, Aug 2026) — https://www.fool.com/investing/2026/08/17/reddits-data-revenue-openai-google-buyers/
+- College Sports Commission, NIL Go data reports — https://www.collegesportscommission.org/nil-data-report/nil-data-report-march-10-2026/
+- ESPN, NIL clearinghouse has rejected $90M in deals — https://africa.espn.com/college-sports/story/_/id/49308194/nil-clearinghouse-rejected-90m-deals
+- Front Office Sports, collectives bypassing the approval process — https://frontofficesports.com/fed-up-nil-collectives-are-bypassing-nil-deal-approval-process/
+- Front Office Sports, NIL Go corrects its data — https://frontofficesports.com/nil-go-corrects-its-data-from-80m-in-deals-cleared-to-35m-blames-deloitte/
+- The NIL Standard, The Clearinghouse Has a Valuation Problem — https://thenilstandard.com/football/insights/nil-go-clearinghouse-valuation-problem
+- Horgan Law, NIL valuation under CSC review — https://horganlawfirm.com/the-ultimate-guide-to-nil-valuation-for-athletes-and-companies/
+- Crowell, NIL compliance alert — https://www.crowell.com/en/insights/client-alerts/name-image-and-likeness-nil-compliance-alert-for-higher-education-deal-rejections-mount-as-state-resistance-grows
+- MyNILValue methodology — https://mynilvalue.io/methodology.html
+- The Sideline, NIL deals — https://thesideline.co/nil-deals
+- RepVue on its business model — https://repvue.com/blog/an-update-on-repvues-business-model
+- Levels.fyi data offering — https://levels.fyi/offerings/data
+- FYPM coverage — https://www.theleap.co/blog/fypm-lindsey-lee-lugrin-interview/ and https://creatoreconomytools.com/tool/f-you-pay-me
+- Marit Health — https://www.marithealth.com/o/locums/physician/salary
+- Therapist Rates — https://buttondown.com/therapistrates/archive/
+- Voyer Law publishing-agreement benchmark — https://gamedevreports.substack.com/p/voyer-law-publishing-agreements-in

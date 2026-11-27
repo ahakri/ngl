@@ -1,42 +1,30 @@
-// Plans: what each tier can see and how much it can call.
-export const PLANS = {
+// Access tiers. "contributor" is not bought: an athlete earns it by sharing a
+// deal of their own, which is how the dataset grows.
+export const TIERS = {
   free: {
-    name: 'Free',
-    price: 0,
-    historyDays: 90,
-    shareWeeks: 12,
-    moversLimit: 5,
-    modelsLimit: 25,
-    dailyRequests: 100,
-    export: false,
-    tagline: 'Explore the leaderboards.',
-    features: ['All 9 category leaderboards', '90 days of history', 'Top 5 movers per ecosystem', '100 API requests / day'],
+    name: 'Visitor', price: 0, explorer: false, rangefinder: false, comps: 0, export: false, dailyRequests: 50,
+  },
+  contributor: {
+    name: 'Contributor', price: 0, explorer: true, rangefinder: true, comps: 8, export: false, dailyRequests: 200,
+    tagline: 'For athletes. Share one deal, see them all.',
+    features: ['Full benchmark explorer', 'Range finder for your next deal', '8 comparable deals per search', '12 months of access per deal shared'],
   },
   pro: {
-    name: 'Pro',
-    price: 199,
-    historyDays: 3650,
-    shareWeeks: 104,
-    moversLimit: 100,
-    modelsLimit: 500,
-    dailyRequests: 10000,
-    export: true,
-    tagline: 'For analysts, founders and GTM teams.',
-    features: ['Full history, break-adjusted', 'Complete movers & breakout feed', 'CSV export of signals and series', '10,000 API requests / day', 'Hugging Face org & task share, top 500 models'],
+    name: 'Pro', price: 299, explorer: true, rangefinder: true, comps: 50, export: true, dailyRequests: 5000,
+    tagline: 'For agents, brands and collectives.',
+    features: ['Everything, without contributing', '50 comparable deals per search', 'Printable fair-value comp reports', 'CSV export and API access', '5,000 API requests / day'],
   },
   team: {
-    name: 'Team',
-    price: 999,
-    historyDays: 3650,
-    shareWeeks: 104,
-    moversLimit: 100,
-    modelsLimit: 2500,
-    dailyRequests: 100000,
-    export: true,
-    tagline: 'For funds and data teams.',
-    features: ['Everything in Pro', '100,000 API requests / day', 'Full Hugging Face model panel', 'Internal redistribution licence', 'Priority support & custom watchlists'],
+    name: 'Team', price: 1499, explorer: true, rangefinder: true, comps: 200, export: true, dailyRequests: 50000,
+    tagline: 'For athletic departments and agencies.',
+    features: ['Everything in Pro', '200 comparable deals per search', '50,000 API requests / day', 'Internal redistribution licence', 'Priority support'],
   },
 };
 
-export const planOf = (user) => PLANS[user?.plan] ? user.plan : 'free';
-export const limitsOf = (user) => PLANS[planOf(user)];
+export const CONTRIBUTOR_DAYS = 365;
+
+/** @param user  row with { plan }  @param contributing  has a live, non-rejected submission */
+export function tierOf(user, contributing) {
+  if (user?.plan === 'pro' || user?.plan === 'team') return user.plan;
+  return user && contributing ? 'contributor' : 'free';
+}

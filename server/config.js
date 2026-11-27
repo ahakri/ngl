@@ -11,18 +11,15 @@ export const config = {
   env: env.NODE_ENV || 'development',
   port: int(env.PORT, 8080),
   host: env.HOST || '0.0.0.0',
-  dbPath: env.DATABASE_PATH || path.join(root, 'data', 'uptake.db'),
   publicUrl: (env.PUBLIC_URL || `http://localhost:${int(env.PORT, 8080)}`).replace(/\/$/, ''),
   // Set to "1" when running behind a TLS-terminating proxy so cookies are Secure.
   secureCookies: env.SECURE_COOKIES === '1' || env.NODE_ENV === 'production',
   trustProxy: env.TRUST_PROXY === '1',
-  // Collection
-  collectOnBoot: env.COLLECT_ON_BOOT === '1',
-  collectHourUtc: int(env.COLLECT_HOUR_UTC, 7), // daily run; upstream stats settle a few hours after midnight UTC
-  schedulerEnabled: env.SCHEDULER !== '0',
-  historyDays: int(env.HISTORY_DAYS, 365),
-  hfModelLimit: int(env.HF_MODEL_LIMIT, 2000),
-  userAgent: env.COLLECTOR_USER_AGENT || 'uptake-collector/0.1',
+  dbPath: env.DATABASE_PATH || path.join(root, 'data', 'rangefinder.db'),
+  // Moderation
+  adminEmails: (env.ADMIN_EMAILS || '').split(',').map((x) => x.trim().toLowerCase()).filter(Boolean),
+  // "1": publish submissions that pass screening immediately. "0": every submission waits for a moderator.
+  autoApprove: env.AUTO_APPROVE !== '0',
   // Billing (optional — the app runs without it; upgrade buttons are hidden)
   stripe: {
     secretKey: env.STRIPE_SECRET_KEY || '',

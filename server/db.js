@@ -4,76 +4,27 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const SCHEMA = `
-CREATE TABLE IF NOT EXISTS metrics (
-  project TEXT NOT NULL,          -- catalog slug
-  metric  TEXT NOT NULL,          -- pypi_downloads | npm_downloads | hn_stories | hn_points
-  date    TEXT NOT NULL,          -- YYYY-MM-DD (UTC)
-  value   REAL NOT NULL,
-  PRIMARY KEY (project, metric, date)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS signals (
-  project      TEXT NOT NULL,
-  ecosystem    TEXT NOT NULL,     -- pypi | npm
-  as_of        TEXT NOT NULL,
-  d7           REAL, d28 REAL,
-  growth_7d    REAL, growth_28d REAL, growth_12w REAL,
-  accel        REAL,
-  share        REAL, share_delta_28d REAL,
-  momentum     REAL,
-  rank         INTEGER, rank_delta_28d INTEGER,
-  breakout     INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (project, ecosystem)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS breaks (
-  ecosystem TEXT NOT NULL,
-  date TEXT NOT NULL,             -- first day of the new counting regime
-  ratio REAL NOT NULL,            -- level after / level before
-  PRIMARY KEY (ecosystem, date)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS gaps (
-  ecosystem TEXT NOT NULL,
-  date TEXT NOT NULL,             -- upstream outage day; values are imputed
-  PRIMARY KEY (ecosystem, date)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS hf_models (
-  id TEXT PRIMARY KEY,            -- org/name
-  org TEXT NOT NULL,
-  task TEXT,
-  library TEXT,
-  created_at TEXT,
-  first_seen TEXT NOT NULL
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS hf_model_daily (
-  id TEXT NOT NULL,
-  date TEXT NOT NULL,
-  downloads_30d REAL NOT NULL,    -- Hub's trailing-30-day download count
-  likes REAL NOT NULL,
-  trending REAL,
-  PRIMARY KEY (id, date)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS hf_agg_daily (
-  dim   TEXT NOT NULL,            -- org | task
-  key   TEXT NOT NULL,
-  date  TEXT NOT NULL,
-  downloads_30d REAL NOT NULL,
-  models INTEGER NOT NULL,
-  likes REAL NOT NULL,
-  PRIMARY KEY (dim, key, date)
-) WITHOUT ROWID;
-
-CREATE TABLE IF NOT EXISTS runs (
+CREATE TABLE IF NOT EXISTS deals (
   id INTEGER PRIMARY KEY,
-  started_at TEXT NOT NULL,
-  finished_at TEXT,
-  ok INTEGER,
-  summary TEXT
+  user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+  status TEXT NOT NULL DEFAULT 'approved',   -- approved | pending | rejected
+  flags TEXT NOT NULL DEFAULT '[]',          -- JSON list of screening reasons
+  verified INTEGER NOT NULL DEFAULT 0,       -- a moderator has seen proof
+  is_demo INTEGER NOT NULL DEFAULT 0,        -- synthetic sample data, never real
+  created_at TEXT NOT NULL,
+  reviewed_at TEXT,
+  -- athlete context (no name, school or team is ever stored)
+  sport TEXT NOT NULL, level TEXT NOT NULL, class_year TEXT NOT NULL, role TEXT, region TEXT NOT NULL,
+  followers INTEGER NOT NULL,
+  -- the deal (no brand name is ever stored)
+  payer_type TEXT NOT NULL, industry TEXT NOT NULL, deal_type TEXT NOT NULL,
+  deliverables INTEGER NOT NULL, duration_months INTEGER NOT NULL,
+  cash_usd INTEGER NOT NULL, in_kind_usd INTEGER NOT NULL, total_usd INTEGER NOT NULL,
+  exclusive INTEGER NOT NULL, has_agent INTEGER NOT NULL,
+  clearance TEXT NOT NULL, signed_quarter TEXT NOT NULL
 );
+CREATE INDEX IF NOT EXISTS idx_deals_status ON deals(status);
+CREATE INDEX IF NOT EXISTS idx_deals_user ON deals(user_id);
 
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY,
@@ -114,8 +65,6 @@ CREATE TABLE IF NOT EXISTS stripe_events (
   received_at TEXT NOT NULL
 ) WITHOUT ROWID;
 
-CREATE INDEX IF NOT EXISTS idx_metrics_metric_date ON metrics(metric, date);
-CREATE INDEX IF NOT EXISTS idx_hf_daily_date ON hf_model_daily(date);
 `;
 
 export function openDb(file) {
