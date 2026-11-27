@@ -3461,3 +3461,624 @@ def case_folder(loc, rot_z=0.0, size=(0.34, 0.25), name="folder", color=(0.5, 0.
     L.assign(o, L.mat_principled(name + "_lm", (0.22, 0.2, 0.17), rough=0.9))
     o.parent = root
     return {"root": root, "cover": hinge}
+
+
+# ============================================================================ MURDER-06 (Mary Celeste, 1872) builders
+# Brigantine (lofted tapered hull, plank deck, deckhouse, foremast with square yards/sails, mainmast with gaff sail, jib,
+# bowsprit, rigging, stern davits with empty falls, wheel, transom name), swell sea, barrels, sounding rod, deck pump,
+# lifeboat, legend cabin props, deerstalker, compositor sepia/grain grade (legend scenes).
+# Ship layout: bow +X, stern -X, waterline z=0, deck z=DECK_Z, length 31 m (x -15.5..15.5), beam 7.5 m.
+
+SHIP_L = 31.0
+SHIP_B = 7.5
+DECK_Z = 1.5
+
+
+def _hull_hw(x):
+    """Half-beam at the sheer for station x (bow +X narrows to 0.15 of max, stern transom ~0.72)."""
+    t = (x + SHIP_L / 2) / SHIP_L  # 0 stern .. 1 bow
+    if t < 0.35:
+        k = 0.72 + 0.28 * math.sin(t / 0.35 * math.pi / 2)
+    elif t < 0.6:
+        k = 1.0
+    else:
+        u = (t - 0.6) / 0.4
+        k = 1.0 - 0.85 * u ** 1.6
+    return SHIP_B / 2 * k
+
+
+def _hull_top(x):
+    t = (x + SHIP_L / 2) / SHIP_L
+    return 2.15 + 0.6 * max(0.0, (t - 0.55) / 0.45) ** 2 + 0.25 * max(0.0, (0.2 - t) / 0.2) ** 2
+
+
+def mat_hull(name="hull", base=(0.028, 0.025, 0.022), stripe=(0.72, 0.7, 0.64), bottom=(0.06, 0.035, 0.025), stripe_z=(0.35, 0.6)):
+    """Tarred planking (horizontal seams by object Z) with a white band above the waterline and dark bottom paint."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    sp = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sp.inputs[0])
+    z = sp.outputs["Z"]
+    seam = _mathn(n, l, "LESS_THAN", _mathn(n, l, "FRACT", _mathn(n, l, "DIVIDE", z, 0.22)), 0.07)
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 3.0
+    mp = n.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (0.3, 3, 3)
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*base, 1)
+    ramp.color_ramp.elements[1].color = (base[0] * 2.6, base[1] * 2.4, base[2] * 2.2, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    col = ramp.outputs["Color"]
+    mx = n.new("ShaderNodeMix"); mx.data_type = "RGBA"
+    l.new(_band(n, l, z, stripe_z[0], stripe_z[1]), mx.inputs[0])
+    l.new(col, mx.inputs[6]); mx.inputs[7].default_value = (*stripe, 1)
+    mx2 = n.new("ShaderNodeMix"); mx2.data_type = "RGBA"
+    l.new(_mathn(n, l, "LESS_THAN", z, 0.05), mx2.inputs[0])
+    l.new(mx.outputs[2], mx2.inputs[6]); mx2.inputs[7].default_value = (*bottom, 1)
+    mx3 = n.new("ShaderNodeMix"); mx3.data_type = "RGBA"
+    l.new(_mathn(n, l, "MULTIPLY", seam, 0.6), mx3.inputs[0])
+    l.new(mx2.outputs[2], mx3.inputs[6]); mx3.inputs[7].default_value = (0.0, 0.0, 0.0, 1)
+    l.new(mx3.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.6
+    return m
+
+
+def mat_canvas_sail(name="sail", c=(0.62, 0.6, 0.52), emit=0.0):
+    m = L.mat_noise_surface(name, (c[0] * 0.78, c[1] * 0.76, c[2] * 0.7), c, scale=4, bump=0.08, voronoi=False, rough=0.9)
+    p = m.node_tree.nodes["Principled BSDF"]
+    if "Transmission Weight" in p.inputs:
+        p.inputs["Transmission Weight"].default_value = 0.0
+    if "Subsurface Weight" in p.inputs:
+        p.inputs["Subsurface Weight"].default_value = 0.0
+    if emit:
+        p.inputs["Emission Color"].default_value = (*c, 1)
+        p.inputs["Emission Strength"].default_value = emit
+    return m
+
+
+def _sail_mesh(name, corners, bulge=0.6, nu=10, nv=10, normal=(0, 1, 0), mat=None, sag=0.0):
+    """Bilinear patch between 4 corners (top-left, top-right, bottom-right, bottom-left) pushed along `normal` by a
+    sin*sin bulge. sag lowers the bottom edge centre (slack sail)."""
+    a, b, c, d = [Vector(q) for q in corners]
+    nv_ = Vector(normal)
+    verts, faces = [], []
+    for j in range(nv + 1):
+        v = j / nv
+        for i in range(nu + 1):
+            u = i / nu
+            top = a.lerp(b, u)
+            bot = d.lerp(c, u)
+            p = top.lerp(bot, v)
+            p += nv_ * bulge * math.sin(math.pi * u) * math.sin(math.pi * min(1.0, v * 0.85 + 0.15))
+            p.z += sag * math.sin(math.pi * u) * v ** 2
+            verts.append(p)
+    for j in range(nv):
+        for i in range(nu):
+            k = j * (nu + 1) + i
+            faces.append((k, k + 1, k + nu + 2, k + nu + 1))
+    return mesh_obj(name, verts, faces, mat=mat, smooth=True)
+
+
+def _rope(name, pts, r=0.02, mat=None):
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    for seg in pts:
+        sp = cu.splines.new("POLY")
+        sp.points.add(len(seg) - 1)
+        for k, q in enumerate(seg):
+            sp.points[k].co = (*q, 1)
+    cu.bevel_depth = r
+    cu.bevel_resolution = 1
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(mat or L.mat_principled(name + "_m", (0.06, 0.05, 0.04), rough=0.8))
+    return o
+
+
+def brigantine(name="ship", sails="half", fill=0.0, davit_falls=True, lifeboat=False, deck_props=True, wheel=True):
+    """Two-masted brigantine (~31 m). sails: 'half' (lower topsail + jib set slack, course & topgallant furled,
+    gaff sail set) | 'full' (filled) | 'none'. fill 0..1 adds bulge. Returns dict of parts; root at waterline centre."""
+    root = empty(name)
+    P = {"root": root}
+    wood = mat_hull(name + "_hull")
+    # ---- lofted hull: stations along X, section points from sheer (y=hw, z=top) round the bilge to the keel
+    nx = 40
+    sec = [(1.0, 1.0), (1.0, 0.55), (0.985, 0.0), (0.93, -0.35), (0.78, -0.65), (0.5, -0.88), (0.18, -1.0), (0.0, -1.0)]
+    keel = -2.3
+    verts, faces = [], []
+    xs = [-SHIP_L / 2 + SHIP_L * i / nx for i in range(nx + 1)]
+    ns = len(sec) * 2 - 1
+    for x in xs:
+        hw = _hull_hw(x)
+        top = _hull_top(x)
+        t = (x + SHIP_L / 2) / SHIP_L
+        kz = keel * (1 - 0.55 * max(0, (t - 0.8) / 0.2) ** 1.5) * (1 - 0.25 * max(0, (0.1 - t) / 0.1))
+        ring = []
+        for (fy, fz) in sec:
+            z = top * fz if fz > 0 else kz * -fz
+            ring.append((fy, z))
+        full = [(hw * fy, z) for fy, z in ring] + [(-hw * fy, z) for fy, z in reversed(ring[:-1])]
+        for (y, z) in full:
+            verts.append((x, y, z))
+    for i in range(nx):
+        for j in range(ns - 1):
+            a = i * ns + j
+            faces.append((a, a + 1, a + ns + 1, a + ns))
+    # transom cap at stern + stem cap
+    faces.append(tuple(range(ns - 1, -1, -1)))
+    faces.append(tuple(nx * ns + k for k in range(ns)))
+    hull = mesh_obj(name + "_hullmesh", verts, faces, mat=wood)
+    solidify(hull, 0.08)
+    hull.parent = root
+    P["hull"] = hull
+    # ---- deck
+    deckm = mat_planks(name + "_deckm", c1=(0.16, 0.13, 0.095), c2=(0.3, 0.25, 0.19), width=0.16, axis="Y", rough=0.8)
+    dv, df = [], []
+    for x in xs:
+        hw = _hull_hw(x) * 0.97
+        dv += [(x, -hw, DECK_Z), (x, hw, DECK_Z)]
+    for i in range(nx):
+        df.append((2 * i, 2 * i + 2, 2 * i + 3, 2 * i + 1))
+    deck = mesh_obj(name + "_deck", dv, df, mat=deckm)
+    deck.parent = root
+    P["deck"] = deck
+    # rail cap
+    rv = [[(x, _hull_hw(x), _hull_top(x) + 0.04) for x in xs], [(x, -_hull_hw(x), _hull_top(x) + 0.04) for x in xs]]
+    _rope(name + "_rail", rv, r=0.07, mat=L.mat_principled(name + "_railm", (0.09, 0.06, 0.04), rough=0.6)).parent = root
+    dark = L.mat_principled(name + "_dark", (0.05, 0.04, 0.03), rough=0.7)
+    paint = L.mat_noise_surface(name + "_paint", (0.4, 0.38, 0.33), (0.6, 0.57, 0.5), scale=6, bump=0.15, voronoi=False)
+    # deckhouse aft of the mainmast
+    dh = L.prim("cube", loc=(-9.0, 0, DECK_Z + 0.8))
+    dh.scale = (3.0, 2.0, 0.8)
+    L.assign(dh, paint)
+    dh.parent = root
+    dhr = L.prim("cube", loc=(-9.0, 0, DECK_Z + 1.65))
+    dhr.scale = (3.15, 2.15, 0.06)
+    L.assign(dhr, dark)
+    dhr.parent = root
+    for xx in (-10.8, -9.0, -7.2):
+        w = L.prim("cube", loc=(xx, -2.02, DECK_Z + 1.0))
+        w.scale = (0.25, 0.03, 0.2)
+        L.assign(w, L.mat_principled(name + "_win", (0.01, 0.012, 0.012), rough=0.1))
+        w.parent = root
+    # hatches
+    for (hx, hl) in ((2.0, 2.4), (8.5, 1.6)):
+        h = L.prim("cube", loc=(hx, 0, DECK_Z + 0.25))
+        h.scale = (hl / 2, 1.1, 0.25)
+        L.assign(h, dark)
+        h.parent = root
+    P["main_hatch"] = Vector((2.0, 0, DECK_Z + 0.5))
+    # masts, yards, bowsprit
+    spar = L.mat_principled(name + "_spar", (0.14, 0.1, 0.06), rough=0.6)
+    FX, MXm = 6.0, -3.0
+    for (mx_, ht, nm) in ((FX, 26.0, "fore"), (MXm, 27.0, "main")):
+        m = L.prim("cone", loc=(mx_, 0, DECK_Z + ht / 2), vertices=10, radius1=0.2, radius2=0.09, depth=ht)
+        L.assign(m, spar)
+        m.parent = root
+    bs = L.prim("cone", loc=(0, 0, 0), vertices=8, radius1=0.17, radius2=0.07, depth=8.0)
+    bs.location = (15.5 + 3.0, 0, 3.4)
+    bs.rotation_euler = (0, math.radians(90 - 14), 0)
+    L.assign(bs, spar)
+    bs.parent = root
+    bow_tip = Vector((15.5 + 3.0 + 3.9 * math.cos(math.radians(14)), 0, 3.4 + 3.9 * math.sin(math.radians(14))))
+    sailm = mat_canvas_sail(name + "_sail")
+    furl = L.mat_principled(name + "_furl", (0.5, 0.48, 0.42), rough=0.9)
+    yards = ((8.0, 13.0, "course"), (12.5, 11.0, "topsail"), (16.8, 8.5, "tgallant"), (20.0, 6.0, "royal"))
+    for (z, ln, nm) in yards:
+        y = L.prim("cyl", loc=(FX, 0, DECK_Z + z), vertices=8, radius=0.09, depth=ln, rot=(math.pi / 2, 0, 0))
+        L.assign(y, spar)
+        y.parent = root
+    setsails = {"half": ("topsail",), "full": ("course", "topsail", "tgallant"), "none": ()}[sails]
+    b = 0.5 + 1.8 * fill
+    for k, (z, ln, nm) in enumerate(yards[:3]):
+        if nm in setsails:
+            zb = yards[k - 1][0] + 0.4 if k > 0 else 2.8
+            lnb = yards[k - 1][1] if k > 0 else ln * 1.1
+            s = _sail_mesh(f"{name}_{nm}", [(FX + 0.15, -ln / 2 + 0.2, DECK_Z + z), (FX + 0.15, ln / 2 - 0.2, DECK_Z + z),
+                                            (FX + 0.15 + 0.4, lnb / 2 - 0.3, DECK_Z + zb), (FX + 0.15 + 0.4, -lnb / 2 + 0.3, DECK_Z + zb)],
+                           bulge=b, normal=(1, 0, 0), mat=sailm, sag=(0.0 if fill > 0.5 else 0.6))
+            s.parent = root
+            P[nm] = s
+        else:
+            f = L.prim("cyl", loc=(FX + 0.15, 0, DECK_Z + z - 0.2), vertices=8, radius=0.22, depth=ln * 0.85, rot=(math.pi / 2, 0, 0))
+            L.assign(f, furl)
+            f.parent = root
+    # main: boom + gaff + gaff sail
+    boom0, boom1 = Vector((MXm - 0.3, 0, DECK_Z + 3.0)), Vector((-15.0, 0, DECK_Z + 3.4))
+    gaff0, gaff1 = Vector((MXm - 0.3, 0, DECK_Z + 14.5)), Vector((-11.5, 0, DECK_Z + 18.5))
+    for nm_, a, c in (("boom", boom0, boom1), ("gaff", gaff0, gaff1)):
+        d = c - a
+        o = L.prim("cyl", loc=(a + c) / 2, vertices=8, radius=0.1, depth=d.length)
+        o.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
+        L.assign(o, spar)
+        o.parent = root
+    if sails != "none":
+        g = _sail_mesh(name + "_gaffsail", [(gaff0.x - 0.2, 0, gaff0.z), (gaff1.x + 0.3, 0, gaff1.z - 0.2), (boom1.x + 0.4, 0, boom1.z + 0.2),
+                                            (boom0.x - 0.2, 0, boom0.z + 0.2)], bulge=0.4 + 1.6 * fill, normal=(0, 1, 0), mat=sailm,
+                       sag=0.0)
+        g.parent = root
+        P["gaffsail"] = g
+        j = _sail_mesh(name + "_jib", [(FX + 0.4, 0, DECK_Z + 15.5), (FX + 0.5, 0, DECK_Z + 15.3), (bow_tip.x - 0.4, 0, bow_tip.z + 0.2),
+                                       (FX + 1.2, 0, DECK_Z + 2.2)], bulge=0.3 + 1.2 * fill, normal=(0, 1, 0), mat=sailm, nu=8, nv=8)
+        j.parent = root
+    # rigging
+    rp = []
+    ft, mt = Vector((FX, 0, DECK_Z + 25.6)), Vector((MXm, 0, DECK_Z + 26.6))
+    rp.append([tuple(ft), tuple(bow_tip)])
+    rp.append([(FX, 0, DECK_Z + 16.0), tuple(bow_tip + Vector((-1.5, 0, -0.4)))])
+    rp.append([tuple(mt), (FX, 0, DECK_Z + 21.0)])
+    for s_ in (-1, 1):
+        for (mx_, top, xs_) in ((FX, 20.0, (FX - 1.5, FX - 0.5, FX + 0.5)), (MXm, 21.0, (MXm - 1.6, MXm - 0.6, MXm + 0.4))):
+            for xx in xs_:
+                rp.append([(mx_, s_ * 0.15, DECK_Z + top), (xx, s_ * (_hull_hw(xx) + 0.05), _hull_top(xx))])
+        rp.append([tuple(mt + Vector((0, s_ * 0.1, -2))), (-14.0, s_ * (_hull_hw(-14.0) + 0.05), _hull_top(-14.0))])
+    _rope(name + "_rig", rp, r=0.025).parent = root
+    # stern davits with empty falls
+    davm = L.mat_principled(name + "_davit", (0.08, 0.075, 0.07), rough=0.5, metal=0.6)
+    P["falls"] = []
+    for s_ in (-1, 1):
+        yy = s_ * 1.6
+        pts = [(-14.6, yy, _hull_top(-14.6)), (-15.0, yy, 3.6), (-15.6, yy, 4.2), (-16.6, yy, 4.25)]
+        d = _rope(f"{name}_davit{s_}", [pts], r=0.07, mat=davm)
+        d.parent = root
+        if davit_falls:
+            piv = empty(f"{name}_fallpiv{s_}", (-16.5, yy, 4.2), root)
+            fr = _rope(f"{name}_fall{s_}", [[(0, 0, 0), (0.02, 0.0, -0.8), (-0.03, 0, -1.6)], [(0.12, 0, 0), (0.13, 0, -1.2)]], r=0.018,
+                       mat=L.mat_principled(name + "_rope", (0.32, 0.27, 0.18), rough=0.9))
+            fr.parent = piv
+            blk = L.prim("cube", loc=(0, 0, -0.12))
+            blk.scale = (0.08, 0.06, 0.12)
+            L.assign(blk, spar)
+            blk.parent = piv
+            P["falls"].append(piv)
+    # wheel
+    if wheel:
+        ped = L.prim("cube", loc=(-13.6, 0, DECK_Z + 0.5))
+        ped.scale = (0.2, 0.25, 0.5)
+        L.assign(ped, dark)
+        ped.parent = root
+        wh = empty(name + "_wheel", (-13.35, 0, DECK_Z + 1.25), root)
+        rim = L.prim("torus", loc=(0, 0, 0), major_radius=0.55, minor_radius=0.035, rot=(0, math.pi / 2, 0))
+        L.assign(rim, spar)
+        rim.parent = wh
+        hub = L.prim("cyl", loc=(0, 0, 0), vertices=10, radius=0.08, depth=0.12, rot=(0, math.pi / 2, 0))
+        L.assign(hub, spar)
+        hub.parent = wh
+        for k in range(8):
+            a = math.pi * 2 * k / 8
+            sp_ = L.prim("cyl", loc=(0, 0.4 * math.cos(a), 0.4 * math.sin(a)), vertices=6, radius=0.022, depth=0.95)
+            sp_.rotation_euler = (a + math.pi / 2, 0, 0)
+            sp_.location = (0, 0.37 * math.cos(a), 0.37 * math.sin(a))
+            L.assign(sp_, spar)
+            sp_.parent = wh
+            sp_.scale = (1, 1, 1)
+        P["wheel"] = wh
+    # transom name board
+    nm_m = L.mat_principled(name + "_name", (0.85, 0.82, 0.72), rough=0.5, emit=(0.5, 0.48, 0.42), emit_strength=0.15)
+    t = L.text3d("MARY CELESTE", loc=(-15.5 - 0.1, 0, 1.25), rot=(math.pi / 2, 0, -math.pi / 2), size=0.42, extrude=0.01, mat=nm_m,
+                 name=name + "_nametxt")
+    t.data.font = _font(F_SERIF_B) or t.data.font
+    t.data.align_y = "CENTER"
+    t.parent = root
+    if deck_props:
+        pump = deck_pump((-1.0, 1.2, DECK_Z), name=name + "_pump")
+        pump.parent = root
+    return P
+
+
+def ship_bob(root, n, amp=(0.25, 0.02, 0.035), period=(5.5, 7.0, 6.2), base_loc=None, base_rot=(0, 0, 0), travel=None, seed=1):
+    """Swell motion: heave z, roll x, pitch y (sine), optional linear travel (from, to)."""
+    bl = Vector(base_loc or root.location)
+    for f in range(1, n + 1, 3):
+        t = f / FPS
+        k = (f - 1) / max(1, n - 1)
+        p = bl + (Vector(travel[1]) - Vector(travel[0])) * k if travel else bl.copy()
+        p.z += amp[0] * math.sin(2 * math.pi * t / period[0] + seed)
+        root.location = p
+        root.rotation_euler = (base_rot[0] + amp[1] * math.sin(2 * math.pi * t / period[1] + seed * 2),
+                               base_rot[1] + amp[2] * math.sin(2 * math.pi * t / period[2] + seed * 3), base_rot[2])
+        root.keyframe_insert("location", frame=f)
+        root.keyframe_insert("rotation_euler", frame=f)
+
+
+def swell_sea(size=600, res=160, center=(0, 0, 0), color=(0.03, 0.045, 0.045), n=100, height=0.55, width=14.0, speed=0.12,
+              name="sea"):
+    """Grid sea with a Wave modifier (long, near-straight swell from a far-away origin) + moving normal noise material.
+    Keeps a location key so bake_static does not freeze the wave."""
+    s = sea(size=(1, 1), loc=(0, 0, -50), color=color, n=n, name=name + "_tmp")
+    m = s.data.materials[0]
+    bpy.data.objects.remove(s, do_unlink=True)
+    bm = bmesh.new()
+    bmesh.ops.create_grid(bm, x_segments=res, y_segments=res, size=size / 2)
+    o = L.mesh_from_bm(name, bm)
+    o.location = center
+    L.assign(o, m)
+    smooth_obj(o)
+    w = o.modifiers.new("swell", "WAVE")
+    w.height = height
+    w.width = width
+    w.narrowness = 1.2
+    w.speed = speed
+    w.start_position_x = -2000
+    w.start_position_y = -600
+    w.use_normal = False
+    w.falloff_radius = 0
+    o.keyframe_insert("location", frame=1)
+    return o
+
+
+def barrel_mesh(name="barrel", r=0.32, h=0.95, bulge=0.06, open_top=False):
+    """Bulged stave barrel with three dark iron hoops (one mesh, two materials). Mesh datablock for linked copies."""
+    seg, rings = 16, 10
+    verts, faces, mats = [], [], []
+    for j in range(rings + 1):
+        v = j / rings
+        rr = r + bulge * math.sin(math.pi * v)
+        for i in range(seg):
+            a = 2 * math.pi * i / seg
+            verts.append((rr * math.cos(a), rr * math.sin(a), h * v))
+    for j in range(rings):
+        for i in range(seg):
+            a, b = j * seg + i, j * seg + (i + 1) % seg
+            faces.append((a, b, b + seg, a + seg))
+            mats.append(1 if j in (1, rings // 2, rings - 2) else 0)
+    faces.append(tuple(reversed(range(seg))))
+    mats.append(0)
+    if not open_top:
+        faces.append(tuple(rings * seg + i for i in range(seg)))
+        mats.append(2)
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], faces)
+    me.polygons.foreach_set("material_index", mats)
+    me.polygons.foreach_set("use_smooth", [True] * len(faces))
+    me.update()
+    oak = L.mat_noise_surface(name + "_oak", (0.1, 0.06, 0.03), (0.24, 0.15, 0.08), scale=12, bump=0.3, voronoi=False)
+    iron = L.mat_principled(name + "_iron", (0.05, 0.045, 0.04), rough=0.5, metal=0.7)
+    lid = L.mat_noise_surface(name + "_lid", (0.12, 0.08, 0.045), (0.26, 0.18, 0.1), scale=20, bump=0.2, voronoi=False)
+    for mm in (oak, iron, lid):
+        me.materials.append(mm)
+    return me
+
+
+def barrel_stacks(rows, me, name="barrels", stencil=(), stencil_mat=None):
+    """rows: list of (x0, x1, y, tiers, lying) -> linked barrel copies. Barrels lie along Y when lying=True.
+    stencil: list of indices that get an 'ALCOHOL' stencil. Returns list of objects."""
+    out = []
+    k = 0
+    for (x0, x1, y, tiers, lying) in rows:
+        dx = 0.78
+        cnt = int((x1 - x0) / dx)
+        for t in range(tiers):
+            for i in range(cnt - (t % 2)):
+                x = x0 + dx * (i + 0.5 + 0.5 * (t % 2))
+                o = L.link(bpy.data.objects.new(f"{name}{k}", me))
+                if lying:
+                    o.location = (x, y - 0.48, 0.38 + t * 0.66)
+                    o.rotation_euler = (-math.pi / 2, 0, 0)
+                else:
+                    o.location = (x, y, t * 1.0)
+                out.append(o)
+                if k in stencil and stencil_mat:
+                    tx = L.text3d("ALCOHOL", loc=(0, 0, 0), size=0.09, extrude=0, mat=stencil_mat, name=f"{name}{k}_st")
+                    tx.data.font = _font(F_MONO) or tx.data.font
+                    tx.data.align_y = "CENTER"
+                    tx.parent = o
+                    if lying:
+                        tx.location = (0, 0, -0.005)
+                        tx.rotation_euler = (math.pi, 0, 0)
+                        tx.location = (0, 0, -0.002)
+                    else:
+                        tx.location = (0, -0.385, 0.5)
+                        tx.rotation_euler = (math.pi / 2, 0, 0)
+                k += 1
+    return out
+
+
+def sounding_rod(loc, rot_z=0.0, name="rod"):
+    """Iron sounding rod (1.2 m, notch marks) with a coiled line beside it, lying on deck."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    iron = L.mat_principled(name + "_m", (0.09, 0.085, 0.08), rough=0.4, metal=0.85)
+    r = L.prim("cyl", loc=(0, 0, 0.018), vertices=10, radius=0.016, depth=1.2, rot=(0, math.pi / 2, 0))
+    L.assign(r, iron)
+    r.parent = root
+    for k in range(9):
+        nt = L.prim("torus", loc=(-0.5 + k * 0.12, 0, 0.018), major_radius=0.018, minor_radius=0.004, rot=(0, math.pi / 2, 0))
+        L.assign(nt, iron)
+        nt.parent = root
+    ey = L.prim("torus", loc=(0.63, 0, 0.018), major_radius=0.03, minor_radius=0.006, rot=(math.pi / 2, 0, 0))
+    L.assign(ey, iron)
+    ey.parent = root
+    rope = L.mat_principled(name + "_rope", (0.36, 0.3, 0.2), rough=0.95)
+    coil = []
+    for k in range(5):
+        rr = 0.18 - k * 0.02
+        coil += [(0.95 + rr * math.cos(a), 0.1 + rr * math.sin(a), 0.012 + k * 0.012) for a in [2 * math.pi * q / 24 for q in range(25)]]
+    _rope(name + "_coil", [coil, [(0.66, 0, 0.018), (0.8, 0.06, 0.012), (0.95 + 0.18, 0.1, 0.012)]], r=0.011, mat=rope).parent = root
+    return root
+
+
+def deck_pump(loc, dismantled=False, name="pump"):
+    """Ship's deck pump: two barrels/cylinders on a base + rocking lever; dismantled=True removes one plunger cap and
+    lays parts on deck. Returns root (parts in root['parts'] is not used; children named)."""
+    root = empty(name, loc)
+    iron = L.mat_principled(name + "_m", (0.12, 0.11, 0.1), rough=0.45, metal=0.7)
+    wood = L.mat_noise_surface(name + "_w", (0.1, 0.07, 0.04), (0.22, 0.16, 0.1), scale=10, bump=0.2, voronoi=False)
+    base = L.prim("cube", loc=(0, 0, 0.08))
+    base.scale = (0.5, 0.3, 0.08)
+    L.assign(base, wood)
+    base.parent = root
+    for k, x in enumerate((-0.22, 0.22)):
+        c = L.prim("cyl", loc=(x, 0, 0.55), vertices=14, radius=0.09, depth=0.8)
+        L.assign(c, iron)
+        c.parent = root
+        if not (dismantled and k == 1):
+            cap = L.prim("cyl", loc=(x, 0, 0.98), vertices=14, radius=0.11, depth=0.06)
+            L.assign(cap, iron)
+            cap.parent = root
+    post = L.prim("cube", loc=(0, 0, 0.75))
+    post.scale = (0.03, 0.06, 0.75)
+    L.assign(post, wood)
+    post.parent = root
+    lev = L.prim("cyl", loc=(0, 0, 1.45), vertices=8, radius=0.025, depth=1.4, rot=(0, math.pi / 2 + (0.0 if not dismantled else 0.25), 0))
+    L.assign(lev, wood)
+    lev.parent = root
+    if dismantled:
+        for i, (p, r) in enumerate((((0.8, 0.5, 0.03), (0, math.pi / 2, 0.4)), ((0.6, -0.55, 0.06), (0, 0, 0)), ((-0.7, 0.45, 0.02), (0, math.pi / 2, -0.3)))):
+            if i == 1:
+                o = L.prim("cyl", loc=p, vertices=14, radius=0.11, depth=0.06)
+            else:
+                o = L.prim("cyl", loc=p, vertices=10, radius=0.03, depth=0.7, rot=r)
+            L.assign(o, iron)
+            o.parent = root
+    return root
+
+
+def lifeboat(loc=(0, 0, 0), length=6.0, beam=1.9, name="lifeboat", people=4, color=(0.33, 0.3, 0.26)):
+    """Open clinker-ish boat: half-ellipsoid hull (open top), thwarts, faceless seated silhouettes. Bow +X."""
+    root = empty(name, loc)
+    seg, rings = 24, 8
+    verts, faces = [], []
+    for j in range(rings + 1):
+        v = j / rings  # 0 gunwale .. 1 keel
+        for i in range(seg + 1):
+            u = i / seg
+            x = (u - 0.5) * length
+            w = math.sqrt(max(0.0, 1 - (2 * x / length) ** 2)) ** 0.8
+            ang = v * math.pi / 2
+            y = beam / 2 * w * math.cos(ang)
+            z = -0.75 * math.sin(ang) * (0.6 + 0.4 * w) + 0.12 * (2 * x / length) ** 2
+            verts.append((x, y, z))
+    for j in range(rings):
+        for i in range(seg):
+            a = j * (seg + 1) + i
+            faces.append((a, a + 1, a + seg + 2, a + seg + 1))
+    half = len(verts)
+    verts += [(x, -y, z) for (x, y, z) in verts]
+    faces += [tuple(reversed([q + half for q in f])) for f in faces]
+    m = L.mat_noise_surface(name + "_m", tuple(c * 0.7 for c in color), color, scale=8, bump=0.2, voronoi=False)
+    h = mesh_obj(name + "_hull", verts, faces, mat=m, smooth=True)
+    solidify(h, 0.05)
+    h.parent = root
+    for x in (-1.2, 0.0, 1.2):
+        t = L.prim("cube", loc=(x, 0, -0.2))
+        t.scale = (0.12, beam / 2 * 0.85, 0.03)
+        L.assign(t, m)
+        t.parent = root
+    figs = []
+    for k in range(people):
+        p = L.char_figure(f"{name}_p{k}", color=(0.025, 0.025, 0.028), coat=True, height=1.7)
+        p["root"].parent = root
+        x = -1.6 + k * 1.05
+        p["root"].location = (x, 0.25 * (-1) ** k, -0.95)
+        p["root"].rotation_euler = (0, 0, -math.pi / 2 + 0.3 * (-1) ** k)
+        for t in ("L", "R"):
+            p["hip" + t].rotation_euler = (1.5, 0, 0)
+            p["knee" + t].rotation_euler = (-1.5, 0, 0)
+            p["shoulder" + t].rotation_euler = (0.5, 0, 0)
+            p["elbow" + t].rotation_euler = (0.9, 0, 0)
+        p["neck"].rotation_euler = (0.25, 0, 0)
+        figs.append(p)
+    return root, figs
+
+
+def deerstalker(loc, rot_z=0.0, name="deerstalker", c1=(0.22, 0.17, 0.1), c2=(0.36, 0.28, 0.16)):
+    """Check-wool deerstalker: crown half-sphere, front/back peaks, tied-up ear flaps, top button."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m, n, l = L._mat(name + "_m")
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    ck = n.new("ShaderNodeTexChecker")
+    ck.inputs["Scale"].default_value = 18.0
+    ck.inputs["Color1"].default_value = (*c1, 1)
+    ck.inputs["Color2"].default_value = (*c2, 1)
+    l.new(tc.outputs["Object"], ck.inputs["Vector"])
+    l.new(ck.outputs["Color"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.95
+    cr = L.prim("sphere", loc=(0, 0, 0), segments=20, ring_count=10)
+    cr.scale = (0.11, 0.1, 0.085)
+    bm_ = bmesh.new()
+    L.assign(cr, m)
+    cr.parent = root
+    cut = cr.modifiers.new("cut", "BOOLEAN")
+    cutter = L.prim("cube", loc=(0, 0, -0.5))
+    cutter.scale = (1, 1, 0.5)
+    cutter.hide_render = True
+    cutter.hide_viewport = True
+    cut.object = cutter
+    cut.operation = "DIFFERENCE"
+    bm_.free()
+    for s in (-1, 1):
+        pk = L.prim("cyl", loc=(s * 0.11, 0, 0.005), vertices=16, radius=0.07, depth=0.008)
+        pk.scale = (1.0, 1.15, 1)
+        pk.rotation_euler = (0, s * -0.2, 0)
+        L.assign(pk, m)
+        pk.parent = root
+        fl = L.prim("cube", loc=(0, s * 0.095, 0.055))
+        fl.scale = (0.05, 0.008, 0.04)
+        fl.rotation_euler = (s * 0.5, 0, 0)
+        L.assign(fl, m)
+        fl.parent = root
+    bt = L.prim("sphere", loc=(0, 0, 0.087), radius=0.012, segments=8, ring_count=5)
+    L.assign(bt, m)
+    bt.parent = root
+    return root
+
+
+def legend_grade(sepia=1.0, cold=0.0, grain=0.05, tint=(1.0, 0.72, 0.42), cold_tint=(0.62, 0.7, 0.68), vignette=True):
+    """Compositor grade for LEGEND scenes (Blender 5 compositing_node_group): desaturate + sepia multiply, optional
+    blend to a cold grey-green (cold 0..1), animated film grain, vignette. Returns dict of keyable sockets
+    {'sepia', 'cold', 'grain'}."""
+    sc = bpy.context.scene
+    ng = bpy.data.node_groups.new("legend_grade", "CompositorNodeTree")
+    ng.interface.new_socket("Image", in_out="OUTPUT", socket_type="NodeSocketColor")
+    n, l = ng.nodes, ng.links
+    rl = n.new("CompositorNodeRLayers")
+    out = n.new("NodeGroupOutput")
+    bw = n.new("CompositorNodeRGBToBW")
+    l.new(rl.outputs["Image"], bw.inputs[0])
+    sep = n.new("ShaderNodeMix"); sep.data_type = "RGBA"; sep.blend_type = "MULTIPLY"
+    sep.inputs[0].default_value = 1.0
+    l.new(bw.outputs[0], sep.inputs[6]); sep.inputs[7].default_value = (*tint, 1)
+    cld = n.new("ShaderNodeMix"); cld.data_type = "RGBA"; cld.blend_type = "MULTIPLY"
+    cld.inputs[0].default_value = 1.0
+    l.new(bw.outputs[0], cld.inputs[6]); cld.inputs[7].default_value = (*cold_tint, 1)
+    m1 = n.new("ShaderNodeMix"); m1.data_type = "RGBA"
+    m1.inputs[0].default_value = sepia
+    l.new(rl.outputs["Image"], m1.inputs[6]); l.new(sep.outputs[2], m1.inputs[7])
+    m2 = n.new("ShaderNodeMix"); m2.data_type = "RGBA"
+    m2.inputs[0].default_value = cold
+    l.new(m1.outputs[2], m2.inputs[6]); l.new(cld.outputs[2], m2.inputs[7])
+    img = m2.outputs[2]
+    tm = n.new("CompositorNodeSceneTime")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.noise_dimensions = "4D"
+    nz.inputs["Scale"].default_value = 600.0
+    nz.inputs["Detail"].default_value = 0.0
+    l.new(_mathn(n, l, "MULTIPLY", tm.outputs["Frame"], 7.31), nz.inputs["W"])
+    gr = n.new("ShaderNodeMix"); gr.data_type = "RGBA"; gr.blend_type = "LINEAR_LIGHT"
+    gr.inputs[0].default_value = grain
+    l.new(img, gr.inputs[6]); l.new(nz.outputs["Color"], gr.inputs[7])
+    img = gr.outputs[2]
+    if vignette:
+        em = n.new("CompositorNodeEllipseMask")
+        try:
+            em.inputs["Size"].default_value = (0.95, 0.75)
+        except Exception:
+            pass
+        bl = n.new("CompositorNodeBlur")
+        try:
+            bl.inputs["Size"].default_value = (60, 60)
+        except Exception:
+            bl.size_x = bl.size_y = 60
+        l.new(em.outputs[0], bl.inputs[0])
+        vg = n.new("ShaderNodeMix"); vg.data_type = "RGBA"; vg.blend_type = "MULTIPLY"
+        l.new(_mathn(n, l, "SUBTRACT", 1.0, bl.outputs[0]), vg.inputs[0])
+        l.new(img, vg.inputs[6]); vg.inputs[7].default_value = (0.35, 0.33, 0.3, 1)
+        img = vg.outputs[2]
+    l.new(img, out.inputs[0])
+    sc.compositing_node_group = ng
+    return {"sepia": m1.inputs[0], "cold": m2.inputs[0], "grain": gr.inputs[0], "tree": ng}

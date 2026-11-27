@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T16:12:04Z
+Updated: 2026-11-27T16:20:23Z
 
 ## Concept counts
 
@@ -16,8 +16,7 @@ Updated: 2026-11-27T16:12:04Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 20
-- ANIMATING: 1
+- ANIMATED - in render queue: 21
 - CONCEPT: 72
 - QC PASSED: 2
 - SCRIPTED: 5
@@ -44,7 +43,7 @@ Updated: 2026-11-27T16:12:04Z
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | ANIMATED - in render queue |
 | MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | ANIMATED - in render queue |
-| MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | ANIMATING |
+| MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | ANIMATED - in render queue |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |

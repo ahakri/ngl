@@ -336,7 +336,7 @@ def S04(L, n):
         L.assign(cb, beam)
         y += 0.8
     # moonlight slits between roof boards + a gable vent
-    slit = L.mat_emission("slit", (0.45, 0.55, 0.9), 2.2)
+    slit = L.mat_emission("slit", (0.45, 0.55, 0.9), 4.0)
     rnd = random.Random(4)
     for i in range(5):
         s = rnd.choice((-1, 1))
@@ -382,8 +382,8 @@ def S04(L, n):
         sp.constraints.remove(c)
     M.aim(sp, tg)
     L.flicker(sp, n, depth=0.05, rate=0.6, seed=2)
-    L.cam_light(cam, energy=45, color=(0.6, 0.7, 0.95))
-    L.area((0, 2.0, 2.6), (0, 0, 0), energy=25, size=4, color=(0.45, 0.55, 0.9), name="roofglow")
+    L.cam_light(cam, energy=140, color=(0.6, 0.7, 0.95))
+    L.area((0, 2.0, 2.6), (0, 0, 0), energy=160, size=4, color=(0.45, 0.55, 0.9), name="roofglow")
     L.water_volume(center=(0, 0.5, 1.5), size=(5.2, 9.5, 3.2), color=(0.8, 0.75, 0.65), density=0.02, anisotropy=0.5, name="dust")
     L.particle_cloud((0, 1.8, 1.3), (4.5, 5, 2.4), count=700, radius=0.0025, drift=(0.02, 0, -0.02), seed=7, nframes=n, name="motes",
                      mat=L.mat_principled("motes_m", (0.9, 0.82, 0.7), rough=1, emit=(0.9, 0.8, 0.65), emit_strength=0.4))
@@ -410,7 +410,7 @@ def S05(L, n):
     L.set_world((0.002, 0.002, 0.003), 1.0)
     M.desk(size=(3.0, 2.2))
     np_ = M.newspaper((0.02, 0.02, 0.0), rot_z=R(-8), name="news")
-    for f, p, r in ((1, (-0.9, -0.35, 0.0), R(-30)), (14, (-0.04, 0.0, 0.0), R(-10)), (18, (0.02, 0.02, 0.0), R(-8))):
+    for f, p, r in ((1, (-0.5, -0.22, 0.0), R(-24)), (14, (-0.04, 0.0, 0.0), R(-10)), (18, (0.02, 0.02, 0.0), R(-8))):
         np_.location = p
         np_.rotation_euler = (0, 0, r)
         np_.keyframe_insert("location", frame=f)
@@ -557,8 +557,8 @@ def S12(L, n):
     forests()
     F = farm_set(lit=False)
     top = F["chimney_top"]
-    M.cloud_volume((top.x + 0.9, top.y + 0.3, top.z + 5.2), (2.6, 2.6, 10.5), density=0.7, scale=1.2, contrast=(0.3, 0.78),
-                   drift=(0.5, 0, 1.4), n=n, color=(0.75, 0.76, 0.8), name="smoke")
+    M.cloud_volume((top.x + 0.9, top.y + 0.3, top.z + 5.2), (2.6, 2.6, 10.5), density=0.45, scale=1.2, contrast=(0.3, 0.78),
+                   drift=(0.5, 0, 1.4), n=n, color=(0.85, 0.86, 0.9), name="smoke", emit=(0.55, 0.56, 0.6), emit_strength=0.5)
     M.fog((0, -10, 4), (140, 140, 16), density=0.012, color=(0.7, 0.72, 0.76))
     # two passers-by on the road stop and look up at the farm
     for i, (x, y) in enumerate(((-4.2, -16.0), (-3.3, -16.5))):
@@ -762,7 +762,7 @@ def S17(L, n):
     sroot.keyframe_insert("location", frame=fs)
     sroot.location = (kx, -0.04, kz - 0.03)
     sroot.keyframe_insert("location", frame=fs + 9)
-    tag = M.paper_card("NOT NAMED", (0, -0.006, -0.17), size=(0.34, 0.1), badge=None, name="tag", text_size=0.055,
+    tag = M.paper_card("NOT NAMED", (0, -0.006, -0.12), size=(0.36, 0.2), badge=None, name="tag", text_size=0.055,
                        paper=(0.72, 0.68, 0.58))
     tag.parent = sroot
     tag.rotation_euler = (0, R(-4), 0)
@@ -795,13 +795,13 @@ def S17(L, n):
 def S16(L, n):
     L.set_world((0.004, 0.004, 0.006), 1.0)
     M.desk(size=(3.0, 2.2))
-    fd = M.case_folder((-0.08, 0.02, 0.0), rot_z=R(4), size=(0.36, 0.27))
+    fd = M.case_folder((0.02, -0.12, 0.0), rot_z=R(4), size=(0.36, 0.27))
     cv = fd["cover"]
     cv.rotation_euler = (0, 0, 0)
     cv.keyframe_insert("rotation_euler", frame=12)
     cv.rotation_euler = (0, R(-178), 0)
     cv.keyframe_insert("rotation_euler", frame=40)
-    lap, hinge = M.laptop((0.3, 0.16, 0.0), rot_z=R(-25), open_deg=125, strength=2.6)
+    lap, hinge = M.laptop((0.1, 0.3, 0.0), rot_z=R(-8), open_deg=125, strength=2.6)
     pm = M.mat_paper("oldpaper", (0.58, 0.5, 0.33))
     rnd = random.Random(3)
     for i in range(5):
@@ -810,8 +810,8 @@ def S16(L, n):
         pg.scale = (0.21, 0.297, 1)
         L.assign(pg, pm)
     M.desk_lamp((-0.55, 0.45, 0.0), (-0.1, 0.0, 0.0), energy=35, rot_z=R(200))
-    L.point((0.36, 0.05, 0.25), energy=4, color=(0.5, 0.65, 1.0), radius=0.2, name="screenglow")
-    cam, ct = cam_path(n, (0.1, -0.3, 1.3), (0.1, -0.22, 1.08), (0.1, 0.02, 0.0), (0.1, 0.03, 0.0), lens=50)
+    L.point((0.1, 0.15, 0.25), energy=4, color=(0.5, 0.65, 1.0), radius=0.2, name="screenglow")
+    cam, ct = cam_path(n, (0.08, -0.45, 1.5), (0.08, -0.35, 1.25), (0.08, 0.04, 0.0), (0.08, 0.06, 0.0), lens=50)
     L.bake_static()
 
 

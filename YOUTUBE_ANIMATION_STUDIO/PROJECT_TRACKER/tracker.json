@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:12:04Z",
+ "updated": "2026-11-27T16:20:23Z",
  "phases": {
   "P1_research": {
    "status": "in_progress",
@@ -63,7 +63,7 @@
   "MURDER-02": "ANIMATED - in render queue",
   "MURDER-03": "ANIMATED - in render queue",
   "MURDER-04": "ANIMATED - in render queue",
-  "MURDER-05": "ANIMATING",
+  "MURDER-05": "ANIMATED - in render queue",
   "MURDER-06": "SCRIPTED",
   "MURDER-07": "SCRIPTED",
   "HAUNT-01": "QC PASSED",
