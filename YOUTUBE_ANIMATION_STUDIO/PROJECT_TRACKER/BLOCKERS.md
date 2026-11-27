@@ -12,3 +12,14 @@
 - 2026-11-27: QC found true peak -0.4 dBTP on MURDER-01 (spec -1). Fixed: alimiter after loudnorm in compose; qc_check now fails on TP > -1; HAUNT-01/MURDER-01 audio re-muxed (-1.4 dBTP).
 - SELECTION NOTES (slate 4/5): CAVE-07 (rank 8, Exley) was scripted before CAVE-08 (rank 7) in slate 4 because CAVE-08's story score was only raised to rank 7 by the late fact-check v2 re-rank; CAVE-08 is now in slate 5. HAUNT-08 (rank 8, Queen Mary Door 13) skipped for slate 5 because its central 1966 death exists only in ghost-tour lore (no newspaper record found); HAUNT-10 (Winchester, documented) taken instead.
 - QUEUE ORDER 2026-11-27: SCUBA-01 moved up to render right after MURDER-02 so each category has a finished Short early (READY mtime set to 12:50).
+- 2026-11-27 18:45–22:30 UTC: second usage-limit pause (this time on the session's own model). All three running agents stopped
+  (CAVE-01 thumbnails, slate-5 animation x2); their partial work is saved and they can be resumed.
+- ROOT CAUSE of "rendering stops when the session pauses" (found 22:38 UTC): the cloud machine is shut down about five minutes after the last
+  harness-tracked task ends, and detached processes (the render queue) die with it. Disk contents survive; processes do not. Evidence: the
+  machine's uptime was 0 min at 22:38 and the last SCUBA-01 frame was written at 19:06, five minutes after the last tracked task finished.
+  Mitigations now in place:
+  1. A tracked watcher task (2 h max) is kept running next to the detached render queue; every wake-up re-arms it.
+  2. Rendering was moved to GitHub Actions (public repo, free runners): `.github/workflows/render-shorts.yml`, triggered by pushing a change
+     to `PROJECT_TRACKER/ci_render_request.json`. CI renders do not depend on this session being awake. Videos given to CI are listed in
+     `PROJECT_TRACKER/ci_claimed.txt` so the local queue skips them.
+  3. Agent use is rationed (rendering backlog is the bottleneck, not scripts/animation), so the usage window is not exhausted again.
