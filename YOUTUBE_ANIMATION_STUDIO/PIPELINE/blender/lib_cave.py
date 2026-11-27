@@ -2259,20 +2259,27 @@ def upright_head_kit(d, helmet=(0.85, 0.68, 0.08), name=None, lens_strength=12.0
 
 
 def hooded_icon(center, size=0.3, y=0.0, color=(0.08, 0.08, 0.08), name="reaper"):
-    """Flat hooded-robe-with-scythe pictogram in the XZ plane (faces -Y) for warning signs. Returns list of objs."""
+    """Flat hooded-skeleton-with-scythe pictogram in the XZ plane (faces -Y) for warning signs. Returns list of objs."""
     m = L.mat_principled(name + "_m", color, rough=0.7)
+    wm = L.mat_principled(name + "_void", (0.9, 0.9, 0.88), rough=0.7)
     cx, cz = center
     s = size
-    robe = [(-0.32, -0.5), (0.32, -0.5), (0.2, 0.05), (0.18, 0.22), (0.1, 0.36), (0.0, 0.4), (-0.1, 0.36), (-0.18, 0.22),
-            (-0.2, 0.05)]
-    out = [flat_poly([(cx + x * s, cz + z * s) for x, z in robe], y, m, name=name + "_robe")]
-    face = [(-0.085, 0.12), (0.085, 0.12), (0.1, 0.26), (0.0, 0.32), (-0.1, 0.26)]
-    out.append(flat_poly([(cx + x * s, cz + z * s) for x, z in face], y - 0.002,
-                         L.mat_principled(name + "_void", (0.9, 0.9, 0.88), rough=0.7), name=name + "_hood"))
-    out.append(curve([(cx + 0.38 * s, y - 0.002, cz - 0.5 * s), (cx + 0.38 * s, y - 0.002, cz + 0.45 * s)],
-                     thickness=0.025 * s, mat=m, name=name + "_shaft"))
-    blade = [(0.38, 0.45), (0.38, 0.38), (0.05, 0.42), (-0.12, 0.34), (0.08, 0.5)]
-    out.append(flat_poly([(cx + x * s, cz + z * s) for x, z in blade], y - 0.002, m, name=name + "_blade"))
+
+    def P(pts):
+        return [(cx + x * s, cz + z * s) for x, z in pts]
+    robe = [(-0.36, -0.5), (0.3, -0.5), (0.2, -0.1), (0.2, 0.12), (0.16, 0.26), (0.06, 0.37), (-0.04, 0.4),
+            (-0.14, 0.34), (-0.22, 0.18), (-0.24, -0.05)]
+    out = [flat_poly(P(robe), y, m, name=name + "_robe")]
+    skull = [(-0.1, 0.12), (-0.05, 0.07), (0.05, 0.07), (0.1, 0.12), (0.11, 0.22), (0.05, 0.29), (-0.05, 0.29),
+             (-0.11, 0.22)]
+    out.append(flat_poly(P(skull), y - 0.002, wm, name=name + "_skull"))
+    for ex in (-0.045, 0.045):
+        eye = [(ex - 0.025, 0.17), (ex + 0.025, 0.17), (ex + 0.025, 0.215), (ex - 0.025, 0.215)]
+        out.append(flat_poly(P(eye), y - 0.004, m, name=name + "_eye"))
+    out.append(curve([(cx + 0.36 * s, y - 0.003, cz - 0.55 * s), (cx + 0.3 * s, y - 0.003, cz + 0.55 * s)],
+                     thickness=0.03 * s, mat=m, name=name + "_shaft"))
+    blade = [(0.31, 0.55), (0.29, 0.47), (0.0, 0.5), (-0.25, 0.4), (-0.38, 0.28), (-0.2, 0.5), (0.05, 0.6)]
+    out.append(flat_poly(P(blade), y - 0.003, m, name=name + "_blade"))
     return out
 
 
@@ -2298,7 +2305,7 @@ def warning_sign(loc=(0, 0, 0), rot_z=0.0, w=0.7, h=0.9, post=1.2, lines=("STOP!
     t0 = text(lines[0], (0, yf, cz + h * 0.36), size=h * 0.17, color=(0.8, 0.04, 0.02), strength=0.0, name=name + "_t0",
               mat=L.mat_principled(name + "_red", (0.75, 0.03, 0.02), rough=0.5))
     parts.append(t0)
-    ic = hooded_icon((0.0, cz + h * 0.1), size=h * 0.28, y=yf, name=name + "_icon")
+    ic = hooded_icon((0.0, cz + h * 0.08), size=h * 0.25, y=yf, name=name + "_icon")
     parts += ic
     blk = L.mat_principled(name + "_blk", (0.03, 0.03, 0.03), rough=0.6)
     for k, ln in enumerate(lines[1:]):
