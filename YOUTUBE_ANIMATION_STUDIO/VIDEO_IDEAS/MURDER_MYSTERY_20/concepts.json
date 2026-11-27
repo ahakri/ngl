@@ -1,0 +1,1170 @@
+[
+  {
+    "id": "MURDER-01",
+    "number": 1,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Nine Hikers Cut Their Tent From the Inside",
+    "alt_title": "Science Finally Solved Dyatlov Pass — Using Frozen",
+    "subject": "Dyatlov Pass incident, Northern Urals, USSR, Feb 1959: nine experienced hikers died after leaving their tent in extreme cold; 2020 Russian prosecutors' review and 2021 Gaume & Puzrin slab-avalanche study.",
+    "why_potential": "Three independent long-form references (LEMMiNO 8.5M, Vox 3.8M, Thoughty2 1.6M) prove durable demand; the single image (tent slit from inside, footprints in socks leading to the forest) is iconic and non-gory; twist that EPFL/ETH researchers adapted snow-simulation code from Disney's Frozen gives a rare 'science solved it' payoff; snow/tent/night = ideal for our fog + flashlight pipeline.",
+    "references": [
+      {
+        "title": "The Dyatlov Pass Case",
+        "creator": "LEMMiNO",
+        "url": "unverified",
+        "views": "8,512,421 (vidIQ snapshot 2026-11-06)",
+        "note": "long-form topic demand"
+      },
+      {
+        "title": "Vox Dyatlov Pass video (title not captured)",
+        "creator": "Vox",
+        "url": "unverified",
+        "views": "3.8M (rosetta.to)",
+        "note": "covers 2021 avalanche study angle"
+      },
+      {
+        "title": "Thoughty2 Dyatlov video (title not captured)",
+        "creator": "Thoughty2",
+        "url": "unverified",
+        "views": "1.6M (rosetta.to)",
+        "note": "topic demand"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2s: Torch beam finds a tent wall slashed open; VO 'Nine hikers. One tent. Cut open from the INSIDE.' 2-6s: Footprints in snow — 'Then they walked into minus thirty... in their socks.' 6-15s: Map pin Kholat Syakhl, 1959; 'For 60 years: aliens, missiles, yetis. In 2021, two scientists borrowed code from a Disney movie — and ran the numbers.'",
+    "structure": [
+      "Cold open: tent slit from inside (documented)",
+      "Escalation: footprints, minimal clothing, -30 C",
+      "Orientation: Igor Dyatlov's group, Feb 1959, map",
+      "Evidence: bodies found over months (no imagery), some with severe injuries (stated, not shown)",
+      "Theory ladder: aliens / missile test / attack — labelled THEORY, two ruled out",
+      "2020 prosecutors' avalanche conclusion + criticism (no avalanche debris seen)",
+      "Twist: Gaume & Puzrin 2021 — delayed small slab avalanche on a cut slope; snow model adapted from Frozen animation",
+      "Open question: why did nobody see the slab? comment prompt",
+      "Loop: back to the tent wall"
+    ],
+    "retention_moments": [
+      "0s inside-cut reveal",
+      "~12s 'Disney movie' promise",
+      "~25s theory cards stamped RULED OUT",
+      "~38s slab-avalanche simulation (our own Blender sim)",
+      "~52s open question + loop"
+    ],
+    "thumbnail_concept": "Frame 1: orange tent in blue moonlit snow, single vertical slit glowing from torch inside; text 'CUT FROM INSIDE'.",
+    "animation_style": "Stylised low-poly snowfield, volumetric blizzard, flashlight cones; 2.5D map + evidence cards; simple slab-avalanche particle/rigid-body sim; silhouette hikers only.",
+    "scenes": [
+      "Tent close-up with slit (night, torch)",
+      "Footprint trail in snow (top-down drone move)",
+      "Animated map of Urals with date stamp",
+      "Evidence board: 3 theory cards",
+      "Cross-section diagram of slope cut + slab sliding onto tent",
+      "Return to tent (loop)"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dyatlov_Pass_incident",
+      "Gaume, J. & Puzrin, A.M. (2021) 'Mechanisms of slab avalanche release and impact in the Dyatlov Pass incident in 1959', Communications Earth & Environment 2:10 (doi 10.1038/s43247-020-00081-8 — verify)",
+      "https://www.iflscience.com/editors-blog/dyatlov-pass-incident-explanation-supported-by-new-video-evidence/",
+      "https://www.openculture.com/2025/06/the-dylatov-pass-incident-has-one-of-the-biggest-soviet-mysteries-been-solved.html"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 18,
+      "story": 17,
+      "packaging": 17,
+      "retention": 16,
+      "feasibility": 16
+    },
+    "total": 84,
+    "rank": 1
+  },
+  {
+    "id": "MURDER-02",
+    "number": 2,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Dead Man With 'Tamam Shud' Sewn in His Pocket",
+    "alt_title": "74 Years Unnamed — Until DNA Spoke",
+    "subject": "Somerton Man / Tamam Shud case, Adelaide, Dec 1948: unidentified man on Somerton Beach, clothing labels removed, a torn scrap reading 'Tamám Shud' (from the Rubaiyat of Omar Khayyam) in a hidden pocket, a pencilled code in the matching book; in 2022 researcher Derek Abbott with genealogist Colleen Fitzpatrick named him as Carl 'Charles' Webb, a Melbourne electrical engineer.",
+    "why_potential": "References: BuzzFeed Unsolved premiere 8.2M+, Thoughty2 2.2M; perfect 'strangest-detail' cold open (scrap of paper meaning 'ended'); unbroken chain of objects (suitcase, code, book) suits evidence-board cadence; 2022 genetic-genealogy reveal gives a closure twist while the code remains unsolved = strong comment driver.",
+    "references": [
+      {
+        "title": "The Somerton Man (series premiere)",
+        "creator": "BuzzFeed Unsolved",
+        "url": "unverified",
+        "views": "8.2M+ as of 2019-05-28 (Know Your Meme)",
+        "note": "topic demand"
+      },
+      {
+        "title": "Why Can Nobody Solve the Mystery of the Man in the Suit?",
+        "creator": "Thoughty2",
+        "url": "unverified",
+        "views": "2.2M (rosetta.to)",
+        "note": "curiosity-gap title pattern"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2s: Tweezers lift a tiny rolled paper: 'TAMAM SHUD'. VO 'They found this sewn into a dead man's pocket.' 2-6s: Labels cut from every piece of clothing. 6-15s: Adelaide 1948 map pin; 'No name. No cause. A secret code. It took 74 years — and his hair — to find out who he was.'",
+    "structure": [
+      "Cold open: Tamam Shud scrap",
+      "Escalation: labels removed, no ID",
+      "Orientation: Somerton Beach 1 Dec 1948",
+      "Evidence: suitcase at station; the Rubaiyat copy with code and a phone number",
+      "Theory ladder: spy / jilted lover / poisoning — labelled THEORY",
+      "Twist: 2022 hair-DNA genetic genealogy names Carl 'Charles' Webb (announced by Abbott & Fitzpatrick; note official confirmation status)",
+      "Still open: the code and cause of death",
+      "Comment prompt: 'What does the code say?'",
+      "Loop to the scrap"
+    ],
+    "retention_moments": [
+      "0s paper reveal",
+      "~8s labels cut",
+      "~22s code page appears (pause-bait)",
+      "~40s DNA reveal",
+      "~55s code back on screen + question"
+    ],
+    "thumbnail_concept": "Extreme macro of a curled paper strip with 'TAMAM SHUD' under a lamp, sand grains; text 'SEWN IN HIS POCKET'.",
+    "animation_style": "Night beach environment with sea-wall, fog; 2.5D document reveals (code page, newspaper headlines recreated in neutral typography); silhouette figure on sand (no body detail); DNA helix motion graphic.",
+    "scenes": [
+      "Macro paper strip",
+      "Beach at dawn with seawall (silhouette, no body)",
+      "Suitcase opening with labels cut",
+      "Book page with code (recreated)",
+      "Map Adelaide→Melbourne",
+      "Genealogy tree reveal"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tamam_Shud_case",
+      "https://www.nfsa.gov.au/collection/curated/mystery-somerton-man",
+      "https://www.nfsa.gov.au/collection/curated/somerton-man-clues-and-codes",
+      "https://allthatsinteresting.com/history-uncovered/somerton-man"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 17,
+      "story": 18,
+      "packaging": 17,
+      "retention": 16,
+      "feasibility": 15
+    },
+    "total": 83,
+    "rank": 2
+  },
+  {
+    "id": "MURDER-03",
+    "number": 3,
+    "category": "MURDER_MYSTERY",
+    "working_title": "He Hijacked a Plane, Then Jumped Into the Night",
+    "alt_title": "The Only Unsolved Hijacking in US History",
+    "subject": "D.B. Cooper (the hijacker who called himself 'Dan Cooper'), Northwest Orient Flight 305, 24 Nov 1971: extorted $200,000 and four parachutes, jumped from the rear airstair over SW Washington; in 1980 a boy found ~$5,800 of the ransom at Tena Bar on the Columbia River; FBI suspended active investigation in 2016.",
+    "why_potential": "LEMMiNO's 'Search for D. B. Cooper' is a confirmed outlier (24.5M, vidIQ outlier score 32x); single cinematic image (man stepping off a 727 airstair into rain); the buried-money discovery is a perfect twist that deepens rather than resolves; open ending fuels comments. No graphic content, no victims harmed — very ad-friendly.",
+    "references": [
+      {
+        "title": "The Search For D. B. Cooper",
+        "creator": "LEMMiNO",
+        "url": "unverified",
+        "views": "24,513,769 (vidIQ snapshot 2026-11-06, via search snippet)",
+        "note": "long-form topic demand; outlier ~4x subs"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2s: Rear airstair of a jet lowers into black rain; 'He asked for four parachutes. Then he jumped.' 2-6s: Bag of $20 bills ripping open in the wind. 6-15s: 'Nov 24 1971. $200,000. Never found. Nine years later, an 8-year-old dug some of it out of a riverbank.'",
+    "structure": [
+      "Cold open: airstair + jump",
+      "Note handed to flight attendant (paraphrase official account, no invented dialogue)",
+      "Demands and Seattle landing — money and parachutes delivered",
+      "Jump over SW Washington — weather, speed",
+      "The 1980 Tena Bar money find",
+      "Theory ladder: died on impact / survived / named suspects — say FBI never charged anyone; no naming living people",
+      "FBI suspends case 2016",
+      "Open question: where did he land? comment",
+      "Loop to airstair"
+    ],
+    "retention_moments": [
+      "0s jump",
+      "~10s money bag",
+      "~28s money in the sand (twist)",
+      "~45s 'FBI gave up in 2016'",
+      "~55s question + loop"
+    ],
+    "thumbnail_concept": "Silhouette in suit and sunglasses at open airstair, storm clouds, falling banknotes; text 'NEVER FOUND'.",
+    "animation_style": "Low-poly 727 interior/exterior, rain + lightning, rigid-body banknotes, riverbank sand dig; animated flight-path map Portland→Seattle→Reno.",
+    "scenes": [
+      "Jet airstair at night",
+      "Cabin silhouette with briefcase",
+      "Flight-path map",
+      "Parachute falling into clouds",
+      "Riverbank with rotting banknotes",
+      "FBI case file stamp 'SUSPENDED 2016'"
+    ],
+    "sources": [
+      "https://www.fbi.gov/history/famous-cases/db-cooper-hijacking",
+      "https://www.ebsco.com/research-starters/social-sciences-and-humanities/db-cooper-mystery",
+      "https://en.wikipedia.org/wiki/D._B._Cooper"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 18,
+      "story": 16,
+      "packaging": 17,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 82,
+    "rank": 3
+  },
+  {
+    "id": "MURDER-04",
+    "number": 4,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Zodiac's Cipher Was Cracked After 51 Years",
+    "alt_title": "Three Amateurs Solved the Zodiac's 340",
+    "subject": "Zodiac Killer '340' cipher (mailed 1969 to the San Francisco Chronicle) solved Dec 2020 by David Oranchak, Sam Blake and Jarl Van Eycke using AZdecrypt; FBI confirmed the solution; the killer remains unidentified.",
+    "why_potential": "Puzzle demand is proven (Cicada 3301 at 43M as proxy); a cipher grid is the cheapest, most re-watchable visual we can render (viewers pause); story is about codebreakers, so violence can stay off-screen; twist: the message taunts that 'that wasn't me on the TV show' — a sad anticlimax that sparks comments.",
+    "references": [
+      {
+        "title": "Cicada 3301: An Internet Mystery",
+        "creator": "LEMMiNO",
+        "url": "unverified",
+        "views": "43,002,594 (vidIQ 2026-11-06)",
+        "note": "puzzle/cipher demand proxy"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Grid of 340 strange symbols glows on black; 'For 51 years, nobody could read this.' 2-6s: Symbols begin sliding diagonally. 6-15s: 'Mailed by the Zodiac Killer in 1969. In 2020, three amateurs — a web developer, a mathematician and a warehouse worker — cracked it. Here's how.'",
+    "structure": [
+      "Cold open: the 340 grid",
+      "Context: the 408 cipher was solved in 1969 within a week; 340 resisted",
+      "Meet the three solvers (public figures via own publications)",
+      "Method: homophonic substitution + diagonal transposition read in sections",
+      "Decode animation, letter by letter",
+      "Message content (quoted from published solution, non-graphic lines only)",
+      "FBI confirms Dec 2020; killer still unknown",
+      "Comment prompt: 'Try the next one — Z13 and Z32 remain unsolved'",
+      "Loop to grid"
+    ],
+    "retention_moments": [
+      "0s grid",
+      "~18s 'diagonal' reveal",
+      "~30s live letter-by-letter decode",
+      "~42s 'that wasn't me on the TV show' line",
+      "~52s challenge to viewers"
+    ],
+    "thumbnail_concept": "Half-decoded cipher grid: left side symbols, right side plain English glowing; text 'SOLVED AFTER 51 YEARS'.",
+    "animation_style": "Pure 2.5D motion graphics: symbol grid, transposition arrows, letter flips; brief stylised 1969 newsroom envelope; no crime scenes.",
+    "scenes": [
+      "Symbol grid reveal",
+      "Envelope arriving at newspaper (silhouette)",
+      "Diagonal-reading animation",
+      "Decode cascade",
+      "FBI confirmation stamp",
+      "Remaining unsolved ciphers"
+    ],
+    "sources": [
+      "https://blog.wolfram.com/2021/03/24/the-solution-of-the-zodiac-killers-340-character-cipher/",
+      "https://arxiv.org/abs/2403.17350v1",
+      "https://www.rollingstone.com/culture/culture-news/codebreakers-crack-zodiac-killer-unsolved-340-character-cipher-1102927/",
+      "https://www.popsci.com/technology/zodiac-letter-decode/"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 16,
+      "story": 16,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 18
+    },
+    "total": 81,
+    "rank": 4
+  },
+  {
+    "id": "MURDER-05",
+    "number": 5,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Footprints Led to the Farm — None Led Away",
+    "alt_title": "Someone Lived in Their Attic for Days",
+    "subject": "Hinterkaifeck farmstead, Bavaria, Mar/Apr 1922: six residents killed; reported prior signs — footprints in snow from the forest to the farm but none back, footsteps in the attic, an unfamiliar newspaper, missing keys; the previous maid had left claiming the house was haunted; someone apparently fed the livestock afterwards. Unsolved.",
+    "why_potential": "MrBallen 4.5M + Thoughty2 872K show demand; the footprints-in-snow image is uniquely chilling yet non-graphic; the pre-crime 'warnings' form a natural escalating evidence cadence. Constraint: two child victims → must be handled entirely off-screen with no description of injuries; YouTube Jan 2026 relaxation excludes child-abuse topics, so ad risk is moderate.",
+    "references": [
+      {
+        "title": "This barn is filled with NIGHTMARE FUEL",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "4.5M (rosetta.to)",
+        "note": "Hinterkaifeck topic demand"
+      },
+      {
+        "title": "The Unsolved Murder That Made This Inbred Boy Famous",
+        "creator": "Thoughty2",
+        "url": "unverified",
+        "views": "872K (rosetta.to)",
+        "note": "Hinterkaifeck; do not copy title style"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2s: Fresh footprints in snow lead from a dark forest to a farmhouse door; 'The footprints went in. None came out.' 2-6s: Attic floorboards creak, dust falls. 6-15s: 'Bavaria, 1922. The farmer told neighbours someone was in his house. Days later the whole family was gone — and someone kept feeding the cattle.'",
+    "structure": [
+      "Cold open: one-way footprints",
+      "Warning 1: footsteps in the attic",
+      "Warning 2: strange newspaper, missing keys",
+      "Warning 3: previous maid quit (reported claim: haunted — label EYEWITNESS CLAIM)",
+      "New maid arrives that very day (documented)",
+      "Discovery days later — described only as 'six people were killed'; memorial card",
+      "After: smoke from chimney, animals fed (reported)",
+      "Theories labelled; no living persons named",
+      "Open question + loop to footprints"
+    ],
+    "retention_moments": [
+      "0s footprints",
+      "~10s attic creak",
+      "~25s 'new maid arrived that day'",
+      "~40s 'someone fed the cattle'",
+      "~55s question + loop"
+    ],
+    "thumbnail_concept": "Top-down snowy yard, single line of footprints to a lit window; text 'NONE CAME OUT'.",
+    "animation_style": "Procedural Bavarian farmstead, snow, fog, lantern light, attic interior, chimney smoke particles; no bodies, no weapon.",
+    "scenes": [
+      "Forest edge with footprints",
+      "Farmhouse exterior night",
+      "Attic interior flashlight",
+      "Newspaper on table (generic)",
+      "Barn with cattle silhouettes",
+      "Memorial card"
+    ],
+    "sources": [
+      "https://www.mentalfloss.com/crime/chilling-story-hinterkaifeck-killings-germanys-most-famous-unsolved-crime",
+      "https://en.wikipedia.org/wiki/Hinterkaifeck_murders"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 16,
+      "story": 17,
+      "packaging": 16,
+      "retention": 16,
+      "feasibility": 15
+    },
+    "total": 80,
+    "rank": 5,
+    "fact_labels": {
+      "footprints/attic/newspaper": "REPORTED (testimony recorded in investigation, per secondary sources)",
+      "house haunted": "EYEWITNESS CLAIM (former maid)",
+      "killings": "DOCUMENTED FACT",
+      "perpetrator": "UNKNOWN — theories only"
+    }
+  },
+  {
+    "id": "MURDER-06",
+    "number": 6,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Ghost Ship's Creepiest Detail Was Fiction",
+    "alt_title": "Found Sailing With Nobody Aboard",
+    "subject": "Mary Celeste, found 4 Dec 1872 drifting between the Azores and Portugal by the Dei Gratia: seaworthy, cargo of ~1,700 barrels of alcohol largely intact, lifeboat gone, crew of ten never seen again. Many famous 'creepy' details (warm meals, half-eaten breakfast) trace to Arthur Conan Doyle's 1884 fiction 'J. Habakuk Jephson's Statement'.",
+    "why_potential": "Evergreen search topic; ghost-ship image is ideal for our wreck/ocean environments; a myth-busting twist (the creepiest details were invented by the creator of Sherlock Holmes) is shareable and comment-bait. No graphic content at all — highly ad-friendly. No measured reference views captured (demand scored on general topic prominence).",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Sailing ship drifts out of fog, wheel spinning, nobody aboard; 'Found sailing. Nobody on board.' 2-6s: 'You've heard the tea was still warm.' Cup on table cracks. 6-15s: 'That part was made up — by the man who invented Sherlock Holmes. Here's what investigators actually found.'",
+    "structure": [
+      "Cold open: empty ship in fog",
+      "Myth: warm tea/half-eaten breakfast",
+      "Twist early: Conan Doyle's 1884 story",
+      "What was really found: lifeboat missing, water in hold, cargo mostly intact, months of food",
+      "Crew of ten incl. captain's wife and young daughter (respectful card)",
+      "Theory ladder: piracy / mutiny / sea monster ruled weak; leaking alcohol fumes or sounding error leading to abandonment = leading theories",
+      "Open: why didn't they come back to the ship? comment",
+      "Loop to fog"
+    ],
+    "retention_moments": [
+      "0s ghost ship",
+      "~5s myth-busting promise",
+      "~15s Conan Doyle reveal",
+      "~35s 9 empty barrels detail",
+      "~50s question"
+    ],
+    "thumbnail_concept": "Brigantine in green fog with empty deck, lantern swinging; text 'NOBODY ABOARD'.",
+    "animation_style": "Ocean shader, fog, procedural brigantine, rope/sail cloth sim (simple), cabin interior with props, barrel hold; 2.5D Atlantic map.",
+    "scenes": [
+      "Ship emerging from fog",
+      "Empty deck and helm",
+      "Cabin with logbook",
+      "Hold with barrels",
+      "Lifeboat davits empty",
+      "Map Azores–Gibraltar"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mary_Celeste",
+      "https://en.wikipedia.org/wiki/J._Habakuk_Jephson%27s_Statement"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 15,
+      "story": 16,
+      "packaging": 15,
+      "retention": 15,
+      "feasibility": 17
+    },
+    "total": 78,
+    "rank": 6
+  },
+  {
+    "id": "MURDER-07",
+    "number": 7,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Oldest Cold Case: Shot in the Back 5,300 Years Ago",
+    "alt_title": "Ten Years Later, an X-Ray Found the Arrow",
+    "subject": "Otzi the Iceman, found 19 Sep 1991 in the Otztal Alps by hikers; first thought a recent mountaineering death; ~5,300 years old; in 2001 an X-ray revealed a flint arrowhead in his left shoulder — he was killed. Preserved at the South Tyrol Museum of Archaeology.",
+    "why_potential": "Unique hook ('oldest murder case') with no living victims/families and zero gore needed; the X-ray reveal is a built-in twist; ice/mountain environment matches pipeline. Demand not measured with a captured reference → demand scored conservatively.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: A brown shape in melting ice; hikers' silhouettes. 'Police thought he died last winter.' 2-6s: Carbon date counter spins to 5,300 years. 6-15s: 'He was the oldest natural mummy in Europe. Ten years later, an X-ray showed something nobody had noticed.'",
+    "structure": [
+      "Cold open: body in ice (stylised, no face)",
+      "Assumed recent accident; recovery",
+      "Dating: Copper Age",
+      "What he carried (axe, bow, kit)",
+      "Twist: 2001 X-ray arrowhead",
+      "Last meal / last days (published findings)",
+      "Who shot him? open",
+      "Comment prompt",
+      "Loop to ice"
+    ],
+    "retention_moments": [
+      "0s ice",
+      "~6s date counter",
+      "~25s X-ray flash",
+      "~40s last meal detail",
+      "~52s question"
+    ],
+    "thumbnail_concept": "X-ray-style glow of a shoulder with a bright arrowhead inside an ice block; text '5,300-YEAR COLD CASE'.",
+    "animation_style": "Glacier pass, melting ice shader, stylised mannequin-like figure (no face), X-ray emissive overlay, Copper-Age props, timeline graphic.",
+    "scenes": [
+      "Glacier with hikers",
+      "Ice block close-up",
+      "Lab with X-ray lightbox",
+      "Artifact turntable (axe, bow)",
+      "Timeline 3300 BCE",
+      "Mountain sunset loop"
+    ],
+    "sources": [
+      "https://www.iceman.it/en/",
+      "https://en.wikipedia.org/wiki/%C3%96tzi"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 17,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 77,
+    "rank": 7
+  },
+  {
+    "id": "MURDER-08",
+    "number": 8,
+    "category": "MURDER_MYSTERY",
+    "working_title": "'Who Put Bella in the Wych Elm?'",
+    "alt_title": "The Skeleton in the Tree and the Graffiti That Followed",
+    "subject": "Hagley Wood, Worcestershire, Apr 1943: boys found a woman's skeleton inside a hollow wych elm; from 1944 graffiti asking 'Who put Bella down the Wych Elm?' appeared locally; theories include a wartime spy ring; victim never identified.",
+    "why_potential": "Graffiti line is an instant, quotable hook that doubles as a title; tree + wartime woodland is atmospheric and non-graphic; mystery-with-folklore spawns comments. No captured reference → demand modest.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Chalk letters appear on a brick wall: 'WHO PUT BELLA IN THE WYCH ELM?' 2-6s: Camera dives into a hollow tree trunk. 6-15s: 'In 1943, four boys found her inside this tree. A year later, someone started writing this message — and they still are.'",
+    "structure": [
+      "Cold open: graffiti",
+      "Discovery by boys (non-graphic)",
+      "Investigation: unidentified",
+      "The graffiti appears 1944",
+      "Theory ladder: spy ring / folklore claims — labelled",
+      "Evidence lost over time (reported)",
+      "Open: who was Bella? comment",
+      "Loop to wall"
+    ],
+    "retention_moments": [
+      "0s graffiti",
+      "~6s tree dive",
+      "~25s graffiti date reveal",
+      "~40s spy theory",
+      "~52s question"
+    ],
+    "thumbnail_concept": "Moonlit hollow tree with chalk graffiti overlay; text 'WHO PUT BELLA…?'",
+    "animation_style": "Procedural woodland, hollow-tree model, chalk-writing animation, 1940s blackout town silhouettes.",
+    "scenes": [
+      "Graffiti wall",
+      "Woodland at dusk",
+      "Hollow tree interior",
+      "1940s newspaper-style card (neutral)",
+      "Theory board",
+      "Wall loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Who_put_Bella_in_the_Wych_Elm%3F (URL not re-verified)",
+      "Secondary: BBC and Worcestershire local press coverage (not captured this session)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 16,
+      "packaging": 17,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 76,
+    "rank": 8,
+    "fact_labels": {
+      "skeleton found 1943": "DOCUMENTED FACT",
+      "graffiti": "DOCUMENTED FACT",
+      "spy-ring/witchcraft links": "THEORY / FOLKLORE"
+    }
+  },
+  {
+    "id": "MURDER-09",
+    "number": 9,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Nine Fake Names, Wigs and a Code — Who Was She?",
+    "alt_title": "Norway's Isdal Woman",
+    "subject": "Isdal Woman, found 29 Nov 1970 in Isdalen ('Ice Valley') near Bergen, Norway: clothing labels removed; suitcases at Bergen station held wigs, coded notes and cash; she travelled under multiple aliases. Officially ruled probable suicide; disputed. 2016-2019 NRK/BBC 'Death in Ice Valley' isotope work suggested origins in southern Germany.",
+    "why_potential": "Spy-thriller texture (aliases, wigs, code) with strong object visuals; respectful because identity is still sought and no family is publicly known. No captured YouTube reference → demand moderate. Must avoid describing burned remains.",
+    "references": [],
+    "duration_s": 60,
+    "hook_15s": "0-2s: Two suitcases open on a station shelf — a wig, a coded note. 'She had nine names. None of them real.' 2-6s: Every label cut from her clothes. 6-15s: 'Norway, 1970. Found in a place locals call Death Valley. Fifty years later, her teeth told scientists where she was born.'",
+    "structure": [
+      "Cold open: suitcase contents",
+      "Labels removed; aliases list",
+      "Found in Isdalen — described non-graphically",
+      "Code note decoded as dates/places of travel (reported)",
+      "Theories: espionage — THEORY",
+      "Official ruling: suicide; disputed",
+      "Twist: isotope analysis (NRK/BBC) points to birth ~1930 southern Germany",
+      "Open: who was she? comment",
+      "Loop to suitcase"
+    ],
+    "retention_moments": [
+      "0s suitcase",
+      "~10s alias list scroll",
+      "~30s code note",
+      "~45s isotope reveal",
+      "~55s question"
+    ],
+    "thumbnail_concept": "Open suitcase with a wig and coded note under a single bulb; text '9 FAKE NAMES'.",
+    "animation_style": "Station locker interior, valley in fog with rocks, 2.5D European travel map, hotel-register document reveals, isotope chart graphic; silhouette only.",
+    "scenes": [
+      "Suitcase reveal",
+      "Hotel registers with aliases",
+      "Foggy valley (no body)",
+      "Travel map",
+      "Isotope lab graphic",
+      "Suitcase loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Isdal_Woman",
+      "BBC World Service & NRK podcast 'Death in Ice Valley' (2018) — URL not captured"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 17,
+      "packaging": 15,
+      "retention": 15,
+      "feasibility": 15
+    },
+    "total": 75,
+    "rank": 9
+  },
+  {
+    "id": "MURDER-10",
+    "number": 10,
+    "category": "MURDER_MYSTERY",
+    "working_title": "A Newsboy Dropped a Nickel. It Split in Half.",
+    "alt_title": "The Coin That Exposed a Soviet Spy",
+    "subject": "FBI 'Hollow Nickel' case: in 1953 a Brooklyn newspaper boy found a nickel that split open, containing a microfilm of numbers; the FBI could not decode it until a Soviet defector (Reino Hayhanen) came forward in 1957, leading to the arrest of Rudolf Abel (later exchanged for U-2 pilot Francis Gary Powers in 1962).",
+    "why_potential": "Mystery with an extraordinary twist and no violence — fully ad-safe; single object (coin) is perfect for macro animation and loop; espionage pairs with mystery audiences. Not murder, so slight niche-fit penalty; no captured reference.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: A nickel drops on a sidewalk and cracks open; 'This coin was hollow.' 2-6s: Tiny film strip of numbers. 6-15s: 'A paperboy found it in 1953. The FBI couldn't read it for four years — until a spy walked in and confessed.'",
+    "structure": [
+      "Cold open: coin splits",
+      "What's inside: microfilm of numbers",
+      "FBI stuck 4 years",
+      "1957: defector comes forward",
+      "Code broken; hollow-object tradecraft",
+      "Arrest of Rudolf Abel",
+      "Twist: 1962 bridge swap for Gary Powers",
+      "Comment prompt",
+      "Loop to coin"
+    ],
+    "retention_moments": [
+      "0s coin crack",
+      "~12s 'four years'",
+      "~25s defector",
+      "~42s bridge swap",
+      "~52s loop"
+    ],
+    "thumbnail_concept": "Macro of a nickel split in two with a film strip curling out; text 'HOLLOW'.",
+    "animation_style": "Macro product-style shots (coin, film, hollow bolt), 1950s Brooklyn stoop silhouette, Glienicke bridge night scene with fog.",
+    "scenes": [
+      "Coin macro",
+      "Brooklyn street silhouette",
+      "FBI lab desk",
+      "Number grid decode",
+      "Arrest silhouette",
+      "Bridge exchange"
+    ],
+    "sources": [
+      "https://www.fbi.gov/history/famous-cases/hollow-nickel-rudolph-abel",
+      "https://en.wikipedia.org/wiki/Hollow_Nickel_Case"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 16,
+      "packaging": 15,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 74,
+    "rank": 10
+  },
+  {
+    "id": "MURDER-11",
+    "number": 11,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Two Men Found in Lead Masks on a Hill",
+    "alt_title": "The Lead Masks Case: 'Take Capsule… Wait for Signal'",
+    "subject": "Lead Masks case, Morro do Vintem, Niteroi, Brazil, Aug 1966: two electronics technicians found dead on a hill wearing suits, raincoats and crude lead eye-masks; a notebook held instructions (reported translation: '...take capsules, after effect protect metals, wait for signal, mask'); cause of death undetermined.",
+    "why_potential": "Bizarre central object (lead eye-masks) and a cryptic note: strong cold open; UFO theories bring curiosity traffic but must be labelled THEORY. No captured reference; uncertain cause limits the payoff.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Two crude lead eye-masks on grass at dusk; 'They were found wearing these.' 2-6s: Notebook page: 'wait for signal'. 6-15s: 'Brazil, 1966. Two TV technicians climbed a hill with masks, capsules and instructions. The autopsy never found a cause.'",
+    "structure": [
+      "Cold open: masks",
+      "Note text (reported translation)",
+      "Who they were (technicians)",
+      "Purchases that day (reported)",
+      "Investigation: no cause determined",
+      "Theories: experiment, spiritualist group, UFO — labelled",
+      "Open question",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0s masks",
+      "~6s note",
+      "~25s 'no cause'",
+      "~38s theory ladder",
+      "~52s question"
+    ],
+    "thumbnail_concept": "Two lead eye-masks on a rock under a purple sky; text 'WAIT FOR SIGNAL'.",
+    "animation_style": "Hilltop with grass shader, dusk sky, prop masks, notebook reveal, evidence board; silhouettes only.",
+    "scenes": [
+      "Hilltop masks",
+      "Notebook page",
+      "City lights of Niteroi",
+      "Shop counter silhouette",
+      "Theory board",
+      "Masks loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lead_Masks_case",
+      "Secondary coverage (not captured this session) — verify note wording against Brazilian press archives"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 15,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 74,
+    "rank": 11,
+    "fact_labels": {
+      "bodies, masks, note": "DOCUMENTED FACT (per secondary sources)",
+      "UFO/signal": "THEORY",
+      "exact note wording": "REPORTED TRANSLATION"
+    }
+  },
+  {
+    "id": "MURDER-12",
+    "number": 12,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Someone Hijacked TV Signals — and Was Never Caught",
+    "alt_title": "The Creepiest TV Hack in History",
+    "subject": "Max Headroom signal hijacking, Chicago, 22 Nov 1987: a masked intruder interrupted WGN-TV's sports news and later WTTW's broadcast of Doctor Who; the FCC/FBI never identified anyone.",
+    "why_potential": "The Why Files' 5.2M video shows demand; strong uncanny visual; no victims. Constraints: must not reproduce the broadcast footage or the Max Headroom character likeness (IP) — recreate as an abstract masked silhouette and rotating-panel background, which weakens the iconic image (feasibility/packaging penalty).",
+    "references": [
+      {
+        "title": "UNSOLVED: The Creepiest TV Hack in History",
+        "creator": "The Why Files",
+        "url": "unverified",
+        "views": "5.2M (rosetta.to)",
+        "note": "Max Headroom topic demand"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0-2s: Retro TV snaps to static, then a rotating striped panel and a masked silhouette; 'Twice in one night, someone hijacked TV in Chicago.' 2-6s: Signal map with two transmitters. 6-15s: 'Nov 22, 1987. Thousands watched. The FCC investigated. Nobody was ever caught.'",
+    "structure": [
+      "Cold open: static to intruder",
+      "First intrusion: WGN sports (brief)",
+      "Engineers switch frequency",
+      "Second intrusion 2 hours later on WTTW (longer)",
+      "How it was done (overpowering studio-to-transmitter link) — stated as reported",
+      "Investigation goes cold",
+      "Open: who? comment",
+      "Loop to static"
+    ],
+    "retention_moments": [
+      "0s static",
+      "~10s 'second time'",
+      "~25s technical explanation",
+      "~40s 'never caught'",
+      "~48s loop"
+    ],
+    "thumbnail_concept": "CRT TV in a dark room showing a rotating-striped panel and a featureless mask; text 'NEVER CAUGHT'.",
+    "animation_style": "CRT TV prop, glitch shader, Chicago skyline night, signal-wave graphics; generic mask (no trademarked character).",
+    "scenes": [
+      "Living room CRT",
+      "Studio control room",
+      "Skyline with transmitter",
+      "Signal diagram",
+      "Case file",
+      "Static loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Max_Headroom_signal_hijacking",
+      "https://www.mentalfloss.com/article/67568/time-max-headroom-hijacked-two-networks",
+      "https://hackaday.com/2016/11/23/retrotechtacular-max-headroom-takes-chicago-in-audacious-tv-hack/"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 15,
+      "story": 14,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 13
+    },
+    "total": 73,
+    "rank": 12
+  },
+  {
+    "id": "MURDER-13",
+    "number": 13,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Three Lighthouse Keepers Vanished in 1900",
+    "alt_title": "The Flannan Isles Mystery — and the Poem That Lied",
+    "subject": "Flannan Isles lighthouse, Outer Hebrides, Dec 1900: the three keepers were missing when the relief vessel arrived on 26 Dec; storm damage at the west landing; two sets of oilskins gone; later poem (W.W. Gibson, 1912) added untouched-meal and overturned-chair details not in the official report.",
+    "why_potential": "Lighthouse in a storm is one of our strongest procedural environments; a mystery-busting twist (official report vs poem) mirrors the Mary Celeste structure; no violence. Demand modest; no captured reference.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Lighthouse beam stops turning; 'The light went dark. Three men were gone.' 2-6s: Empty hook where oilskins should hang. 6-15s: 'Scotland, December 1900. A relief boat found the gate shut, the beds empty — and a storm-wrecked landing 33 metres above the sea.'",
+    "structure": [
+      "Cold open: dark lighthouse",
+      "Relief arrival 26 Dec",
+      "Clues: missing oilskins, damaged west landing",
+      "Official conclusion: likely swept away by a freak wave",
+      "Myth layer: the 1912 poem's chair & meal",
+      "Open: why was the third man without oilskins? comment",
+      "Loop to beam"
+    ],
+    "retention_moments": [
+      "0s beam stops",
+      "~10s oilskin hook",
+      "~25s storm-damage reveal",
+      "~40s 'the poem made it up'",
+      "~52s question"
+    ],
+    "thumbnail_concept": "Lighthouse on black cliffs, beam cut off mid-sweep, huge wave; text 'ALL 3 GONE'.",
+    "animation_style": "Cliff island, ocean + storm, lighthouse with rotating beam (volumetric), interior with coats, wave sim (stylised).",
+    "scenes": [
+      "Lighthouse at night",
+      "Relief boat approach",
+      "Interior with empty hooks",
+      "West landing damage",
+      "Giant wave dramatisation (labelled)",
+      "Beam loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Flannan_Isles",
+      "Northern Lighthouse Board history pages (not captured this session)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 12,
+      "story": 15,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 17
+    },
+    "total": 73,
+    "rank": 13
+  },
+  {
+    "id": "MURDER-14",
+    "number": 14,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Killer Who Spared Houses Playing Jazz",
+    "alt_title": "The Axeman's Letter to New Orleans",
+    "subject": "Axeman of New Orleans, 1918-1919: a series of attacks; in March 1919 a letter published in the Times-Picayune, claiming to be from the killer, said homes playing jazz on the night of 19 March would be spared; that night the city filled with music and no attack was reported. Never identified.",
+    "why_potential": "Jazz + letter is a striking, sound-design-rich hook; the 'whole city played jazz' twist is irresistible and non-graphic. Must keep attacks off-screen and use the letter as centrepiece; ad risk moderate due to subject.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Gramophone needle drops in a dark parlor; 'One night in 1919, all of New Orleans played jazz.' 2-6s: Newspaper letter slides in. 6-15s: 'Because a letter, claiming to be from a killer, said houses with jazz would be spared. Was it real?'",
+    "structure": [
+      "Cold open: gramophone",
+      "The letter (paraphrase + short public-domain quotes)",
+      "Context: unsolved attacks 1918-19 (non-graphic)",
+      "19 March: music everywhere; no attack reported",
+      "Theory ladder: hoax letter vs real",
+      "Never identified",
+      "Comment prompt",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0s needle",
+      "~8s letter",
+      "~28s city of music",
+      "~42s hoax?",
+      "~52s loop"
+    ],
+    "thumbnail_concept": "1919 New Orleans street at night with glowing windows and musical notes; text 'PLAY JAZZ OR…'.",
+    "animation_style": "French Quarter facades, gas lamps, fog, gramophone prop, letter reveal; ambient jazz (licensed/royalty-free).",
+    "scenes": [
+      "Parlor gramophone",
+      "Newspaper letter",
+      "Streets with windows glowing",
+      "Band silhouettes",
+      "Case board",
+      "Gramophone loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Axeman_of_New_Orleans",
+      "Times-Picayune letter of March 1919 (public domain; archive URL not captured)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 12,
+      "story": 15,
+      "packaging": 16,
+      "retention": 14,
+      "feasibility": 14
+    },
+    "total": 71,
+    "rank": 14
+  },
+  {
+    "id": "MURDER-15",
+    "number": 15,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Elevator Video Everyone Got Wrong",
+    "alt_title": "What Really Happened at the Cecil Hotel",
+    "subject": "Elisa Lam, Cecil Hotel, Los Angeles, 2013: released elevator CCTV went viral; she was found in a rooftop water tank; the LA County coroner ruled accidental drowning with bipolar disorder a significant contributing factor.",
+    "why_potential": "Biggest demand in the set (BuzzFeed Unsolved's 20M+ top episode; Netflix series). But: officially accidental, a real young woman, and mental-health subject → must be framed as 'how the internet turned a tragedy into a conspiracy', not a mystery to exploit; cannot use the real CCTV. Ethics/packaging constraints keep the score modest.",
+    "references": [
+      {
+        "title": "Elisa Lam episode",
+        "creator": "BuzzFeed Unsolved",
+        "url": "unverified",
+        "views": "20M+ (Know Your Meme, 2019)",
+        "note": "series' top episode"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0-2s: An empty, stylised elevator; doors refuse to close; 'This clip got tens of millions of views.' 2-6s: Comment-section bubbles: 'ghost', 'cover-up'. 6-15s: 'The internet decided it was a mystery. The coroner found something sadder — and more important.'",
+    "structure": [
+      "Cold open: empty elevator (no person depicted)",
+      "Viral spread and theories (labelled THEORY)",
+      "Facts: water tank, guest complaints",
+      "Coroner finding: accidental, bipolar disorder contributing",
+      "Why the clip looked strange (door hold button, reported)",
+      "Respect card; mental-health helpline end slate",
+      "Prompt: 'Should the clip ever have been shared?'"
+    ],
+    "retention_moments": [
+      "0s elevator",
+      "~8s comment storm",
+      "~25s coroner finding",
+      "~40s door-hold explanation",
+      "~50s reflection"
+    ],
+    "thumbnail_concept": "Empty elevator with doors half-open, cold light; text 'WHAT WE GOT WRONG'.",
+    "animation_style": "Hotel corridor and elevator procedural set, rooftop tanks at night, comment-bubble motion graphics; no human figure of the victim.",
+    "scenes": [
+      "Elevator interior",
+      "Comment storm",
+      "Rooftop tanks",
+      "Coroner report card",
+      "Respect card"
+    ],
+    "sources": [
+      "https://allthatsinteresting.com/elisa-lam-death",
+      "https://www.refinery29.com/en-gb/2021/02/10312240/vanishing-at-the-cecil-hotel-elisa-lam-viral-video-explained",
+      "Los Angeles County coroner report, 2013 (summary via press)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 18,
+      "story": 13,
+      "packaging": 13,
+      "retention": 14,
+      "feasibility": 12
+    },
+    "total": 70,
+    "rank": 15
+  },
+  {
+    "id": "MURDER-16",
+    "number": 16,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Boy Who Came From a Dark Cell",
+    "alt_title": "Kaspar Hauser: 190 Years, Three DNA Tests",
+    "subject": "Kaspar Hauser appeared in Nuremberg in May 1828 carrying letters, claiming he had been raised alone in a dark cell; he died of a stab wound in Ansbach in Dec 1833 after reporting an attack; a 'lost prince of Baden' theory persisted; DNA studies (1996, 2002, and a 2024 hair study) — the latest reported as excluding the Baden link.",
+    "why_potential": "Fairy-tale-like strangeness (a teenager who could barely speak, a note in mirror writing) and a modern science twist; historical (no living family impact). Low demand evidence; story complexity needs tight scripting.",
+    "references": [],
+    "duration_s": 60,
+    "hook_15s": "0-2s: A boy silhouette stands in an empty 1828 square holding a letter; 'He said he'd lived his whole life in a dark cell.' 2-6s: Cell with a wooden horse toy. 6-15s: 'Nuremberg, 1828. Five years later he was dead — and for 190 years people believed he was a stolen prince. DNA finally answered.'",
+    "structure": [
+      "Cold open: boy with letter",
+      "His account (as reported)",
+      "Celebrity and doubts",
+      "Dec 1833 death (non-graphic), note in mirror writing",
+      "Prince theory",
+      "DNA tests 1996/2002/2024",
+      "Twist: latest study excludes Baden (verify)",
+      "Open: who was he?",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0s silhouette",
+      "~10s cell",
+      "~28s mirror-writing note",
+      "~45s DNA reveal",
+      "~55s question"
+    ],
+    "thumbnail_concept": "Silhouette of a boy in a top hat holding a letter in a misty square; text 'RAISED IN THE DARK?'.",
+    "animation_style": "Old-town square, small cell interior, palace silhouette, mirror-writing reveal, DNA graphic.",
+    "scenes": [
+      "Town square",
+      "Dark cell",
+      "Court/palace",
+      "Garden at night (no violence)",
+      "DNA lab",
+      "Square loop"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kaspar_Hauser",
+      "2024 iScience DNA study on Kaspar Hauser hair samples (citation to verify)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 11,
+      "story": 16,
+      "packaging": 14,
+      "retention": 14,
+      "feasibility": 14
+    },
+    "total": 69,
+    "rank": 16
+  },
+  {
+    "id": "MURDER-17",
+    "number": 17,
+    "category": "MURDER_MYSTERY",
+    "working_title": "Unnamed for 48 Years: The Lady of the Dunes",
+    "alt_title": "Genetic Genealogy Gave Her Name Back",
+    "subject": "'Lady of the Dunes', found July 1974 in the Race Point dunes, Provincetown, Massachusetts; identified by the FBI in Oct 2022 as Ruth Marie Terry via investigative genetic genealogy; in 2023 authorities named her late husband as the person they believed responsible (verify names/dates against official releases).",
+    "why_potential": "Strong closure arc (name restored) suits a respectful Short; dunes environment is easy. Original case details are graphic and must be omitted entirely; demand modest without captured reference; packaging must avoid sensationalism.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Wind erases footprints on a dune; 'For 48 years, she had no name.' 2-6s: A blank case file tag. 6-15s: 'Cape Cod, 1974. Thousands of leads, a famous film set rumour, nothing. In 2022, a family tree finally answered.'",
+    "structure": [
+      "Cold open: dunes",
+      "Discovery (no detail)",
+      "Decades of dead ends",
+      "Genetic genealogy explained simply",
+      "2022 identification",
+      "Official finding about the suspect (as stated by authorities)",
+      "Respect card",
+      "Prompt on genetic genealogy ethics"
+    ],
+    "retention_moments": [
+      "0s dunes",
+      "~10s blank tag",
+      "~30s family tree",
+      "~42s name reveal",
+      "~52s prompt"
+    ],
+    "thumbnail_concept": "Dune grass at dusk with a blank evidence tag; text 'NAMED AFTER 48 YEARS'.",
+    "animation_style": "Dune landscape with wind particles, family-tree motion graphic, case-file reveals.",
+    "scenes": [
+      "Dunes",
+      "Case file",
+      "Lab/DNA",
+      "Family tree",
+      "Name card"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lady_of_the_Dunes (URL not re-verified)",
+      "FBI Boston press release, 31 Oct 2022 (URL not captured)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 15,
+      "packaging": 13,
+      "retention": 14,
+      "feasibility": 14
+    },
+    "total": 68,
+    "rank": 17
+  },
+  {
+    "id": "MURDER-18",
+    "number": 18,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The Boy in the Box Has a Name",
+    "alt_title": "65 Years Later: Joseph Augustus Zarelli",
+    "subject": "'Boy in the Box', a young child found in a cardboard box in Fox Chase, Philadelphia, Feb 1957; identified by Philadelphia Police in Dec 2022 as Joseph Augustus Zarelli (b. 1953) through genetic genealogy; no one has been charged.",
+    "why_potential": "Powerful name-restored arc and long public interest, but a child victim: YouTube's 2026 monetisation relaxation excludes child-abuse topics and our ethics rule demands restraint, so the piece must be a memorial-style identification story only. Scores reflect ad/ethics risk.",
+    "references": [],
+    "duration_s": 50,
+    "hook_15s": "0-2s: A plain headstone reading 'America's Unknown Child' in soft rain; 'For 65 years, this grave had no name.' 2-6s: Detectives' file boxes stacking up. 6-15s: 'Philadelphia, 1957. Generations of investigators never gave up. In 2022, they finally said his name.'",
+    "structure": [
+      "Cold open: unnamed grave",
+      "Case opened 1957 (no detail of injuries)",
+      "Decades of investigators and volunteers",
+      "DNA and genealogy",
+      "2022 name reveal",
+      "No charges; respect card",
+      "Prompt: thank-you to cold-case volunteers"
+    ],
+    "retention_moments": [
+      "0s grave",
+      "~12s file stack",
+      "~30s DNA",
+      "~40s name",
+      "~48s respect"
+    ],
+    "thumbnail_concept": "Simple headstone with fresh flowers and a name card being placed; text 'HE HAS A NAME'.",
+    "animation_style": "Cemetery with rain, office with file boxes, DNA/genealogy graphics; no depiction of child or box.",
+    "scenes": [
+      "Grave",
+      "Files",
+      "Lab",
+      "Name card",
+      "Flowers"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Boy_in_the_box_(Philadelphia) (URL not re-verified)",
+      "Philadelphia Police Department press conference, 8 Dec 2022 (URL not captured)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 15,
+      "packaging": 12,
+      "retention": 13,
+      "feasibility": 14
+    },
+    "total": 67,
+    "rank": 18
+  },
+  {
+    "id": "MURDER-19",
+    "number": 19,
+    "category": "MURDER_MYSTERY",
+    "working_title": "The House Where Every Mirror Was Covered",
+    "alt_title": "Villisca, 1912: The Covered Mirrors",
+    "subject": "Villisca, Iowa, June 1912: eight people (the Moore family and two young guests) were killed overnight; investigators reported mirrors covered with cloth and lamps with chimneys removed; a travelling minister was tried twice (hung jury, then acquittal); unsolved.",
+    "why_potential": "Covered-mirror image is uniquely eerie; the house is a tourist site. But six child victims: heavy ethics/ad constraint; must stay at house-exterior/prop level. Moderate demand assumed (no captured reference).",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: A hand-mirror covered in cloth on a dresser by lamplight; 'Every mirror in the house was covered.' 2-6s: Lamp chimney removed, wick turned low. 6-15s: 'Iowa, 1912. Eight people never woke up. Two trials. No conviction. Over a century of questions.'",
+    "structure": [
+      "Cold open: covered mirror",
+      "Second detail: lamps",
+      "Who lived there (memorial card)",
+      "Investigation, two trials of a named defendant (court record), no conviction",
+      "Theories labelled",
+      "Open question",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0s mirror",
+      "~6s lamp",
+      "~25s trials",
+      "~45s unsolved",
+      "~52s loop"
+    ],
+    "thumbnail_concept": "Cloth-draped mirror reflecting a dim lamp; text 'WHY COVER THE MIRRORS?'.",
+    "animation_style": "1912 farmhouse interior, oil-lamp lighting, cloth sim on mirrors, courtroom silhouettes.",
+    "scenes": [
+      "Mirror",
+      "Lamp",
+      "House exterior",
+      "Courtroom",
+      "Memorial"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Villisca_axe_murders",
+      "Villisca Axe Murder House historical site (URL not captured)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 13,
+      "retention": 14,
+      "feasibility": 13
+    },
+    "total": 67,
+    "rank": 19
+  },
+  {
+    "id": "MURDER-20",
+    "number": 20,
+    "category": "MURDER_MYSTERY",
+    "working_title": "He Cut Every Label Off His Clothes",
+    "alt_title": "The Man Who Erased Himself: Peter Bergmann",
+    "subject": "'Peter Bergmann' (alias), Sligo, Ireland, June 2009: a man checked into a hotel under a false name and Vienna address, was filmed leaving with bags and returning without them, removed labels from his clothes, and was found dead at Rosses Point; post-mortem found serious illness and no foul play; still unidentified (verify dates).",
+    "why_potential": "'Erasing yourself' is an intriguing, CCTV-free story we can recreate abstractly; no murder. Limited demand evidence; ending is sombre (possible suicide context) → careful framing, limited payoff.",
+    "references": [],
+    "duration_s": 55,
+    "hook_15s": "0-2s: Scissors snip a clothing label; 'He cut every label off his clothes.' 2-6s: A man silhouette leaves a hotel with bags, returns empty-handed. 6-15s: 'Ireland, 2009. False name. Fake address. Bags that disappeared. Police still don't know who he was.'",
+    "structure": [
+      "Cold open: label cut",
+      "False name/address",
+      "Bag trips (reported from CCTV; recreated abstractly)",
+      "Found at the beach; no foul play",
+      "Theories avoided; focus on identity",
+      "Appeal-style ending",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0s scissors",
+      "~10s bag trips",
+      "~30s 'no foul play'",
+      "~45s still unknown",
+      "~52s loop"
+    ],
+    "thumbnail_concept": "Pile of cut-off clothing labels on a hotel bed; text 'WHO WAS HE?'.",
+    "animation_style": "Hotel room, coastal town at dusk, abstract CCTV-style grid (no real footage), beach.",
+    "scenes": [
+      "Labels",
+      "Hotel corridor",
+      "Town walk",
+      "Beach",
+      "Appeal card"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Death_of_Peter_Bergmann (URL not re-verified)",
+      "Irish press coverage (Irish Independent/RTE) — not captured this session"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 14,
+      "packaging": 13,
+      "retention": 14,
+      "feasibility": 15
+    },
+    "total": 67,
+    "rank": 20
+  }
+]

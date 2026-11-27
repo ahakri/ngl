@@ -365,7 +365,6 @@ def particle_cloud(center, size, count=600, radius=0.012, mat=None, drift=(0, 0,
     o = mesh_from_bm(name, bm)
     assign(o, mat or mat_principled(name + "_m", (0.8, 0.75, 0.6), rough=1, emit=(0.5, 0.45, 0.35), emit_strength=0.25))
     o.visible_shadow = False
-    d = add_displace(o, strength=0.25, scale=1.5, name=name + "_turb")
     # animate drift
     o.location = (0, 0, 0)
     o.keyframe_insert("location", frame=1)
@@ -559,7 +558,7 @@ def char_diver(name="diver", suit=(0.05, 0.05, 0.06), accent=(0.9, 0.35, 0.05), 
                     vertices=10)
         lens = part("cyl", (0.0, 0.69, 0.15), (0.032, 0.032, 0.006), rot=(math.pi / 2, 0, 0),
                     mat=mat_emission(name + "_lens", (1, 0.95, 0.85), 30), pname="lens", vertices=10)
-        sp = spot((0, 0.72, 0.15), (-math.pi / 2, 0, 0), energy=light_energy, size_deg=24, blend=0.35, parent=root,
+        sp = spot((0, 0.72, 0.15), (math.pi / 2, 0, 0), energy=light_energy, size_deg=24, blend=0.35, parent=root,
                   name=name + "_torch")
         parts["torch"] = sp
     root.scale = (scale,) * 3

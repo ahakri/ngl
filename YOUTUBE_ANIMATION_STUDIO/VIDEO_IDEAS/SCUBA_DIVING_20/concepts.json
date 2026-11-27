@@ -1,0 +1,1461 @@
+[
+  {
+    "id": "SCUBA-01",
+    "number": 1,
+    "category": "SCUBA_DIVING",
+    "working_title": "He Lived 60 Hours at the Bottom of the Sea",
+    "alt_title": "The Cook Who Breathed in a Sunken Ship",
+    "subject": "Harrison Okene, cook on the tug Jascon-4, capsized off Nigeria on 26 May 2013. He survived ~60 h in an air pocket (~4 ft high) at ~30 m until DCN divers, sent to recover bodies, found him on 28 May. He then spent ~60 h in decompression. 11 crew died.",
+    "why_potential": "It has a single impossible number (60 hours), a shrinking-air clock, and a twist (the divers were recovering bodies). The air-pocket physics suits animation. The real rescue footage went viral globally in Dec 2013, so recognition is proven. It is evergreen survival content.",
+    "references": [
+      {
+        "title": "Harrison Okene rescue footage",
+        "creator": "DCN Diving",
+        "url": "unverified",
+        "views": "unverified (viral Dec 2013 per globalnews/thejournal)",
+        "note": "real footage - reference only, never reused"
+      },
+      {
+        "title": "The Incredible Survival Story Scientists Can't Explain",
+        "creator": "Thoughty2",
+        "url": "unverified",
+        "views": "1.2M (rosetta.to)",
+        "note": "Chris Lemons, 2023-11-14"
+      },
+      {
+        "title": "The Caribbean Disaster (*DISTRESSING CONTENT*)",
+        "creator": "MrBallen",
+        "url": "https://www.youtube.com/watch?v=RF1syl8x6kU",
+        "views": "~6.0M (rosetta.to)",
+        "note": "trapped-diver physics story; ID from summarizer URL"
+      },
+      {
+        "title": "Mariana Trench depth simulation",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "45M (greenmatters.com)",
+        "note": "3D narrated depth-descent Short"
+      }
+    ],
+    "duration_s": 62,
+    "hook_15s": "0-2 s: Upside-down tug interior, one torch, waterline at chin. VO: 'This man spent 60 hours at the bottom of the Atlantic, and lived.' | 2-6 s: Map pin, Nigeria, 26 May 2013, '30 m'. Hull rolls in silhouette. | 6-15 s: HUD 'AIR POCKET: 4 FT', hours counter starts. VO: 'He was the cook. Eleven others didn't make it. And the divers who finally came weren't looking for survivors.'",
+    "structure": [
+      "Cold open: impossible fact + inverted cabin",
+      "Capsize at ~04:50 in heavy swell (reported) - he is in the toilet compartment",
+      "Feeling through dark corridors to an air pocket",
+      "Clock: cold, darkness, sea water rising, CO2 building (explained by callout)",
+      "Mid-turn: dive team arrives to recover bodies",
+      "The hand: a diver's hand is grabbed (shown gently, stylised)",
+      "Mechanism: why he couldn't just swim up - decompression; 60 h in a chamber",
+      "Loop: 'the diver thought the hand was a body, until it squeezed back'"
+    ],
+    "retention_moments": [
+      "0 s impossible-fact line",
+      "6 s hours counter starts",
+      "25 s 'weren't looking for survivors' twist",
+      "38 s hand-grab reveal",
+      "48 s decompression mechanism cutaway",
+      "58 s loop line"
+    ],
+    "thumbnail_concept": "Inverted cabin cross-section; tiny figure in a bright air bubble at top, black water below, '60 HOURS' in yellow.",
+    "animation_style": "Blender low-poly cross-section of a capsized tug, volumetric torch beam, rising waterline shader, HUD counters, cool teal/black palette.",
+    "scenes": [
+      "Exterior tug capsizing in storm (silhouette)",
+      "Inverted interior corridor with floating debris",
+      "Air pocket close-up with waterline",
+      "Seabed exterior with diver lights approaching",
+      "Diver POV through hatch",
+      "Decompression chamber 2.5D diagram",
+      "Map/date card"
+    ],
+    "sources": [
+      "https://abcnews.go.com/blogs/headlines/2013/12/cook-survives-3-days-in-air-pocket-of-sunken-ship-off-nigerian-coast",
+      "https://www.scmp.com/news/world/article/1260073/nigerian-tugboat-cook-survives-three-days-air-bubble",
+      "https://globalnews.ca/news/1006413/watch-amazing-video-of-nigerian-man-being-rescued-from-sunken-tugboat-after-2-days-underwater/",
+      "https://mymodernmet.com/harrison-okene-jascon-4"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 17,
+      "story": 18,
+      "packaging": 17,
+      "retention": 16,
+      "feasibility": 16
+    },
+    "total": 84,
+    "rank": 1,
+    "verification_status": "VERIFIED this session (ABC, SCMP, Global News, My Modern Met). Depth reports vary (~30 m / ~100 ft); use '~30 m'."
+  },
+  {
+    "id": "SCUBA-02",
+    "number": 2,
+    "category": "SCUBA_DIVING",
+    "working_title": "The Boat Left Without Them",
+    "alt_title": "Two Divers, One Wrong Headcount",
+    "subject": "Tom and Eileen Lonergan, American divers left behind by the MV Outer Edge at St Crispin's Reef, Great Barrier Reef, on 25 Jan 1998. Their absence went unnoticed for ~2 days. They were never found. Inspired the film Open Water (2003).",
+    "why_potential": "Abandonment is a primal fear, and the miscounted headcount gives a clean twist. Weird History (1.8M snapshot) and Disasterthon show demand, and the film adds recognition. The unresolved ending suits a loop.",
+    "references": [
+      {
+        "title": "True Story Behind 'Open Water'",
+        "creator": "Weird History",
+        "url": "unverified",
+        "views": "1.8M (rosetta.to snapshot; another shows 418K)",
+        "note": "Lonergans, 2020-11-06"
+      },
+      {
+        "title": "Lonergan episode",
+        "creator": "Disasterthon",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "2023-05-11, 9 min"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2 s: Top-down empty ocean, two tiny heads, boat wake fading. VO: 'In 1998 a dive boat counted its passengers and got the number wrong.' | 2-6 s: 'Great Barrier Reef, 25 Jan 1998'. Boat shrinks to the horizon. | 6-15 s: VO: 'Tom and Eileen Lonergan surfaced to an empty sea. Nobody noticed they were missing for two days.' Hour counter.",
+    "structure": [
+      "Cold open: empty sea, two heads",
+      "The dive and the headcount (reported miscount)",
+      "Surfacing - boat gone; scale of open ocean",
+      "Two days later: their bag is found on the boat",
+      "Search: items reportedly washed ashore (BCD etc. - label 'reported')",
+      "Theories labelled: drowning/exposure vs staged disappearance (official view: accidental)",
+      "Consequence: Queensland dive-safety headcount rules",
+      "Loop: 'and the boat's count was off by exactly two'"
+    ],
+    "retention_moments": [
+      "0 s wrong-count hook",
+      "8 s 'nobody noticed for two days'",
+      "22 s boat-gone reveal from their eye level",
+      "35 s bag found",
+      "50 s rules changed",
+      "57 s loop"
+    ],
+    "thumbnail_concept": "Vast teal sea, two tiny heads, distant boat silhouette, text 'LEFT BEHIND'.",
+    "animation_style": "Wide aerial ocean shader, low-poly boat, two stylised heads; 2.5D map of reef; no depiction of deaths or sharks attacking.",
+    "scenes": [
+      "Aerial empty ocean",
+      "Boat deck headcount clipboard (stylised, no invented names)",
+      "Eye-level water surface POV",
+      "Reef map",
+      "Washed-up gear on beach (no bodies)",
+      "Text callout of rule change"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Disappearance_of_Tom_and_Eileen_Lonergan",
+      "https://allthatsinteresting.com/tom-eileen-lonergan",
+      "https://www.outsideonline.com/adventure-travel/destinations/australia-pacific/watery-grave",
+      "https://grunge.com/146694/the-disturbing-true-story-that-inspired-open-water"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 17,
+      "story": 17,
+      "packaging": 17,
+      "retention": 16,
+      "feasibility": 15
+    },
+    "total": 82,
+    "rank": 2,
+    "verification_status": "VERIFIED core facts (date, reef, never found, coroner's 'drowning or shark' quote, Open Water link). Specific washed-up items and rule changes: check before scripting."
+  },
+  {
+    "id": "SCUBA-03",
+    "number": 3,
+    "category": "SCUBA_DIVING",
+    "working_title": "30 Minutes With No Air, 100 m Down",
+    "alt_title": "The Diver Who Should Be Dead",
+    "subject": "Chris Lemons, saturation diver on DSV Bibby Topaz, North Sea, 18 Sep 2012. A dynamic-positioning failure severed his umbilical at ~90-100 m. He had ~5-10 min of bailout gas, was found unresponsive and revived in the bell by Duncan Allcock with Dave Yuasa. Reported times without main supply vary from ~20 to ~40 min. Documentary Last Breath (2019); feature film (2025).",
+    "why_potential": "An impossible-survival anchor plus a medical mystery (cold and high-O2 bailout are reported hypotheses). Thoughty2 1.2M; the trailer reportedly 7.8M; a 2025 film keeps it topical.",
+    "references": [
+      {
+        "title": "The Incredible Survival Story Scientists Can't Explain",
+        "creator": "Thoughty2",
+        "url": "unverified",
+        "views": "1.2M (rosetta.to)",
+        "note": "Chris Lemons, 2023-11-14"
+      },
+      {
+        "title": "Last Breath - Official UK Trailer",
+        "creator": "Dogwoof",
+        "url": "unverified",
+        "views": "7.8M claimed (gspeakers.com) - unverified",
+        "note": "2019 documentary trailer"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      }
+    ],
+    "duration_s": 63,
+    "hook_15s": "0-2 s: Diver silhouette on seabed, glowing severed cable snaking away. VO: 'His air line snapped 100 metres down. He had five minutes of gas.' | 2-6 s: 'North Sea, 2012'. Ship above drifting off. | 6-15 s: Countdown 05:00. VO: 'It took his crew about half an hour to reach him. This is why he's alive.'",
+    "structure": [
+      "Cold open: severed umbilical",
+      "What saturation diving is (2.5D bell diagram)",
+      "DP failure - ship drifts in storm",
+      "Umbilical snags and snaps; climbs back to structure",
+      "Bailout runs out; blackout (no gore)",
+      "Ship regains control; Yuasa reaches him; bell",
+      "Two rescue breaths - he breathes (reported)",
+      "Mechanism: cold + oxygen-rich bailout (hypotheses, labelled)",
+      "End: back at work weeks later (reported ~3 weeks)",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s severed cable",
+      "6 s countdown",
+      "20 s ship drifting reveal",
+      "35 s blackout fade",
+      "45 s revival",
+      "55 s 'scientists still debate why'"
+    ],
+    "thumbnail_concept": "Lone diver lying on structure, dark green-black water, broken glowing cable, '5 MIN OF AIR'.",
+    "animation_style": "North Sea murk volumetrics, low-poly subsea manifold, umbilical as emissive tube, bell cutaway diagram.",
+    "scenes": [
+      "Storm surface with DSV silhouette",
+      "Diving bell cutaway",
+      "Seabed manifold structure",
+      "Severed umbilical",
+      "Bell interior revival (stylised)",
+      "Diagram of bailout/oxygen"
+    ],
+    "sources": [
+      "https://offshore-energy.biz/?p=235375",
+      "https://www.ladbible.com/news/uk-news/chris-lemons-diver-stuck-bottom-ocean-516495-20250308",
+      "https://amp.cbc.ca/radio/thecurrent/lemons-diving-survival-story-1.7487922",
+      "https://en.wikipedia.org/wiki/Last_Breath_(2019_film)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 16,
+      "story": 18,
+      "packaging": 16,
+      "retention": 17,
+      "feasibility": 15
+    },
+    "total": 82,
+    "rank": 3,
+    "verification_status": "VERIFIED (date, vessel, crew names, DP cause, rescue breaths). Duration without gas DIFFERS by source (20/30/40 min) - script as 'around half an hour (reported)'. Sources call it 'saturation diving', not recreational scuba - say so on screen."
+  },
+  {
+    "id": "SCUBA-04",
+    "number": 4,
+    "category": "SCUBA_DIVING",
+    "working_title": "A Whale Closed Its Mouth Around Him",
+    "alt_title": "40 Feet Down, Then Everything Went Black",
+    "subject": "Michael Packard, lobster diver, Provincetown, Massachusetts, 11 Jun 2021. A feeding humpback briefly engulfed him (~30-40 s by his estimate) and spat him out. Injuries reported as a dislocated knee/soft tissue (his sister reported a broken leg). He says 'engulfed', not swallowed - humpback throats are far too small.",
+    "why_potential": "A short story that fits a Short almost exactly. The 'swallowed by a whale' myth-buster is a great hook-plus-payoff. Zack D. Films covering it proves demand, so our angle is the anatomy myth-bust from his POV.",
+    "references": [
+      {
+        "title": "Man swallowed by whale simulation",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "Packard already animated (ladbible 2024-12-09)"
+      },
+      {
+        "title": "Mariana Trench depth simulation",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "45M (greenmatters.com)",
+        "note": "3D narrated depth-descent Short"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0-2 s: Diver POV, sudden total blackness, muffled thump. VO: 'One second he was diving for lobster. The next, it went dark.' | 2-6 s: 'Cape Cod, June 2021'. | 6-15 s: Pull-back reveal: humpback mouth closing around the tiny diver. VO: 'He was inside a whale's mouth, and he still had his regulator in.'",
+    "structure": [
+      "POV blackout",
+      "Thought: shark? (his reported first thought)",
+      "Reveal: humpback lunge-feeding",
+      "Why he couldn't be swallowed: throat-size callout",
+      "The whale surfaces, shakes head, spits him out",
+      "Injuries + quote from interview (paraphrase, attributed)",
+      "Loop: 'Humpbacks can't swallow a man. This one tried to anyway.'"
+    ],
+    "retention_moments": [
+      "0 s blackout",
+      "8 s whale reveal pull-back",
+      "22 s throat-size myth-bust",
+      "35 s ejected into daylight",
+      "48 s loop"
+    ],
+    "thumbnail_concept": "Tiny diver silhouette inside a giant whale mouth outline, sunlit water beyond, 'INSIDE A WHALE'.",
+    "animation_style": "Stylised humpback (low-poly, simple rig jaw open/close), sunbeam caustics, x-ray throat diagram.",
+    "scenes": [
+      "Boat + diver entering water",
+      "Seabed lobster pots",
+      "Black mouth interior with regulator bubbles",
+      "Exterior whale lunge",
+      "Throat size diagram (grapefruit comparison)",
+      "Surface ejection"
+    ],
+    "sources": [
+      "https://nbcboston.com/news/local/second-man-eaten-whale-video-reaction/3633294",
+      "https://www.goodmorningamerica.com/news/video/lobster-diver-injured-caught-humpback-whales-mouth-78231018",
+      "https://www.tetongravity.com/its-truly-biblical-man-survives-being-swallowed-by-humpback-whale",
+      "https://www.ladbible.com/news/man-swallowed-whole-by-whale-simulation-664873-20241209"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 16,
+      "story": 15,
+      "packaging": 18,
+      "retention": 15,
+      "feasibility": 16
+    },
+    "total": 80,
+    "rank": 4,
+    "verification_status": "VERIFIED (NBC Boston, GMA, LADbible). Duration 30-40 s is Packard's own estimate; injury reports differ."
+  },
+  {
+    "id": "SCUBA-05",
+    "number": 5,
+    "category": "SCUBA_DIVING",
+    "working_title": "He Dived 332 m. Getting Back Took 14 Hours",
+    "alt_title": "The Deepest Scuba Dive Ever",
+    "subject": "Ahmed Gabr (Egypt) set the Guinness record for deepest scuba dive in sea water: 332.35 m off Dahab, Red Sea, 18 Sep 2014. Descent took ~12-15 min; ascent with decompression ~14-15 h. Previous record: Nuno Gomes 318.25 m (2005).",
+    "why_potential": "The depth-ladder format is proven (Zack D 45M, MetaBall evergreen). The descent-versus-ascent asymmetry (15 min down, 14 h up) is a clean twist. Little narrative risk; very feasible.",
+    "references": [
+      {
+        "title": "Mariana Trench depth simulation",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "45M (greenmatters.com)",
+        "note": "3D narrated depth-descent Short"
+      },
+      {
+        "title": "What happens to your body as you dive deeper",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "depth-milestone ladder (uniladtech 2025-08-11)"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2 s: Diver dropping past a depth ruler, '0 m'. VO: 'It took him 15 minutes to go down.' | 2-6 s: Depth counter racing; landmarks for scale. VO: '...and 14 hours to come back.' | 6-15 s: '18 Sep 2014, Red Sea'. Body-effect callouts at 40 m and 100 m.",
+    "structure": [
+      "Hook asymmetry",
+      "Descent ladder with milestones (narcosis, O2 toxicity, HPNS - explain simply)",
+      "Scale comparisons (Eiffel Tower ~330 m)",
+      "Touch 332 m - tag",
+      "Ascent: decompression stops visualised as long timeline",
+      "Record context: Gomes 318 m; Bernabé claim uncertified",
+      "Loop: 'the record took 15 minutes. Surviving it took 14 hours.'"
+    ],
+    "retention_moments": [
+      "2 s twist number",
+      "every 3 s depth tick",
+      "30 s Eiffel Tower match",
+      "40 s ascent timeline",
+      "57 s loop"
+    ],
+    "thumbnail_concept": "Vertical ruler into blackness with a tiny diver at the bottom, Eiffel Tower ghosted beside, '332 m'.",
+    "animation_style": "Vertical depth-ladder, light fades with depth, HUD gauges; Eiffel Tower low-poly scale ghost.",
+    "scenes": [
+      "Surface Dahab coast",
+      "Descent shaft with depth markers",
+      "Eiffel Tower ghost comparison",
+      "Bottom tag",
+      "Decompression stop timeline",
+      "Guinness-style record card (no logo)"
+    ],
+    "sources": [
+      "https://www.guinnessworldrecords.com/news/2014/9/ahmed-gabr-breaks-record-for-deepest-scuba-dive-at-more-than-1000-feet-60537",
+      "https://www.scientificamerican.com/article/man-sets-world-record-for-deepest-underwater-dive/",
+      "https://divernet.com/scuba-news/egyptian-scuba-diving-depth-record/"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 16,
+      "story": 14,
+      "packaging": 16,
+      "retention": 16,
+      "feasibility": 17
+    },
+    "total": 79,
+    "rank": 5,
+    "verification_status": "VERIFIED (Guinness, Scientific American, Divernet). Ascent time 14 h (Divernet) vs ~15 h (Guinness) - say 'about 14 hours'. Note later dispute: verify whether the record was later questioned before publishing (not checked this session)."
+  },
+  {
+    "id": "SCUBA-06",
+    "number": 6,
+    "category": "SCUBA_DIVING",
+    "working_title": "462 Stitches, Then He Went Back In",
+    "alt_title": "The Man Who Survived a Great White, and Built the Cage",
+    "subject": "Rodney Fox, attacked by a great white on 8 Dec 1963 during the South Australian spearfishing championship at Aldinga Beach; ~462 stitches. He became a shark-cage diving pioneer and conservationist and worked on great white documentaries.",
+    "why_potential": "Survivor-turned-protector arc. A strong number hook (462). Shark content is a reliable thalassophobia trigger. The cage-invention payoff gives an uplifting ending (rare in the niche).",
+    "references": [
+      {
+        "title": "A Blonde and a Great White Shark",
+        "creator": "GoPro / Ocean Ramsey",
+        "url": "unverified",
+        "views": ">500K (Oceana, 2013)",
+        "note": "early viral shark clip"
+      },
+      {
+        "title": "Deep Blue great white encounter (2019)",
+        "creator": "Ocean Ramsey",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "viral via Instagram; NPR/NBC coverage"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: Sunlit surface, spearfisher silhouette, huge shadow below. VO: 'In 1963 a great white bit this man nearly in half.' | 2-6 s: 'Aldinga Beach, South Australia'. | 6-15 s: Stitch counter to 462. VO: 'He needed 462 stitches. Then he spent his life going back into the water with them.'",
+    "structure": [
+      "Hook",
+      "Championship context",
+      "The strike (no blood; impact cut to black)",
+      "Surviving to shore (reported)",
+      "Stitch counter / recovery",
+      "Turn: designs/uses shark cages",
+      "Becomes conservationist",
+      "Loop: 'the shark that bit him made him their greatest defender'"
+    ],
+    "retention_moments": [
+      "0 s shadow",
+      "10 s stitch counter",
+      "28 s cut-to-black",
+      "40 s cage reveal",
+      "58 s loop"
+    ],
+    "thumbnail_concept": "Small spearfisher at surface, giant great white silhouette below, '462 STITCHES'.",
+    "animation_style": "Bright surface caustics contrasting dark depths; stylised shark silhouette; no gore.",
+    "scenes": [
+      "Surface spearfishing",
+      "Shark silhouette approach",
+      "Black cut",
+      "Hospital stitch counter (2.5D)",
+      "Shark cage underwater",
+      "Calm shark passing cage"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Rodney_Fox",
+      "https://www.illawarramercury.com.au/story/8996843/how-shark-cage-diving-pioneer-rodney-fox-survived-a-shark-attack/",
+      "https://paperspast.natlib.govt.nz/newspapers/CHP19631210.2.137"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 15,
+      "story": 17,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 14
+    },
+    "total": 77,
+    "rank": 6,
+    "verification_status": "VERIFIED date/place/stitches (Wikipedia, Illawarra Mercury, 1963 newspaper via PapersPast). He was a breath-hold spearfisher at the time - say so (not scuba); his later career is cage/scuba diving."
+  },
+  {
+    "id": "SCUBA-07",
+    "number": 7,
+    "category": "SCUBA_DIVING",
+    "working_title": "Sponge Divers Found a 2,000-Year-Old Computer",
+    "alt_title": "The Rock That Had Gears Inside",
+    "subject": "In 1900 Greek sponge divers sheltering near Antikythera found a 1st-century BC shipwreck; in 1901 a corroded lump recovered from it was later recognised as the Antikythera mechanism, a geared astronomical calculator (eclipse prediction).",
+    "why_potential": "An irresistible 'ancient computer' curiosity gap. Gear mechanics are ideal Blender material. Divers in primitive helmets (~5 min bottom time, reported) add danger. Evergreen education demand (TED-Ed animation).",
+    "references": [
+      {
+        "title": "Decoding the secrets of the Antikythera mechanism",
+        "creator": "TED-Ed",
+        "url": "unverified",
+        "views": "305,162 plays on ted.com (not YouTube)",
+        "note": "animated explainer exists"
+      },
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: Lump of green-corroded bronze rotates; x-ray reveals gears. VO: 'Divers pulled this rock from a shipwreck in 1901. It was a computer.' | 2-6 s: 'Built around 2,000 years ago'. | 6-15 s: Storm, sponge boat, helmet diver dropping. VO: 'And the men who found it were only looking for sponges.'",
+    "structure": [
+      "Hook x-ray",
+      "1900 storm drives sponge divers to Antikythera",
+      "Helmet divers at ~45-55 m; short bottom time (reported)",
+      "Statues, then the lump",
+      "Decades ignored; cracks open; gears seen",
+      "Modern CT scans reveal function (eclipse prediction)",
+      "Loop: 'the most advanced machine for 1,000 years - found by accident'"
+    ],
+    "retention_moments": [
+      "0 s x-ray reveal",
+      "10 s 'looking for sponges'",
+      "30 s statue arm in silt",
+      "40 s gears animate",
+      "58 s loop"
+    ],
+    "thumbnail_concept": "Corroded lump split open with glowing gears inside, ancient diver silhouette, '2,000 YEARS OLD'.",
+    "animation_style": "Blender gear train (procedural), helmet-diver low-poly, Mediterranean blue wreck site.",
+    "scenes": [
+      "Storm over Greek sea, sponge boat",
+      "Helmet diver descent",
+      "Wreck with amphorae and statue parts",
+      "Museum drawer lump",
+      "CT x-ray reveal",
+      "Full working gear model"
+    ],
+    "sources": [
+      "https://reach.ieee.org/primary-sources/the-antikythera-mechanism/",
+      "https://antikythera.whoi.edu/artifacts/antikythera-mechanism",
+      "https://history.com/news/antikythera-mechanism-ancient-computer-secrets",
+      "https://www.dpma.de/en/explore/milestones/computer-pioneers/the-antikythera-mechanism"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 14,
+      "story": 16,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 75,
+    "rank": 7,
+    "verification_status": "VERIFIED discovery 1900/recovery 1901 (IEEE, WHOI, History.com). Wreck depth and diver bottom time: check."
+  },
+  {
+    "id": "SCUBA-08",
+    "number": 8,
+    "category": "SCUBA_DIVING",
+    "working_title": "Found After 107 Years, 3 km Under the Ice",
+    "alt_title": "Shackleton's Ship Was Waiting",
+    "subject": "Shackleton's Endurance, crushed by Weddell Sea ice in 1915, was located in March 2022 by the Endurance22 expedition (Falklands Maritime Heritage Trust; Mensun Bound). It lies ~3,000 m deep, remarkably intact. It is a protected monument under the Antarctic Treaty.",
+    "why_potential": "A famous name plus a 'perfectly preserved' reveal. The search-grid hunt gives a ticking clock (the ice season closing). Deep-sea exploration angle (subsea drones, not divers - stated honestly).",
+    "references": [
+      {
+        "title": "How the Titan Sub Imploded",
+        "creator": "AiTelly",
+        "url": "unverified",
+        "views": "10M+ (dailyo.in)",
+        "note": "Blender-made outlier, ~37x subs"
+      },
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: Drone light sweeps across a ship's stern; letters 'ENDURANCE' appear. VO: 'This ship sank in 1915. In 2022 it looked like this.' | 2-6 s: Depth counter to ~3,000 m. | 6-15 s: Ice closing. VO: 'They had days left before the ice trapped them too.'",
+    "structure": [
+      "Hook name reveal",
+      "1915: ice crushes ship; crew escapes (all survive - famous)",
+      "2022 search box, sea-ice drift",
+      "Subsea drone dives; tension of failed sorties (reported)",
+      "Discovery",
+      "Why intact: cold, dark, no wood-eating worms (stated in coverage)",
+      "Protected; nothing removed",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s name reveal",
+      "8 s depth counter",
+      "20 s ice clock",
+      "38 s discovery",
+      "48 s 'no worms' mechanism"
+    ],
+    "thumbnail_concept": "Ghostly ship stern in torch light, 'ENDURANCE' lettering, '3,000 m'.",
+    "animation_style": "Ice-sheet surface, deep black seabed, drone headlight cone; low-poly 3-mast barquentine.",
+    "scenes": [
+      "1915 ship in pack ice",
+      "Ice crushing hull",
+      "2022 icebreaker on ice",
+      "Drone descent",
+      "Wreck stern reveal",
+      "Map of Weddell Sea"
+    ],
+    "sources": [
+      "https://www.pbs.org/newshour/science/watch-antarctic-explorer-ernest-shackletons-sunken-ship-found-after-a-century",
+      "https://www.historyhit.com/endurance-wreck-discovered-in-antarctica",
+      "https://www.cbsnews.com/news/shipwreck-endurance-new-footage-ernest-shackleton",
+      "https://www.smithsonianmag.com/smart-news/see-the-wreck-of-ernest-shackletons-endurance-in-astonishing-detail-with-this-new-3d-scan-180985274/"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 14,
+      "story": 15,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 16
+    },
+    "total": 73,
+    "rank": 8,
+    "verification_status": "VERIFIED (PBS, History Hit, CBS, Smithsonian). Exact depth (~3,008 m) and the 'no worms' explanation: check wording."
+  },
+  {
+    "id": "SCUBA-09",
+    "number": 9,
+    "category": "SCUBA_DIVING",
+    "working_title": "Why Divers Fear the Arch",
+    "alt_title": "The Red Sea's Most Dangerous Dive Site",
+    "subject": "The Blue Hole, Dahab, Egypt: a marine sinkhole with an underwater arch at ~55 m that tempts divers past recreational limits; it has a long list of fatalities (Yuri Lipski, 2000, is the best-known case). Framed as a site-safety explainer: nitrogen narcosis and depth illusion.",
+    "why_potential": "Proven 'killer dive site' demand (MrBallen 5.6M on a different blue hole; Netflix 'The Deepest Breath'). The science of narcosis is visual. Ethics sharply limit the human story, so feasibility of a respectful version is fine, but story score is capped.",
+    "references": [
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "5.6M (rosetta.to)",
+        "note": "killer dive-site format"
+      },
+      {
+        "title": "Top 3 places you CAN'T GO & people who went anyways | Part 8",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "touches Dahab / technical diving"
+      },
+      {
+        "title": "What happens to your body as you dive deeper",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "depth-milestone ladder (uniladtech 2025-08-11)"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0-2 s: Sunlit reef wall dropping into blue void; arch silhouette far below. VO: 'This arch is 55 metres down. Divers keep trying to swim through it.' | 2-6 s: 'Dahab, Egypt'. | 6-15 s: Depth counter; vision blurs. VO: 'At that depth the air you breathe starts lying to you.'",
+    "structure": [
+      "Hook arch",
+      "Geography of the hole and arch",
+      "Narcosis explained (martini-law shorthand labelled as rule of thumb)",
+      "Depth illusion: no bottom reference",
+      "Memorial plaques on shore (shown generically, no names)",
+      "Safety rule: the arch is a technical dive",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s arch reveal",
+      "10 s 'air lying to you'",
+      "25 s vision-distort effect",
+      "40 s memorial wall",
+      "53 s loop"
+    ],
+    "thumbnail_concept": "Tiny diver above a glowing arch in deep blue void, 'DON'T SWIM THROUGH'.",
+    "animation_style": "Reef wall procedural, deep blue gradient, post-process distortion for narcosis; NO depiction of any specific death.",
+    "scenes": [
+      "Shore with plaques (no names)",
+      "Reef wall descent",
+      "Arch silhouette",
+      "Narcosis distortion POV",
+      "Diagram of depth limits"
+    ],
+    "sources": [
+      "https://ladbible.com/community/blue-hole-deepest-breath-netflix-footage-death-842820-20230802",
+      "https://ladbible.com/community/most-dangerous-dive-site-earth-740331-20240520",
+      "https://en.wikipedia.org/wiki/Blue_Hole_(Red_Sea)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 16,
+      "story": 13,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 15
+    },
+    "total": 73,
+    "rank": 9,
+    "verification_status": "PARTIAL: Lipski 2000 and the 2017 Keenan/Zecchini case confirmed in LADbible snippets; arch depth ~55 m and fatality counts NEED FACT-CHECK. ETHICS: never describe Lipski's footage."
+  },
+  {
+    "id": "SCUBA-10",
+    "number": 10,
+    "category": "SCUBA_DIVING",
+    "working_title": "A Whole Fleet Is Still Down There",
+    "alt_title": "The Lagoon Full of Warships",
+    "subject": "Chuuk (Truk) Lagoon, Micronesia: US carrier strikes in Operation Hailstone (17-18 Feb 1944) sank dozens of Japanese ships and aircraft; the 'ghost fleet' is now a famous wreck-diving site with cargo (trucks, aircraft, munitions) still aboard.",
+    "why_potential": "The scale reveal ('an entire fleet') plus cargo still in the holds. Wreck exploration is highly feasible procedurally. Moderate demand; there is no single protagonist, so the story is weaker.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2 s: Diver's light hits a truck inside a ship's hold. VO: 'This truck has been underwater since 1944.' | 2-6 s: Pull up and out: dozens of wreck silhouettes across the lagoon. | 6-15 s: VO: 'In two days, an entire fleet went down here, and most of it is still loaded.'",
+    "structure": [
+      "Hook truck",
+      "Map: Truk as Japanese base",
+      "Operation Hailstone 2-day timeline",
+      "Ships sinking (silhouettes)",
+      "Today: coral-covered holds, aircraft, munitions",
+      "Respect: war graves - divers don't remove",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s truck in hold",
+      "4 s fleet pull-out",
+      "25 s ship count ticker",
+      "40 s coral time-lapse",
+      "56 s loop"
+    ],
+    "thumbnail_concept": "Diver torch on coral-covered truck inside hold, 'STILL LOADED'.",
+    "animation_style": "Procedural wreck holds, coral growth shader time-lapse, lagoon map.",
+    "scenes": [
+      "Hold with trucks",
+      "Aerial lagoon with wreck markers",
+      "1944 aircraft over lagoon (silhouette)",
+      "Coral time-lapse",
+      "Diver swimming past aircraft wreck"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Operation_Hailstone",
+      "https://en.wikipedia.org/wiki/Chuuk_Lagoon"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 17
+    },
+    "total": 72,
+    "rank": 10,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session - search budget exhausted). Ship/aircraft counts vary by source."
+  },
+  {
+    "id": "SCUBA-11",
+    "number": 11,
+    "category": "SCUBA_DIVING",
+    "working_title": "A WWII Ship Full of Motorbikes",
+    "alt_title": "The Wreck Cousteau Found",
+    "subject": "SS Thistlegorm, a British cargo ship sunk by German aircraft in the Red Sea in October 1941 carrying war supplies (motorcycles, trucks, rifles, locomotives). Rediscovered by Jacques Cousteau in the 1950s; now one of the world's most-dived wrecks (~30 m).",
+    "why_potential": "The visual hook (rows of motorbikes in a hold) is unbeatable for a still frame. The Cousteau name. Easy, high-quality procedural set.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0-2 s: Torch beam along rows of motorbikes in a dark hold. VO: 'These motorbikes have been underwater for over 80 years.' | 2-6 s: 'Red Sea, 1941'. | 6-15 s: Bomber silhouette. VO: 'The ship was hit at night, and its cargo never reached the war.'",
+    "structure": [
+      "Hook cargo",
+      "Mission: supplying Allied forces (reported)",
+      "Night air attack, ammunition hold explodes",
+      "Forgotten for a decade",
+      "Cousteau rediscovery",
+      "Today: dive tourism vs preservation",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s motorbike rows",
+      "15 s explosion flash",
+      "30 s Cousteau reveal",
+      "45 s 'still there'",
+      "54 s loop"
+    ],
+    "thumbnail_concept": "Rows of silted motorbikes lit by a single torch, 'STILL IN THE HOLD'.",
+    "animation_style": "Cargo-hold interior, silt particles, emissive torch cone, red-sea blue palette.",
+    "scenes": [
+      "Ship at anchor at night",
+      "Bomber silhouette",
+      "Explosion and sinking",
+      "Hold interior with motorbikes/trucks",
+      "1950s Calypso-style boat (no branding)"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/SS_Thistlegorm",
+      "https://www.thistlegorm.com (project site; verify URL)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 17
+    },
+    "total": 72,
+    "rank": 11,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session). Confirm date (6 Oct 1941), cargo list and Cousteau year."
+  },
+  {
+    "id": "SCUBA-12",
+    "number": 12,
+    "category": "SCUBA_DIVING",
+    "working_title": "Titanic's Sister Is Diveable",
+    "alt_title": "The Biggest Ship on the Seafloor",
+    "subject": "HMHS Britannic, Olympic-class sister of Titanic, serving as a hospital ship, sank in the Aegean on 21 Nov 1916 after striking a mine (~30 of ~1,000+ aboard died). Located by Jacques Cousteau in 1975; lies at ~120 m, reachable only by technical divers.",
+    "why_potential": "Riding on the Titanic name (Titanic mystery content ~4M). Sank in under an hour (reported ~55 min). A 'divers can visit it' twist.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "How the Titan Sub Imploded",
+        "creator": "AiTelly",
+        "url": "unverified",
+        "views": "10M+ (dailyo.in)",
+        "note": "Blender-made outlier, ~37x subs"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2 s: Massive bow emerges from the dark, the diver tiny beside it. VO: 'Titanic had a bigger sister, and divers can actually reach her.' | 2-6 s: 'Aegean Sea, 1916'. | 6-15 s: VO: 'She sank faster than Titanic: under an hour. Here's why most aboard survived.'",
+    "structure": [
+      "Hook scale",
+      "Olympic-class lineup (Olympic, Titanic, Britannic)",
+      "Hospital ship role",
+      "Mine strike; open portholes accelerate flooding (reported)",
+      "Lifeboats; most survive",
+      "1975 rediscovery; 120 m technical dive",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s bow scale",
+      "12 s sister-ship lineup",
+      "28 s flooding cutaway",
+      "45 s depth counter to 120 m",
+      "57 s loop"
+    ],
+    "thumbnail_concept": "Tiny diver beside huge bow, 'TITANIC'S SISTER'.",
+    "animation_style": "Large low-poly liner hull, side-view flooding cutaway diagram, deep blue.",
+    "scenes": [
+      "Three-sister lineup",
+      "Ship with red crosses at sea",
+      "Mine explosion silhouette",
+      "Flooding cutaway",
+      "Wreck on side at 120 m",
+      "Technical diver with stages"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/HMHS_Britannic",
+      "https://www.rmg.co.uk (Royal Museums Greenwich; verify page)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 16
+    },
+    "total": 71,
+    "rank": 12,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session): death toll (~30), sinking time (~55 min), depth (~120 m), Cousteau 1975."
+  },
+  {
+    "id": "SCUBA-13",
+    "number": 13,
+    "category": "SCUBA_DIVING",
+    "working_title": "Found 5.5 km Down, 72 Years Later",
+    "alt_title": "The Ship That Delivered the Bomb",
+    "subject": "USS Indianapolis, sunk by Japanese submarine I-58 on 30 Jul 1945 after delivering atomic-bomb components; ~300 died in the sinking and ~900 went into the water, of whom 316 survived (shark attacks, exposure). Wreck located Aug 2017 at ~5,500 m by Paul Allen's RV Petrel team.",
+    "why_potential": "A deep-sea discovery with an infamous shark story. High demand, but sensitive deaths and the sharks are well covered. Smithsonian's 4.4K shows that packaging matters.",
+    "references": [
+      {
+        "title": "Make It Out Alive: USS Indianapolis",
+        "creator": "Smithsonian Channel",
+        "url": "https://www.youtube.com/watch?v=CnTIEYuRozA",
+        "views": "4,456 (si.edu)",
+        "note": "underperformer - weak packaging"
+      },
+      {
+        "title": "How the Titan Sub Imploded",
+        "creator": "AiTelly",
+        "url": "unverified",
+        "views": "10M+ (dailyo.in)",
+        "note": "Blender-made outlier, ~37x subs"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: ROV light finds a hull plate with '35'. VO: 'This wreck was lost for 72 years.' | 2-6 s: Depth counter to ~5,500 m. | 6-15 s: VO: 'Days earlier it had delivered the parts of an atomic bomb. Then it vanished in 12 minutes.'",
+    "structure": [
+      "Hook hull number",
+      "Secret mission",
+      "Torpedoed; sank in ~12 min (reported)",
+      "Men in water for days (respectful, no gore; shark threat stated)",
+      "316 survive",
+      "2017 search narrows using a newly found ship log entry (reported)",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s hull number",
+      "8 s 'atomic bomb'",
+      "25 s '12 minutes'",
+      "40 s survivor count",
+      "50 s discovery"
+    ],
+    "thumbnail_concept": "ROV beam on hull number in black water, '5,500 m'.",
+    "animation_style": "Deep-sea black, ROV light cones, map with search box; surface ocean wide shots without bodies.",
+    "scenes": [
+      "Cruiser at sea at night",
+      "Torpedo track silhouette",
+      "Wide ocean with life rafts (distant)",
+      "Search map",
+      "ROV descent",
+      "Hull number reveal"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/USS_Indianapolis_(CA-35)",
+      "https://www.history.navy.mil (NHHC USS Indianapolis page; verify URL)",
+      "https://www.pbs.org/video/uss-indianapolis-the-final-chapter-aabbsw"
+    ],
+    "difficulty": "High",
+    "scores": {
+      "demand": 15,
+      "story": 15,
+      "packaging": 14,
+      "retention": 13,
+      "feasibility": 13
+    },
+    "total": 70,
+    "rank": 13,
+    "verification_status": "NEEDS FACT-CHECK for 2017 discovery specifics (depth, date, log clue); casualty numbers from standard references."
+  },
+  {
+    "id": "SCUBA-14",
+    "number": 14,
+    "category": "SCUBA_DIVING",
+    "working_title": "She Swam With a 20-Foot Great White",
+    "alt_title": "Was It Really Deep Blue?",
+    "subject": "In Jan 2019 off Oahu, freediver and conservationist Ocean Ramsey swam beside a ~20 ft female great white scavenging a sperm-whale carcass; footage went viral. She believed it was 'Deep Blue'; some researchers (e.g., Michael Domeier) suggested it was another shark ('Haole Girl'). Critics also questioned touching a wild shark.",
+    "why_potential": "The scale image is spectacular, and the identity dispute is a built-in curiosity gap. But the story is thin, it is freediving rather than scuba, and the real footage is better than any animation.",
+    "references": [
+      {
+        "title": "Deep Blue great white encounter (2019)",
+        "creator": "Ocean Ramsey",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "viral via Instagram; NPR/NBC coverage"
+      },
+      {
+        "title": "A Blonde and a Great White Shark",
+        "creator": "GoPro / Ocean Ramsey",
+        "url": "unverified",
+        "views": ">500K (Oceana, 2013)",
+        "note": "early viral shark clip"
+      },
+      {
+        "title": "Mariana Trench depth simulation",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "45M (greenmatters.com)",
+        "note": "3D narrated depth-descent Short"
+      }
+    ],
+    "duration_s": 48,
+    "hook_15s": "0-2 s: Diver silhouette next to a shark nearly 3x her length. VO: 'This shark is about 20 feet long, and she's touching it.' | 2-6 s: 'Oahu, January 2019'. | 6-15 s: VO: 'The internet called it Deep Blue. Scientists weren't so sure.'",
+    "structure": [
+      "Hook scale",
+      "Why the shark was there (whale carcass)",
+      "The swim",
+      "Viral moment",
+      "Dispute: Deep Blue vs Haole Girl (labelled)",
+      "Conservation vs safety debate (both sides)",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s scale",
+      "10 s 'scientists weren't sure'",
+      "30 s ID comparison",
+      "45 s loop"
+    ],
+    "thumbnail_concept": "Side-by-side scale: woman vs great white, '20 FT'.",
+    "animation_style": "Open-water blue, stylised shark, scale bars, label cards.",
+    "scenes": [
+      "Whale carcass at surface",
+      "Shark approach",
+      "Freediver alongside",
+      "ID comparison board",
+      "Debate split-screen"
+    ],
+    "sources": [
+      "https://www.npr.org/2019/01/18/686794134/video-giant-great-white-shark-frolics-with-divers",
+      "https://www.nbcnews.com/news/us-news/marine-biologist-swims-20-foot-long-great-white-shark-n960241",
+      "https://en.wikipedia.org/wiki/Deep_Blue_(great_white_shark)"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 14,
+      "story": 12,
+      "packaging": 16,
+      "retention": 13,
+      "feasibility": 14
+    },
+    "total": 69,
+    "rank": 14,
+    "verification_status": "VERIFIED (NPR, NBC, Wikipedia). Shark ID DISPUTED - label on screen. Note freediving, not scuba."
+  },
+  {
+    "id": "SCUBA-15",
+    "number": 15,
+    "category": "SCUBA_DIVING",
+    "working_title": "16 Years of 'Today's the Day'",
+    "alt_title": "The Treasure That Cost Him His Son",
+    "subject": "Treasure hunter Mel Fisher searched for the Spanish galleon Nuestra Señora de Atocha (sank 1622 off the Florida Keys) for ~16 years under the motto 'Today's the day'. His son Dirk, Dirk's wife Angel and a diver died when a salvage boat capsized in 1975. The 'mother lode' was found on 20 Jul 1985 (reported value hundreds of millions USD).",
+    "why_potential": "Obsession, tragedy and payoff, with a catchphrase loop. Treasure is a strong click driver. Wreck and gold piles are feasible.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "The Caribbean Disaster (*DISTRESSING CONTENT*)",
+        "creator": "MrBallen",
+        "url": "https://www.youtube.com/watch?v=RF1syl8x6kU",
+        "views": "~6.0M (rosetta.to)",
+        "note": "trapped-diver physics story; ID from summarizer URL"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: Diver fans silt off a reef of silver bars. VO: 'He told his crew the same thing every morning for 16 years.' | 2-6 s: Caption 'TODAY'S THE DAY'. | 6-15 s: '1622 - Florida Keys'. VO: 'He found it, but it cost him more than money.'",
+    "structure": [
+      "Hook motto",
+      "1622 hurricane sinks galleon",
+      "1969 search begins",
+      "Early finds keep hope alive",
+      "1975 tragedy (respectful, no depiction of deaths)",
+      "1985: 'the mother lode' radio call (reported phrase)",
+      "Legal fight with the state (reported)",
+      "Loop: 'today was the day'"
+    ],
+    "retention_moments": [
+      "0 s silver bars",
+      "8 s motto",
+      "30 s tragedy turn",
+      "45 s mother-lode reveal",
+      "58 s loop"
+    ],
+    "thumbnail_concept": "Diver light on a heap of silver bars and coins on a reef, 'FOUND IT'.",
+    "animation_style": "Shallow turquoise reef, gold/silver emissive piles, 1622 galleon silhouette in storm.",
+    "scenes": [
+      "Galleon in hurricane",
+      "Search boat with prop-wash 'mailbox' deflectors",
+      "Silt clouds",
+      "Silver bars reveal",
+      "Calendar flip 1969-1985"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_de_Atocha",
+      "https://en.wikipedia.org/wiki/Mel_Fisher",
+      "https://www.melfisher.org (museum; verify URL)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 15,
+      "packaging": 14,
+      "retention": 13,
+      "feasibility": 14
+    },
+    "total": 69,
+    "rank": 15,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session): 1975 victims, 20 Jul 1985 date, treasure valuation."
+  },
+  {
+    "id": "SCUBA-16",
+    "number": 16,
+    "category": "SCUBA_DIVING",
+    "working_title": "They Nuked a Fleet, and You Can Dive It",
+    "alt_title": "Atomic Ghost Fleet",
+    "subject": "Bikini Atoll, Marshall Islands: in 1946 Operation Crossroads used nuclear tests against a target fleet; wrecks including the aircraft carrier USS Saratoga and battleship Nagato lie in the lagoon. Inscribed as a UNESCO World Heritage Site (2010); diving access is limited/remote.",
+    "why_potential": "An extreme juxtaposition (atom bomb plus coral) and an aircraft carrier you can swim into. Moderate demand. The displacement of the Bikinians must be mentioned respectfully.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0-2 s: Diver hovers over a carrier flight deck covered in coral. VO: 'The US Navy dropped atomic bombs on this aircraft carrier, on purpose.' | 2-6 s: 'Bikini Atoll, 1946'. | 6-15 s: Shockwave silhouette. VO: 'Today divers can swim inside it.'",
+    "structure": [
+      "Hook",
+      "Why: testing bombs on ships",
+      "Islanders relocated (respectful)",
+      "Test Able / Baker (labelled)",
+      "Saratoga sinks",
+      "Coral reclaims",
+      "Is it safe? (state what sources say; no invented numbers)",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s carrier deck",
+      "12 s blast",
+      "30 s sinking",
+      "45 s coral time-lapse"
+    ],
+    "thumbnail_concept": "Coral-covered carrier deck with tiny diver, mushroom cloud ghosted above surface, 'NUKED'.",
+    "animation_style": "Large carrier hull procedural, stylised blast silhouette (no realistic nuclear imagery), coral shaders.",
+    "scenes": [
+      "Atoll aerial map",
+      "Target fleet lineup",
+      "Blast silhouette",
+      "Carrier sinking",
+      "Coral-covered deck dive"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Operation_Crossroads",
+      "https://en.wikipedia.org/wiki/Bikini_Atoll",
+      "UNESCO World Heritage List: Bikini Atoll Nuclear Test Site (2010)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 14,
+      "retention": 12,
+      "feasibility": 15
+    },
+    "total": 68,
+    "rank": 16,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session): ship list, test names (Able/Baker), UNESCO year, current dive access."
+  },
+  {
+    "id": "SCUBA-17",
+    "number": 17,
+    "category": "SCUBA_DIVING",
+    "working_title": "Pyramid or Rock? Japan's Underwater 'Monument'",
+    "alt_title": "The Steps 25 m Under Japan",
+    "subject": "The Yonaguni Monument off Yonaguni Island, Japan, found by diver Kihachiro Aratake (1986, reported) at ~25 m. Geologist Masaaki Kimura argues it is man-made; Robert Schoch and most geologists consider it natural sandstone fracturing. It is not a protected site. DISPUTED.",
+    "why_potential": "High mystery demand and ancient-civilisation clicks. The facts must be labelled clearly, which lowers the story score. The terraced geometry is easy to build procedurally.",
+    "references": [
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      },
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0-2 s: Huge stone steps emerge in blue haze. VO: 'A diver found these steps 25 metres under Japan.' | 2-6 s: Label 'DISPUTED'. | 6-15 s: VO: 'One professor says people carved them. Most geologists say the sea did. Here's the evidence.'",
+    "structure": [
+      "Hook steps",
+      "Discovery (reported 1986)",
+      "CLAIM: Kimura's man-made argument",
+      "SCIENTIFIC CONSENSUS: natural fracturing (Schoch)",
+      "Test: symmetry, tool marks",
+      "Status: not protected (reported)",
+      "Loop: 'pyramid or rock - look again'"
+    ],
+    "retention_moments": [
+      "0 s steps",
+      "4 s DISPUTED stamp",
+      "25 s split-screen claim vs geology",
+      "45 s fracture animation"
+    ],
+    "thumbnail_concept": "Massive stone terraces in blue with diver for scale, '?'.",
+    "animation_style": "Procedural terraced rock, label cards (CLAIM / CONSENSUS), fracture animation.",
+    "scenes": [
+      "Island map",
+      "Steps reveal",
+      "Claim card",
+      "Rock fracture demo",
+      "Diver measuring"
+    ],
+    "sources": [
+      "https://britannica.com/topic/Yonaguni-Monument",
+      "https://skeptoid.com/episodes/4220",
+      "https://www.watchmojo.com/articles/what-is-the-yonaguni-monument-japan-s-underwater-pyramid-unveiled"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 14,
+      "story": 11,
+      "packaging": 15,
+      "retention": 12,
+      "feasibility": 15
+    },
+    "total": 67,
+    "rank": 17,
+    "verification_status": "VERIFIED claim/counter-claim (Britannica, Skeptoid, WatchMojo). DISPUTED topic - label on screen. Discovery year 1986: check."
+  },
+  {
+    "id": "SCUBA-18",
+    "number": 18,
+    "category": "SCUBA_DIVING",
+    "working_title": "The 'Mount Everest' of Wreck Diving",
+    "alt_title": "The Luxury Liner That Keeps Claiming Divers",
+    "subject": "SS Andrea Doria, Italian liner, collided with MS Stockholm in fog off Nantucket on 25 Jul 1956 and sank the next day; 46 died on Andrea Doria (plus 5 on Stockholm), ~1,660 rescued. The wreck (~50-75 m, cold, strong currents) is called the 'Mount Everest of wreck diving' and has claimed many divers chasing its china and artefacts.",
+    "why_potential": "A fog collision with radar confusion is a good mid-turn. 'Most dangerous wreck' framing. Lower name recognition with younger audiences.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "TOP 4 Bingeable SCARY STORIES - CLAUSTROPHOBIC Diving Stories",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "2.6M (rosetta.to)",
+        "note": "diving horror compilation"
+      },
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "5.6M (rosetta.to)",
+        "note": "killer dive-site format"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0-2 s: Two ships' radar blips converging in fog. VO: 'Both ships saw each other on radar. They collided anyway.' | 2-6 s: 'Nantucket, 1956'. | 6-15 s: VO: 'The liner sank, and it's still claiming divers today.'",
+    "structure": [
+      "Hook radar",
+      "Collision mechanics (each turned the wrong way - reported)",
+      "Great rescue (~1,660 saved)",
+      "Wreck today: depth, cold, collapse",
+      "Why divers go: china/artefacts",
+      "Respect: no individual death depictions",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s radar blips",
+      "20 s collision",
+      "32 s rescue numbers",
+      "45 s collapsing interior"
+    ],
+    "thumbnail_concept": "Fog bow silhouette above, collapsing hull below with diver light, 'EVEREST OF WRECKS'.",
+    "animation_style": "Fog volumetrics, radar 2.5D, deep green Atlantic wreck interior.",
+    "scenes": [
+      "Radar screens",
+      "Fog collision silhouettes",
+      "Lifeboats",
+      "Wreck exterior",
+      "Silted interior with china"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/SS_Andrea_Doria",
+      "https://www.history.com (Andrea Doria article; verify URL)"
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 12,
+      "story": 14,
+      "packaging": 13,
+      "retention": 12,
+      "feasibility": 15
+    },
+    "total": 66,
+    "rank": 18,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session): casualty and rescue counts, wreck depth, diver death count (often cited ~16+, unverified)."
+  },
+  {
+    "id": "SCUBA-19",
+    "number": 19,
+    "category": "SCUBA_DIVING",
+    "working_title": "The Sonar Image Nobody Can Explain (Or Can They?)",
+    "alt_title": "Baltic Sea 'UFO'",
+    "subject": "In 2011 the Swedish Ocean X team's side-scan sonar showed a ~60 m circular object at ~90 m in the Gulf of Bothnia. The team CLAIMED electronics failed near it. Geologists who examined samples say it is a natural glacial deposit. CLAIM vs CONSENSUS.",
+    "why_potential": "Big search interest and a 'UFO' click. But scientific consensus deflates it, so the story is weak. Good as a myth-bust Short.",
+    "references": [
+      {
+        "title": "Unsolved Mysteries of Titanic Shipwreck",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=MtThLKVpLHs",
+        "views": "~4.02M (socialcounts.org)",
+        "note": "wreck-mystery demand"
+      },
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0-2 s: Grainy sonar image with a circular shape. VO: 'In 2011, treasure hunters' sonar found this at the bottom of the Baltic.' | 2-6 s: Label 'CLAIM'. | 6-15 s: VO: 'They said their electronics died near it. Here's what geologists found.'",
+    "structure": [
+      "Hook sonar",
+      "Ocean X expedition (2011)",
+      "CLAIMS: shape, 'runway', equipment failure",
+      "Side-scan sonar limits explained",
+      "2012 dive + samples",
+      "CONSENSUS: glacial deposit",
+      "Loop: 'still the most famous rock in the Baltic'"
+    ],
+    "retention_moments": [
+      "0 s sonar",
+      "4 s CLAIM label",
+      "25 s sonar-limits demo",
+      "40 s rock sample reveal"
+    ],
+    "thumbnail_concept": "Sonar-green circular blob on black, '?' and 'CLAIM' tag.",
+    "animation_style": "2.5D sonar sweep shader, then 3D seabed reconstruction; label cards.",
+    "scenes": [
+      "Boat towing sonar",
+      "Sonar sweep",
+      "3D reconstruction",
+      "Diver sampling",
+      "Rock under magnifier"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Baltic_Sea_anomaly",
+      "https://www.livescience.com/22846-mysterious-baltic-sea-object-is-a-glacial-deposit.html",
+      "https://www.iflscience.com/the-baltic-sea-anomaly-what-was-the-mysterious-object-seen-90-meters-underwater-77902",
+      "https://www.snopes.com/photos/supernatural/balticufo.asp"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 9,
+      "packaging": 14,
+      "retention": 11,
+      "feasibility": 16
+    },
+    "total": 63,
+    "rank": 19,
+    "verification_status": "VERIFIED (Wikipedia, Live Science, IFLScience, Snopes). Equipment-failure story = team CLAIM only."
+  },
+  {
+    "id": "SCUBA-20",
+    "number": 20,
+    "category": "SCUBA_DIVING",
+    "working_title": "Why Is There a Statue of Jesus 17 m Underwater?",
+    "alt_title": "Christ of the Abyss",
+    "subject": "Il Cristo degli Abissi, a bronze statue by Guido Galletti placed in 1954 in San Fruttuoso bay (Italy) at ~17 m, in memory of diver Dario Gonzatti (died 1947) and associated with diving pioneer Duilio Marcante. Copies exist elsewhere (e.g., Key Largo, Grenada).",
+    "why_potential": "A strange-image curiosity gap with a heartfelt memorial answer. Low demand and low stakes, but very feasible and calm. Useful as a gentle, loopable Short.",
+    "references": [
+      {
+        "title": "Ocean DEPTH Comparison (3D Animation)",
+        "creator": "MetaBallStudios",
+        "url": "https://www.youtube.com/watch?v=Q5C7sqVe2Vg",
+        "views": "unverified",
+        "note": "evergreen depth-scale animation; press 2021-2025"
+      }
+    ],
+    "duration_s": 45,
+    "hook_15s": "0-2 s: Diver light reveals bronze arms raised toward the surface. VO: 'There's a statue of Jesus 17 metres under the sea.' | 2-6 s: 'Italy, 1954'. | 6-15 s: VO: 'It was put there for one diver.'",
+    "structure": [
+      "Hook statue",
+      "Who it remembers (Gonzatti, reported)",
+      "How it was placed",
+      "Copies around the world",
+      "Tradition: divers visit it",
+      "Loop"
+    ],
+    "retention_moments": [
+      "0 s statue reveal",
+      "8 s 'for one diver'",
+      "30 s world map of copies"
+    ],
+    "thumbnail_concept": "Bronze figure arms raised in sun shafts, small diver, '17 m DOWN'.",
+    "animation_style": "Sun-shaft caustics, bronze shader with coral growth, gentle palette.",
+    "scenes": [
+      "Bay aerial",
+      "Statue reveal",
+      "1954 placement (stylised crane)",
+      "World map of copies"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Christ_of_the_Abyss"
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 10,
+      "story": 11,
+      "packaging": 13,
+      "retention": 10,
+      "feasibility": 16
+    },
+    "total": 60,
+    "rank": 20,
+    "verification_status": "NEEDS FACT-CHECK (not verified this session): depth, dates, the Gonzatti dedication, sculptor."
+  }
+]
