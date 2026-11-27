@@ -2,22 +2,37 @@
 
 Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HAUNTED/RESEARCH_REPORT.md`. Machine copy: `concepts.json`.
 
-**Scoring:** each axis 0-20 (demand, story, packaging, retention, feasibility). Nothing scores above 85: Shorts-format evidence for the niche is thin, so even the strongest topics stay in the 'good idea' band.
-**Labels:** every concept carries DOCUMENTED FACT / EYEWITNESS CLAIM / FOLKLORE / DRAMATISATION. Sources tagged *(background knowledge, not re-verified this session)* MUST be checked before scripting (web search budget exhausted; Wikipedia blocked).
-**Excluded on purpose:** Aokigahara and the Lemp Mansion (suicide-centred), Hinterkaifeck and Villisca (murder), Hotel Cecil and Amityville (murder overlap, hoax), Skinwalker Ranch and Kecksburg (UFO), Flight 401 (named real crash victims as 'ghosts').
+**IDs are stable; `rank` is the current order** (the fact-check pass of 2026-11-27 moved some ranks, so ID number ≠ rank for a few entries).
+**Scoring:** each axis 0-20 (demand, story, packaging, retention, feasibility). Nothing scores above 85: Shorts-format evidence for the niche is thin.
+**Labels:** DOCUMENTED FACT / EYEWITNESS CLAIM / FOLKLORE / DRAMATISATION (plus 'REPORTED, NOT PRIMARY-VERIFIED' where needed). Items tagged [fact-checked 2026-11-27] were confirmed against 2+ sources. HAUNT-01/02 were fact-checked separately in production. Sources still tagged *(background knowledge…)* in HAUNT-01/02/14 were not re-checked in this pass.
+**Excluded on purpose:** Aokigahara and the Lemp Mansion (suicide-centred), Hinterkaifeck and Villisca (murder), Hotel Cecil and Amityville (murder overlap, hoax), Skinwalker Ranch and Kecksburg (UFO), Flight 401 (named real crash victims).
+
+## Fact-check changelog (2026-11-27)
+- HAUNT-03 Resurrection Mary: sources replaced (Wikipedia, Chicago History Museum, WBEZ, CBS); 'bent bars' story flagged unverified and not used.
+- HAUNT-05 Waverly: dates confirmed (1910 / 17 Oct 1926 / June 1961); death toll set to ~6,000-8,000 estimate vs 63,000 myth; 'body chute' downgraded to 'reported'. Story +1 → rank 4.
+- HAUNT-08 Queen Mary: the 1966 Door 13 death found only in ghost-tour sources, so relabelled FOLKLORE; hook reworded to 'ship lore says'. Story −1.
+- HAUNT-09 Tower: Swifte account confirmed (Oct 1817; N&Q 1860; Keeper 1814-52); people present corrected.
+- HAUNT-10 Winchester: dates, 1906 quake (7→4 storeys) and Ignoffo's finding confirmed; story +1 → rank 9.
+- HAUNT-11 Bell Witch: death Dec 1820 (19/20), Ingram 1894, lost manuscript confirmed; no support for the Jackson visit.
+- HAUNT-13 Borley: fire 27 Feb 1939, demolished 1944, SPR Jan 1956 report confirmed; author names still unconfirmed.
+- HAUNT-15 Eastern State, HAUNT-16 Clinton Road, HAUNT-18 Poveglia: confirmed with corrected detail (Poveglia's quarantine start date is disputed: 1776 or 1793).
+- HAUNT-17 Myrtles: no Chloe record, yellow-fever deaths, Winter murder confirmed; 1871 date unconfirmed.
+- HAUNT-19 Monte Cristo: 'mourning' detail unverified and removed from the hook; 1963 Ryan purchase, closure in Jan 2025 and 2026 sale listing added.
+- HAUNT-20 Ram Inn: 1968, 2017 and 'Bishop's Room' unconfirmed and removed from the hook and title; story −1.
+- HAUNT-04/06/07/12: existing 2+ sources kept; date and name caveats added.
 
 | Rank | ID | Title | Demand | Story | Pack | Ret | Feas | Total | Difficulty |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | HAUNT-01 | The Voice on the Enfield Tapes | 16 | 17 | 16 | 15 | 14 | **78** | Medium |
 | 2 | HAUNT-02 | The Real Room 217 | 17 | 14 | 16 | 14 | 16 | **77** | Low |
 | 3 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 13 | 15 | 15 | 16 | 17 | **76** | Low |
-| 4 | HAUNT-04 | The Ghost Photo Country Life Published | 13 | 14 | 17 | 15 | 16 | **75** | Low |
-| 5 | HAUNT-05 | The Tunnel Built to Hide the Dead | 16 | 13 | 15 | 14 | 16 | **74** | Medium |
+| 4 | HAUNT-05 | The Tunnel Built to Hide the Dead | 16 | 14 | 15 | 14 | 16 | **75** | Medium |
+| 5 | HAUNT-04 | The Ghost Photo Country Life Published | 13 | 14 | 17 | 15 | 16 | **75** | Low |
 | 6 | HAUNT-06 | The Woman on the Gravestone (1991) | 13 | 13 | 16 | 14 | 17 | **73** | Low |
 | 7 | HAUNT-07 | Drivers Keep Reporting They Hit Her | 11 | 14 | 14 | 16 | 17 | **72** | Low |
-| 8 | HAUNT-08 | Door 13 on the Queen Mary | 15 | 13 | 14 | 14 | 15 | **71** | Medium |
-| 9 | HAUNT-09 | The Jewel House Ghost of 1817 | 12 | 14 | 14 | 14 | 15 | **69** | Low |
-| 10 | HAUNT-10 | Stairs That Lead Into the Ceiling | 14 | 12 | 15 | 13 | 14 | **68** | Medium |
+| 8 | HAUNT-08 | Door 13 on the Queen Mary | 15 | 12 | 14 | 14 | 15 | **70** | Medium |
+| 9 | HAUNT-10 | Stairs That Lead Into the Ceiling | 14 | 13 | 15 | 13 | 14 | **69** | Medium |
+| 10 | HAUNT-09 | The Jewel House Ghost of 1817 | 12 | 14 | 14 | 14 | 15 | **69** | Low |
 | 11 | HAUNT-11 | The Voice That Haunted the Bell Family | 13 | 15 | 13 | 13 | 14 | **68** | Medium |
 | 12 | HAUNT-12 | Why India Bans Entry to This Fort After Dark | 13 | 12 | 16 | 13 | 14 | **68** | Medium |
 | 13 | HAUNT-13 | 'The Most Haunted House in England' Burned in 1939 | 11 | 14 | 13 | 13 | 14 | **65** | Medium |
@@ -27,11 +42,11 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 | 17 | HAUNT-17 | The Ghost Story That Was Made Up | 12 | 13 | 12 | 12 | 13 | **62** | High |
 | 18 | HAUNT-18 | The Island You're Not Allowed to Visit | 12 | 10 | 14 | 12 | 13 | **61** | Medium |
 | 19 | HAUNT-19 | Australia's 'Most Haunted House' | 9 | 12 | 12 | 12 | 14 | **59** | Low |
-| 20 | HAUNT-20 | He Lived 50 Years in a 'Haunted' Inn | 9 | 11 | 12 | 11 | 14 | **57** | Low |
+| 20 | HAUNT-20 | He Lived for Decades in a 'Haunted' Inn | 9 | 10 | 12 | 11 | 14 | **56** | Low |
 
 ---
 
-## HAUNT-01: The Voice on the Enfield Tapes  (total 78/100)
+## Rank 1: HAUNT-01: The Voice on the Enfield Tapes  (total 78/100)
 
 - **Alt title:** An 11-Year-Old Girl, a Gruff Voice, and 2 Investigators (Enfield 1977)
 - **Category:** Poltergeist / documented investigation  |  **Duration:** 60 s  |  **Difficulty:** Medium
@@ -76,7 +91,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-02: The Real Room 217  (total 77/100)
+## Rank 2: HAUNT-02: The Real Room 217  (total 77/100)
 
 - **Alt title:** The Hotel Room That Gave Stephen King The Shining
 - **Category:** Haunted hotel  |  **Duration:** 60 s  |  **Difficulty:** Low
@@ -123,11 +138,11 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-03: Don't Pick Her Up on Archer Avenue  (total 76/100)
+## Rank 3: HAUNT-03: Don't Pick Her Up on Archer Avenue  (total 76/100)
 
 - **Alt title:** Chicago's Ghost Who Asks for a Ride Home
 - **Category:** Haunted road / vanishing hitchhiker  |  **Duration:** 60 s  |  **Difficulty:** Low
-- **Subject:** Resurrection Mary: Archer Avenue, Justice, Illinois, outside Resurrection Cemetery. Reports since the 1930s of a young woman in a pale dress who accepts lifts and vanishes near the cemetery gates.
+- **Subject:** Resurrection Mary: Archer Avenue, Justice, Illinois, outside Resurrection Cemetery. A vanishing-hitchhiker legend circulating since at least the 1930s: drivers between the Willowbrook Ballroom area and the cemetery report giving a young woman a lift and she vanishes at the cemetery gates. Sightings reportedly intensified in the 1970s. Her identity is debated; candidates have been proposed, none confirmed (no candidate is named on screen).
 - **Why it has potential:** The vanishing hitchhiker is a perfect 60-second arc with a built-in loop (she is back at the roadside). Road-horror is evergreen (Mr. Nightmare highway stories). The procedural road, car and fog are the pipeline's strengths.
 - **Scores:** demand 13, story 15, packaging 15, retention 16, feasibility 17
 
@@ -152,10 +167,10 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Night road with fog and wet asphalt; Car interior POV, dashboard glow; Cemetery gates with iron bars; Map card: Archer Ave, Chicago; Folklore card: 'vanishing hitchhiker' tales worldwide
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Resurrection Cemetery exists on Archer Avenue, Justice IL (background knowledge, not re-verified this session; network blocked) | Accounts of the legend appear in local press and books from the mid-20th century (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Drivers report giving a young woman a lift who vanished near the cemetery | Reports of drivers believing they struck a woman who wasn't there
-- *FOLKLORE:* The identity of 'Mary'; the 'vanishing hitchhiker' motif is a worldwide legend type
-- *DRAMATISATION:* Mirror handprint, specific dialogue-free ride; no named real person shown
+- *DOCUMENTED FACT:* Resurrection Cemetery is on Archer Avenue, Justice IL [fact-checked 2026-11-27] | The legend has circulated in the Chicago area since at least the 1930s and is called Chicago's most famous ghost story (Wikipedia; Chicago History Museum; WBEZ) [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Drivers report giving a young woman a lift from the ballroom area and she vanished at the cemetery gates | Reports intensified in the 1970s (secondary sources)
+- *FOLKLORE:* Her identity (candidates proposed, none confirmed); the 'vanishing hitchhiker' motif is a worldwide legend type | The 'bent cemetery-gate bars' story: NOT verified in this check; do not use
+- *DRAMATISATION:* Mirror handprint, wordless ride; no real person depicted or named
 
 **References:**
 - 4 Very Scary TRUE Highway Horror Stories (Mr. Nightmare): views ~1.7M (OutlierKit snippet, unverified); url unverified; road-horror sub-theme
@@ -163,13 +178,63 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - Room 209 Wingate hotel clip (Jimmynut22): views 13M+ (Snopes); url unverified; single-detail reveal; staged hoax, a cautionary example
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Resurrection_Mary (background knowledge, not re-verified this session; network blocked)
-- https://en.wikipedia.org/wiki/Vanishing_hitchhiker (background knowledge, not re-verified this session; network blocked)
-- Taylor, Troy. Haunted Chicago (book, various eds.) (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Resurrection_Mary
+- https://www.chicagohistory.org/resurrection-mary/
+- https://www.wbez.org/stories/chicagos-favorite-ghost-resurrection-mary/ed26b8ca-2439-4c19-9e3a-882621c82d0b
+- https://www.cbsnews.com/chicago/news/chicago-hauntings-resurrection-mary-most-famous-ghost
 
 ---
 
-## HAUNT-04: The Ghost Photo Country Life Published  (total 75/100)
+## Rank 4: HAUNT-05: The Tunnel Built to Hide the Dead  (total 75/100)
+
+- **Alt title:** Why Waverly Hills Had a 500-Foot 'Body Chute'
+- **Category:** Haunted hospital  |  **Duration:** 60 s  |  **Difficulty:** Medium
+- **Subject:** Waverly Hills Sanatorium, Louisville, Kentucky. Opened 26 July 1910 as a two-storey wooden TB hospital for ~50 patients; the five-storey building opened 17 Oct 1926 (400+ patients); closed June 1961 as antibiotics cut TB cases, then reopened in 1962 as the Woodhaven nursing home. A long tunnel is widely reported to have moved the dead out of patients' sight. The popular '63,000 deaths' figure is inflated; secondary sources cite historians' estimates of roughly 6,000-8,000, with 152 deaths recorded in 1945.
+- **Why it has potential:** A recurring top location (BuzzFeed Unsolved episode ranked #1 by Ranker fan vote; Ghost Adventures). A documented architectural oddity gives a factual hook. Corridors and a tunnel suit procedural rendering.
+- **Scores:** demand 16, story 14, packaging 15, retention 14, feasibility 16
+
+**Hook (0-15 s):** 0-2 s: sloped concrete tunnel, a gurney rolling down by itself. VO: 'This tunnel was built so patients wouldn't see the dead leave.' 2-6 s: card 'WAVERLY HILLS, KENTUCKY, TB HOSPITAL'. 6-15 s: 'The hospital closed in 1961. Visitors say something still uses it.'
+
+**Structure:**
+1. Cold open: tunnel and gurney
+2. Anchor: TB era; 1910 wooden hospital, the 1926 five-storey building
+3. Stakes: the body chute's purpose (morale)
+4. Witness claims: shadow figures on the 4th floor, a boy with a ball (claims)
+5. Myth-busting: the '63,000 deaths' myth vs historians' estimates of ~6,000-8,000 (152 recorded in 1945)
+6. Skeptic beat: echoing concrete and draughts; tourism incentive
+7. Dead-air reveal: a ball rolls into frame in the empty corridor
+8. Loop: tunnel mouth, gurney back at the top
+
+**Retention moments:** 0 s self-moving gurney; ~8 s 'so patients wouldn't see'; ~28 s shadow-people claim; ~38 s death-toll myth twist; ~50 s rolling-ball reveal; loop
+
+**Thumbnail / cover frame:** Long hospital corridor with open sun-porch windows, one shadow figure in a doorway; text 'BODY CHUTE'.
+
+**Animation style:** Procedural brutalist hospital corridors, broken windows, dust and fog, flashlight cone, tunnel with rail.
+
+**Scenes:** Exterior: gothic sanatorium on a hill at dusk; Sun-porch corridor; Body-chute tunnel; Historic timeline graphic: TB, streptomycin, closure 1961; 4th-floor corridor with shadow figure
+
+**Fact labels:**
+- *DOCUMENTED FACT:* Opened 26 Jul 1910; the five-storey building opened 17 Oct 1926; closed June 1961; reopened 1962 as Woodhaven nursing home (Wikipedia; Kentucky Historic Institutions) [fact-checked 2026-11-27] | Death-toll estimates: ~6,000-8,000 per historians cited by Grunge/LiveScience; 152 deaths recorded in 1945 [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Visitors and investigators report shadow figures, voices, a child apparition
+- *FOLKLORE:* The '63,000 deaths' figure (inflated) | Room 502 legend (deliberately not used: suicide content)
+- *DRAMATISATION:* Self-moving gurney, rolling ball
+- *REPORTED, NOT PRIMARY-VERIFIED:* The tunnel's use to move bodies discreetly ('body chute'): widely reported, mainly by tour and secondary sources; say 'reportedly' on screen
+
+**References:**
+- The Haunted Halls of Waverly Hills Hospital (BuzzFeed Unsolved Network): views unverified; url unverified; Ranker fan-vote #1 Supernatural episode
+- Stanley Hotel / Conjuring / Queen Mary investigations (Sam and Colby): views 43M / 39M / 22M per Variety (unverified on YouTube); url unverified; named-location demand
+- TRUE Ghost Caught on Camera #1 (Top5s): views ~62M (low-reliability blog); url unverified; photo/footage-artefact demand
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Waverly_Hills_Sanatorium
+- https://kyhi.org/other/tuberculosis-sanatoria/waverly-hills-sanatorium/
+- https://grunge.com/451320/the-disturbing-true-story-of-the-waverly-hills-sanatorium
+- https://mentalfloss.com/article/17263/haunted-hospital
+- https://filsonhistorical.org/wp-content/uploads/Filson-Historical-Society-Resources-on-Waverly-Hills-2023.pdf
+
+---
+
+## Rank 5: HAUNT-04: The Ghost Photo Country Life Published  (total 75/100)
 
 - **Alt title:** 1936: A Magazine Photographer Pointed His Camera Up the Stairs…
 - **Category:** Ghost photograph  |  **Duration:** 60 s  |  **Difficulty:** Low
@@ -198,7 +263,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Exterior: Norfolk country house in fog; Grand staircase interior; Two photographer silhouettes with a large-format camera; Darkroom with developing tray; Magazine-cover motion graphic (generic, no logo)
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Photo taken 19 Sept 1936 by Provand with 'Indre Shira' for Country Life | Published Dec 1936 (16th vs 26th disputed) and in Life, 4 Jan 1937
+- *DOCUMENTED FACT:* Photo taken 19 Sept 1936 by Provand with 'Indre Shira' for Country Life (Wikipedia; Country Life) [fact-checked 2026-11-27] | Publication: 26 Dec 1936 per Country Life's own article and the Norfolk Record Office; 16 Dec per hoaxes.org and Black Vault. Use '26 December 1936 (Country Life)' on screen, or just 'December 1936' [fact-checked 2026-11-27] | Reprinted in Life, 4 Jan 1937 [fact-checked 2026-11-27]
 - *EYEWITNESS CLAIM:* Shira's account that she saw the figure on the stairs; earlier reported sightings at the Hall
 - *FOLKLORE:* Identification of the ghost as Lady Dorothy Walpole
 - *DRAMATISATION:* Staircase recreation; flash timing; darkroom scene. The real photo is not reproduced
@@ -216,53 +281,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-05: The Tunnel Built to Hide the Dead  (total 74/100)
-
-- **Alt title:** Why Waverly Hills Had a 500-Foot 'Body Chute'
-- **Category:** Haunted hospital  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** Waverly Hills Sanatorium, Louisville, Kentucky: a tuberculosis hospital (main building 1926, closed 1961). The documented 'body chute' tunnel moved the dead out of sight of patients. The famous death-toll figures are exaggerated.
-- **Why it has potential:** A recurring top location (BuzzFeed Unsolved episode ranked #1 by Ranker fan vote; Ghost Adventures). A documented architectural oddity gives a factual hook. Corridors and a tunnel suit procedural rendering.
-- **Scores:** demand 16, story 13, packaging 15, retention 14, feasibility 16
-
-**Hook (0-15 s):** 0-2 s: sloped concrete tunnel, a gurney rolling down by itself. VO: 'This tunnel was built so patients wouldn't see the dead leave.' 2-6 s: card 'WAVERLY HILLS, KENTUCKY, TB HOSPITAL'. 6-15 s: 'The hospital closed in 1961. Visitors say something still uses it.'
-
-**Structure:**
-1. Cold open: tunnel and gurney
-2. Anchor: TB era, pre-antibiotics; the 1926 building
-3. Stakes: the body chute's purpose (morale)
-4. Witness claims: shadow figures on the 4th floor, a boy with a ball (claims)
-5. Myth-busting: the '63,000 deaths' myth vs historians' much lower estimates (reported)
-6. Skeptic beat: echoing concrete and draughts; tourism incentive
-7. Dead-air reveal: a ball rolls into frame in the empty corridor
-8. Loop: tunnel mouth, gurney back at the top
-
-**Retention moments:** 0 s self-moving gurney; ~8 s 'so patients wouldn't see'; ~28 s shadow-people claim; ~38 s death-toll myth twist; ~50 s rolling-ball reveal; loop
-
-**Thumbnail / cover frame:** Long hospital corridor with open sun-porch windows, one shadow figure in a doorway; text 'BODY CHUTE'.
-
-**Animation style:** Procedural brutalist hospital corridors, broken windows, dust and fog, flashlight cone, tunnel with rail.
-
-**Scenes:** Exterior: gothic sanatorium on a hill at dusk; Sun-porch corridor; Body-chute tunnel; Historic timeline graphic: TB, streptomycin, closure 1961; 4th-floor corridor with shadow figure
-
-**Fact labels:**
-- *DOCUMENTED FACT:* Waverly Hills was a TB sanatorium; current building opened 1926; closed 1961 (background knowledge, not re-verified this session; network blocked) | A tunnel ('body chute') was used to move the deceased discreetly (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Visitors and investigators report shadow figures, voices, a child apparition
-- *FOLKLORE:* Inflated death tolls (e.g. '63,000'); Room 502 legend (deliberately not used: suicide content)
-- *DRAMATISATION:* Self-moving gurney, rolling ball
-
-**References:**
-- The Haunted Halls of Waverly Hills Hospital (BuzzFeed Unsolved Network): views unverified; url unverified; Ranker fan-vote #1 Supernatural episode
-- Stanley Hotel / Conjuring / Queen Mary investigations (Sam and Colby): views 43M / 39M / 22M per Variety (unverified on YouTube); url unverified; named-location demand
-- TRUE Ghost Caught on Camera #1 (Top5s): views ~62M (low-reliability blog); url unverified; photo/footage-artefact demand
-
-**Sources:**
-- https://en.wikipedia.org/wiki/Waverly_Hills_Sanatorium (background knowledge, not re-verified this session; network blocked)
-- https://www.tvmaze.com/images/916722/the-haunted-halls-of-waverly-hills-hospital-image-916722
-- https://www.ranker.com/list/the-best-episodes-buzzfeed-unsolved-supernatural/sawyer-grant
-
----
-
-## HAUNT-06: The Woman on the Gravestone (1991)  (total 73/100)
+## Rank 6: HAUNT-06: The Woman on the Gravestone (1991)  (total 73/100)
 
 - **Alt title:** An Infrared Photo From Chicago's Most Haunted Cemetery
 - **Category:** Ghost photograph / cemetery  |  **Duration:** 60 s  |  **Difficulty:** Low
@@ -291,7 +310,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Woodland road and fenced cemetery entrance; Cemetery clearing with headstones; Infrared grade sequence; Newspaper-headline motion card (generic); Skeptic evidence board
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Photo taken 10 Aug 1991 during a Ghost Research Society investigation (multiple secondary sources) | Reported printed in the Chicago Sun-Times (original not seen)
+- *DOCUMENTED FACT:* Photo reportedly taken 10 Aug 1991 during a Ghost Research Society investigation (Black Vault/About.com archive; Mental Floss; Grunge) [fact-checked 2026-11-27] | Printing in the Chicago Sun-Times is reported but the original was not seen; the photographer's surname varies (Huff-Felz / Huffels). Do not name her on screen
 - *EYEWITNESS CLAIM:* Photographer/group: no one was on the stone; equipment anomalies beforehand | Other reported apparitions at the site
 - *FOLKLORE:* Phantom farmhouse; identity of the 'Madonna'
 - *DRAMATISATION:* Recreated infrared shot; figure fade-in
@@ -308,7 +327,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-07: Drivers Keep Reporting They Hit Her  (total 72/100)
+## Rank 7: HAUNT-07: Drivers Keep Reporting They Hit Her  (total 72/100)
 
 - **Alt title:** Kent's A229: The Road Where the Victim Is Never Found
 - **Category:** Haunted road  |  **Duration:** 60 s  |  **Difficulty:** Low
@@ -338,7 +357,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 **Fact labels:**
 - *DOCUMENTED FACT:* Fatal crash on the A229 at Blue Bell Hill, 19 Nov 1965 (Kent press)
-- *EYEWITNESS CLAIM:* Drivers (e.g. reports to Rochester police) believed they struck a woman; no trace found
+- *EYEWITNESS CLAIM:* Drivers (e.g. Ian Sharpe; a bricklayer who ran into Rochester police station) believed they struck a woman and no trace was found. The year of the police-station report was NOT confirmed; don't put a date on screen [fact-checked 2026-11-27]
 - *FOLKLORE:* That the ghost is the 1965 bride/bridesmaid; critics say reports pre-date 1965
 - *DRAMATISATION:* Dashcam impact, mirror reveal; 1965 victims not named or depicted
 
@@ -355,20 +374,20 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-08: Door 13 on the Queen Mary  (total 71/100)
+## Rank 8: HAUNT-08: Door 13 on the Queen Mary  (total 70/100)
 
 - **Alt title:** The Ship That's Been Docked Since 1967, and the Door Crew Won't Touch
 - **Category:** Haunted ship  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** RMS Queen Mary, permanently docked at Long Beach, California, since 1967. Reported hauntings centre on watertight 'Door 13' in the engine room (a crewman was killed there in 1966, reported) and the former first-class pool.
+- **Subject:** RMS Queen Mary, docked at Long Beach, California, since 1967. Ship lore says an 18-year-old crewman (named in ghost-tour sources) was crushed by watertight Door 13 during a drill on 10 July 1966. No contemporaneous newspaper report was found in this check, so the death is treated as lore. A bearded figure in blue overalls is reported near the door; wet footprints are reported by the old first-class pool.
 - **Why it has potential:** Sam and Colby Queen Mary video ~22M (Variety); BuzzFeed episode. Ship corridors and an engine room are atmospheric and modelable.
-- **Scores:** demand 15, story 13, packaging 14, retention 14, feasibility 15
+- **Scores:** demand 15, story 12, packaging 14, retention 14, feasibility 15
 
-**Hook (0-15 s):** 0-2 s: a heavy watertight door slams in the engine room. VO: 'This door has a number. Thirteen.' 2-6 s: card 'RMS QUEEN MARY, LONG BEACH'. 6-15 s: 'In 1966 a young crewman died here. Staff and visitors have been reporting him ever since.'
+**Hook (0-15 s):** 0-2 s: a heavy watertight door slams in the engine room. VO: 'This door has a number. Thirteen.' 2-6 s: card 'RMS QUEEN MARY, LONG BEACH'. 6-15 s: 'Ship lore says a young crewman was crushed here during a drill in 1966. Staff and visitors have been reporting a figure here ever since.'
 
 **Structure:**
 1. Cold open: Door 13 slams
 2. Anchor: retired liner and hotel since 1967
-3. Stakes: 1966 Door 13 death (reported; not depicted)
+3. Stakes: the 1966 Door 13 death as told in ship lore (not depicted; labelled REPORTED)
 4. Witness claims: figure in blue overalls near the door
 5. Escalation: wet footprints by the drained first-class pool (claim)
 6. Skeptic beat: old steel ships creak and drip; ghost tours are a business
@@ -384,73 +403,31 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Exterior: liner at the dock, night; Engine-room corridor with Door 13; Art-deco pool room, drained; Map card: Long Beach; Skeptic card: acoustics of steel hulls
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Queen Mary retired and docked at Long Beach since 1967 (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Staff/visitors report an apparition near Door 13 and wet footprints by the pool
-- *FOLKLORE:* Specific ghost identities (pool girl etc.); details of the 1966 death circulate mainly via tour lore (background knowledge, not re-verified this session; network blocked)
-- *DRAMATISATION:* Door slam, footprint reveal; the 1966 death is not shown
+- *DOCUMENTED FACT:* The Queen Mary has been docked at Long Beach as a hotel/attraction since 1967 (background; widely reported)
+- *EYEWITNESS CLAIM:* A bearded figure in blue overalls reported near Door 13; wet footprints by the pool; a 1991 tour-couple sighting (ghost-source sites)
+- *FOLKLORE:* The 10 July 1966 Door 13 death: consistent across tour and ghost sites, but job title (fireman/labourer) and location (engine room vs shaft alley) vary, and no newspaper or inquest record was found [fact-checked 2026-11-27] | Pool-girl ghost identities
+- *DRAMATISATION:* Door slam, footprint reveal; the death is not shown and the crewman is not named on screen
 
 **References:**
 - Stanley Hotel / Conjuring / Queen Mary investigations (Sam and Colby): views 43M / 39M / 22M per Variety (unverified on YouTube); url unverified; named-location demand
 - The Haunted Decks of the Queen Mary (BuzzFeed Unsolved Network): views unverified; url unverified; S1E7, 2017-02-17
 
 **Sources:**
-- https://en.wikipedia.org/wiki/RMS_Queen_Mary (background knowledge, not re-verified this session; network blocked)
+- https://www.legendsofamerica.com/ca-queenmary/
+- https://www.ghostsource.com/?p=38
+- https://www.grunge.com/139069/reasons-people-think-the-queen-mary-is-haunted
 - https://www.tvmaze.com/images/916718/the-haunted-decks-of-the-queen-mary-image-916718
 - https://variety.com/vip/youtube-horror-content-creators-sam-and-colby-1236173617
 
 ---
 
-## HAUNT-09: The Jewel House Ghost of 1817  (total 69/100)
-
-- **Alt title:** The Keeper of the Crown Jewels Saw Something Over His Dinner Table
-- **Category:** Royal haunting / historic account  |  **Duration:** 60 s  |  **Difficulty:** Low
-- **Subject:** The Tower of London, October 1817. Jewel House keeper Edmund Lenthal Swifte later wrote (Notes and Queries, 1860) that a glass-like cylinder of bluish fluid floated over the family's supper table, and his wife cried out that it had seized her.
-- **Why it has potential:** A high-status, named, first-person written account from the Tower. Less known (a fresh angle on an over-covered location). A single room and an abstract apparition are easy and eerie to render.
-- **Scores:** demand 12, story 14, packaging 14, retention 14, feasibility 15
-
-**Hook (0-15 s):** 0-2 s: candlelit dinner table, a hovering glass tube of blue light. VO: 'The man who guarded the Crown Jewels wrote down what he saw at dinner.' 2-6 s: card 'TOWER OF LONDON, OCTOBER 1817'. 6-15 s: 'Not a headless queen. A tube of glowing liquid, floating over the table. Then his wife screamed.'
-
-**Structure:**
-1. Cold open: floating cylinder
-2. Anchor: Swifte, Keeper of the Regalia
-3. Stakes: family supper, doors shut
-4. Witness claim: cylinder moves; wife says it seized her; he strikes at it with a chair (his account)
-5. Escalation: published decades later (1860)
-6. Skeptic beat: written 43 years after; no other witnesses on record
-7. Dead-air reveal: the candle flames all lean toward the empty chair
-8. Loop: candlelit table again
-
-**Retention moments:** 0 s glowing cylinder; ~10 s 'not a headless queen' subversion; ~28 s chair swing; ~40 s '43 years later' doubt; ~50 s candle reveal; loop
-
-**Thumbnail / cover frame:** Stone-walled room, candlelit table, a vertical glowing blue tube hovering; text '1817'.
-
-**Animation style:** Stone interior, candlelight, volumetric glow, Regency-era silhouettes, parchment motion graphics.
-
-**Scenes:** Exterior: Tower at night, river fog; Jewel House sitting room; Floating cylinder VFX; Parchment/'Notes and Queries' text card; Map card: Tower, Thames
-
-**Fact labels:**
-- *DOCUMENTED FACT:* Swifte was Keeper of the Regalia and published his account in Notes and Queries (1860) (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Swifte's description of the cylinder and his wife's reaction
-- *FOLKLORE:* Anne Boleyn and other Tower ghosts (mentioned only as contrast)
-- *DRAMATISATION:* Room layout, candle reveal, chair swing staging
-
-**References:**
-- 14 Horror Stories Animated (Llama Arts): views ~22M (WatchMojo 2023); url unverified; animated true-horror format
-- GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
-
-**Sources:**
-- https://en.wikipedia.org/wiki/Tower_of_London (background knowledge, not re-verified this session; network blocked)
-- Swifte, E. L. (1860). Letter in Notes and Queries, 2nd series (background knowledge, not re-verified this session; network blocked)
-
----
-
-## HAUNT-10: Stairs That Lead Into the Ceiling  (total 68/100)
+## Rank 9: HAUNT-10: Stairs That Lead Into the Ceiling  (total 69/100)
 
 - **Alt title:** Why Sarah Winchester Built Doors to Nowhere
 - **Category:** Haunted mansion  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** Winchester Mystery House, San Jose, California. Sarah Winchester's continual construction (1886 until her death in 1922) left stairs into ceilings and doors opening onto drops. The 'appease the rifle ghosts' story is legend; biographers dispute it.
+- **Subject:** Winchester Mystery House, San Jose, California. Sarah Winchester moved there in 1886 and kept building until her death on 5 Sept 1922. The 1906 earthquake collapsed the tower and the house went from seven storeys to four; she sealed off staircases and porches instead of rebuilding. Today there are stairs that run into a wall or ceiling and a 'door to nowhere'. Biographer Mary Jo Ignoffo found no evidence that she communed with spirits and calls the ghost story a century-old marketing campaign.
 - **Why it has potential:** Architecture is the anomaly: very visual, documented and animatable. BuzzFeed returned to it ('Return To The Horrifying Winchester Mansion'). The myth-vs-history twist adds a skeptic beat.
-- **Scores:** demand 14, story 12, packaging 15, retention 13, feasibility 14
+- **Scores:** demand 14, story 13, packaging 15, retention 13, feasibility 14
 
 **Hook (0-15 s):** 0-2 s: a staircase rising straight into a ceiling. VO: 'This staircase goes nowhere. On purpose?' 2-6 s: card 'SAN JOSE, CALIFORNIA, 1886-1922'. 6-15 s: 'The legend says a medium told her the dead would come for her unless the building never stopped.'
 
@@ -460,7 +437,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 3. Stakes: the medium legend
 4. Documented oddities: door to a drop, switchback stairs
 5. Escalation: 1906 earthquake damage
-6. Skeptic beat: historians link the oddities to remodelling, damage and a hobby architect, not ghosts
+6. Skeptic beat: the 1906 quake, sealed-off stairs, a hands-on amateur architect; Ignoffo calls the ghost myth 'a 100-year-old marketing campaign'
 7. Dead-air reveal: the 'door to nowhere' is now open, a figure in the drop
 8. Loop: stairs again
 
@@ -473,9 +450,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Exterior mansion at dusk; Stairs into ceiling; Door to nowhere (exterior drop); Timeline 1886-1922 with earthquake; Construction montage (scaffold, hammers)
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Construction 1886-1922; stairs into ceiling and doors to nowhere exist; 1906 earthquake damage (background knowledge, not re-verified this session; network blocked)
+- *DOCUMENTED FACT:* Construction from 1886 to her death on 5 Sept 1922 (KQED; Wikipedia) [fact-checked 2026-11-27] | 1906 quake: the tower collapsed, 7 storeys became 4, and staircases were sealed off; stairs-to-wall and door-to-nowhere features exist (Smithsonian; Houzz/Wikipedia) [fact-checked 2026-11-27] | Ignoffo (2010 biography) found no evidence she communed with spirits [fact-checked 2026-11-27]
 - *EYEWITNESS CLAIM:* Staff/visitor ghost reports
-- *FOLKLORE:* Medium's instruction; building to confuse rifle-victim spirits
+- *FOLKLORE:* A medium's instruction; building to confuse rifle-victim spirits; the story that she was trapped during the 1906 quake (no evidence per Wikipedia)
 - *DRAMATISATION:* Figure in the doorway
 
 **References:**
@@ -483,17 +460,65 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - Stanley Hotel / Conjuring / Queen Mary investigations (Sam and Colby): views 43M / 39M / 22M per Variety (unverified on YouTube); url unverified; named-location demand
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Winchester_Mystery_House (background knowledge, not re-verified this session; network blocked)
-- Ignoffo, Mary Jo (2010). Captive of the Labyrinth: Sarah L. Winchester (background knowledge, not re-verified this session; network blocked)
-- https://www.tvmaze.com/episodes/1549426/buzzfeed-unsolved-supernatural-5x01-return-to-the-horrifying-winchester-mansion/gallery?page=1
+- https://www.smithsonianmag.com/history/heiress-gun-empire-built-mansion-forever-haunted-blood-money-built-it-180959712/
+- https://99percentinvisible.org/episode/mystery-house/
+- https://kqed.org/news/11963206
+- https://theweek.com/uk/articles/752993/sexist-myth-winchester-mystery-house
+- https://en.wikipedia.org/wiki/Winchester_Mystery_House
 
 ---
 
-## HAUNT-11: The Voice That Haunted the Bell Family  (total 68/100)
+## Rank 10: HAUNT-09: The Jewel House Ghost of 1817  (total 69/100)
+
+- **Alt title:** The Keeper of the Crown Jewels Saw Something Over His Dinner Table
+- **Category:** Royal haunting / historic account  |  **Duration:** 60 s  |  **Difficulty:** Low
+- **Subject:** Tower of London, October 1817. Edmund Lenthal Swifte, Keeper of the Jewel Office (1814-1852), was at supper in the Jewel House sitting room with his wife, her sister and his young son. His account, published in Notes and Queries (Ser. 2, Vol. 10, 1860) in reply to a query signed 'K.B.', describes a glass-like cylinder of bluish fluid hovering over the table; his wife cried out that it had seized her.
+- **Why it has potential:** A high-status, named, first-person written account from the Tower. Less known (a fresh angle on an over-covered location). A single room and an abstract apparition are easy and eerie to render.
+- **Scores:** demand 12, story 14, packaging 14, retention 14, feasibility 15
+
+**Hook (0-15 s):** 0-2 s: candlelit dinner table, a hovering glass tube of blue light. VO: 'The man who guarded the Crown Jewels wrote down what he saw at dinner.' 2-6 s: card 'TOWER OF LONDON, OCTOBER 1817'. 6-15 s: 'Not a headless queen. A tube of glowing liquid, floating over the table. Then his wife screamed.'
+
+**Structure:**
+1. Cold open: floating cylinder
+2. Anchor: Swifte, Keeper of the Jewel Office since 1814
+3. Stakes: family supper (wife, her sister, his son), doors shut
+4. Witness claim: the cylinder moves; his wife says it seized her; he strikes at it with a chair (his account)
+5. Escalation: published 43 years later, in 1860, answering a reader's question
+6. Skeptic beat: written decades later; by commentators' reading of the account, only two of the four people present saw it
+7. Dead-air reveal: the candle flames all lean toward the empty chair
+8. Loop: candlelit table again
+
+**Retention moments:** 0 s glowing cylinder; ~10 s 'not a headless queen' subversion; ~28 s chair swing; ~40 s '43 years later' doubt; ~50 s candle reveal; loop
+
+**Thumbnail / cover frame:** Stone-walled room, candlelit table, a vertical glowing blue tube hovering; text '1817'.
+
+**Animation style:** Stone interior, candlelight, volumetric glow, Regency-era silhouettes, parchment motion graphics.
+
+**Scenes:** Exterior: Tower at night, river fog; Jewel House sitting room; Floating cylinder VFX; Parchment/'Notes and Queries' text card; Map card: Tower, Thames
+
+**Fact labels:**
+- *DOCUMENTED FACT:* Swifte was Keeper of the Jewel Office 1814-1852 and published the account in Notes and Queries in 1860 (Wikipedia; strangehistory.net) [fact-checked 2026-11-27] | Event dated October 1817, Jewel House sitting room, with his wife, her sister and his son [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Swifte's description of the cylinder and his wife's reaction; not everyone present reported seeing it
+- *FOLKLORE:* Anne Boleyn and other Tower ghosts (contrast only); the sentry/bear story
+- *DRAMATISATION:* Room layout, candle reveal, chair-swing staging
+
+**References:**
+- 14 Horror Stories Animated (Llama Arts): views ~22M (WatchMojo 2023); url unverified; animated true-horror format
+- GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Edmund_Lenthal_Swifte
+- https://strangehistory.net/2015/07/15/the-cylinder-monster-1-the-witness-account
+- https://londonist.com/2007/08/the_saturday_st_13
+- Swifte, E. L. (1860). 'Ghost in the Tower'. Notes and Queries, Ser. 2, Vol. 10
+
+---
+
+## Rank 11: HAUNT-11: The Voice That Haunted the Bell Family  (total 68/100)
 
 - **Alt title:** Tennessee 1817: A Poltergeist That Talked Back
 - **Category:** American folklore haunting  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** The Bell Witch, Adams, Robertson County, Tennessee, c.1817-1821: a reported poltergeist with a voice that tormented John Bell's family. The main written source (M.V. Ingram, 1894) appeared decades later. The Andrew Jackson visit is unverified.
+- **Subject:** The Bell Witch, Adams, Robertson County, Tennessee, c.1817-1821. A reported entity with a voice tormented John Bell's family; Bell died in December 1820 (19th or 20th, sources differ) and legend blames the 'witch'. The entity is alluded to in an 1820 letter, but the first full-length account is M. V. Ingram's 1894 book, which claimed to rest on a Richard Williams Bell manuscript that has never been found. No source found in this check supports the Andrew Jackson visit.
 - **Why it has potential:** One of America's best-known legends; a talking entity; a farm and cave setting. Strong story, but heavy folklore load lowers 'it's real' strength.
 - **Scores:** demand 13, story 15, packaging 13, retention 13, feasibility 14
 
@@ -505,7 +530,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 3. Stakes: scratching, then a voice
 4. Folklore: the 'witch' threatens John Bell; his 1820 death attributed to it in legend
 5. Escalation: the Andrew Jackson story (labelled unverified)
-6. Skeptic beat: main account printed 1894, about 70 years later
+6. Skeptic beat: the first full account was printed in 1894, ~70 years later, and its claimed source manuscript has never been found
 7. Dead-air reveal: the cave mouth breathes cold mist
 8. Loop: bedroom covers again
 
@@ -518,22 +543,24 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Farmstead exterior; Bedroom interior; Bell Witch Cave entrance; Timeline: 1817 → 1894 publication; Map card: Robertson County
 
 **Fact labels:**
-- *DOCUMENTED FACT:* John Bell was a farmer in Robertson County and died in 1820 (background knowledge, not re-verified this session; network blocked) | Ingram's book published 1894 (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Family and neighbours' reported phenomena (recorded second-hand, decades later)
-- *FOLKLORE:* The 'witch' poisoning Bell; Andrew Jackson's visit
-- *DRAMATISATION:* All voice lines invented for effect must be labelled; recommend no direct 'witch' dialogue
+- *DOCUMENTED FACT:* John Bell, farmer of Robertson County, died Dec 1820 (19th per Wikipedia, 20th per NC DNCR) [fact-checked 2026-11-27] | Ingram's 'An Authenticated History of the Famous Bell Witch' (1894) is the first full-length account; its claimed source manuscript has never been found [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Family and neighbours' reported phenomena, recorded second-hand decades later
+- *FOLKLORE:* The 'witch' poisoning Bell; the Andrew Jackson visit (no support found)
+- *DRAMATISATION:* No invented 'witch' dialogue; sounds only
 
 **References:**
 - 14 Horror Stories Animated (Llama Arts): views ~22M (WatchMojo 2023); url unverified; animated true-horror format
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Bell_Witch (background knowledge, not re-verified this session; network blocked)
-- Ingram, M. V. (1894). An Authenticated History of the Famous Bell Witch (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Bell_Witch
+- https://www.worldhistory.org/article/2810/the-bell-witch/
+- https://www.dncr.nc.gov/blog/2016/12/20/bewitched-tennessee
+- https://s3.amazonaws.com/sharetngov.tnsosfiles.com/tsla/exhibits/myth/bellwitch.htm
 
 ---
 
-## HAUNT-12: Why India Bans Entry to This Fort After Dark  (total 68/100)
+## Rank 12: HAUNT-12: Why India Bans Entry to This Fort After Dark  (total 68/100)
 
 - **Alt title:** The Ruin With a Government Sign: No Entry After Sunset
 - **Category:** Haunted fort / official ban  |  **Duration:** 60 s  |  **Difficulty:** Medium
@@ -562,7 +589,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Gateway with signboard; Ruined bazaar street; Palace ruins on the hill; Folklore sequence in 2.5D silhouette style; Map card: Rajasthan, Sariska
 
 **Fact labels:**
-- *DOCUMENTED FACT:* ASI signboard prohibits entry before sunrise/after sunset (secondary reports of the sign text)
+- *DOCUMENTED FACT:* ASI signboard prohibits entry before sunrise/after sunset (sign text known from secondary translations; official reasons reported as safety/wildlife, Sariska nearby). Opening hours conflict between sources [fact-checked 2026-11-27]
 - *EYEWITNESS CLAIM:* Visitor reports of sounds/unease
 - *FOLKLORE:* Sorcerer Singhia and Princess Ratnavati curse
 - *DRAMATISATION:* Lamp in window; folklore re-enactment
@@ -579,11 +606,11 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-13: 'The Most Haunted House in England' Burned in 1939  (total 65/100)
+## Rank 13: HAUNT-13: 'The Most Haunted House in England' Burned in 1939  (total 65/100)
 
 - **Alt title:** Writing Appeared on the Walls: 'Marianne, Please Help'
 - **Category:** Haunted house / investigation controversy  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** Borley Rectory, Essex. Built 1862-63, investigated and popularised by Harry Price (from 1929; leased 1937-38). Reported wall writings, a phantom nun and bell-ringing. It burned in February 1939. A 1956 SPR report was highly critical of Price.
+- **Subject:** Borley Rectory, Essex. Popularised by Harry Price from 1929 as 'the most haunted house in England'. Reported wall writings, a phantom nun and bells. The house was badly damaged by fire on 27 Feb 1939 (the insurer reportedly concluded the fire was deliberate) and demolished in 1944. In January 1956 an SPR report discredited Price's investigation.
 - **Why it has potential:** An iconic British case with a documented skeptical investigation, which makes a strong twist. Pencil writing on walls is a great visual.
 - **Scores:** demand 11, story 14, packaging 13, retention 13, feasibility 14
 
@@ -594,8 +621,8 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 2. Anchor: rectory, Bull family nun legend
 3. Stakes: Harry Price arrives (1929)
 4. Witness claims: bells, writings, objects thrown during the Foyster years
-5. Escalation: Price's lease, observers' log; fire in 1939
-6. Skeptic beat: the 1956 SPR report questioned Price and found natural or fraudulent causes
+5. Escalation: Price's lease and observers' log; the fire of 27 Feb 1939 (a witness claimed she saw the nun at a window during the blaze)
+6. Skeptic beat: the 1956 SPR report accused Price of exaggerating or shaping evidence; some residents later admitted hoaxing
 7. Dead-air reveal: the burned shell; a nun's silhouette in the garden
 8. Loop: blank wallpaper again
 
@@ -608,8 +635,8 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Rectory exterior; Hallway wall writing; Bell-pull row; Fire sequence; SPR evidence board
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Rectory built 1862-63; Price investigated and published; fire Feb 1939; SPR critical report 1956 (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Bells, wall writing, apparitions reported by residents and Price's observers
+- *DOCUMENTED FACT:* Fire 27 Feb 1939; demolished 1944 (Wikipedia; SPR Psi Encyclopedia) [fact-checked 2026-11-27] | SPR report of Jan 1956 discredited Price (reviewed in the Spectator, 27 Jan 1956) [fact-checked 2026-11-27] | Report authorship (Dingwall, Goldney, Hall): background knowledge, not confirmed in this check
+- *EYEWITNESS CLAIM:* Bells, wall writing, apparitions reported by residents and Price's observers; a nun at a window during the fire
 - *FOLKLORE:* The nun and the monk elopement legend
 - *DRAMATISATION:* Writing forming in real time; nun silhouette
 
@@ -618,13 +645,14 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Borley_Rectory (background knowledge, not re-verified this session; network blocked)
-- Dingwall, E. J., Goldney, K. M., Hall, T. H. (1956). The Haunting of Borley Rectory. SPR (background knowledge, not re-verified this session; network blocked)
-- Price, Harry (1940). The Most Haunted House in England (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Borley_Rectory
+- https://psi-encyclopedia.spr.ac.uk/articles/borley-rectory
+- https://archive.spectator.co.uk/article/27th-january-1956/9/the-end-of-borley-rectory
+- https://foxearth.org.uk/BorleyRectorySummary.html
 
 ---
 
-## HAUNT-14: The House That Scared Ryan Bergara Most  (total 63/100)
+## Rank 14: HAUNT-14: The House That Scared Ryan Bergara Most  (total 63/100)
 
 - **Alt title:** Atchison, Kansas: The Sallie House Scratches
 - **Category:** Haunted house  |  **Duration:** 60 s  |  **Difficulty:** Low
@@ -669,11 +697,11 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 
 ---
 
-## HAUNT-15: Al Capone Said a Ghost Followed Him Into His Cell  (total 63/100)
+## Rank 15: HAUNT-15: Al Capone Said a Ghost Followed Him Into His Cell  (total 63/100)
 
 - **Alt title:** The Prison Built for Total Silence
 - **Category:** Haunted prison  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** Eastern State Penitentiary, Philadelphia (opened 1829; closed 1971; now a museum). The solitary-confinement 'Pennsylvania system'. Al Capone was held there 1929-30, and stories say he complained of a ghost (reported). Visitors report voices in cellblocks.
+- **Subject:** Eastern State Penitentiary, Philadelphia: operated 1829-1971, now a museum. Al Capone served about 8 months (1929-30) for carrying a concealed weapon, in a reportedly furnished cell. Inmate hearsay says he screamed at night for 'Jimmy' to leave him alone, which later retellings tie to St. Valentine's Day Massacre victim James Clark. Visitors report voices in cellblocks.
 - **Why it has potential:** A celebrity hook (Capone) plus striking radial architecture. A Halloween-attraction audience. Moderate story strength.
 - **Scores:** demand 12, story 11, packaging 13, retention 12, feasibility 15
 
@@ -698,9 +726,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Castle-like prison exterior; Radial plan motion graphic; Cellblock corridor; Capone's furnished cell (recreation); Night corridor with flashlight
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Opened 1829, closed 1971, now a museum; Capone held there 1929-30 (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Visitor and staff reports of voices/shadows; Capone complaints reported second-hand
-- *FOLKLORE:* Identity of Capone's ghost
+- *DOCUMENTED FACT:* Operated 1829-1971; now a museum [fact-checked 2026-11-27] | Capone held 1929-30 (~8 months) for a concealed weapon; a 1929 newspaper described his furnished cell [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Visitor/staff reports of voices and shadows
+- *FOLKLORE:* Capone haunted by James Clark's ghost: inmate hearsay and later retellings
 - *DRAMATISATION:* Whispering cell, spy-hole glow
 
 **References:**
@@ -708,16 +736,18 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Eastern_State_Penitentiary (background knowledge, not re-verified this session; network blocked)
-- https://www.easternstate.org (background knowledge, not re-verified this session; network blocked)
+- https://www.travelchannel.com/shows/ghost-adventures/articles/eastern-state-haunted-history
+- https://www.oxygen.com/philly-homicide/crime-news/al-capone-philadelphia-prison-cell-eastern-state-penitentiary
+- https://atlasobscura.com/places/eastern-state-penitentiary
+- https://ushistory.org/TOUR/eastern-state-penitentiary.htm
 
 ---
 
-## HAUNT-16: Throw a Coin Off This Bridge, and It Comes Back  (total 63/100)
+## Rank 16: HAUNT-16: Throw a Coin Off This Bridge, and It Comes Back  (total 63/100)
 
 - **Alt title:** New Jersey's Clinton Road: The Legend You Test Yourself
 - **Category:** Haunted road (folklore)  |  **Duration:** 60 s  |  **Difficulty:** Low
-- **Subject:** Clinton Road, West Milford, New Jersey: a roughly 10-mile wooded road made famous by Weird NJ magazine. A legend says a ghost boy throws back coins tossed off a bridge. Phantom trucks and lights are also reported. Almost entirely folklore.
+- **Subject:** Clinton Road, West Milford, New Jersey: a wooded road popularised by Weird NJ. In the legend, coins dropped from the bridge over Clinton Brook at 'Dead Man's Curve' are returned at midnight by the ghost of a boy who drowned or fell (versions vary; even Weird NJ says it is unclear which bridge). Sixt named it America's most haunted road in 2024. Almost entirely folklore.
 - **Why it has potential:** An interactive dare hook; road visuals; a strong loop. Low documentation means it must be framed clearly as folklore.
 - **Scores:** demand 11, story 10, packaging 14, retention 12, feasibility 16
 
@@ -741,9 +771,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Forest road; Bridge over the stream; Truck headlights; Magazine-style collage (generic); Map card
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Clinton Road exists in West Milford, NJ, and is featured in Weird NJ (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Drivers' phantom truck/light reports
-- *FOLKLORE:* Ghost boy and the coins; most road legends
+- *DOCUMENTED FACT:* The road exists in West Milford and is featured in Weird NJ; named 'most haunted road in America' in a 2024 Sixt ranking (Patch) [fact-checked 2026-11-27] | Weird NJ writers reported many coins lying on the creek bed (they did not see any returned) [fact-checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Drivers' phantom-truck and light reports
+- *FOLKLORE:* Ghost boy and the coins (versions conflict: drowned, fell, hit by a car); which bridge is uncertain
 - *DRAMATISATION:* Coin returning
 
 **References:**
@@ -751,16 +781,18 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Clinton_Road (background knowledge, not re-verified this session; network blocked)
-- Weird NJ magazine coverage (Moran & Sceurman) (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Clinton_Road_(New_Jersey)
+- https://weirdnj.com/stories/clinton-road/
+- https://folklore.usc.edu/clinton-road-ghost/
+- https://patch.com/new-jersey/wayne/americas-most-haunted-road-located-west-milford-study-says
 
 ---
 
-## HAUNT-17: The Ghost Story That Was Made Up  (total 62/100)
+## Rank 17: HAUNT-17: The Ghost Story That Was Made Up  (total 62/100)
 
 - **Alt title:** Why Historians Say 'Chloe' Never Existed
 - **Category:** Debunk / invented legend  |  **Duration:** 60 s  |  **Difficulty:** High
-- **Subject:** The Myrtles Plantation, St. Francisville, Louisiana (built 1796). The famous 'Chloe' ghost (an enslaved woman blamed for poisoning a family) has no supporting historical record; researchers note family deaths attributed to her are recorded differently (e.g. disease). A widely shared 'ghost photo' from the 1990s is disputed. A documented 1871 shooting of William Winter on the property is reported.
+- **Subject:** The Myrtles Plantation, St. Francisville, Louisiana. The famous 'Chloe' ghost (an enslaved woman said to have poisoned the Woodruff family) has no supporting record. Researchers including Troy Taylor found no evidence she existed, and contemporary records indicate that Sara Woodruff and at least one daughter died of yellow fever, not poison. Historical records support only one murder on the property, that of William Winter. Slave records are incomplete, so absence is not total proof.
 - **Why it has potential:** A debunk twist ('the ghost was invented') is differentiated. But plantation and slavery content needs care, and the payoff is less scary. Lower scores reflect sensitivity.
 - **Scores:** demand 12, story 13, packaging 12, retention 12, feasibility 13
 
@@ -770,8 +802,8 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 1. Cold open: figure dissolves
 2. Anchor: house, built 1796
 3. Legend summary (labelled FOLKLORE, no re-enactment of poisoning)
-4. Records check: no 'Chloe' in documents (reported)
-5. Documented history: William Winter shooting 1871 (reported)
+4. Records check: no 'Chloe' in documents; the Woodruff deaths are recorded as yellow fever
+5. Documented history: the murder of William Winter (date to confirm before scripting)
 6. Why legends get invented: tourism; the erasure of real enslaved people's stories
 7. Dead-air reveal: the mirror in the hall, empty
 8. Loop: porch
@@ -785,9 +817,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** House exterior with porch; Hall mirror; Archive ledger motion graphic; Tour-brochure collage (generic); Map card
 
 **Fact labels:**
-- *DOCUMENTED FACT:* House built 1796; William Winter shot on property 1871 (reported) (background knowledge, not re-verified this session; network blocked)
+- *DOCUMENTED FACT:* No record of an enslaved woman named Chloe/Cleo owned by the Woodruffs (Wikipedia 'Legends of Myrtles Plantation'; Grunge) [fact-checked 2026-11-27] | Woodruff deaths attributed in records to yellow fever [fact-checked 2026-11-27] | Records indicate only the murder of William Winter on the property; the 1871 date was NOT confirmed in this check
 - *EYEWITNESS CLAIM:* Visitor ghost sightings; the disputed photograph
-- *FOLKLORE:* Chloe; poisoning story; most ghost identities
+- *FOLKLORE:* Chloe; the poisoning story; most ghost identities (possibly a composite grown through tourism)
 - *DRAMATISATION:* Figure dissolve; no depiction of enslaved people as ghosts or victims
 
 **References:**
@@ -795,16 +827,18 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - Room 209 Wingate hotel clip (Jimmynut22): views 13M+ (Snopes); url unverified; single-detail reveal; staged hoax, a cautionary example
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Myrtles_Plantation (background knowledge, not re-verified this session; network blocked)
-- Taylor, Troy. Myrtles Plantation research notes (various) (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Legends_of_Myrtles_Plantation
+- https://en.wikipedia.org/wiki/Myrtles_Plantation
+- https://grunge.com/759525/this-louisiana-plantation-is-said-to-be-one-of-the-most-haunted-places-in-america
+- https://intelligenttravel.nationalgeographic.com/2008/10/31/myrtles_plantation_the_souths/
 
 ---
 
-## HAUNT-18: The Island You're Not Allowed to Visit  (total 61/100)
+## Rank 18: HAUNT-18: The Island You're Not Allowed to Visit  (total 61/100)
 
 - **Alt title:** Poveglia: Plague Island Myth vs Record
 - **Category:** Forbidden island (folklore-heavy)  |  **Duration:** 60 s  |  **Difficulty:** Medium
-- **Subject:** Poveglia, Venetian lagoon, Italy. Historically used as a quarantine/inspection station (from 1793, reported) and later as a care home/hospital until 1968. Claims of plague ash in the soil and an evil doctor are internet folklore. Public access is restricted.
+- **Subject:** Poveglia, Venetian lagoon, Italy. A quarantine station for ships (from 1776 per Wikipedia; lazaretto period 1793-1814 per other summaries), then a psychiatric hospital from 1922 and a long-term care facility, closed in 1968. Public access is restricted. Death tolls of '100,000-160,000' and the claim that half the soil is ash are unsupported or inconsistent; the 'mad doctor' bell-tower story is a tale.
 - **Why it has potential:** 'Forbidden island' is a strong hook; the bell tower silhouette. Weak documentation lowers story and accuracy-safe stakes.
 - **Scores:** demand 12, story 10, packaging 14, retention 12, feasibility 13
 
@@ -814,7 +848,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 1. Cold open: bell
 2. Anchor: lagoon location, access restricted
 3. Myth list: ash soil, mad doctor
-4. Records: quarantine station; later hospital closed 1968
+4. Records: quarantine station (1776/1793, disputed), hospital/care home closed 1968
 5. Skeptic beat: the plague-burial archaeology is mainly on other lagoon islands (reported)
 6. Dead-air reveal: the bell rings once across the water
 7. Loop: fog and the bell
@@ -828,9 +862,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Boat approach in fog; Bell tower; Abandoned hospital wing; Map of the Venetian lagoon islands; Myth-vs-record split screen
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Island used for quarantine/inspection and later as a hospital until 1968 (background knowledge, not re-verified this session; network blocked)
+- *DOCUMENTED FACT:* Quarantine role (start 1776 or 1793; sources disagree); hospital/care use until 1968 [fact-checked 2026-11-27]
 - *EYEWITNESS CLAIM:* Few credible first-hand reports
-- *FOLKLORE:* Ash soil, mad doctor, bell tower death
+- *FOLKLORE:* Ash soil; 160,000 victims; the mad doctor in the bell tower
 - *DRAMATISATION:* Ringing bell
 
 **References:**
@@ -838,20 +872,22 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Poveglia (background knowledge, not re-verified this session; network blocked)
-- https://www.atlasobscura.com/places/poveglia (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Poveglia
+- https://atlasobscura.com/places/poveglia-plague-island
+- https://www.historyhit.com/?p=5199970
+- https://faroutmagazine.co.uk/poveglia-the-italian-island-that-the-living-forgot/
 
 ---
 
-## HAUNT-19: Australia's 'Most Haunted House'  (total 59/100)
+## Rank 19: HAUNT-19: Australia's 'Most Haunted House'  (total 59/100)
 
 - **Alt title:** The Homestead Where the Owner Still Walks the Balcony
 - **Category:** Haunted homestead (Australia)  |  **Duration:** 60 s  |  **Difficulty:** Low
-- **Subject:** Monte Cristo Homestead, Junee, New South Wales (built 1880s by Christopher Crawley). The family who have owned it since the 1960s promote it as Australia's most haunted house, with reports of Mrs Crawley's presence and several tragic legends.
+- **Subject:** Monte Cristo Homestead, Junee, New South Wales. Built by Christopher Crawley (family moved in 1884; completed c.1885). Elizabeth Crawley lived there until her death in 1948. Reg and Olive Ryan bought it in 1963 for GBP 1,000, restored it and ran it as 'Australia's most haunted house'. Closed to the public from January 2025 and listed for sale in 2026. Ghost claims come mainly from the owners and tour guests.
 - **Why it has potential:** Fresh for a US/UK audience; a balcony silhouette. Thin documentation; the claims mostly come from owners with a tourism interest.
 - **Scores:** demand 9, story 12, packaging 12, retention 12, feasibility 14
 
-**Hook (0-15 s):** 0-2 s: a Victorian balcony at dusk, a woman's silhouette in black. VO: 'The owners say she never left her house.' 2-6 s: card 'JUNEE, NEW SOUTH WALES'. 6-15 s: 'Guests report a woman in black on the balcony. Tour lore says the widow spent decades in mourning (unverified).'
+**Hook (0-15 s):** 0-2 s: a Victorian balcony at dusk, a woman's silhouette in black. VO: 'The family who bought this house in 1963 said its first owner never left.' 2-6 s: card 'JUNEE, NEW SOUTH WALES'. 6-15 s: 'For sixty years they ran ghost tours here. In 2025 the doors closed to the public, and the house went up for sale.'
 
 **Structure:**
 1. Cold open: balcony figure
@@ -862,7 +898,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 6. Dead-air reveal: the rocking chair moves
 7. Loop: balcony
 
-**Retention moments:** 0 s figure; ~12 s mourning detail; ~30 s legends; ~40 s skeptic; ~50 s chair; loop
+**Retention moments:** 0 s figure; ~12 s 'closed and up for sale' detail; ~30 s legends; ~40 s skeptic; ~50 s chair; loop
 
 **Thumbnail / cover frame:** Red-brick homestead at twilight, a dark figure on the iron-lace balcony; text 'SHE STAYED'.
 
@@ -871,9 +907,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Homestead exterior; Balcony; Parlour; Stables; Map of NSW
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Homestead built 1880s by the Crawley family in Junee (background knowledge, not re-verified this session; network blocked) | The '23 years of mourning' detail is from tour lore; verify (background knowledge, not re-verified this session; network blocked)
+- *DOCUMENTED FACT:* Built by Christopher Crawley c.1884-85; Elizabeth Crawley died 1948; the Ryans bought it in 1963; closed to the public Jan 2025; listed for sale 2026 [fact-checked 2026-11-27]
 - *EYEWITNESS CLAIM:* Owner and guest apparition reports
-- *FOLKLORE:* Stable-boy and maid stories
+- *FOLKLORE:* Stable-boy and maid stories; the 'widow in mourning' detail (NOT verified; removed from the hook)
 - *DRAMATISATION:* Rocking chair
 
 **References:**
@@ -881,26 +917,28 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Monte_Cristo_Homestead (background knowledge, not re-verified this session; network blocked)
-- https://www.montecristo.com.au (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Monte_Cristo_Homestead
+- https://www.canberratimes.com.au/story/4158537/australias-most-haunted-home/
+- https://region.com.au/meet-the-residents-of-australias-most-haunted-house-in-junee/478319
+- https://www.realcommercial.com.au/news/australias-most-haunted-house-monte-cristo-listed-for-sale
 
 ---
 
-## HAUNT-20: He Lived 50 Years in a 'Haunted' Inn  (total 57/100)
+## Rank 20: HAUNT-20: He Lived for Decades in a 'Haunted' Inn  (total 56/100)
 
 - **Alt title:** The Ancient Ram Inn's Bishop's Room
 - **Category:** Haunted inn (UK)  |  **Duration:** 60 s  |  **Difficulty:** Low
-- **Subject:** The Ancient Ram Inn, Wotton-under-Edge, Gloucestershire: claimed medieval origins. Owner John Humphries (bought it 1968, died 2017) reported decades of phenomena; the 'Bishop's Room' is said to be the most active. Lurid burial claims are unsupported.
+- **Subject:** The Ancient Ram Inn, Wotton-under-Edge, Gloucestershire: a Grade II* listed former pub with claimed 12th-century origins. The late owner John Humphries reported decades of hauntings and attacks; the inn is now held by his daughter Caroline. Burial and 'pagan site' claims are unsupported. The 'Bishop's Room' and the 1968 purchase / 2017 death dates were NOT confirmed in this check.
 - **Why it has potential:** A creaky timber-frame interior is great to animate. Low global awareness and many unsupported claims.
-- **Scores:** demand 9, story 11, packaging 12, retention 11, feasibility 14
+- **Scores:** demand 9, story 10, packaging 12, retention 11, feasibility 14
 
-**Hook (0-15 s):** 0-2 s: a timber-beamed bedroom, the bed sheet pressed down by an invisible weight. VO: 'He bought the inn in 1968. He said something dragged him out of bed the first night.' 2-6 s: card 'WOTTON-UNDER-EDGE, ENGLAND'. 6-15 s: 'He lived there almost 50 years. Ghost hunters still queue for one room.'
+**Hook (0-15 s):** 0-2 s: a timber-beamed bedroom, the bed sheet pressed down by an invisible weight. VO: 'The man who owned this inn for decades said something attacked him in his sleep.' 2-6 s: card 'WOTTON-UNDER-EDGE, ENGLAND'. 6-15 s: 'He never moved out. Ghost hunters still queue to sleep here.'
 
 **Structure:**
 1. Cold open: indented bed
-2. Anchor: 1968 purchase (reported)
+2. Anchor: John Humphries' long ownership (exact purchase year to confirm)
 3. Claim: first-night dragging
-4. Escalation: the Bishop's Room
+4. Escalation: the most 'active' room, as reported by paranormal sources (name to confirm)
 5. Skeptic beat: unsupported burial claims; old buildings and suggestion
 6. Dead-air reveal: the doorway darkens
 7. Loop: bed
@@ -914,9 +952,9 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 **Scenes:** Inn exterior; Bishop's Room; Stairwell; Map card; Skeptic card
 
 **Fact labels:**
-- *DOCUMENTED FACT:* Inn exists in Wotton-under-Edge; John Humphries owned it from 1968 (background knowledge, not re-verified this session; network blocked)
-- *EYEWITNESS CLAIM:* Humphries' and visitors' reports
-- *FOLKLORE:* Burial/sacrifice claims
+- *DOCUMENTED FACT:* Grade II* listed former pub in Wotton-under-Edge; Humphries was the long-time owner and his daughter Caroline now owns it (Wikipedia; Higgypop) [fact-checked 2026-11-27] | 1968 purchase, 2017 death and the 'Bishop's Room': NOT confirmed
+- *EYEWITNESS CLAIM:* Humphries' and visitors' reports of attacks/entities
+- *FOLKLORE:* Burial/sacrifice claims, the 5,000-year-old pagan site, the 1145 build date (a myth-busting blog disputes the medieval claims)
 - *DRAMATISATION:* Bed indent; doorway figure
 
 **References:**
@@ -924,5 +962,7 @@ Agent 5. Format: 9:16 Short, ~60 s, built on the FORMAT TEMPLATE in `RESEARCH/HA
 - GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham): views ~461K (vidIQ snapshot); url unverified; skeptic-framing title
 
 **Sources:**
-- https://en.wikipedia.org/wiki/Ancient_Ram_Inn (background knowledge, not re-verified this session; network blocked)
-- BBC/Gloucestershire Live coverage of John Humphries (2017 obituary) (background knowledge, not re-verified this session; network blocked)
+- https://en.wikipedia.org/wiki/Ancient_Ram_Inn
+- https://www.travelchannel.com/shows/ghost-adventures/articles/ancient-ram-inns-haunted-history
+- https://higgypop.com/news/the-ancient-ram-inn-history
+- https://triskeleheritage.triskelepublishing.com/2023/11/13/mediaeval-myth-busting-blog-26-the-ancient-ram-inn/
