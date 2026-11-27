@@ -243,3 +243,167 @@ Reserve pool of 5 scuba concepts (SCUBA-R1..R5), none of them in VIDEO_IDEAS/SCU
 - https://time.com/2954706/jacques-cousteau-conshelf-ii/
 - https://www.cousteau.org/know/inventions/conshelf/
 - https://www.ocean.si.edu/human-connections/exploration/underwater-habitats
+
+## HAUNTED
+
+Reserve pool (Agent 5), HAUNT-R1..R5, separate from HAUNTED_20. Facts checked 2026-11-27 against 2+ sources each. Machine copy: `HAUNT_reserve.json`. Same template and labelling rules as `VIDEO_IDEAS/HAUNTED_20/CONCEPTS.md`. St. Augustine Lighthouse was considered and dropped: its story centres on drowned children, including an unnamed child.
+
+| ID | Title | Demand | Story | Pack | Ret | Feas | Total |
+|---|---|---|---|---|---|---|---|
+| HAUNT-R1 | The Palace CCTV Ghost That Was Never Explained | 13 | 14 | 17 | 15 | 16 | **75** |
+| HAUNT-R2 | The House Built on a Gallows Site | 12 | 13 | 14 | 13 | 15 | **67** |
+| HAUNT-R3 | Scientists Sent Volunteers Into 'Haunted' Vaults | 11 | 13 | 14 | 13 | 15 | **66** |
+| HAUNT-R4 | Samuel Johnson Investigated a Ghost (1762) | 10 | 15 | 13 | 13 | 14 | **65** |
+| HAUNT-R5 | The Village With a Ghost for Every Lane | 10 | 11 | 13 | 12 | 15 | **61** |
+
+### HAUNT-R1: The Palace CCTV Ghost That Was Never Explained (75/100)
+
+- **Alt title:** Hampton Court, 2003: Fire Doors Fly Open, Then a Robed Figure Shuts Them
+- **Category:** Caught on CCTV / royal palace | 55 s | Difficulty Low
+- **Subject:** Hampton Court Palace, October 2003. Fire-door alarms near Clock Court kept going off. CCTV showed the doors flying open, then a grainy robed figure closing them. Historic Royal Palaces' own pages say there is no explanation; the press nicknamed it 'Skeletor'. Accounts differ on how many nights it happened, and a separate 2015 incident was suspected trickery.
+- **Why:** A real security-camera artefact on a famous royal palace, with the palace's own 'no explanation' statement. Perfect 'one wrong detail' frame (CCTV timestamp + figure). Caught-on-camera is a proven demand format (Top5s, Chills).
+
+**Hook (0-15 s):** 0-2 s: CCTV-style grey frame, timestamp ticking, fire doors burst open on an empty corridor. VO: 'October 2003. These palace fire doors opened by themselves on camera.' 2-6 s: card 'HAMPTON COURT PALACE'. 6-15 s: 'Security ran to close them. Then the camera caught someone else doing it, someone in a long robe.'
+
+**Structure:** Cold open: CCTV doors burst open → Anchor: Hampton Court, new exhibition, Oct 2003 → Stakes: alarms, guards find no one → Witness/artefact: robed figure closes the doors (recreated, not real footage) → Escalation: worldwide headlines; the 'Skeletor' nickname → Skeptic beat: grainy CCTV, a staff prank never ruled out, accounts vary; a 2015 case was suspected trickery → Dead-air reveal: frame-by-frame zoom, the figure's sleeve is the wrong era → Loop: the doors burst open again
+
+**Retention:** 0 s doors burst; ~10 s 'someone else'; ~25 s robed figure; ~38 s 'palace says no explanation'; ~48 s frame-step zoom; loop
+
+**Thumbnail:** CCTV frame with timestamp, open double doors, a pale robed figure half in shadow; text 'NO EXPLANATION'.
+
+**Animation:** 3D corridor rendered through a CCTV post-process (low frame rate, noise, timestamp overlay); recreation of the footage only.  **Scenes:** Palace exterior at night; Clock Court corridor with fire doors (CCTV angle); Security office monitors; Newspaper-headline motion card (generic); Frame-by-frame zoom sequence
+
+**Fact labels:**
+- *DOCUMENTED FACT:* October 2003 alarms and CCTV of the doors opening, then a robed figure closing them (Historic Royal Palaces; NBC/UPI Dec 2003) [checked 2026-11-27] | The palace states there is no explanation [checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Guards found no one; a tourist reported seeing a figure nearby
+- *FOLKLORE:* Identification with Tudor-era ghosts; other Hampton Court legends (Catherine Howard)
+- *DRAMATISATION:* All CCTV shots are 3D recreations; the real footage is not used; sleeve-detail reveal
+
+**References:** TRUE Ghost Caught on Camera #1 (Top5s, ~62M (low-reliability blog)); GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham, ~461K (vidIQ snapshot)); Hampton Court CCTV coverage (NBC News / UPI (2003), n/a (news))
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Hampton_Court_ghost
+- https://www.hrp.org.uk/hampton-court-palace/history-and-stories/historic-hauntings-at-hampton-court-palace/
+- https://www.nbcnews.com/id/wbna3760119
+- https://www.upi.com/Odd_News/2003/12/19/Palace-video-captures-spooky-image/31851071861770/
+
+### HAUNT-R2: The House Built on a Gallows Site (67/100)
+
+- **Alt title:** San Diego's Whaley House and the Footsteps of 'Yankee Jim'
+- **Category:** Haunted house / execution site | 60 s | Difficulty Low
+- **Subject:** Whaley House, Old Town San Diego, built by Thomas Whaley c.1857 (some say 1855/56) on ground where James 'Yankee Jim' Robinson was hanged in 1852 (marker date 18 Sept 1852, for grand larceny). Whaley reportedly attributed heavy footsteps upstairs to Robinson. The house also served as a store, courthouse and theatre, and is now a county-owned museum.
+- **Why:** Documented gallows history plus a builder who himself reported footsteps; a well-known US haunt (often called one of the most haunted houses in America). Interior is easy to model.
+
+**Hook (0-15 s):** 0-2 s: a staircase, heavy boot footsteps upstairs, nobody there. VO: 'The man who built this house said he heard boots upstairs.' 2-6 s: card 'SAN DIEGO, 1857'. 6-15 s: 'He knew the ground. Five years earlier he'd watched a man hanged on this exact spot.'
+
+**Structure:** Cold open: footsteps on empty stairs → Anchor: Whaley builds in Old Town → Stakes: the 1852 hanging on the site (historical marker) → Witness claim: Whaley's footsteps (reported) → Escalation: house becomes courthouse; later museum ghost reports → Skeptic beat: details of the hanging are embellished by ghost tours; dates disputed → Dead-air reveal: the upstairs floorboards dip under an unseen weight → Loop: stairs again
+
+**Retention:** 0 s footsteps; ~12 s 'hanged on this spot'; ~28 s footsteps claim; ~40 s embellishment skeptic; ~50 s floorboard reveal; loop
+
+**Thumbnail:** Brick house at night, one upstairs window lit, faint gallows silhouette in the yard; text 'BUILT ON A GALLOWS'.
+
+**Animation:** Procedural 1850s brick house, oil-lamp lighting, dust; silhouette figures, no execution depicted (rope/beam only as an outline in the flashback).  **Scenes:** Old Town dirt street, 1850s; House exterior; Staircase and upstairs hall; Courtroom room; Historical-marker motion card
+
+**Fact labels:**
+- *DOCUMENTED FACT:* Robinson hanged in 1852 (historical marker: 18 Sept 1852, grand larceny); Whaley House built c.1857 on that ground; used as store/courthouse/theatre; now a museum [checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Thomas Whaley's reported footsteps (an 1860 journal reference, per secondary sources); visitor reports
+- *FOLKLORE:* Botched-hanging details; other family ghosts
+- *DRAMATISATION:* Floorboard reveal; the execution is not shown
+
+**References:** Stanley Hotel / Conjuring / Queen Mary (Sam and Colby, 43M / 39M / 22M per Variety); GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham, ~461K (vidIQ snapshot))
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Whaley_House_(San_Diego,_California)
+- https://www.hmdb.org/m.asp?m=296375
+- https://grunge.com/1020536/inside-the-19th-century-execution-of-yankee-jim-robinson
+- https://www.sandiego.org/members/museums/whaley-house-museum.aspx
+
+### HAUNT-R3: Scientists Sent Volunteers Into 'Haunted' Vaults (66/100)
+
+- **Alt title:** The Edinburgh Vaults Experiment: Did They Know Which Rooms Were Haunted?
+- **Category:** Science vs haunting | 60 s | Difficulty Low
+- **Subject:** Edinburgh's South Bridge Vaults. Psychologist Richard Wiseman and colleagues ran field studies there and at Hampton Court (published in the British Journal of Psychology, 2003). Press reports say 51% of volunteers reported unusual experiences in the vaults labelled 'haunted' vs 35% in 'ghost-free' ones. The paper concluded that environmental factors (draughts, lighting, magnetic variance, expectation) can explain many experiences.
+- **Why:** A real experiment with numbers is a fresh, credible angle that rides the 2026 skeptic trend. Underground vaults are a strong, cheap visual.
+
+**Hook (0-15 s):** 0-2 s: candle in a stone vault, flame bends sideways. VO: 'Scientists sent hundreds of people into these vaults.' 2-6 s: card 'EDINBURGH, SOUTH BRIDGE VAULTS'. 6-15 s: 'Some rooms were called haunted, others ghost-free. The volunteers weren't told which was which. So what happened?'
+
+**Structure:** Cold open: candle flame bends → Anchor: vault history, a reputation for hauntings → Stakes: the experiment design → Result: 51% vs 35% reported experiences (reported) → Twist: the 'haunted' rooms were darker, colder and bigger → Skeptic/believer balance: Wiseman called parts of the result a mystery → Dead-air reveal: a draught explains the flame, then a second flame bends the other way → Loop: candle again
+
+**Retention:** 0 s flame; ~12 s 'weren't told which'; ~30 s 51 vs 35 percent; ~40 s environment twist; ~50 s second flame; loop
+
+**Thumbnail:** Brick-vaulted tunnel, a lone volunteer silhouette with a clipboard, a red 'HAUNTED' tag on one archway; text '51%'.
+
+**Animation:** Procedural brick vaults, candle and torch volumetrics, data-viz bar overlay (51 vs 35).  **Scenes:** Old Town street above; Vault corridors; Volunteer silhouettes with clipboards; Bar-chart motion graphic; Hampton Court gallery cameo
+
+**Fact labels:**
+- *DOCUMENTED FACT:* Wiseman et al. (2003, British Journal of Psychology) studied Hampton Court and the South Bridge Vaults; experiences correlated with environmental factors [checked 2026-11-27] | 51% vs 35% figures from press coverage of the vaults study (ABC News); the year (likely 2001) is not confirmed
+- *EYEWITNESS CLAIM:* Volunteers' reported sensations (temperature, presence)
+- *FOLKLORE:* Individual vault ghost stories told on tours
+- *DRAMATISATION:* Flame shots; volunteers as silhouettes
+
+**References:** GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham, ~461K (vidIQ snapshot)); 14 Horror Stories Animated (Llama Arts, ~22M (WatchMojo 2023))
+
+**Sources:**
+- https://uhra.herts.ac.uk/id/eprint/22901/
+- https://www.research.ed.ac.uk/en/publications/an-investigation-into-alleged-hauntings/
+- https://abcnews.com/Technology/story?id=98630
+
+### HAUNT-R4: Samuel Johnson Investigated a Ghost (1762) (65/100)
+
+- **Alt title:** 'Scratching Fanny': The Ghost That Ended in the Pillory
+- **Category:** Exposed hoax / Georgian London | 60 s | Difficulty Medium
+- **Subject:** The Cock Lane ghost, London, 1762. Knocking and scratching sounds centred on young Elizabeth Parsons were said to be the spirit of Fanny Lynes accusing William Kent of poisoning her. A committee including Samuel Johnson held séances (Johnson's account of 1 Feb 1762 was published in The Gentleman's Magazine). When the girl was controlled the sounds stopped; she was reportedly caught with a sounding board. Her father Richard Parsons was convicted and pilloried.
+- **Why:** A famous writer as ghost-buster, a false murder accusation driven by a 'ghost', and a clear twist. Differentiated debunk content.
+
+**Hook (0-15 s):** 0-2 s: Georgian bedroom, scratching on the bed frame by candlelight. VO: 'In 1762, a ghost in London accused a man of murder.' 2-6 s: card 'COCK LANE, LONDON, 1762'. 6-15 s: 'Crowds queued to hear it. Then Samuel Johnson, the dictionary man, came to test it.'
+
+**Structure:** Cold open: scratching → Anchor: Cock Lane, 1762, crowds → Stakes: the 'ghost' accuses Kent of poisoning (allegation, later disproved) → Investigation: committee séance with Johnson → Twist: hands above the covers, the sounds stop; sounding board found (reported) → Aftermath: conspiracy trial; father pilloried → Dead-air reveal: after everyone leaves, one faint scratch → Loop: bedroom scratching
+
+**Retention:** 0 s scratch; ~6 s 'accused a man of murder'; ~14 s Johnson; ~35 s hands-above-covers test; ~48 s faint scratch; loop
+
+**Thumbnail:** Candlelit four-poster bed, crowd silhouettes at the door, a quill-and-wig investigator; text 'GHOST ON TRIAL'.
+
+**Animation:** Georgian interiors, candlelight, crowd silhouettes, engraving-style 2.5D overlays.  **Scenes:** Narrow London lane with crowds; Bedroom séance; Committee in the clergyman's house; Guildhall court; Pillory in a square (no violence)
+
+**Fact labels:**
+- *DOCUMENTED FACT:* 1762 Cock Lane case; Johnson's séance account (1 Feb 1762) published in The Gentleman's Magazine; charges of fraud and conviction of Richard Parsons (pillory and prison) [checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Witnesses reported knocks and scratches answering questions
+- *FOLKLORE:* That Fanny's spirit was real; the poisoning accusation (unproven, Kent cleared)
+- *DRAMATISATION:* Final faint scratch; no named living descendants. Kent is shown only as an accused man later cleared
+
+**References:** GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham, ~461K (vidIQ snapshot)); 14 Horror Stories Animated (Llama Arts, ~22M (WatchMojo 2023))
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Cock_Lane_ghost
+- https://psi-encyclopedia.spr.ac.uk/articles/cock-lane-ghost/
+- https://www.drjohnsonshouse.org/post/the-cock-lane-ghost
+
+### HAUNT-R5: The Village With a Ghost for Every Lane (61/100)
+
+- **Alt title:** Pluckley: How a Kent Village Became 'England's Most Haunted'
+- **Category:** Haunted village | 60 s | Difficulty Low
+- **Subject:** Pluckley, Kent. First called 'the most haunted village in England' by Frederick Sanders in the Kentish Express (1950). The 1989 Guinness Book of Records described it that way with 12 ghosts; Guinness later 'rested' the category. A 2025 University of the West of England study traced how the legends grew. Ghost counts range from 10 to 17.
+- **Why:** A countdown structure across one village (lanes, church, pub, woods) with an honest 'how a legend is manufactured' twist. Weaker scares.
+
+**Hook (0-15 s):** 0-2 s: foggy lane, a road sign 'PLUCKLEY'. VO: 'A record book once called this England's most haunted village.' 2-6 s: card 'KENT, GUINNESS 1989: 12 GHOSTS'. 6-15 s: 'A highwayman, a screaming man, a lady in red. Researchers went looking for where they came from.'
+
+**Structure:** Cold open: lane and sign → Anchor: 1989 Guinness entry → Rapid tour: 4 ghosts in 20 s (each labelled FOLKLORE) → Origin: the 1950 Kentish Express article → Skeptic beat: UWE research on how the legends grew; Guinness 'rested' the category → Dead-air reveal: the empty lane, now a figure by the tree → Loop: sign
+
+**Retention:** 0 s sign; ~8 s '12 ghosts'; ~15-35 s ghost montage; ~40 s '1950 newspaper invented the title' twist; ~50 s figure; loop
+
+**Thumbnail:** Misty English lane, church tower, five faint figures at different distances; text '12 GHOSTS'.
+
+**Animation:** Procedural village lanes, church, pub sign, woods; ghosts as volumetric silhouettes.  **Scenes:** Village sign and lane; Churchyard; Pub exterior; Screaming Woods edge; Newspaper/Guinness-style cards (generic, no logos)
+
+**Fact labels:**
+- *DOCUMENTED FACT:* 1950 Kentish Express article by Frederick Sanders; 1989 Guinness description (12 ghosts); the category later 'rested'; 2025 UWE research [checked 2026-11-27]
+- *EYEWITNESS CLAIM:* Residents' and visitors' sightings
+- *FOLKLORE:* Every individual ghost story
+- *DRAMATISATION:* Ghost montage figures
+
+**References:** GHOST VIDEOS So Real Even a Cop Can't Debunk Them (Slapped Ham, ~461K (vidIQ snapshot)); Stanley Hotel / Conjuring / Queen Mary (Sam and Colby, 43M / 39M / 22M per Variety)
+
+**Sources:**
+- https://en.wikipedia.org/wiki/Pluckley
+- https://www.uwe.ac.uk/news/research-uncovers-truth-about-pluckleys-ghosts
+- https://higgypop.com/news/is-pluckley-still-the-most-haunted-village-in-england

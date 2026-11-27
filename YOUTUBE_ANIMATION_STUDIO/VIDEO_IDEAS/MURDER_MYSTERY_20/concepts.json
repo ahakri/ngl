@@ -75,7 +75,12 @@
       "feasibility": 16
     },
     "total": 84,
-    "rank": 1
+    "rank": 1,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "fact-checked in production (skipped by Agent 4 per coordinator)",
+      "notes": []
+    }
   },
   {
     "id": "MURDER-02",
@@ -146,7 +151,12 @@
       "feasibility": 15
     },
     "total": 83,
-    "rank": 2
+    "rank": 2,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "fact-checked in production (skipped by Agent 4 per coordinator)",
+      "notes": []
+    }
   },
   {
     "id": "MURDER-03",
@@ -209,7 +219,14 @@
       "feasibility": 16
     },
     "total": 82,
-    "rank": 3
+    "rank": 3,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "sources-cited, not re-searched",
+      "notes": [
+        "Core facts unchanged; FBI case page cited. Re-check $5,800 figure wording at SCRIPT stage."
+      ]
+    }
   },
   {
     "id": "MURDER-04",
@@ -273,7 +290,14 @@
       "feasibility": 18
     },
     "total": 81,
-    "rank": 4
+    "rank": 4,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2 sources)",
+      "notes": [
+        "Solvers, Dec 2020 FBI confirmation and method confirmed via Wolfram blog, arXiv 2403.17350, Rolling Stone (gathered in earlier pass)."
+      ]
+    }
   },
   {
     "id": "MURDER-05",
@@ -281,7 +305,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "Footprints Led to the Farm — None Led Away",
     "alt_title": "Someone Lived in Their Attic for Days",
-    "subject": "Hinterkaifeck farmstead, Bavaria, Mar/Apr 1922: six residents killed; reported prior signs — footprints in snow from the forest to the farm but none back, footsteps in the attic, an unfamiliar newspaper, missing keys; the previous maid had left claiming the house was haunted; someone apparently fed the livestock afterwards. Unsolved.",
+    "subject": "Hinterkaifeck farmstead, Bavaria, 1922: the six residents were killed on the evening of 31 March and found on 4 April. Neighbours later recalled the farmer, Andreas Gruber, reporting footprints in the snow leading from the woods to the farm (ending at the barn) and none leading away, footsteps in the attic, an unfamiliar newspaper, and missing house keys. The previous maid had quit; the new maid started work the very day of the killings. In the following days visitors saw chimney smoke and the livestock had been fed: the perpetrator apparently stayed. Unsolved; 100+ suspects questioned (latest 1986).",
     "why_potential": "MrBallen 4.5M + Thoughty2 872K show demand; the footprints-in-snow image is uniquely chilling yet non-graphic; the pre-crime 'warnings' form a natural escalating evidence cadence. Constraint: two child victims → must be handled entirely off-screen with no description of injuries; YouTube Jan 2026 relaxation excludes child-abuse topics, so ad risk is moderate.",
     "references": [
       {
@@ -300,16 +324,16 @@
       }
     ],
     "duration_s": 60,
-    "hook_15s": "0-2s: Fresh footprints in snow lead from a dark forest to a farmhouse door; 'The footprints went in. None came out.' 2-6s: Attic floorboards creak, dust falls. 6-15s: 'Bavaria, 1922. The farmer told neighbours someone was in his house. Days later the whole family was gone — and someone kept feeding the cattle.'",
+    "hook_15s": "0-2s: Fresh footprints in snow lead from a dark forest to a farm barn; 'The footprints went in. None came out.' 2-6s: Attic floorboards creak, dust falls. 6-15s: 'Bavaria, 1922. The farmer told neighbours someone was in his house. Days later the whole family was gone — and someone kept feeding the cattle.'",
     "structure": [
-      "Cold open: one-way footprints",
-      "Warning 1: footsteps in the attic",
-      "Warning 2: strange newspaper, missing keys",
-      "Warning 3: previous maid quit (reported claim: haunted — label EYEWITNESS CLAIM)",
-      "New maid arrives that very day (documented)",
-      "Discovery days later — described only as 'six people were killed'; memorial card",
-      "After: smoke from chimney, animals fed (reported)",
-      "Theories labelled; no living persons named",
+      "Cold open: one-way footprints (woods to barn)",
+      "Warning 1: footsteps in the attic (recalled by neighbours)",
+      "Warning 2: unfamiliar newspaper, missing keys",
+      "Warning 3: previous maid quit (reported; 'haunted' = EYEWITNESS CLAIM)",
+      "New maid starts work that very day, 31 Mar 1922 (documented)",
+      "Discovery on 4 April, described only as 'six people were killed'; memorial card",
+      "After: chimney smoke, livestock fed — someone stayed (reported by visitors)",
+      "Unsolved; 2007 police-academy cold-case review; theories labelled, no living persons named",
       "Open question + loop to footprints"
     ],
     "retention_moments": [
@@ -330,8 +354,9 @@
       "Memorial card"
     ],
     "sources": [
+      "https://en.wikipedia.org/wiki/Hinterkaifeck_murders",
       "https://www.mentalfloss.com/crime/chilling-story-hinterkaifeck-killings-germanys-most-famous-unsolved-crime",
-      "https://en.wikipedia.org/wiki/Hinterkaifeck_murders"
+      "https://www.historicmysteries.com/hinterkaifeck-murders/"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -344,10 +369,18 @@
     "total": 80,
     "rank": 5,
     "fact_labels": {
-      "footprints/attic/newspaper": "REPORTED (testimony recorded in investigation, per secondary sources)",
       "house haunted": "EYEWITNESS CLAIM (former maid)",
       "killings": "DOCUMENTED FACT",
-      "perpetrator": "UNKNOWN — theories only"
+      "perpetrator": "UNKNOWN — theories only",
+      "footprints/attic/newspaper/keys": "REPORTED (neighbours' recollections in investigation, per secondary sources)"
+    },
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Footprints ended at the barn (not house door) — hook corrected.",
+        "Sources differ on number of footprint sets and whether perpetrator stayed 3 or 4 days; script says 'days'."
+      ]
     }
   },
   {
@@ -356,14 +389,14 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Ghost Ship's Creepiest Detail Was Fiction",
     "alt_title": "Found Sailing With Nobody Aboard",
-    "subject": "Mary Celeste, found 4 Dec 1872 drifting between the Azores and Portugal by the Dei Gratia: seaworthy, cargo of ~1,700 barrels of alcohol largely intact, lifeboat gone, crew of ten never seen again. Many famous 'creepy' details (warm meals, half-eaten breakfast) trace to Arthur Conan Doyle's 1884 fiction 'J. Habakuk Jephson's Statement'.",
+    "subject": "Mary Celeste, brigantine found 4 Dec 1872 drifting and deserted near the Azores by the Dei Gratia: seaworthy, the 1,701 barrels of alcohol bound for Genoa largely intact except nine empty red-oak barrels (more porous than the white-oak rest), lifeboat gone, crew of ten never seen again. Much of the legend (the name 'Marie Celeste', the intact-boats and serene-cabin embellishments) traces to Arthur Conan Doyle's anonymous story 'J. Habakuk Jephson's Statement', Cornhill Magazine, Jan 1884.",
     "why_potential": "Evergreen search topic; ghost-ship image is ideal for our wreck/ocean environments; a myth-busting twist (the creepiest details were invented by the creator of Sherlock Holmes) is shareable and comment-bait. No graphic content at all — highly ad-friendly. No measured reference views captured (demand scored on general topic prominence).",
     "references": [],
     "duration_s": 55,
-    "hook_15s": "0-2s: Sailing ship drifts out of fog, wheel spinning, nobody aboard; 'Found sailing. Nobody on board.' 2-6s: 'You've heard the tea was still warm.' Cup on table cracks. 6-15s: 'That part was made up — by the man who invented Sherlock Holmes. Here's what investigators actually found.'",
+    "hook_15s": "0-2s: Sailing ship drifts out of fog, wheel spinning, nobody aboard; 'Found sailing. Nobody on board.' 2-6s: 'You've probably heard it called the Marie Celeste.' Name board flickers. 6-15s: 'That name — and a lot of the legend — came from a story by the man who invented Sherlock Holmes. Here's what the salvage crew actually found.'",
     "structure": [
       "Cold open: empty ship in fog",
-      "Myth: warm tea/half-eaten breakfast",
+      "Myth: the serene, just-abandoned cabin (popular legend — trace each detail to source before scripting)",
       "Twist early: Conan Doyle's 1884 story",
       "What was really found: lifeboat missing, water in hold, cargo mostly intact, months of food",
       "Crew of ten incl. captain's wife and young daughter (respectful card)",
@@ -390,6 +423,8 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Mary_Celeste",
+      "https://www.rmg.co.uk/stories/maritime-history/mystery-mary-celeste",
+      "https://www.smithsonianmag.com/history/abandoned-ship-the-mary-celeste-174488104/",
       "https://en.wikipedia.org/wiki/J._Habakuk_Jephson%27s_Statement"
     ],
     "difficulty": "Medium",
@@ -401,7 +436,16 @@
       "feasibility": 17
     },
     "total": 78,
-    "rank": 6
+    "rank": 6,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "1,701 barrels / 9 empty red-oak barrels: Smithsonian; some sources say 1,700.",
+        "Doyle story Jan 1884 Cornhill, renamed ship 'Marie Celeste' (RMG/Wikipedia).",
+        "'Warm tea / half-eaten breakfast' myth NOT confirmed as Doyle-originated this session — VO must not attribute that specific detail to Doyle; use 'details later added to the legend'."
+      ]
+    }
   },
   {
     "id": "MURDER-07",
@@ -409,18 +453,18 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Oldest Cold Case: Shot in the Back 5,300 Years Ago",
     "alt_title": "Ten Years Later, an X-Ray Found the Arrow",
-    "subject": "Otzi the Iceman, found 19 Sep 1991 in the Otztal Alps by hikers; first thought a recent mountaineering death; ~5,300 years old; in 2001 an X-ray revealed a flint arrowhead in his left shoulder — he was killed. Preserved at the South Tyrol Museum of Archaeology.",
+    "subject": "Otzi the Iceman, found 19 Sep 1991 on the Similaun glacier, Otztal Alps (Italian-Austrian border), by German hikers Erika and Helmut Simon; ~5,300 years old. In 2001 doctors at Bolzano hospital spotted a flint arrowhead lodged in his left shoulder on X-ray; it had been visible on a 1991 radiograph but went unrecognised because radiologists were looking for fractures. Later CT work: the arrow damaged the subclavian artery and he likely bled to death within minutes. Preserved at the South Tyrol Museum of Archaeology, Bolzano.",
     "why_potential": "Unique hook ('oldest murder case') with no living victims/families and zero gore needed; the X-ray reveal is a built-in twist; ice/mountain environment matches pipeline. Demand not measured with a captured reference → demand scored conservatively.",
     "references": [],
     "duration_s": 55,
-    "hook_15s": "0-2s: A brown shape in melting ice; hikers' silhouettes. 'Police thought he died last winter.' 2-6s: Carbon date counter spins to 5,300 years. 6-15s: 'He was the oldest natural mummy in Europe. Ten years later, an X-ray showed something nobody had noticed.'",
+    "hook_15s": "0-2s: A brown shape in melting ice; hikers' silhouettes. 'Police thought he died last winter.' 2-6s: Carbon date counter spins to 5,300 years. 6-15s: 'He was the oldest natural mummy in Europe. For ten years nobody noticed the clue — even though it was on his X-ray from day one.'",
     "structure": [
       "Cold open: body in ice (stylised, no face)",
       "Assumed recent accident; recovery",
       "Dating: Copper Age",
       "What he carried (axe, bow, kit)",
-      "Twist: 2001 X-ray arrowhead",
-      "Last meal / last days (published findings)",
+      "Twist: 2001 X-ray arrowhead — and it was on the 1991 film all along",
+      "Cause: arterial bleed (CT findings), stated without gore",
       "Who shot him? open",
       "Comment prompt",
       "Loop to ice"
@@ -443,8 +487,10 @@
       "Mountain sunset loop"
     ],
     "sources": [
-      "https://www.iceman.it/en/",
-      "https://en.wikipedia.org/wiki/%C3%96tzi"
+      "https://www.iceman.it/en/the-mummy/",
+      "https://www.britannica.com/topic/Otzi",
+      "https://www.nationalgeographic.com/science/article/-iceman-bled-out-from-arrow-wound--x-ray-scan-reveals",
+      "https://www.auntminnie.com/clinical-news/ct/article/15582849/cold-case-closed-ct-solves-icemans-cause-of-death"
     ],
     "difficulty": "Low",
     "scores": {
@@ -455,7 +501,15 @@
       "feasibility": 16
     },
     "total": 77,
-    "rank": 7
+    "rank": 7,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Added stronger twist: arrowhead visible but unrecognised on 26 Sep 1991 radiograph (AuntMinnie/Radiology).",
+        "Britannica names Helmut Simon; other sources name Erika and Helmut Simon."
+      ]
+    }
   },
   {
     "id": "MURDER-08",
@@ -463,7 +517,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "'Who Put Bella in the Wych Elm?'",
     "alt_title": "The Skeleton in the Tree and the Graffiti That Followed",
-    "subject": "Hagley Wood, Worcestershire, Apr 1943: boys found a woman's skeleton inside a hollow wych elm; from 1944 graffiti asking 'Who put Bella down the Wych Elm?' appeared locally; theories include a wartime spy ring; victim never identified.",
+    "subject": "Hagley Wood, Worcestershire, 18 Apr 1943: four local boys found a skull inside a hollow wych elm on Lord Cobham's estate; a woman's skeleton was recovered. From 1944 graffiti appeared, e.g. 'Who put Bella down the Wych Elm – Hagley Wood' on Upper Dean Street, Birmingham; variants later appeared on the Wychbury Obelisk. Victim and graffiti writer never identified; the skull and some case records are reported missing. Theories include a wartime spy ring.",
     "why_potential": "Graffiti line is an instant, quotable hook that doubles as a title; tree + wartime woodland is atmospheric and non-graphic; mystery-with-folklore spawns comments. No captured reference → demand modest.",
     "references": [],
     "duration_s": 55,
@@ -496,8 +550,9 @@
       "Wall loop"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Who_put_Bella_in_the_Wych_Elm%3F (URL not re-verified)",
-      "Secondary: BBC and Worcestershire local press coverage (not captured this session)"
+      "https://en.wikipedia.org/wiki/Who_put_Bella_in_the_wych_elm%3F",
+      "https://www.atlasobscura.com/articles/2612",
+      "https://www.expressandstar.com/news/local-hubs/dudley/stourbridge/2024/03/15/who-put-bella-in-the-wych-elm-unravelling-the-mystery-of-murdered-womans-skeleton-found-in-tree-trunk"
     ],
     "difficulty": "Low",
     "scores": {
@@ -513,24 +568,32 @@
       "skeleton found 1943": "DOCUMENTED FACT",
       "graffiti": "DOCUMENTED FACT",
       "spy-ring/witchcraft links": "THEORY / FOLKLORE"
+    },
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Date 18 Apr 1943 and four boys confirmed (one blog says three — minority).",
+        "Graffiti exact wording varies ('down' vs 'in'); use 'Who put Bella down the Wych Elm' for the 1944 Birmingham instance."
+      ]
     }
   },
   {
     "id": "MURDER-09",
     "number": 9,
     "category": "MURDER_MYSTERY",
-    "working_title": "Nine Fake Names, Wigs and a Code — Who Was She?",
+    "working_title": "Fake Names, Wigs and a Code — Who Was She?",
     "alt_title": "Norway's Isdal Woman",
-    "subject": "Isdal Woman, found 29 Nov 1970 in Isdalen ('Ice Valley') near Bergen, Norway: clothing labels removed; suitcases at Bergen station held wigs, coded notes and cash; she travelled under multiple aliases. Officially ruled probable suicide; disputed. 2016-2019 NRK/BBC 'Death in Ice Valley' isotope work suggested origins in southern Germany.",
+    "subject": "Isdal Woman, found 29 Nov 1970 in Isdalen near Bergen, Norway (a valley nicknamed 'Dodsdalen'/'Death Valley' for historic suicides). Identifying labels had been removed from her belongings; two suitcases traced to Bergen railway station reportedly held wigs and coded notes; she had used multiple identities at hotels. Cause of death per Wikipedia: combination of carbon-monoxide poisoning and barbiturate overdose; police verdict probable suicide, widely disputed. Case reopened 2016; stable-isotope analysis of her teeth (NRK/BBC 'Death in Ice Valley', 2017-18) indicated birth c.1930 (+/-4) in or near Nuremberg, later moving to France or the Franco-German border region.",
     "why_potential": "Spy-thriller texture (aliases, wigs, code) with strong object visuals; respectful because identity is still sought and no family is publicly known. No captured YouTube reference → demand moderate. Must avoid describing burned remains.",
     "references": [],
     "duration_s": 60,
-    "hook_15s": "0-2s: Two suitcases open on a station shelf — a wig, a coded note. 'She had nine names. None of them real.' 2-6s: Every label cut from her clothes. 6-15s: 'Norway, 1970. Found in a place locals call Death Valley. Fifty years later, her teeth told scientists where she was born.'",
+    "hook_15s": "0-2s: Two suitcases open on a station shelf — a wig, a coded note. 'She checked into hotels under different names. None of them real.' 2-6s: Every label cut from her clothes. 6-15s: 'Norway, 1970. Found in a valley locals nicknamed Death Valley. Fifty years later, her teeth told scientists where she was born.'",
     "structure": [
       "Cold open: suitcase contents",
       "Labels removed; aliases list",
       "Found in Isdalen — described non-graphically",
-      "Code note decoded as dates/places of travel (reported)",
+      "Coded note — later read as dates/places of travel (reported)",
       "Theories: espionage — THEORY",
       "Official ruling: suicide; disputed",
       "Twist: isotope analysis (NRK/BBC) points to birth ~1930 southern Germany",
@@ -556,7 +619,9 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Isdal_Woman",
-      "BBC World Service & NRK podcast 'Death in Ice Valley' (2018) — URL not captured"
+      "https://www.mentalfloss.com/crime/new-evidence-emerges-isdal-woman-case-norways-most-famous-unsolved-murder-mystery",
+      "https://www.lifeinnorway.net/isdal-woman/",
+      "BBC World Service & NRK podcast 'Death in Ice Valley' (2018)"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -567,7 +632,16 @@
       "feasibility": 15
     },
     "total": 75,
-    "rank": 9
+    "rank": 9,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources) with caveats",
+      "notes": [
+        "Title changed from 'Nine Fake Names': 'nine identities' appears only in secondary sources; count not confirmed from a primary source.",
+        "Wigs/coded notes confirmed only in secondary summaries — keep as 'reported'.",
+        "Isotope analysis date given as 2016 or 2017 depending on source."
+      ]
+    }
   },
   {
     "id": "MURDER-10",
@@ -575,19 +649,19 @@
     "category": "MURDER_MYSTERY",
     "working_title": "A Newsboy Dropped a Nickel. It Split in Half.",
     "alt_title": "The Coin That Exposed a Soviet Spy",
-    "subject": "FBI 'Hollow Nickel' case: in 1953 a Brooklyn newspaper boy found a nickel that split open, containing a microfilm of numbers; the FBI could not decode it until a Soviet defector (Reino Hayhanen) came forward in 1957, leading to the arrest of Rudolf Abel (later exchanged for U-2 pilot Francis Gary Powers in 1962).",
+    "subject": "FBI 'Hollow Nickel' case: on 22 June 1953 Jimmy Bozart, 14, collecting for the Brooklyn Eagle, dropped a too-light nickel that split open to reveal microfilm of five-digit number groups. FBI cryptanalysts could not break it until Soviet agent Reino Hayhanen defected via the US embassy in Paris in 1957; the message turned out to be an innocuous 'welcome to New York' note to Hayhanen. His information led to 'Rudolf Abel' (real name William August Fisher), convicted 25 Oct 1957 and exchanged for U-2 pilot Francis Gary Powers in 1962.",
     "why_potential": "Mystery with an extraordinary twist and no violence — fully ad-safe; single object (coin) is perfect for macro animation and loop; espionage pairs with mystery audiences. Not murder, so slight niche-fit penalty; no captured reference.",
     "references": [],
     "duration_s": 55,
     "hook_15s": "0-2s: A nickel drops on a sidewalk and cracks open; 'This coin was hollow.' 2-6s: Tiny film strip of numbers. 6-15s: 'A paperboy found it in 1953. The FBI couldn't read it for four years — until a spy walked in and confessed.'",
     "structure": [
       "Cold open: coin splits",
-      "What's inside: microfilm of numbers",
+      "What's inside: microfilm of five-digit groups",
       "FBI stuck 4 years",
-      "1957: defector comes forward",
-      "Code broken; hollow-object tradecraft",
-      "Arrest of Rudolf Abel",
-      "Twist: 1962 bridge swap for Gary Powers",
+      "1957: Hayhanen defects in Paris",
+      "Twist 1: the secret message was just 'welcome to New York'",
+      "Twist 2: it leads to 'Rudolf Abel' — real name William Fisher",
+      "Conviction Oct 1957; 1962 bridge swap for Gary Powers",
       "Comment prompt",
       "Loop to coin"
     ],
@@ -609,19 +683,29 @@
       "Bridge exchange"
     ],
     "sources": [
-      "https://www.fbi.gov/history/famous-cases/hollow-nickel-rudolph-abel",
-      "https://en.wikipedia.org/wiki/Hollow_Nickel_Case"
+      "https://www.fbi.gov/news/stories/2004/june/nickel_060704",
+      "https://en.wikipedia.org/wiki/Hollow_Nickel_Case",
+      "https://www.mentalfloss.com/history/cold-war/how-nickel-and-paperboy-brought-down-cold-war-spy"
     ],
     "difficulty": "Low",
     "scores": {
       "demand": 12,
-      "story": 16,
+      "story": 17,
       "packaging": 15,
       "retention": 15,
       "feasibility": 16
     },
-    "total": 74,
-    "rank": 10
+    "total": 75,
+    "rank": 10,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Replaced unverified fbi.gov/history URL with FBI 'A Byte Out of History' (2004).",
+        "Added twist: decoded message was innocuous. Gizmodo claims code never broken — contradicts FBI; follow FBI.",
+        "One source places the building in the Bronx; most say Brooklyn."
+      ]
+    }
   },
   {
     "id": "MURDER-11",
@@ -629,7 +713,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "Two Men Found in Lead Masks on a Hill",
     "alt_title": "The Lead Masks Case: 'Take Capsule… Wait for Signal'",
-    "subject": "Lead Masks case, Morro do Vintem, Niteroi, Brazil, Aug 1966: two electronics technicians found dead on a hill wearing suits, raincoats and crude lead eye-masks; a notebook held instructions (reported translation: '...take capsules, after effect protect metals, wait for signal, mask'); cause of death undetermined.",
+    "subject": "Lead Masks case, Morro do Vintem, Niteroi, Brazil: electronics technicians Manoel Pereira da Cruz and Miguel Jose Viana were last seen by family on 17 Aug 1966; their bodies were found on 20 Aug 1966 by a young man flying a kite (Jorge da Costa Alves), wearing suits, raincoats and crude lead eye-masks. A notebook held timed instructions (English rendering: be at the agreed place at 16:30, take capsules at 18:30, after effect protect metals, wait for mask signal). No injuries found; cause of death never determined. Contemporary press linked it to 'attempts to contact Mars' — THEORY.",
     "why_potential": "Bizarre central object (lead eye-masks) and a cryptic note: strong cold open; UFO theories bring curiosity traffic but must be labelled THEORY. No captured reference; uncertain cause limits the payoff.",
     "references": [],
     "duration_s": 55,
@@ -662,8 +746,9 @@
       "Masks loop"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Lead_Masks_case",
-      "Secondary coverage (not captured this session) — verify note wording against Brazilian press archives"
+      "https://en.wikipedia.org/wiki/Lead_masks_case",
+      "https://allthatsinteresting.com/lead-masks-case",
+      "https://paperspast.natlib.govt.nz/newspapers/CHP19660901.2.125 (The Press, 1 Sep 1966: 'Death After Attempt To Talk To Mars')"
     ],
     "difficulty": "Low",
     "scores": {
@@ -679,6 +764,14 @@
       "bodies, masks, note": "DOCUMENTED FACT (per secondary sources)",
       "UFO/signal": "THEORY",
       "exact note wording": "REPORTED TRANSLATION"
+    },
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Names, dates and finder confirmed; original Portuguese note text NOT confirmed — on-screen use English rendering labelled 'reported translation'.",
+        "Finder described as a boy (Wikipedia) or 18-year-old (Portuguese source)."
+      ]
     }
   },
   {
@@ -687,7 +780,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "Someone Hijacked TV Signals — and Was Never Caught",
     "alt_title": "The Creepiest TV Hack in History",
-    "subject": "Max Headroom signal hijacking, Chicago, 22 Nov 1987: a masked intruder interrupted WGN-TV's sports news and later WTTW's broadcast of Doctor Who; the FCC/FBI never identified anyone.",
+    "subject": "Max Headroom signal hijackings, Chicago, Sunday 22 Nov 1987: a masked intruder interrupted WGN-TV's sports segment (anchor Dan Roan: 'if you're wondering what's happened, so am I') and about two hours later WTTW's rerun of Doctor Who ('The Horror of Fang Rock'). An FCC criminal investigation, joined by the FBI, never identified anyone; the five-year statute of limitations lapsed in 1992.",
     "why_potential": "The Why Files' 5.2M video shows demand; strong uncanny visual; no victims. Constraints: must not reproduce the broadcast footage or the Max Headroom character likeness (IP) — recreate as an abstract masked silhouette and rotating-panel background, which weakens the iconic image (feasibility/packaging penalty).",
     "references": [
       {
@@ -706,7 +799,7 @@
       "Engineers switch frequency",
       "Second intrusion 2 hours later on WTTW (longer)",
       "How it was done (overpowering studio-to-transmitter link) — stated as reported",
-      "Investigation goes cold",
+      "FCC + FBI investigation goes cold; statute of limitations lapses 1992",
       "Open: who? comment",
       "Loop to static"
     ],
@@ -729,8 +822,9 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Max_Headroom_signal_hijacking",
-      "https://www.mentalfloss.com/article/67568/time-max-headroom-hijacked-two-networks",
-      "https://hackaday.com/2016/11/23/retrotechtacular-max-headroom-takes-chicago-in-audacious-tv-hack/"
+      "https://www.vice.com/en/article/pgay3n/headroom-hacker",
+      "https://news.wttw.com/node/23499",
+      "https://www.mentalfloss.com/article/67568/time-max-headroom-hijacked-two-networks"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -741,7 +835,14 @@
       "feasibility": 13
     },
     "total": 73,
-    "rank": 12
+    "rank": 12,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Dan Roan quote, WTTW Doctor Who episode, FCC/FBI investigation and 1992 limitation lapse confirmed."
+      ]
+    }
   },
   {
     "id": "MURDER-13",
@@ -749,26 +850,27 @@
     "category": "MURDER_MYSTERY",
     "working_title": "Three Lighthouse Keepers Vanished in 1900",
     "alt_title": "The Flannan Isles Mystery — and the Poem That Lied",
-    "subject": "Flannan Isles lighthouse, Outer Hebrides, Dec 1900: the three keepers were missing when the relief vessel arrived on 26 Dec; storm damage at the west landing; two sets of oilskins gone; later poem (W.W. Gibson, 1912) added untouched-meal and overturned-chair details not in the official report.",
+    "subject": "Flannan Isles lighthouse, Eilean Mor, Outer Hebrides: the passing steamer Archtor reported the light out on 15 Dec 1900; the relief tender Hesperus, delayed by weather, landed on 26 Dec and found keepers James Ducat, Thomas Marshall and Donald MacArthur missing. Superintendent Robert Muirhead's report (8 Jan 1901) concluded they were on duty until midday 15 Dec, went down to secure a box holding mooring ropes at the west landing, and were swept away by a sea. W.W. Gibson's 1912 poem 'Flannan Isle' added dramatic details not in the official report.",
     "why_potential": "Lighthouse in a storm is one of our strongest procedural environments; a mystery-busting twist (official report vs poem) mirrors the Mary Celeste structure; no violence. Demand modest; no captured reference.",
     "references": [],
     "duration_s": 55,
-    "hook_15s": "0-2s: Lighthouse beam stops turning; 'The light went dark. Three men were gone.' 2-6s: Empty hook where oilskins should hang. 6-15s: 'Scotland, December 1900. A relief boat found the gate shut, the beds empty — and a storm-wrecked landing 33 metres above the sea.'",
+    "hook_15s": "0-2s: Lighthouse beam stops turning; 'The light went dark. Three men were gone.' 2-6s: A ship's lookout spots the darkness — 15 December 1900. 6-15s: 'Scotland. Storms kept the relief boat away for eleven days. When it landed, the keepers had vanished — and the official answer is stranger than the legend.'",
     "structure": [
       "Cold open: dark lighthouse",
-      "Relief arrival 26 Dec",
-      "Clues: missing oilskins, damaged west landing",
-      "Official conclusion: likely swept away by a freak wave",
-      "Myth layer: the 1912 poem's chair & meal",
-      "Open: why was the third man without oilskins? comment",
+      "Archtor reports light out (15 Dec)",
+      "Hesperus lands 26 Dec; three men missing",
+      "Clues at the west landing (storm damage; oilskins detail = REPORTED, verify)",
+      "Muirhead's 8 Jan 1901 conclusion: swept away securing the rope box",
+      "Myth layer: the 1912 poem's embellishments",
+      "Open: why all three at once? comment",
       "Loop to beam"
     ],
     "retention_moments": [
       "0s beam stops",
-      "~10s oilskin hook",
-      "~25s storm-damage reveal",
-      "~40s 'the poem made it up'",
-      "~52s question"
+      "~8s 'eleven days' delay",
+      "~25s west-landing reveal",
+      "~38s superintendent's verdict",
+      "~50s 'the poem made it up' + question"
     ],
     "thumbnail_concept": "Lighthouse on black cliffs, beam cut off mid-sweep, huge wave; text 'ALL 3 GONE'.",
     "animation_style": "Cliff island, ocean + storm, lighthouse with rotating beam (volumetric), interior with coats, wave sim (stylised).",
@@ -781,8 +883,10 @@
       "Beam loop"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Flannan_Isles",
-      "Northern Lighthouse Board history pages (not captured this session)"
+      "https://nrscotland.gov.uk/learning-and-events/research-guides/lighthouses/the-mystery-of-the-flannan-islands-lighthouse",
+      "https://blog.nrscotland.gov.uk/2023/12/12/flannan-isles-lighthouse-keepers-the-disappearance/",
+      "https://www.rmg.co.uk/stories/blog/what-caused-disappearance-flannan-isle-lighthouse-keepers",
+      "https://en.wikipedia.org/wiki/Flannan_Isles_Lighthouse"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -793,7 +897,16 @@
       "feasibility": 17
     },
     "total": 73,
-    "rank": 13
+    "rank": 13,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources) with caveat",
+      "notes": [
+        "Names, dates, Muirhead report confirmed via National Records of Scotland.",
+        "Missing-oilskins detail NOT confirmed this session — label REPORTED or cut.",
+        "Which poem details are invented: verify line-by-line before VO claims."
+      ]
+    }
   },
   {
     "id": "MURDER-14",
@@ -801,7 +914,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Killer Who Spared Houses Playing Jazz",
     "alt_title": "The Axeman's Letter to New Orleans",
-    "subject": "Axeman of New Orleans, 1918-1919: a series of attacks; in March 1919 a letter published in the Times-Picayune, claiming to be from the killer, said homes playing jazz on the night of 19 March would be spared; that night the city filled with music and no attack was reported. Never identified.",
+    "subject": "Axeman of New Orleans, unidentified attacker active May 1918 - Oct 1919. A letter dated 13 March 1919, signed as if from 'Hell', was printed in the Times-Picayune (13 or 14 March) saying he would strike on the night of 19 March but spare any home where a jazz band was playing; that night the city's clubs and homes filled with music. Historian Miriam Davis argues the letter was a hoax, possibly by a local musician — so the most famous detail may not be from the killer at all. Unsolved.",
     "why_potential": "Jazz + letter is a striking, sound-design-rich hook; the 'whole city played jazz' twist is irresistible and non-graphic. Must keep attacks off-screen and use the letter as centrepiece; ad risk moderate due to subject.",
     "references": [],
     "duration_s": 55,
@@ -810,10 +923,10 @@
       "Cold open: gramophone",
       "The letter (paraphrase + short public-domain quotes)",
       "Context: unsolved attacks 1918-19 (non-graphic)",
-      "19 March: music everywhere; no attack reported",
-      "Theory ladder: hoax letter vs real",
+      "19 March: music everywhere",
+      "Twist: historians doubt the letter came from the killer (Miriam Davis)",
       "Never identified",
-      "Comment prompt",
+      "Comment prompt: hoax or real?",
       "Loop"
     ],
     "retention_moments": [
@@ -835,18 +948,27 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Axeman_of_New_Orleans",
-      "Times-Picayune letter of March 1919 (public domain; archive URL not captured)"
+      "https://blog.newspapers.com/the-axeman-of-new-orleans/",
+      "https://www.openculture.com/2018/10/story-axeman-new-orleans-serial-killer-loved-jazz.html"
     ],
     "difficulty": "Medium",
     "scores": {
       "demand": 12,
-      "story": 15,
+      "story": 16,
       "packaging": 16,
       "retention": 14,
       "feasibility": 14
     },
-    "total": 71,
-    "rank": 14
+    "total": 72,
+    "rank": 14,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Letter date 13 Mar 1919; publication date 13 vs 14 Mar varies by source.",
+        "Added hoax-authorship twist (Miriam Davis); her named candidate is NOT used on screen (private individual, theory only)."
+      ]
+    }
   },
   {
     "id": "MURDER-15",
@@ -854,7 +976,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Elevator Video Everyone Got Wrong",
     "alt_title": "What Really Happened at the Cecil Hotel",
-    "subject": "Elisa Lam, Cecil Hotel, Los Angeles, 2013: released elevator CCTV went viral; she was found in a rooftop water tank; the LA County coroner ruled accidental drowning with bipolar disorder a significant contributing factor.",
+    "subject": "Elisa Lam, Canadian student, Cecil Hotel, Los Angeles, 2013: released elevator CCTV went viral; she was found in a rooftop water tank in Feb 2013. The LA County coroner ruled the death accidental drowning, listing bipolar disorder as another significant condition; no trauma found, toxicology found nothing contributing. Authorities have not stated how she entered the tank.",
     "why_potential": "Biggest demand in the set (BuzzFeed Unsolved's 20M+ top episode; Netflix series). But: officially accidental, a real young woman, and mental-health subject → must be framed as 'how the internet turned a tragedy into a conspiracy', not a mystery to exploit; cannot use the real CCTV. Ethics/packaging constraints keep the score modest.",
     "references": [
       {
@@ -870,9 +992,9 @@
     "structure": [
       "Cold open: empty elevator (no person depicted)",
       "Viral spread and theories (labelled THEORY)",
-      "Facts: water tank, guest complaints",
-      "Coroner finding: accidental, bipolar disorder contributing",
-      "Why the clip looked strange (door hold button, reported)",
+      "Facts: water tank discovery",
+      "Coroner finding: accidental drowning; bipolar disorder a significant condition; no trauma; toxicology clear",
+      "What remains unknown (how she entered the tank) — stated plainly, no speculation",
       "Respect card; mental-health helpline end slate",
       "Prompt: 'Should the clip ever have been shared?'"
     ],
@@ -880,7 +1002,7 @@
       "0s elevator",
       "~8s comment storm",
       "~25s coroner finding",
-      "~40s door-hold explanation",
+      "~40s 'what officials never said'",
       "~50s reflection"
     ],
     "thumbnail_concept": "Empty elevator with doors half-open, cold light; text 'WHAT WE GOT WRONG'.",
@@ -893,9 +1015,10 @@
       "Respect card"
     ],
     "sources": [
-      "https://allthatsinteresting.com/elisa-lam-death",
-      "https://www.refinery29.com/en-gb/2021/02/10312240/vanishing-at-the-cecil-hotel-elisa-lam-viral-video-explained",
-      "Los Angeles County coroner report, 2013 (summary via press)"
+      "https://en.wikipedia.org/wiki/Death_of_Elisa_Lam",
+      "https://www.cbsnews.com/news/elisa-lam-update-woman-found-in-la-hotels-water-tank-accidentally-drowned-authorities-say",
+      "https://www.snopes.com/articles/346221/elisa-lam-mystery-that-wasnt/",
+      "https://www.refinery29.com/en-gb/2021/02/10312240/vanishing-at-the-cecil-hotel-elisa-lam-viral-video-explained"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -906,7 +1029,15 @@
       "feasibility": 12
     },
     "total": 70,
-    "rank": 15
+    "rank": 15,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Removed unverified 'door-hold button' explanation.",
+        "Coroner wording: 'accidental ... drowning; other significant conditions: bipolar disorder'. Finding date Feb vs full report June 2013."
+      ]
+    }
   },
   {
     "id": "MURDER-16",
@@ -914,7 +1045,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Boy Who Came From a Dark Cell",
     "alt_title": "Kaspar Hauser: 190 Years, Three DNA Tests",
-    "subject": "Kaspar Hauser appeared in Nuremberg in May 1828 carrying letters, claiming he had been raised alone in a dark cell; he died of a stab wound in Ansbach in Dec 1833 after reporting an attack; a 'lost prince of Baden' theory persisted; DNA studies (1996, 2002, and a 2024 hair study) — the latest reported as excluding the Baden link.",
+    "subject": "Kaspar Hauser appeared in Nuremberg on 26 May 1828 carrying letters (one addressed to a cavalry captain), later claiming he had been kept alone in a dark cell. On 14 Dec 1833 he was stabbed in the Ansbach Hofgarten, saying a stranger lured him there and handed him a purse; the purse held a pencilled note in mirror writing. He died 17 Dec 1833. A 'lost prince of Baden' theory persisted; earlier DNA tests (1996, early 2000s) conflicted. A 2024 iScience study led by Walther Parson, analysing individual hair strands, found his mtDNA did not match the House of Baden, ruling out the prince theory; his true origin is still unknown.",
     "why_potential": "Fairy-tale-like strangeness (a teenager who could barely speak, a note in mirror writing) and a modern science twist; historical (no living family impact). Low demand evidence; story complexity needs tight scripting.",
     "references": [],
     "duration_s": 60,
@@ -926,7 +1057,7 @@
       "Dec 1833 death (non-graphic), note in mirror writing",
       "Prince theory",
       "DNA tests 1996/2002/2024",
-      "Twist: latest study excludes Baden (verify)",
+      "Twist: 2024 iScience mtDNA study excludes Baden — mystery reopens",
       "Open: who was he?",
       "Loop"
     ],
@@ -949,7 +1080,9 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Kaspar_Hauser",
-      "2024 iScience DNA study on Kaspar Hauser hair samples (citation to verify)"
+      "https://le.ac.uk/news/2024/july/kaspar-hauser",
+      "https://bath.ac.uk/announcements/new-dna-analysis-helps-bust-200-year-old-royal-conspiracy-theory",
+      "https://www.mentalfloss.com/history/mystery/mysterious-life-and-death-kaspar-hauser"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -960,28 +1093,36 @@
       "feasibility": 14
     },
     "total": 69,
-    "rank": 16
+    "rank": 17,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "2024 iScience study (Parson et al.) confirmed via Univ. of Leicester and Univ. of Bath releases.",
+        "Stabbing 14 Dec 1833, death 17 Dec 1833 (one source wrongly says April)."
+      ]
+    }
   },
   {
     "id": "MURDER-17",
     "number": 17,
     "category": "MURDER_MYSTERY",
-    "working_title": "Unnamed for 48 Years: The Lady of the Dunes",
+    "working_title": "Unnamed for 48 Years — Then the Killer Was Named Too",
     "alt_title": "Genetic Genealogy Gave Her Name Back",
-    "subject": "'Lady of the Dunes', found July 1974 in the Race Point dunes, Provincetown, Massachusetts; identified by the FBI in Oct 2022 as Ruth Marie Terry via investigative genetic genealogy; in 2023 authorities named her late husband as the person they believed responsible (verify names/dates against official releases).",
+    "subject": "'Lady of the Dunes', found 26 July 1974 in the Race Point dunes, Provincetown, Massachusetts. On 31 Oct 2022 the FBI Boston office identified her as Ruth Marie Terry (37, from Tennessee) via investigative genetic genealogy. On 28 Aug 2023 Cape & Islands District Attorney Robert Galibois announced that her husband, Guy Rockwell Muldavin (married her months before; died 2002), was identified as her killer, closing the case without trial.",
     "why_potential": "Strong closure arc (name restored) suits a respectful Short; dunes environment is easy. Original case details are graphic and must be omitted entirely; demand modest without captured reference; packaging must avoid sensationalism.",
     "references": [],
     "duration_s": 55,
     "hook_15s": "0-2s: Wind erases footprints on a dune; 'For 48 years, she had no name.' 2-6s: A blank case file tag. 6-15s: 'Cape Cod, 1974. Thousands of leads, a famous film set rumour, nothing. In 2022, a family tree finally answered.'",
     "structure": [
       "Cold open: dunes",
-      "Discovery (no detail)",
+      "Discovery 1974 (no detail)",
       "Decades of dead ends",
       "Genetic genealogy explained simply",
-      "2022 identification",
-      "Official finding about the suspect (as stated by authorities)",
+      "Oct 2022: name restored — Ruth Marie Terry",
+      "Aug 2023: DA names her late husband as the killer (official statement, he died 2002, no trial)",
       "Respect card",
-      "Prompt on genetic genealogy ethics"
+      "Prompt on genetic genealogy"
     ],
     "retention_moments": [
       "0s dunes",
@@ -1000,19 +1141,29 @@
       "Name card"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Lady_of_the_Dunes (URL not re-verified)",
-      "FBI Boston press release, 31 Oct 2022 (URL not captured)"
+      "https://en.wikipedia.org/wiki/Murder_of_Ruth_Marie_Terry",
+      "https://www.cbsnews.com/boston/news/ruth-marie-terry-the-lady-of-the-dunes-provincetown-massachusetts-identified-tennessee",
+      "https://www.cbsnews.com/boston/news/lady-of-the-dunes-ruth-marie-terry-murder-guy-muldavin-provincetown-massachusetts",
+      "https://www.bostonglobe.com/2022/10/31/metro/fbi-identifies-lady-dunes-nearly-50-years-after-mutilated-remains-were-found-near-provincetown/"
     ],
     "difficulty": "Low",
     "scores": {
       "demand": 12,
-      "story": 15,
+      "story": 16,
       "packaging": 13,
       "retention": 14,
       "feasibility": 14
     },
-    "total": 68,
-    "rank": 17
+    "total": 69,
+    "rank": 16,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Naming Muldavin is permitted: official DA announcement; deceased; no trial — say 'authorities say'.",
+        "Do NOT mention the 1960 Seattle suspicions (unproven)."
+      ]
+    }
   },
   {
     "id": "MURDER-18",
@@ -1020,7 +1171,7 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The Boy in the Box Has a Name",
     "alt_title": "65 Years Later: Joseph Augustus Zarelli",
-    "subject": "'Boy in the Box', a young child found in a cardboard box in Fox Chase, Philadelphia, Feb 1957; identified by Philadelphia Police in Dec 2022 as Joseph Augustus Zarelli (b. 1953) through genetic genealogy; no one has been charged.",
+    "subject": "'Boy in the Box', a 4-year-old found in a cardboard box in Philadelphia's Fox Chase neighbourhood in Feb 1957. After a 30 Nov 2022 announcement that DNA and genealogy had identified him, Police Commissioner Danielle Outlaw named him on 8 Dec 2022 as Joseph Augustus Zarelli, born 13 Jan 1953, believed from West Philadelphia. Still an active homicide investigation; no one charged.",
     "why_potential": "Powerful name-restored arc and long public interest, but a child victim: YouTube's 2026 monetisation relaxation excludes child-abuse topics and our ethics rule demands restraint, so the piece must be a memorial-style identification story only. Scores reflect ad/ethics risk.",
     "references": [],
     "duration_s": 50,
@@ -1051,8 +1202,10 @@
       "Flowers"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Boy_in_the_box_(Philadelphia) (URL not re-verified)",
-      "Philadelphia Police Department press conference, 8 Dec 2022 (URL not captured)"
+      "https://en.wikipedia.org/wiki/Murder_of_Joseph_Augustus_Zarelli",
+      "https://www.axios.com/local/philadelphia/2022/12/09/philadelphia-boy-in-box-identified-joseph-augustus-zarelli",
+      "https://www.cbsnews.com/news/box-in-the-box-child-murder-victim-identified-joseph-augustus-zarelli-police-philadelphia",
+      "https://inquirer.com/news/boy-in-box-philadelphia-joseph-zarelli-name-identity-20221208.html"
     ],
     "difficulty": "Low",
     "scores": {
@@ -1063,7 +1216,15 @@
       "feasibility": 14
     },
     "total": 67,
-    "rank": 18
+    "rank": 18,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Name, DOB and 8 Dec 2022 announcement confirmed.",
+        "Hook headstone text 'America's Unknown Child' NOT re-verified — confirm before rendering."
+      ]
+    }
   },
   {
     "id": "MURDER-19",
@@ -1071,16 +1232,16 @@
     "category": "MURDER_MYSTERY",
     "working_title": "The House Where Every Mirror Was Covered",
     "alt_title": "Villisca, 1912: The Covered Mirrors",
-    "subject": "Villisca, Iowa, June 1912: eight people (the Moore family and two young guests) were killed overnight; investigators reported mirrors covered with cloth and lamps with chimneys removed; a travelling minister was tried twice (hung jury, then acquittal); unsolved.",
+    "subject": "Villisca, Iowa, night of 9-10 June 1912: eight people (the Moore family and two young guests) were killed. Investigators found every mirror in the house covered with cloth or clothing; a coroner's reconstruction reportedly had an oil lamp's chimney removed and set aside. Travelling minister Lyn George Kelly was arrested in 1917 after a confession he later recanted; his first trial ended in a hung jury and the second in acquittal. Unsolved.",
     "why_potential": "Covered-mirror image is uniquely eerie; the house is a tourist site. But six child victims: heavy ethics/ad constraint; must stay at house-exterior/prop level. Moderate demand assumed (no captured reference).",
     "references": [],
     "duration_s": 55,
-    "hook_15s": "0-2s: A hand-mirror covered in cloth on a dresser by lamplight; 'Every mirror in the house was covered.' 2-6s: Lamp chimney removed, wick turned low. 6-15s: 'Iowa, 1912. Eight people never woke up. Two trials. No conviction. Over a century of questions.'",
+    "hook_15s": "0-2s: A hand-mirror covered in cloth on a dresser by lamplight; 'Every mirror in the house was covered.' 2-6s: An oil lamp, its glass chimney set aside. 6-15s: 'Iowa, 1912. Eight people never woke up. A confession, two trials, no conviction. Over a century of questions.'",
     "structure": [
-      "Cold open: covered mirror",
-      "Second detail: lamps",
+      "Cold open: covered mirror (documented)",
+      "Second detail: lamp chimney removed (REPORTED, single source)",
       "Who lived there (memorial card)",
-      "Investigation, two trials of a named defendant (court record), no conviction",
+      "1917 arrest; recanted confession; hung jury then acquittal (court record)",
       "Theories labelled",
       "Open question",
       "Loop"
@@ -1103,7 +1264,8 @@
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Villisca_axe_murders",
-      "Villisca Axe Murder House historical site (URL not captured)"
+      "https://www.smithsonianmag.com/history/the-ax-murderer-who-got-away-117037374/",
+      "https://pubs.lib.uiowa.edu/annals-of-iowa/article/6639/galley/115418/view"
     ],
     "difficulty": "Medium",
     "scores": {
@@ -1114,7 +1276,15 @@
       "feasibility": 13
     },
     "total": 67,
-    "rank": 19
+    "rank": 19,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources) with caveat",
+      "notes": [
+        "Mirrors covered: confirmed. Lamp chimney: single coroner-reconstruction source — label REPORTED.",
+        "Kelly: two trials, hung jury then acquittal; he was acquitted — VO must say so."
+      ]
+    }
   },
   {
     "id": "MURDER-20",
@@ -1122,18 +1292,18 @@
     "category": "MURDER_MYSTERY",
     "working_title": "He Cut Every Label Off His Clothes",
     "alt_title": "The Man Who Erased Himself: Peter Bergmann",
-    "subject": "'Peter Bergmann' (alias), Sligo, Ireland, June 2009: a man checked into a hotel under a false name and Vienna address, was filmed leaving with bags and returning without them, removed labels from his clothes, and was found dead at Rosses Point; post-mortem found serious illness and no foul play; still unidentified (verify dates).",
+    "subject": "'Peter Bergmann' (alias), Sligo, Ireland: arrived by bus from Derry on 12 June 2009 and checked into Sligo City Hotel for three nights giving a false name and an Austrian address; hotel CCTV recorded him leaving with bags and returning without them; every label had been cut from his clothes and he carried no ID. Last seen on Rosses Point beach late 15 June; found dead at dawn 16 June. Autopsy found advanced, untreated prostate cancer and bone tumours (Wikipedia lists cause as acute cardiac arrest). Buried in an unmarked grave Sept 2009; still unidentified.",
     "why_potential": "'Erasing yourself' is an intriguing, CCTV-free story we can recreate abstractly; no murder. Limited demand evidence; ending is sombre (possible suicide context) → careful framing, limited payoff.",
     "references": [],
     "duration_s": 55,
     "hook_15s": "0-2s: Scissors snip a clothing label; 'He cut every label off his clothes.' 2-6s: A man silhouette leaves a hotel with bags, returns empty-handed. 6-15s: 'Ireland, 2009. False name. Fake address. Bags that disappeared. Police still don't know who he was.'",
     "structure": [
       "Cold open: label cut",
-      "False name/address",
+      "False name/Austrian address",
       "Bag trips (reported from CCTV; recreated abstractly)",
-      "Found at the beach; no foul play",
+      "Found at Rosses Point; serious untreated illness, no foul play indicated",
       "Theories avoided; focus on identity",
-      "Appeal-style ending",
+      "Appeal-style ending (Gardai hold DNA)",
       "Loop"
     ],
     "retention_moments": [
@@ -1153,8 +1323,10 @@
       "Appeal card"
     ],
     "sources": [
-      "https://en.wikipedia.org/wiki/Death_of_Peter_Bergmann (URL not re-verified)",
-      "Irish press coverage (Irish Independent/RTE) — not captured this session"
+      "https://en.wikipedia.org/wiki/Peter_Bergmann_case",
+      "https://irishtimes.com/life-style/people/2022/04/27/the-last-four-days",
+      "https://www.irishtimes.com/life-style/people/2019/06/15/the-unsolved-mystery-of-peter-bergmann-1.3923308/",
+      "https://www.vice.com/en/article/peter-bergmann-case-crime-sligo"
     ],
     "difficulty": "Low",
     "scores": {
@@ -1165,6 +1337,15 @@
       "feasibility": 15
     },
     "total": 67,
-    "rank": 20
+    "rank": 20,
+    "fact_check": {
+      "date": "2026-11-27",
+      "status": "verified (2+ sources)",
+      "notes": [
+        "Address was Austrian (not specifically Vienna — corrected).",
+        "Cause of death reported as cardiac arrest vs drowning in different sources — VO avoids stating cause beyond 'serious illness'.",
+        "Sombre / possible self-harm context: add helpline slate."
+      ]
+    }
   }
 ]
