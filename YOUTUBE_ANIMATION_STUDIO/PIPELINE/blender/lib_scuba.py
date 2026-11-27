@@ -1932,8 +1932,8 @@ def lobster_boat(name="lobsterboat", length=12.0, beam=4.2, hull=(0.93, 0.93, 0.
     sub = h.modifiers.new("sub", "SUBSURF")
     sub.levels = sub.render_levels = 1
     L.smooth(h)
-    L.assign(h, mat_z_bands(name + "_hullm", [(-2, bottom), (0.05, (0.05, 0.05, 0.05)), (0.12, hull), (1.0, trim),
-                                              (1.12, hull)], rough=0.35, metal=0.0))
+    L.assign(h, mat_z_bands(name + "_hullm", [(-2, bottom), (0.05, (0.05, 0.05, 0.05)), (0.12, hull), (0.78, trim),
+                                              (0.9, hull)], rough=0.35, metal=0.0))
     h.parent = root
     P["hull"] = h
     whm = L.mat_principled(name + "_white", hull, rough=0.35)
@@ -1947,29 +1947,31 @@ def lobster_boat(name="lobsterboat", length=12.0, beam=4.2, hull=(0.93, 0.93, 0.
         o.parent = root
         return o
 
-    box((0, -0.8, 0.55), (beam / 2 * 0.9, half * 0.78, 0.05), deckm, "deck")
-    P["deck_z"] = 0.6
-    P["gunwale_z"] = 1.15
+    box((0, -0.8, 1.16), (beam / 2 * 0.88, half * 0.78, 0.04), deckm, "deck")
+    for sx in (-1, 1):  # low bulwark / gunwale rail along the open aft deck
+        box((sx * beam / 2 * 0.9, -1.6, 1.42), (0.05, half * 0.66, 0.24), whm, "bulwark")
+    P["deck_z"] = 1.2
+    P["gunwale_z"] = 1.66
     P["stern_y"] = -half
     # wheelhouse forward
     wy = half * 0.25
-    box((0, wy, 1.6), (beam * 0.36, 1.4, 1.0), whm, "house")
-    box((0, wy - 0.3, 2.68), (beam * 0.4, 1.9, 0.07), whm, "roof")
-    box((0, wy + 1.42, 1.95), (beam * 0.3, 0.02, 0.4), glass, "winf")
+    box((0, wy, 2.1), (beam * 0.36, 1.4, 1.0), whm, "house")
+    box((0, wy - 0.3, 3.18), (beam * 0.4, 1.9, 0.07), whm, "roof")
+    box((0, wy + 1.42, 2.45), (beam * 0.3, 0.02, 0.4), glass, "winf")
     for sx in (-1, 1):
-        box((sx * (beam * 0.36 + 0.02), wy + 0.3, 1.95), (0.02, 0.9, 0.38), glass, "wins")
-    mast = L.prim("cyl", loc=(0, wy - 0.6, 3.5), vertices=8, radius=0.05, depth=1.6, name=name + "_mast")
+        box((sx * (beam * 0.36 + 0.02), wy + 0.3, 2.45), (0.02, 0.9, 0.38), glass, "wins")
+    mast = L.prim("cyl", loc=(0, wy - 0.6, 4.0), vertices=8, radius=0.05, depth=1.6, name=name + "_mast")
     L.assign(mast, whm)
     mast.parent = root
     # hauler davit (starboard, just aft of house) + trap stack aft
-    dv = L.prim("cyl", loc=(beam * 0.42, wy - 1.8, 1.6), vertices=8, radius=0.05, depth=1.4, name=name + "_davit")
+    dv = L.prim("cyl", loc=(beam * 0.42, wy - 1.8, 2.1), vertices=8, radius=0.05, depth=1.4, name=name + "_davit")
     L.assign(dv, L.mat_principled(name + "_steel", (0.6, 0.6, 0.62), rough=0.3, metal=1))
     dv.parent = root
     for k in range(3):
-        box((-beam * 0.18, -half * 0.55 + k * 0.05, 0.85 + k * 0.5), (0.6, 0.4, 0.24),
+        box((-beam * 0.18, -half * 0.55 + k * 0.05, 1.45 + k * 0.5), (0.6, 0.4, 0.24),
             L.mat_principled(name + "_trap", (0.15, 0.35, 0.2), rough=0.8), "trap")
     # rope coil + crate
-    rc = L.prim("torus", loc=(beam * 0.2, -half * 0.7, 0.66), major_radius=0.3, minor_radius=0.06, name=name + "_coil")
+    rc = L.prim("torus", loc=(beam * 0.2, -half * 0.7, 1.26), major_radius=0.3, minor_radius=0.06, name=name + "_coil")
     L.assign(rc, L.mat_principled(name + "_rope", (0.75, 0.6, 0.2), rough=0.9))
     rc.parent = root
     P["coil"] = rc

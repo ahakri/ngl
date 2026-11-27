@@ -210,7 +210,7 @@ def seabed_shot(L, n, cam_a, cam_b, whale_from=None, blackout=None, shadow=None)
     env = cape_env(L, n)
     P = packard(L, loc=DIV01, rot=(-0.22, 0, 0.12))
     pose_reach(P)
-    S.lobster(loc=(0.42, 1.18, 0.02), rot_z=-2.6, scale=1.4)
+    S.lobster(loc=(0.3, 0.98, 0.03), rot_z=-2.6, scale=1.6)
     for f in range(1, n + 1, 6):
         P["shoulderR"].rotation_euler = (-0.45 - 0.08 * math.sin(f * 0.15), 0, -0.1)
         P["shoulderR"].keyframe_insert("rotation_euler", frame=f)
@@ -728,7 +728,7 @@ def _xray_whale(L, n):
     cav = local(L.prim("sphere", segments=24, ring_count=12, radius=1.0, name="cav"), (0, 3.3, -0.75), (0.9, 2.3, 0.65))
     L.assign(cav, xray_mat(L, "cavm", (0.2, 0.75, 0.7), 1.5, power=1.0, base=0.15))
     D = L.char_diver(name="xd", light_on=False, tanks="single")
-    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=1.2, base=0.12))
+    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=2.0, base=0.0))
     local(D["root"], (0.3, 3.4, -0.8), (0.85, 0.85, 0.85), rot=(0, PI / 2, 0.3))
     for tag in ("L", "R"):
         D[f"hip{tag}"].rotation_euler = (1.1, 0, 0)
@@ -772,13 +772,13 @@ def S11(L, n):
     for f, s in ((1, 0.001), (5, 0.001), (10, 1.15), (14, 0.9)):
         fr.scale = (s,) * 3
         fr.keyframe_insert("scale", frame=f)
-    _xr(L, "fist", xray_mat(L, "fistm", (0.9, 0.97, 1.0), 3.0, power=1.2, base=0.15))
+    _xr(L, "fist", L.mat_emission("fistm", (0.85, 0.92, 1.0), 1.6))
     D = L.char_diver(name="xd", light_on=False, tanks="single")
-    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=1.2, base=0.12))
+    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=2.0, base=0.0))
     dr = D["root"]
     dr.location = (0.0, 0.4, -0.52)
     dr.rotation_euler = (PI / 2, 0, 0)  # head toward the opening, shoulders far wider than the ring
-    lbl = L.text3d("FIST", loc=(0.24, -0.05, 0.16), size=0.05, mat=L.mat_emission("lblm", (0.85, 0.95, 1.0), 2))
+    lbl = L.text3d("FIST", loc=(0.24, -0.05, 0.42), size=0.05, mat=L.mat_emission("lblm", (0.85, 0.95, 1.0), 2))
     lbl2 = L.text3d("THROAT", loc=(-0.02, -0.05, 0.4), size=0.045, mat=L.mat_emission("lblm2", (1.0, 0.4, 0.3), 3))
     cam, _ = L.camera(loc=(0.05, -10, 0.05), lens=50)
     cam.rotation_euler = (PI / 2, 0, 0)
@@ -909,12 +909,12 @@ def S14(L, n):
 
 
 def S15(L, n):
-    sea, sun = day_sea(L, n, wave=0.3)
+    sea, sun = day_sea(L, n, wave=0.08)
     B = S.lobster_boat("lb")
     br = B["root"]
     arrive = int(n * 0.35)
-    for f, y in ((1, -9.0), (arrive, -0.6), (n, 0.0)):
-        br.location = (0.0, y, 0.0)
+    for f, y in ((1, -5.0), (arrive, -0.6), (n, 0.0)):
+        br.location = (0.0, y, 0.15)
         br.rotation_euler = (0, 0, 0)
         br.keyframe_insert("location", frame=f)
     br.rotation_euler = (0, 0, 0)
@@ -922,7 +922,7 @@ def S15(L, n):
     M = L.char_figure(name="mayo", color=(0.035, 0.035, 0.04), height=1.8)
     mr = M["root"]
     mr.parent = br
-    mr.location = (1.25, -1.6, 0.6)
+    mr.location = (1.25, -1.6, 1.2)
     mr.rotation_euler = (0, 0, -PI / 2)
     cap = L.prim("cyl", loc=(0, 0.0, 0.23), vertices=16, radius=0.11, depth=0.06, name="mayo_cap")
     L.assign(cap, L.mat_principled("capm", (0.08, 0.15, 0.3), rough=0.6))
@@ -943,7 +943,7 @@ def S15(L, n):
     P = packard(L)
     pr = P["root"]
     for f, loc, rot in ((1, (2.6, 1.0, -0.35), (PI / 2 - 0.2, 0, PI / 2)), (int(n * 0.55), (2.25, -1.4, -0.3), (PI / 2 - 0.1, 0, PI / 2)),
-                        (int(n * 0.85), (2.0, -1.5, 0.75), (PI / 2 + 0.3, 0, PI / 2)), (n, (1.85, -1.5, 1.05), (PI / 2 + 0.6, 0, PI / 2))):
+                        (int(n * 0.85), (2.15, -1.5, 1.05), (PI / 2 + 0.3, 0, PI / 2)), (n, (2.0, -1.5, 1.55), (PI / 2 + 0.6, 0, PI / 2))):
         pr.location = loc
         pr.rotation_euler = rot
         pr.keyframe_insert("location", frame=f)
@@ -953,24 +953,24 @@ def S15(L, n):
     foam_ring(L, (2.4, -1.2), 0.3, 1.6, int(n * 0.55), n, name="hfoam")
     L.particle_cloud((2.2, -1.4, 0.4), (0.8, 0.6, 0.8), count=150, radius=0.008, nframes=n, drift=(0, 0, -0.8), name="drips",
                      mat=L.mat_principled("dripm", (0.9, 0.95, 1.0), emit=(0.5, 0.6, 0.6), emit_strength=0.4))
-    cam, _ = L.camera(loc=(7.5, -4.2, 0.6), target=(1.6, -1.2, 1.1), lens=35)
+    cam, _ = L.camera(loc=(7.5, -4.2, 0.7), target=(1.6, -1.2, 1.5), lens=35)
     L.cam_keys(cam, [(1, (7.5, -4.2, 0.6)), (n, (7.0, -3.9, 0.55))])
     L.handheld(cam, n, amp=0.04, rate=0.6)
     _finish(L)
 
 
 def S16(L, n):
-    sea, sun = day_sea(L, n, wave=0.25)
+    sea, sun = day_sea(L, n, wave=0.06)
     sun.data.color = (1.0, 0.85, 0.65)
     sun.rotation_euler = (math.radians(65), 0, math.radians(-120))
     B = S.lobster_boat("lb")
     br = B["root"]
-    S.bob(br, n, amp=0.05, rate=0.3, tilt=0.025, base=(0, 0, 0))
+    S.bob(br, n, amp=0.05, rate=0.3, tilt=0.025, base=(0, 0, 0.15))
     # Packard seated on the deck against the gunwale, mask off; tank + fins beside him
     F = L.char_figure(name="packfig", color=(0.03, 0.03, 0.035), height=1.78)
     fr = F["root"]
     fr.parent = br
-    fr.location = (1.35, -2.4, 0.6 - 0.83)
+    fr.location = (1.45, -2.4, 1.2 - 0.83)
     fr.rotation_euler = (0, 0, PI / 2)
     F["pelvis"].rotation_euler = (0.3, 0, 0)
     F["neck"].rotation_euler = (0.35, 0, 0)
@@ -982,21 +982,21 @@ def S16(L, n):
     F["shoulderR"].rotation_euler = (0.55, 0, 0.1)
     F["elbowR"].rotation_euler = (0.7, 0, 0)
     met = L.mat_principled("tankm", (0.75, 0.77, 0.8), rough=0.25, metal=1)
-    tk = L.prim("cyl", loc=(0.6, -1.4, 0.75), vertices=16, radius=0.09, depth=0.7, rot=(PI / 2, 0, 0.4), name="tank")
+    tk = L.prim("cyl", loc=(0.6, -1.4, 1.3), vertices=16, radius=0.09, depth=0.7, rot=(PI / 2, 0, 0.4), name="tank")
     L.assign(tk, met)
     tk.parent = br
     fm = L.mat_principled("finm", (0.95, 0.42, 0.05), rough=0.45)
     for k in range(2):
-        fn = L.prim("cube", loc=(0.2 + k * 0.15, -3.1, 0.62), rot=(0, 0, 0.3 + k * 0.4), name="fin")
+        fn = L.prim("cube", loc=(0.2 + k * 0.15, -3.1, 1.22), rot=(0, 0, 0.3 + k * 0.4), name="fin")
         fn.scale = (0.11, 0.3, 0.012)
         L.assign(fn, fm)
         fn.parent = br
-    mask = L.prim("torus", loc=(0.9, -2.9, 0.64), major_radius=0.08, minor_radius=0.025, name="mask")
+    mask = L.prim("torus", loc=(0.9, -2.9, 1.24), major_radius=0.08, minor_radius=0.025, name="mask")
     L.assign(mask, fm)
     mask.parent = br
-    cam, _ = L.camera(loc=(0.2, -5.8, 1.9), target=(1.2, -2.4, 0.9), lens=35)
+    cam, _ = L.camera(loc=(-0.6, -5.4, 2.6), target=(1.3, -2.4, 1.6), lens=35)
     cam.parent = br
-    L.cam_keys(cam, [(1, (0.2, -5.8, 1.9)), (n, (0.35, -5.2, 1.75))])
-    fill = L.area((-2, -1, 3.5), (0, 0, 0), energy=150, size=3, color=(1.0, 0.85, 0.7), name="bounce")
-    _aim(fill, (-2, -1, 3.5), (1.2, -2.4, 0.7))
+    L.cam_keys(cam, [(1, (-0.6, -5.4, 2.6)), (n, (-0.4, -4.9, 2.5))])
+    fill = L.area((-2, -1, 4.0), (0, 0, 0), energy=150, size=3, color=(1.0, 0.85, 0.7), name="bounce")
+    _aim(fill, (-2, -1, 4.0), (1.3, -2.4, 1.4))
     _finish(L)

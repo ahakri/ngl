@@ -350,7 +350,8 @@
           "text": "Age 26",
           "params": {
             "header": "JOHN EDWARD JONES",
-            "y": 1150
+            "y": 900,
+            "mood": "cave"
           }
         },
         {
@@ -721,7 +722,8 @@
           "text": "John Edward Jones",
           "params": {
             "header": "IN MEMORY",
-            "y": 1150
+            "y": 760,
+            "mood": "cave"
           }
         }
       ],

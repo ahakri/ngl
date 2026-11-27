@@ -222,8 +222,8 @@ def S04(L, n):
         hj["knee" + t].rotation_euler = (R(-80), 0, 0)
     hj["neck"].rotation_euler = (0, 0, 0)
     figure_on(hj, (xr - 0.05, -0.45, 0), R(-90))
-    fa = L.char_figure("attendant", color=(0.42, 0.45, 0.55), height=1.66)
-    figure_on(fa, (xr + 0.75, 0.05, 0), R(90 + 25))
+    fa = L.char_figure("attendant", color=(0.16, 0.2, 0.3), height=1.66)
+    figure_on(fa, (xr + 0.6, 0.12, 0), R(90 + 30))
     # arms: hijacker reaches into the aisle (toward +Y local is forward = +X world; aisle is +Y world -> use shoulder z)
     sh = hj["shoulderR"]
     for f, v in ((1, (0.3, 0, 0)), (18, (0.3, 0, 0)), (40, (1.25, 0, 0.55)), (n, (1.3, 0, 0.6))):
@@ -253,9 +253,9 @@ def S04(L, n):
         note.keyframe_insert("location", frame=f)
     sc.frame_set(1)
     fe = M.empty("focus", seq[3][1])
-    cam, ct = cam_path(L, n, (xr + 4.6, 0.12, 1.25), (xr + 3.2, 0.08, 1.22), (xr - 0.2, -0.2, 1.05), (xr + 0.1, -0.15, 1.0), lens=50)
+    cam, ct = cam_path(L, n, (xr + 2.3, 0.85, 1.6), (xr + 1.75, 0.7, 1.52), (xr + 0.2, -0.25, 1.0), (xr + 0.25, -0.2, 1.0), lens=40)
+    L.area((xr + 1.2, 0.6, 2.1), (R(30), 0, R(120)), energy=40, size=1.0, color=(1.0, 0.85, 0.65), name="key")
     L.dof(cam, target=fe, fstop=2.2)
-    L.particle_cloud((xr + 1.5, 0, 1.3), (5, 3, 1.6), count=600, radius=0.004, drift=(0, 0, 0.02), nframes=n, name="haze")
     L.fog_volume(center=(0, 0, 1.2), size=(16, 3.6, 2.6), density=0.04, color=(0.9, 0.8, 0.65))
     L.bake_static()
 
@@ -272,10 +272,10 @@ def S05(L, n):
         lk.scale = (0.02, 0.006, 0.015)
         L.assign(lk, L.mat_principled("lock", (0.7, 0.6, 0.35), rough=0.2, metal=1.0))
     L.spot((xr, -0.45, 2.3), (0, 0, 0), energy=260, size_deg=30, blend=0.5, color=(1.0, 0.85, 0.65), name="topspot", radius=0.05)
-    L.particle_cloud((xr, -0.45, 1.4), (0.8, 0.8, 1.4), count=350, radius=0.003, drift=(0.01, 0, -0.01), nframes=n, name="motes",
+    L.particle_cloud((xr, -0.45, 1.4), (0.8, 0.8, 1.4), count=120, radius=0.0015, drift=(0.01, 0, -0.01), nframes=n, name="motes",
                      mat=L.mat_principled("motes_m", (0.9, 0.85, 0.7), emit=(1, 0.9, 0.7), emit_strength=0.8))
     L.fog_volume(center=(xr, -0.45, 1.2), size=(2, 2, 2.4), density=0.08, color=(0.9, 0.85, 0.7))
-    cam, ct = cam_path(L, n, (xr + 2.6, 0.25, 1.45), (xr + 2.1, 0.15, 1.38), (xr, -0.45, 0.7), (xr, -0.45, 0.72), lens=45)
+    cam, ct = cam_path(L, n, (xr + 0.55, 0.55, 1.3), (xr + 0.45, 0.4, 1.2), (xr, -0.45, 0.68), (xr, -0.45, 0.7), lens=35)
     L.dof(cam, distance=2.4, fstop=2.8)
     L.bake_static()
 
@@ -296,9 +296,9 @@ def S06(L, n):
                      emit=0.05, dur=18)
     bm = M.mat_bill("brick_m")
     for k in range(10):
-        M.bill_brick((0.0 + (k % 2) * 0.165 - 0.08, -0.5 + (k // 4) * 0.07, 0.025 + ((k // 2) % 2) * 0.05), rot_z=R(90) * 0 + 0.02 * k,
+        M.bill_brick((0.0 + (k % 2) * 0.165 - 0.08, -0.32 + (k // 4) * 0.07, 0.025 + ((k // 2) % 2) * 0.05), rot_z=R(90) * 0 + 0.02 * k,
                      mat=bm, name=f"brick{k}")
-    L.spot((0, 0.2, 3.0), (0, 0, 0), energy=700, size_deg=55, blend=0.4, color=(1.0, 0.95, 0.88), name="top", radius=0.1)
+    L.spot((0, 0.2, 3.0), (0, 0, 0), energy=380, size_deg=45, blend=0.4, color=(1.0, 0.95, 0.88), name="top", radius=0.1)
     L.area((0, -2.5, 0.15), (R(88), 0, 0), energy=60, size=3, color=(1.0, 0.08, 0.05), name="redrim")
     cam, ct = cam_path(L, n, (0, 0.05, 2.4), (0, 0.1, 2.15), (0, 0.15, 0), (0, 0.2, 0), lens=35)
     cam.constraints[0].up_axis = "UP_Y"

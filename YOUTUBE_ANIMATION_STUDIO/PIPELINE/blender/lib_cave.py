@@ -1838,7 +1838,7 @@ def anim_crawl(p, n, rate=0.8, start=1, amp=0.45):
                 p[f"{k}{tag}"].keyframe_insert("rotation_euler", frame=f)
 
 
-def outline_figure(name="ofig", length=0.6, color=(0.78, 0.78, 0.76), strength=2.5, lamp=True, thick=0.012):
+def outline_figure(name="ofig", length=0.6, color=(0.78, 0.78, 0.76), strength=2.5, lamp=True, thick=0.018):
     """Flat diagram figure in the XZ plane (faces -Y): head at the root origin, body along local +Z (feet at +Z).
     Returns dict(root, mat, lamp_core, lamp_halo_emit, lamp_core_emit)."""
     root = L.link(bpy.data.objects.new(name, None))
@@ -1920,7 +1920,7 @@ def pulley(loc, name="pulley", rot=(0, 0, 0)):
     wheel.parent = root
     for sx in (-1, 1):
         pl = L.prim("cube", loc=(sx * 0.016, 0, 0.01), name=name + "_side")
-        pl.scale = (0.003, 0.045, 0.06)
+        pl.scale = (0.002, 0.026, 0.036)
         L.assign(pl, L.mat_principled(name + "_pm", (0.15, 0.35, 0.8), rough=0.4, metal=0.6))
         pl.parent = root
     return root
