@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T16:25:05Z
+Updated: 2026-11-27T17:09:31Z
 
 ## Concept counts
 
@@ -16,11 +16,10 @@ Updated: 2026-11-27T16:25:05Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 21
+- ANIMATED - in render queue: 25
 - ANIMATING: 1
 - CONCEPT: 72
 - QC PASSED: 2
-- SCRIPTED: 4
 
 ## Videos in production
 
@@ -32,25 +31,25 @@ Updated: 2026-11-27T16:25:05Z
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | ANIMATED - in render queue |
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | ANIMATED - in render queue |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | ANIMATED - in render queue |
-| CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | SCRIPTED |
+| CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | ANIMATED - in render queue |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |
 | SCUBA-02 | The Boat Left Without Them | 82 | ANIMATED - in render queue |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | ANIMATED - in render queue |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | ANIMATED - in render queue |
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | ANIMATED - in render queue |
 | SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATED - in render queue |
-| SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | SCRIPTED |
+| SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | ANIMATING |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | QC PASSED |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | ANIMATED - in render queue |
 | MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | ANIMATED - in render queue |
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | ANIMATED - in render queue |
-| MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | ANIMATING |
-| MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | SCRIPTED |
+| MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | ANIMATED - in render queue |
+| MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | ANIMATED - in render queue |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |
 | HAUNT-02 | The Real Room 217 | 77 | ANIMATED - in render queue |
 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | ANIMATED - in render queue |
 | HAUNT-05 | The Tunnel Built to Hide the Dead | 75 | ANIMATED - in render queue |
 | HAUNT-04 | The Ghost Photo Country Life Published | 75 | ANIMATED - in render queue |
 | HAUNT-06 | The Woman on the Gravestone (1991) | 73 | ANIMATED - in render queue |
-| HAUNT-07 | Drivers Keep Reporting They Hit Her | 72 | SCRIPTED |
+| HAUNT-07 | Drivers Keep Reporting They Hit Her | 72 | ANIMATED - in render queue |

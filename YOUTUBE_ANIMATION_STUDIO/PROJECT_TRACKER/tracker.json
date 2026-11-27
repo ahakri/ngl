@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:25:05Z",
+ "updated": "2026-11-27T17:09:31Z",
  "phases": {
   "P1_research": {
    "status": "done",
@@ -45,27 +45,27 @@
   "CAVE-04": "ANIMATED - in render queue",
   "CAVE-05": "ANIMATED - in render queue",
   "CAVE-06": "ANIMATED - in render queue",
-  "CAVE-07": "SCRIPTED",
+  "CAVE-07": "ANIMATED - in render queue",
   "SCUBA-01": "ANIMATED - in render queue",
   "SCUBA-02": "ANIMATED - in render queue",
   "SCUBA-03": "ANIMATED - in render queue",
   "SCUBA-04": "ANIMATED - in render queue",
   "SCUBA-05": "ANIMATED - in render queue",
   "SCUBA-06": "ANIMATED - in render queue",
-  "SCUBA-07": "SCRIPTED",
+  "SCUBA-07": "ANIMATING",
   "MURDER-01": "QC PASSED",
   "MURDER-02": "ANIMATED - in render queue",
   "MURDER-03": "ANIMATED - in render queue",
   "MURDER-04": "ANIMATED - in render queue",
   "MURDER-05": "ANIMATED - in render queue",
-  "MURDER-06": "ANIMATING",
-  "MURDER-07": "SCRIPTED",
+  "MURDER-06": "ANIMATED - in render queue",
+  "MURDER-07": "ANIMATED - in render queue",
   "HAUNT-01": "QC PASSED",
   "HAUNT-02": "ANIMATED - in render queue",
   "HAUNT-03": "ANIMATED - in render queue",
   "HAUNT-05": "ANIMATED - in render queue",
   "HAUNT-04": "ANIMATED - in render queue",
   "HAUNT-06": "ANIMATED - in render queue",
-  "HAUNT-07": "SCRIPTED"
+  "HAUNT-07": "ANIMATED - in render queue"
  }
 }

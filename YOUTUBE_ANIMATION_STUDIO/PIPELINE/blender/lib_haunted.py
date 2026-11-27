@@ -3281,3 +3281,442 @@ def gloved_hand(name="glove", parent=None, loc=(0, 0, 0), rot=(0, 0, 0)):
     L.assign(cuff, m)
     cuff.parent = root
     return root
+
+
+# ============================================================================ HAUNT-07 (Blue Bell Hill, A229): appended builders.
+# Night dual carriageway climbing a wooded hill (UK: drive on the LEFT; uphill carriageway x<0), windscreen POV rig,
+# generic box cars (1970s saloon / 1990s hatchback / police), plain-coat faceless figure, tartan blanket with liftable corner.
+
+BBH_GRADE = 0.06
+
+
+def bbh_z(x, y, grade=BBH_GRADE):
+    """Ground height: road plane rising toward +Y; banks rise beyond |x| 14 m (wooded cutting)."""
+    z = grade * y
+    ax = abs(x)
+    if ax > 13.0:
+        z += min(9.0, (ax - 13.0) * 0.35) + 0.4 * noise.noise(Vector((x * 0.05, y * 0.05, 0.7)))
+    return z
+
+
+def _strip(bm, x0, x1, y0, y1, step, zf, lift=0.0):
+    ny = max(1, int((y1 - y0) / step))
+    rows = []
+    for j in range(ny + 1):
+        y = y0 + (y1 - y0) * j / ny
+        rows.append((bm.verts.new((x0, y, zf(x0, y) + lift)), bm.verts.new((x1, y, zf(x1, y) + lift))))
+    for j in range(ny):
+        bm.faces.new((rows[j][0], rows[j][1], rows[j + 1][1], rows[j + 1][0]))
+
+
+def bbh_road(y0=-90.0, y1=300.0, trees=True, tree_count=170, seed=7, lamps=((-12.2, 40.0), (-12.2, 150.0), (12.2, 95.0)),
+             lamp_energy=1400, fog=0.025, fog_h=2.6, barrier=True, lines=True):
+    """A229-style dual carriageway on a 6% grade: two 7.3 m carriageways, central reserve with steel barrier,
+    left hard shoulder, crash barrier on the verges, bare woods on rising banks, sparse sodium lamps (long dark gaps).
+    Returns dict(z=fn, lamps=[...], fog=obj)."""
+    zf = lambda x, y: bbh_z(x, y)
+    road_m = mat_wet_road("bbh_wet")
+    bm = bmesh.new()
+    _strip(bm, -10.4, -0.6, y0, y1, 4.0, zf, 0.0)
+    _strip(bm, 0.6, 10.4, y0, y1, 4.0, zf, 0.0)
+    o = L.mesh_from_bm("bbh_road", bm)
+    L.assign(o, road_m)
+    bm = bmesh.new()
+    for (a, b) in ((-60, -10.4), (-0.6, 0.6), (10.4, 60)):
+        nx = max(1, int((b - a) / 2.0))
+        ny = int((y1 + 40 - y0) / 4.0)
+        vs = [[bm.verts.new((a + (b - a) * i / nx, y0 + 4.0 * j, zf(a + (b - a) * i / nx, y0 + 4.0 * j) - 0.03)) for i in range(nx + 1)]
+              for j in range(ny + 1)]
+        for j in range(ny):
+            for i in range(nx):
+                bm.faces.new((vs[j][i], vs[j][i + 1], vs[j + 1][i + 1], vs[j + 1][i]))
+    g = L.mesh_from_bm("bbh_verge", bm)
+    L.assign(g, mat_verge("bbh_verge_m"))
+    out = {"z": zf, "lamps": []}
+    if lines:
+        wm = L.mat_principled("bbh_line", (0.75, 0.75, 0.72), rough=0.4, emit=(0.5, 0.5, 0.48), emit_strength=0.04)
+        bm = bmesh.new()
+        for side in (-1, 1):
+            for xe in (7.9, 0.95):  # solid edge lines
+                _strip(bm, side * xe - 0.07, side * xe + 0.07, y0, y1, 8.0, zf, 0.012)
+            y = y0
+            while y < y1:  # lane divider dashes 3 m line / 6 m gap
+                _strip(bm, side * 4.42 - 0.05, side * 4.42 + 0.05, y, y + 3.0, 3.0, zf, 0.012)
+                y += 9.0
+        lo = L.mesh_from_bm("bbh_lines", bm)
+        L.assign(lo, wm)
+    if barrier:
+        sm = L.mat_principled("bbh_steel", (0.32, 0.33, 0.34), rough=0.35, metal=0.9)
+        bm = bmesh.new()
+        for xb in (-11.2, -0.15, 0.15, 11.2):
+            ny = int((y1 - y0) / 4.0)
+            for j in range(ny):
+                ya, yb = y0 + 4.0 * j, y0 + 4.0 * (j + 1)
+                za, zb = zf(xb, ya) + 0.62, zf(xb, yb) + 0.62
+                v = [bm.verts.new(p) for p in ((xb - 0.02, ya, za - 0.16), (xb + 0.02, ya, za - 0.16), (xb + 0.02, ya, za + 0.16),
+                                               (xb - 0.02, ya, za + 0.16), (xb - 0.02, yb, zb - 0.16), (xb + 0.02, yb, zb - 0.16),
+                                               (xb + 0.02, yb, zb + 0.16), (xb - 0.02, yb, zb + 0.16))]
+                for f in ((0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)):
+                    bm.faces.new([v[k] for k in f])
+                if j % 1 == 0:  # post every 4 m
+                    pz = zf(xb, ya)
+                    pv = [bm.verts.new(p) for p in ((xb - 0.04, ya - 0.04, pz), (xb + 0.04, ya - 0.04, pz), (xb + 0.04, ya + 0.04, pz),
+                                                    (xb - 0.04, ya + 0.04, pz), (xb - 0.04, ya - 0.04, pz + 0.5), (xb + 0.04, ya - 0.04, pz + 0.5),
+                                                    (xb + 0.04, ya + 0.04, pz + 0.5), (xb - 0.04, ya + 0.04, pz + 0.5))]
+                    for f in ((0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)):
+                        bm.faces.new([pv[k] for k in f])
+        b = L.mesh_from_bm("bbh_barriers", bm)
+        L.assign(b, sm)
+    if trees:
+        out["trees"] = bare_forest_z("bbh_woods", [(-55, -13.0, y0, y1 + 30), (13.0, 55, y0, y1 + 30)], zf, count=tree_count, seed=seed,
+                                     height=(9.0, 16.0))
+    for i, (x, y) in enumerate(lamps):
+        face = -math.pi / 2 if x < 0 else math.pi / 2
+        lp = streetlamp((x, y, zf(x, y)), height=8.0, energy=lamp_energy, name=f"bbh_lamp{i}", arm=1.6, face=face)
+        out["lamps"].append(lp)
+    if fog:
+        L_ = y1 - y0
+        fg = L.fog_volume(center=(0, (y0 + y1) / 2, zf(0, (y0 + y1) / 2) + fog_h / 2), size=(90, L_, fog_h), density=fog,
+                          color=(0.72, 0.75, 0.82))
+        fg.rotation_euler = (math.atan(BBH_GRADE), 0, 0)
+        out["fog"] = fg
+    return out
+
+
+def coat_figure(name="walker", height=1.66, color=(0.5, 0.5, 0.48), emit=0.15):
+    """Generic faceless figure in a plain knee-length light coat (NOT a dress/veil/period costume). Pale, faint self-glow."""
+    p = L.char_figure(name=name, color=color, height=height, coat=True, emit=color if emit else None)
+    m = p["torso"].data.materials[0]
+    bsdf = m.node_tree.nodes["Principled BSDF"]
+    bsdf.inputs["Emission Strength"].default_value = emit
+    s = height / 1.75
+    p["coat"].scale = (p["coat"].scale.x * 0.62, p["coat"].scale.y * 0.7, p["coat"].scale.z * 0.92)  # straight, narrow: a coat, not a skirt
+    p["coat"].location.z += 0.03 * s
+    # collar + belt line so the coat reads as a coat
+    col = L.prim("torus", loc=(0, 0, 0.6 * s), major_radius=0.12 * s, minor_radius=0.03 * s, major_segments=16, minor_segments=6)
+    L.assign(col, m)
+    col.parent = p["pelvis"]
+    return p
+
+
+def windscreen_rig(n, name="car", drops=False, mirror=True, wiper_keys=None, bonnet=True, rain=True):
+    """Driver's-eye car interior that moves as one rig (key rig['root']). Car faces +Y; driver (RHD) at local x=+0.35.
+    Camera eye at local (0.35, 0, 1.2). Parts: dash, bonnet edge, A-pillars, roof edge, wipers (pivots 'wiperL/R',
+    rotate local Y), rear-view mirror ('mirror' plane, faces the driver), headlight spots, windscreen droplets."""
+    root = empty(name, (0, 0, 0))
+    out = {"root": root}
+    pm = L.mat_principled(name + "_paint", (0.02, 0.022, 0.026), rough=0.25, metal=0.4)
+    dm = L.mat_principled(name + "_dash", (0.012, 0.012, 0.013), rough=0.7)
+    box_mesh(name + "_dash", [(0, 0.55, 0.92, 0.8, 0.3, 0.06), (0.35, 0.35, 0.98, 0.18, 0.08, 0.05)], dm, parent=root)
+    box_mesh(name + "_frame", [(0.79, 0.75, 1.22, 0.04, 0.25, 0.32, 0), (-0.79, 0.75, 1.22, 0.04, 0.25, 0.32, 0),
+                               (0, 0.42, 1.58, 0.82, 0.1, 0.03)], dm, parent=root)
+    for sx in (-1, 1):
+        ap = L.prim("cube", loc=(sx * 0.75, 0.78, 1.25))
+        ap.scale = (0.05, 0.04, 0.36)
+        ap.rotation_euler = (math.radians(35), 0, 0)
+        L.assign(ap, dm)
+        ap.parent = root
+    if bonnet:
+        bn = L.prim("cube", loc=(0, 1.75, 0.86))
+        bn.scale = (0.82, 0.95, 0.04)
+        bn.rotation_euler = (math.radians(-4), 0, 0)
+        L.assign(bn, pm)
+        bn.parent = root
+    gm = L.mat_emission(name + "_gauge", (1.0, 0.45, 0.15), 1.2)
+    out["gauge_mat"] = gm
+    # wipers: pivots at the scuttle, blades lie along the bottom of the screen
+    wm = L.mat_principled(name + "_wiper", (0.01, 0.01, 0.01), rough=0.5)
+    for tag, px in (("L", -0.55), ("R", 0.15)):
+        pv = empty(f"{name}_wiper{tag}", (px, 0.95, 0.99), parent=root)
+        arm = L.prim("cube", loc=(0.3, 0, 0.0))
+        arm.scale = (0.3, 0.008, 0.008)
+        L.assign(arm, wm)
+        arm.parent = pv
+        out["wiper" + tag] = pv
+    if wiper_keys:
+        for f, ang in wiper_keys:
+            for tag in ("L", "R"):
+                pv = out["wiper" + tag]
+                pv.rotation_euler = (0, math.radians(-ang if tag == "L" else -ang), 0)
+                pv.keyframe_insert("rotation_euler", frame=f)
+    if mirror:
+        mr = empty(name + "_mirror", (0.0, 0.62, 1.45), parent=root)
+        hous = L.prim("cube", loc=(0, 0.015, 0))
+        hous.scale = (0.14, 0.02, 0.045)
+        L.assign(hous, dm)
+        hous.parent = mr
+        pl = L.prim("plane", loc=(0, -0.008, 0), size=1, rot=(math.radians(90), 0, 0), name=name + "_mirrorface")
+        pl.scale = (0.26, 0.078, 1)
+        pl.parent = mr
+        st = L.prim("cyl", loc=(0, 0.02, 0.06), vertices=6, radius=0.008, depth=0.08)
+        L.assign(st, dm)
+        st.parent = mr
+        mr.rotation_euler = (math.radians(18), 0, math.radians(29))
+        out["mirror"] = mr
+        out["mirror_face"] = pl
+    spots = []
+    for sx in (-0.6, 0.6):
+        s = L.spot((sx, 2.6, 0.75), (math.pi / 2 - 0.1, 0, 0), energy=9000, size_deg=36, blend=0.5, color=(1.0, 0.9, 0.72),
+                   name=name + "_hl", radius=0.08)
+        s.data.volume_factor = 0.12
+        s.parent = root
+        spots.append(s)
+    out["spots"] = spots
+    if drops:
+        try:
+            import lib_murder as _M
+            d = _M.glass_drops((0.0, 0.0, 0.0), size=(1.5, 0.6), count=160, seed=5, name=name + "_drops", rmin=0.003, rmax=0.009)
+            d.parent = root
+            d.location = (0.0, 0.8, 1.22)
+            d.rotation_euler = (math.radians(55), 0, 0)
+            d.visible_shadow = False
+        except Exception:
+            pass
+    if rain:
+        r = globals()["rain"]((0.35, 9, 1.6), (9, 16, 4.5), n, count=700, speed=7, emit=0.25, name=name + "_rain")
+        r.parent = root
+    L.point((0.35, 0.3, 1.1), energy=1.5, color=(1.0, 0.55, 0.25), radius=0.3, name=name + "_dashglow").parent = root
+    return out
+
+
+def box_car(name="bcar", loc=(0, 0, 0), rot_z=0.0, style="saloon", body=(0.05, 0.05, 0.055), lamps=True, lamp_energy=2400,
+            door_open=0.0, police=False, hazards=False):
+    """Generic badge-less car facing +Y local. style 'saloon' (1970s three-box, long flat bonnet) or 'hatch' (1990s hatchback).
+    Returns dict root, spots, tail_mat, ind_mats (amber), ind_lights, door (hinge, driver side = +X for RHD), blue (police)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    pm = L.mat_principled(name + "_paint", body, rough=0.25, metal=0.4)
+    gm = L.mat_principled(name + "_glass", (0.01, 0.012, 0.016), rough=0.05)
+    tm = L.mat_principled(name + "_tyre", (0.01, 0.01, 0.01), rough=0.8)
+    if style == "saloon":
+        L_, W, H0, Hc = 4.5, 1.7, 0.75, 1.36
+        lower = [(0, 0, 0.5, W / 2, L_ / 2, 0.25)]
+        cabin = [(0, -0.3, H0 + 0.3, W / 2 - 0.08, 0.95, 0.3)]
+    else:
+        L_, W, H0, Hc = 3.9, 1.68, 0.8, 1.42
+        lower = [(0, 0, 0.52, W / 2, L_ / 2, 0.27)]
+        cabin = [(0, -0.35, H0 + 0.31, W / 2 - 0.07, 1.25, 0.31)]
+    box_mesh(name + "_body", lower, pm, parent=root, bevel=0.04)
+    box_mesh(name + "_cabin", cabin, gm, parent=root, bevel=0.06)
+    cy, cl = cabin[0][1], cabin[0][4]
+    box_mesh(name + "_roof", [(0, cy, Hc - 0.02, W / 2 - 0.06, cl - 0.05, 0.03)], pm, parent=root, bevel=0.02)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            w = L.prim("cyl", loc=(sx * (W / 2 - 0.05), sy * (L_ / 2 - 0.75), 0.3), vertices=16, radius=0.3, depth=0.2,
+                       rot=(0, math.pi / 2, 0))
+            L.assign(w, tm)
+            w.parent = root
+    hm = L.mat_emission(name + "_head", (1.0, 0.92, 0.78), 25 if lamps else 0.3)
+    tl = L.mat_emission(name + "_tail", (1.0, 0.04, 0.02), 6.0)
+    ia = L.mat_emission(name + "_ind", (1.0, 0.45, 0.05), 0.2)
+    spots, inds = [], []
+    for sx in (-1, 1):
+        h = L.prim("cube", loc=(sx * (W / 2 - 0.28), L_ / 2 + 0.005, 0.6))
+        h.scale = (0.17, 0.01, 0.07)
+        L.assign(h, hm)
+        h.parent = root
+        t = L.prim("cube", loc=(sx * (W / 2 - 0.22), -L_ / 2 - 0.005, 0.66))
+        t.scale = (0.16, 0.01, 0.06)
+        L.assign(t, tl)
+        t.parent = root
+        for yy in (L_ / 2 + 0.006, -L_ / 2 - 0.006):
+            ii = L.prim("cube", loc=(sx * (W / 2 - 0.06), yy, 0.6))
+            ii.scale = (0.05, 0.01, 0.04)
+            L.assign(ii, ia)
+            ii.parent = root
+        if lamps:
+            s = L.spot((sx * (W / 2 - 0.28), L_ / 2 + 0.1, 0.62), (math.pi / 2 - 0.06, 0, 0), energy=lamp_energy, size_deg=36, blend=0.5,
+                       color=(1.0, 0.88, 0.68), name=name + "_hl", radius=0.06)
+            s.parent = root
+            spots.append(s)
+        il = L.point((sx * (W / 2 + 0.1), 0, 0.7), energy=0.0, color=(1.0, 0.5, 0.08), radius=0.2, name=name + "_indl")
+        il.parent = root
+        inds.append(il)
+    tlp = L.point((0, -L_ / 2 - 0.6, 0.65), energy=10, color=(1.0, 0.05, 0.02), radius=0.05, name=name + "_tailglow")
+    tlp.data.specular_factor = 0.2
+    tlp.parent = root
+    door = empty(name + "_door", (W / 2, cy + cl - 0.1, 0.3), parent=root)
+    dp = box_mesh(name + "_doorp", [(0.02, -0.55, 0.45, 0.02, 0.55, 0.42)], pm, parent=door)
+    door.rotation_euler = (0, 0, -door_open)
+    out = {"root": root, "spots": spots, "tail_mat": tl, "ind_mat": ia, "ind_lights": inds, "door": door, "tail_glow": tlp,
+           "length": L_, "head_mat": hm}
+    if police:
+        bm_ = L.mat_emission(name + "_blue", (0.1, 0.3, 1.0), 25)
+        bl = L.prim("cyl", loc=(0, cy, Hc + 0.12), vertices=16, radius=0.09, depth=0.2)
+        L.assign(bl, bm_)
+        bl.parent = root
+        bp = L.point((0, cy, Hc + 0.5), energy=1200, color=(0.15, 0.35, 1.0), radius=0.3, name=name + "_bluel")
+        bp.parent = root
+        out["blue"] = bp
+        out["blue_mat"] = bm_
+    return out
+
+
+def hazard_blink(car, n, hz=1.5, energy=60.0, start=1, mats=()):
+    """Amber hazard/indicator blink (on half a cycle). Keys car indicator lights + emissive mats (+ extra mats)."""
+    fps = bpy.context.scene.render.fps
+    half = max(1, int(round(fps / hz / 2)))
+    ms = [car["ind_mat"]] + list(mats) if car else list(mats)
+    lights = car["ind_lights"] if car else []
+    for f in range(1, n + 2):
+        on = f >= start and ((f - start) // half) % 2 == 0
+        for li in lights:
+            li.data.energy = energy if on else 0.0
+            li.data.keyframe_insert("energy", frame=f)
+    for li in lights:
+        _interp_data(li.data, "CONSTANT")
+    for m in ms:
+        node = next(nd for nd in m.node_tree.nodes if nd.type == "EMISSION")
+        for f in range(1, n + 2):
+            on = f >= start and ((f - start) // half) % 2 == 0
+            node.inputs[1].default_value = 12.0 if on else 0.2
+            node.inputs[1].keyframe_insert("default_value", frame=f)
+        _interp_data(m.node_tree, "CONSTANT")
+
+
+def blue_flash(light, mat, n, hz=1.6, energy=1200):
+    """Single rotating-beacon style blue flash (UK police)."""
+    fps = bpy.context.scene.render.fps
+    per = fps / hz
+    node = next(nd for nd in mat.node_tree.nodes if nd.type == "EMISSION")
+    for f in range(1, n + 2):
+        ph = ((f - 1) % per) / per
+        k = max(0.0, math.cos(ph * 2 * math.pi)) ** 3
+        light.data.energy = energy * (0.08 + k)
+        light.data.keyframe_insert("energy", frame=f)
+        node.inputs[1].default_value = 3 + 30 * k
+        node.inputs[1].keyframe_insert("default_value", frame=f)
+
+
+def custodian_helmet(parts, color=(0.01, 0.01, 0.012)):
+    """Tall rounded police helmet silhouette on a figure's head (1970s British constable)."""
+    s = parts["torso"].scale.z / 0.33 if "torso" in parts else 1.0
+    m = L.mat_principled(parts["root"].name + "_helm", color, rough=0.5)
+    h = L.prim("sphere", loc=(0, 0, 0.24 * s), segments=16, ring_count=10)
+    h.scale = (0.12 * s, 0.135 * s, 0.17 * s)
+    L.assign(h, m)
+    h.parent = parts["neck"]
+    b = L.prim("cyl", loc=(0, 0, 0.13 * s), vertices=16, radius=0.14 * s, depth=0.015 * s)
+    b.scale = (1.0, 1.1, 1.0)
+    L.assign(b, m)
+    b.parent = parts["neck"]
+    return h
+
+
+def mat_tartan(name="tartan", c1=(0.38, 0.05, 0.04), c2=(0.06, 0.13, 0.07), c3=(0.75, 0.62, 0.3), scale=6.0):
+    """Procedural tartan: crossed stripe bands (two sine-based bands per axis) in three colours."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["UV"], sep.inputs[0])
+    vals = []
+    for ax in ("X", "Y"):
+        mu = n.new("ShaderNodeMath"); mu.operation = "MULTIPLY"; mu.inputs[1].default_value = scale * 6.283
+        l.new(sep.outputs[ax], mu.inputs[0])
+        sn = n.new("ShaderNodeMath"); sn.operation = "SINE"
+        l.new(mu.outputs[0], sn.inputs[0])
+        gt = n.new("ShaderNodeMath"); gt.operation = "GREATER_THAN"; gt.inputs[1].default_value = 0.35
+        l.new(sn.outputs[0], gt.inputs[0])
+        mu2 = n.new("ShaderNodeMath"); mu2.operation = "MULTIPLY"; mu2.inputs[1].default_value = scale * 6.283 * 3.0
+        l.new(sep.outputs[ax], mu2.inputs[0])
+        sn2 = n.new("ShaderNodeMath"); sn2.operation = "SINE"
+        l.new(mu2.outputs[0], sn2.inputs[0])
+        gt2 = n.new("ShaderNodeMath"); gt2.operation = "GREATER_THAN"; gt2.inputs[1].default_value = 0.93
+        l.new(sn2.outputs[0], gt2.inputs[0])
+        vals.append((gt, gt2))
+    mx = n.new("ShaderNodeMath"); mx.operation = "ADD"
+    l.new(vals[0][0].outputs[0], mx.inputs[0]); l.new(vals[1][0].outputs[0], mx.inputs[1])
+    mx2 = n.new("ShaderNodeMath"); mx2.operation = "MAXIMUM"
+    l.new(vals[0][1].outputs[0], mx2.inputs[0]); l.new(vals[1][1].outputs[0], mx2.inputs[1])
+    r1 = n.new("ShaderNodeMix"); r1.data_type = "RGBA"
+    mh = n.new("ShaderNodeMath"); mh.operation = "MULTIPLY"; mh.inputs[1].default_value = 0.5
+    l.new(mx.outputs[0], mh.inputs[0])
+    l.new(mh.outputs[0], r1.inputs[0])
+    r1.inputs[6].default_value = (*c1, 1)
+    r1.inputs[7].default_value = (*c2, 1)
+    r2 = n.new("ShaderNodeMix"); r2.data_type = "RGBA"
+    l.new(mx2.outputs[0], r2.inputs[0])
+    l.new(r1.outputs[2], r2.inputs[6])
+    r2.inputs[7].default_value = (*c3, 1)
+    l.new(r2.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.95
+    return m
+
+
+def blanket(loc=(0, 0, 0), size=(1.4, 1.0), rot_z=0.0, name="blanket", seed=3, flap=True):
+    """Flat tartan blanket on the ground (soft folds, nothing beneath) with an optional liftable corner flap.
+    Returns dict root, flap_hinge (rotate local X to lift the +X+Y corner)."""
+    rnd = random.Random(seed)
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = mat_tartan(name + "_m")
+    w, d = size
+    c = 0.38  # flap leg length
+    bm = bmesh.new()
+    nx, ny = 28, 20
+    vs = {}
+    for j in range(ny + 1):
+        for i in range(nx + 1):
+            x, y = -w / 2 + w * i / nx, -d / 2 + d * j / ny
+            z = 0.012 + 0.012 * noise.noise(Vector((x * 4 + seed, y * 4, 0.3))) + 0.006 * math.sin(x * 14 + y * 3)
+            vs[(i, j)] = bm.verts.new((x, y, max(0.004, z)))
+    uv = bm.loops.layers.uv.new()
+    for j in range(ny):
+        for i in range(nx):
+            cx, cy = -w / 2 + w * (i + 0.5) / nx, -d / 2 + d * (j + 0.5) / ny
+            if flap and (w / 2 - cx) + (d / 2 - cy) < c:
+                continue
+            f = bm.faces.new((vs[(i, j)], vs[(i + 1, j)], vs[(i + 1, j + 1)], vs[(i, j + 1)]))
+            for lp in f.loops:
+                lp[uv].uv = ((lp.vert.co.x + w / 2) / w, (lp.vert.co.y + d / 2) / w)
+    o = L.mesh_from_bm(name + "_cloth", bm)
+    L.assign(o, m)
+    L.smooth(o)
+    o.parent = root
+    out = {"root": root}
+    if flap:
+        a = Vector((w / 2 - c, d / 2, 0.012))
+        b = Vector((w / 2, d / 2 - c, 0.012))
+        mid = (a + b) / 2
+        hinge = empty(name + "_hinge", tuple(mid), parent=root)
+        ang = math.atan2(b.y - a.y, b.x - a.x)
+        hinge.rotation_euler = (0, 0, ang)
+        tip = Vector((w / 2, d / 2, 0.012)) - mid
+        # local frame: X along the hinge; flap lies at local -Y (rotated)
+        ca, sa = math.cos(-ang), math.sin(-ang)
+        def loc_(v):
+            return (v.x * ca - v.y * sa, v.x * sa + v.y * ca, 0.0)
+        fv = [loc_(a - mid), loc_(b - mid), loc_(tip)]
+        fo = L.mesh_from_bm(name + "_flapm", _tri_bm(fv))
+        L.assign(fo, m)
+        fo.parent = hinge
+        out["flap_hinge"] = hinge
+    return out
+
+
+def _tri_bm(vs):
+    bm = bmesh.new()
+    v = [bm.verts.new(p) for p in vs]
+    f = bm.faces.new(v)
+    uv = bm.loops.layers.uv.new()
+    for lp in f.loops:
+        lp[uv].uv = (lp.vert.co.x + 0.5, lp.vert.co.y + 0.5)
+    return bm
+
+
+def hand_torch(parts, side="R", energy=900, size_deg=22, color=(1.0, 0.92, 0.78), name=None):
+    """Small torch in a figure's hand (forearm points -Z locally; beam along the forearm)."""
+    el = parts["elbow" + side]
+    nm = name or (parts["root"].name + "_torch")
+    s = parts["torso"].scale.z / 0.33 if "torso" in parts else 1.0
+    body = L.prim("cyl", loc=(0, 0, -0.32 * s), vertices=10, radius=0.02, depth=0.14)
+    L.assign(body, L.mat_principled(nm + "_b", (0.05, 0.05, 0.05), rough=0.4, metal=0.6))
+    body.parent = el
+    lens = L.prim("cyl", loc=(0, 0, -0.39 * s), vertices=10, radius=0.022, depth=0.01)
+    L.assign(lens, L.mat_emission(nm + "_lens", color, 40))
+    lens.parent = el
+    sp = L.spot((0, 0, -0.4 * s), (0, 0, 0), energy=energy, size_deg=size_deg, blend=0.35, color=color, name=nm, radius=0.02)
+    sp.parent = el
+    sp.data.volume_factor = 1.0
+    return sp

@@ -3190,3 +3190,404 @@ def film_grain(cam, lens=18, dist=0.12, strength=0.25, nframes=60, tint=(0.25, 0
     L.assign(o, m)
     o.visible_shadow = False
     return o
+
+
+# ============================================================================= SCUBA-07 additions (Antikythera)
+# gears, corroded lump, 1900 hard-hat diver, sponge caïque, amphora. New builders only.
+
+def mat_bronze(name="bronze", color=(0.55, 0.36, 0.16), rough=0.32, patina=0.0):
+    """Polished (patina=0) to weathered (patina~0.6) bronze."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    p.inputs["Metallic"].default_value = 1.0 - 0.6 * patina
+    p.inputs["Roughness"].default_value = rough + 0.4 * patina
+    if patina <= 0:
+        p.inputs["Base Color"].default_value = (*color, 1)
+        return m
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 12.0
+    nz.inputs["Detail"].default_value = 6
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.45 - 0.2 * patina
+    ramp.color_ramp.elements[0].color = (*color, 1)
+    ramp.color_ramp.elements[1].position = 0.62
+    ramp.color_ramp.elements[1].color = (0.12, 0.3, 0.22, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    return m
+
+
+def mat_verdigris(name="verdigris", c1=(0.05, 0.09, 0.06), c2=(0.22, 0.32, 0.2), crust=(0.42, 0.38, 0.3), scale=18.0):
+    """Corroded bronze lump: dark green-brown with pale calcareous crust patches and strong bump."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    p.inputs["Roughness"].default_value = 0.85
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale
+    nz.inputs["Detail"].default_value = 10
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    vr = n.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = scale * 0.6
+    l.new(tc.outputs["Object"], vr.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].color = (*c2, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    cr = n.new("ShaderNodeValToRGB")
+    cr.color_ramp.elements[0].position = 0.55
+    cr.color_ramp.elements[1].position = 0.75
+    l.new(vr.outputs["Distance"], cr.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    l.new(cr.outputs["Color"], mix.inputs["Factor"])
+    l.new(ramp.outputs["Color"], mix.inputs["A"])
+    mix.inputs["B"].default_value = (*crust, 1)
+    l.new(mix.outputs["Result"], p.inputs["Base Color"])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.8
+    ad = n.new("ShaderNodeMath")
+    ad.operation = "ADD"
+    l.new(nz.outputs["Fac"], ad.inputs[0])
+    l.new(cr.outputs["Color"], ad.inputs[1])
+    l.new(ad.outputs[0], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def lump(name="lump", size=(0.2, 0.17, 0.09), seed=3, mat=None, apply=True):
+    """Fist-sized corroded bronze lump (flattened, lumpy slab). Origin at its centre."""
+    o = L.prim("ico", loc=(0, 0, 0), subdivisions=4, radius=1.0, name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    L.apply_scale(o)
+    t = bpy.data.textures.new(name + "_t", "CLOUDS")
+    t.noise_scale = 0.06
+    t.noise_depth = 3
+    rnd = random.Random(seed)
+    d = o.modifiers.new("d1", "DISPLACE")
+    d.texture = t
+    d.strength = 0.035
+    d.texture_coords = "OBJECT"
+    t2 = bpy.data.textures.new(name + "_t2", "VORONOI")
+    t2.noise_scale = 0.025
+    d2 = o.modifiers.new("d2", "DISPLACE")
+    d2.texture = t2
+    d2.strength = -0.008
+    o.rotation_euler = (0, 0, rnd.uniform(0, 0.5))
+    L.smooth(o)
+    L.assign(o, mat or mat_verdigris(name + "_m"))
+    if apply:
+        dg = bpy.context.evaluated_depsgraph_get()
+        me = bpy.data.meshes.new_from_object(o.evaluated_get(dg))
+        o.modifiers.clear()
+        o.data = me
+    return o
+
+
+def split_halves(o, plane_no=(1.0, 0.25, 0.0), plane_co=(0, 0, 0), inner_mat=None):
+    """Duplicate a mesh into two halves cut by a plane (holes filled; the cut face gets inner_mat). Hides o.
+    Returns (half_a, half_b)."""
+    out = []
+    for keep in (True, False):
+        bm = bmesh.new()
+        bm.from_mesh(o.data)
+        res = bmesh.ops.bisect_plane(bm, geom=bm.verts[:] + bm.edges[:] + bm.faces[:], plane_co=plane_co,
+                                     plane_no=plane_no, clear_inner=keep, clear_outer=not keep)
+        cut_edges = [e for e in res["geom_cut"] if isinstance(e, bmesh.types.BMEdge)]
+        nf = bmesh.ops.holes_fill(bm, edges=cut_edges, sides=0)
+        me = bpy.data.meshes.new(o.name + ("_a" if keep else "_b"))
+        for f in nf["faces"]:
+            f.material_index = 1
+        bm.to_mesh(me)
+        bm.free()
+        h = L.link(bpy.data.objects.new(me.name, me))
+        h.matrix_world = o.matrix_world.copy()
+        for ms in o.data.materials:
+            me.materials.append(ms)
+        me.materials.append(inner_mat or L.mat_principled(o.name + "_in", (0.06, 0.08, 0.05), rough=0.9))
+        out.append(h)
+    o.hide_render = True
+    o.hide_viewport = True
+    return out
+
+
+def gear(name="gear", teeth=32, r=0.1, thick=0.01, mat=None, spokes=4, hub=None, rim=None):
+    """Flat spur gear in the local XY plane (axis = local Z), origin at the centre. Teeth are trapezoids;
+    module = 2r/teeth. spokes=0 gives a solid disc. Returns the object (rotate it about local Z to turn)."""
+    mod = 2 * r / teeth
+    r_tip, r_root = r + mod, r - 1.25 * mod
+    r_in = rim if rim is not None else (r_root - max(0.12 * r, 2.2 * mod) if spokes else 0.0)
+    p = 2 * math.pi / teeth
+    prof = []
+    for k in range(teeth):
+        a0 = k * p
+        prof += [(r_root, a0), (r_tip, a0 + 0.2 * p), (r_tip, a0 + 0.45 * p), (r_root, a0 + 0.65 * p)]
+    bm = bmesh.new()
+    h = thick / 2
+    N = len(prof)
+    if r_in > 0:
+        ot = [bm.verts.new((rr * math.cos(a), rr * math.sin(a), h)) for rr, a in prof]
+        ob = [bm.verts.new((rr * math.cos(a), rr * math.sin(a), -h)) for rr, a in prof]
+        it = [bm.verts.new((r_in * math.cos(a), r_in * math.sin(a), h)) for _, a in prof]
+        ib = [bm.verts.new((r_in * math.cos(a), r_in * math.sin(a), -h)) for _, a in prof]
+        for i in range(N):
+            j = (i + 1) % N
+            bm.faces.new((ot[i], ot[j], it[j], it[i]))
+            bm.faces.new((ob[j], ob[i], ib[i], ib[j]))
+            bm.faces.new((ob[i], ob[j], ot[j], ot[i]))
+            bm.faces.new((it[i], it[j], ib[j], ib[i]))
+    else:
+        ct, cb = bm.verts.new((0, 0, h)), bm.verts.new((0, 0, -h))
+        ot = [bm.verts.new((rr * math.cos(a), rr * math.sin(a), h)) for rr, a in prof]
+        ob = [bm.verts.new((rr * math.cos(a), rr * math.sin(a), -h)) for rr, a in prof]
+        for i in range(N):
+            j = (i + 1) % N
+            bm.faces.new((ct, ot[i], ot[j]))
+            bm.faces.new((cb, ob[j], ob[i]))
+            bm.faces.new((ob[i], ob[j], ot[j], ot[i]))
+    if r_in > 0:
+        hub_r = hub or max(0.12 * r, 0.006)
+        w = max(0.08 * r, 0.004)
+        for s in range(spokes):
+            a = 2 * math.pi * s / spokes
+            dx, dy = math.cos(a), math.sin(a)
+            px, py = -dy * w, dx * w
+            ins = hub_r * 0.8
+            outs = r_in * 1.02
+            vs = []
+            for z in (h * 0.8, -h * 0.8):
+                vs.append([bm.verts.new((dx * ins + px, dy * ins + py, z)), bm.verts.new((dx * outs + px, dy * outs + py, z)),
+                           bm.verts.new((dx * outs - px, dy * outs - py, z)), bm.verts.new((dx * ins - px, dy * ins - py, z))])
+            t, b = vs
+            bm.faces.new(t)
+            bm.faces.new(list(reversed(b)))
+            for i in range(4):
+                j = (i + 1) % 4
+                bm.faces.new((b[i], b[j], t[j], t[i]))
+        seg = 16
+        ht = [bm.verts.new((hub_r * math.cos(2 * math.pi * i / seg), hub_r * math.sin(2 * math.pi * i / seg), h * 1.4))
+              for i in range(seg)]
+        hb = [bm.verts.new((hub_r * math.cos(2 * math.pi * i / seg), hub_r * math.sin(2 * math.pi * i / seg), -h * 1.4))
+              for i in range(seg)]
+        bm.faces.new(ht)
+        bm.faces.new(list(reversed(hb)))
+        for i in range(seg):
+            j = (i + 1) % seg
+            bm.faces.new((hb[i], hb[j], ht[j], ht[i]))
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    o = L.mesh_from_bm(name, bm)
+    if mat:
+        L.assign(o, mat)
+    o["r"] = r
+    o["teeth"] = teeth
+    return o
+
+
+def mount(obj, loc, normal=(0, -1, 0)):
+    """Parent obj (a gear spinning about its local Z) to a new empty at loc whose Z axis = normal."""
+    e = L.link(bpy.data.objects.new(obj.name + "_mount", None))
+    e.location = loc
+    e.rotation_mode = "QUATERNION"
+    e.rotation_quaternion = Vector(normal).to_track_quat("Z", "Y")
+    obj.parent = e
+    obj.location = (0, 0, 0)
+    return e
+
+
+def spin(obj, nframes, turns_per_sec, phase=0.0, start=1, step=2):
+    """Linear spin about local Z (radians keyed per `step` frames, linear)."""
+    for f in list(range(start, nframes + 1, step)) + [nframes]:
+        obj.rotation_euler = (0, 0, phase + 2 * math.pi * turns_per_sec * (f - start) / 24.0)
+        obj.keyframe_insert("rotation_euler", frame=f)
+    ad = obj.animation_data
+    if ad and ad.action:
+        for fc in L._fcurves(ad.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = "LINEAR"
+
+
+def amphora(loc=(0, 0, 0), rot=(0, 0, 0), h=0.7, name="amph", color=(0.55, 0.3, 0.17), crust=0.4, seg=20):
+    """Roman transport amphora: lathe body (pointed toe), neck, rim and two loop handles. Base of toe at origin."""
+    prof = [(0.0, 0.0), (0.03, 0.03), (0.07, 0.12), (0.15, 0.32), (0.17, 0.48), (0.16, 0.6), (0.1, 0.68), (0.055, 0.72),
+            (0.05, 0.9), (0.065, 0.93), (0.05, 0.95)]
+    sc = h / 0.95
+    rings = []
+    for r, z in prof:
+        rings.append([(max(r, 0.002) * sc * math.cos(2 * math.pi * k / seg), max(r, 0.002) * sc * math.sin(2 * math.pi * k / seg),
+                       z * sc) for k in range(seg)])
+    o = _loft(name, rings, close_ends=True)
+    m = L.mat_noise_surface(name + "_m", tuple(c * 0.6 for c in color), color, scale=6, bump=0.5, voronoi=False) \
+        if crust <= 0 else mat_verdigris(name + "_m", c1=tuple(c * 0.5 for c in color), c2=color,
+                                         crust=(0.55, 0.52, 0.45), scale=6.0)
+    L.smooth(o)
+    L.assign(o, m)
+    for sx in (-1, 1):
+        hd = L.prim("torus", loc=(sx * 0.085 * sc, 0, 0.8 * sc), rot=(math.pi / 2, 0, 0), major_radius=0.06 * sc,
+                    minor_radius=0.012 * sc, major_segments=16, minor_segments=6, name=name + "_h")
+        L.assign(hd, m)
+        hd.parent = o
+    o.location = loc
+    o.rotation_euler = rot
+    return o
+
+
+def helmet_diver(name="hardhat", canvas=(0.42, 0.4, 0.35), brass=(0.62, 0.42, 0.16), height=1.75):
+    """1900 hard-hat diver: faceless char_figure in grey canvas, copper/brass sphere helmet with a round dark-glass
+    faceplate (no face), breastplate, lead boots. Faces +Y. parts: root, pelvis, neck, helmet, exhaust (local loc)."""
+    P = L.char_figure(name, color=canvas, height=height)
+    cm = L.mat_noise_surface(name + "_canvas", tuple(c * 0.75 for c in canvas), canvas, scale=30, bump=0.25, rough=0.95,
+                             voronoi=False)
+    for k, o in list(P.items()):
+        if hasattr(o, "type") and o.type == "MESH":
+            o.data.materials.clear()
+            o.data.materials.append(cm)
+    s = height / 1.75
+    P["head"].hide_render = True
+    P["head"].hide_viewport = True
+    bm_ = mat_bronze(name + "_brass", brass, rough=0.28)
+    hel = L.prim("sphere", loc=(0, 0, 0.15 * s), segments=24, ring_count=12, radius=0.19 * s, name=name + "_helmet")
+    L.assign(hel, bm_)
+    L.smooth(hel)
+    hel.parent = P["neck"]
+    glass = L.mat_principled(name + "_glass", (0.01, 0.012, 0.015), rough=0.05, metal=0.3)
+    fp = L.prim("cyl", loc=(0, 0.175 * s, 0.15 * s), rot=(math.pi / 2, 0, 0), vertices=24, radius=0.09 * s, depth=0.03 * s,
+                name=name + "_face")
+    L.assign(fp, glass)
+    fp.parent = P["neck"]
+    fr = L.prim("torus", loc=(0, 0.19 * s, 0.15 * s), rot=(math.pi / 2, 0, 0), major_radius=0.095 * s,
+                minor_radius=0.014 * s, major_segments=24, minor_segments=6, name=name + "_frame")
+    L.assign(fr, bm_)
+    fr.parent = P["neck"]
+    for sx in (-1, 1):
+        sp = L.prim("cyl", loc=(sx * 0.17 * s, 0.05 * s, 0.17 * s), rot=(0, math.pi / 2, 0), vertices=16, radius=0.05 * s,
+                    depth=0.03 * s, name=name + "_port")
+        L.assign(sp, glass)
+        sp.parent = P["neck"]
+    vb = L.prim("cyl", loc=(0.0, -0.15 * s, 0.24 * s), rot=(-0.6, 0, 0), vertices=10, radius=0.025 * s, depth=0.08 * s,
+                name=name + "_valve")
+    L.assign(vb, bm_)
+    vb.parent = P["neck"]
+    bp = L.prim("cyl", loc=(0, 0, 0.6 * s), vertices=24, radius=0.25 * s, depth=0.06 * s, name=name + "_breast")
+    bp.scale = (1.0, 0.85, 1.0)
+    L.assign(bp, bm_)
+    bp.parent = P["pelvis"]
+    lead = L.mat_principled(name + "_lead", (0.08, 0.08, 0.085), rough=0.6, metal=0.4)
+    for tag in ("L", "R"):
+        bt = L.prim("cube", loc=(0, 0.04 * s, -0.47 * s), name=name + "_boot" + tag)
+        bt.scale = (0.07 * s, 0.15 * s, 0.06 * s)
+        L.assign(bt, lead)
+        bt.parent = P[f"knee{tag}"]
+    for k, z in enumerate((0.4, 0.15)):
+        wt = L.prim("cube", loc=(0, 0.13 * s, z * s), name=name + f"_weight{k}")
+        wt.scale = (0.12 * s, 0.03 * s, 0.07 * s)
+        L.assign(wt, lead)
+        wt.parent = P["pelvis"]
+    P["helmet"] = hel
+    P["canvas_mat"] = cm
+    P["brass_mat"] = bm_
+    P["exhaust"] = (0.0, -0.17 * s, 0.25 * s)  # neck-local
+    return P
+
+
+def caique(name="caique", length=9.0, beam=2.8, wood=(0.5, 0.33, 0.18), stripe=(0.1, 0.25, 0.55), sail=(0.82, 0.76, 0.62)):
+    """Greek sponge boat (bow +Y, waterline z=0): lofted wooden hull with raised bow and stern, deck, painted
+    sheer stripe, single mast with a furled sail on a slanted yard. Returns parts dict(root, deck_z, mast_top)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root}
+    hm = L.mat_noise_surface(name + "_hull", tuple(c * 0.7 for c in wood), wood, scale=4, rough=0.65, bump=0.25,
+                             voronoi=False)
+    sts = []
+    for i in range(17):
+        t = i / 16
+        y = (t - 0.5) * length
+        b = beam / 2 * max(0.05, math.sin(math.pi * t) ** 0.6)
+        keel = -0.75 + 0.45 * (abs(t - 0.5) * 2) ** 3
+        gun = 0.75 + 0.55 * (abs(t - 0.5) * 2) ** 2.5
+        ring = [(xn * b, y, keel + (gun - keel) * zn) for xn, zn in SECTION[:-1]]
+        ring.append((0, y, keel))
+        ring += [(-xn * b, y, keel + (gun - keel) * zn) for xn, zn in reversed(SECTION[:-1])]
+        sts.append(ring)
+    h = _loft(name + "_hull", sts, close_ends=True)
+    L.smooth(h)
+    L.assign(h, hm)
+    h.parent = root
+    st = L.prim("cyl", loc=(0, 0, 0.68), vertices=32, radius=1.0, depth=0.08, name=name + "_stripe")
+    st.scale = (beam / 2 * 1.005, length / 2 * 0.86, 1)
+    L.assign(st, L.mat_principled(name + "_st", stripe, rough=0.5))
+    st.parent = root
+    dk = L.prim("cyl", loc=(0, 0, 0.7), vertices=32, radius=1.0, depth=0.04, name=name + "_deck")
+    dk.scale = (beam / 2 * 0.93, length / 2 * 0.84, 1)
+    dm = L.mat_noise_surface(name + "_deckm", (0.3, 0.22, 0.14), (0.55, 0.42, 0.28), scale=3, rough=0.7, bump=0.2,
+                             voronoi=False)
+    L.assign(dk, dm)
+    dk.parent = root
+    wm = L.mat_principled(name + "_spar", (0.32, 0.22, 0.12), rough=0.6)
+    mast_h = length * 0.75
+    ms = L.prim("cyl", loc=(0, length * 0.12, 0.7 + mast_h / 2), vertices=10, radius=0.07, depth=mast_h, name=name + "_mast")
+    L.assign(ms, wm)
+    ms.parent = root
+    yard_c = Vector((0, length * 0.12 + 0.15, 0.7 + mast_h * 0.7))
+    yd = L.prim("cyl", loc=tuple(yard_c), rot=(-0.9, 0, 0), vertices=8, radius=0.045, depth=length * 0.85, name=name + "_yard")
+    L.assign(yd, wm)
+    yd.parent = root
+    sl = L.prim("cyl", loc=tuple(yard_c + Vector((0, 0, -0.08))), rot=(-0.9, 0, 0), vertices=10, radius=0.13,
+                depth=length * 0.7, name=name + "_sail")
+    sl.scale = (1.0, 0.8, 1.0)
+    L.add_displace(sl, strength=0.04, scale=0.15, name=name + "_sd")
+    L.assign(sl, L.mat_noise_surface(name + "_sailm", tuple(c * 0.8 for c in sail), sail, scale=10, rough=0.9, bump=0.3,
+                                     voronoi=False))
+    sl.parent = root
+    for k, (y, w) in enumerate(((-length * 0.32, 1.0), (length * 0.3, 0.8))):
+        bx = L.prim("cube", loc=(0, y, 0.95), name=name + f"_house{k}")
+        bx.scale = (beam * 0.18 * w, 0.4, 0.22)
+        L.assign(bx, hm)
+        bx.parent = root
+    P["deck_z"] = 0.72
+    P["mast_top"] = (0, length * 0.12, 0.7 + mast_h)
+    P["hull_mat"] = hm
+    return P
+
+
+def air_pump(loc=(0, 0, 0), rot_z=0.0, name="pump", wood=(0.35, 0.22, 0.12), brass=(0.62, 0.42, 0.16)):
+    """Hand-cranked diving air pump: wooden box with two big iron flywheels (cranks). parts: root, wheels [spin objs]."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, rot_z)
+    bx = L.prim("cube", loc=(0, 0, 0.35), name=name + "_box")
+    bx.scale = (0.32, 0.25, 0.35)
+    L.bevel(bx, 0.02)
+    L.assign(bx, L.mat_noise_surface(name + "_wood", tuple(c * 0.7 for c in wood), wood, scale=5, rough=0.6, bump=0.2,
+                                     voronoi=False))
+    bx.parent = root
+    gm = mat_bronze(name + "_brassm", brass, rough=0.3)
+    for k, sx in enumerate((-1, 1)):
+        g = L.prim("cyl", loc=(sx * 0.36, 0, 0.62), rot=(0, math.pi / 2, 0), vertices=12, radius=0.07, depth=0.06,
+                   name=name + "_gauge")
+        L.assign(g, gm)
+        g.parent = root
+    iron = L.mat_principled(name + "_iron", (0.06, 0.06, 0.065), rough=0.5, metal=0.6)
+    wheels = []
+    for k, sx in enumerate((-1, 1)):
+        hub = L.link(bpy.data.objects.new(f"{name}_wheel{k}", None))
+        hub.parent = root
+        hub.location = (sx * 0.42, 0, 0.45)
+        hub.rotation_euler = (0, math.pi / 2, 0)
+        sp = L.link(bpy.data.objects.new(f"{name}_spin{k}", None))
+        sp.parent = hub
+        rim = L.prim("torus", loc=(0, 0, 0), major_radius=0.38, minor_radius=0.025, major_segments=32, minor_segments=8,
+                     name=f"{name}_rim{k}")
+        L.assign(rim, iron)
+        rim.parent = sp
+        for s in range(4):
+            a = math.pi * s / 4
+            spk = L.prim("cube", loc=(0, 0, 0), rot=(0, 0, a), name=f"{name}_spk{k}")
+            spk.scale = (0.37, 0.012, 0.012)
+            L.assign(spk, iron)
+            spk.parent = sp
+        hd = L.prim("cyl", loc=(0.36, 0, sx * 0.12), vertices=8, radius=0.02, depth=0.22, name=f"{name}_handle{k}")
+        L.assign(hd, L.mat_principled(name + "_hw", (0.3, 0.2, 0.1), rough=0.6))
+        hd.parent = sp
+        wheels.append(sp)
+    return {"root": root, "wheels": wheels}
