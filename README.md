@@ -13,6 +13,10 @@ Why this business, and what else was considered: [reports/Highest EV niche data 
 
 On the first full run it collected 546 items, of which 312 are siting records. Restrictive actions in the covered jurisdictions went from 3 in 2025 to 35 in 2026.
 
+## The weekly digest
+
+`/digest` is a public page summarising the last seven days (headlines only), with an email sign-up. `npm run digest` prints the same thing as Markdown, ready to paste into a newsletter or a post. Sign-ups are stored in the `subscribers` table; nothing is sent, because sending needs an email provider.
+
 ## Run it
 
 Requires Node 22.13+. No database server, no native modules.

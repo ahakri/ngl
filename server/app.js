@@ -9,6 +9,7 @@ import { TIERS, tierOf } from './plans.js';
 import * as auth from './auth.js';
 import * as billing from './billing.js';
 import * as q from './queries.js';
+import { buildDigest, digestMarkdown, subscribe } from './digest.js';
 
 const clampInt = (v, lo, hi, dflt) => {
   const n = Number.parseInt(v, 10);
@@ -109,6 +110,13 @@ export function buildApp(db, { logger = false } = {}) {
     }));
 
     v1.get('/summary', async () => q.summary(db));
+    // Public weekly digest: headlines only, so it can be shared freely.
+    v1.get('/digest', async (req) => {
+      const end = /^\d{4}-\d{2}-\d{2}$/.test(req.query.week_ending || '') ? req.query.week_ending : undefined;
+      const d = buildDigest(db, end);
+      return { ...d, markdown: digestMarkdown(d) };
+    });
+
     v1.get('/jurisdictions', async () => ({ data: q.coverage(db) }));
 
     v1.get('/records', async (req) => {
@@ -180,6 +188,13 @@ export function buildApp(db, { logger = false } = {}) {
       sales_email: config.salesEmail || null,
       tiers: Object.fromEntries(Object.entries(TIERS).map(([k, t]) => [k, { name: t.name, price: t.price, tagline: t.tagline, features: t.features }])),
     }));
+
+    api.post('/subscribe', async (req) => {
+      guard(req);
+      const result = subscribe(db, req.body.email);
+      if (result === 'invalid') throw new ApiError(400, 'invalid_email', 'Enter a valid email address.');
+      return { ok: true }; // same answer whether new or already subscribed
+    });
 
     api.post('/auth/signup', async (req, reply) => {
       guard(req);

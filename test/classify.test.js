@@ -30,6 +30,8 @@ test('moratoria, bans and code changes are policy, flagged restrictive where the
   const study = categorize({ title: 'Data Centers in Dallas: Preliminary Research [Emily Liu, Director, Planning and Development]' });
   assert.deepEqual(study, { category: 'policy', restrictive: false });
   assert.equal(cat('Request: Text Amendment to the Land Development Code Project Name: Data Centers Applicant: Louisville Metro'), 'policy');
+  assert.equal(cat('AN ORDINANCE AMENDING THE LOUISVILLE METRO LAND DEVELOPMENT CODE REGARDING DATA CENTERS (CASE NO. 25-LDC-0014).'), 'policy');
+  assert.equal(cat('A Resolution of the Board of Commissioners of DeKalb County, Georgia Urging the Administration to Expand the Definition of Data Centers in the Zoning Ordinance'), 'policy');
 });
 
 test('incentives and utility agreements get their own categories', () => {

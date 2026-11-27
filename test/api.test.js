@@ -114,3 +114,24 @@ test('API keys are metered; re-collecting updates in place', async () => {
   assert.equal(reclassify(db), 5);
   await app.close();
 });
+
+test('weekly digest: public headlines, sections, markdown and sign-up', async () => {
+  const { app, db } = await setup();
+  const d = (await app.inject('/v1/digest')).json();
+  assert.equal(d.counts.records, 1, 'only the item from the last seven days');
+  assert.equal(d.counts.upcoming, 1);
+  assert.deepEqual(d.sections.map((s) => s.key), ['projects', 'upcoming']);
+  assert.equal(d.sections[0].items[0].headline, 'Beta Campus');
+  assert.ok(!('title' in d.sections[0].items[0]), 'headlines only, not full records');
+  assert.match(d.markdown, /^# Data-centre siting: week of /);
+  assert.match(d.markdown, /\*\*Mesa, AZ\*\*/);
+  const quiet = (await app.inject('/v1/digest?week_ending=2001-01-07')).json();
+  assert.equal(quiet.counts.records, 0);
+  assert.match(quiet.markdown, /No new data-centre items/);
+
+  assert.equal((await post(app, '/api/subscribe', undefined, { email: 'nope' })).statusCode, 400);
+  assert.equal((await post(app, '/api/subscribe', undefined, { email: 'Reader@Example.com' })).statusCode, 200);
+  assert.equal((await post(app, '/api/subscribe', undefined, { email: 'reader@example.com' })).statusCode, 200);
+  assert.equal(db.prepare('SELECT COUNT(*) AS n FROM subscribers').get().n, 1);
+  await app.close();
+});

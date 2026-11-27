@@ -22,7 +22,7 @@ export default function Home() {
         </p>
         <div className="row">
           <Link to="/records" className="btn primary">Browse the records</Link>
-          <Link to="/coverage" className="btn">See coverage</Link>
+          <Link to="/digest" className="btn">This week's digest</Link>
         </div>
       </section>
 

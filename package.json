@@ -15,7 +15,8 @@
     "web:dev": "npm --prefix web run dev",
     "web:build": "npm --prefix web run build",
     "build": "npm --prefix web ci && npm --prefix web run build",
-    "probe": "node scripts/probe-legistar.mjs"
+    "probe": "node scripts/probe-legistar.mjs",
+    "digest": "node server/digest.js"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",

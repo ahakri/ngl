@@ -10,6 +10,7 @@ import Pricing from './pages/Pricing.jsx';
 import Docs from './pages/Docs.jsx';
 import Account from './pages/Account.jsx';
 import Coverage from './pages/Coverage.jsx';
+import Digest from './pages/Digest.jsx';
 import { Privacy, Terms } from './pages/Legal.jsx';
 
 function ScrollTop() {
@@ -46,6 +47,7 @@ export default function App() {
             Siteline
           </Link>
           <NavLink to="/records" className={link}>Records</NavLink>
+          <NavLink to="/digest" className={link}>This week</NavLink>
           <NavLink to="/calendar" className={link}>Calendar</NavLink>
           <NavLink to="/coverage" className={link}>Coverage</NavLink>
           <NavLink to="/pricing" className={link}>Pricing</NavLink>
@@ -62,6 +64,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/records" element={<Records />} />
             <Route path="/record/:id" element={<RecordDetail />} />
+            <Route path="/digest" element={<Digest />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/coverage" element={<Coverage />} />
             <Route path="/pricing" element={<Pricing />} />

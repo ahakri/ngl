@@ -63,6 +63,10 @@ export function categorize(rec) {
 
   // A moratorium is policy even when it lists the permit types it freezes.
   if (/\bmoratorium\b/i.test(text)) return { category: 'policy', restrictive: true };
+  // Changes to the code itself, and resolutions taking a position, are policy even when they mention permit types.
+  if (/\b(amend(ing|s)?|amendments? to) [^.]{0,90}\b(code|ordinances)\b|\bresolution\b[^.]{0,160}\b(urging|requesting|opposing|supporting|requiring)\b/i.test(text) && !/\bacres\b/i.test(text)) {
+    return { category: 'policy', restrictive: has(text, RESTRICTIVE) && !has(text, NOT_RESTRICTIVE) };
+  }
   // A sized or entitled private development beats everything else.
   if ((landUse && (builds || size.acres || size.square_feet)) && !has(text, /text amendment|code amendment|proposed amendments? to/i)) return { category: 'project', restrictive: false };
   if (has(text, MUNICIPAL_IT) && !builds && !has(text, /moratorium|zoning|rezon|tax abatement|special permit/i)) return { category: 'municipal_it', restrictive: false };
