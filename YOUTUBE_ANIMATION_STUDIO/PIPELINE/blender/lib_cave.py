@@ -2454,3 +2454,650 @@ def tripod(top, height=2.2, spread=0.9, color=(0.55, 0.57, 0.6), name="tripod"):
         o.scale = tuple(v * 2.2 for v in o.scale)
         o.location = tuple(v * 2.2 for v in o.location)
     return root, pu
+
+
+# ============================================================================= CAVE-08 (Jacob's Well: spring mouth, gravel, grate, flood)
+# Added by the CAVE-08 director. New functions only; nothing above was changed.
+
+def catmull(pts, seg=8):
+    """Catmull-Rom resample of a 3D polyline (seg samples per span, end point included). Returns [Vector]."""
+    P = [Vector(p) for p in pts]
+    ext = [P[0] * 2 - P[1]] + P + [P[-1] * 2 - P[-2]]
+    out = []
+    for i in range(1, len(ext) - 2):
+        p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+        for k in range(seg):
+            t = k / seg
+            out.append(0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t
+                              + (-p0 + 3 * p1 - 3 * p2 + p3) * t ** 3))
+    out.append(P[-1].copy())
+    return out
+
+
+def tube_along(path_pts, radius=2.0, ring=32, seg=8, seed=1, rough=0.2, radius_fn=None, squash_fn=None, mat=None,
+               name="tube", disp=(0.3, 0.08), first_normal=(1, 0, 0)):
+    """Inward-facing organic tube along ANY 3D polyline (vertical runs and bends included): Catmull-Rom resample +
+    rotation-minimising frames, so a shaft can turn into an inclined passage in one mesh.
+    radius_fn(t, angle) -> radius (t = 0..1 along the samples); squash_fn(t) -> (sN, sB) section scale along the
+    frame normal / binormal. Returns (obj, samples, frames[(T, N, B)])."""
+    rnd = random.Random(seed)
+    off = Vector((rnd.random() * 100, rnd.random() * 100, rnd.random() * 100))
+    S = catmull(path_pts, seg)
+    N = len(S)
+    frames = []
+    nrm = Vector(first_normal)
+    for i in range(N):
+        tan = (S[min(i + 1, N - 1)] - S[max(i - 1, 0)]).normalized()
+        nrm = nrm - tan * nrm.dot(tan)
+        if nrm.length < 1e-6:
+            nrm = tan.orthogonal()
+        nrm.normalize()
+        frames.append((tan, nrm.copy(), tan.cross(nrm).normalized()))
+    bm = bmesh.new()
+    rings = []
+    for i, c in enumerate(S):
+        t = i / (N - 1)
+        tan, nn, bb = frames[i]
+        sx, sy = squash_fn(t) if squash_fn else (1.0, 1.0)
+        rv = []
+        for j in range(ring):
+            a = 2 * math.pi * j / ring
+            r = radius_fn(t, a) if radius_fn else radius
+            r *= 1 + rough * noise.noise(Vector((math.cos(a) * 1.4, math.sin(a) * 1.4, i * 0.12)) + off)
+            rv.append(bm.verts.new(c + nn * (math.cos(a) * r * sx) + bb * (math.sin(a) * r * sy)))
+        rings.append(rv)
+    for i in range(N - 1):
+        for j in range(ring):
+            bm.faces.new((rings[i][j], rings[i][(j + 1) % ring], rings[i + 1][(j + 1) % ring], rings[i + 1][j]))
+    bm.normal_update()
+    bm.faces.ensure_lookup_table()
+    f0 = bm.faces[0]
+    if f0.normal.dot(S[0] - f0.calc_center_median()) < 0:
+        for f in bm.faces:
+            f.normal_flip()
+    o = L.mesh_from_bm(name, bm)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    if disp[0]:
+        L.add_displace(o, strength=disp[0], scale=0.9, name=name + "_d1")
+    if disp[1]:
+        L.add_displace(o, strength=disp[1], scale=0.2, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m"))
+    return o, S, frames
+
+
+def creek_rock_mat(name="creekrock", dark=(0.4, 0.37, 0.31), light=(0.8, 0.77, 0.68), grass=(0.09, 0.15, 0.045),
+                   grass_z=(0.8, 1.6), water_z=0.0, shallow=(0.5, 0.95, 0.86), deep=(0.0, 0.03, 0.08),
+                   glow=(0.0, 0.32, 0.55), glow_strength=1.0, deep_range=(0.9, 6.0), scale=0.35, bump=0.6):
+    """Pale creek-bed limestone coloured by WORLD height, so one material serves the bank, the bed and a spring shaft:
+    grass above grass_z, dry rock at the waterline, an aqua tint just under water_z, then a blue glow that fades to
+    black with depth (reads as clear water over rock without real refraction). Returns the material."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    geo = n.new("ShaderNodeNewGeometry")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(geo.outputs["Position"], sep.inputs[0])
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale
+    nz.inputs["Detail"].default_value = 8
+    nz.inputs["Roughness"].default_value = 0.6
+    l.new(geo.outputs["Position"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.35
+    ramp.color_ramp.elements[0].color = (*dark, 1)
+    ramp.color_ramp.elements[1].position = 0.68
+    ramp.color_ramp.elements[1].color = (*light, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    # grass / soil on the banks
+    gm = n.new("ShaderNodeMapRange")
+    gm.inputs["From Min"].default_value = grass_z[0]
+    gm.inputs["From Max"].default_value = grass_z[1]
+    l.new(sep.outputs["Z"], gm.inputs["Value"])
+    nz2 = n.new("ShaderNodeTexNoise")
+    nz2.inputs["Scale"].default_value = 1.3
+    nz2.inputs["Detail"].default_value = 4
+    l.new(geo.outputs["Position"], nz2.inputs["Vector"])
+    gmul = n.new("ShaderNodeMath")
+    gmul.operation = "MULTIPLY_ADD"
+    gmul.use_clamp = True
+    gmul.inputs[2].default_value = 0.0
+    l.new(gm.outputs["Result"], gmul.inputs[0])
+    gsc = n.new("ShaderNodeMapRange")
+    gsc.inputs["From Min"].default_value = 0.3
+    gsc.inputs["From Max"].default_value = 0.6
+    gsc.inputs["To Min"].default_value = 0.55
+    gsc.inputs["To Max"].default_value = 1.0
+    l.new(nz2.outputs["Fac"], gsc.inputs["Value"])
+    l.new(gsc.outputs["Result"], gmul.inputs[1])
+    mixg = n.new("ShaderNodeMix")
+    mixg.data_type = "RGBA"
+    mixg.inputs["B"].default_value = (*grass, 1)
+    l.new(gmul.outputs[0], mixg.inputs["Factor"])
+    l.new(ramp.outputs["Color"], mixg.inputs["A"])
+    # depth below the waterline
+    dw = n.new("ShaderNodeMath")
+    dw.operation = "SUBTRACT"
+    dw.inputs[0].default_value = water_z
+    l.new(sep.outputs["Z"], dw.inputs[1])
+    t1 = n.new("ShaderNodeMapRange")
+    t1.inputs["From Min"].default_value = 0.0
+    t1.inputs["From Max"].default_value = 0.45
+    l.new(dw.outputs[0], t1.inputs["Value"])
+    mix1 = n.new("ShaderNodeMix")
+    mix1.data_type = "RGBA"
+    mix1.blend_type = "MULTIPLY"
+    mix1.inputs["B"].default_value = (*shallow, 1)
+    l.new(t1.outputs["Result"], mix1.inputs["Factor"])
+    l.new(mixg.outputs["Result"], mix1.inputs["A"])
+    t2 = n.new("ShaderNodeMapRange")
+    t2.inputs["From Min"].default_value = deep_range[0]
+    t2.inputs["From Max"].default_value = deep_range[1]
+    l.new(dw.outputs[0], t2.inputs["Value"])
+    mix2 = n.new("ShaderNodeMix")
+    mix2.data_type = "RGBA"
+    mix2.inputs["B"].default_value = (*deep, 1)
+    l.new(t2.outputs["Result"], mix2.inputs["Factor"])
+    l.new(mix1.outputs["Result"], mix2.inputs["A"])
+    l.new(mix2.outputs["Result"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.85
+    # blue glow in the shaft
+    gn = n.new("ShaderNodeMapRange")
+    gn.inputs["From Min"].default_value = 0.0
+    gn.inputs["From Max"].default_value = 8.0
+    l.new(dw.outputs[0], gn.inputs["Value"])
+    gr = n.new("ShaderNodeValToRGB")
+    cr = gr.color_ramp
+    cr.elements[0].position = 0.0
+    cr.elements[0].color = (0, 0, 0, 1)
+    cr.elements[1].position = 0.9
+    cr.elements[1].color = (0, 0, 0, 1)
+    for pos, k in ((0.05, 0.22), (0.2, 1.0), (0.5, 0.22)):
+        e = cr.elements.new(pos)
+        e.color = (glow[0] * k, glow[1] * k, glow[2] * k, 1)
+    l.new(gn.outputs["Result"], gr.inputs["Fac"])
+    l.new(gr.outputs["Color"], p.inputs["Emission Color"])
+    p.inputs["Emission Strength"].default_value = glow_strength
+    # bump
+    vr = n.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = scale * 2.4
+    l.new(geo.outputs["Position"], vr.inputs["Vector"])
+    ad = n.new("ShaderNodeMath")
+    ad.operation = "ADD"
+    l.new(nz.outputs["Fac"], ad.inputs[0])
+    l.new(vr.outputs["Distance"], ad.inputs[1])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = bump
+    l.new(ad.outputs[0], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def clear_water_mat(name="clearwater", tint=(0.03, 0.32, 0.32), alpha=0.24, rough=0.04, n=100, flow=(0.04, 0.12), t0=0.0,
+                    wave_scale=2.2, bump=0.12, glint=3.0, glint_scale=9.0, glint_cut=(0.7, 0.76)):
+    """Clear, shallow spring water as a thin blended sheet: faint tint, glossy sky/sun reflection, drifting ripple bump
+    and sparkling sun glints (thresholded fine noise). Time base t = t0 + (frame - 1) / 24 so two shots can share a
+    phase (loop frames). Returns (material, tint/alpha Principled node)."""
+    m, nd, l = L._mat(name)
+    p = nd["Principled BSDF"]
+    p.inputs["Base Color"].default_value = (*tint, 1)
+    p.inputs["Roughness"].default_value = rough
+    try:
+        p.inputs["Specular IOR Level"].default_value = 0.9
+    except Exception:
+        pass
+    tc = nd.new("ShaderNodeTexCoord")
+    mp = nd.new("ShaderNodeMapping")
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = nd.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = wave_scale
+    nz.inputs["Detail"].default_value = 3
+    l.new(mp.outputs["Vector"], nz.inputs["Vector"])
+    bp = nd.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = bump
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    g = nd.new("ShaderNodeTexNoise")
+    g.inputs["Scale"].default_value = glint_scale
+    g.inputs["Detail"].default_value = 2
+    l.new(mp.outputs["Vector"], g.inputs["Vector"])
+    gr = nd.new("ShaderNodeMapRange")
+    gr.inputs["From Min"].default_value = glint_cut[0]
+    gr.inputs["From Max"].default_value = glint_cut[1]
+    l.new(g.outputs["Fac"], gr.inputs["Value"])
+    gs = nd.new("ShaderNodeMath")
+    gs.operation = "MULTIPLY"
+    gs.inputs[1].default_value = glint
+    l.new(gr.outputs["Result"], gs.inputs[0])
+    p.inputs["Emission Color"].default_value = (1.0, 1.0, 0.95, 1)
+    l.new(gs.outputs[0], p.inputs["Emission Strength"])
+    al = nd.new("ShaderNodeMath")
+    al.operation = "ADD"
+    al.use_clamp = True
+    al.inputs[1].default_value = alpha
+    l.new(gr.outputs["Result"], al.inputs[0])
+    l.new(al.outputs[0], p.inputs["Alpha"])
+    loc = mp.inputs["Location"]
+    for f in (1, n):
+        t = t0 + (f - 1) / 24.0
+        loc.default_value = (-flow[0] * t, -flow[1] * t, 0.22 * t)
+        loc.keyframe_insert("default_value", frame=f)
+    for fc in L._fcurves(m.node_tree.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+    _blended(m)
+    return m, p
+
+
+def well_mouth(R=1.9, depth=12.0, apron=3.1, bed_fn=None, lip=0.5, ang_seg=72, seed=2, rough=0.06, mat=None,
+               name="well", flare=0.1):
+    """Round spring mouth in a creek bed as ONE mesh: a polar apron that follows bed_fn(x, y), rolls over a rounded
+    lip and drops down a vertical shaft (normals up, then toward the axis). Lay it over a heightfield that is pushed
+    down inside r < apron - 0.2. Returns (obj, rim(angle) -> radius)."""
+    rnd = random.Random(seed)
+    off = rnd.random() * 50
+    bed = bed_fn or (lambda x, y: 0.0)
+
+    def rim(a):
+        return R * (1 + rough * noise.noise(Vector((math.cos(a) * 1.6 + off, math.sin(a) * 1.6, 0.4)))
+                    + 0.02 * math.sin(3 * a + off))
+    eo = apron - R
+    z0 = bed(0.0, 0.0) - lip
+    bm = bmesh.new()
+    rings = []
+    for e in (eo + 0.3, eo, eo * 0.78, eo * 0.56, eo * 0.36, eo * 0.2, eo * 0.08):
+        rv = []
+        for j in range(ang_seg):
+            a = 2 * math.pi * j / ang_seg
+            r = rim(a) + e
+            x, y = math.cos(a) * r, math.sin(a) * r
+            z = bed(x, y) - lip * (1 - sm(e / eo)) - (0.07 if e > eo else 0.0)
+            rv.append(bm.verts.new((x, y, z)))
+        rings.append(rv)
+    d = 0.0
+    steps = [0.0, 0.18, 0.5, 1.0]
+    while steps[-1] < depth:
+        steps.append(steps[-1] + 0.8)
+    for d in steps:
+        rv = []
+        for j in range(ang_seg):
+            a = 2 * math.pi * j / ang_seg
+            k = 1 + flare * min(1.0, d / 3.0) + 0.07 * noise.noise(Vector((math.cos(a) * 1.5 + off, math.sin(a) * 1.5,
+                                                                             d * 0.45)))
+            if d < 0.2:
+                k = 1 + (k - 1) * d / 0.2
+            r = rim(a) * k - (0.04 if d == 0.0 else 0.0)
+            rv.append(bm.verts.new((math.cos(a) * r, math.sin(a) * r, z0 - 0.06 - d)))
+        rings.append(rv)
+    for i in range(len(rings) - 1):
+        for j in range(ang_seg):
+            bm.faces.new((rings[i][j], rings[i][(j + 1) % ang_seg], rings[i + 1][(j + 1) % ang_seg], rings[i + 1][j]))
+    bm.normal_update()
+    bm.faces.ensure_lookup_table()
+    if bm.faces[0].normal.z < 0:
+        for f in bm.faces:
+            f.normal_flip()
+    o = L.mesh_from_bm(name, bm)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    L.add_displace(o, strength=0.07, scale=0.45, name=name + "_d")
+    L.smooth(o)
+    L.assign(o, mat or creek_rock_mat(name + "_m"))
+    return o, rim
+
+
+def gravel_mat(name="gravel_m", c1=(0.2, 0.18, 0.14), c2=(0.5, 0.46, 0.38), c3=(0.8, 0.77, 0.68), rough=0.75):
+    """Pebble material for gravel_field(): per-pebble shade from the corner colour attribute 'pcol'."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    at = n.new("ShaderNodeAttribute")
+    at.attribute_name = "pcol"
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].color = (*c3, 1)
+    e = ramp.color_ramp.elements.new(0.5)
+    e.color = (*c2, 1)
+    l.new(at.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = rough
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 60.0
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.25
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def pebble_floor_mat(name="pebblefloor", c1=(0.16, 0.145, 0.11), c2=(0.42, 0.38, 0.31), c3=(0.7, 0.67, 0.58), scale=26.0,
+                     bump=1.0, rough=0.8):
+    """Gravel-bed look for the surface UNDER a gravel_field (fills the gaps): Voronoi cells = pebbles (cell colour +
+    rounded bump). Uses world position so tiles line up between objects."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    geo = n.new("ShaderNodeNewGeometry")
+    vr = n.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = scale
+    l.new(geo.outputs["Position"], vr.inputs["Vector"])
+    sep = n.new("ShaderNodeSeparateColor")
+    l.new(vr.outputs["Color"], sep.inputs[0])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].color = (*c3, 1)
+    e = ramp.color_ramp.elements.new(0.5)
+    e.color = (*c2, 1)
+    l.new(sep.outputs[0], ramp.inputs["Fac"])
+    dk = n.new("ShaderNodeMapRange")          # darken the gaps between cells
+    dk.inputs["From Min"].default_value = 0.25
+    dk.inputs["From Max"].default_value = 0.6
+    dk.inputs["To Min"].default_value = 1.0
+    dk.inputs["To Max"].default_value = 0.25
+    l.new(vr.outputs["Distance"], dk.inputs["Value"])
+    mx = n.new("ShaderNodeMix")
+    mx.data_type = "RGBA"
+    mx.blend_type = "MULTIPLY"
+    mx.inputs["Factor"].default_value = 1.0
+    l.new(ramp.outputs["Color"], mx.inputs["A"])
+    l.new(dk.outputs["Result"], mx.inputs["B"])
+    l.new(mx.outputs["Result"], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = rough
+    inv = n.new("ShaderNodeMath")
+    inv.operation = "SUBTRACT"
+    inv.inputs[0].default_value = 1.0
+    l.new(vr.outputs["Distance"], inv.inputs[1])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = bump
+    bp.inputs["Distance"].default_value = 0.02
+    l.new(inv.outputs[0], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+_ICO = {}
+
+
+def _ico_template(subdiv):
+    if subdiv not in _ICO:
+        tb = bmesh.new()
+        bmesh.ops.create_icosphere(tb, subdivisions=subdiv, radius=1.0)
+        tb.verts.ensure_lookup_table()
+        vs = [v.co.copy() for v in tb.verts]
+        fs = [tuple(v.index for v in f.verts) for f in tb.faces]
+        tb.free()
+        _ICO[subdiv] = (vs, fs)
+    return _ICO[subdiv]
+
+
+def gravel_field(fn, center=(0.0, 0.0), size=(2.0, 2.0), count=2000, psize=(0.015, 0.05), seed=3, subdiv=1, mat=None,
+                 name="gravel", keep=None, sink=0.3, flat=(0.45, 0.9), origin=None, bias=1.8):
+    """ONE mesh of `count` pebbles resting on z = fn(x, y) inside the XY box (center, size); keep(x, y) -> bool filters
+    positions. Sizes are biased toward the small end (`bias`). Each pebble carries a random grey in the corner colour
+    attribute 'pcol' (see gravel_mat). Object origin = origin or (cx, cy, fn(cx, cy)), so the object can be keyed to
+    slide as a sheet. Returns the object."""
+    rnd = random.Random(seed)
+    tv, tf = _ico_template(subdiv)
+    cx, cy = center
+    org = Vector(origin) if origin is not None else Vector((cx, cy, fn(cx, cy)))
+    bm = bmesh.new()
+    cl = bm.loops.layers.color.new("pcol")
+    made = tries = 0
+    while made < count and tries < count * 6:
+        tries += 1
+        x = cx + rnd.uniform(-0.5, 0.5) * size[0]
+        y = cy + rnd.uniform(-0.5, 0.5) * size[1]
+        if keep and not keep(x, y):
+            continue
+        s = psize[0] + (psize[1] - psize[0]) * rnd.random() ** bias
+        sc = Vector((s * rnd.uniform(0.8, 1.3), s * rnd.uniform(0.7, 1.2), s * rnd.uniform(*flat)))
+        M = Matrix.Rotation(rnd.uniform(0, 6.28), 3, "Z") @ Matrix.Rotation(rnd.uniform(-0.5, 0.5), 3, "X")
+        pos = Vector((x, y, fn(x, y) + sc.z * (1 - 2 * sink))) - org
+        vs = [bm.verts.new(M @ Vector((v.x * sc.x, v.y * sc.y, v.z * sc.z)) + pos) for v in tv]
+        g = rnd.random()
+        col = (g, g, g, 1.0)
+        for f in tf:
+            face = bm.faces.new([vs[k] for k in f])
+            face.smooth = True
+            for lp in face.loops:
+                lp[cl] = col
+        made += 1
+    o = L.mesh_from_bm(name, bm)
+    o.location = org
+    L.assign(o, mat or gravel_mat(name + "_m"))
+    return o
+
+
+def park_sign(loc=(0, 0, 0), rot_z=0.0, w=0.62, h=0.5, post=1.25, lines=("NO", "SCUBA", "DIVING"),
+              board=(0.88, 0.86, 0.78), ink=(0.5, 0.05, 0.04), wood=(0.24, 0.16, 0.09), name="psign"):
+    """Plain park rule sign (generic: no agency name or logo): framed board on a wooden post with centred text lines.
+    Board faces local -Y; loc = base of the post; board centre at height `post`. Returns dict(root, board, center)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, rot_z)
+    wm = L.mat_noise_surface(name + "_wood", tuple(c * 0.5 for c in wood), wood, scale=9, bump=0.4, voronoi=False)
+    pst = L.prim("cube", loc=(0, 0.045, (post + h * 0.5) / 2), name=name + "_post")
+    pst.scale = (0.045, 0.045, (post + h * 0.5) / 2)
+    L.assign(pst, wm)
+    pst.parent = root
+    fr = L.prim("cube", loc=(0, -0.005, post), name=name + "_frame")
+    fr.scale = (w / 2 + 0.025, 0.012, h / 2 + 0.025)
+    L.assign(fr, wm)
+    fr.parent = root
+    bd = L.prim("cube", loc=(0, -0.016, post), name=name + "_board")
+    bd.scale = (w / 2, 0.01, h / 2)
+    L.assign(bd, L.mat_principled(name + "_bm", board, rough=0.6))
+    bd.parent = root
+    im = L.mat_principled(name + "_ink", ink, rough=0.6)
+    k = len(lines)
+    sz = min(h * 0.78 / k, w * 0.3)
+    for i, ln in enumerate(lines):
+        z = post + (((k - 1) / 2) - i) * sz * 1.22
+        t = text(ln, (0, -0.028, z), size=sz, name=f"{name}_t{i}", mat=im)
+        t.parent = root
+    return {"root": root, "board": bd, "center": (0, 0, post)}
+
+
+def rebar_grate(loc=(0, 0, 0), w=1.0, h=0.78, nx=6, nz=5, bar=0.011, collar=0.18, depth=0.3, seed=4, name="grate"):
+    """Crude welded rebar grate in the XZ plane (facing -Y), centred at loc, set in a rough concrete collar
+    (generic recreation). Returns dict(root, bars, collar)."""
+    rnd = random.Random(seed)
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    rust = L.mat_noise_surface(name + "_rust", (0.09, 0.04, 0.02), (0.4, 0.2, 0.09), scale=40, bump=0.7, metal=0.3)
+    conc = L.mat_noise_surface(name + "_conc", (0.27, 0.27, 0.26), (0.56, 0.55, 0.52), scale=7, bump=0.6)
+    bars = []
+    xs = [(-w / 2 + w * (i + 0.5) / nx) + rnd.uniform(-0.02, 0.02) for i in range(nx)]
+    zs = [(-h / 2 + h * (k + 0.5) / nz) + rnd.uniform(-0.015, 0.015) for k in range(nz)]
+    for x in xs:
+        o = L.prim("cyl", loc=(x, 0.0, 0), vertices=8, radius=bar, depth=h + 0.14, name=name + "_v")
+        o.rotation_euler = (rnd.uniform(-0.02, 0.02), rnd.uniform(-0.04, 0.04), 0)
+        bars.append(o)
+    for z in zs:
+        o = L.prim("cyl", loc=(0, -bar * 2, z), rot=(0, math.pi / 2, 0), vertices=8, radius=bar, depth=w + 0.14,
+                   name=name + "_h")
+        o.rotation_euler = (rnd.uniform(-0.02, 0.02), math.pi / 2 + rnd.uniform(-0.035, 0.035), 0)
+        bars.append(o)
+    for x in xs:
+        for z in zs:
+            o = L.prim("ico", loc=(x, -bar, z), subdivisions=1, radius=bar * rnd.uniform(1.5, 2.2), name=name + "_weld")
+            bars.append(o)
+    for o in bars:
+        L.assign(o, rust)
+        L.smooth(o)
+        o.parent = root
+    col = []
+    c = collar
+    for nm, lc, sc in (("top", (0, 0, h / 2 + c / 2), (w / 2 + c, depth / 2, c / 2)),
+                       ("bot", (0, 0, -h / 2 - c / 2), (w / 2 + c, depth / 2, c / 2)),
+                       ("lft", (-w / 2 - c / 2, 0, 0), (c / 2, depth / 2, h / 2 + c * 0.2)),
+                       ("rgt", (w / 2 + c / 2, 0, 0), (c / 2, depth / 2, h / 2 + c * 0.2))):
+        o = L.prim("cube", loc=lc, name=f"{name}_{nm}")
+        o.scale = sc
+        L.apply_scale(o)
+        sub = o.modifiers.new("sub", "SUBSURF")
+        sub.subdivision_type = "SIMPLE"
+        sub.levels = sub.render_levels = 4
+        L.add_displace(o, strength=0.07, scale=0.14, name=f"{name}_{nm}_d")
+        L.assign(o, conc)
+        o.parent = root
+        col.append(o)
+    return {"root": root, "bars": bars, "collar": col}
+
+
+def flood_water(size=(60, 140), center=(0, 0, 0.9), n=100, flow=(0.0, 3.0), res=0.5, color=(0.2, 0.135, 0.07),
+                foam=(0.6, 0.54, 0.44), amp=(0.22, 0.07), name="flood"):
+    """Fast, turbid flood surface: a grid with two Displace layers whose textures travel downstream (texture space
+    tied to keyed empties), plus flowing ripple bump and foam streaks in the shader. Kept live (not baked).
+    Returns the object."""
+    bpy.ops.mesh.primitive_grid_add(x_subdivisions=max(2, int(size[0] / res)), y_subdivisions=max(2, int(size[1] / res)),
+                                    size=1, location=center)
+    o = bpy.context.active_object
+    o.name = name
+    o.scale = (size[0], size[1], 1)
+    L.apply_scale(o)
+    for k, (a, sc, sp) in enumerate(((amp[0], 2.6, 1.0), (amp[1], 0.7, 1.35))):
+        e = L.link(bpy.data.objects.new(f"{name}_flow{k}", None))
+        e.location = (0, 0, 0)
+        e.keyframe_insert("location", frame=1)
+        e.location = (flow[0] * sp * n / 24.0, flow[1] * sp * n / 24.0, 0.45 * n / 24.0)
+        e.keyframe_insert("location", frame=n)
+        L.linear_fcurves(e)
+        t = bpy.data.textures.new(f"{name}_tx{k}", "CLOUDS")
+        t.noise_scale = sc
+        t.noise_depth = 2
+        d = o.modifiers.new(f"d{k}", "DISPLACE")
+        d.texture = t
+        d.strength = a
+        d.direction = "Z"
+        d.texture_coords = "OBJECT"
+        d.texture_coords_object = e
+    L.smooth(o)
+    m, nd, l = L._mat(name + "_m")
+    p = nd["Principled BSDF"]
+    p.inputs["Roughness"].default_value = 0.14
+    tc = nd.new("ShaderNodeTexCoord")
+    mp = nd.new("ShaderNodeMapping")
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = nd.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 2.4
+    nz.inputs["Detail"].default_value = 4
+    l.new(mp.outputs["Vector"], nz.inputs["Vector"])
+    bp = nd.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.45
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    st = nd.new("ShaderNodeMapping")          # streaks stretched along the flow (Y)
+    st.inputs["Scale"].default_value = (1.0, 0.16, 1.0)
+    l.new(mp.outputs["Vector"], st.inputs["Vector"])
+    fz = nd.new("ShaderNodeTexNoise")
+    fz.inputs["Scale"].default_value = 1.6
+    fz.inputs["Detail"].default_value = 5
+    l.new(st.outputs["Vector"], fz.inputs["Vector"])
+    fr = nd.new("ShaderNodeMapRange")
+    fr.inputs["From Min"].default_value = 0.58
+    fr.inputs["From Max"].default_value = 0.7
+    l.new(fz.outputs["Fac"], fr.inputs["Value"])
+    mx = nd.new("ShaderNodeMix")
+    mx.data_type = "RGBA"
+    mx.inputs["A"].default_value = (*color, 1)
+    mx.inputs["B"].default_value = (*foam, 1)
+    l.new(fr.outputs["Result"], mx.inputs["Factor"])
+    l.new(mx.outputs["Result"], p.inputs["Base Color"])
+    rr = nd.new("ShaderNodeMapRange")
+    rr.inputs["To Min"].default_value = 0.14
+    rr.inputs["To Max"].default_value = 0.7
+    l.new(fr.outputs["Result"], rr.inputs["Value"])
+    l.new(rr.outputs["Result"], p.inputs["Roughness"])
+    loc = mp.inputs["Location"]
+    loc.default_value = (0, 0, 0)
+    loc.keyframe_insert("default_value", frame=1)
+    loc.default_value = (-flow[0] * n / 24.0, -flow[1] * n / 24.0, 0.3 * n / 24.0)
+    loc.keyframe_insert("default_value", frame=n)
+    for fc in L._fcurves(m.node_tree.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+    L.assign(o, m)
+    o.keyframe_insert("location", frame=1)      # animated flag: keeps the Displace stack live through bake_static()
+    return o
+
+
+def swimmer_float(name="swim", suit=(0.82, 0.07, 0.05), skin=(0.42, 0.3, 0.23), height=1.72):
+    """Faceless, generic swimmer floating on the back (char_figure rig): coloured swimsuit torso, arms out, legs
+    hanging down from the hips. Root = feet end of the body line; the head points along the root's local -Y after the
+    built-in X rotation, so yaw with rotation_euler.z. Returns the rig dict (+ 'suit_mat')."""
+    p = L.char_figure(name, color=skin, height=height)
+    sm_ = L.mat_principled(name + "_suit", suit, rough=0.5)
+    L.assign(p["torso"], sm_)
+    p["root"].rotation_euler = (math.pi / 2, 0, 0)
+    for tag, sg in (("L", 1), ("R", -1)):
+        p[f"hip{tag}"].rotation_euler = (-0.6, sg * 0.14, 0)
+        p[f"knee{tag}"].rotation_euler = (-0.45, 0, 0)
+        p[f"shoulder{tag}"].rotation_euler = (0, sg * 1.25, 0)
+        p[f"elbow{tag}"].rotation_euler = (0.25, 0, 0)
+    p["suit_mat"] = sm_
+    return p
+
+
+def rock_room(R=(3.0, 2.7), H=2.1, below=1.3, seed=5, mat=None, name="room", res=(56, 28), rough=0.16, disp=(0.3, 0.08),
+              door=None):
+    """Small closed rock chamber around the origin (inward-facing displaced ellipsoid, like air_bell) with an optional
+    doorway cut out: door = (azimuth_deg, half_width, z_min, z_max) removes the faces in that window so a passage()
+    can meet the room there. Returns the object."""
+    rnd = random.Random(seed)
+    off = Vector((rnd.random() * 50, rnd.random() * 50, rnd.random() * 50))
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=res[0], v_segments=res[1], radius=1.0)
+    for v in bm.verts:
+        d = v.co.copy()
+        k = 1 + rough * noise.noise(d * 1.6 + off)
+        v.co = Vector((d.x * R[0] * k, d.y * R[1] * k, d.z * (H if d.z > 0 else below) * (0.85 + 0.15 * k)))
+    if door:
+        az = math.radians(door[0])
+        dv = Vector((math.cos(az), math.sin(az), 0))
+        pv = Vector((-dv.y, dv.x, 0))
+        dead = []
+        for f in bm.faces:
+            c = f.calc_center_median()
+            if c.dot(dv) > 0 and abs(c.dot(pv)) < door[1] and door[2] < c.z < door[3]:
+                dead.append(f)
+        bmesh.ops.delete(bm, geom=dead, context="FACES")
+    for f in bm.faces:
+        f.normal_flip()
+    bm.normal_update()
+    o = L.mesh_from_bm(name, bm)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    if disp[0]:
+        L.add_displace(o, strength=disp[0], scale=0.7, name=name + "_d1")
+    if disp[1]:
+        L.add_displace(o, strength=disp[1], scale=0.15, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m", (0.3, 0.29, 0.25), (0.78, 0.75, 0.68), scale=1.0, bump=0.45))
+    return o
+
+
+def time_rings(points, n, t0=0.0, period=1.6, rmax=0.5, color=(0.9, 1.0, 1.0), strength=2.5, seed=1, name="tring",
+               per_point=2, minor=0.008):
+    """Expanding ripple rings like drip_rings(), but driven by an explicit time base t = t0 + (frame - 1) / 24 so two
+    shots can be phase-matched (loop frames). Returns the ring objects."""
+    rnd = random.Random(seed)
+    m = emis(name + "_m", color, strength)
+    out = []
+    for i, p in enumerate(points):
+        for k in range(per_point):
+            o = L.prim("torus", loc=p, major_radius=1.0, minor_radius=minor / max(rmax, 1e-3), major_segments=40,
+                       minor_segments=4, name=f"{name}{i}_{k}")
+            L.assign(o, m)
+            ph = rnd.random() + k / per_point
+            per = period * rnd.uniform(0.85, 1.2)
+            for f in range(1, n + 1):
+                t = t0 + (f - 1) / 24.0
+                fr = (t / per + ph) % 1.0
+                s = rmax * (0.06 + 0.94 * fr)
+                o.scale = (s, s, s * max(0.0, 1.0 - fr) * 2.0)
+                o.keyframe_insert("scale", frame=f)
+            L.linear_fcurves(o)
+            o.visible_shadow = False
+            out.append(o)
+    return out

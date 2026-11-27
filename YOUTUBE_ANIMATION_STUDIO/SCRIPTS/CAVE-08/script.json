@@ -484,7 +484,7 @@
           "type": "label",
           "text": "DISPUTED",
           "params": {
-            "y": 200
+            "y": 610
           }
         }
       ],
