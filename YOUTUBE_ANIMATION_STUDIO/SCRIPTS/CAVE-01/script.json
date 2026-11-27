@@ -1,0 +1,994 @@
+{
+  "id": "CAVE-01",
+  "title": "He Went 270 m Down to Bring a Body Home",
+  "category": "cave",
+  "voice": "am_michael",
+  "speed": 1.07,
+  "mood": "cave",
+  "target_seconds": 67,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "He found a body 270 metres down.",
+      "pause_after": 0.15,
+      "shot": "S01",
+      "emphasis": [
+        "body",
+        "270"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "Then he went back for it.",
+      "pause_after": 0.35,
+      "shot": "S02",
+      "emphasis": [
+        "back"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Ten minutes down. About ten hours of stops back up.",
+      "pause_after": 0.3,
+      "shot": "S03",
+      "emphasis": [
+        "Ten",
+        "hours"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "This is Boesmansgat, Bushman's Hole, South Africa.",
+      "pause_after": 0.25,
+      "shot": "S04",
+      "emphasis": [
+        "Boesmansgat"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "In 2004, Australian pilot Dave Shaw set a depth record here.",
+      "pause_after": 0.2,
+      "shot": "S05",
+      "emphasis": [
+        "record"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "At the bottom, his torch found another diver.",
+      "pause_after": 0.3,
+      "shot": "S06",
+      "emphasis": [
+        "another",
+        "diver"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "Deon Dreyer. Lost here in 1994, never recovered.",
+      "pause_after": 0.3,
+      "shot": "S07",
+      "emphasis": [
+        "1994"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Shaw planned one more dive, to bring him home.",
+      "pause_after": 0.25,
+      "shot": "S08",
+      "emphasis": [
+        "home"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "January 2005. Don Shirley would meet him at 220 metres.",
+      "pause_after": 0.2,
+      "shot": "S09",
+      "emphasis": [
+        "220"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Shaw reached the body and began easing it into a bag.",
+      "pause_after": 0.2,
+      "shot": "S10",
+      "emphasis": [
+        "bag"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "This deep, dense gas makes every breath hard work.",
+      "pause_after": 0.2,
+      "shot": "S11",
+      "emphasis": [
+        "dense",
+        "breath"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "His lines snagged. He worked harder. Carbon dioxide built up.",
+      "pause_after": 0.7,
+      "shot": "S12",
+      "emphasis": [
+        "snagged",
+        "Carbon",
+        "dioxide"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "He never reached 220.",
+      "pause_after": 0.4,
+      "shot": "S13",
+      "emphasis": [
+        "never"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "Shirley searched deeper, and was struck by decompression sickness. He survived.",
+      "pause_after": 0.3,
+      "shot": "S14",
+      "emphasis": [
+        "deeper",
+        "survived"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "Shaw's helmet camera recorded it all.",
+      "pause_after": 0.2,
+      "shot": "S15",
+      "emphasis": [
+        "camera"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "Experts concluded carbon dioxide made him black out.",
+      "pause_after": 0.4,
+      "shot": "S16",
+      "emphasis": [
+        "black",
+        "out"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "Four days later, divers hauled up his lines.",
+      "pause_after": 0.2,
+      "shot": "S17",
+      "emphasis": [
+        "Four",
+        "days"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "Two bodies came up, tangled together.",
+      "pause_after": 0.5,
+      "shot": "S18",
+      "emphasis": [
+        "Two",
+        "bodies"
+      ]
+    },
+    {
+      "id": "L19",
+      "text": "Ten years after he was lost, Deon Dreyer came home.",
+      "pause_after": 0.6,
+      "shot": "S19",
+      "emphasis": [
+        "came",
+        "home"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "cave_tunnel",
+      "description": "COLD OPEN, frame 1 already moving. Cave floor at 270 m: black water, a fine silt layer. A single white torch cone sweeps left-to-right and stops on a dark, still diver-shaped silhouette lying half-buried in silt (abstract: tank outline and fins only, no face, no remains). Silt particles drift through the beam.",
+      "camera": "Slow push-in 35 mm, low angle just above the silt, subject in upper-middle third of 9:16; subtle handheld drift (amp 0.02).",
+      "characters": [
+        "lost_diver_shape (dark grey, single back tank, partly buried, abstract)"
+      ],
+      "lighting": "Pitch-black world; one warm-white spot (torch, 25 deg, soft blend) from off-screen left; faint cyan volume scatter.",
+      "fx": [
+        "silt",
+        "volumetric_water",
+        "torch_cone"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "270 M",
+          "params": {
+            "position": "top-left",
+            "units": "m",
+            "color": "cyan"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 0.2,
+          "gain": 0.55
+        },
+        {
+          "name": "sting",
+          "offset": 0.9,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Reverse angle: a diver silhouette (Shaw: black suit, yellow fins, rebreather on back, helmet torch) hangs motionless above the shape, torch beam angled down. Bubbles: none (rebreather), only silt rising around his fins.",
+      "camera": "Wide 24 mm from behind and above the shape, diver large in upper half; slow pull-back revealing darkness all around.",
+      "characters": [
+        "diver_A Shaw (black suit, yellow fins, back-mounted rebreather, helmet torch)"
+      ],
+      "lighting": "Helmet torch spot + faint cyan rim from above.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "rumble",
+          "offset": 0.5,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side cross-section of Boesmansgat: tiny surface pool at top, narrow throat, then a vast dark chamber widening downward. A cyan diver dot drops fast from surface to bottom (10-MIN label), then a long dotted ascent line climbs back with stop markers ticking on (~10 H label).",
+      "camera": "Locked-off full-frame diagram; slow 5% zoom-in during the ascent dots.",
+      "characters": [
+        "diver_dot (cyan)"
+      ],
+      "lighting": "Flat graphic; black background, cyan rock outline, white labels.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "DOWN 0:10",
+          "params": {
+            "position": "left",
+            "count": "up",
+            "to": "00:10:00"
+          }
+        },
+        {
+          "type": "timer",
+          "text": "UP ~10:00:00",
+          "params": {
+            "position": "right",
+            "style": "stops_bar"
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 1.9,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 2.4,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:desert_sinkhole_exterior",
+      "description": "Dawn over flat Kalahari scrub: dry ground, low bushes (small bare trees), a deep rocky sinkhole with a small, still blue-green pool far below the rim. A tiny dive platform and a line drop into the pool.",
+      "camera": "Drone-style descending crane 28 mm from high above the rim, tilting down into the hole.",
+      "characters": [],
+      "lighting": "Low warm sun, long shadows, pale sky; pool in shadow.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "BOESMANSGAT · NORTHERN CAPE, SOUTH AFRICA",
+          "params": {
+            "position": "lower-third-safe"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "riser",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "other:vertical_shaft_descent",
+      "description": "A lone diver silhouette (Shaw, yellow fins) descends head-down along a white line through a vast blue-black shaft; a depth gauge on screen races upward in numbers.",
+      "camera": "Top-down 20 mm following the diver down, line converging to a vanishing point below; slow roll 5 deg.",
+      "characters": [
+        "diver_A Shaw (black suit, yellow fins, rebreather)"
+      ],
+      "lighting": "Daylight cyan at top of frame fading to black; helmet torch.",
+      "fx": [
+        "particles_dust",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "OCT 2004",
+          "params": {
+            "position": "top"
+          }
+        },
+        {
+          "type": "depth",
+          "text": "0 → 270 M",
+          "params": {
+            "animate": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "REBREATHER DEPTH RECORD",
+          "params": {
+            "position": "center-low"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 0.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Bottom of the chamber: boulders and a silt slope. Torch beam sweeps, then snaps onto a single fin tip sticking out of the silt.",
+      "camera": "POV from helmet torch, 24 mm, handheld; quick pan that stops dead on the fin.",
+      "characters": [],
+      "lighting": "Torch cone only; everything else black.",
+      "fx": [
+        "silt",
+        "torch_cone"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "270 M",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.8,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "document",
+      "description": "Evidence-card reveal over a dark blurred cave background: a simple card with name and year, a small memorial-plaque style outline. No photo.",
+      "camera": "Card slides up from bottom, slight 3D tilt settling flat.",
+      "characters": [],
+      "lighting": "Graphic; card lit with soft cyan edge.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "DEON DREYER · LOST 1994 · BODY NOT RECOVERED",
+          "params": {
+            "style": "evidence_card"
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "other:desert_sinkhole_exterior",
+      "description": "Sinkhole rim at dusk: a small camp of figures (faceless silhouettes) stacking tanks and coiled line beside the drop. One figure (Shaw) stands at the edge looking down.",
+      "camera": "Low wide 28 mm from behind the figure, silhouette against orange sky; slow dolly-in.",
+      "characters": [
+        "figure_Shaw (silhouette)",
+        "figure_team x3 (silhouettes)"
+      ],
+      "lighting": "Backlit sunset, rim light.",
+      "fx": [
+        "dust"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.0,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "Cross-section again, now with two dots: Shaw (cyan) descending to the bottom, Shirley (orange) stopping and waiting at a marked rendezvous line at 220 m.",
+      "camera": "Diagram; slow vertical pan downward following both dots.",
+      "characters": [
+        "diver_dot Shaw (cyan)",
+        "diver_dot Shirley (orange)"
+      ],
+      "lighting": "Graphic.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "8 JAN 2005",
+          "params": {
+            "position": "top"
+          }
+        },
+        {
+          "type": "text",
+          "text": "MEET @ 220 M",
+          "params": {
+            "anchor": "rendezvous_line"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sonar",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 2.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Bottom of the chamber, Shaw kneels in silt beside the abstract wrapped shape, unfolding a dark body bag (simple cloth plane). Silt starts lifting around his knees.",
+      "camera": "Medium 35 mm side angle at silt level, slow orbit 20 deg.",
+      "characters": [
+        "diver_A Shaw",
+        "lost_diver_shape (abstract)"
+      ],
+      "lighting": "Helmet torch + a second small handheld light set on the floor.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "270 M",
+          "params": {}
+        },
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "creak",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "other:macro_breathing_loop",
+      "description": "Pattern interrupt: stylised close-up of the rebreather loop as a simple translucent tube; gas particles inside are packed tight and crawl slowly, compared with a faster sparse flow at the top (surface vs depth split).",
+      "camera": "Macro 50 mm, split-screen top/bottom, slow push.",
+      "characters": [],
+      "lighting": "Clean studio rim light, cyan particles.",
+      "fx": [
+        "particles_gas_dense"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "SURFACE",
+          "params": {
+            "position": "top"
+          }
+        },
+        {
+          "type": "text",
+          "text": "270 M: DENSE GAS",
+          "params": {
+            "position": "bottom"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.7
+        },
+        {
+          "name": "breath",
+          "offset": 1.8,
+          "gain": 0.75
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Close-up: thin white lines loop around Shaw's arm and torch canister; his hands pull, silt explodes into a cloud and swallows the torch cone.",
+      "camera": "Tight 50 mm handheld, increasing shake (amp 0.04), quick micro-pushes on each sentence.",
+      "characters": [
+        "diver_A Shaw (hands, arm, torch)"
+      ],
+      "lighting": "Torch cone fragmenting in silt; flicker on the cone.",
+      "fx": [
+        "silt_cloud",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "CO₂ ↑",
+          "params": {
+            "position": "right",
+            "color": "red"
+          }
+        },
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "breath",
+          "offset": 0.4,
+          "gain": 0.8
+        },
+        {
+          "name": "riser",
+          "offset": 1.0,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "MID-POINT TURN. Cross-section: orange Shirley dot waits at 220 m; the cyan Shaw dot below stops moving and fades. The rendezvous line blinks, empty.",
+      "camera": "Locked; 0.6 s held silence before line.",
+      "characters": [
+        "diver_dot Shirley (orange)",
+        "diver_dot Shaw (cyan, fading)"
+      ],
+      "lighting": "Graphic; rendezvous line pulses red.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "WAITING…",
+          "params": {
+            "position": "center"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sonar",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Shirley (orange fins, black suit) descends below the rendezvous into black water, torch sweeping empty darkness; screen subtly tilts and blurs at the edges to suggest the injury.",
+      "camera": "Follow 28 mm from above-behind, slow dutch tilt to 8 deg.",
+      "characters": [
+        "diver_B Shirley (orange fins, rebreather)"
+      ],
+      "lighting": "Single torch; deep blue-black.",
+      "fx": [
+        "particles_dust",
+        "lens_edge_blur"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "220 → 250 M",
+          "params": {
+            "animate": true
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 0.5,
+          "gain": 0.5
+        },
+        {
+          "name": "rumble",
+          "offset": 2.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "other:helmet_camera_ui",
+      "description": "Pattern interrupt: a stylised camera viewfinder frame (REC dot, timecode) over a dark silt-filled blur. No real footage; procedural silt only.",
+      "camera": "Static frame with slow zoom; REC dot blinking.",
+      "characters": [],
+      "lighting": "Dim, greenish monitor tint.",
+      "fx": [
+        "silt",
+        "static"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "● REC",
+          "params": {
+            "position": "top-left",
+            "color": "red"
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "static",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 0.1,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "document",
+      "description": "Document reveal: a plain medical-journal-style page slides in; a highlighted line reads 'extreme hypercapnia' (CO2 build-up) with 2007 date. Generic layout, no logos.",
+      "camera": "Slow push across the page to the highlighted line.",
+      "characters": [],
+      "lighting": "Graphic; paper with cool cast.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "CASE REPORT (2007): EXTREME HYPERCAPNIA → UNCONSCIOUSNESS",
+          "params": {
+            "highlight": "EXTREME HYPERCAPNIA"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Shaft at about 20 m: grey daylight from above, white lines being pulled upward hand over hand by unseen surface team; lines slide through frame.",
+      "camera": "Upward-looking 24 mm from below, lines converging to the bright surface.",
+      "characters": [],
+      "lighting": "Daylight caustics from above, cyan water.",
+      "fx": [
+        "caustics",
+        "particles_dust"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "12 JAN 2005",
+          "params": {
+            "position": "top"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Two dark, abstract silhouettes rise slowly toward the light, bound together by the same white line loop. Seen only as shapes against the bright surface, no detail.",
+      "camera": "Low-angle 35 mm from below, very slow; shapes small in frame, light large.",
+      "characters": [
+        "two silhouettes (abstract, no detail)"
+      ],
+      "lighting": "Strong backlight from surface, god rays.",
+      "fx": [
+        "caustics",
+        "volumetric_light_shafts"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "riser",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S19",
+      "lines": [
+        "L19"
+      ],
+      "environment": "other:desert_sinkhole_exterior",
+      "description": "Sunrise over the still pool at the bottom of the sinkhole; then match-cut back down to the dark silt and a torch cone, same composition as S01 (loop point) but the silt floor is now empty.",
+      "camera": "Slow crane down into the pool, 28 mm; last 0.5 s match-cut to S01 framing.",
+      "characters": [],
+      "lighting": "Golden sunrise; final frame torch cone in black.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "IN MEMORY OF DEON DREYER AND DAVE SHAW",
+          "params": {
+            "position": "center-low",
+            "size": "small"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 2.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.5
+    ],
+    [
+      12,
+      0.6
+    ],
+    [
+      28,
+      0.8
+    ],
+    [
+      42,
+      1.0
+    ],
+    [
+      44,
+      0.2
+    ],
+    [
+      50,
+      0.5
+    ],
+    [
+      57,
+      0.8
+    ],
+    [
+      62,
+      1.0
+    ],
+    [
+      67,
+      0.4
+    ]
+  ],
+  "loop_line": "Ten years after he was lost, Deon Dreyer came home."
+}

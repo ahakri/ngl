@@ -1,0 +1,1148 @@
+{
+ "id": "MURDER-02",
+ "title": "The Dead Man With 'Tamam Shud' in a Hidden Pocket",
+ "category": "murder",
+ "voice": "am_onyx",
+ "speed": 1.06,
+ "mood": "murder",
+ "target_seconds": 72,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "This scrap was hidden in a tiny pocket inside a dead man's trousers.",
+   "pause_after": 0.25,
+   "shot": "S01",
+   "emphasis": [
+    "hidden",
+    "dead"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Two words. Tamam Shud. Persian for, ended.",
+   "pause_after": 0.4,
+   "shot": "S02",
+   "emphasis": [
+    "ended"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Somerton Beach, Adelaide. The first of December, 1948.",
+   "pause_after": 0.2,
+   "shot": "S03",
+   "emphasis": [
+    "1948"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "A well-dressed man, dead against the seawall. No ID.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "No",
+    "ID"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "The labels on his clothes had been cut out.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "labels"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Weeks later, a suitcase linked to him turned up at Adelaide railway station.",
+   "pause_after": 0.15,
+   "shot": "S06",
+   "emphasis": [
+    "suitcase"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Its label? Removed too.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "Removed"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Then someone handed police the very book that scrap was torn from.",
+   "pause_after": 0.15,
+   "shot": "S08",
+   "emphasis": [
+    "book"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "The Rubaiyat of Omar Khayyam.",
+   "pause_after": 0.2,
+   "shot": "S09",
+   "emphasis": [
+    "Rubaiyat"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "On the back cover, in pencil: a phone number, and lines of letters.",
+   "pause_after": 0.2,
+   "shot": "S10",
+   "emphasis": [
+    "letters"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "A code. Nobody has ever cracked it.",
+   "pause_after": 0.35,
+   "shot": "S11",
+   "emphasis": [
+    "code",
+    "cracked"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Cause of death? Never determined. Poison was suspected. None was found.",
+   "pause_after": 0.25,
+   "shot": "S12",
+   "emphasis": [
+    "Poison",
+    "None"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Spy. Lost love. Suicide. Plenty of theories, no proof.",
+   "pause_after": 0.45,
+   "shot": "S13",
+   "emphasis": [
+    "theories",
+    "proof"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "Then, in 2021, police exhumed his body.",
+   "pause_after": 0.2,
+   "shot": "S14",
+   "emphasis": [
+    "exhumed"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "In 2022, a professor and a genealogist tested hairs from his plaster death mask.",
+   "pause_after": 0.2,
+   "shot": "S15",
+   "emphasis": [
+    "hairs"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "The DNA led through family trees to a name.",
+   "pause_after": 0.35,
+   "shot": "S16",
+   "emphasis": [
+    "name"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "Carl, Charles, Webb. An electrical engineer from Melbourne, born 1905.",
+   "pause_after": 0.45,
+   "shot": "S17",
+   "emphasis": [
+    "Webb"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "But it isn't official. Police and the coroner haven't confirmed it yet.",
+   "pause_after": 0.3,
+   "shot": "S18",
+   "emphasis": [
+    "official"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "And even if he is Webb, no one knows how he died.",
+   "pause_after": 0.15,
+   "shot": "S19",
+   "emphasis": [
+    "how"
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "Or what the code says.",
+   "pause_after": 0.35,
+   "shot": "S20",
+   "emphasis": [
+    "code"
+   ]
+  },
+  {
+   "id": "L21",
+   "text": "So what do you think those letters spell?",
+   "pause_after": 0.45,
+   "shot": "S21",
+   "emphasis": [
+    "you"
+   ]
+  },
+  {
+   "id": "L22",
+   "text": "It all comes back to this.",
+   "pause_after": 0.0,
+   "shot": "S22",
+   "emphasis": [
+    "this"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "Macro: a tiny rolled strip of paper on dark wood under a desk lamp, a few sand grains around it; tweezers (two thin bevelled cylinders) lift and unroll it. Paper prop = thin curved plane with printed text 'Tamám Shud' (neutral serif, recreated).",
+   "camera": "macro 85mm, shallow DOF, push-in already moving at frame 1",
+   "characters": [],
+   "lighting": "single warm desk-lamp spot, deep falloff to black",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "start": 0.6,
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "click",
+     "offset": 0.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "document",
+   "description": "Scrap overlay fills the frame: torn paper strip reading 'TAMÁM SHUD'; translation types beneath.",
+   "camera": "2D overlay over the macro plate (slow zoom)",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "Tamám Shud",
+     "params": {
+      "style": "scrap",
+      "rot": -2
+     }
+    },
+    {
+     "type": "text",
+     "text": "= \"ENDED\"",
+     "start": 1.4,
+     "params": {
+      "size": 100,
+      "y": 1350
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "map",
+   "description": "Map card: South Australia coastline blob, route line drawn along Gulf St Vincent to a pin at Somerton Beach (Glenelg area), Adelaide. Date stamp types on.",
+   "camera": "2D overlay over dim dawn sea plate",
+   "characters": [],
+   "lighting": "background: cold pre-dawn blue",
+   "fx": [
+    "sea plane gentle waves"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "SOMERTON BEACH\nAdelaide, South Australia",
+     "params": {
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.62,
+        0.0
+       ],
+       [
+        0.58,
+        0.3
+       ],
+       [
+        0.66,
+        0.55
+       ],
+       [
+        0.6,
+        1.0
+       ],
+       [
+        0.0,
+        1.0
+       ]
+      ],
+      "points": [
+       [
+        0.6,
+        0.15
+       ],
+       [
+        0.62,
+        0.45
+       ],
+       [
+        0.64,
+        0.6
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "1 DECEMBER 1948\nSOMERTON PARK, SA",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:beach_dawn (ground plane as pale sand + flat sea plane + low concrete seawall box)",
+   "description": "Beach at dawn, wide: low seawall running across frame, a single distant faceless dark silhouette (char_figure, coat=True) seated against the wall, legs out, head bowed. No face, no body detail; at most 8% of frame height. Gentle surf.",
+   "camera": "wide 35mm from the waterline, slow truck right; figure stays small",
+   "characters": [
+    "Somerton Man silhouette (char_figure coat=True, seated pose, faceless, distant)"
+   ],
+   "lighting": "pre-dawn: low sun 2 deg below horizon, pink-grey sky, cold fill",
+   "fx": [
+    "light sea mist fog_volume",
+    "sea plane waves"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "Overhead on the evidence desk: a folded jacket and tie (simple cloth-like planes); camera finds an empty rectangular stitch outline where a label used to be; scissors prop beside it.",
+   "camera": "top-down 50mm, slow slide along the collar",
+   "characters": [],
+   "lighting": "desk lamp, hard shadow",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "LABELS: CUT OUT",
+     "start": 0.5,
+     "params": {
+      "size": 90,
+      "y": 1400,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:station_cloakroom (room builder: long shelf of luggage, one lamp)",
+   "description": "Dim railway cloakroom (room builder, shelves of box suitcases); one brown suitcase slides forward off the shelf into the lamp light. Date stamp.",
+   "camera": "35mm, slow push toward the suitcase",
+   "characters": [],
+   "lighting": "single overhead lamp, flicker depth 0.15",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "JANUARY 1949\nADELAIDE RAILWAY STATION",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.3,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:station_cloakroom",
+   "description": "Close on the suitcase handle: a torn-off luggage-tag string hangs empty.",
+   "camera": "close 50mm, static with tiny push",
+   "characters": [],
+   "lighting": "as S06",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Suitcase label removed\nClothing tags removed",
+     "params": {
+      "header": "EVIDENCE #2",
+      "y": 1250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "A small hardback book drops onto the desk into lamp light; the paper scrap slides in beside it and snaps into a torn gap on the last page (match cut).",
+   "camera": "medium-close 50mm, slight orbit",
+   "characters": [],
+   "lighting": "desk lamp",
+   "fx": [
+    "dust puff on landing"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.2,
+     "gain": 0.6
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "Book cover close: recreated generic cover reading 'RUBAIYAT OF OMAR KHAYYAM' in neutral serif (no publisher marks).",
+   "camera": "close 85mm, slow push",
+   "characters": [],
+   "lighting": "desk lamp, warm",
+   "fx": [],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "The book flips to its back cover; faint pencil marks appear (UV-style violet glow sweeps across). Phone number shown only as blurred digits (do not display the number).",
+   "camera": "top-down 50mm, static",
+   "characters": [],
+   "lighting": "lamp then violet UV sweep (area light, colour 0.5/0.2/1.0)",
+   "fx": [
+    "UV glow sweep"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "PHONE NUMBER + CODE",
+     "start": 0.6,
+     "params": {
+      "size": 80,
+      "y": 1400
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "document",
+   "description": "PAUSE-BAIT: the code page document reveal, letters typing on in pencil-grey on aged paper; second line struck through.",
+   "camera": "2D overlay, slow zoom",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "params": {
+      "style": "paper",
+      "title": "BACK COVER - RECREATED",
+      "cps": 40
+     }
+    },
+    {
+     "type": "label",
+     "text": "UNSOLVED",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "document",
+   "description": "Recreated neutral inquest note card: 'CAUSE OF DEATH: NOT DETERMINED / POISON SUSPECTED - NONE FOUND'.",
+   "camera": "2D overlay over desk plate",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Cause of death: not determined\nPoison suspected - none found",
+     "params": {
+      "header": "INQUEST, 1949",
+      "y": 1200
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:evidence_board (dark cork wall, string, three cards)",
+   "description": "Evidence board: three cards slam in, SPY / LOST LOVE / SUICIDE, each with a yellow THEORY badge; red string connects them to a blank silhouette card.",
+   "camera": "locked 35mm, push on each slam",
+   "characters": [],
+   "lighting": "single hanging lamp",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "SPY",
+     "start": 0.2,
+     "duration": 0.7,
+     "params": {
+      "size": 110,
+      "y": 700
+     }
+    },
+    {
+     "type": "text",
+     "text": "LOST LOVE",
+     "start": 0.9,
+     "duration": 0.8,
+     "params": {
+      "size": 100,
+      "y": 900
+     }
+    },
+    {
+     "type": "text",
+     "text": "SUICIDE",
+     "start": 1.7,
+     "duration": 0.8,
+     "params": {
+      "size": 100,
+      "y": 1100
+     }
+    },
+    {
+     "type": "text",
+     "text": "NO PROOF",
+     "start": 2.6,
+     "params": {
+      "size": 110,
+      "y": 1300,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.2,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.9,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 1.7,
+     "gain": 0.5
+    },
+    {
+     "name": "sting",
+     "offset": 2.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:cemetery_night (ground + simple headstone boxes + fog)",
+   "description": "MID-POINT TURN. Night cemetery: rows of simple headstone boxes in fog; one plot lit by a work light on a tripod. No digging shown, no remains.",
+   "camera": "slow crane down 35mm",
+   "characters": [],
+   "lighting": "cold moon + one harsh white work light",
+   "fx": [
+    "fog_volume",
+    "flicker on work light"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "MAY 2021\nWEST TERRACE CEMETERY",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:lab (room builder, white bench)",
+   "description": "Lab bench: a plain white plaster bust shape (featureless head-and-shoulders, no facial features modelled) under a lab lamp; tweezers lift a single hair strand into a glowing tube.",
+   "camera": "close 50mm, push to the tube",
+   "characters": [],
+   "lighting": "cool white lab light, cyan accent",
+   "fx": [
+    "subtle glow on tube"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "PROF. DEREK ABBOTT (UNI. ADELAIDE)\nCOLLEEN FITZPATRICK (GENEALOGIST)",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 1.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:dna_graphic (emissive double helix + family-tree lines)",
+   "description": "Emissive DNA double helix rotates, then unspools into branching family-tree lines that converge on one empty name slot.",
+   "camera": "slow orbit then pull back to reveal tree",
+   "characters": [],
+   "lighting": "emission only, cyan/white on black",
+   "fx": [
+    "helix rotation",
+    "line draw-on"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "GENETIC GENEALOGY",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "riser",
+     "offset": 0.8,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "document",
+   "description": "TWIST: name card fills the slot: 'CARL \"CHARLES\" WEBB - b. 1905 - electrical engineer, Melbourne'. Colour temperature flips cold to warm. No photo of Webb.",
+   "camera": "2D overlay, punch-in on name",
+   "characters": [],
+   "lighting": "warm grade shift",
+   "fx": [
+    "warm grade"
+   ],
+   "overlay": [
+    {
+     "type": "title",
+     "text": "CARL \"CHARLES\" WEBB",
+     "params": {
+      "size": 110,
+      "y": 760
+     }
+    },
+    {
+     "type": "card",
+     "text": "Born 1905, Footscray (Vic.)\nElectrical engineer, Melbourne",
+     "start": 0.8,
+     "params": {
+      "header": "PROPOSED IDENTITY, 2022",
+      "y": 1250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "document",
+   "description": "A red 'NOT YET CONFIRMED' stamp thumps over the name card.",
+   "camera": "2D overlay, shake on stamp",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "NOT YET CONFIRMED",
+     "start": 0.4,
+     "params": {
+      "size": 100,
+      "y": 760,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    },
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "Coronial investigation ongoing\n(status checked Nov 2026)",
+     "start": 0.8,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.4,
+     "gain": 0.8
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S19",
+   "lines": [
+    "L19"
+   ],
+   "environment": "other:beach_dawn (ground plane as pale sand + flat sea plane + low concrete seawall box)",
+   "description": "Beach at sunrise, the seawall now empty; waves wash the sand smooth.",
+   "camera": "wide 28mm, very slow push along the wall",
+   "characters": [],
+   "lighting": "sunrise, warm low sun",
+   "fx": [
+    "sea mist",
+    "waves"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S20",
+   "lines": [
+    "L20"
+   ],
+   "environment": "document",
+   "description": "Code page returns, letters faintly flickering as if unresolved.",
+   "camera": "2D overlay, slow zoom in",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [
+    "letter flicker"
+   ],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "params": {
+      "style": "paper",
+      "title": "STILL UNSOLVED",
+      "cps": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S21",
+   "lines": [
+    "L21"
+   ],
+   "environment": "document",
+   "description": "Same code page, camera pushed tight on the first line WRGOABABD; question text above.",
+   "camera": "2D overlay, push in on line 1",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "params": {
+      "style": "paper",
+      "title": "STILL UNSOLVED",
+      "cps": 400
+     }
+    },
+    {
+     "type": "text",
+     "text": "WHAT DOES IT SAY?",
+     "start": 0.3,
+     "params": {
+      "size": 90,
+      "y": 260
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S22",
+   "lines": [
+    "L22"
+   ],
+   "environment": "other:evidence_desk (dark wood table, single desk lamp)",
+   "description": "LOOP FRAME: back to the rolled paper strip on the desk under the lamp, identical framing to S01's first frame; small memorial/source line.",
+   "camera": "matches S01 start, push-in",
+   "characters": [],
+   "lighting": "as S01",
+   "fx": [
+    "dust motes"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "Died Somerton Beach, 1948\nSources in description",
+     "start": 0.2,
+     "params": {
+      "y": 1560
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
+  ],
+  [
+   17,
+   0.6
+  ],
+  [
+   32.9,
+   0.75
+  ],
+  [
+   39.4,
+   0.85
+  ],
+  [
+   42.7,
+   0.4
+  ],
+  [
+   43.1,
+   0.8
+  ],
+  [
+   54.9,
+   1.0
+  ],
+  [
+   60,
+   0.7
+  ],
+  [
+   63.7,
+   0.5
+  ],
+  [
+   70.6,
+   0.5
+  ],
+  [
+   72.7,
+   0.55
+  ]
+ ],
+ "loop_line": "It all comes back to this."
+}

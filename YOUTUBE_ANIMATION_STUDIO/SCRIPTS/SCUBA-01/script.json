@@ -1,0 +1,1129 @@
+{
+  "id": "SCUBA-01",
+  "title": "He Survived 60 Hours Inside a Sunken Ship",
+  "category": "scuba",
+  "voice": "am_onyx",
+  "speed": 1.1,
+  "mood": "scuba",
+  "target_seconds": 58,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "This man survived sixty hours inside a sunken ship.",
+      "pause_after": 0.25,
+      "shot": "S01",
+      "emphasis": [
+        "sixty",
+        "hours"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "Nigeria, May 2013. The tug Jascon-4 capsized.",
+      "pause_after": 0.2,
+      "shot": "S02",
+      "emphasis": [
+        "Jascon-4",
+        "capsized"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "The cook, Harrison Okene, was in the toilet.",
+      "pause_after": 0.2,
+      "shot": "S03",
+      "emphasis": [
+        "Harrison",
+        "Okene"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "It settled on the seabed, about thirty metres down.",
+      "pause_after": 0.25,
+      "shot": "S04",
+      "emphasis": [
+        "thirty",
+        "metres"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "In the dark, he found a pocket of air.",
+      "pause_after": 0.1,
+      "shot": "S05",
+      "emphasis": [
+        "pocket",
+        "air"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "About four feet high.",
+      "pause_after": 0.35,
+      "shot": "S06",
+      "emphasis": [
+        "four",
+        "feet"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "Every breath made that air more toxic.",
+      "pause_after": 0.2,
+      "shot": "S07",
+      "emphasis": [
+        "toxic"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Eleven crewmates never made it out.",
+      "pause_after": 0.4,
+      "shot": "S08",
+      "emphasis": [
+        "Eleven"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "On day three, divers arrived.",
+      "pause_after": 0.1,
+      "shot": "S09",
+      "emphasis": [
+        "day",
+        "three"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Not to rescue anyone. To recover bodies.",
+      "pause_after": 0.4,
+      "shot": "S10",
+      "emphasis": [
+        "recover",
+        "bodies"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "On the camera feed, a hand appeared.",
+      "pause_after": 0.15,
+      "shot": "S11",
+      "emphasis": [
+        "hand"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "Everyone assumed it was another body.",
+      "pause_after": 0.5,
+      "shot": "S12",
+      "emphasis": [
+        "another",
+        "body"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "Then the hand grabbed him.",
+      "pause_after": 0.35,
+      "shot": "S13",
+      "emphasis": [
+        "grabbed"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "Okene was alive. But he couldn't just swim up.",
+      "pause_after": 0.2,
+      "shot": "S14",
+      "emphasis": [
+        "alive"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "Days at depth had saturated his body with gas.",
+      "pause_after": 0.1,
+      "shot": "S15",
+      "emphasis": [
+        "saturated"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "A fast ascent could have killed him.",
+      "pause_after": 0.2,
+      "shot": "S16",
+      "emphasis": [
+        "killed"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "They brought him up into a decompression chamber.",
+      "pause_after": 0.25,
+      "shot": "S17",
+      "emphasis": [
+        "decompression",
+        "chamber"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "One expert estimated the air turned dangerous around hour fifty-six.",
+      "pause_after": 0.15,
+      "shot": "S18",
+      "emphasis": [
+        "fifty-six"
+      ]
+    },
+    {
+      "id": "L19",
+      "text": "He was found near hour sixty.",
+      "pause_after": 0.3,
+      "shot": "S19",
+      "emphasis": [
+        "sixty"
+      ]
+    },
+    {
+      "id": "L20",
+      "text": "They came for the dead and found him breathing.",
+      "pause_after": 0.0,
+      "shot": "S20",
+      "emphasis": [
+        "breathing"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "other:inverted cabin/toilet compartment of capsized tug (room builder, flipped)",
+      "description": "Cross-section-style interior of a small steel compartment upside down: wash basin and pipes overhead, door frame inverted. Dark water fills the lower two-thirds; a bright lens of trapped air at the top. A faceless silhouette man (char_figure, no coat) floats with head and shoulders in the air pocket, one hand on the inverted basin. A single weak flashlight bobs on the surface, its beam scattering in the water. Frame is mid-story from frame 1; slow push-in starts immediately.",
+      "camera": "Slow push-in 0.6 m over 3 s, 24 mm, vertical 9:16, figure in upper third, camera roll 180 deg; subtle handheld",
+      "characters": [
+        "okene_silhouette (faceless figure, bare torso, dark grey)"
+      ],
+      "lighting": "Single handheld flashlight (spot, warm white 4000K) + very low teal ambient from water volume; deep blacks",
+      "fx": [
+        "water_volume (dark teal)",
+        "particle_cloud (suspended debris)",
+        "drips from overhead",
+        "flashlight cone"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "60 HOURS",
+          "params": {
+            "y": 420,
+            "size": 150,
+            "color": [
+              255,
+              220,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "metal_groan",
+          "offset": 0.3,
+          "gain": 0.55
+        },
+        {
+          "name": "breath",
+          "offset": 1.0,
+          "gain": 0.45
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "open_water",
+      "description": "Night sea surface in heavy swell. Low-poly tug (shipwreck builder, broken=False, length 30, small superstructure, towing winch aft) rolls past 90 deg and over in silhouette against a faint dawn-blue horizon. Spray particles. Map inset slides in top: Nigeria coastline with pin offshore.",
+      "camera": "Wide, 35 mm, low over the water line, slight handheld sway; hull roll animated over the shot",
+      "characters": [],
+      "lighting": "Moon/sun lamp very low, cold blue rim light on hull silhouette; storm dark sky",
+      "fx": [
+        "spray particles",
+        "wave surface",
+        "rain streaks (light)"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "OFF NIGERIA\n26 MAY 2013",
+          "params": {}
+        },
+        {
+          "type": "map",
+          "text": "NIGERIA",
+          "params": {
+            "land": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0.42
+              ],
+              [
+                0.72,
+                0.48
+              ],
+              [
+                0.5,
+                0.4
+              ],
+              [
+                0.25,
+                0.46
+              ],
+              [
+                0,
+                0.44
+              ]
+            ],
+            "points": [
+              [
+                0.5,
+                0.42
+              ],
+              [
+                0.56,
+                0.58
+              ]
+            ],
+            "pin": -1,
+            "pin_first": true
+          },
+          "start": 0.2
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "metal_groan",
+          "offset": 0.6,
+          "gain": 0.8
+        },
+        {
+          "name": "boom",
+          "offset": 1.8,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "room",
+      "description": "Tiny toilet compartment (room 1.4x1.6x2.2 m, steel walls, basin, door). The whole room rotates as the ship rolls; door swings shut; a rush of water enters under the door. Silhouette figure braced against wall. Name card typed on screen.",
+      "camera": "Locked to room (camera parented to room) so the world appears to tip; 20 mm, medium-wide",
+      "characters": [
+        "okene_silhouette"
+      ],
+      "lighting": "Single ceiling bulb that flickers then dies at end of shot",
+      "fx": [
+        "flicker (blackout at end)",
+        "water rush particles",
+        "loose objects sliding"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "HARRISON OKENE\nSHIP'S COOK",
+          "params": {
+            "y": 1250,
+            "size": 70
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "door_creak",
+          "offset": 0.5,
+          "gain": 0.6
+        },
+        {
+          "name": "rumble",
+          "offset": 0.8,
+          "gain": 0.7
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "wreck",
+      "description": "Underwater exterior: inverted tug hull sinking slowly, trailing bubbles, then settling onto a flat silty seabed with a puff of silt. Depth gauge counts 0 -> 30 m.",
+      "camera": "Slow tilt down following the hull, 28 mm, hull fills lower half on landing",
+      "characters": [],
+      "lighting": "Dim blue-green ambient fading darker with depth; no sun shafts at the bottom",
+      "fx": [
+        "bubbles_stream (from hull)",
+        "silt burst on impact",
+        "water_volume (density rising)"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "DEPTH",
+          "params": {
+            "from": 0,
+            "to": 30,
+            "unit": "m"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "hit",
+          "offset": 2.4,
+          "gain": 0.7
+        },
+        {
+          "name": "rumble",
+          "offset": 2.4,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "corridor",
+      "description": "Short inverted ship corridor (corridor builder, 8 m, narrow, doors every 2 m) flooded to near the ceiling; a hand (silhouette) slides along the wall pipes in near-total darkness, then the corridor ends in a doorway glinting with a reflective air surface above.",
+      "camera": "Camera rolled 180 deg (ship interior upside down: floor lamps/fittings on 'ceiling'); slow dolly forward at head height, 20 mm",
+      "characters": [
+        "okene_silhouette (hand + shoulder only)"
+      ],
+      "lighting": "Near black; faint flashlight from the figure's hand, intermittent",
+      "fx": [
+        "flicker (torch)",
+        "particle_cloud (floating debris)",
+        "water_volume"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 0.4,
+          "gain": 0.5
+        },
+        {
+          "name": "metal_groan",
+          "offset": 1.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "other:cutaway diagram of inverted compartment",
+      "description": "2.5D x-ray cutaway: side section of the inverted compartment, water shaded teal, air pocket bright. A labelled measurement bracket draws on between the waterline and the steel overhead.",
+      "camera": "Static orthographic-looking 50 mm, slight push",
+      "characters": [
+        "okene_silhouette (small, in pocket)"
+      ],
+      "lighting": "Flat diagram light, teal water, warm air",
+      "fx": [
+        "line draw-on"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "~4 FT (1.2 m)",
+          "params": {
+            "y": 760,
+            "size": 110,
+            "color": [
+              255,
+              220,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.1,
+          "gain": 0.5
+        },
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "other:air pocket close-up",
+      "description": "Close on the waterline at mouth level of the silhouette; breath fogs the air; tiny ripples. A red 'CO2 RISING' callout pulses (no invented numbers).",
+      "camera": "Macro-ish 50 mm at the waterline, half above / half below water split, slow drift",
+      "characters": [
+        "okene_silhouette (head profile, faceless)"
+      ],
+      "lighting": "Weak flashlight bouncing off the water ceiling",
+      "fx": [
+        "breath vapour",
+        "surface ripples",
+        "condensation drips"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "CO₂ RISING",
+          "params": {
+            "y": 420,
+            "size": 100,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.8,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "wreck",
+      "description": "Wide exterior of the inverted wreck resting on the seabed, completely dark and still; fish_school passes slowly. No bodies shown.",
+      "camera": "Very slow pull-back, 24 mm, hull in lower third, empty dark water above",
+      "characters": [],
+      "lighting": "Almost none: faint blue ambient only",
+      "fx": [
+        "particle_cloud (marine snow)",
+        "fish_school (sparse)"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "11 CREW LOST",
+          "params": {
+            "y": 520,
+            "size": 110
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "sting",
+          "offset": 0.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "open_water",
+      "description": "Hour counter races; then from above, two helmeted divers (char_diver, single tank + surface-supply umbilical) descend a down-line toward the wreck, helmet lights on.",
+      "camera": "Top-down looking past the divers to the dark hull, 28 mm, slow follow",
+      "characters": [
+        "rescue_diver_A (yellow helmet, umbilical)",
+        "rescue_diver_B (white helmet)"
+      ],
+      "lighting": "Two helmet torches (cool white spots) cutting the dark",
+      "fx": [
+        "bubbles_stream (exhaust)",
+        "particle_cloud"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "TRAPPED",
+          "params": {
+            "fmt": "hours",
+            "from": 0,
+            "to": 52
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "28 MAY 2013",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "riser",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "wreck",
+      "description": "Rescue diver A swims along the inverted hull, torch sweeping hatches. Card overlay reads like an operations log.",
+      "camera": "Tracking side-on, 24 mm, diver in middle third",
+      "characters": [
+        "rescue_diver_A"
+      ],
+      "lighting": "Helmet torch only",
+      "fx": [
+        "silt kicked up",
+        "bubbles_stream"
+      ],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "TASK: BODY RECOVERY",
+          "params": {
+            "style": "telegram",
+            "title": "DIVE PLAN"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "click",
+          "offset": 0.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "other:helmet-camera monitor view inside inverted compartment",
+      "description": "Grainy, desaturated 'helmet cam' frame (post: scanlines, vignette, timecode) inside a flooded inverted room. The torch beam sweeps; a stylised low-poly hand drifts into the light at frame edge. Gentle, not graphic.",
+      "camera": "POV from helmet, 18 mm, handheld sway; compositor adds monitor grain",
+      "characters": [
+        "okene_silhouette (hand only)"
+      ],
+      "lighting": "Single harsh torch beam",
+      "fx": [
+        "monitor grain/scanlines",
+        "particle_cloud (backscatter)"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "HELMET CAM",
+          "params": {
+            "y": 260,
+            "size": 50,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "static",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.3,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:helmet-camera monitor view (same set)",
+      "description": "Same monitor view: the diver's glove reaches toward the still hand. Slow push. Silence beat at end.",
+      "camera": "Slow digital push-in on the hand, POV",
+      "characters": [
+        "rescue_diver_A (glove)",
+        "okene_silhouette (hand)"
+      ],
+      "lighting": "Torch beam",
+      "fx": [
+        "monitor grain"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "static",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "heartbeat",
+          "offset": 0.5,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "other:air pocket compartment",
+      "description": "Real-render close-up: the hand closes firmly around the diver's glove. Torch flares across the frame.",
+      "camera": "Close, 50 mm, quick snap zoom on the grip",
+      "characters": [
+        "rescue_diver_A (glove)",
+        "okene_silhouette (hand)"
+      ],
+      "lighting": "Torch flare, warm highlight",
+      "fx": [
+        "bubbles burst",
+        "lens flare"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "sting",
+          "offset": 0.0,
+          "gain": 0.8
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.1,
+          "gain": 0.7
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "other:air pocket compartment",
+      "description": "Wide in the air pocket: diver's torch fills the space; the silhouette figure's head above water, the diver's helmet surfacing beside him.",
+      "camera": "Camera rolled 180 deg (ship interior upside down: floor lamps/fittings on 'ceiling'); medium-wide 24 mm, slow arc",
+      "characters": [
+        "okene_silhouette",
+        "rescue_diver_A"
+      ],
+      "lighting": "Torch now the key light; warm rim on the figure",
+      "fx": [
+        "water_volume",
+        "surface ripples"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "ALIVE",
+          "params": {
+            "y": 420,
+            "size": 140,
+            "color": [
+              255,
+              220,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "other:2.5D physiology diagram",
+      "description": "Simple x-ray silhouette of a body; tissue fills with small gas dots while a pressure gauge reads 30 m / ~4x surface pressure.",
+      "camera": "Static, 50 mm, slight push",
+      "characters": [
+        "generic body silhouette (diagram)"
+      ],
+      "lighting": "Flat diagram",
+      "fx": [
+        "dot particles filling body"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "PRESSURE",
+          "params": {
+            "unit": "bar",
+            "from": 1,
+            "to": 4
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 0.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "other:2.5D physiology diagram",
+      "description": "Same diagram: an arrow shoots upward; the gas dots swell into bubbles; red X stamps over the arrow.",
+      "camera": "Static, quick shake on the X",
+      "characters": [
+        "generic body silhouette (diagram)"
+      ],
+      "lighting": "Flat diagram, red accent",
+      "fx": [
+        "bubble swell",
+        "red X stamp"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "NO FAST ASCENT",
+          "params": {
+            "y": 1300,
+            "size": 80,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.9,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "other:support vessel deck at night with decompression chamber",
+      "description": "Deck of a support vessel at night: a white cylindrical chamber (simple cylinder prop with porthole and hatch wheel), porthole glowing warm. Two helmeted silhouettes close the hatch.",
+      "camera": "Low angle 28 mm, slow push to porthole",
+      "characters": [
+        "crew_silhouette x2"
+      ],
+      "lighting": "Deck floodlights (sodium orange), warm porthole glow",
+      "fx": [
+        "light rain",
+        "steam from vent"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "metal_groan",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "door_creak",
+          "offset": 0.8,
+          "gain": 0.6
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18"
+      ],
+      "environment": "timeline",
+      "description": "Horizontal timeline 0 h -> 60 h draws on; marker at 56 h glows red 'CO2 symptoms (estimate)'.",
+      "camera": "2D, slow pan along the line",
+      "characters": [],
+      "lighting": "Dark background, teal line",
+      "fx": [
+        "line draw-on"
+      ],
+      "overlay": [
+        {
+          "type": "timeline",
+          "text": "",
+          "params": {
+            "events": [
+              [
+                "0 h",
+                "capsized"
+              ],
+              [
+                "56 h",
+                "CO₂ symptoms (est.)"
+              ],
+              [
+                "~60 h",
+                "found"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "label",
+          "text": "EXPERT ESTIMATE",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "riser",
+          "offset": 0.5,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S19",
+      "lines": [
+        "L19"
+      ],
+      "environment": "other:air pocket compartment",
+      "description": "Hours counter slams to its final value over the air pocket; the diver's torch beam steadies on the figure.",
+      "camera": "Static 35 mm, slight shake on counter stop",
+      "characters": [
+        "okene_silhouette",
+        "rescue_diver_A"
+      ],
+      "lighting": "Torch key, teal fill",
+      "fx": [
+        "water_volume"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "FOUND AT",
+          "params": {
+            "fmt": "hours",
+            "from": 56,
+            "to": 60
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 1.6,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S20",
+      "lines": [
+        "L20"
+      ],
+      "environment": "other:inverted cabin/toilet compartment (matches S01)",
+      "description": "Same composition as S01 (loop match): inverted compartment, figure's head in the air pocket, but now a rescue diver's torch pushes in from below the waterline. Music drops out; hard cut back to S01.",
+      "camera": "Matches S01 framing exactly at the final frame; 24 mm, roll 180 deg",
+      "characters": [
+        "okene_silhouette",
+        "rescue_diver_A (torch only)"
+      ],
+      "lighting": "Flashlight + incoming diver torch from below",
+      "fx": [
+        "water_volume",
+        "particle_cloud",
+        "bubbles_stream (diver)"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "breath",
+          "offset": 1.2,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.55
+    ],
+    [
+      12,
+      0.6
+    ],
+    [
+      24,
+      0.75
+    ],
+    [
+      30,
+      0.85
+    ],
+    [
+      34,
+      0.5
+    ],
+    [
+      40,
+      0.8
+    ],
+    [
+      52,
+      0.9
+    ],
+    [
+      57,
+      0.3
+    ],
+    [
+      60,
+      0.0
+    ]
+  ],
+  "loop_line": "They came for the dead and found him breathing."
+}

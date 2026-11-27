@@ -1,0 +1,15 @@
+{
+ "duration": 6.6,
+ "shots": {
+  "S01": {
+   "start": 0.0,
+   "duration": 4.4,
+   "frames": 108
+  },
+  "S02": {
+   "start": 4.4,
+   "duration": 2.2,
+   "frames": 55
+  }
+ }
+}

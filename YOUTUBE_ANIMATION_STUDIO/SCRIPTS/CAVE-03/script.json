@@ -1,0 +1,933 @@
+{
+  "id": "CAVE-03",
+  "title": "Under the Ice, the Only Way Out Was Deeper",
+  "category": "cave",
+  "voice": "am_michael",
+  "speed": 1.07,
+  "mood": "cave",
+  "target_seconds": 66,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "They cut a hole in the ice and swam into a mountain.",
+      "pause_after": 0.2,
+      "shot": "S01",
+      "emphasis": [
+        "hole",
+        "ice",
+        "mountain"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "The exit: two kilometres away, past a squeeze over 100 metres down.",
+      "pause_after": 0.3,
+      "shot": "S02",
+      "emphasis": [
+        "two",
+        "kilometres",
+        "100"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Norway, February 2014. Five Finnish divers went in.",
+      "pause_after": 0.3,
+      "shot": "S03",
+      "emphasis": [
+        "Five"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "Three came out.",
+      "pause_after": 0.6,
+      "shot": "S04",
+      "emphasis": [
+        "Three"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "The cave is called Plura, in northern Norway.",
+      "pause_after": 0.2,
+      "shot": "S05",
+      "emphasis": [
+        "Plura"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "The plan: swim right through, and climb out in another cave.",
+      "pause_after": 0.2,
+      "shot": "S06",
+      "emphasis": [
+        "through",
+        "another"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "Near-freezing water. Two teams, two hours apart.",
+      "pause_after": 0.3,
+      "shot": "S07",
+      "emphasis": [
+        "Near-freezing",
+        "two",
+        "hours"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Team one reached the squeeze.",
+      "pause_after": 0.2,
+      "shot": "S08",
+      "emphasis": [
+        "squeeze"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "The first diver slipped through. Then he looked back.",
+      "pause_after": 0.3,
+      "shot": "S09",
+      "emphasis": [
+        "looked",
+        "back"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "His buddy's light was signalling. He was stuck, tangled in the passage.",
+      "pause_after": 0.3,
+      "shot": "S10",
+      "emphasis": [
+        "stuck",
+        "tangled"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "His buddy never made it through.",
+      "pause_after": 0.6,
+      "shot": "S11",
+      "emphasis": [
+        "never"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "Then team two arrived.",
+      "pause_after": 0.5,
+      "shot": "S12",
+      "emphasis": [
+        "team",
+        "two"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "In the deep section, a diver from team two also died.",
+      "pause_after": 0.4,
+      "shot": "S13",
+      "emphasis": [
+        "also",
+        "died"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "The man behind him had no way forward.",
+      "pause_after": 0.2,
+      "shot": "S14",
+      "emphasis": [
+        "no",
+        "way",
+        "forward"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "So he turned around, and swam all the way back.",
+      "pause_after": 0.3,
+      "shot": "S15",
+      "emphasis": [
+        "turned",
+        "around"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "Hours of decompression later, all three survivors were in hospital.",
+      "pause_after": 0.3,
+      "shot": "S16",
+      "emphasis": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "The official recovery failed. Police banned diving in the cave.",
+      "pause_after": 0.4,
+      "shot": "S17",
+      "emphasis": [
+        "banned"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "Weeks later, the survivors went back anyway, to bring their friends home.",
+      "pause_after": 0.3,
+      "shot": "S18",
+      "emphasis": [
+        "went",
+        "back",
+        "home"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "other:frozen_pond_under_ice",
+      "description": "COLD OPEN, frame 1 already moving. From under the water: a white ice ceiling, and a bright triangle of daylight being completed as a chainsaw bar (simple grey blade prop) cuts the last side; ice chips and bubbles fall. A gloved hand drops a white line through the triangle.",
+      "camera": "Low-angle 20 mm looking straight up at the triangle, slow push toward it; the triangle sits in upper-centre third.",
+      "characters": [
+        "diver_hands (black drysuit gloves)"
+      ],
+      "lighting": "Cold daylight through the hole (area light, white-blue), everything else deep teal-black; caustics on the ice underside.",
+      "fx": [
+        "bubbles",
+        "caustics",
+        "particles_ice_chips"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "hit",
+          "offset": 0.3,
+          "gain": 0.5
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.6,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "2.5D side section through a snowy mountain: left entrance (ice-covered pond, 'PLURA'), a route that dives in a deep U to a red-marked squeeze at the bottom, then climbs to a far exit cave ('STEINUGLEFLÅGET'). A cyan line draws itself along the route.",
+      "camera": "Starts tight on the left entrance, pans and pulls out to reveal the whole U as the line draws.",
+      "characters": [],
+      "lighting": "Graphic; white snow outline, black rock, cyan water route, red squeeze marker.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "PLURA → STEINUGLEFLÅGET · ~2 KM",
+          "params": {
+            "route": "U-shape",
+            "markers": [
+              "SQUEEZE ~110 M"
+            ]
+          }
+        },
+        {
+          "type": "depth",
+          "text": "100+ M",
+          "params": {
+            "anchor": "squeeze"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "sonar",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "other:snowy_valley_frozen_pond",
+      "description": "Wide winter valley in grey polar light: bare trees, snow banks, a frozen pond at the foot of the mountain and a small dark triangle in its ice. Five small figures in drysuits with tanks stand around it; tank stacks on a sled.",
+      "camera": "Slow descending crane 28 mm from high above the valley toward the five figures.",
+      "characters": [
+        "figure_diver x5 (faceless silhouettes, drysuits, twin tanks)"
+      ],
+      "lighting": "Low overcast polar daylight; blue-grey; faint snow falling.",
+      "fx": [
+        "snow",
+        "breath_vapour"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "6 FEB 2014 · PLURDALEN, NORWAY",
+          "params": {
+            "position": "top"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "footsteps",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:snowy_valley_frozen_pond",
+      "description": "Same valley, later: only three figures stand by the ice hole; two empty spaces in the snow where the others stood (two tank sets left upright on the sled). Snow keeps falling.",
+      "camera": "Locked-off match of S03's end framing; hard cut so the missing two read instantly.",
+      "characters": [
+        "figure_diver x3 (silhouettes)"
+      ],
+      "lighting": "Dusk, darker blue; a single work lamp.",
+      "fx": [
+        "snow"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "5 IN · 3 OUT",
+          "params": {
+            "position": "upper-third"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sting",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "wind",
+          "offset": 0.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "map",
+      "description": "Animated map: Scandinavia outline, zoom from Norway to Nordland/Rana, a pin drops on 'PLURA'. Arctic Circle drawn as a dashed line just north of the pin.",
+      "camera": "Smooth 2D zoom in.",
+      "characters": [],
+      "lighting": "Graphic; dark navy map, cyan pin.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "PLURA · RANA, NORWAY",
+          "params": {
+            "zoom": "Scandinavia→Rana",
+            "pin": "Plura"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 1.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "Back to the U section: five cyan dots appear at the Plura entrance, an arrow traces through the U and up to the dry exit chamber where a small rope ladder icon sits.",
+      "camera": "Diagram; slow left-to-right pan following the arrow.",
+      "characters": [
+        "diver_dots x5 (cyan)"
+      ],
+      "lighting": "Graphic.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "THROUGH-DIVE",
+          "params": {
+            "position": "top"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.2,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Inside Plura: a wide, clear blue-grey tunnel; two divers (team one) on scooters glide away along a white guideline; a timer overlay then fast-forwards and three more lights (team two) enter the same tunnel.",
+      "camera": "Wide 20 mm static at tunnel wall, divers pass left-to-right; time-jump via quick fade-through-white flash mid-shot.",
+      "characters": [
+        "diver_A (blue fins, twin tanks + scooter)",
+        "diver_B (white fins, twin tanks + scooter)",
+        "team_two lights x3"
+      ],
+      "lighting": "Clear water, torch beams; cold blue ambient.",
+      "fx": [
+        "particles_dust",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "~2 °C",
+          "params": {
+            "position": "top-left"
+          }
+        },
+        {
+          "type": "timer",
+          "text": "+2:00 H",
+          "params": {
+            "position": "top-right"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "bubbles",
+          "offset": 0.3,
+          "gain": 0.4
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.6,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "cave_tunnel",
+      "description": "The tunnel narrows to a low, flattened slot between boulders; silt bed; two torch beams converge on it.",
+      "camera": "Slow push 28 mm toward the slot, framing the hole small in the centre.",
+      "characters": [
+        "diver_A",
+        "diver_B (lights only)"
+      ],
+      "lighting": "Torch beams only; darker; faint cyan.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [
+        {
+          "type": "depth",
+          "text": "~110 M",
+          "params": {}
+        },
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "creak",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Diver_B squeezes through the slot (tanks scraping rock, silt puffs), emerges into a slightly bigger passage, then turns his whole body to look back at the slot.",
+      "camera": "Over-the-shoulder 35 mm on the far side of the slot; rack focus from diver_B to the slot behind him.",
+      "characters": [
+        "diver_B (white fins)"
+      ],
+      "lighting": "His torch; behind the slot a second torch glows through silt.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "metal_groan",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "bubbles",
+          "offset": 1.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Through the slot: diver_A's torch blinks in a rapid pattern inside a cloud of silt; a thin cord loop is visible snagged around his gear at the edge of the slot. Only light and silhouette.",
+      "camera": "POV through the slot, 50 mm, handheld shake rising.",
+      "characters": [
+        "diver_A (silhouette, lights)"
+      ],
+      "lighting": "Flickering torch (flicker builder, signal pattern), silt glow.",
+      "fx": [
+        "silt_cloud",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "breath",
+          "offset": 0.5,
+          "gain": 0.7
+        },
+        {
+          "name": "riser",
+          "offset": 1.5,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "cave_tunnel",
+      "description": "The silt slowly settles; the blinking light behind the slot is now steady and still. Diver_B hangs motionless in his own beam.",
+      "camera": "Static wide 24 mm; long hold, slight slow pull-back.",
+      "characters": [
+        "diver_B"
+      ],
+      "lighting": "One steady distant light, one torch; very dark.",
+      "fx": [
+        "silt_settling"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "MID-POINT TURN. Cross-section: one dot stopped at the squeeze (grey), one dot beyond it (cyan). Three new cyan dots enter from Plura and drop down the U toward the squeeze.",
+      "camera": "Locked diagram; slight push toward the squeeze marker.",
+      "characters": [
+        "diver_dots: 1 grey, 1 cyan, 3 cyan (team two)"
+      ],
+      "lighting": "Graphic; squeeze marker pulsing red.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "TEAM 2",
+          "params": {
+            "position": "top"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sonar",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "cave_tunnel",
+      "description": "Deep section, darker and wider: three torch beams in silt; one of the three lights drifts away from the line and stops moving. Shown only as lights and silhouettes.",
+      "camera": "Wide 24 mm from a low rock shelf, slow crawl-in.",
+      "characters": [
+        "team_two divers x3 (silhouettes, lights)"
+      ],
+      "lighting": "Three torches, one going still; cold black-blue.",
+      "fx": [
+        "silt",
+        "volumetric_water"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "breath",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "rumble",
+          "offset": 1.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "cave_tunnel",
+      "description": "A diver (team two, orange fins) faces the narrow slot; his torch shows the passage ahead is blocked (dark shape + equipment filling the opening, abstract). He hovers, stops.",
+      "camera": "Over-the-shoulder 35 mm, slot in centre, slow push stops short.",
+      "characters": [
+        "diver_C (orange fins, twin tanks)"
+      ],
+      "lighting": "Single torch; silt glow.",
+      "fx": [
+        "silt"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "NO WAY FORWARD",
+          "params": {
+            "position": "upper-third"
+          }
+        },
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "other:cross_section_2.5D",
+      "description": "Cross-section: the orange dot reverses and climbs back up the left side of the U all the way to the Plura entrance; a dotted trail shows the full distance retraced.",
+      "camera": "Diagram; follow the dot right-to-left with a slow pan.",
+      "characters": [
+        "diver_dot (orange)"
+      ],
+      "lighting": "Graphic.",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "BACK TO PLURA",
+          "params": {
+            "route": "reverse"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "sonar",
+          "offset": 1.5,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "other:under_ice_deco_stop",
+      "description": "Decompression stop just under the ice: a lone diver hangs on the white line, the triangle of light above him now dim and blue; a timer counts hours fast. Cut-away final 0.8 s: ambulance-blue light flashing on snow.",
+      "camera": "Side-on 35 mm, very slow drift around the diver; then quick cut to the snow.",
+      "characters": [
+        "diver_C (orange fins)"
+      ],
+      "lighting": "Dim blue ice light from above; then flashing blue point light on snow.",
+      "fx": [
+        "bubbles",
+        "particles_dust",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "DECO: HOURS",
+          "params": {
+            "count": "up",
+            "fast": true
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "breath",
+          "offset": 0.6,
+          "gain": 0.4
+        },
+        {
+          "name": "wind",
+          "offset": 2.8,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "document",
+      "description": "Document reveal over a snowy blur: a plain notice card 'DIVING PROHIBITED · PLURA' (generic, no logos) slaps onto the frame; behind it a simple barrier tape across the ice hole.",
+      "camera": "Card drops in with a small bounce; slow push.",
+      "characters": [],
+      "lighting": "Cold daylight.",
+      "fx": [
+        "snow"
+      ],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "RECOVERY FAILED · DIVING BANNED",
+          "params": {
+            "style": "notice"
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "wind",
+          "offset": 0.3,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18"
+      ],
+      "environment": "other:frozen_pond_under_ice",
+      "description": "Return to the S01 composition from below the ice: the triangle of light; one after another, many torch beams drop through it into the dark (more lights than before). Final frame = S01 framing (loop point).",
+      "camera": "Low-angle 20 mm straight up, slow push into the light; hold last 0.6 s.",
+      "characters": [
+        "recovery_team lights x6+ (silhouettes)"
+      ],
+      "lighting": "Bright triangle of daylight, multiple torch beams, caustics.",
+      "fx": [
+        "bubbles",
+        "caustics"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "PART 2 →",
+          "params": {
+            "position": "upper-right-safe",
+            "size": "small"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "riser",
+          "offset": 1.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "fade_black"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.5
+    ],
+    [
+      6,
+      0.6
+    ],
+    [
+      9,
+      0.2
+    ],
+    [
+      11,
+      0.6
+    ],
+    [
+      30,
+      1.0
+    ],
+    [
+      33,
+      0.2
+    ],
+    [
+      36,
+      0.6
+    ],
+    [
+      50,
+      0.7
+    ],
+    [
+      56,
+      0.6
+    ],
+    [
+      62,
+      1.0
+    ],
+    [
+      64,
+      0.0
+    ]
+  ],
+  "loop_line": "Weeks later, the survivors went back anyway, to bring their friends home."
+}

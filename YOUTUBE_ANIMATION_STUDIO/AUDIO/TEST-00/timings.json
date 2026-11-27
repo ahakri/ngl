@@ -1,0 +1,107 @@
+{
+ "duration": 6.6,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.26,
+   "text": "At 270 meters, his light was the only thing in the dark.",
+   "words": [
+    {
+     "w": "At",
+     "start": 0.18,
+     "end": 0.32
+    },
+    {
+     "w": "270",
+     "start": 0.32,
+     "end": 1.04
+    },
+    {
+     "w": "meters,",
+     "start": 1.04,
+     "end": 1.6
+    },
+    {
+     "w": "his",
+     "start": 1.6,
+     "end": 1.86
+    },
+    {
+     "w": "light",
+     "start": 1.86,
+     "end": 2.19
+    },
+    {
+     "w": "was",
+     "start": 2.19,
+     "end": 2.39
+    },
+    {
+     "w": "the",
+     "start": 2.39,
+     "end": 2.66
+    },
+    {
+     "w": "only",
+     "start": 2.66,
+     "end": 3.08
+    },
+    {
+     "w": "thing",
+     "start": 3.08,
+     "end": 3.42
+    },
+    {
+     "w": "in",
+     "start": 3.42,
+     "end": 3.53
+    },
+    {
+     "w": "the",
+     "start": 3.53,
+     "end": 3.75
+    },
+    {
+     "w": "dark.",
+     "start": 3.75,
+     "end": 4.2
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.48,
+   "end": 5.78,
+   "text": "Then the silt came up.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 4.51,
+     "end": 4.82
+    },
+    {
+     "w": "the",
+     "start": 4.82,
+     "end": 4.95
+    },
+    {
+     "w": "silt",
+     "start": 4.95,
+     "end": 5.18
+    },
+    {
+     "w": "came",
+     "start": 5.18,
+     "end": 5.58
+    },
+    {
+     "w": "up.",
+     "start": 5.58,
+     "end": 5.72
+    }
+   ]
+  }
+ ]
+}

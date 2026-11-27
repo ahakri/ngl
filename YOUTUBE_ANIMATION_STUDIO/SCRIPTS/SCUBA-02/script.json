@@ -1,0 +1,970 @@
+{
+  "id": "SCUBA-02",
+  "title": "The Dive Boat Left Without Them",
+  "category": "scuba",
+  "voice": "bm_george",
+  "speed": 1.08,
+  "mood": "scuba",
+  "target_seconds": 58,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "Two divers surfaced at the Great Barrier Reef. Their boat was gone.",
+      "pause_after": 0.3,
+      "shot": "S01",
+      "emphasis": [
+        "boat",
+        "gone"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "January 1998. St Crispin's Reef, off Port Douglas.",
+      "pause_after": 0.2,
+      "shot": "S02",
+      "emphasis": [
+        "1998"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Tom and Eileen Lonergan, experienced American divers.",
+      "pause_after": 0.15,
+      "shot": "S03",
+      "emphasis": [
+        "Tom",
+        "Eileen",
+        "Lonergan"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "Before leaving, the Outer Edge crew reportedly counted heads.",
+      "pause_after": 0.1,
+      "shot": "S04",
+      "emphasis": [
+        "counted"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "By one account, two other divers were counted twice.",
+      "pause_after": 0.2,
+      "shot": "S05",
+      "emphasis": [
+        "counted",
+        "twice"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "On paper, everyone was aboard. The boat headed home.",
+      "pause_after": 0.2,
+      "shot": "S06",
+      "emphasis": [
+        "everyone"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "Nobody noticed they were missing.",
+      "pause_after": 0.4,
+      "shot": "S07",
+      "emphasis": [
+        "Nobody"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "Two days later, the crew found their bag still aboard.",
+      "pause_after": 0.1,
+      "shot": "S08",
+      "emphasis": [
+        "Two",
+        "days"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "Inside: their wallets and passports.",
+      "pause_after": 0.3,
+      "shot": "S09",
+      "emphasis": [
+        "passports"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Only then did the search begin.",
+      "pause_after": 0.2,
+      "shot": "S10",
+      "emphasis": [
+        "search"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "Searchers found their gear. Not them.",
+      "pause_after": 0.3,
+      "shot": "S11",
+      "emphasis": [
+        "Not",
+        "them"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "A buoyancy vest washed ashore up the coast. Then a wetsuit.",
+      "pause_after": 0.2,
+      "shot": "S12",
+      "emphasis": [
+        "wetsuit"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "Months later, a dive slate, reportedly asking for rescue.",
+      "pause_after": 0.5,
+      "shot": "S13",
+      "emphasis": [
+        "slate",
+        "rescue"
+      ]
+    },
+    {
+      "id": "L14",
+      "text": "Tom and Eileen were never found.",
+      "pause_after": 0.2,
+      "shot": "S14",
+      "emphasis": [
+        "never",
+        "found"
+      ]
+    },
+    {
+      "id": "L15",
+      "text": "What happened in the water is unknown.",
+      "pause_after": 0.4,
+      "shot": "S15",
+      "emphasis": [
+        "unknown"
+      ]
+    },
+    {
+      "id": "L16",
+      "text": "The skipper was acquitted. The company was fined and closed.",
+      "pause_after": 0.15,
+      "shot": "S16",
+      "emphasis": [
+        "acquitted"
+      ]
+    },
+    {
+      "id": "L17",
+      "text": "Queensland tightened its rules. Divers must now be counted twice, independently.",
+      "pause_after": 0.25,
+      "shot": "S17",
+      "emphasis": [
+        "twice"
+      ]
+    },
+    {
+      "id": "L18",
+      "text": "Because one wrong count is all it takes...",
+      "pause_after": 0.0,
+      "shot": "S18",
+      "emphasis": [
+        "one",
+        "wrong",
+        "count"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "open_water",
+      "description": "Eye-level at the sea surface: two divers (char_diver, single tanks, masks pushed up, faceless) bob in gentle chop, back to camera, facing an empty horizon. A thin fading wake line runs to the horizon where a tiny boat silhouette is just disappearing. Motion from frame 1: swell lifting the camera.",
+      "camera": "Camera at water level (half-submerged lens line), 35 mm, gentle bob; divers in lower-centre third",
+      "characters": [
+        "tom_diver (blue fins, faceless)",
+        "eileen_diver (yellow fins, faceless)"
+      ],
+      "lighting": "High afternoon sun, harsh glare on water, teal sea, pale sky",
+      "fx": [
+        "wave surface",
+        "sun glitter",
+        "fading wake"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "sting",
+          "offset": 2.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "map",
+      "description": "Stylised map of the north Queensland coast; route line draws from Port Douglas out to the reef; pin drops on St Crispin's Reef.",
+      "camera": "2D map, slow zoom toward the pin",
+      "characters": [],
+      "lighting": "Map card",
+      "fx": [
+        "route draw-on"
+      ],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "ST CRISPIN'S REEF",
+          "params": {
+            "land": [
+              [
+                0,
+                0
+              ],
+              [
+                0.3,
+                0
+              ],
+              [
+                0.36,
+                0.3
+              ],
+              [
+                0.33,
+                0.55
+              ],
+              [
+                0.42,
+                0.8
+              ],
+              [
+                0.48,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "points": [
+              [
+                0.34,
+                0.6
+              ],
+              [
+                0.5,
+                0.52
+              ],
+              [
+                0.66,
+                0.44
+              ]
+            ],
+            "pin": -1
+          }
+        },
+        {
+          "type": "stamp",
+          "text": "GREAT BARRIER REEF\n25 JAN 1998",
+          "params": {}
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 1.8,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "reef",
+      "description": "Underwater, bright shallow reef (coral_field + fish_school + caustics_light): the two divers glide side by side over coral, bubbles rising.",
+      "camera": "Slow lateral track, 24 mm, divers in middle third",
+      "characters": [
+        "tom_diver",
+        "eileen_diver"
+      ],
+      "lighting": "Sun caustics, clear turquoise water",
+      "fx": [
+        "caustics_light",
+        "bubbles_stream",
+        "fish_school"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "TOM & EILEEN\nLONERGAN",
+          "params": {
+            "y": 1250,
+            "size": 80
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "bubbles",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:dive boat deck (low-poly catamaran deck, benches, tank racks)",
+      "description": "Dive boat deck from above: rows of faceless passenger silhouettes on benches, tank racks. A crew silhouette's hand ticks a clipboard (tally marks only, no names).",
+      "camera": "High angle 28 mm, slow crane down to clipboard",
+      "characters": [
+        "crew_silhouette",
+        "passenger silhouettes (~20, simple)"
+      ],
+      "lighting": "Bright afternoon sun, hard shadows",
+      "fx": [
+        "sun glare"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 0.8,
+          "gain": 0.5
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "other:dive boat bow and water",
+      "description": "Two faceless figures jump off the bow for a swim and climb back up the ladder; a tally counter overlay ticks the same two again. Ghost-duplicate effect on the two figures to visualise double-counting.",
+      "camera": "Side-on 35 mm from the water, quick pan with the jump",
+      "characters": [
+        "swimmer silhouettes x2 (unnamed passengers)"
+      ],
+      "lighting": "Bright sun",
+      "fx": [
+        "splash",
+        "ghost duplicate trail"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "HEAD COUNT",
+          "params": {
+            "fmt": "int",
+            "from": 24,
+            "to": 26
+          }
+        },
+        {
+          "type": "label",
+          "text": "ONE ACCOUNT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.3,
+          "gain": 0.4
+        },
+        {
+          "name": "hit",
+          "offset": 0.6,
+          "gain": 0.4
+        },
+        {
+          "name": "click",
+          "offset": 2.6,
+          "gain": 0.6
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "open_water",
+      "description": "Aerial: the dive boat throttles up and turns toward the coast, wake carving a white arc across the teal sea.",
+      "camera": "Drone-style aerial 35 mm, boat moves out of frame top",
+      "characters": [],
+      "lighting": "Low afternoon sun",
+      "fx": [
+        "wake foam",
+        "wave surface"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "ALL ABOARD ✓",
+          "params": {
+            "y": 420,
+            "size": 90
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "wind",
+          "offset": 0.4,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "open_water",
+      "description": "Top-down: the camera pulls straight up from two tiny heads until they are specks in a vast sea; no boat anywhere.",
+      "camera": "Vertical crane-up, 50 mm -> wide, heads centre frame",
+      "characters": [
+        "tom_diver (head only)",
+        "eileen_diver (head only)"
+      ],
+      "lighting": "Sun lowering, sea turning deeper blue",
+      "fx": [
+        "wave surface"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "sting",
+          "offset": 0.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "room",
+      "description": "Boat cabin interior (room builder, low ceiling, porthole window): a lone dive bag sits on a bench in a slat of daylight; a crew silhouette stops and looks at it. Hours counter in the corner.",
+      "camera": "Slow push-in on the bag, 35 mm",
+      "characters": [
+        "crew_silhouette"
+      ],
+      "lighting": "Daylight shaft through porthole, dust motes",
+      "fx": [
+        "particle_cloud (dust)"
+      ],
+      "overlay": [
+        {
+          "type": "timer",
+          "text": "UNNOTICED",
+          "params": {
+            "fmt": "hours",
+            "from": 0,
+            "to": 48
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "creak",
+          "offset": 1.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "document",
+      "description": "Evidence-style reveal: generic wallet and two passport booklets (no names, no faces) slide onto the frame.",
+      "camera": "Top-down 2D card",
+      "characters": [],
+      "lighting": "Card",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "Wallets\nPassports",
+          "params": {
+            "title": "LEFT ON BOARD",
+            "style": "paper"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.1,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "map",
+      "description": "Map of the reef area: search grid lines sweep across the sea; small aircraft and boat icons move along tracks.",
+      "camera": "2D map, slow pan",
+      "characters": [],
+      "lighting": "Map card",
+      "fx": [
+        "grid draw-on"
+      ],
+      "overlay": [
+        {
+          "type": "map",
+          "text": "SEARCH AREA",
+          "params": {
+            "land": [
+              [
+                0,
+                0
+              ],
+              [
+                0.3,
+                0
+              ],
+              [
+                0.36,
+                0.3
+              ],
+              [
+                0.33,
+                0.55
+              ],
+              [
+                0.42,
+                0.8
+              ],
+              [
+                0.48,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "points": [
+              [
+                0.66,
+                0.44
+              ],
+              [
+                0.55,
+                0.3
+              ],
+              [
+                0.38,
+                0.12
+              ]
+            ],
+            "pin": 0,
+            "pin_first": true
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "sonar",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "riser",
+          "offset": 0.3,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "open_water",
+      "description": "Low aerial over endless empty sea, an aircraft shadow crossing the water; nothing on the surface.",
+      "camera": "Low tracking aerial, 24 mm",
+      "characters": [],
+      "lighting": "Overcast, flat grey-teal",
+      "fx": [
+        "wave surface",
+        "aircraft shadow"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "other:tropical beach (ground + sand material + shallow water plane)",
+      "description": "Deserted beach at the tide line: a buoyancy vest (BCD prop: inflatable jacket with tank strap) half in the wash; second beat a wetsuit tangled in seaweed further along. No bodies. Map inset shows a pin far north of the reef.",
+      "camera": "Low dolly along the sand, 35 mm, rack focus from vest to wetsuit",
+      "characters": [],
+      "lighting": "Grey morning light",
+      "fx": [
+        "foam wash",
+        "wet sand sheen"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "FOUND",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "other:beach close-up",
+      "description": "A white dive slate (small plastic board with pencil on a cord) on sand. Writing on it is deliberately illegible (blurred scribble). No quote shown.",
+      "camera": "Close 50 mm, slow push, shallow depth of field",
+      "characters": [],
+      "lighting": "Low sun, long shadows",
+      "fx": [
+        "sand particles in wind"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "REPORTED",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "text",
+          "text": "AUTHENTICITY DISPUTED",
+          "params": {
+            "y": 1300,
+            "size": 50
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        },
+        {
+          "name": "sting",
+          "offset": 0.2,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S14",
+      "lines": [
+        "L14"
+      ],
+      "environment": "open_water",
+      "description": "Empty sea at sunset, horizon dead centre, nothing in frame.",
+      "camera": "Locked-off wide 35 mm, imperceptible push",
+      "characters": [],
+      "lighting": "Sunset orange to deep teal",
+      "fx": [
+        "wave surface"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "fade_black"
+    },
+    {
+      "id": "S15",
+      "lines": [
+        "L15"
+      ],
+      "environment": "open_water",
+      "description": "Underwater looking up at the empty surface; light rays fade; blue deepens to black.",
+      "camera": "Slow tilt up, 20 mm",
+      "characters": [],
+      "lighting": "God rays fading",
+      "fx": [
+        "caustics_light",
+        "particle_cloud"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "UNKNOWN",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "underwater_amb",
+          "offset": 0.0,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S16",
+      "lines": [
+        "L16"
+      ],
+      "environment": "document",
+      "description": "Two evidence-style cards stack: 'SKIPPER - ACQUITTED' and 'OPERATOR - FINED, CLOSED'. No names, no faces.",
+      "camera": "2D cards slide in",
+      "characters": [],
+      "lighting": "Card",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "Skipper: acquitted\nOperator: fined, closed",
+          "params": {
+            "title": "OUTCOME",
+            "style": "paper"
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.0,
+          "gain": 0.5
+        },
+        {
+          "name": "hit",
+          "offset": 1.6,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S17",
+      "lines": [
+        "L17"
+      ],
+      "environment": "other:dive boat deck (same set as S04, different time of day)",
+      "description": "Same deck at morning: two crew silhouettes with separate clipboards count independently; two green ticks appear side by side.",
+      "camera": "Medium 35 mm, slow arc around the two counters",
+      "characters": [
+        "crew_silhouette_A",
+        "crew_silhouette_B"
+      ],
+      "lighting": "Clean morning light",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "COUNT 1 ✓\nCOUNT 2 ✓",
+          "params": {
+            "y": 420,
+            "size": 90
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.6,
+          "gain": 0.5
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S18",
+      "lines": [
+        "L18"
+      ],
+      "environment": "open_water",
+      "description": "Return to the S01 composition: eye level at the surface, two divers facing an empty horizon. Final frame matches frame 1 for the loop; hard cut.",
+      "camera": "Matches S01 framing exactly, 35 mm, gentle bob",
+      "characters": [
+        "tom_diver",
+        "eileen_diver"
+      ],
+      "lighting": "High sun glare (match S01)",
+      "fx": [
+        "wave surface",
+        "sun glitter"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.4
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.5
+    ],
+    [
+      10,
+      0.6
+    ],
+    [
+      17,
+      0.7
+    ],
+    [
+      20,
+      0.4
+    ],
+    [
+      26,
+      0.75
+    ],
+    [
+      38,
+      0.85
+    ],
+    [
+      44,
+      0.3
+    ],
+    [
+      50,
+      0.6
+    ],
+    [
+      57,
+      0.35
+    ],
+    [
+      60,
+      0.0
+    ]
+  ],
+  "loop_line": "Because one wrong count is all it takes..."
+}
