@@ -2,7 +2,7 @@
  "id": "SCUBA-02",
  "title": "The Dive Boat Left Without Them",
  "category": "scuba",
- "voice": "bm_george",
+ "voice": "am_adam",
  "speed": 1.13,
  "mood": "scuba",
  "target_seconds": 58,
@@ -971,5 +971,6 @@
    0.0
   ]
  ],
- "loop_line": "Because one wrong count is all it takes..."
+ "loop_line": "Because one wrong count is all it takes...",
+ "voice_original": "bm_george"
 }

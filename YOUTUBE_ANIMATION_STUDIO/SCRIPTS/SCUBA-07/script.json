@@ -1,779 +1,780 @@
 {
-  "id": "SCUBA-07",
-  "title": "Sponge Divers Found a 2,000-Year-Old Machine",
-  "category": "scuba",
-  "voice": "bm_george",
-  "speed": 1.07,
-  "mood": "scuba",
-  "target_seconds": 52,
-  "lines": [
+ "id": "SCUBA-07",
+ "title": "Sponge Divers Found a 2,000-Year-Old Machine",
+ "category": "scuba",
+ "voice": "am_adam",
+ "speed": 1.07,
+ "mood": "scuba",
+ "target_seconds": 52,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "This lump came off a 2,000-year-old shipwreck.",
+   "pause_after": 0.15,
+   "shot": "S01",
+   "emphasis": [
+    "2,000-year-old"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Inside, there were gears.",
+   "pause_after": 0.35,
+   "shot": "S02",
+   "emphasis": [
+    "gears"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "In 1900, Greek sponge divers sheltered from a storm off Antikythera.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "sponge",
+    "Antikythera"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "Around 50 metres down, they found a wreck full of statues.",
+   "pause_after": 0.25,
+   "shot": "S04",
+   "emphasis": [
+    "50",
+    "statues"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "They worked in brass helmets, breathing air pumped down from the boat.",
+   "pause_after": 0.25,
+   "shot": "S05",
+   "emphasis": [
+    "helmets",
+    "air"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "The salvage ran into 1901.",
+   "pause_after": 0.2,
+   "shot": "S06",
+   "emphasis": [
+    "1901"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "One diver died of the bends. Two were paralysed.",
+   "pause_after": 0.4,
+   "shot": "S07",
+   "emphasis": [
+    "died",
+    "paralysed"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Among the bronze and marble came this corroded lump.",
+   "pause_after": 0.3,
+   "shot": "S08",
+   "emphasis": [
+    "lump"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "In 1902, it split apart, and a gear wheel showed through.",
+   "pause_after": 0.5,
+   "shot": "S09",
+   "emphasis": [
+    "gear",
+    "wheel"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "In 2005, X-ray CT scans revealed hidden gears and inscriptions.",
+   "pause_after": 0.25,
+   "shot": "S10",
+   "emphasis": [
+    "X-ray",
+    "inscriptions"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "It was a geared calculator for the sky.",
+   "pause_after": 0.2,
+   "shot": "S11",
+   "emphasis": [
+    "calculator",
+    "sky"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "It tracked the Sun and Moon, and predicted eclipses.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "eclipses"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Nothing this complex appears again for over a thousand years.",
+   "pause_after": 0.35,
+   "shot": "S13",
+   "emphasis": [
+    "thousand",
+    "years"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "And the men who found it were only looking for sponges.",
+   "pause_after": 0.3,
+   "shot": "S14",
+   "emphasis": [
+    "sponges"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:museum_plinth_dark",
+   "description": "COLD OPEN, moving at frame 1. A fist-to-shoebox-sized lump of green-brown corroded bronze, crusted with calcareous growth, slowly rotates on a black plinth under a single cool spotlight. Faint caustic ripples play across it (memory of the sea).",
+   "camera": "85 mm macro orbit, slow push-in",
+   "characters": [],
+   "lighting": "one cool spot from above + soft teal rim; caustic gobo",
+   "fx": [
+    "caustics_light",
+    "dust motes"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "This lump came off a 2,000-year-old shipwreck.",
-      "pause_after": 0.15,
-      "shot": "S01",
-      "emphasis": [
-        "2,000-year-old"
+     "type": "text",
+     "text": "2,000 YEARS OLD",
+     "params": {
+      "y": 360,
+      "size": 96,
+      "color": [
+       70,
+       200,
+       255
       ]
-    },
-    {
-      "id": "L02",
-      "text": "Inside, there were gears.",
-      "pause_after": 0.35,
-      "shot": "S02",
-      "emphasis": [
-        "gears"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "In 1900, Greek sponge divers sheltered from a storm off Antikythera.",
-      "pause_after": 0.25,
-      "shot": "S03",
-      "emphasis": [
-        "sponge",
-        "Antikythera"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "Around 50 metres down, they found a wreck full of statues.",
-      "pause_after": 0.25,
-      "shot": "S04",
-      "emphasis": [
-        "50",
-        "statues"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "They worked in brass helmets, breathing air pumped down from the boat.",
-      "pause_after": 0.25,
-      "shot": "S05",
-      "emphasis": [
-        "helmets",
-        "air"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "The salvage ran into 1901.",
-      "pause_after": 0.2,
-      "shot": "S06",
-      "emphasis": [
-        "1901"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "One diver died of the bends. Two were paralysed.",
-      "pause_after": 0.4,
-      "shot": "S07",
-      "emphasis": [
-        "died",
-        "paralysed"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "Among the bronze and marble came this corroded lump.",
-      "pause_after": 0.3,
-      "shot": "S08",
-      "emphasis": [
-        "lump"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "In 1902, it split apart, and a gear wheel showed through.",
-      "pause_after": 0.5,
-      "shot": "S09",
-      "emphasis": [
-        "gear",
-        "wheel"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "In 2005, X-ray CT scans revealed hidden gears and inscriptions.",
-      "pause_after": 0.25,
-      "shot": "S10",
-      "emphasis": [
-        "X-ray",
-        "inscriptions"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "It was a geared calculator for the sky.",
-      "pause_after": 0.2,
-      "shot": "S11",
-      "emphasis": [
-        "calculator",
-        "sky"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "It tracked the Sun and Moon, and predicted eclipses.",
-      "pause_after": 0.3,
-      "shot": "S12",
-      "emphasis": [
-        "eclipses"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Nothing this complex appears again for over a thousand years.",
-      "pause_after": 0.35,
-      "shot": "S13",
-      "emphasis": [
-        "thousand",
-        "years"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "And the men who found it were only looking for sponges.",
-      "pause_after": 0.3,
-      "shot": "S14",
-      "emphasis": [
-        "sponges"
-      ]
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "other:museum_plinth_dark",
-      "description": "COLD OPEN, moving at frame 1. A fist-to-shoebox-sized lump of green-brown corroded bronze, crusted with calcareous growth, slowly rotates on a black plinth under a single cool spotlight. Faint caustic ripples play across it (memory of the sea).",
-      "camera": "85 mm macro orbit, slow push-in",
-      "characters": [],
-      "lighting": "one cool spot from above + soft teal rim; caustic gobo",
-      "fx": [
-        "caustics_light",
-        "dust motes"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "2,000 YEARS OLD",
-          "params": {
-            "y": 360,
-            "size": 96,
-            "color": [
-              70,
-              200,
-              255
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "sting",
-          "offset": 0.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.35
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "other:xray_reveal",
-      "description": "X-RAY SWEEP: a bright scan line passes over the lump left to right; behind it the lump turns translucent blue-white and reveals interlocking toothed gear wheels inside, frozen.",
-      "camera": "same macro, locked; scan line moves",
-      "characters": [],
-      "lighting": "emissive scan line; x-ray look (inverted, blue-white)",
-      "fx": [
-        "scanlines",
-        "glow"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "hit",
-          "offset": 0.9,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "other:storm_sea_greek_island",
-      "description": "Stormy grey sea, dusk. A small wooden sponge boat with a single mast and furled sail runs toward the lee of a rocky island. Rain streaks; spray. Map card follows: Peloponnese and Crete outlines, route line, pin on Antikythera between them.",
-      "camera": "wide 28 mm, low over the waves, tracking with the boat; map slides in at mid-shot",
-      "characters": [
-        "sponge boat crew (tiny faceless silhouettes)"
-      ],
-      "lighting": "storm overcast, cold; lightning flash once",
-      "fx": [
-        "rain",
-        "spray",
-        "lightning"
-      ],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "ANTIKYTHERA",
-          "params": {
-            "points": [
-              [
-                0.2,
-                0.15
-              ],
-              [
-                0.35,
-                0.45
-              ],
-              [
-                0.48,
-                0.6
-              ]
-            ],
-            "pin": -1,
-            "land": [
-              [
-                0.05,
-                0.05
-              ],
-              [
-                0.5,
-                0.05
-              ],
-              [
-                0.45,
-                0.35
-              ],
-              [
-                0.3,
-                0.4
-              ],
-              [
-                0.1,
-                0.3
-              ]
-            ]
-          },
-          "start": 0.0,
-          "duration": 2.7
-        },
-        {
-          "type": "stamp",
-          "text": "GREECE, 1900",
-          "params": {
-            "y": 300
-          },
-          "start": 2.7
-        }
-      ],
-      "sfx": [
-        {
-          "name": "thunder",
-          "offset": 0.4,
-          "gain": 0.4
-        },
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "wreck",
-      "description": "Blue-grey water at depth. A helmet diver descends on a weighted line onto a seabed slope; as silt settles, a jumble of amphorae and a bronze arm and shoulder of a statue emerge, plus pale marble figures half buried. No ship hull (the wood is long gone).",
-      "camera": "35 mm descending tilt-down from diver to seabed reveal",
-      "characters": [
-        "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
-      ],
-      "lighting": "dim blue daylight from above, god rays; no torch (1900)",
-      "fx": [
-        "silt",
-        "bubbles from helmet exhaust",
-        "god_rays"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 0,
-            "to": 50,
-            "max": 60,
-            "unit": "m",
-            "speed": 0.85
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "other:sponge_boat_deck",
-      "description": "On deck in the swell: two faceless crewmen turn the big flywheel of a hand air pump; the air hose snakes over the gunwale into the water. Cut-in: the brass helmet's dark faceplate below, bubbles streaming from the exhaust valve.",
-      "camera": "35 mm handheld on deck (2.5 s), then 50 mm close on the helmet underwater",
-      "characters": [
-        "deck crew x2 (faceless)",
-        "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
-      ],
-      "lighting": "overcast day on deck; blue gloom below",
-      "fx": [
-        "spray",
-        "bubbles"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "breath",
-          "offset": 1.8,
-          "gain": 0.45
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "timeline",
-      "description": "Timeline draws on over a grey sea plate: 1900 (found) → 1901 (salvage continues). Small helmet-diver icons drop in a row along the 1901 segment, one after another.",
-      "camera": "2.5D slow horizontal pan",
-      "characters": [],
-      "lighting": "graphic over desaturated sea plate",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "THE SALVAGE",
-          "params": {
-            "events": [
-              [
-                "1900",
-                "wreck found"
-              ],
-              [
-                "1901",
-                "still diving"
-              ]
-            ],
-            "y": 900
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "other:sponge_boat_deck",
-      "description": "Consequence, no injury shown: on deck a faceless diver sits slumped against the mast, helmet off beside him, a crewman's hand on his shoulder. Cut to one empty brass helmet resting on the wet deck.",
-      "camera": "35 mm slow push, then 50 mm locked on the empty helmet",
-      "characters": [
-        "diver (faceless, seated)",
-        "crewman (faceless)"
-      ],
-      "lighting": "grey afternoon, desaturated",
-      "fx": [
-        "spray"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "1 diver dead (the bends)\n2 divers paralysed",
-          "params": {
-            "header": "1901",
-            "y": 820
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.4,
-          "gain": 0.35
-        },
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:sponge_boat_deck",
-      "description": "Basket hauled up dripping over the gunwale: a bronze statue arm, a marble head (faceless, weathered), amphora shards... and the small corroded lump from S01, which the camera finds and pushes into.",
-      "camera": "50 mm tracking with the basket, then rack focus + push to the lump",
-      "characters": [
-        "crew hands"
-      ],
-      "lighting": "flat daylight",
-      "fx": [
-        "drips"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "metal_groan",
-          "offset": 0.2,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 1.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:museum_storeroom_1902",
-      "description": "MID-POINT TURN. A dim museum storeroom: wooden shelves, numbered trays. The lump lies in a tray; a crack runs across it and it splits into pieces with a dry snap. A desk lamp swings toward it: a single toothed gear wheel catches the light.",
-      "camera": "50 mm slow push; tiny shake on the split",
-      "characters": [
-        "hand of a faceless curator (gloveless 1902 sleeve)"
-      ],
-      "lighting": "warm lamp, dark room; dust in the beam",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "ATHENS, 1902",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.6,
-          "gain": 0.5
-        },
-        {
-          "name": "sting",
-          "offset": 1.3,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:ct_scan_lab",
-      "description": "Modern lab: the fragment sits on a turntable inside a large grey X-ray CT cabinet; the turntable rotates; on a monitor, slices flicker past showing gear teeth and tiny lettering.",
-      "camera": "28 mm slow arc around the cabinet; cut-in on the monitor",
-      "characters": [],
-      "lighting": "cool white lab light; monitor glow",
-      "fx": [
-        "scanlines"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "2005: CT SCANS",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "sonar",
-          "offset": 0.8,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:gear_train_reconstruction",
-      "description": "The fragment dissolves into a clean reconstructed gear train floating in blue darkness: bronze gears meshing and turning together, a crank on the side turning them.",
-      "camera": "35 mm orbit around the turning gear train",
-      "characters": [],
-      "lighting": "warm key on bronze, blue rim; caustic shimmer",
-      "fx": [
-        "caustics_light"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "A CALCULATOR\nFOR THE SKY",
-          "params": {
-            "y": 360,
-            "size": 90
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "riser",
-          "offset": 0.3,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:gear_train_reconstruction",
-      "description": "Front face of the reconstruction: a dial with a small sun marker and a half-silver moon ball circling; the moon's pointer passes the sun's, and a dark disc slides over the sun marker (eclipse). Then a spiral back dial glows.",
-      "camera": "50 mm straight-on, slow push",
-      "characters": [],
-      "lighting": "bronze lit warm; eclipse moment dims the scene",
-      "fx": [
-        "glow"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "SUN + MOON POSITIONS\nECLIPSE PREDICTION",
-          "params": {
-            "header": "WHAT IT DID",
-            "y": 820
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "boom",
-          "offset": 1.6,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "timeline",
-      "description": "A timeline races from the mechanism (~100 BC) across an empty gap to a medieval astronomical clock icon (1300s). The gap is marked '1,000+ YEARS'.",
-      "camera": "2.5D horizontal pan",
-      "characters": [],
-      "lighting": "graphic",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "1,000+ YEARS",
-          "params": {
-            "events": [
-              [
-                "~100 BC",
-                "the mechanism"
-              ],
-              [
-                "...",
-                ""
-              ],
-              [
-                "1300s",
-                "astronomical clocks"
-              ]
-            ],
-            "y": 900
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "other:storm_sea_greek_island",
-      "description": "LOOP: calm sea after the storm, the sponge boat at anchor in a cove; a diver's helmet breaks the surface and a hand lifts a single brown sponge. The camera sinks below the surface toward the dark seabed, ending on a dark green-brown shape in the silt that matches the S01 lump framing.",
-      "camera": "28 mm surface-level, then dip below the waterline and push down",
-      "characters": [
-        "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
-      ],
-      "lighting": "clear golden afternoon; then blue underwater",
-      "fx": [
-        "caustics_light",
-        "bubbles"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.5,
-          "gain": 0.4
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 1.2,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 0.6,
+     "gain": 0.4
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:xray_reveal",
+   "description": "X-RAY SWEEP: a bright scan line passes over the lump left to right; behind it the lump turns translucent blue-white and reveals interlocking toothed gear wheels inside, frozen.",
+   "camera": "same macro, locked; scan line moves",
+   "characters": [],
+   "lighting": "emissive scan line; x-ray look (inverted, blue-white)",
+   "fx": [
+    "scanlines",
+    "glow"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "hit",
+     "offset": 0.9,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:storm_sea_greek_island",
+   "description": "Stormy grey sea, dusk. A small wooden sponge boat with a single mast and furled sail runs toward the lee of a rocky island. Rain streaks; spray. Map card follows: Peloponnese and Crete outlines, route line, pin on Antikythera between them.",
+   "camera": "wide 28 mm, low over the waves, tracking with the boat; map slides in at mid-shot",
+   "characters": [
+    "sponge boat crew (tiny faceless silhouettes)"
+   ],
+   "lighting": "storm overcast, cold; lightning flash once",
+   "fx": [
+    "rain",
+    "spray",
+    "lightning"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "ANTIKYTHERA",
+     "params": {
+      "points": [
+       [
+        0.2,
+        0.15
+       ],
+       [
+        0.35,
+        0.45
+       ],
+       [
+        0.48,
+        0.6
+       ]
+      ],
+      "pin": -1,
+      "land": [
+       [
+        0.05,
+        0.05
+       ],
+       [
+        0.5,
+        0.05
+       ],
+       [
+        0.45,
+        0.35
+       ],
+       [
+        0.3,
+        0.4
+       ],
+       [
+        0.1,
+        0.3
+       ]
+      ]
+     },
+     "start": 0.0,
+     "duration": 2.7
+    },
+    {
+     "type": "stamp",
+     "text": "GREECE, 1900",
+     "params": {
+      "y": 300
+     },
+     "start": 2.7
+    }
+   ],
+   "sfx": [
+    {
+     "name": "thunder",
+     "offset": 0.4,
+     "gain": 0.4
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "wreck",
+   "description": "Blue-grey water at depth. A helmet diver descends on a weighted line onto a seabed slope; as silt settles, a jumble of amphorae and a bronze arm and shoulder of a statue emerge, plus pale marble figures half buried. No ship hull (the wood is long gone).",
+   "camera": "35 mm descending tilt-down from diver to seabed reveal",
+   "characters": [
+    "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
+   ],
+   "lighting": "dim blue daylight from above, god rays; no torch (1900)",
+   "fx": [
+    "silt",
+    "bubbles from helmet exhaust",
+    "god_rays"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 0,
+      "to": 50,
+      "max": 60,
+      "unit": "m",
+      "speed": 0.85
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:sponge_boat_deck",
+   "description": "On deck in the swell: two faceless crewmen turn the big flywheel of a hand air pump; the air hose snakes over the gunwale into the water. Cut-in: the brass helmet's dark faceplate below, bubbles streaming from the exhaust valve.",
+   "camera": "35 mm handheld on deck (2.5 s), then 50 mm close on the helmet underwater",
+   "characters": [
+    "deck crew x2 (faceless)",
+    "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
+   ],
+   "lighting": "overcast day on deck; blue gloom below",
+   "fx": [
+    "spray",
+    "bubbles"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "breath",
+     "offset": 1.8,
+     "gain": 0.45
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "timeline",
+   "description": "Timeline draws on over a grey sea plate: 1900 (found) → 1901 (salvage continues). Small helmet-diver icons drop in a row along the 1901 segment, one after another.",
+   "camera": "2.5D slow horizontal pan",
+   "characters": [],
+   "lighting": "graphic over desaturated sea plate",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "THE SALVAGE",
+     "params": {
+      "events": [
+       [
+        "1900",
+        "wreck found"
+       ],
+       [
+        "1901",
+        "still diving"
+       ]
+      ],
+      "y": 900
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:sponge_boat_deck",
+   "description": "Consequence, no injury shown: on deck a faceless diver sits slumped against the mast, helmet off beside him, a crewman's hand on his shoulder. Cut to one empty brass helmet resting on the wet deck.",
+   "camera": "35 mm slow push, then 50 mm locked on the empty helmet",
+   "characters": [
+    "diver (faceless, seated)",
+    "crewman (faceless)"
+   ],
+   "lighting": "grey afternoon, desaturated",
+   "fx": [
+    "spray"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "1 diver dead (the bends)\n2 divers paralysed",
+     "params": {
+      "header": "1901",
+      "y": 820
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.4,
+     "gain": 0.35
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:sponge_boat_deck",
+   "description": "Basket hauled up dripping over the gunwale: a bronze statue arm, a marble head (faceless, weathered), amphora shards... and the small corroded lump from S01, which the camera finds and pushes into.",
+   "camera": "50 mm tracking with the basket, then rack focus + push to the lump",
+   "characters": [
+    "crew hands"
+   ],
+   "lighting": "flat daylight",
+   "fx": [
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.2,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:museum_storeroom_1902",
+   "description": "MID-POINT TURN. A dim museum storeroom: wooden shelves, numbered trays. The lump lies in a tray; a crack runs across it and it splits into pieces with a dry snap. A desk lamp swings toward it: a single toothed gear wheel catches the light.",
+   "camera": "50 mm slow push; tiny shake on the split",
+   "characters": [
+    "hand of a faceless curator (gloveless 1902 sleeve)"
+   ],
+   "lighting": "warm lamp, dark room; dust in the beam",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "ATHENS, 1902",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.5
+    },
+    {
+     "name": "sting",
+     "offset": 1.3,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:ct_scan_lab",
+   "description": "Modern lab: the fragment sits on a turntable inside a large grey X-ray CT cabinet; the turntable rotates; on a monitor, slices flicker past showing gear teeth and tiny lettering.",
+   "camera": "28 mm slow arc around the cabinet; cut-in on the monitor",
+   "characters": [],
+   "lighting": "cool white lab light; monitor glow",
+   "fx": [
+    "scanlines"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "2005: CT SCANS",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "sonar",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:gear_train_reconstruction",
+   "description": "The fragment dissolves into a clean reconstructed gear train floating in blue darkness: bronze gears meshing and turning together, a crank on the side turning them.",
+   "camera": "35 mm orbit around the turning gear train",
+   "characters": [],
+   "lighting": "warm key on bronze, blue rim; caustic shimmer",
+   "fx": [
+    "caustics_light"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "A CALCULATOR\nFOR THE SKY",
+     "params": {
+      "y": 360,
+      "size": 90
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "riser",
+     "offset": 0.3,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:gear_train_reconstruction",
+   "description": "Front face of the reconstruction: a dial with a small sun marker and a half-silver moon ball circling; the moon's pointer passes the sun's, and a dark disc slides over the sun marker (eclipse). Then a spiral back dial glows.",
+   "camera": "50 mm straight-on, slow push",
+   "characters": [],
+   "lighting": "bronze lit warm; eclipse moment dims the scene",
+   "fx": [
+    "glow"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "SUN + MOON POSITIONS\nECLIPSE PREDICTION",
+     "params": {
+      "header": "WHAT IT DID",
+      "y": 820
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "boom",
+     "offset": 1.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "timeline",
+   "description": "A timeline races from the mechanism (~100 BC) across an empty gap to a medieval astronomical clock icon (1300s). The gap is marked '1,000+ YEARS'.",
+   "camera": "2.5D horizontal pan",
+   "characters": [],
+   "lighting": "graphic",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "1,000+ YEARS",
+     "params": {
+      "events": [
+       [
+        "~100 BC",
+        "the mechanism"
+       ],
+       [
+        "...",
+        ""
+       ],
+       [
+        "1300s",
+        "astronomical clocks"
+       ]
+      ],
+      "y": 900
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:storm_sea_greek_island",
+   "description": "LOOP: calm sea after the storm, the sponge boat at anchor in a cove; a diver's helmet breaks the surface and a hand lifts a single brown sponge. The camera sinks below the surface toward the dark seabed, ending on a dark green-brown shape in the silt that matches the S01 lump framing.",
+   "camera": "28 mm surface-level, then dip below the waterline and push down",
+   "characters": [
+    "helmet diver (faceless: brass helmet with dark faceplate, grey canvas suit, lead boots, air hose)"
+   ],
+   "lighting": "clear golden afternoon; then blue underwater",
+   "fx": [
+    "caustics_light",
+    "bubbles"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.5,
+     "gain": 0.4
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 1.2,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.45
   ],
-  "music_curve": [
-    [
-      0,
-      0.45
-    ],
-    [
-      6,
-      0.6
-    ],
-    [
-      15,
-      0.65
-    ],
-    [
-      24,
-      0.4
-    ],
-    [
-      28,
-      0.55
-    ],
-    [
-      31,
-      0.1
-    ],
-    [
-      33,
-      0.7
-    ],
-    [
-      41,
-      0.9
-    ],
-    [
-      46,
-      0.7
-    ],
-    [
-      50,
-      0.45
-    ],
-    [
-      55,
-      0.45
-    ]
+  [
+   6,
+   0.6
   ],
-  "loop_line": "And the men who found it were only looking for sponges."
+  [
+   15,
+   0.65
+  ],
+  [
+   24,
+   0.4
+  ],
+  [
+   28,
+   0.55
+  ],
+  [
+   31,
+   0.1
+  ],
+  [
+   33,
+   0.7
+  ],
+  [
+   41,
+   0.9
+  ],
+  [
+   46,
+   0.7
+  ],
+  [
+   50,
+   0.45
+  ],
+  [
+   55,
+   0.45
+  ]
+ ],
+ "loop_line": "And the men who found it were only looking for sponges.",
+ "voice_original": "bm_george"
 }

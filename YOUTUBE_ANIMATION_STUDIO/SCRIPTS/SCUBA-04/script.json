@@ -1,1002 +1,1003 @@
 {
-  "id": "SCUBA-04",
-  "title": "A Humpback Closed Its Mouth Around Him",
-  "category": "scuba",
-  "voice": "am_michael",
-  "speed": 1.08,
-  "mood": "scuba",
-  "target_seconds": 55,
-  "lines": [
+ "id": "SCUBA-04",
+ "title": "A Humpback Closed Its Mouth Around Him",
+ "category": "scuba",
+ "voice": "am_adam",
+ "speed": 1.08,
+ "mood": "scuba",
+ "target_seconds": 55,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "One second he was diving for lobster. The next, everything went black.",
+   "pause_after": 0.3,
+   "shot": "S01",
+   "emphasis": [
+    "lobster",
+    "black"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Cape Cod, June 2021.",
+   "pause_after": 0.15,
+   "shot": "S02",
+   "emphasis": [
+    "Cape",
+    "Cod"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Lobster diver Michael Packard was forty-five feet down.",
+   "pause_after": 0.2,
+   "shot": "S03",
+   "emphasis": [
+    "Michael",
+    "Packard",
+    "forty-five"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "His first thought: a shark.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "shark"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "But there were no teeth. No pain.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "no",
+    "teeth"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "He was inside a whale's mouth.",
+   "pause_after": 0.35,
+   "shot": "S06",
+   "emphasis": [
+    "whale's",
+    "mouth"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Experts think a feeding humpback scooped him up by accident.",
+   "pause_after": 0.15,
+   "shot": "S07",
+   "emphasis": [
+    "humpback",
+    "accident"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "He still had his scuba tank, so he kept breathing.",
+   "pause_after": 0.15,
+   "shot": "S08",
+   "emphasis": [
+    "kept",
+    "breathing"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "He thought he was going to die. He thought of his sons.",
+   "pause_after": 0.45,
+   "shot": "S09",
+   "emphasis": [
+    "die",
+    "sons"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "But a humpback can't actually swallow a person.",
+   "pause_after": 0.15,
+   "shot": "S10",
+   "emphasis": [
+    "can't",
+    "swallow"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Its throat is far too narrow.",
+   "pause_after": 0.2,
+   "shot": "S11",
+   "emphasis": [
+    "too",
+    "narrow"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "After thirty to forty seconds, by his own estimate,",
+   "pause_after": 0.05,
+   "shot": "S12",
+   "emphasis": [
+    "thirty",
+    "forty",
+    "seconds"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "he saw light. The whale surfaced and threw its head side to side,",
+   "pause_after": 0.05,
+   "shot": "S13",
+   "emphasis": [
+    "light",
+    "surfaced"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "and spat him out.",
+   "pause_after": 0.35,
+   "shot": "S14",
+   "emphasis": [
+    "spat"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "His crewmate, Josiah Mayo, pulled him from the water.",
+   "pause_after": 0.2,
+   "shot": "S15",
+   "emphasis": [
+    "Josiah",
+    "Mayo"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Bruised, sore, and no broken bones.",
+   "pause_after": 0.3,
+   "shot": "S16",
+   "emphasis": [
+    "no",
+    "broken",
+    "bones"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "A humpback can't swallow you. But it can still close its mouth around you.",
+   "pause_after": 0.0,
+   "shot": "S17",
+   "emphasis": [
+    "close",
+    "around",
+    "you"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:sandy seabed in green Cape Cod water (seabed builder, pale sand; low rocks; lobster as a small red-brown primitive prop)",
+   "description": "Mid-action from frame 1: diver close on the seabed, gloved hand reaching for a lobster by a rock; sun shafts above. At 55% of the shot a huge dark shape fills the top of frame and the image slams to black (only regulator bubbles faintly visible).",
+   "camera": "Close 28 mm over the diver's shoulder, slight push-in; on the blackout a 4-frame shake",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Green daylight shafts (sun + caustics_light) then hard cut to near-black",
+   "fx": [
+    "caustics_light",
+    "particle_cloud (plankton)",
+    "bubbles_stream (regulator)",
+    "hard blackout"
+   ],
+   "overlay": [],
+   "sfx": [
     {
-      "id": "L01",
-      "text": "One second he was diving for lobster. The next, everything went black.",
-      "pause_after": 0.3,
-      "shot": "S01",
-      "emphasis": [
-        "lobster",
-        "black"
-      ]
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "L02",
-      "text": "Cape Cod, June 2021.",
-      "pause_after": 0.15,
-      "shot": "S02",
-      "emphasis": [
-        "Cape",
-        "Cod"
-      ]
+     "name": "breath",
+     "offset": 0.2,
+     "gain": 0.5
     },
     {
-      "id": "L03",
-      "text": "Lobster diver Michael Packard was forty-five feet down.",
-      "pause_after": 0.2,
-      "shot": "S03",
-      "emphasis": [
-        "Michael",
-        "Packard",
-        "forty-five"
-      ]
+     "name": "boom",
+     "offset": 1.9,
+     "gain": 0.8
     },
     {
-      "id": "L04",
-      "text": "His first thought: a shark.",
-      "pause_after": 0.2,
-      "shot": "S04",
-      "emphasis": [
-        "shark"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "But there were no teeth. No pain.",
-      "pause_after": 0.3,
-      "shot": "S05",
-      "emphasis": [
-        "no",
-        "teeth"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "He was inside a whale's mouth.",
-      "pause_after": 0.35,
-      "shot": "S06",
-      "emphasis": [
-        "whale's",
-        "mouth"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Experts think a feeding humpback scooped him up by accident.",
-      "pause_after": 0.15,
-      "shot": "S07",
-      "emphasis": [
-        "humpback",
-        "accident"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "He still had his scuba tank, so he kept breathing.",
-      "pause_after": 0.15,
-      "shot": "S08",
-      "emphasis": [
-        "kept",
-        "breathing"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "He thought he was going to die. He thought of his sons.",
-      "pause_after": 0.45,
-      "shot": "S09",
-      "emphasis": [
-        "die",
-        "sons"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "But a humpback can't actually swallow a person.",
-      "pause_after": 0.15,
-      "shot": "S10",
-      "emphasis": [
-        "can't",
-        "swallow"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Its throat is far too narrow.",
-      "pause_after": 0.2,
-      "shot": "S11",
-      "emphasis": [
-        "too",
-        "narrow"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "After thirty to forty seconds, by his own estimate,",
-      "pause_after": 0.05,
-      "shot": "S12",
-      "emphasis": [
-        "thirty",
-        "forty",
-        "seconds"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "he saw light. The whale surfaced and threw its head side to side,",
-      "pause_after": 0.05,
-      "shot": "S13",
-      "emphasis": [
-        "light",
-        "surfaced"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "and spat him out.",
-      "pause_after": 0.35,
-      "shot": "S14",
-      "emphasis": [
-        "spat"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "His crewmate, Josiah Mayo, pulled him from the water.",
-      "pause_after": 0.2,
-      "shot": "S15",
-      "emphasis": [
-        "Josiah",
-        "Mayo"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Bruised, sore, and no broken bones.",
-      "pause_after": 0.3,
-      "shot": "S16",
-      "emphasis": [
-        "no",
-        "broken",
-        "bones"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "A humpback can't swallow you. But it can still close its mouth around you.",
-      "pause_after": 0.0,
-      "shot": "S17",
-      "emphasis": [
-        "close",
-        "around",
-        "you"
-      ]
+     "name": "hit",
+     "offset": 1.9,
+     "gain": 0.6
     }
-  ],
-  "shots": [
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "map",
+   "description": "Map card: Cape Cod's hooked arm drawn as a stylised land shape curling up and left; the route line runs out along the arm to a pin just off its tip (Provincetown). Date stamp types in.",
+   "camera": "2D card; slow zoom toward the pin",
+   "characters": [],
+   "lighting": "Map card",
+   "fx": [
+    "line draw-on",
+    "pin drop"
+   ],
+   "overlay": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
+     "type": "map",
+     "text": "CAPE COD\nProvincetown, Massachusetts",
+     "params": {
+      "land": [
+       [
+        0,
+        0.62
+       ],
+       [
+        0.42,
+        0.6
+       ],
+       [
+        0.62,
+        0.5
+       ],
+       [
+        0.7,
+        0.3
+       ],
+       [
+        0.62,
+        0.12
+       ],
+       [
+        0.48,
+        0.1
+       ],
+       [
+        0.52,
+        0.18
+       ],
+       [
+        0.6,
+        0.22
+       ],
+       [
+        0.6,
+        0.4
+       ],
+       [
+        0.5,
+        0.52
+       ],
+       [
+        0.36,
+        0.58
+       ],
+       [
+        0,
+        0.7
+       ]
       ],
-      "environment": "other:sandy seabed in green Cape Cod water (seabed builder, pale sand; low rocks; lobster as a small red-brown primitive prop)",
-      "description": "Mid-action from frame 1: diver close on the seabed, gloved hand reaching for a lobster by a rock; sun shafts above. At 55% of the shot a huge dark shape fills the top of frame and the image slams to black (only regulator bubbles faintly visible).",
-      "camera": "Close 28 mm over the diver's shoulder, slight push-in; on the blackout a 4-frame shake",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+      "points": [
+       [
+        0.2,
+        0.64
+       ],
+       [
+        0.55,
+        0.52
+       ],
+       [
+        0.66,
+        0.3
+       ],
+       [
+        0.56,
+        0.12
+       ],
+       [
+        0.44,
+        0.08
+       ]
       ],
-      "lighting": "Green daylight shafts (sun + caustics_light) then hard cut to near-black",
-      "fx": [
-        "caustics_light",
-        "particle_cloud (plankton)",
-        "bubbles_stream (regulator)",
-        "hard blackout"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.2,
-          "gain": 0.5
-        },
-        {
-          "name": "boom",
-          "offset": 1.9,
-          "gain": 0.8
-        },
-        {
-          "name": "hit",
-          "offset": 1.9,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "cut"
+      "pin": -1
+     }
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "map",
-      "description": "Map card: Cape Cod's hooked arm drawn as a stylised land shape curling up and left; the route line runs out along the arm to a pin just off its tip (Provincetown). Date stamp types in.",
-      "camera": "2D card; slow zoom toward the pin",
-      "characters": [],
-      "lighting": "Map card",
-      "fx": [
-        "line draw-on",
-        "pin drop"
-      ],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "CAPE COD\nProvincetown, Massachusetts",
-          "params": {
-            "land": [
-              [
-                0,
-                0.62
-              ],
-              [
-                0.42,
-                0.6
-              ],
-              [
-                0.62,
-                0.5
-              ],
-              [
-                0.7,
-                0.3
-              ],
-              [
-                0.62,
-                0.12
-              ],
-              [
-                0.48,
-                0.1
-              ],
-              [
-                0.52,
-                0.18
-              ],
-              [
-                0.6,
-                0.22
-              ],
-              [
-                0.6,
-                0.4
-              ],
-              [
-                0.5,
-                0.52
-              ],
-              [
-                0.36,
-                0.58
-              ],
-              [
-                0,
-                0.7
-              ]
-            ],
-            "points": [
-              [
-                0.2,
-                0.64
-              ],
-              [
-                0.55,
-                0.52
-              ],
-              [
-                0.66,
-                0.3
-              ],
-              [
-                0.56,
-                0.12
-              ],
-              [
-                0.44,
-                0.08
-              ]
-            ],
-            "pin": -1
-          }
-        },
-        {
-          "type": "stamp",
-          "text": "PROVINCETOWN, MA\n11 JUN 2021",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "typewriter",
-          "offset": 0.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "open_water",
-      "description": "Split-level view: a small lobster boat (new prop: 12 m white hull, small forward wheelhouse, open aft deck, low-poly) rocks on a sunny surface in the top third; the diver descends below it trailing bubbles to the sandy bottom. Name card + depth gauge in feet.",
-      "camera": "Wide 24 mm, camera at waterline then tilts down following the diver",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Bright summer daylight above, green fade below; sun shafts",
-      "fx": [
-        "wave surface",
-        "caustics_light",
-        "bubbles_stream",
-        "water_volume (green)"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "MICHAEL PACKARD\nLOBSTER DIVER",
-          "params": {
-            "y": 1420,
-            "size": 70
-          }
-        },
-        {
-          "type": "depth",
-          "text": "DEPTH",
-          "params": {
-            "from": 0,
-            "to": 45,
-            "unit": "ft"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.5,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "open_water",
-      "description": "Imagined beat: a grey shark silhouette (shark builder, 3.5 m) flashes past in the dark, lit only from below, then dissolves. Labelled as his thought, not what happened.",
-      "camera": "Fast lateral whip-pan 35 mm following the silhouette",
-      "characters": [
-        "shark (imagined)"
-      ],
-      "lighting": "Near-black, cold under-light",
-      "fx": [
-        "water_volume (dark)",
-        "motion blur"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "SHARK?",
-          "params": {
-            "y": 520,
-            "size": 140,
-            "color": [
-              255,
-              70,
-              60
-            ]
-          }
-        },
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "sting",
-          "offset": 0.3,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
-      "description": "Darkness: the diver's silhouette, faint rim-lit, pats his own arms and legs, then reaches out and touches a smooth soft wall. Regulator bubbles drift but can't rise far (they pool against the 'ceiling').",
-      "camera": "Close 35 mm, slow push, very low exposure",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Near-black; faint cold rim (area light 3 W) from an unseen gap",
-      "fx": [
-        "bubbles_stream (pooling)",
-        "particle_cloud (sparse)"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "heartbeat",
-          "offset": 0.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "open_water",
-      "description": "Pull-back reveal: from the black, the camera rushes backward through the whale's closing lips into green daylight to reveal the whole humpback, jaws shut, throat grooves distended, the tiny diver's position marked by a soft glow inside the mouth (x-ray hint).",
-      "camera": "Fast dolly back 2 -> 25 m, 24 mm, ease-out; whale fills frame diagonally",
-      "characters": [
-        "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
-        "packard_diver (glow marker only)"
-      ],
-      "lighting": "Green daylight, sun shafts, caustics on the whale's back",
-      "fx": [
-        "caustics_light",
-        "water_volume (green)",
-        "fish_school (small silver fish scattering)",
-        "x-ray glow (emissive sphere inside mouth, 40% alpha)"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "INSIDE A WHALE",
-          "params": {
-            "y": 420,
-            "size": 130,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "rumble",
-          "offset": 0.4,
-          "gain": 0.7
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "open_water",
-      "description": "Wider replay of the lunge: a fish school swirls above the sand; the humpback rises from below at an angle, lower jaw dropping open, and engulfs the school and the diver in one sweep. THEORY badge.",
-      "camera": "Wide 20 mm from the side, slow-motion feel (lunge keyed over the full shot)",
-      "characters": [
-        "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless) (small)"
-      ],
-      "lighting": "Green daylight, sun shafts",
-      "fx": [
-        "fish_school (dense, orbit_speed high)",
-        "water_volume",
-        "caustics_light",
-        "sand puff"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "THEORY",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "AN ACCIDENT?",
-          "params": {
-            "y": 1420,
-            "size": 90
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
-      "description": "Inside the dark mouth: close on the diver's regulator, a steady stream of bubbles from the exhaust; his tank valve glints. Bubbles pool overhead against the closed jaw.",
-      "camera": "Macro-feel 50 mm, slow orbit 15 deg",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Near-black, faint rim through the lip slit",
-      "fx": [
-        "bubbles_stream (rhythmic)",
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.8
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.3,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
-      "description": "The diver curls, still; the slit of light flickers as the whale moves. Heartbeat. EYEWITNESS CLAIM badge (his own account).",
-      "camera": "Static 35 mm, very slow push; slight sway as the 'room' moves",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Near-black, flickering light slit",
-      "fx": [
-        "flicker (light slit)",
-        "bubbles_stream"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "rumble",
-          "offset": 1.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:2.5D x-ray diagram of a humpback (side profile, white line art on dark teal)",
-      "description": "Mid-point turn: hard switch to a clean x-ray diagram — whale side profile, huge mouth cavity shaded, a tiny diver outline inside; the narrow throat channel highlighted red.",
-      "camera": "2D, slow zoom toward the throat",
-      "characters": [],
-      "lighting": "Flat diagram: dark teal background, white line art, red highlight",
-      "fx": [
-        "line draw-on",
-        "red pulse on throat"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "CAN'T SWALLOW",
-          "params": {
-            "y": 420,
-            "size": 120,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "whoosh",
-          "offset": 0.1,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:2.5D x-ray diagram (close on the throat)",
-      "description": "Close on the throat: a human-fist icon drops beside the opening for scale; the diver outline is shown as far too wide to fit.",
-      "camera": "2D, static with small scale pop",
-      "characters": [],
-      "lighting": "Flat diagram",
-      "fx": [
-        "icon pop",
-        "line draw-on"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THROAT ~ FIST-SIZED\n(EXPERT ESTIMATE)",
-          "params": {
-            "y": 1420,
-            "size": 70,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.2,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
-      "description": "Back inside the dark: a seconds counter ticks up over the curled silhouette; the whole space tilts upward (the whale rising).",
-      "camera": "Camera parented to the jaw so the world tilts 25 deg up over the shot; 28 mm",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Near-black, light slit slowly brightening",
-      "fx": [
-        "bubbles_stream",
-        "tilt"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "IN THE MOUTH (HIS ESTIMATE)",
-          "params": {
-            "fmt": "mmss",
-            "from": 0,
-            "to": 40
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "riser",
-          "offset": 0.4,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "open_water",
-      "description": "Surface, bright summer day: the humpback's head breaks the surface in a spray of white water, light pours into the opening lips, the head swings left and right.",
-      "camera": "Low at the waterline, 24 mm, handheld; whale head fills the upper half",
-      "characters": [
-        "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)"
-      ],
-      "lighting": "Hard sunlight, white spray backlit",
-      "fx": [
-        "splash particles",
-        "wave surface",
-        "spray"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "boom",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "whoosh",
-          "offset": 0.8,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "open_water",
-      "description": "The jaw opens; the small diver silhouette tumbles out into the water in a burst of white bubbles and foam; the whale rolls away and slips under.",
-      "camera": "Same position, slight push-in; 2-frame flash on the ejection",
-      "characters": [
-        "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Hard sunlight",
-      "fx": [
-        "splash particles",
-        "bubbles burst",
-        "foam"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.1,
-          "gain": 0.8
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "open_water",
-      "description": "The lobster boat motors in; a faceless crew silhouette leans over the side and hauls the diver aboard by his harness. Name card.",
-      "camera": "Medium 35 mm from the water at the hull side, slight handheld",
-      "characters": [
-        "mayo_silhouette (char_figure, cap, faceless)",
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
-      ],
-      "lighting": "Bright afternoon sun, sparkle on water",
-      "fx": [
-        "wave surface",
-        "water drips",
-        "spray"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "JOSIAH MAYO\nCREWMATE",
-          "params": {
-            "y": 1420,
-            "size": 70
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "footsteps",
-          "offset": 1.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:boat deck close (lobster boat aft deck, coiled rope, crate)",
-      "description": "Diver silhouette sits on the deck against the gunwale, mask off (faceless), one leg stretched out. Injury card slides in.",
-      "camera": "Static 35 mm, slow push",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless) (seated)"
-      ],
-      "lighting": "Warm afternoon sun",
-      "fx": [
-        "subtle boat rock"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "SOFT-TISSUE DAMAGE\nNO BROKEN BONES",
-          "params": {
-            "header": "INJURIES (REPORTED)",
-            "y": 150
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 0.4,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "other:sandy seabed in green water (matches S01)",
-      "description": "Loop setup: back on the seabed, same framing as S01: the diver reaches for a lobster; a huge dark shape slides across the top of frame as the last word lands. Hard cut to S01.",
-      "camera": "Matches S01 exactly: 28 mm over the shoulder, slow push",
-      "characters": [
-        "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)",
-        "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres) (shadow only)"
-      ],
-      "lighting": "Green sun shafts, darkening from above",
-      "fx": [
-        "caustics_light",
-        "particle_cloud",
-        "bubbles_stream",
-        "shadow sweep"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "rumble",
-          "offset": 1.6,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "fade_black"
+     "type": "stamp",
+     "text": "PROVINCETOWN, MA\n11 JUN 2021",
+     "params": {
+      "y": 300
+     }
     }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "open_water",
+   "description": "Split-level view: a small lobster boat (new prop: 12 m white hull, small forward wheelhouse, open aft deck, low-poly) rocks on a sunny surface in the top third; the diver descends below it trailing bubbles to the sandy bottom. Name card + depth gauge in feet.",
+   "camera": "Wide 24 mm, camera at waterline then tilts down following the diver",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Bright summer daylight above, green fade below; sun shafts",
+   "fx": [
+    "wave surface",
+    "caustics_light",
+    "bubbles_stream",
+    "water_volume (green)"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "MICHAEL PACKARD\nLOBSTER DIVER",
+     "params": {
+      "y": 1420,
+      "size": 70
+     }
+    },
+    {
+     "type": "depth",
+     "text": "DEPTH",
+     "params": {
+      "from": 0,
+      "to": 45,
+      "unit": "ft"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.5,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "open_water",
+   "description": "Imagined beat: a grey shark silhouette (shark builder, 3.5 m) flashes past in the dark, lit only from below, then dissolves. Labelled as his thought, not what happened.",
+   "camera": "Fast lateral whip-pan 35 mm following the silhouette",
+   "characters": [
+    "shark (imagined)"
+   ],
+   "lighting": "Near-black, cold under-light",
+   "fx": [
+    "water_volume (dark)",
+    "motion blur"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "SHARK?",
+     "params": {
+      "y": 520,
+      "size": 140,
+      "color": [
+       255,
+       70,
+       60
+      ]
+     }
+    },
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "sting",
+     "offset": 0.3,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
+   "description": "Darkness: the diver's silhouette, faint rim-lit, pats his own arms and legs, then reaches out and touches a smooth soft wall. Regulator bubbles drift but can't rise far (they pool against the 'ceiling').",
+   "camera": "Close 35 mm, slow push, very low exposure",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Near-black; faint cold rim (area light 3 W) from an unseen gap",
+   "fx": [
+    "bubbles_stream (pooling)",
+    "particle_cloud (sparse)"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "open_water",
+   "description": "Pull-back reveal: from the black, the camera rushes backward through the whale's closing lips into green daylight to reveal the whole humpback, jaws shut, throat grooves distended, the tiny diver's position marked by a soft glow inside the mouth (x-ray hint).",
+   "camera": "Fast dolly back 2 -> 25 m, 24 mm, ease-out; whale fills frame diagonally",
+   "characters": [
+    "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
+    "packard_diver (glow marker only)"
+   ],
+   "lighting": "Green daylight, sun shafts, caustics on the whale's back",
+   "fx": [
+    "caustics_light",
+    "water_volume (green)",
+    "fish_school (small silver fish scattering)",
+    "x-ray glow (emissive sphere inside mouth, 40% alpha)"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "INSIDE A WHALE",
+     "params": {
+      "y": 420,
+      "size": 130,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "rumble",
+     "offset": 0.4,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "open_water",
+   "description": "Wider replay of the lunge: a fish school swirls above the sand; the humpback rises from below at an angle, lower jaw dropping open, and engulfs the school and the diver in one sweep. THEORY badge.",
+   "camera": "Wide 20 mm from the side, slow-motion feel (lunge keyed over the full shot)",
+   "characters": [
+    "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless) (small)"
+   ],
+   "lighting": "Green daylight, sun shafts",
+   "fx": [
+    "fish_school (dense, orbit_speed high)",
+    "water_volume",
+    "caustics_light",
+    "sand puff"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "AN ACCIDENT?",
+     "params": {
+      "y": 1420,
+      "size": 90
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
+   "description": "Inside the dark mouth: close on the diver's regulator, a steady stream of bubbles from the exhaust; his tank valve glints. Bubbles pool overhead against the closed jaw.",
+   "camera": "Macro-feel 50 mm, slow orbit 15 deg",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Near-black, faint rim through the lip slit",
+   "fx": [
+    "bubbles_stream (rhythmic)",
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.8
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.3,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
+   "description": "The diver curls, still; the slit of light flickers as the whale moves. Heartbeat. EYEWITNESS CLAIM badge (his own account).",
+   "camera": "Static 35 mm, very slow push; slight sway as the 'room' moves",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Near-black, flickering light slit",
+   "fx": [
+    "flicker (light slit)",
+    "bubbles_stream"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "rumble",
+     "offset": 1.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:2.5D x-ray diagram of a humpback (side profile, white line art on dark teal)",
+   "description": "Mid-point turn: hard switch to a clean x-ray diagram — whale side profile, huge mouth cavity shaded, a tiny diver outline inside; the narrow throat channel highlighted red.",
+   "camera": "2D, slow zoom toward the throat",
+   "characters": [],
+   "lighting": "Flat diagram: dark teal background, white line art, red highlight",
+   "fx": [
+    "line draw-on",
+    "red pulse on throat"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "CAN'T SWALLOW",
+     "params": {
+      "y": 420,
+      "size": 120,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "whoosh",
+     "offset": 0.1,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:2.5D x-ray diagram (close on the throat)",
+   "description": "Close on the throat: a human-fist icon drops beside the opening for scale; the diver outline is shown as far too wide to fit.",
+   "camera": "2D, static with small scale pop",
+   "characters": [],
+   "lighting": "Flat diagram",
+   "fx": [
+    "icon pop",
+    "line draw-on"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THROAT ~ FIST-SIZED\n(EXPERT ESTIMATE)",
+     "params": {
+      "y": 1420,
+      "size": 70,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:inside the whale's mouth (near-black space; curved pale baleen 'curtain' of thin vertical plates suggested only by faint rim light; a slit of daylight where the lips meet)",
+   "description": "Back inside the dark: a seconds counter ticks up over the curled silhouette; the whole space tilts upward (the whale rising).",
+   "camera": "Camera parented to the jaw so the world tilts 25 deg up over the shot; 28 mm",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Near-black, light slit slowly brightening",
+   "fx": [
+    "bubbles_stream",
+    "tilt"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "IN THE MOUTH (HIS ESTIMATE)",
+     "params": {
+      "fmt": "mmss",
+      "from": 0,
+      "to": 40
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "riser",
+     "offset": 0.4,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "open_water",
+   "description": "Surface, bright summer day: the humpback's head breaks the surface in a spray of white water, light pours into the opening lips, the head swings left and right.",
+   "camera": "Low at the waterline, 24 mm, handheld; whale head fills the upper half",
+   "characters": [
+    "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)"
+   ],
+   "lighting": "Hard sunlight, white spray backlit",
+   "fx": [
+    "splash particles",
+    "wave surface",
+    "spray"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "whoosh",
+     "offset": 0.8,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "open_water",
+   "description": "The jaw opens; the small diver silhouette tumbles out into the water in a burst of white bubbles and foam; the whale rolls away and slips under.",
+   "camera": "Same position, slight push-in; 2-frame flash on the ejection",
+   "characters": [
+    "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres)",
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Hard sunlight",
+   "fx": [
+    "splash particles",
+    "bubbles burst",
+    "foam"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.1,
+     "gain": 0.8
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "open_water",
+   "description": "The lobster boat motors in; a faceless crew silhouette leans over the side and hauls the diver aboard by his harness. Name card.",
+   "camera": "Medium 35 mm from the water at the hull side, slight handheld",
+   "characters": [
+    "mayo_silhouette (char_figure, cap, faceless)",
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)"
+   ],
+   "lighting": "Bright afternoon sun, sparkle on water",
+   "fx": [
+    "wave surface",
+    "water drips",
+    "spray"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "JOSIAH MAYO\nCREWMATE",
+     "params": {
+      "y": 1420,
+      "size": 70
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "footsteps",
+     "offset": 1.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:boat deck close (lobster boat aft deck, coiled rope, crate)",
+   "description": "Diver silhouette sits on the deck against the gunwale, mask off (faceless), one leg stretched out. Injury card slides in.",
+   "camera": "Static 35 mm, slow push",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless) (seated)"
+   ],
+   "lighting": "Warm afternoon sun",
+   "fx": [
+    "subtle boat rock"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "SOFT-TISSUE DAMAGE\nNO BROKEN BONES",
+     "params": {
+      "header": "INJURIES (REPORTED)",
+      "y": 150
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:sandy seabed in green water (matches S01)",
+   "description": "Loop setup: back on the seabed, same framing as S01: the diver reaches for a lobster; a huge dark shape slides across the top of frame as the last word lands. Hard cut to S01.",
+   "camera": "Matches S01 exactly: 28 mm over the shoulder, slow push",
+   "characters": [
+    "packard_diver (char_diver, single tank, black wetsuit, orange accent fins; stylised, faceless)",
+    "humpback (new prop built from primitives: ~12 m stretched-sphere body, dark slate top / pale throat, 8-10 ventral throat grooves as thin dark extruded strips, long white pectoral fins as flattened cones, fluke as two flattened wedges; lower jaw is a separate hinged object for open/close; knobbly head bumps as small spheres) (shadow only)"
+   ],
+   "lighting": "Green sun shafts, darkening from above",
+   "fx": [
+    "caustics_light",
+    "particle_cloud",
+    "bubbles_stream",
+    "shadow sweep"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "rumble",
+     "offset": 1.6,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "fade_black"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
   ],
-  "music_curve": [
-    [
-      0,
-      0.5
-    ],
-    [
-      3,
-      0.2
-    ],
-    [
-      10,
-      0.6
-    ],
-    [
-      18,
-      0.75
-    ],
-    [
-      26,
-      0.85
-    ],
-    [
-      30,
-      0.4
-    ],
-    [
-      36,
-      0.7
-    ],
-    [
-      44,
-      0.9
-    ],
-    [
-      47,
-      0.5
-    ],
-    [
-      55,
-      0.3
-    ],
-    [
-      58,
-      0.0
-    ]
+  [
+   3,
+   0.2
   ],
-  "loop_line": "A humpback can't swallow you. But it can still close its mouth around you."
+  [
+   10,
+   0.6
+  ],
+  [
+   18,
+   0.75
+  ],
+  [
+   26,
+   0.85
+  ],
+  [
+   30,
+   0.4
+  ],
+  [
+   36,
+   0.7
+  ],
+  [
+   44,
+   0.9
+  ],
+  [
+   47,
+   0.5
+  ],
+  [
+   55,
+   0.3
+  ],
+  [
+   58,
+   0.0
+  ]
+ ],
+ "loop_line": "A humpback can't swallow you. But it can still close its mouth around you.",
+ "voice_original": "am_michael"
 }

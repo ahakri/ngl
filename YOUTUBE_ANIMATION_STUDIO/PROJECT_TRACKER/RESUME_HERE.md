@@ -8,3 +8,7 @@ Owner is away; work is fully autonomous. On every wake-up:
 5. Bounded retries: max 3 QC cycles per deliverable, then log in BLOCKERS.md and move on.
 
 Completion criteria: see PROJECT_BRIEF.md + master prompt section 11. When the selected slate is rendered and QC'd, expand the slate (next-best concepts) until all 100 have scripts, then keep rendering by rank.
+
+Narrator: the owner chose Kokoro voice `am_adam` (sampler voice 03) on 2026-11-27. It is enforced by `PIPELINE/studio_config.json`.
+Animated videos are timing-locked (`AUDIO/<ID>/timings_ref.json`): `make_video.py <ID> tts` re-voices without moving shot boundaries;
+finished videos are updated with `python3 PIPELINE/compose.py <ID>` (no re-render) followed by `python3 PIPELINE/qc_check.py <ID>`.

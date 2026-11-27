@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T17:09:31Z",
+ "updated": "2026-11-27T17:24:24Z",
  "phases": {
   "P1_research": {
    "status": "done",
@@ -52,7 +52,7 @@
   "SCUBA-04": "ANIMATED - in render queue",
   "SCUBA-05": "ANIMATED - in render queue",
   "SCUBA-06": "ANIMATED - in render queue",
-  "SCUBA-07": "ANIMATING",
+  "SCUBA-07": "ANIMATED - in render queue",
   "MURDER-01": "QC PASSED",
   "MURDER-02": "ANIMATED - in render queue",
   "MURDER-03": "ANIMATED - in render queue",

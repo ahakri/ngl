@@ -2,7 +2,7 @@
  "id": "MURDER-01",
  "title": "Nine Hikers Cut Their Tent Open From the Inside",
  "category": "murder",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.06,
  "mood": "murder",
  "target_seconds": 68,
@@ -1074,5 +1074,6 @@
    0.55
   ]
  ],
- "loop_line": "Whatever it was, it started like this."
+ "loop_line": "Whatever it was, it started like this.",
+ "voice_original": "am_onyx"
 }

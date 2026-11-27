@@ -2,7 +2,7 @@
  "id": "HAUNT-03",
  "title": "Don't Stop for Her on Archer Avenue",
  "category": "haunted",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.07,
  "mood": "haunted",
  "target_seconds": 52,
@@ -911,5 +911,6 @@
    0.35
   ]
  ],
- "loop_line": "Nobody knows. But on Archer Avenue,"
+ "loop_line": "Nobody knows. But on Archer Avenue,",
+ "voice_original": "am_onyx"
 }

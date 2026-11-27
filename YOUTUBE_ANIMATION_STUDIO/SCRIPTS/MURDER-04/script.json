@@ -2,7 +2,7 @@
  "id": "MURDER-04",
  "title": "The Zodiac's Cipher Was Cracked After 51 Years",
  "category": "murder",
- "voice": "am_michael",
+ "voice": "am_adam",
  "speed": 1.08,
  "mood": "murder",
  "target_seconds": 70,
@@ -1382,5 +1382,6 @@
    0.5
   ]
  ],
- "loop_line": "Think you can read it?"
+ "loop_line": "Think you can read it?",
+ "voice_original": "am_michael"
 }

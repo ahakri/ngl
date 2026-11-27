@@ -1,0 +1,970 @@
+{
+ "duration": 61.65,
+ "voice": "am_onyx",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 3.13,
+   "text": "This cold case is 5,300 years old.",
+   "words": [
+    {
+     "w": "This",
+     "start": 0.18,
+     "end": 0.41
+    },
+    {
+     "w": "cold",
+     "start": 0.41,
+     "end": 0.94
+    },
+    {
+     "w": "case",
+     "start": 0.94,
+     "end": 1.34
+    },
+    {
+     "w": "is",
+     "start": 1.34,
+     "end": 1.49
+    },
+    {
+     "w": "5,300",
+     "start": 1.49,
+     "end": 2.32
+    },
+    {
+     "w": "years",
+     "start": 2.32,
+     "end": 2.67
+    },
+    {
+     "w": "old.",
+     "start": 2.67,
+     "end": 3.07
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 3.33,
+   "end": 8.29,
+   "text": "September 1991. Two German hikers spot a body melting out of a glacier.",
+   "words": [
+    {
+     "w": "September",
+     "start": 3.36,
+     "end": 3.97
+    },
+    {
+     "w": "1991.",
+     "start": 3.97,
+     "end": 4.61
+    },
+    {
+     "w": "Two",
+     "start": 4.61,
+     "end": 4.97
+    },
+    {
+     "w": "German",
+     "start": 4.97,
+     "end": 5.4
+    },
+    {
+     "w": "hikers",
+     "start": 5.4,
+     "end": 5.88
+    },
+    {
+     "w": "spot",
+     "start": 5.88,
+     "end": 6.29
+    },
+    {
+     "w": "a",
+     "start": 6.29,
+     "end": 6.46
+    },
+    {
+     "w": "body",
+     "start": 6.46,
+     "end": 6.73
+    },
+    {
+     "w": "melting",
+     "start": 6.73,
+     "end": 7.29
+    },
+    {
+     "w": "out",
+     "start": 7.29,
+     "end": 7.53
+    },
+    {
+     "w": "of",
+     "start": 7.53,
+     "end": 7.64
+    },
+    {
+     "w": "a",
+     "start": 7.64,
+     "end": 7.77
+    },
+    {
+     "w": "glacier.",
+     "start": 7.77,
+     "end": 8.23
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 8.54,
+   "end": 11.65,
+   "text": "High in the \u00d6tztal Alps, on the border of Italy and Austria.",
+   "words": [
+    {
+     "w": "High",
+     "start": 8.57,
+     "end": 8.83
+    },
+    {
+     "w": "in",
+     "start": 8.83,
+     "end": 9.02
+    },
+    {
+     "w": "the",
+     "start": 9.02,
+     "end": 9.09
+    },
+    {
+     "w": "\u00d6tztal",
+     "start": 9.09,
+     "end": 9.49
+    },
+    {
+     "w": "Alps,",
+     "start": 9.49,
+     "end": 9.76
+    },
+    {
+     "w": "on",
+     "start": 9.76,
+     "end": 9.97
+    },
+    {
+     "w": "the",
+     "start": 9.97,
+     "end": 10.16
+    },
+    {
+     "w": "border",
+     "start": 10.16,
+     "end": 10.54
+    },
+    {
+     "w": "of",
+     "start": 10.54,
+     "end": 10.59
+    },
+    {
+     "w": "Italy",
+     "start": 10.59,
+     "end": 10.94
+    },
+    {
+     "w": "and",
+     "start": 10.94,
+     "end": 11.07
+    },
+    {
+     "w": "Austria.",
+     "start": 11.07,
+     "end": 11.59
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 11.85,
+   "end": 15.22,
+   "text": "At first, everyone assumed it was a climber who'd died recently.",
+   "words": [
+    {
+     "w": "At",
+     "start": 11.88,
+     "end": 11.96
+    },
+    {
+     "w": "first,",
+     "start": 11.96,
+     "end": 12.36
+    },
+    {
+     "w": "everyone",
+     "start": 12.36,
+     "end": 12.81
+    },
+    {
+     "w": "assumed",
+     "start": 12.81,
+     "end": 13.26
+    },
+    {
+     "w": "it",
+     "start": 13.26,
+     "end": 13.26
+    },
+    {
+     "w": "was",
+     "start": 13.26,
+     "end": 13.44
+    },
+    {
+     "w": "a",
+     "start": 13.44,
+     "end": 13.59
+    },
+    {
+     "w": "climber",
+     "start": 13.59,
+     "end": 14.05
+    },
+    {
+     "w": "who'd",
+     "start": 14.05,
+     "end": 14.26
+    },
+    {
+     "w": "died",
+     "start": 14.26,
+     "end": 14.56
+    },
+    {
+     "w": "recently.",
+     "start": 14.56,
+     "end": 15.16
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 15.52,
+   "end": 19.88,
+   "text": "Then radiocarbon dating put his life around 3300 BC.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 15.55,
+     "end": 15.74
+    },
+    {
+     "w": "radiocarbon",
+     "start": 15.74,
+     "end": 16.87
+    },
+    {
+     "w": "dating",
+     "start": 16.87,
+     "end": 17.23
+    },
+    {
+     "w": "put",
+     "start": 17.23,
+     "end": 17.58
+    },
+    {
+     "w": "his",
+     "start": 17.58,
+     "end": 17.72
+    },
+    {
+     "w": "life",
+     "start": 17.72,
+     "end": 18.06
+    },
+    {
+     "w": "around",
+     "start": 18.06,
+     "end": 18.54
+    },
+    {
+     "w": "3300",
+     "start": 18.54,
+     "end": 19.34
+    },
+    {
+     "w": "BC.",
+     "start": 19.34,
+     "end": 19.82
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 20.13,
+   "end": 23.63,
+   "text": "Europe's oldest known natural human mummy. They named him \u00d6tzi.",
+   "words": [
+    {
+     "w": "Europe's",
+     "start": 20.16,
+     "end": 20.56
+    },
+    {
+     "w": "oldest",
+     "start": 20.56,
+     "end": 21.1
+    },
+    {
+     "w": "known",
+     "start": 21.1,
+     "end": 21.25
+    },
+    {
+     "w": "natural",
+     "start": 21.25,
+     "end": 21.77
+    },
+    {
+     "w": "human",
+     "start": 21.77,
+     "end": 22.3
+    },
+    {
+     "w": "mummy.",
+     "start": 22.3,
+     "end": 22.54
+    },
+    {
+     "w": "They",
+     "start": 22.54,
+     "end": 22.64
+    },
+    {
+     "w": "named",
+     "start": 22.64,
+     "end": 23.07
+    },
+    {
+     "w": "him",
+     "start": 23.07,
+     "end": 23.3
+    },
+    {
+     "w": "\u00d6tzi.",
+     "start": 23.3,
+     "end": 23.57
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 23.93,
+   "end": 27.28,
+   "text": "He carried a copper axe, a flint dagger and an unfinished bow.",
+   "words": [
+    {
+     "w": "He",
+     "start": 23.96,
+     "end": 24.08
+    },
+    {
+     "w": "carried",
+     "start": 24.08,
+     "end": 24.46
+    },
+    {
+     "w": "a",
+     "start": 24.46,
+     "end": 24.66
+    },
+    {
+     "w": "copper",
+     "start": 24.66,
+     "end": 25.0
+    },
+    {
+     "w": "axe,",
+     "start": 25.0,
+     "end": 25.25
+    },
+    {
+     "w": "a",
+     "start": 25.25,
+     "end": 25.52
+    },
+    {
+     "w": "flint",
+     "start": 25.52,
+     "end": 25.81
+    },
+    {
+     "w": "dagger",
+     "start": 25.81,
+     "end": 26.07
+    },
+    {
+     "w": "and",
+     "start": 26.07,
+     "end": 26.37
+    },
+    {
+     "w": "an",
+     "start": 26.37,
+     "end": 26.4
+    },
+    {
+     "w": "unfinished",
+     "start": 26.4,
+     "end": 26.91
+    },
+    {
+     "w": "bow.",
+     "start": 26.91,
+     "end": 27.22
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 27.53,
+   "end": 29.91,
+   "text": "But for ten years, nobody knew how he died.",
+   "words": [
+    {
+     "w": "But",
+     "start": 27.56,
+     "end": 27.82
+    },
+    {
+     "w": "for",
+     "start": 27.82,
+     "end": 28.01
+    },
+    {
+     "w": "ten",
+     "start": 28.01,
+     "end": 28.27
+    },
+    {
+     "w": "years,",
+     "start": 28.27,
+     "end": 28.47
+    },
+    {
+     "w": "nobody",
+     "start": 28.47,
+     "end": 28.94
+    },
+    {
+     "w": "knew",
+     "start": 28.94,
+     "end": 29.14
+    },
+    {
+     "w": "how",
+     "start": 29.14,
+     "end": 29.43
+    },
+    {
+     "w": "he",
+     "start": 29.43,
+     "end": 29.61
+    },
+    {
+     "w": "died.",
+     "start": 29.61,
+     "end": 29.85
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 30.31,
+   "end": 33.91,
+   "text": "In 2001, a new X-ray caught something in his left shoulder.",
+   "words": [
+    {
+     "w": "In",
+     "start": 30.34,
+     "end": 30.46
+    },
+    {
+     "w": "2001,",
+     "start": 30.46,
+     "end": 31.26
+    },
+    {
+     "w": "a",
+     "start": 31.26,
+     "end": 31.43
+    },
+    {
+     "w": "new",
+     "start": 31.43,
+     "end": 31.54
+    },
+    {
+     "w": "X-ray",
+     "start": 31.54,
+     "end": 32.06
+    },
+    {
+     "w": "caught",
+     "start": 32.06,
+     "end": 32.29
+    },
+    {
+     "w": "something",
+     "start": 32.29,
+     "end": 32.79
+    },
+    {
+     "w": "in",
+     "start": 32.79,
+     "end": 32.97
+    },
+    {
+     "w": "his",
+     "start": 32.97,
+     "end": 33.13
+    },
+    {
+     "w": "left",
+     "start": 33.13,
+     "end": 33.38
+    },
+    {
+     "w": "shoulder.",
+     "start": 33.38,
+     "end": 33.85
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 34.51,
+   "end": 35.77,
+   "text": "A flint arrowhead.",
+   "words": [
+    {
+     "w": "A",
+     "start": 34.54,
+     "end": 34.68
+    },
+    {
+     "w": "flint",
+     "start": 34.68,
+     "end": 35.06
+    },
+    {
+     "w": "arrowhead.",
+     "start": 35.06,
+     "end": 35.71
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 36.07,
+   "end": 37.72,
+   "text": "He'd been shot from behind.",
+   "words": [
+    {
+     "w": "He'd",
+     "start": 36.1,
+     "end": 36.38
+    },
+    {
+     "w": "been",
+     "start": 36.38,
+     "end": 36.61
+    },
+    {
+     "w": "shot",
+     "start": 36.61,
+     "end": 36.86
+    },
+    {
+     "w": "from",
+     "start": 36.86,
+     "end": 37.15
+    },
+    {
+     "w": "behind.",
+     "start": 37.15,
+     "end": 37.66
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 38.02,
+   "end": 41.63,
+   "text": "Looking back, it was visible on an X-ray from 1991.",
+   "words": [
+    {
+     "w": "Looking",
+     "start": 38.05,
+     "end": 38.51
+    },
+    {
+     "w": "back,",
+     "start": 38.51,
+     "end": 38.71
+    },
+    {
+     "w": "it",
+     "start": 38.71,
+     "end": 38.81
+    },
+    {
+     "w": "was",
+     "start": 38.81,
+     "end": 39.0
+    },
+    {
+     "w": "visible",
+     "start": 39.0,
+     "end": 39.65
+    },
+    {
+     "w": "on",
+     "start": 39.65,
+     "end": 39.82
+    },
+    {
+     "w": "an",
+     "start": 39.82,
+     "end": 39.99
+    },
+    {
+     "w": "X-ray",
+     "start": 39.99,
+     "end": 40.44
+    },
+    {
+     "w": "from",
+     "start": 40.44,
+     "end": 40.75
+    },
+    {
+     "w": "1991.",
+     "start": 40.75,
+     "end": 41.57
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 41.98,
+   "end": 45.11,
+   "text": "In 2007, new CT scans looked closer.",
+   "words": [
+    {
+     "w": "In",
+     "start": 42.01,
+     "end": 42.27
+    },
+    {
+     "w": "2007,",
+     "start": 42.27,
+     "end": 43.06
+    },
+    {
+     "w": "new",
+     "start": 43.06,
+     "end": 43.34
+    },
+    {
+     "w": "CT",
+     "start": 43.34,
+     "end": 43.89
+    },
+    {
+     "w": "scans",
+     "start": 43.89,
+     "end": 44.27
+    },
+    {
+     "w": "looked",
+     "start": 44.27,
+     "end": 44.51
+    },
+    {
+     "w": "closer.",
+     "start": 44.51,
+     "end": 45.05
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 45.31,
+   "end": 48.37,
+   "text": "The arrow had torn a major artery under his collarbone.",
+   "words": [
+    {
+     "w": "The",
+     "start": 45.34,
+     "end": 45.38
+    },
+    {
+     "w": "arrow",
+     "start": 45.38,
+     "end": 45.77
+    },
+    {
+     "w": "had",
+     "start": 45.77,
+     "end": 45.94
+    },
+    {
+     "w": "torn",
+     "start": 45.94,
+     "end": 46.22
+    },
+    {
+     "w": "a",
+     "start": 46.22,
+     "end": 46.48
+    },
+    {
+     "w": "major",
+     "start": 46.48,
+     "end": 46.73
+    },
+    {
+     "w": "artery",
+     "start": 46.73,
+     "end": 47.24
+    },
+    {
+     "w": "under",
+     "start": 47.24,
+     "end": 47.55
+    },
+    {
+     "w": "his",
+     "start": 47.55,
+     "end": 47.65
+    },
+    {
+     "w": "collarbone.",
+     "start": 47.65,
+     "end": 48.31
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 48.62,
+   "end": 51.35,
+   "text": "Researchers concluded he most likely bled to death.",
+   "words": [
+    {
+     "w": "Researchers",
+     "start": 48.65,
+     "end": 49.23
+    },
+    {
+     "w": "concluded",
+     "start": 49.23,
+     "end": 49.75
+    },
+    {
+     "w": "he",
+     "start": 49.75,
+     "end": 49.97
+    },
+    {
+     "w": "most",
+     "start": 49.97,
+     "end": 50.2
+    },
+    {
+     "w": "likely",
+     "start": 50.2,
+     "end": 50.64
+    },
+    {
+     "w": "bled",
+     "start": 50.64,
+     "end": 50.94
+    },
+    {
+     "w": "to",
+     "start": 50.94,
+     "end": 51.08
+    },
+    {
+     "w": "death.",
+     "start": 51.08,
+     "end": 51.29
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 51.75,
+   "end": 54.91,
+   "text": "Shortly before, he'd eaten a hearty meal, including ibex.",
+   "words": [
+    {
+     "w": "Shortly",
+     "start": 51.78,
+     "end": 52.27
+    },
+    {
+     "w": "before,",
+     "start": 52.27,
+     "end": 52.66
+    },
+    {
+     "w": "he'd",
+     "start": 52.66,
+     "end": 52.81
+    },
+    {
+     "w": "eaten",
+     "start": 52.81,
+     "end": 53.03
+    },
+    {
+     "w": "a",
+     "start": 53.03,
+     "end": 53.2
+    },
+    {
+     "w": "hearty",
+     "start": 53.2,
+     "end": 53.69
+    },
+    {
+     "w": "meal,",
+     "start": 53.69,
+     "end": 53.9
+    },
+    {
+     "w": "including",
+     "start": 53.9,
+     "end": 54.47
+    },
+    {
+     "w": "ibex.",
+     "start": 54.47,
+     "end": 54.85
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 55.21,
+   "end": 57.34,
+   "text": "Who shot him, and why, is still unknown.",
+   "words": [
+    {
+     "w": "Who",
+     "start": 55.24,
+     "end": 55.42
+    },
+    {
+     "w": "shot",
+     "start": 55.42,
+     "end": 55.84
+    },
+    {
+     "w": "him,",
+     "start": 55.84,
+     "end": 55.96
+    },
+    {
+     "w": "and",
+     "start": 55.96,
+     "end": 56.26
+    },
+    {
+     "w": "why,",
+     "start": 56.26,
+     "end": 56.5
+    },
+    {
+     "w": "is",
+     "start": 56.5,
+     "end": 56.54
+    },
+    {
+     "w": "still",
+     "start": 56.54,
+     "end": 56.8
+    },
+    {
+     "w": "unknown.",
+     "start": 56.8,
+     "end": 57.28
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 57.84,
+   "end": 60.75,
+   "text": "Today, he's kept on ice in a museum in Bolzano.",
+   "words": [
+    {
+     "w": "Today,",
+     "start": 57.87,
+     "end": 58.26
+    },
+    {
+     "w": "he's",
+     "start": 58.26,
+     "end": 58.46
+    },
+    {
+     "w": "kept",
+     "start": 58.46,
+     "end": 58.68
+    },
+    {
+     "w": "on",
+     "start": 58.68,
+     "end": 58.9
+    },
+    {
+     "w": "ice",
+     "start": 58.9,
+     "end": 59.14
+    },
+    {
+     "w": "in",
+     "start": 59.14,
+     "end": 59.26
+    },
+    {
+     "w": "a",
+     "start": 59.26,
+     "end": 59.39
+    },
+    {
+     "w": "museum",
+     "start": 59.39,
+     "end": 59.98
+    },
+    {
+     "w": "in",
+     "start": 59.98,
+     "end": 60.12
+    },
+    {
+     "w": "Bolzano.",
+     "start": 60.12,
+     "end": 60.69
+    }
+   ]
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 """Orchestrates one Short end-to-end, resumable (skips finished stages/frames).
-Usage: python3 make_video.py <ID> [tts|timing|preview|render|compose|all] [--res 540]
+Usage: python3 make_video.py <ID> [tts|timing|preview|render|compose|all] [--res 540] [--retime]
+  tts: narrates in the studio voice (studio_config.json); timing-locked if AUDIO/<ID>/timings_ref.json exists.
   preview: renders 3 stills per shot at 270x480 -> QUALITY_CONTROL/<ID>/contact_sheet.png
 """
 import json, os, sys, subprocess, math, glob
@@ -14,18 +15,39 @@ def P(*a):
     return os.path.join(ROOT, *a)
 
 
-def tts(id_):
+def studio_voice(default=None):
+    """Single source of truth for the channel narrator (PIPELINE/studio_config.json)."""
+    cfg = os.path.join(HERE, "studio_config.json")
+    if os.path.exists(cfg):
+        return json.load(open(cfg)).get("voice") or default
+    return default
+
+
+def tts(id_, retime=False):
+    """Narrate a script in the studio voice.
+    If AUDIO/<ID>/timings_ref.json exists the narration is timing-locked to it (line starts and shot timing unchanged,
+    so rendered frames, shots.py animation and overlay cue times stay valid). `retime=True` drops the lock and lays the
+    lines out naturally (then shots must be re-previewed/re-rendered)."""
     sc = json.load(open(P("SCRIPTS", id_, "script.json")))
     adir = P("AUDIO", id_)
     os.makedirs(adir, exist_ok=True)
-    tj = {"voice": sc.get("voice", "am_michael"), "speed": sc.get("speed", 1.07), "lines": sc["lines"]}
+    tj = {"voice": studio_voice(sc.get("voice", "am_adam")), "speed": sc.get("speed", 1.07), "lines": sc["lines"]}
     json.dump(tj, open(os.path.join(adir, "tts_input.json"), "w"))
-    subprocess.run([TTSPY, os.path.join(HERE, "tts.py"), os.path.join(adir, "tts_input.json"), adir], check=True)
+    ref = os.path.join(adir, "timings_ref.json")
+    if retime and os.path.exists(ref):
+        os.remove(ref)
+    cmd = [TTSPY, os.path.join(HERE, "tts.py"), os.path.join(adir, "tts_input.json"), adir]
+    if os.path.exists(ref):
+        cmd += ["--ref", ref]
+    subprocess.run(cmd, check=True)
 
 
 def timing(id_):
     sc = json.load(open(P("SCRIPTS", id_, "script.json")))
-    tm = json.load(open(P("AUDIO", id_, "timings.json")))
+    # shot timing always comes from the timing reference when one exists (timing lock), so re-voicing can never
+    # move a shot boundary or change a rendered shot's frame count
+    ref = P("AUDIO", id_, "timings_ref.json")
+    tm = json.load(open(ref if os.path.exists(ref) else P("AUDIO", id_, "timings.json")))
     lstart = {l["id"]: l["start"] for l in tm["lines"]}
     shots = sc["shots"]
     starts = []
@@ -105,7 +127,7 @@ if __name__ == "__main__":
     res = int(sys.argv[sys.argv.index("--res") + 1]) if "--res" in sys.argv else 540
     only = sys.argv[sys.argv.index("--only") + 1].split(",") if "--only" in sys.argv else None
     if stage in ("tts", "all"):
-        tts(id_)
+        tts(id_, retime="--retime" in sys.argv)
     if stage in ("timing", "all", "tts"):
         print(json.dumps(timing(id_))[:300])
     if stage == "preview":

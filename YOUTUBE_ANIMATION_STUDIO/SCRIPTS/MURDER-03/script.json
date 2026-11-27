@@ -2,7 +2,7 @@
  "id": "MURDER-03",
  "title": "He Hijacked a Plane, Then Jumped Into the Night",
  "category": "murder",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.06,
  "mood": "murder",
  "target_seconds": 70,
@@ -1416,5 +1416,6 @@
    0.55
   ]
  ],
- "loop_line": "All anyone knows for sure is this."
+ "loop_line": "All anyone knows for sure is this.",
+ "voice_original": "am_onyx"
 }

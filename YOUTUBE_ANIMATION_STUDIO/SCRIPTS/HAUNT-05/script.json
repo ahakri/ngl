@@ -2,7 +2,7 @@
  "id": "HAUNT-05",
  "title": "The Tunnel Built to Hide the Dead",
  "category": "haunted",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.07,
  "mood": "haunted",
  "target_seconds": 50,
@@ -834,5 +834,6 @@
    0.35
   ]
  ],
- "loop_line": "Ask anyone at Waverly, and they'll tell you:"
+ "loop_line": "Ask anyone at Waverly, and they'll tell you:",
+ "voice_original": "am_onyx"
 }

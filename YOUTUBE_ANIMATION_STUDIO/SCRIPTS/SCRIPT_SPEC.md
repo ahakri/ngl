@@ -30,7 +30,7 @@ Shots must be describable with those parts (new simple props are fine: describe 
 {
   "id": "CAVE-01",
   "title": "...", "category": "cave|scuba|murder|haunted",
-  "voice": "am_michael", "speed": 1.07, "mood": "cave|scuba|murder|haunted",
+  "voice": "am_adam", "speed": 1.07, "mood": "cave|scuba|murder|haunted",
   "target_seconds": 60,
   "lines": [
     {"id": "L01", "text": "narration sentence(s)", "pause_after": 0.25, "shot": "S01", "emphasis": ["words", "to", "highlight"]}
@@ -47,3 +47,12 @@ Shots must be describable with those parts (new simple props are fine: describe 
 }
 ```
 `offset` in sfx is seconds from the shot start. Shot durations are derived automatically from the narration timing of their lines.
+
+## Studio narrator voice (decided by the owner, 2026-11-27)
+- The channel narrator is Kokoro voice **`am_adam`** ("Voice 03" in AUDIO/VOICE_SAMPLER). It is set once in `PIPELINE/studio_config.json`
+  and overrides any per-script `voice` field, so every Short has the same narrator. Write `"voice": "am_adam"` in new scripts.
+- Adam reads faster than the earlier voices at the same `speed` value. For NEW scripts use `"speed": 0.97` (≈155–165 wpm) and re-time from the real TTS render.
+- **Timing lock:** once a video's shots are animated, `AUDIO/<ID>/timings_ref.json` freezes its line start times. `make_video.py <ID> tts`
+  then re-voices each line at a fitted speed (0.90–1.30) inside its original slot, so shot durations, rendered frames and overlay cue times
+  never move. Small wording fixes are safe under the lock. For a real rewrite (line count or length changes a lot) run
+  `make_video.py <ID> tts --retime`, then re-preview and re-render the video.

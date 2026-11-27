@@ -1,0 +1,794 @@
+{
+ "duration": 56.45,
+ "voice": "bm_george",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 5.74,
+   "text": "In 1977, investigators left a tape recorder running in this bedroom.",
+   "words": [
+    {
+     "w": "In",
+     "start": 0.17,
+     "end": 0.45
+    },
+    {
+     "w": "1977,",
+     "start": 0.45,
+     "end": 1.36
+    },
+    {
+     "w": "investigators",
+     "start": 1.36,
+     "end": 2.42
+    },
+    {
+     "w": "left",
+     "start": 2.42,
+     "end": 2.87
+    },
+    {
+     "w": "a",
+     "start": 2.87,
+     "end": 2.97
+    },
+    {
+     "w": "tape",
+     "start": 2.97,
+     "end": 3.38
+    },
+    {
+     "w": "recorder",
+     "start": 3.38,
+     "end": 4.14
+    },
+    {
+     "w": "running",
+     "start": 4.14,
+     "end": 4.6
+    },
+    {
+     "w": "in",
+     "start": 4.6,
+     "end": 4.83
+    },
+    {
+     "w": "this",
+     "start": 4.83,
+     "end": 5.11
+    },
+    {
+     "w": "bedroom.",
+     "start": 5.11,
+     "end": 5.68
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 5.94,
+   "end": 9.31,
+   "text": "Enfield, London. The case behind The Conjuring 2.",
+   "words": [
+    {
+     "w": "Enfield,",
+     "start": 5.97,
+     "end": 6.56
+    },
+    {
+     "w": "London.",
+     "start": 6.56,
+     "end": 7.12
+    },
+    {
+     "w": "The",
+     "start": 7.12,
+     "end": 7.23
+    },
+    {
+     "w": "case",
+     "start": 7.23,
+     "end": 7.51
+    },
+    {
+     "w": "behind",
+     "start": 7.51,
+     "end": 8.21
+    },
+    {
+     "w": "The",
+     "start": 8.21,
+     "end": 8.34
+    },
+    {
+     "w": "Conjuring",
+     "start": 8.34,
+     "end": 9.09
+    },
+    {
+     "w": "2.",
+     "start": 9.09,
+     "end": 9.25
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 9.56,
+   "end": 12.91,
+   "text": "A mother had called the police about knocking in the walls.",
+   "words": [
+    {
+     "w": "A",
+     "start": 9.59,
+     "end": 9.8
+    },
+    {
+     "w": "mother",
+     "start": 9.8,
+     "end": 10.15
+    },
+    {
+     "w": "had",
+     "start": 10.15,
+     "end": 10.31
+    },
+    {
+     "w": "called",
+     "start": 10.31,
+     "end": 10.79
+    },
+    {
+     "w": "the",
+     "start": 10.79,
+     "end": 10.89
+    },
+    {
+     "w": "police",
+     "start": 10.89,
+     "end": 11.25
+    },
+    {
+     "w": "about",
+     "start": 11.25,
+     "end": 11.75
+    },
+    {
+     "w": "knocking",
+     "start": 11.75,
+     "end": 12.13
+    },
+    {
+     "w": "in",
+     "start": 12.13,
+     "end": 12.34
+    },
+    {
+     "w": "the",
+     "start": 12.34,
+     "end": 12.51
+    },
+    {
+     "w": "walls.",
+     "start": 12.51,
+     "end": 12.85
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 13.16,
+   "end": 16.25,
+   "text": "An officer reported a chair sliding by itself.",
+   "words": [
+    {
+     "w": "An",
+     "start": 13.18,
+     "end": 13.36
+    },
+    {
+     "w": "officer",
+     "start": 13.36,
+     "end": 13.82
+    },
+    {
+     "w": "reported",
+     "start": 13.82,
+     "end": 14.48
+    },
+    {
+     "w": "a",
+     "start": 14.48,
+     "end": 14.59
+    },
+    {
+     "w": "chair",
+     "start": 14.59,
+     "end": 14.9
+    },
+    {
+     "w": "sliding",
+     "start": 14.9,
+     "end": 15.47
+    },
+    {
+     "w": "by",
+     "start": 15.47,
+     "end": 15.77
+    },
+    {
+     "w": "itself.",
+     "start": 15.77,
+     "end": 16.19
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 16.55,
+   "end": 20.33,
+   "text": "Then investigators Maurice Grosse and Guy Playfair arrived.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 16.58,
+     "end": 16.85
+    },
+    {
+     "w": "investigators",
+     "start": 16.85,
+     "end": 17.93
+    },
+    {
+     "w": "Maurice",
+     "start": 17.93,
+     "end": 18.41
+    },
+    {
+     "w": "Grosse",
+     "start": 18.41,
+     "end": 18.82
+    },
+    {
+     "w": "and",
+     "start": 18.82,
+     "end": 18.91
+    },
+    {
+     "w": "Guy",
+     "start": 18.91,
+     "end": 19.3
+    },
+    {
+     "w": "Playfair",
+     "start": 19.3,
+     "end": 19.78
+    },
+    {
+     "w": "arrived.",
+     "start": 19.78,
+     "end": 20.27
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 20.58,
+   "end": 23.43,
+   "text": "They recorded over a hundred and eighty hours.",
+   "words": [
+    {
+     "w": "They",
+     "start": 20.61,
+     "end": 20.85
+    },
+    {
+     "w": "recorded",
+     "start": 20.85,
+     "end": 21.46
+    },
+    {
+     "w": "over",
+     "start": 21.46,
+     "end": 21.73
+    },
+    {
+     "w": "a",
+     "start": 21.73,
+     "end": 21.94
+    },
+    {
+     "w": "hundred",
+     "start": 21.94,
+     "end": 22.53
+    },
+    {
+     "w": "and",
+     "start": 22.53,
+     "end": 22.69
+    },
+    {
+     "w": "eighty",
+     "start": 22.69,
+     "end": 23.07
+    },
+    {
+     "w": "hours.",
+     "start": 23.07,
+     "end": 23.37
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 23.68,
+   "end": 28.71,
+   "text": "Knocks. Furniture overturned. Janet, eleven, thrown from bed, the family said.",
+   "words": [
+    {
+     "w": "Knocks.",
+     "start": 23.71,
+     "end": 24.17
+    },
+    {
+     "w": "Furniture",
+     "start": 24.17,
+     "end": 24.87
+    },
+    {
+     "w": "overturned.",
+     "start": 24.87,
+     "end": 25.63
+    },
+    {
+     "w": "Janet,",
+     "start": 25.63,
+     "end": 26.2
+    },
+    {
+     "w": "eleven,",
+     "start": 26.2,
+     "end": 26.7
+    },
+    {
+     "w": "thrown",
+     "start": 26.7,
+     "end": 27.09
+    },
+    {
+     "w": "from",
+     "start": 27.09,
+     "end": 27.45
+    },
+    {
+     "w": "bed,",
+     "start": 27.45,
+     "end": 27.75
+    },
+    {
+     "w": "the",
+     "start": 27.75,
+     "end": 27.83
+    },
+    {
+     "w": "family",
+     "start": 27.83,
+     "end": 28.4
+    },
+    {
+     "w": "said.",
+     "start": 28.4,
+     "end": 28.65
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 29.01,
+   "end": 31.55,
+   "text": "Then the tape caught a deep, gruff man's voice.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 29.04,
+     "end": 29.27
+    },
+    {
+     "w": "the",
+     "start": 29.27,
+     "end": 29.47
+    },
+    {
+     "w": "tape",
+     "start": 29.47,
+     "end": 29.75
+    },
+    {
+     "w": "caught",
+     "start": 29.75,
+     "end": 29.98
+    },
+    {
+     "w": "a",
+     "start": 29.98,
+     "end": 30.23
+    },
+    {
+     "w": "deep,",
+     "start": 30.23,
+     "end": 30.48
+    },
+    {
+     "w": "gruff",
+     "start": 30.48,
+     "end": 30.86
+    },
+    {
+     "w": "man's",
+     "start": 30.86,
+     "end": 31.23
+    },
+    {
+     "w": "voice.",
+     "start": 31.23,
+     "end": 31.49
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 31.9,
+   "end": 33.1,
+   "text": "Coming from Janet.",
+   "words": [
+    {
+     "w": "Coming",
+     "start": 31.93,
+     "end": 32.31
+    },
+    {
+     "w": "from",
+     "start": 32.31,
+     "end": 32.52
+    },
+    {
+     "w": "Janet.",
+     "start": 32.52,
+     "end": 33.04
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 33.4,
+   "end": 36.62,
+   "text": "It called itself Bill, and claimed it died in that house.",
+   "words": [
+    {
+     "w": "It",
+     "start": 33.43,
+     "end": 33.52
+    },
+    {
+     "w": "called",
+     "start": 33.52,
+     "end": 33.98
+    },
+    {
+     "w": "itself",
+     "start": 33.98,
+     "end": 34.46
+    },
+    {
+     "w": "Bill,",
+     "start": 34.46,
+     "end": 34.72
+    },
+    {
+     "w": "and",
+     "start": 34.72,
+     "end": 34.81
+    },
+    {
+     "w": "claimed",
+     "start": 34.81,
+     "end": 35.38
+    },
+    {
+     "w": "it",
+     "start": 35.38,
+     "end": 35.48
+    },
+    {
+     "w": "died",
+     "start": 35.48,
+     "end": 35.79
+    },
+    {
+     "w": "in",
+     "start": 35.79,
+     "end": 36.03
+    },
+    {
+     "w": "that",
+     "start": 36.03,
+     "end": 36.29
+    },
+    {
+     "w": "house.",
+     "start": 36.29,
+     "end": 36.56
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 37.02,
+   "end": 40.56,
+   "text": "But a camera next door caught Janet bending spoons herself.",
+   "words": [
+    {
+     "w": "But",
+     "start": 37.04,
+     "end": 37.21
+    },
+    {
+     "w": "a",
+     "start": 37.21,
+     "end": 37.41
+    },
+    {
+     "w": "camera",
+     "start": 37.41,
+     "end": 37.76
+    },
+    {
+     "w": "next",
+     "start": 37.76,
+     "end": 38.18
+    },
+    {
+     "w": "door",
+     "start": 38.18,
+     "end": 38.42
+    },
+    {
+     "w": "caught",
+     "start": 38.42,
+     "end": 38.75
+    },
+    {
+     "w": "Janet",
+     "start": 38.75,
+     "end": 39.12
+    },
+    {
+     "w": "bending",
+     "start": 39.12,
+     "end": 39.66
+    },
+    {
+     "w": "spoons",
+     "start": 39.66,
+     "end": 40.02
+    },
+    {
+     "w": "herself.",
+     "start": 40.02,
+     "end": 40.5
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 40.81,
+   "end": 44.26,
+   "text": "A former Society president suspected ventriloquism.",
+   "words": [
+    {
+     "w": "A",
+     "start": 40.84,
+     "end": 40.96
+    },
+    {
+     "w": "former",
+     "start": 40.96,
+     "end": 41.5
+    },
+    {
+     "w": "Society",
+     "start": 41.5,
+     "end": 42.05
+    },
+    {
+     "w": "president",
+     "start": 42.05,
+     "end": 42.67
+    },
+    {
+     "w": "suspected",
+     "start": 42.67,
+     "end": 43.2
+    },
+    {
+     "w": "ventriloquism.",
+     "start": 43.2,
+     "end": 44.2
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 44.51,
+   "end": 48.04,
+   "text": "Later, Janet admitted some was faked. About two per cent.",
+   "words": [
+    {
+     "w": "Later,",
+     "start": 44.54,
+     "end": 44.95
+    },
+    {
+     "w": "Janet",
+     "start": 44.95,
+     "end": 45.41
+    },
+    {
+     "w": "admitted",
+     "start": 45.41,
+     "end": 45.91
+    },
+    {
+     "w": "some",
+     "start": 45.91,
+     "end": 46.19
+    },
+    {
+     "w": "was",
+     "start": 46.19,
+     "end": 46.45
+    },
+    {
+     "w": "faked.",
+     "start": 46.45,
+     "end": 46.8
+    },
+    {
+     "w": "About",
+     "start": 46.8,
+     "end": 47.19
+    },
+    {
+     "w": "two",
+     "start": 47.19,
+     "end": 47.44
+    },
+    {
+     "w": "per",
+     "start": 47.44,
+     "end": 47.7
+    },
+    {
+     "w": "cent.",
+     "start": 47.7,
+     "end": 47.98
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 48.34,
+   "end": 50.26,
+   "text": "The rest, she says, was real.",
+   "words": [
+    {
+     "w": "The",
+     "start": 48.37,
+     "end": 48.58
+    },
+    {
+     "w": "rest,",
+     "start": 48.58,
+     "end": 48.9
+    },
+    {
+     "w": "she",
+     "start": 48.9,
+     "end": 49.16
+    },
+    {
+     "w": "says,",
+     "start": 49.16,
+     "end": 49.51
+    },
+    {
+     "w": "was",
+     "start": 49.51,
+     "end": 49.69
+    },
+    {
+     "w": "real.",
+     "start": 49.69,
+     "end": 50.2
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 51.16,
+   "end": 53.73,
+   "text": "So which knocks were hers? Nobody knows.",
+   "words": [
+    {
+     "w": "So",
+     "start": 51.19,
+     "end": 51.51
+    },
+    {
+     "w": "which",
+     "start": 51.51,
+     "end": 51.81
+    },
+    {
+     "w": "knocks",
+     "start": 51.81,
+     "end": 52.15
+    },
+    {
+     "w": "were",
+     "start": 52.15,
+     "end": 52.45
+    },
+    {
+     "w": "hers?",
+     "start": 52.45,
+     "end": 52.67
+    },
+    {
+     "w": "Nobody",
+     "start": 52.67,
+     "end": 53.39
+    },
+    {
+     "w": "knows.",
+     "start": 53.39,
+     "end": 53.67
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 54.08,
+   "end": 55.75,
+   "text": "Only one thing is certain:",
+   "words": [
+    {
+     "w": "Only",
+     "start": 54.11,
+     "end": 54.59
+    },
+    {
+     "w": "one",
+     "start": 54.59,
+     "end": 54.81
+    },
+    {
+     "w": "thing",
+     "start": 54.81,
+     "end": 55.05
+    },
+    {
+     "w": "is",
+     "start": 55.05,
+     "end": 55.27
+    },
+    {
+     "w": "certain:",
+     "start": 55.27,
+     "end": 55.69
+    }
+   ]
+  }
+ ]
+}

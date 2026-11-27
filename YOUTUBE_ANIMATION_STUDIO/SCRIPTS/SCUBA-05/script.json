@@ -1,1103 +1,1104 @@
 {
-  "id": "SCUBA-05",
-  "title": "He Dived 332 m. Getting Back Took Nearly 15 Hours",
-  "category": "scuba",
-  "voice": "am_onyx",
-  "speed": 1.08,
-  "mood": "scuba",
-  "target_seconds": 57,
-  "lines": [
+ "id": "SCUBA-05",
+ "title": "He Dived 332 m. Getting Back Took Nearly 15 Hours",
+ "category": "scuba",
+ "voice": "am_adam",
+ "speed": 1.08,
+ "mood": "scuba",
+ "target_seconds": 57,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Going down took him twelve minutes.",
+   "pause_after": 0.15,
+   "shot": "S01",
+   "emphasis": [
+    "twelve",
+    "minutes"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Coming back up took nearly fifteen hours.",
+   "pause_after": 0.35,
+   "shot": "S02",
+   "emphasis": [
+    "fifteen",
+    "hours"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Dahab, Egypt, 2014. Ahmed Gabr drops into the Red Sea.",
+   "pause_after": 0.2,
+   "shot": "S03",
+   "emphasis": [
+    "Dahab",
+    "Ahmed",
+    "Gabr"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "No submarine. Just scuba tanks and a rope.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "scuba"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "One hundred metres. Two hundred. Three hundred.",
+   "pause_after": 0.2,
+   "shot": "S05",
+   "emphasis": [
+    "hundred"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Tags on the rope will prove the depth.",
+   "pause_after": 0.2,
+   "shot": "S06",
+   "emphasis": [
+    "Tags",
+    "prove"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Three hundred and thirty-two metres.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "thirty-two"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Deeper than the Eiffel Tower is tall.",
+   "pause_after": 0.2,
+   "shot": "S08",
+   "emphasis": [
+    "Eiffel",
+    "Tower"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "A new world record. The old mark had stood since 2005.",
+   "pause_after": 0.35,
+   "shot": "S09",
+   "emphasis": [
+    "record",
+    "2005"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Now the hard part: getting back.",
+   "pause_after": 0.2,
+   "shot": "S10",
+   "emphasis": [
+    "hard",
+    "part"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Rise too fast, and gas in his body forms bubbles. The bends.",
+   "pause_after": 0.2,
+   "shot": "S11",
+   "emphasis": [
+    "bubbles",
+    "bends"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "So he climbs slowly, stop after stop, through dozens of gas tanks.",
+   "pause_after": 0.2,
+   "shot": "S12",
+   "emphasis": [
+    "slowly",
+    "dozens"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Nearly fifteen hours after he left, he breaks the surface.",
+   "pause_after": 0.4,
+   "shot": "S13",
+   "emphasis": [
+    "fifteen",
+    "surface"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "Six years later, anonymous critics claimed the evidence didn't add up.",
+   "pause_after": 0.2,
+   "shot": "S14",
+   "emphasis": [
+    "anonymous",
+    "critics"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Guinness reviewed the record.",
+   "pause_after": 0.25,
+   "shot": "S15",
+   "emphasis": [
+    "reviewed"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Its conclusion: he did reach three hundred and thirty-two metres.",
+   "pause_after": 0.2,
+   "shot": "S16",
+   "emphasis": [
+    "did",
+    "reach"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "The record stands.",
+   "pause_after": 0.6,
+   "shot": "S17",
+   "emphasis": [
+    "stands"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "Twelve minutes to set it. Nearly fifteen hours to survive it.",
+   "pause_after": 0.0,
+   "shot": "S18",
+   "emphasis": [
+    "Twelve",
+    "fifteen"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "open_water",
+   "description": "Frame 1 is already mid-descent: a vertical white rope (guideline, straight down) runs through the centre of a deep blue water column. The diver slides down it head-first, fast, bubbles streaming upward past camera. Light above is bright turquoise, below is black. A 'DOWN' clock races in the upper third.",
+   "camera": "Camera falls with the diver (parented, slight lag), looking down the rope into darkness, 24 mm, diver in middle third; motion from frame 1",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Sun shafts (god_rays) from above fading with depth; world_volume blue (0.05,0.35,0.55) density 0.03",
+   "fx": [
+    "bubbles_stream (exhaust, rising)",
+    "particle_cloud (marine snow streaking up)",
+    "god_rays"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "Going down took him twelve minutes.",
-      "pause_after": 0.15,
-      "shot": "S01",
-      "emphasis": [
-        "twelve",
-        "minutes"
-      ]
+     "type": "timer",
+     "text": "DOWN",
+     "params": {
+      "fmt": "mmss",
+      "from": 0,
+      "to": 720,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "L02",
-      "text": "Coming back up took nearly fifteen hours.",
-      "pause_after": 0.35,
-      "shot": "S02",
-      "emphasis": [
-        "fifteen",
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "whoosh",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "open_water",
+   "description": "Hard reversal: the same rope, now seen from below looking UP toward a tiny bright surface far above. The diver hangs motionless on the line, a small dark shape against the light. An 'UP' counter ticks in red, then freezes on a text card.",
+   "camera": "Static low angle looking straight up the rope, 20 mm; very slow push-in",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Distant surface glow only; diver in silhouette",
+   "fx": [
+    "bubbles_stream (slow, single breath)",
+    "particle_cloud"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "UP",
+     "params": {
+      "fmt": "hours",
+      "from": 0,
+      "to": 14,
+      "danger": true,
+      "y": 380
+     },
+     "start": 0.0,
+     "duration": 1.6
+    },
+    {
+     "type": "text",
+     "text": "NEARLY 15 HOURS",
+     "params": {
+      "y": 470,
+      "size": 120,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     },
+     "start": 1.6
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "sting",
+     "offset": 1.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "map",
+   "description": "Map card: Sinai peninsula / Gulf of Aqaba outline, route line from 'RED SEA' to a pin at Dahab on the east Sinai coast. Then cut-in: sunlit coast — low desert hills (ground builder, sand colour), a dive_boat moored off a fringing reef, diver rolling backward off the side.",
+   "camera": "2D map push (first 1.6 s) then 35 mm wide over the water, slight handheld",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Hard desert sun (sun lamp, warm 5500K), sky_gradient clear blue",
+   "fx": [
+    "ocean surface",
+    "splash particles"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "DAHAB, EGYPT",
+     "params": {
+      "land": [
+       [
+        0,
+        0
+       ],
+       [
+        0.55,
+        0
+       ],
+       [
+        0.62,
+        0.35
+       ],
+       [
+        0.5,
+        0.7
+       ],
+       [
+        0.42,
+        1
+       ],
+       [
+        0,
+        1
+       ]
+      ],
+      "points": [
+       [
+        0.8,
+        0.85
+       ],
+       [
+        0.66,
+        0.5
+       ],
+       [
+        0.6,
+        0.38
+       ]
+      ],
+      "pin": -1
+     },
+     "start": 0.0,
+     "duration": 1.8
+    },
+    {
+     "type": "stamp",
+     "text": "RED SEA\n18 SEP 2014",
+     "params": {},
+     "start": 1.8
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.6,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 2.2,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "open_water",
+   "description": "Kit reveal: the diver turns slowly on the rope, showing the tanks clipped all over the harness. A ghosted outline of a submarine slides in behind and gets a red strike-through (2.5D line art), leaving only the diver and the rope.",
+   "camera": "Orbit 90 deg around the diver, 35 mm, mid-shot",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Blue daylight, soft caustics on the tanks",
+   "fx": [
+    "caustics_light",
+    "bubbles_stream"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "SCUBA ONLY",
+     "params": {
+      "y": 430,
+      "size": 110,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.9,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "open_water",
+   "description": "Depth ladder: side view of the rope as a vertical ruler; floating depth plates (text3d '100 m', '200 m', '300 m') whip past as the diver drops. Colour drains: blue → indigo → black. A few fish at 100 m, nothing at 300 m.",
+   "camera": "Side-on tracking down the rope, 28 mm, camera speed eases between plates; each plate passes on its spoken word",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Ambient fades from blue to near-black; only the diver's dim torch remains by 300 m",
+   "fx": [
+    "fish_school (sparse, first second only)",
+    "particle_cloud",
+    "world_volume density ramp"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "DEPTH",
+     "params": {
+      "unit": "m",
+      "from": 0,
+      "to": 300,
+      "max": 340
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "sonar",
+     "offset": 1.0,
+     "gain": 0.45
+    },
+    {
+     "name": "sonar",
+     "offset": 2.0,
+     "gain": 0.5
+    },
+    {
+     "name": "rumble",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "open_water",
+   "description": "Close on the rope in torchlight: small white tags zip-tied at intervals, each with a printed depth number. The diver's glove slides past them.",
+   "camera": "Macro-ish 50 mm, rope diagonal across frame, slow drift down",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (glove only)"
+   ],
+   "lighting": "Single helmet torch, cool white, hard shadows on the rope",
+   "fx": [
+    "particle_cloud (backscatter)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.5
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "open_water",
+   "description": "Bottom of the dive (no seabed — open black water): the glove unclips a tag from the rope. Depth gauge snaps to 332.",
+   "camera": "Close 50 mm, snap zoom on the tag, slight shake on the gauge stop",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Torch only; black void around",
+   "fx": [
+    "particle_cloud",
+    "bubbles_stream (burst)"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "RECORD DEPTH",
+     "params": {
+      "unit": "m",
+      "from": 300,
+      "to": 332,
+      "max": 340,
+      "speed": 0.6
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 1.1,
+     "gain": 0.6
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:scale comparison — dark water column with ghost Eiffel Tower",
+   "description": "The tiny diver at the bottom of the rope; beside the rope a translucent low-poly lattice tower (new prop: 4 tapered box-frame legs, 3 platforms, spire; emissive wireframe, 330 m to scale) rises from the diver's depth to the surface line. The tower is shorter than the rope.",
+   "camera": "Fast pull-back / crane up from the diver to the surface, 35 mm, ending wide with whole water column in frame",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (tiny)"
+   ],
+   "lighting": "Wireframe glow teal; surface line bright",
+   "fx": [
+    "wireframe emissive draw-on"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "332 m > 330 m",
+     "params": {
+      "y": 420,
+      "size": 100,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "whoosh",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:2.5D record card",
+   "description": "Generic record card (no Guinness logo) slides up over black water: two bars — '2005: 318.25 m' (grey) and '2014: 332.35 m' (yellow, grows past it).",
+   "camera": "2D, slight push",
+   "characters": [],
+   "lighting": "Dark background, yellow accent",
+   "fx": [
+    "bar grow animation"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "2005  318.25 m\n2014  332.35 m",
+     "params": {
+      "header": "DEEPEST SCUBA DIVE",
+      "y": 1420
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "open_water",
+   "description": "Back at 332 m: the diver looks up the rope; the surface is an invisible pinprick. Camera tilts up the endless rope into black.",
+   "camera": "Tilt up 70 deg along the rope, 24 mm",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "Torch only, then nothing",
+   "fx": [
+    "particle_cloud"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.45
+    },
+    {
+     "name": "metal_groan",
+     "offset": 0.6,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:2.5D physiology diagram",
+   "description": "X-ray silhouette of a diver (generic, faceless). Tiny dissolved-gas dots fill the body; a fast upward arrow makes the dots swell into bubbles; red X stamps over the arrow on 'The bends'.",
+   "camera": "Static, 50 mm, quick shake on the X",
+   "characters": [
+    "generic body silhouette (diagram)"
+   ],
+   "lighting": "Flat diagram, teal + red accent",
+   "fx": [
+    "dot particles",
+    "bubble swell",
+    "red X stamp"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THE BENDS",
+     "params": {
+      "y": 430,
+      "size": 120,
+      "color": [
+       255,
+       70,
+       60
+      ]
+     },
+     "start": 3.05
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.4,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 3.05,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "open_water",
+   "description": "Decompression in shallower blue water: the diver hangs still on the rope; spent tanks are clipped off and float up out of frame while fresh stage tanks descend on a line beside him. Stop markers (text3d) step up the rope.",
+   "camera": "Slow crane up the rope, 28 mm; time-lapse feel (light cycles brighter)",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)",
+    "support_diver x2 (stylised, single tank, red fins; background only)"
+   ],
+   "lighting": "Blue light brightening as depth decreases; later shots warm toward sunset",
+   "fx": [
+    "bubbles_stream",
+    "caustics_light"
+   ],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "",
+     "params": {
+      "events": [
+       [
+        "332 m",
+        "12 min"
+       ],
+       [
+        "STOPS",
         "hours"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "Dahab, Egypt, 2014. Ahmed Gabr drops into the Red Sea.",
-      "pause_after": 0.2,
-      "shot": "S03",
-      "emphasis": [
-        "Dahab",
-        "Ahmed",
-        "Gabr"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "No submarine. Just scuba tanks and a rope.",
-      "pause_after": 0.2,
-      "shot": "S04",
-      "emphasis": [
-        "scuba"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "One hundred metres. Two hundred. Three hundred.",
-      "pause_after": 0.2,
-      "shot": "S05",
-      "emphasis": [
-        "hundred"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "Tags on the rope will prove the depth.",
-      "pause_after": 0.2,
-      "shot": "S06",
-      "emphasis": [
-        "Tags",
-        "prove"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Three hundred and thirty-two metres.",
-      "pause_after": 0.25,
-      "shot": "S07",
-      "emphasis": [
-        "thirty-two"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "Deeper than the Eiffel Tower is tall.",
-      "pause_after": 0.2,
-      "shot": "S08",
-      "emphasis": [
-        "Eiffel",
-        "Tower"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "A new world record. The old mark had stood since 2005.",
-      "pause_after": 0.35,
-      "shot": "S09",
-      "emphasis": [
-        "record",
-        "2005"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "Now the hard part: getting back.",
-      "pause_after": 0.2,
-      "shot": "S10",
-      "emphasis": [
-        "hard",
-        "part"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Rise too fast, and gas in his body forms bubbles. The bends.",
-      "pause_after": 0.2,
-      "shot": "S11",
-      "emphasis": [
-        "bubbles",
-        "bends"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "So he climbs slowly, stop after stop, through dozens of gas tanks.",
-      "pause_after": 0.2,
-      "shot": "S12",
-      "emphasis": [
-        "slowly",
-        "dozens"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Nearly fifteen hours after he left, he breaks the surface.",
-      "pause_after": 0.4,
-      "shot": "S13",
-      "emphasis": [
-        "fifteen",
-        "surface"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "Six years later, anonymous critics claimed the evidence didn't add up.",
-      "pause_after": 0.2,
-      "shot": "S14",
-      "emphasis": [
-        "anonymous",
-        "critics"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "Guinness reviewed the record.",
-      "pause_after": 0.25,
-      "shot": "S15",
-      "emphasis": [
-        "reviewed"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Its conclusion: he did reach three hundred and thirty-two metres.",
-      "pause_after": 0.2,
-      "shot": "S16",
-      "emphasis": [
-        "did",
-        "reach"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "The record stands.",
-      "pause_after": 0.6,
-      "shot": "S17",
-      "emphasis": [
-        "stands"
-      ]
-    },
-    {
-      "id": "L18",
-      "text": "Twelve minutes to set it. Nearly fifteen hours to survive it.",
-      "pause_after": 0.0,
-      "shot": "S18",
-      "emphasis": [
-        "Twelve",
-        "fifteen"
-      ]
+       ],
+       [
+        "SURFACE",
+        "~15 h"
+       ]
+      ],
+      "y": 1560
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "open_water",
-      "description": "Frame 1 is already mid-descent: a vertical white rope (guideline, straight down) runs through the centre of a deep blue water column. The diver slides down it head-first, fast, bubbles streaming upward past camera. Light above is bright turquoise, below is black. A 'DOWN' clock races in the upper third.",
-      "camera": "Camera falls with the diver (parented, slight lag), looking down the rope into darkness, 24 mm, diver in middle third; motion from frame 1",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Sun shafts (god_rays) from above fading with depth; world_volume blue (0.05,0.35,0.55) density 0.03",
-      "fx": [
-        "bubbles_stream (exhaust, rising)",
-        "particle_cloud (marine snow streaking up)",
-        "god_rays"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "DOWN",
-          "params": {
-            "fmt": "mmss",
-            "from": 0,
-            "to": 720,
-            "y": 380
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "whoosh",
-          "offset": 0.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "open_water",
-      "description": "Hard reversal: the same rope, now seen from below looking UP toward a tiny bright surface far above. The diver hangs motionless on the line, a small dark shape against the light. An 'UP' counter ticks in red, then freezes on a text card.",
-      "camera": "Static low angle looking straight up the rope, 20 mm; very slow push-in",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Distant surface glow only; diver in silhouette",
-      "fx": [
-        "bubbles_stream (slow, single breath)",
-        "particle_cloud"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "UP",
-          "params": {
-            "fmt": "hours",
-            "from": 0,
-            "to": 14,
-            "danger": true,
-            "y": 380
-          },
-          "start": 0.0,
-          "duration": 1.6
-        },
-        {
-          "type": "text",
-          "text": "NEARLY 15 HOURS",
-          "params": {
-            "y": 470,
-            "size": 120,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          },
-          "start": 1.6
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "sting",
-          "offset": 1.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "whip"
+     "name": "click",
+     "offset": 1.2,
+     "gain": 0.4
     },
     {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "map",
-      "description": "Map card: Sinai peninsula / Gulf of Aqaba outline, route line from 'RED SEA' to a pin at Dahab on the east Sinai coast. Then cut-in: sunlit coast — low desert hills (ground builder, sand colour), a dive_boat moored off a fringing reef, diver rolling backward off the side.",
-      "camera": "2D map push (first 1.6 s) then 35 mm wide over the water, slight handheld",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Hard desert sun (sun lamp, warm 5500K), sky_gradient clear blue",
-      "fx": [
-        "ocean surface",
-        "splash particles"
-      ],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "DAHAB, EGYPT",
-          "params": {
-            "land": [
-              [
-                0,
-                0
-              ],
-              [
-                0.55,
-                0
-              ],
-              [
-                0.62,
-                0.35
-              ],
-              [
-                0.5,
-                0.7
-              ],
-              [
-                0.42,
-                1
-              ],
-              [
-                0,
-                1
-              ]
-            ],
-            "points": [
-              [
-                0.8,
-                0.85
-              ],
-              [
-                0.66,
-                0.5
-              ],
-              [
-                0.6,
-                0.38
-              ]
-            ],
-            "pin": -1
-          },
-          "start": 0.0,
-          "duration": 1.8
-        },
-        {
-          "type": "stamp",
-          "text": "RED SEA\n18 SEP 2014",
-          "params": {},
-          "start": 1.8
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.6,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 2.2,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "open_water",
-      "description": "Kit reveal: the diver turns slowly on the rope, showing the tanks clipped all over the harness. A ghosted outline of a submarine slides in behind and gets a red strike-through (2.5D line art), leaving only the diver and the rope.",
-      "camera": "Orbit 90 deg around the diver, 35 mm, mid-shot",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Blue daylight, soft caustics on the tanks",
-      "fx": [
-        "caustics_light",
-        "bubbles_stream"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "SCUBA ONLY",
-          "params": {
-            "y": 430,
-            "size": 110,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.3,
-          "gain": 0.5
-        },
-        {
-          "name": "hit",
-          "offset": 0.9,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "open_water",
-      "description": "Depth ladder: side view of the rope as a vertical ruler; floating depth plates (text3d '100 m', '200 m', '300 m') whip past as the diver drops. Colour drains: blue → indigo → black. A few fish at 100 m, nothing at 300 m.",
-      "camera": "Side-on tracking down the rope, 28 mm, camera speed eases between plates; each plate passes on its spoken word",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Ambient fades from blue to near-black; only the diver's dim torch remains by 300 m",
-      "fx": [
-        "fish_school (sparse, first second only)",
-        "particle_cloud",
-        "world_volume density ramp"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "DEPTH",
-          "params": {
-            "unit": "m",
-            "from": 0,
-            "to": 300,
-            "max": 340
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "sonar",
-          "offset": 1.0,
-          "gain": 0.45
-        },
-        {
-          "name": "sonar",
-          "offset": 2.0,
-          "gain": 0.5
-        },
-        {
-          "name": "rumble",
-          "offset": 0.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "open_water",
-      "description": "Close on the rope in torchlight: small white tags zip-tied at intervals, each with a printed depth number. The diver's glove slides past them.",
-      "camera": "Macro-ish 50 mm, rope diagonal across frame, slow drift down",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (glove only)"
-      ],
-      "lighting": "Single helmet torch, cool white, hard shadows on the rope",
-      "fx": [
-        "particle_cloud (backscatter)"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.4,
-          "gain": 0.5
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "open_water",
-      "description": "Bottom of the dive (no seabed — open black water): the glove unclips a tag from the rope. Depth gauge snaps to 332.",
-      "camera": "Close 50 mm, snap zoom on the tag, slight shake on the gauge stop",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Torch only; black void around",
-      "fx": [
-        "particle_cloud",
-        "bubbles_stream (burst)"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "RECORD DEPTH",
-          "params": {
-            "unit": "m",
-            "from": 300,
-            "to": 332,
-            "max": 340,
-            "speed": 0.6
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 1.1,
-          "gain": 0.6
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:scale comparison — dark water column with ghost Eiffel Tower",
-      "description": "The tiny diver at the bottom of the rope; beside the rope a translucent low-poly lattice tower (new prop: 4 tapered box-frame legs, 3 platforms, spire; emissive wireframe, 330 m to scale) rises from the diver's depth to the surface line. The tower is shorter than the rope.",
-      "camera": "Fast pull-back / crane up from the diver to the surface, 35 mm, ending wide with whole water column in frame",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (tiny)"
-      ],
-      "lighting": "Wireframe glow teal; surface line bright",
-      "fx": [
-        "wireframe emissive draw-on"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "332 m > 330 m",
-          "params": {
-            "y": 420,
-            "size": 100,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "riser",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "whoosh",
-          "offset": 0.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:2.5D record card",
-      "description": "Generic record card (no Guinness logo) slides up over black water: two bars — '2005: 318.25 m' (grey) and '2014: 332.35 m' (yellow, grows past it).",
-      "camera": "2D, slight push",
-      "characters": [],
-      "lighting": "Dark background, yellow accent",
-      "fx": [
-        "bar grow animation"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "2005  318.25 m\n2014  332.35 m",
-          "params": {
-            "header": "DEEPEST SCUBA DIVE",
-            "y": 1420
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "hit",
-          "offset": 1.4,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "open_water",
-      "description": "Back at 332 m: the diver looks up the rope; the surface is an invisible pinprick. Camera tilts up the endless rope into black.",
-      "camera": "Tilt up 70 deg along the rope, 24 mm",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "Torch only, then nothing",
-      "fx": [
-        "particle_cloud"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.0,
-          "gain": 0.45
-        },
-        {
-          "name": "metal_groan",
-          "offset": 0.6,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:2.5D physiology diagram",
-      "description": "X-ray silhouette of a diver (generic, faceless). Tiny dissolved-gas dots fill the body; a fast upward arrow makes the dots swell into bubbles; red X stamps over the arrow on 'The bends'.",
-      "camera": "Static, 50 mm, quick shake on the X",
-      "characters": [
-        "generic body silhouette (diagram)"
-      ],
-      "lighting": "Flat diagram, teal + red accent",
-      "fx": [
-        "dot particles",
-        "bubble swell",
-        "red X stamp"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THE BENDS",
-          "params": {
-            "y": 430,
-            "size": 120,
-            "color": [
-              255,
-              70,
-              60
-            ]
-          },
-          "start": 3.05
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.4,
-          "gain": 0.4
-        },
-        {
-          "name": "hit",
-          "offset": 3.05,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "open_water",
-      "description": "Decompression in shallower blue water: the diver hangs still on the rope; spent tanks are clipped off and float up out of frame while fresh stage tanks descend on a line beside him. Stop markers (text3d) step up the rope.",
-      "camera": "Slow crane up the rope, 28 mm; time-lapse feel (light cycles brighter)",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)",
-        "support_diver x2 (stylised, single tank, red fins; background only)"
-      ],
-      "lighting": "Blue light brightening as depth decreases; later shots warm toward sunset",
-      "fx": [
-        "bubbles_stream",
-        "caustics_light"
-      ],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "",
-          "params": {
-            "events": [
-              [
-                "332 m",
-                "12 min"
-              ],
-              [
-                "STOPS",
-                "hours"
-              ],
-              [
-                "SURFACE",
-                "~15 h"
-              ]
-            ],
-            "y": 1560
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 1.2,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 2.4,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "open_water",
-      "description": "Night surface off Dahab: the diver's head and torch break the surface beside the moored dive_boat, deck lights on. Calm swell.",
-      "camera": "Low at the water line, 35 mm, slow push",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (head and torch only)",
-        "boat crew silhouettes (char_figure, distant)"
-      ],
-      "lighting": "Night: deck floodlights warm, moonlight cool rim; dark sky",
-      "fx": [
-        "ocean surface",
-        "splash particles"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "TOTAL",
-          "params": {
-            "fmt": "hours",
-            "from": 0,
-            "to": 14,
-            "y": 380
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.8,
-          "gain": 0.6
-        },
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "document",
-      "description": "Pattern break: black screen, a stack of anonymous emails/documents slides in (no names, text redacted bars). Orange DISPUTED label.",
-      "camera": "2D, slow push",
-      "characters": [],
-      "lighting": "Dark, single cold top light",
-      "fx": [
-        "paper slide",
-        "redaction bars draw-on"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "2020",
-          "params": {}
-        },
-        {
-          "type": "document",
-          "text": "CLAIM: THE EVIDENCE\nDOESN'T ADD UP",
-          "params": {
-            "style": "paper",
-            "title": "ANONYMOUS",
-            "y": 420
-          }
-        },
-        {
-          "type": "label",
-          "text": "DISPUTED",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "typewriter",
-          "offset": 0.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "document",
-      "description": "Same desk: a magnifier (simple prop) slides over the tag, the depth log and the rope diagram one after another.",
-      "camera": "2D, magnifier tracks across three items, 1 s each",
-      "characters": [],
-      "lighting": "Dark, cold top light",
-      "fx": [
-        "magnifier lens distortion"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 1.0,
-          "gain": 0.4
-        },
-        {
-          "name": "riser",
-          "offset": 0.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:2.5D record card",
-      "description": "Generic review card stamps down: 'REVIEW CONCLUDED — 332.35 m CONFIRMED'. DISPUTED label swaps to DOCUMENTED.",
-      "camera": "2D, stamp impact with small shake",
-      "characters": [],
-      "lighting": "Dark, yellow accent",
-      "fx": [
-        "stamp impact"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "332.35 m\nCONFIRMED",
-          "params": {
-            "header": "REVIEW CONCLUDED",
-            "y": 1420
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.5,
-          "gain": 0.6
-        },
-        {
-          "name": "sting",
-          "offset": 0.6,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "open_water",
-      "description": "Return to the deep rope at 332 m: the last tag glints in the torch beam, then the torch clicks off — a beat of black water with the yellow 332 m text holding.",
-      "camera": "Static 50 mm on the tag, slow drift",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (glove only)"
-      ],
-      "lighting": "Torch then darkness",
-      "fx": [
-        "particle_cloud"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "332 m",
-          "params": {
-            "y": 470,
-            "size": 150,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 1.0,
-          "gain": 0.5
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S18",
-      "lines": [
-        "L18"
-      ],
-      "environment": "open_water",
-      "description": "Loop match: same set and framing as S01 — the rope down into the dark, the diver sliding down head-first; DOWN clock restarts at 00:00. Hard cut to S01.",
-      "camera": "Matches S01 framing exactly at the last frame; 24 mm, falling with the diver",
-      "characters": [
-        "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
-      ],
-      "lighting": "As S01",
-      "fx": [
-        "bubbles_stream",
-        "particle_cloud",
-        "god_rays"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "DOWN",
-          "params": {
-            "fmt": "mmss",
-            "from": 0,
-            "to": 0,
-            "y": 380
-          },
-          "start": 2.2
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "whoosh",
-          "offset": 2.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "click",
+     "offset": 2.4,
+     "gain": 0.4
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "open_water",
+   "description": "Night surface off Dahab: the diver's head and torch break the surface beside the moored dive_boat, deck lights on. Calm swell.",
+   "camera": "Low at the water line, 35 mm, slow push",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (head and torch only)",
+    "boat crew silhouettes (char_figure, distant)"
+   ],
+   "lighting": "Night: deck floodlights warm, moonlight cool rim; dark sky",
+   "fx": [
+    "ocean surface",
+    "splash particles"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "TOTAL",
+     "params": {
+      "fmt": "hours",
+      "from": 0,
+      "to": 14,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 0.8,
+     "gain": 0.6
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "document",
+   "description": "Pattern break: black screen, a stack of anonymous emails/documents slides in (no names, text redacted bars). Orange DISPUTED label.",
+   "camera": "2D, slow push",
+   "characters": [],
+   "lighting": "Dark, single cold top light",
+   "fx": [
+    "paper slide",
+    "redaction bars draw-on"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "2020",
+     "params": {}
+    },
+    {
+     "type": "document",
+     "text": "CLAIM: THE EVIDENCE\nDOESN'T ADD UP",
+     "params": {
+      "style": "paper",
+      "title": "ANONYMOUS",
+      "y": 420
+     }
+    },
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "document",
+   "description": "Same desk: a magnifier (simple prop) slides over the tag, the depth log and the rope diagram one after another.",
+   "camera": "2D, magnifier tracks across three items, 1 s each",
+   "characters": [],
+   "lighting": "Dark, cold top light",
+   "fx": [
+    "magnifier lens distortion"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.0,
+     "gain": 0.4
+    },
+    {
+     "name": "riser",
+     "offset": 0.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:2.5D record card",
+   "description": "Generic review card stamps down: 'REVIEW CONCLUDED — 332.35 m CONFIRMED'. DISPUTED label swaps to DOCUMENTED.",
+   "camera": "2D, stamp impact with small shake",
+   "characters": [],
+   "lighting": "Dark, yellow accent",
+   "fx": [
+    "stamp impact"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "332.35 m\nCONFIRMED",
+     "params": {
+      "header": "REVIEW CONCLUDED",
+      "y": 1420
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.5,
+     "gain": 0.6
+    },
+    {
+     "name": "sting",
+     "offset": 0.6,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "open_water",
+   "description": "Return to the deep rope at 332 m: the last tag glints in the torch beam, then the torch clicks off — a beat of black water with the yellow 332 m text holding.",
+   "camera": "Static 50 mm on the tag, slow drift",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins) (glove only)"
+   ],
+   "lighting": "Torch then darkness",
+   "fx": [
+    "particle_cloud"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "332 m",
+     "params": {
+      "y": 470,
+      "size": 150,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 1.0,
+     "gain": 0.5
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "open_water",
+   "description": "Loop match: same set and framing as S01 — the rope down into the dark, the diver sliding down head-first; DOWN clock restarts at 00:00. Hard cut to S01.",
+   "camera": "Matches S01 framing exactly at the last frame; 24 mm, falling with the diver",
+   "characters": [
+    "gabr_diver (stylised faceless char_diver: black wetsuit + hood, sidemount twin tanks, 4 stage cylinders clipped each side, yellow fins)"
+   ],
+   "lighting": "As S01",
+   "fx": [
+    "bubbles_stream",
+    "particle_cloud",
+    "god_rays"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "DOWN",
+     "params": {
+      "fmt": "mmss",
+      "from": 0,
+      "to": 0,
+      "y": 380
+     },
+     "start": 2.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "whoosh",
+     "offset": 2.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.55
   ],
-  "music_curve": [
-    [
-      0,
-      0.55
-    ],
-    [
-      8,
-      0.6
-    ],
-    [
-      16,
-      0.75
-    ],
-    [
-      22,
-      0.9
-    ],
-    [
-      25,
-      0.45
-    ],
-    [
-      36,
-      0.7
-    ],
-    [
-      41,
-      0.35
-    ],
-    [
-      48,
-      0.75
-    ],
-    [
-      54,
-      0.4
-    ],
-    [
-      58,
-      0.0
-    ]
+  [
+   8,
+   0.6
   ],
-  "loop_line": "Twelve minutes to set it. Nearly fifteen hours to survive it."
+  [
+   16,
+   0.75
+  ],
+  [
+   22,
+   0.9
+  ],
+  [
+   25,
+   0.45
+  ],
+  [
+   36,
+   0.7
+  ],
+  [
+   41,
+   0.35
+  ],
+  [
+   48,
+   0.75
+  ],
+  [
+   54,
+   0.4
+  ],
+  [
+   58,
+   0.0
+  ]
+ ],
+ "loop_line": "Twelve minutes to set it. Nearly fifteen hours to survive it.",
+ "voice_original": "am_onyx"
 }

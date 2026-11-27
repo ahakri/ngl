@@ -2,7 +2,7 @@
  "id": "SCUBA-06",
  "title": "462 Stitches, Then He Went Back In",
  "category": "scuba",
- "voice": "bm_george",
+ "voice": "am_adam",
  "speed": 1.08,
  "mood": "scuba",
  "target_seconds": 58,
@@ -333,7 +333,7 @@
     "L03"
    ],
    "environment": "open_water",
-   "description": "Close on the spearfisher at the surface: snorkel, mask, a deep breath, then a duck-dive. A ghosted scuba tank icon appears beside him and gets a red strike-through; a breath-hold timer starts.",
+   "description": "Close on the spearfisher at the surface: mask, a breath, then a duck-dive after a fish (reconstruction; breathing gear not asserted on screen).",
    "camera": "Half-over/half-under split at the water line, 28 mm, follow the duck-dive",
    "characters": [
     "fox_1963 (faceless stylised swimmer: black 1960s wetsuit, oval mask, J-snorkel, long fins, wooden speargun; NO tank)",
@@ -346,28 +346,8 @@
    ],
    "overlay": [
     {
-     "type": "text",
-     "text": "NO TANK",
-     "params": {
-      "y": 430,
-      "size": 110,
-      "color": [
-       255,
-       220,
-       60
-      ]
-     }
-    },
-    {
-     "type": "timer",
-     "text": "BREATH-HOLD",
-     "params": {
-      "fmt": "mmss",
-      "from": 0,
-      "to": 25,
-      "y": 1450
-     },
-     "start": 1.6
+     "type": "label",
+     "text": "DRAMATISATION"
     }
    ],
    "sfx": [
@@ -1003,5 +983,6 @@
    0.0
   ]
  ],
- "loop_line": "The shark that nearly killed him turned him into its defender."
+ "loop_line": "The shark that nearly killed him turned him into its defender.",
+ "voice_original": "bm_george"
 }

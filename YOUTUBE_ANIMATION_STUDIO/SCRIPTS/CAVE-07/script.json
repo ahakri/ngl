@@ -1,940 +1,941 @@
 {
-  "id": "CAVE-07",
-  "title": "The Man Who Wrote Cave Diving's Rules Tried for 1,000 ft",
-  "category": "cave",
-  "voice": "am_michael",
-  "speed": 1.07,
-  "mood": "cave",
-  "target_seconds": 60,
-  "lines": [
+ "id": "CAVE-07",
+ "title": "The Man Who Wrote Cave Diving's Rules Tried for 1,000 ft",
+ "category": "cave",
+ "voice": "am_adam",
+ "speed": 1.07,
+ "mood": "cave",
+ "target_seconds": 60,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Two divers dropped into this hole, chasing 1,000 feet.",
+   "pause_after": 0.15,
+   "shot": "S01",
+   "emphasis": [
+    "1,000",
+    "feet"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Only one came back up.",
+   "pause_after": 0.35,
+   "shot": "S02",
+   "emphasis": [
+    "one"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Zacatón, Mexico. April 1994. Nobody knew how deep it went.",
+   "pause_after": 0.3,
+   "shot": "S03",
+   "emphasis": [
+    "Zacatón",
+    "deep"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "One diver was Jim Bowden.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "Bowden"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "The other was Sheck Exley, a legend of cave diving.",
+   "pause_after": 0.2,
+   "shot": "S05",
+   "emphasis": [
+    "Sheck",
+    "Exley"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "The first person ever to log 1,000 cave dives.",
+   "pause_after": 0.25,
+   "shot": "S06",
+   "emphasis": [
+    "1,000"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "His cave-diving safety manual was titled Basic Cave Diving: A Blueprint for Survival.",
+   "pause_after": 0.35,
+   "shot": "S07",
+   "emphasis": [
+    "Blueprint",
+    "Survival"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "They went down on separate lines, each alone in the dark.",
+   "pause_after": 0.25,
+   "shot": "S08",
+   "emphasis": [
+    "separate",
+    "alone"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Around 925 feet, Bowden was burning gas faster than planned.",
+   "pause_after": 0.25,
+   "shot": "S09",
+   "emphasis": [
+    "925",
+    "gas"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "He turned back, and set a world depth record.",
+   "pause_after": 0.5,
+   "shot": "S10",
+   "emphasis": [
+    "record"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Exley's light never came back up.",
+   "pause_after": 0.7,
+   "shot": "S11",
+   "emphasis": [
+    "never"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Three days later, his team hauled up his line.",
+   "pause_after": 0.25,
+   "shot": "S12",
+   "emphasis": [
+    "Three",
+    "days"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Exley came up with it, wrapped in the line.",
+   "pause_after": 0.5,
+   "shot": "S13",
+   "emphasis": [
+    "wrapped"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The cause of his death was never determined.",
+   "pause_after": 0.3,
+   "shot": "S14",
+   "emphasis": [
+    "never",
+    "determined"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "He was 45.",
+   "pause_after": 0.4,
+   "shot": "S15",
+   "emphasis": [
+    "45"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Today, cave divers can earn an award in his name.",
+   "pause_after": 0.2,
+   "shot": "S16",
+   "emphasis": [
+    "award"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "It's for logging 1,000 safe cave dives.",
+   "pause_after": 0.4,
+   "shot": "S17",
+   "emphasis": [
+    "1,000",
+    "safe"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:vertical_cenote_shaft",
+   "description": "COLD OPEN, camera already sinking at frame 1. Looking straight down a vast vertical flooded shaft: teal-black water, rough limestone walls. Two torch cones (one warm-white, one slightly cooler) side by side, 3 m apart, each following its own white guideline, dropping away into black. Fine sulphur-tinted particles drift upward past camera.",
+   "camera": "top-down 20 mm, slow sink following the two lights, slight handheld sway",
+   "characters": [
+    "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)",
+    "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
+   ],
+   "lighting": "two torch beam_cones only + faint teal ambient from above",
+   "fx": [
+    "particles_dust (yellow-green tint)",
+    "volumetric_water",
+    "bubbles"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "Two divers dropped into this hole, chasing 1,000 feet.",
-      "pause_after": 0.15,
-      "shot": "S01",
-      "emphasis": [
-        "1,000",
-        "feet"
-      ]
-    },
-    {
-      "id": "L02",
-      "text": "Only one came back up.",
-      "pause_after": 0.35,
-      "shot": "S02",
-      "emphasis": [
-        "one"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "Zacatón, Mexico. April 1994. Nobody knew how deep it went.",
-      "pause_after": 0.3,
-      "shot": "S03",
-      "emphasis": [
-        "Zacatón",
-        "deep"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "One diver was Jim Bowden.",
-      "pause_after": 0.2,
-      "shot": "S04",
-      "emphasis": [
-        "Bowden"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "The other was Sheck Exley, a legend of cave diving.",
-      "pause_after": 0.2,
-      "shot": "S05",
-      "emphasis": [
-        "Sheck",
-        "Exley"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "The first person ever to log 1,000 cave dives.",
-      "pause_after": 0.25,
-      "shot": "S06",
-      "emphasis": [
-        "1,000"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "His cave-diving safety manual was titled Basic Cave Diving: A Blueprint for Survival.",
-      "pause_after": 0.35,
-      "shot": "S07",
-      "emphasis": [
-        "Blueprint",
-        "Survival"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "They went down on separate lines, each alone in the dark.",
-      "pause_after": 0.25,
-      "shot": "S08",
-      "emphasis": [
-        "separate",
-        "alone"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Around 925 feet, Bowden was burning gas faster than planned.",
-      "pause_after": 0.25,
-      "shot": "S09",
-      "emphasis": [
-        "925",
-        "gas"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "He turned back, and set a world depth record.",
-      "pause_after": 0.5,
-      "shot": "S10",
-      "emphasis": [
-        "record"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Exley's light never came back up.",
-      "pause_after": 0.7,
-      "shot": "S11",
-      "emphasis": [
-        "never"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "Three days later, his team hauled up his line.",
-      "pause_after": 0.25,
-      "shot": "S12",
-      "emphasis": [
-        "Three",
-        "days"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Exley came up with it, wrapped in the line.",
-      "pause_after": 0.5,
-      "shot": "S13",
-      "emphasis": [
-        "wrapped"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "The cause of his death was never determined.",
-      "pause_after": 0.3,
-      "shot": "S14",
-      "emphasis": [
-        "never",
-        "determined"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "He was 45.",
-      "pause_after": 0.4,
-      "shot": "S15",
-      "emphasis": [
-        "45"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Today, cave divers can earn an award in his name.",
-      "pause_after": 0.2,
-      "shot": "S16",
-      "emphasis": [
-        "award"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "It's for logging 1,000 safe cave dives.",
-      "pause_after": 0.4,
-      "shot": "S17",
-      "emphasis": [
-        "1,000",
-        "safe"
-      ]
+     "type": "depth",
+     "text": "TARGET 1,000 FT",
+     "params": {
+      "from": 0,
+      "to": 160,
+      "max": 1100,
+      "unit": "ft",
+      "speed": 1.0
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "other:vertical_cenote_shaft",
-      "description": "COLD OPEN, camera already sinking at frame 1. Looking straight down a vast vertical flooded shaft: teal-black water, rough limestone walls. Two torch cones (one warm-white, one slightly cooler) side by side, 3 m apart, each following its own white guideline, dropping away into black. Fine sulphur-tinted particles drift upward past camera.",
-      "camera": "top-down 20 mm, slow sink following the two lights, slight handheld sway",
-      "characters": [
-        "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)",
-        "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
-      ],
-      "lighting": "two torch beam_cones only + faint teal ambient from above",
-      "fx": [
-        "particles_dust (yellow-green tint)",
-        "volumetric_water",
-        "bubbles"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "TARGET 1,000 FT",
-          "params": {
-            "from": 0,
-            "to": 160,
-            "max": 1100,
-            "unit": "ft",
-            "speed": 1.0
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "sting",
-          "offset": 1.2,
-          "gain": 0.45
-        }
-      ],
-      "transition_in": "cut"
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "other:vertical_cenote_shaft",
-      "description": "Side view, wider: the two lights descending on parallel lines. Hard match: the left light (Exley) dims slowly to nothing while the right light keeps going. No figure detail, just lights in black.",
-      "camera": "locked 28 mm side-on, tiny push-in",
-      "characters": [
-        "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)",
-        "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
-      ],
-      "lighting": "two torches; left keyed down to 0 over the shot",
-      "fx": [
-        "volumetric_water",
-        "particles_dust"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.3,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
+     "name": "bubbles",
+     "offset": 0.2,
+     "gain": 0.4
     },
     {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "other:mexican_ranchland_cenote",
-      "description": "Daylight. Drone view over flat scrubby ranchland: a near-perfect round hole with sheer rock walls and dark green-blue water some way below the rim; small floating grass islands on the surface. Map card follows: Mexico outline, pin in Tamaulipas.",
-      "camera": "high 24 mm drone, slow descent toward the water; overlay map slides in mid-shot",
-      "characters": [],
-      "lighting": "hard mid-morning sun, warm; deep shadow inside the hole",
-      "fx": [
-        "heat haze (subtle)"
-      ],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "ZACATÓN",
-          "params": {
-            "points": [
-              [
-                0.25,
-                0.25
-              ],
-              [
-                0.5,
-                0.45
-              ],
-              [
-                0.62,
-                0.52
-              ]
-            ],
-            "pin": -1,
-            "land": [
-              [
-                0.05,
-                0.1
-              ],
-              [
-                0.45,
-                0.12
-              ],
-              [
-                0.7,
-                0.4
-              ],
-              [
-                0.72,
-                0.62
-              ],
-              [
-                0.95,
-                0.85
-              ],
-              [
-                0.7,
-                0.9
-              ],
-              [
-                0.45,
-                0.6
-              ],
-              [
-                0.2,
-                0.45
-              ]
-            ]
-          },
-          "start": 0.0,
-          "duration": 2.9
-        },
-        {
-          "type": "stamp",
-          "text": "TAMAULIPAS, MEXICO\n6 APRIL 1994",
-          "params": {
-            "y": 300
-          },
-          "start": 2.9
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.6,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "other:cenote_rim_staging",
-      "description": "At the water's edge inside the cenote: a faceless diver silhouette with back-mounted tanks and orange fins kneels on a rock ledge checking a stage cylinder. Name stamp on screen.",
-      "camera": "35 mm slow arc left around the diver, waist height",
-      "characters": [
-        "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
-      ],
-      "lighting": "warm bounce from the sunlit wall, diver in shadow (rim-lit)",
-      "fx": [
-        "water ripples"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "JIM BOWDEN",
-          "params": {
-            "y": 420,
-            "size": 100
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.5,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "other:cenote_rim_staging",
-      "description": "A second faceless diver, yellow fins, sidemount tanks, stands waist-deep at the ledge and pulls on a mask strap; we see him from behind, against the bright water. Name card pops.",
-      "camera": "28 mm push-in from behind, low angle",
-      "characters": [
-        "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)"
-      ],
-      "lighting": "backlit by sunlit water; rim light on tanks",
-      "fx": [
-        "water ripples",
-        "sun glints"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "SHECK EXLEY",
-          "params": {
-            "y": 420,
-            "size": 100
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.1,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "other:dive_log_card",
-      "description": "Graphic beat: a counter races from 0 to 1,000 over a dark teal background of drifting silt; tick marks like log-book lines scroll behind it.",
-      "camera": "2.5D, slow push",
-      "characters": [],
-      "lighting": "flat graphic; faint caustic shimmer",
-      "fx": [
-        "particles_dust"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "CAVE DIVES LOGGED",
-          "params": {
-            "from": 0,
-            "to": 1000,
-            "y": 380
-          }
-        },
-        {
-          "type": "text",
-          "text": "FIRST EVER",
-          "params": {
-            "y": 800,
-            "size": 90,
-            "color": [
-              64,
-              224,
-              208
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "riser",
-          "offset": 0.4,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "document",
-      "description": "A plain generic paperback-style card (no real cover art) slides up on a dark wet rock surface, title typed on. A torch beam sweeps across it.",
-      "camera": "top-down 50 mm, slight rotation",
-      "characters": [],
-      "lighting": "single torch beam sweep, warm",
-      "fx": [
-        "drips"
-      ],
-      "overlay": [
-        {
-          "type": "document",
-          "text": "Basic Cave Diving:\nA Blueprint for Survival\n\nFirst published 1979",
-          "params": {
-            "style": "paper",
-            "title": "SAFETY HANDBOOK",
-            "rot": -4,
-            "size": 44,
-            "y": 90
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.4,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:cenote_cross_section",
-      "description": "Pattern interrupt: animated side-section of the cenote (narrow at the top, bell-shaped below, bottom drawn as a dashed '?'). Two cyan dots descend on two separate vertical guide lines; a depth bar runs on the right.",
-      "camera": "2.5D orthographic, slow vertical pan down following the dots",
-      "characters": [
-        "two diver dots (cyan = Exley, orange = Bowden)"
-      ],
-      "lighting": "graphic (emissive outlines)",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 160,
-            "to": 700,
-            "max": 1100,
-            "unit": "ft",
-            "speed": 0.9
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.2,
-          "gain": 0.35
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.0,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Deep in the shaft: Bowden's faceless silhouette hangs beside his line, wrist gauge glowing; bubbles stream up fast. A gas timer drains on screen.",
-      "camera": "35 mm close side angle, slow push, handheld tension",
-      "characters": [
-        "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
-      ],
-      "lighting": "his torch + gauge glow only; black around",
-      "fx": [
-        "bubbles (heavy)",
-        "particles_dust"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "BOWDEN",
-          "params": {
-            "from": 880,
-            "to": 925,
-            "max": 1100,
-            "unit": "ft",
-            "speed": 0.8
-          }
-        },
-        {
-          "type": "timer",
-          "text": "GAS RESERVE",
-          "params": {
-            "from": 100,
-            "to": 40,
-            "fmt": "int",
-            "y": 330,
-            "danger": true
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.3,
-          "gain": 0.5
-        },
-        {
-          "name": "heartbeat",
-          "offset": 1.2,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:cenote_cross_section",
-      "description": "Back to the section: Bowden's orange dot stops at 925 and starts back up; a small record flag pops at that depth. Exley's cyan dot keeps sinking past it on the other line.",
-      "camera": "2.5D orthographic, slight zoom out",
-      "characters": [
-        "two diver dots"
-      ],
-      "lighting": "graphic",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "WORLD RECORD",
-          "params": {
-            "y": 520,
-            "size": 100,
-            "color": [
-              255,
-              200,
-              60
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "text": "(since broken)",
-          "params": {
-            "y": 620,
-            "size": 50
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.4,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:vertical_cenote_shaft",
-      "description": "MID-POINT TURN. Looking up from deep in the shaft toward a faint teal glow of daylight far above. Bowden's single light rises slowly away. No second light ever enters the frame. Hold in near-silence.",
-      "camera": "upward 18 mm, locked, extremely slow push",
-      "characters": [
-        "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless) (tiny, ascending)"
-      ],
-      "lighting": "faint daylight disc far above; one torch rising",
-      "fx": [
-        "particles_dust",
-        "volumetric_water"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:cenote_rim_staging",
-      "description": "Daylight, three days later (stamp). Faceless support-team silhouettes on the rock ledge haul a white guideline hand over hand out of the water; a pulley on a tripod; tanks clipped to the line come up first.",
-      "camera": "35 mm low angle along the line toward the haulers, slow dolly",
-      "characters": [
-        "support team x3 (faceless silhouettes)"
-      ],
-      "lighting": "flat overcast-ish daylight; muted",
-      "fx": [
-        "drips off the line",
-        "water ripples"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "9 APRIL 1994\n3 DAYS LATER",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "creak",
-          "offset": 0.3,
-          "gain": 0.3
-        },
-        {
-          "name": "footsteps",
-          "offset": 1.0,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:cenote_cross_section",
-      "description": "Respectful abstraction, NO body: on the section diagram the guideline is drawn coiling tightly around the cyan dot as both rise together to the surface. Cut-in insert: a coil of white line resting on wet rock.",
-      "camera": "2.5D slow pull-up; then 50 mm macro on the coil",
-      "characters": [
-        "cyan dot (abstract)"
-      ],
-      "lighting": "graphic; insert = soft daylight",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.2,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "document",
-      "description": "A plain incident card slides in; the CAUSE field is struck through and replaced by 'UNDETERMINED'. Wet rock behind.",
-      "camera": "top-down 50 mm, slight push",
-      "characters": [],
-      "lighting": "cool torch light",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "document",
-          "text": "ZACATON, 6 APR 1994\nDIVER: S. EXLEY, 45\nCAUSE: ~~NARCOSIS? HPNS?~~\nUNDETERMINED",
-          "params": {
-            "style": "paper",
-            "title": "INCIDENT",
-            "rot": 2,
-            "size": 44,
-            "y": 100
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.3,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "other:mexican_ranchland_cenote",
-      "description": "Dusk at the rim: the round hole, still water far below, long shadows; a single small wildflower moves in the wind at the edge (no memorial invented).",
-      "camera": "24 mm slow crane down to the rim edge",
-      "characters": [],
-      "lighting": "warm low dusk sun, blue shadow",
-      "fx": [
-        "wind in grass"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "SHECK EXLEY\nAPRIL 1994",
-          "params": {
-            "y": 420,
-            "size": 90
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:cenote_rim_staging",
-      "description": "Present day, daylight: the S04 ledge with a different, generic modern diver (white fins, faceless) clipping a reel to a new line and sliding into the water. The award card slides in.",
-      "camera": "35 mm slow push over the diver's shoulder toward the water",
-      "characters": [
-        "generic modern diver (white fins, faceless, not Exley)"
-      ],
-      "lighting": "clean daylight, sunlit wall bounce",
-      "fx": [
-        "water ripples",
-        "sun glints"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "NSS Cave Diving Section",
-          "params": {
-            "header": "THE SHECK EXLEY AWARD",
-            "y": 820
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.4,
-          "gain": 0.3
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.4,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "other:vertical_cenote_shaft",
-      "description": "LOOP FRAME: back to the S01 composition, top-down into the shaft; a single torch cone (the generic diver) sinks slowly into the dark on one line while a counter ticks to 1,000. The final frame matches frame 1 so a replay cuts cleanly into 'Two divers dropped into this hole'.",
-      "camera": "top-down 20 mm, same sink as S01",
-      "characters": [
-        "generic modern diver (white fins, faceless)"
-      ],
-      "lighting": "one torch cone; teal ambient",
-      "fx": [
-        "particles_dust",
-        "volumetric_water"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "SAFE CAVE DIVES",
-          "params": {
-            "from": 0,
-            "to": 1000,
-            "y": 380
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.45
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 1.2,
+     "gain": 0.45
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:vertical_cenote_shaft",
+   "description": "Side view, wider: the two lights descending on parallel lines. Hard match: the left light (Exley) dims slowly to nothing while the right light keeps going. No figure detail, just lights in black.",
+   "camera": "locked 28 mm side-on, tiny push-in",
+   "characters": [
+    "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)",
+    "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
+   ],
+   "lighting": "two torches; left keyed down to 0 over the shot",
+   "fx": [
+    "volumetric_water",
+    "particles_dust"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.3,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:mexican_ranchland_cenote",
+   "description": "Daylight. Drone view over flat scrubby ranchland: a near-perfect round hole with sheer rock walls and dark green-blue water some way below the rim; small floating grass islands on the surface. Map card follows: Mexico outline, pin in Tamaulipas.",
+   "camera": "high 24 mm drone, slow descent toward the water; overlay map slides in mid-shot",
+   "characters": [],
+   "lighting": "hard mid-morning sun, warm; deep shadow inside the hole",
+   "fx": [
+    "heat haze (subtle)"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "ZACATÓN",
+     "params": {
+      "points": [
+       [
+        0.25,
+        0.25
+       ],
+       [
+        0.5,
+        0.45
+       ],
+       [
+        0.62,
+        0.52
+       ]
+      ],
+      "pin": -1,
+      "land": [
+       [
+        0.05,
+        0.1
+       ],
+       [
+        0.45,
+        0.12
+       ],
+       [
+        0.7,
+        0.4
+       ],
+       [
+        0.72,
+        0.62
+       ],
+       [
+        0.95,
+        0.85
+       ],
+       [
+        0.7,
+        0.9
+       ],
+       [
+        0.45,
+        0.6
+       ],
+       [
+        0.2,
+        0.45
+       ]
+      ]
+     },
+     "start": 0.0,
+     "duration": 2.9
+    },
+    {
+     "type": "stamp",
+     "text": "TAMAULIPAS, MEXICO\n6 APRIL 1994",
+     "params": {
+      "y": 300
+     },
+     "start": 2.9
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.6,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:cenote_rim_staging",
+   "description": "At the water's edge inside the cenote: a faceless diver silhouette with back-mounted tanks and orange fins kneels on a rock ledge checking a stage cylinder. Name stamp on screen.",
+   "camera": "35 mm slow arc left around the diver, waist height",
+   "characters": [
+    "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
+   ],
+   "lighting": "warm bounce from the sunlit wall, diver in shadow (rim-lit)",
+   "fx": [
+    "water ripples"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "JIM BOWDEN",
+     "params": {
+      "y": 420,
+      "size": 100
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.5,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:cenote_rim_staging",
+   "description": "A second faceless diver, yellow fins, sidemount tanks, stands waist-deep at the ledge and pulls on a mask strap; we see him from behind, against the bright water. Name card pops.",
+   "camera": "28 mm push-in from behind, low angle",
+   "characters": [
+    "diver_A (Exley: yellow fins, sidemount tanks, helmet torch, faceless)"
+   ],
+   "lighting": "backlit by sunlit water; rim light on tanks",
+   "fx": [
+    "water ripples",
+    "sun glints"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "SHECK EXLEY",
+     "params": {
+      "y": 420,
+      "size": 100
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.1,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:dive_log_card",
+   "description": "Graphic beat: a counter races from 0 to 1,000 over a dark teal background of drifting silt; tick marks like log-book lines scroll behind it.",
+   "camera": "2.5D, slow push",
+   "characters": [],
+   "lighting": "flat graphic; faint caustic shimmer",
+   "fx": [
+    "particles_dust"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "CAVE DIVES LOGGED",
+     "params": {
+      "from": 0,
+      "to": 1000,
+      "y": 380
+     }
+    },
+    {
+     "type": "text",
+     "text": "FIRST EVER",
+     "params": {
+      "y": 800,
+      "size": 90,
+      "color": [
+       64,
+       224,
+       208
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "riser",
+     "offset": 0.4,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "document",
+   "description": "A plain generic paperback-style card (no real cover art) slides up on a dark wet rock surface, title typed on. A torch beam sweeps across it.",
+   "camera": "top-down 50 mm, slight rotation",
+   "characters": [],
+   "lighting": "single torch beam sweep, warm",
+   "fx": [
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "Basic Cave Diving:\nA Blueprint for Survival\n\nFirst published 1979",
+     "params": {
+      "style": "paper",
+      "title": "SAFETY HANDBOOK",
+      "rot": -4,
+      "size": 44,
+      "y": 90
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:cenote_cross_section",
+   "description": "Pattern interrupt: animated side-section of the cenote (narrow at the top, bell-shaped below, bottom drawn as a dashed '?'). Two cyan dots descend on two separate vertical guide lines; a depth bar runs on the right.",
+   "camera": "2.5D orthographic, slow vertical pan down following the dots",
+   "characters": [
+    "two diver dots (cyan = Exley, orange = Bowden)"
+   ],
+   "lighting": "graphic (emissive outlines)",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 160,
+      "to": 700,
+      "max": 1100,
+      "unit": "ft",
+      "speed": 0.9
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.2,
+     "gain": 0.35
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Deep in the shaft: Bowden's faceless silhouette hangs beside his line, wrist gauge glowing; bubbles stream up fast. A gas timer drains on screen.",
+   "camera": "35 mm close side angle, slow push, handheld tension",
+   "characters": [
+    "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless)"
+   ],
+   "lighting": "his torch + gauge glow only; black around",
+   "fx": [
+    "bubbles (heavy)",
+    "particles_dust"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "BOWDEN",
+     "params": {
+      "from": 880,
+      "to": 925,
+      "max": 1100,
+      "unit": "ft",
+      "speed": 0.8
+     }
+    },
+    {
+     "type": "timer",
+     "text": "GAS RESERVE",
+     "params": {
+      "from": 100,
+      "to": 40,
+      "fmt": "int",
+      "y": 330,
+      "danger": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.3,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 1.2,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:cenote_cross_section",
+   "description": "Back to the section: Bowden's orange dot stops at 925 and starts back up; a small record flag pops at that depth. Exley's cyan dot keeps sinking past it on the other line.",
+   "camera": "2.5D orthographic, slight zoom out",
+   "characters": [
+    "two diver dots"
+   ],
+   "lighting": "graphic",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "WORLD RECORD",
+     "params": {
+      "y": 520,
+      "size": 100,
+      "color": [
+       255,
+       200,
+       60
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "(since broken)",
+     "params": {
+      "y": 620,
+      "size": 50
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:vertical_cenote_shaft",
+   "description": "MID-POINT TURN. Looking up from deep in the shaft toward a faint teal glow of daylight far above. Bowden's single light rises slowly away. No second light ever enters the frame. Hold in near-silence.",
+   "camera": "upward 18 mm, locked, extremely slow push",
+   "characters": [
+    "diver_B (Bowden: orange fins, back-mounted tanks, helmet torch, faceless) (tiny, ascending)"
+   ],
+   "lighting": "faint daylight disc far above; one torch rising",
+   "fx": [
+    "particles_dust",
+    "volumetric_water"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:cenote_rim_staging",
+   "description": "Daylight, three days later (stamp). Faceless support-team silhouettes on the rock ledge haul a white guideline hand over hand out of the water; a pulley on a tripod; tanks clipped to the line come up first.",
+   "camera": "35 mm low angle along the line toward the haulers, slow dolly",
+   "characters": [
+    "support team x3 (faceless silhouettes)"
+   ],
+   "lighting": "flat overcast-ish daylight; muted",
+   "fx": [
+    "drips off the line",
+    "water ripples"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "9 APRIL 1994\n3 DAYS LATER",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "creak",
+     "offset": 0.3,
+     "gain": 0.3
+    },
+    {
+     "name": "footsteps",
+     "offset": 1.0,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:cenote_cross_section",
+   "description": "Respectful abstraction, NO body: on the section diagram the guideline is drawn coiling tightly around the cyan dot as both rise together to the surface. Cut-in insert: a coil of white line resting on wet rock.",
+   "camera": "2.5D slow pull-up; then 50 mm macro on the coil",
+   "characters": [
+    "cyan dot (abstract)"
+   ],
+   "lighting": "graphic; insert = soft daylight",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.2,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "document",
+   "description": "A plain incident card slides in; the CAUSE field is struck through and replaced by 'UNDETERMINED'. Wet rock behind.",
+   "camera": "top-down 50 mm, slight push",
+   "characters": [],
+   "lighting": "cool torch light",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "ZACATON, 6 APR 1994\nDIVER: S. EXLEY, 45\nCAUSE: ~~NARCOSIS? HPNS?~~\nUNDETERMINED",
+     "params": {
+      "style": "paper",
+      "title": "INCIDENT",
+      "rot": 2,
+      "size": 44,
+      "y": 100
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:mexican_ranchland_cenote",
+   "description": "Dusk at the rim: the round hole, still water far below, long shadows; a single small wildflower moves in the wind at the edge (no memorial invented).",
+   "camera": "24 mm slow crane down to the rim edge",
+   "characters": [],
+   "lighting": "warm low dusk sun, blue shadow",
+   "fx": [
+    "wind in grass"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "SHECK EXLEY\nAPRIL 1994",
+     "params": {
+      "y": 420,
+      "size": 90
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:cenote_rim_staging",
+   "description": "Present day, daylight: the S04 ledge with a different, generic modern diver (white fins, faceless) clipping a reel to a new line and sliding into the water. The award card slides in.",
+   "camera": "35 mm slow push over the diver's shoulder toward the water",
+   "characters": [
+    "generic modern diver (white fins, faceless, not Exley)"
+   ],
+   "lighting": "clean daylight, sunlit wall bounce",
+   "fx": [
+    "water ripples",
+    "sun glints"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "NSS Cave Diving Section",
+     "params": {
+      "header": "THE SHECK EXLEY AWARD",
+      "y": 820
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.3
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:vertical_cenote_shaft",
+   "description": "LOOP FRAME: back to the S01 composition, top-down into the shaft; a single torch cone (the generic diver) sinks slowly into the dark on one line while a counter ticks to 1,000. The final frame matches frame 1 so a replay cuts cleanly into 'Two divers dropped into this hole'.",
+   "camera": "top-down 20 mm, same sink as S01",
+   "characters": [
+    "generic modern diver (white fins, faceless)"
+   ],
+   "lighting": "one torch cone; teal ambient",
+   "fx": [
+    "particles_dust",
+    "volumetric_water"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "SAFE CAVE DIVES",
+     "params": {
+      "from": 0,
+      "to": 1000,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.45
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.45
   ],
-  "music_curve": [
-    [
-      0,
-      0.45
-    ],
-    [
-      8,
-      0.6
-    ],
-    [
-      20,
-      0.7
-    ],
-    [
-      30,
-      0.85
-    ],
-    [
-      35,
-      0.9
-    ],
-    [
-      38,
-      0.1
-    ],
-    [
-      41,
-      0.3
-    ],
-    [
-      53,
-      0.5
-    ],
-    [
-      60,
-      0.45
-    ]
+  [
+   8,
+   0.6
+  ],
+  [
+   20,
+   0.7
+  ],
+  [
+   30,
+   0.85
+  ],
+  [
+   35,
+   0.9
+  ],
+  [
+   38,
+   0.1
+  ],
+  [
+   41,
+   0.3
+  ],
+  [
+   53,
+   0.5
+  ],
+  [
+   60,
+   0.45
   ]
+ ],
+ "voice_original": "am_michael"
 }

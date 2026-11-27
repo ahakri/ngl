@@ -1,952 +1,953 @@
 {
-  "id": "CAVE-06",
-  "title": "It Looks Like a Pond. Divers Call It Everest.",
-  "category": "cave",
-  "voice": "am_michael",
-  "speed": 1.07,
-  "mood": "cave",
-  "target_seconds": 66,
-  "lines": [
+ "id": "CAVE-06",
+ "title": "It Looks Like a Pond. Divers Call It Everest.",
+ "category": "cave",
+ "voice": "am_adam",
+ "speed": 1.07,
+ "mood": "cave",
+ "target_seconds": 66,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "This pond has killed at least ten divers.",
+   "pause_after": 0.25,
+   "shot": "S01",
+   "emphasis": [
+    "ten",
+    "divers"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "From above, it's just a pond in the woods.",
+   "pause_after": 0.3,
+   "shot": "S02",
+   "emphasis": [
+    "just"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Below, a narrow shaft called the Chimney drops into the dark.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "Chimney",
+    "dark"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "Then it opens into a huge room divers call the Ballroom.",
+   "pause_after": 0.35,
+   "shot": "S04",
+   "emphasis": [
+    "huge",
+    "Ballroom"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Florida's Eagle's Nest. Divers call it the Mount Everest of cave diving.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "Eagle's",
+    "Nest",
+    "Everest"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "The cave runs on past the Ballroom, to about 300 feet deep.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "300",
+    "feet"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "120 feet down, there's a sign with the Grim Reaper on it.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "Grim",
+    "Reaper"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "It reads: Stop. Prevent your death. Go no farther.",
+   "pause_after": 0.5,
+   "shot": "S08",
+   "emphasis": [
+    "Stop",
+    "death"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "In 1999, partly over safety fears, it was closed to divers.",
+   "pause_after": 0.25,
+   "shot": "S09",
+   "emphasis": [
+    "closed"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Cave divers pushed back. It reopened in 2003.",
+   "pause_after": 0.4,
+   "shot": "S10",
+   "emphasis": [
+    "reopened",
+    "2003"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "October 2016. Three friends came to dive it.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "October",
+    "2016"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "One stayed near the surface. Two experienced divers went deep.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "One",
+    "Two",
+    "deep"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "They were due back within an hour. They never surfaced.",
+   "pause_after": 0.7,
+   "shot": "S13",
+   "emphasis": [
+    "hour",
+    "never"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "Recovery divers found them the next morning, around 260 feet down.",
+   "pause_after": 0.3,
+   "shot": "S14",
+   "emphasis": [
+    "260"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Exactly what went wrong is still unclear.",
+   "pause_after": 0.6,
+   "shot": "S15",
+   "emphasis": [
+    "unclear"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "And from above, it still looks like a pond.",
+   "pause_after": 0.6,
+   "shot": "S16",
+   "emphasis": [
+    "pond"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:florida_sinkhole_exterior",
+   "description": "COLD OPEN, camera already moving. Top-down drone view of a small, still, dark-green pond ringed by swamp woods and a sandy dive-entry slope. Morning light. Nothing about it looks dangerous.",
+   "camera": "Top-down 28 mm, slow descending push toward the pond centre (pond fills the middle third).",
+   "characters": [],
+   "lighting": "Soft morning sun, light haze; pond surface reflects sky.",
+   "fx": [
+    "mist",
+    "leaf_drift"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "This pond has killed at least ten divers.",
-      "pause_after": 0.25,
-      "shot": "S01",
-      "emphasis": [
-        "ten",
-        "divers"
-      ]
+     "type": "counter",
+     "text": "DIVERS DEAD SINCE 1981",
+     "params": {
+      "from": 0,
+      "to": 10,
+      "y": 300
+     },
+     "start": 0.6
     },
     {
-      "id": "L02",
-      "text": "From above, it's just a pond in the woods.",
-      "pause_after": 0.3,
-      "shot": "S02",
-      "emphasis": [
-        "just"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "Below, a narrow shaft called the Chimney drops into the dark.",
-      "pause_after": 0.25,
-      "shot": "S03",
-      "emphasis": [
-        "Chimney",
-        "dark"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "Then it opens into a huge room divers call the Ballroom.",
-      "pause_after": 0.35,
-      "shot": "S04",
-      "emphasis": [
-        "huge",
-        "Ballroom"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "Florida's Eagle's Nest. Divers call it the Mount Everest of cave diving.",
-      "pause_after": 0.3,
-      "shot": "S05",
-      "emphasis": [
-        "Eagle's",
-        "Nest",
-        "Everest"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "The cave runs on past the Ballroom, to about 300 feet deep.",
-      "pause_after": 0.3,
-      "shot": "S06",
-      "emphasis": [
-        "300",
-        "feet"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "120 feet down, there's a sign with the Grim Reaper on it.",
-      "pause_after": 0.3,
-      "shot": "S07",
-      "emphasis": [
-        "Grim",
-        "Reaper"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "It reads: Stop. Prevent your death. Go no farther.",
-      "pause_after": 0.5,
-      "shot": "S08",
-      "emphasis": [
-        "Stop",
-        "death"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "In 1999, partly over safety fears, it was closed to divers.",
-      "pause_after": 0.25,
-      "shot": "S09",
-      "emphasis": [
-        "closed"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "Cave divers pushed back. It reopened in 2003.",
-      "pause_after": 0.4,
-      "shot": "S10",
-      "emphasis": [
-        "reopened",
-        "2003"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "October 2016. Three friends came to dive it.",
-      "pause_after": 0.25,
-      "shot": "S11",
-      "emphasis": [
-        "October",
-        "2016"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "One stayed near the surface. Two experienced divers went deep.",
-      "pause_after": 0.3,
-      "shot": "S12",
-      "emphasis": [
-        "One",
-        "Two",
-        "deep"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "They were due back within an hour. They never surfaced.",
-      "pause_after": 0.7,
-      "shot": "S13",
-      "emphasis": [
-        "hour",
-        "never"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "Recovery divers found them the next morning, around 260 feet down.",
-      "pause_after": 0.3,
-      "shot": "S14",
-      "emphasis": [
-        "260"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "Exactly what went wrong is still unclear.",
-      "pause_after": 0.6,
-      "shot": "S15",
-      "emphasis": [
-        "unclear"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "And from above, it still looks like a pond.",
-      "pause_after": 0.6,
-      "shot": "S16",
-      "emphasis": [
-        "pond"
-      ]
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 640
+     },
+     "start": 1.2
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "other:florida_sinkhole_exterior",
-      "description": "COLD OPEN, camera already moving. Top-down drone view of a small, still, dark-green pond ringed by swamp woods and a sandy dive-entry slope. Morning light. Nothing about it looks dangerous.",
-      "camera": "Top-down 28 mm, slow descending push toward the pond centre (pond fills the middle third).",
-      "characters": [],
-      "lighting": "Soft morning sun, light haze; pond surface reflects sky.",
-      "fx": [
-        "mist",
-        "leaf_drift"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "DIVERS DEAD SINCE 1981",
-          "params": {
-            "from": 0,
-            "to": 10,
-            "y": 300
-          },
-          "start": 0.6
-        },
-        {
-          "type": "label",
-          "text": "DISPUTED",
-          "params": {
-            "y": 640
-          },
-          "start": 1.2
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "sting",
-          "offset": 0.8,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.35
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "other:florida_sinkhole_exterior",
-      "description": "Ground level at the water's edge: cypress knees, duckweed-green surface, a dragonfly-sized speck skims. A dive line tied to a root disappears into the water (the only hint).",
-      "camera": "Low 35 mm dolly along the bank; rack focus from the bank to the line entering the water.",
-      "characters": [],
-      "lighting": "Dappled sun through canopy.",
-      "fx": [
-        "mist",
-        "ripples"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "FLORIDA, USA",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "creak",
-          "offset": 1.2,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "other:vertical_shaft_descent",
-      "description": "Camera sinks through the green surface. Light dies fast. A single diver (blue fins) descends head-down through a narrow rock throat barely wider than his tanks, following the line.",
-      "camera": "Continuous move from above water to below (water plane wipe), then top-down 20 mm following the diver.",
-      "characters": [
-        "diver_A (blue fins, twin tanks, helmet torch, faceless)"
-      ],
-      "lighting": "Green daylight from above fading to black; torch cone.",
-      "fx": [
-        "particles_dust",
-        "volumetric_water",
-        "bubbles"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THE CHIMNEY",
-          "params": {
-            "y": 420,
-            "size": 96
-          },
-          "start": 1.2
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.3,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "cave_tunnel",
-      "description": "THE REVEAL. The diver drops out of the shaft's mouth into a vast black chamber; his torch beam reaches nothing. A slow pull-back shows him as a speck at the ceiling, with a mound of debris rising from the floor far below.",
-      "camera": "Wide 18 mm pull-back and tilt down, scale reveal; diver tiny in the upper third.",
-      "characters": [
-        "diver_A (blue fins)"
-      ],
-      "lighting": "Torch cone + one faint shaft of green daylight from the chimney; volumetric.",
-      "fx": [
-        "volumetric_light_shafts",
-        "particles_dust"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THE BALLROOM",
-          "params": {
-            "y": 420,
-            "size": 96
-          },
-          "start": 1.0
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "riser",
-          "offset": 0.8,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "map",
-      "description": "Pattern interrupt. Map card of Florida; route line draws south along the Gulf coast; pin drops north of Tampa near Weeki Wachee.",
-      "camera": "Overlay card over a blurred Ballroom background.",
-      "characters": [],
-      "lighting": "Graphic.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "EAGLE'S NEST SINK\nHERNANDO COUNTY, FLORIDA",
-          "params": {
-            "land": [
-              [
-                0.03,
-                0.12
-              ],
-              [
-                0.55,
-                0.12
-              ],
-              [
-                0.62,
-                0.16
-              ],
-              [
-                0.78,
-                0.14
-              ],
-              [
-                0.8,
-                0.3
-              ],
-              [
-                0.88,
-                0.5
-              ],
-              [
-                0.93,
-                0.72
-              ],
-              [
-                0.87,
-                0.92
-              ],
-              [
-                0.78,
-                0.93
-              ],
-              [
-                0.7,
-                0.8
-              ],
-              [
-                0.63,
-                0.63
-              ],
-              [
-                0.57,
-                0.47
-              ],
-              [
-                0.52,
-                0.33
-              ],
-              [
-                0.45,
-                0.25
-              ],
-              [
-                0.34,
-                0.22
-              ],
-              [
-                0.18,
-                0.21
-              ],
-              [
-                0.03,
-                0.2
-              ]
-            ],
-            "points": [
-              [
-                0.66,
-                0.24
-              ],
-              [
-                0.6,
-                0.36
-              ],
-              [
-                0.585,
-                0.45
-              ]
-            ],
-            "pin": -1
-          }
-        },
-        {
-          "type": "text",
-          "text": "\"EVEREST OF CAVE DIVING\"",
-          "params": {
-            "y": 250,
-            "size": 54
-          },
-          "start": 2.0
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 2.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "other:cross_section_2.5D",
-      "description": "Schematic side-section: pond at top, thin chimney, the wide Ballroom, then tunnels stepping down and away. A cyan dot travels the route; a depth bar fills.",
-      "camera": "Locked diagram; slow vertical pan downward with the dot.",
-      "characters": [
-        "diver_dot (cyan)"
-      ],
-      "lighting": "Graphic; black, cyan outline.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 0,
-            "to": 300,
-            "max": 320,
-            "unit": "ft",
-            "speed": 0.9
-          }
-        },
-        {
-          "type": "text",
-          "text": "SCHEMATIC, NOT TO SCALE",
-          "params": {
-            "y": 1080,
-            "size": 34,
-            "color": [
-              180,
-              180,
-              180
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "cave_tunnel",
-      "description": "The diver's torch sweeps the debris slope and lands on a square white sign on a pipe stake, a simple hooded-skeleton silhouette printed on it. Silt drifts across.",
-      "camera": "POV 24 mm handheld; pan stops dead on the sign; slow push.",
-      "characters": [],
-      "lighting": "Torch cone only.",
-      "fx": [
-        "silt",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 110,
-            "to": 120,
-            "max": 320,
-            "unit": "ft"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "heartbeat",
-          "offset": 1.2,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "cave_tunnel",
-      "description": "MID-POINT TURN. Close-up of the sign face; lettering readable: STOP! / PREVENT YOUR DEATH! / GO NO FARTHER. Torchlight flickers across it once.",
-      "camera": "Macro 50 mm, slow push; slight handheld.",
-      "characters": [],
-      "lighting": "Torch cone; one flicker.",
-      "fx": [
-        "silt",
-        "flicker"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "breath",
-          "offset": 1.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "timeline",
-      "description": "Pattern interrupt. Timeline card over the dark pond surface: 1981 (first deaths counted), 1999 CLOSED.",
-      "camera": "Overlay; background slow drift over the pond at dusk.",
-      "characters": [],
-      "lighting": "Graphic.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "EAGLE'S NEST",
-          "params": {
-            "events": [
-              [
-                "1981",
-                "deaths counted from"
-              ],
-              [
-                "1999",
-                "CLOSED"
-              ]
-            ],
-            "highlight_last": true
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.3,
-          "gain": 0.4
-        },
-        {
-          "name": "hit",
-          "offset": 1.8,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "timeline",
-      "description": "Timeline extends: 2003 REOPENED. Behind it, the pond at dawn with a dive line again tied to the root.",
-      "camera": "Overlay; background slow push.",
-      "characters": [],
-      "lighting": "Graphic; dawn background.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "EAGLE'S NEST",
-          "params": {
-            "events": [
-              [
-                "1981",
-                "deaths counted from"
-              ],
-              [
-                "1999",
-                "CLOSED"
-              ],
-              [
-                "2003",
-                "REOPENED"
-              ]
-            ],
-            "highlight_last": true
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 1.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:florida_sinkhole_exterior",
-      "description": "Afternoon at the bank: three faceless figures in wetsuits sort tanks beside the pond; long shadows.",
-      "camera": "Wide 28 mm from across the pond, slow dolly-in.",
-      "characters": [
-        "figure x3 (silhouettes, wetsuits, no faces, not named)"
-      ],
-      "lighting": "Low afternoon sun, rim light.",
-      "fx": [
-        "dust",
-        "leaf_drift"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "OCTOBER 2016",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "metal_groan",
-          "offset": 1.0,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:vertical_shaft_descent",
-      "description": "Under the pond: one diver hovers in the green light near the top of the Chimney; below him two torches shrink down the shaft into black.",
-      "camera": "Top-down 24 mm from above the hovering diver, looking past his fins at the two lights going down.",
-      "characters": [
-        "diver_C (green fins, stays shallow)",
-        "diver_A (blue fins)",
-        "diver_B (red fins)"
-      ],
-      "lighting": "Green daylight top, two torch cones below.",
-      "fx": [
-        "particles_dust",
-        "bubbles"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:florida_sinkhole_exterior",
-      "description": "The pond surface from the bank, perfectly still; a trail of bubbles slows and stops. The timer turns red past 60 minutes. Light fades toward evening.",
-      "camera": "Locked-off 35 mm, low over the water; light timelapse.",
-      "characters": [],
-      "lighting": "Afternoon to dusk transition.",
-      "fx": [
-        "bubbles",
-        "mist"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "DUE BACK",
-          "params": {
-            "from": 2700,
-            "to": 4200,
-            "fmt": "mmss",
-            "y": 300,
-            "danger": true
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "heartbeat",
-          "offset": 1.0,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "other:cross_section_2.5D",
-      "description": "Section again: the cyan route line runs to a deep tunnel; two small dim grey dots sit close together at a marker. No bodies, no detail.",
-      "camera": "Locked; slow push toward the marker.",
-      "characters": [
-        "two dim dots (abstract)"
-      ],
-      "lighting": "Graphic; the dots glow faintly then dim.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 0,
-            "to": 260,
-            "max": 320,
-            "unit": "ft",
-            "speed": 0.8
-          }
-        },
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "cave_tunnel",
-      "description": "A deep, empty tunnel: a guideline running into black, silt hanging in a single torch beam that sweeps and finds nothing.",
-      "camera": "Slow push 35 mm down the line.",
-      "characters": [],
-      "lighting": "Single torch; deep blue-black.",
-      "fx": [
-        "silt",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "CAUSE: UNCLEAR",
-          "params": {
-            "y": 420,
-            "size": 84
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "rumble",
-          "offset": 1.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:florida_sinkhole_exterior",
-      "description": "Camera rises out of the water back to the top-down drone view of the calm green pond — same framing as S01 so the loop into 'This pond has killed at least ten divers' is seamless. Small memorial text fades in and out.",
-      "camera": "Crane up through the surface to top-down 28 mm; final 0.5 s = S01 first-frame composition.",
-      "characters": [],
-      "lighting": "Morning sun (matches S01).",
-      "fx": [
-        "mist"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "IN MEMORY OF EVERY DIVER\nLOST AT EAGLE'S NEST",
-          "params": {
-            "y": 1020,
-            "size": 48
-          },
-          "start": 0.3,
-          "duration": 2.0
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 0.8,
+     "gain": 0.5
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:florida_sinkhole_exterior",
+   "description": "Ground level at the water's edge: cypress knees, duckweed-green surface, a dragonfly-sized speck skims. A dive line tied to a root disappears into the water (the only hint).",
+   "camera": "Low 35 mm dolly along the bank; rack focus from the bank to the line entering the water.",
+   "characters": [],
+   "lighting": "Dappled sun through canopy.",
+   "fx": [
+    "mist",
+    "ripples"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "FLORIDA, USA",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "creak",
+     "offset": 1.2,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:vertical_shaft_descent",
+   "description": "Camera sinks through the green surface. Light dies fast. A single diver (blue fins) descends head-down through a narrow rock throat barely wider than his tanks, following the line.",
+   "camera": "Continuous move from above water to below (water plane wipe), then top-down 20 mm following the diver.",
+   "characters": [
+    "diver_A (blue fins, twin tanks, helmet torch, faceless)"
+   ],
+   "lighting": "Green daylight from above fading to black; torch cone.",
+   "fx": [
+    "particles_dust",
+    "volumetric_water",
+    "bubbles"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THE CHIMNEY",
+     "params": {
+      "y": 420,
+      "size": 96
+     },
+     "start": 1.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.3,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "cave_tunnel",
+   "description": "THE REVEAL. The diver drops out of the shaft's mouth into a vast black chamber; his torch beam reaches nothing. A slow pull-back shows him as a speck at the ceiling, with a mound of debris rising from the floor far below.",
+   "camera": "Wide 18 mm pull-back and tilt down, scale reveal; diver tiny in the upper third.",
+   "characters": [
+    "diver_A (blue fins)"
+   ],
+   "lighting": "Torch cone + one faint shaft of green daylight from the chimney; volumetric.",
+   "fx": [
+    "volumetric_light_shafts",
+    "particles_dust"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THE BALLROOM",
+     "params": {
+      "y": 420,
+      "size": 96
+     },
+     "start": 1.0
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "riser",
+     "offset": 0.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "map",
+   "description": "Pattern interrupt. Map card of Florida; route line draws south along the Gulf coast; pin drops north of Tampa near Weeki Wachee.",
+   "camera": "Overlay card over a blurred Ballroom background.",
+   "characters": [],
+   "lighting": "Graphic.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "EAGLE'S NEST SINK\nHERNANDO COUNTY, FLORIDA",
+     "params": {
+      "land": [
+       [
+        0.03,
+        0.12
+       ],
+       [
+        0.55,
+        0.12
+       ],
+       [
+        0.62,
+        0.16
+       ],
+       [
+        0.78,
+        0.14
+       ],
+       [
+        0.8,
+        0.3
+       ],
+       [
+        0.88,
+        0.5
+       ],
+       [
+        0.93,
+        0.72
+       ],
+       [
+        0.87,
+        0.92
+       ],
+       [
+        0.78,
+        0.93
+       ],
+       [
+        0.7,
+        0.8
+       ],
+       [
+        0.63,
+        0.63
+       ],
+       [
+        0.57,
+        0.47
+       ],
+       [
+        0.52,
+        0.33
+       ],
+       [
+        0.45,
+        0.25
+       ],
+       [
+        0.34,
+        0.22
+       ],
+       [
+        0.18,
+        0.21
+       ],
+       [
+        0.03,
+        0.2
+       ]
+      ],
+      "points": [
+       [
+        0.66,
+        0.24
+       ],
+       [
+        0.6,
+        0.36
+       ],
+       [
+        0.585,
+        0.45
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "text",
+     "text": "\"EVEREST OF CAVE DIVING\"",
+     "params": {
+      "y": 250,
+      "size": 54
+     },
+     "start": 2.0
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 2.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:cross_section_2.5D",
+   "description": "Schematic side-section: pond at top, thin chimney, the wide Ballroom, then tunnels stepping down and away. A cyan dot travels the route; a depth bar fills.",
+   "camera": "Locked diagram; slow vertical pan downward with the dot.",
+   "characters": [
+    "diver_dot (cyan)"
+   ],
+   "lighting": "Graphic; black, cyan outline.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 0,
+      "to": 300,
+      "max": 320,
+      "unit": "ft",
+      "speed": 0.9
+     }
+    },
+    {
+     "type": "text",
+     "text": "SCHEMATIC, NOT TO SCALE",
+     "params": {
+      "y": 1080,
+      "size": 34,
+      "color": [
+       180,
+       180,
+       180
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "cave_tunnel",
+   "description": "The diver's torch sweeps the debris slope and lands on a square white sign on a pipe stake, a simple hooded-skeleton silhouette printed on it. Silt drifts across.",
+   "camera": "POV 24 mm handheld; pan stops dead on the sign; slow push.",
+   "characters": [],
+   "lighting": "Torch cone only.",
+   "fx": [
+    "silt",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 110,
+      "to": 120,
+      "max": 320,
+      "unit": "ft"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 1.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "cave_tunnel",
+   "description": "MID-POINT TURN. Close-up of the sign face; lettering readable: STOP! / PREVENT YOUR DEATH! / GO NO FARTHER. Torchlight flickers across it once.",
+   "camera": "Macro 50 mm, slow push; slight handheld.",
+   "characters": [],
+   "lighting": "Torch cone; one flicker.",
+   "fx": [
+    "silt",
+    "flicker"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "breath",
+     "offset": 1.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "timeline",
+   "description": "Pattern interrupt. Timeline card over the dark pond surface: 1981 (first deaths counted), 1999 CLOSED.",
+   "camera": "Overlay; background slow drift over the pond at dusk.",
+   "characters": [],
+   "lighting": "Graphic.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "EAGLE'S NEST",
+     "params": {
+      "events": [
+       [
+        "1981",
+        "deaths counted from"
+       ],
+       [
+        "1999",
+        "CLOSED"
+       ]
+      ],
+      "highlight_last": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "timeline",
+   "description": "Timeline extends: 2003 REOPENED. Behind it, the pond at dawn with a dive line again tied to the root.",
+   "camera": "Overlay; background slow push.",
+   "characters": [],
+   "lighting": "Graphic; dawn background.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "EAGLE'S NEST",
+     "params": {
+      "events": [
+       [
+        "1981",
+        "deaths counted from"
+       ],
+       [
+        "1999",
+        "CLOSED"
+       ],
+       [
+        "2003",
+        "REOPENED"
+       ]
+      ],
+      "highlight_last": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 1.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:florida_sinkhole_exterior",
+   "description": "Afternoon at the bank: three faceless figures in wetsuits sort tanks beside the pond; long shadows.",
+   "camera": "Wide 28 mm from across the pond, slow dolly-in.",
+   "characters": [
+    "figure x3 (silhouettes, wetsuits, no faces, not named)"
+   ],
+   "lighting": "Low afternoon sun, rim light.",
+   "fx": [
+    "dust",
+    "leaf_drift"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "OCTOBER 2016",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "metal_groan",
+     "offset": 1.0,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:vertical_shaft_descent",
+   "description": "Under the pond: one diver hovers in the green light near the top of the Chimney; below him two torches shrink down the shaft into black.",
+   "camera": "Top-down 24 mm from above the hovering diver, looking past his fins at the two lights going down.",
+   "characters": [
+    "diver_C (green fins, stays shallow)",
+    "diver_A (blue fins)",
+    "diver_B (red fins)"
+   ],
+   "lighting": "Green daylight top, two torch cones below.",
+   "fx": [
+    "particles_dust",
+    "bubbles"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:florida_sinkhole_exterior",
+   "description": "The pond surface from the bank, perfectly still; a trail of bubbles slows and stops. The timer turns red past 60 minutes. Light fades toward evening.",
+   "camera": "Locked-off 35 mm, low over the water; light timelapse.",
+   "characters": [],
+   "lighting": "Afternoon to dusk transition.",
+   "fx": [
+    "bubbles",
+    "mist"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "DUE BACK",
+     "params": {
+      "from": 2700,
+      "to": 4200,
+      "fmt": "mmss",
+      "y": 300,
+      "danger": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "heartbeat",
+     "offset": 1.0,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:cross_section_2.5D",
+   "description": "Section again: the cyan route line runs to a deep tunnel; two small dim grey dots sit close together at a marker. No bodies, no detail.",
+   "camera": "Locked; slow push toward the marker.",
+   "characters": [
+    "two dim dots (abstract)"
+   ],
+   "lighting": "Graphic; the dots glow faintly then dim.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 0,
+      "to": 260,
+      "max": 320,
+      "unit": "ft",
+      "speed": 0.8
+     }
+    },
+    {
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "cave_tunnel",
+   "description": "A deep, empty tunnel: a guideline running into black, silt hanging in a single torch beam that sweeps and finds nothing.",
+   "camera": "Slow push 35 mm down the line.",
+   "characters": [],
+   "lighting": "Single torch; deep blue-black.",
+   "fx": [
+    "silt",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "CAUSE: UNCLEAR",
+     "params": {
+      "y": 420,
+      "size": 84
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "rumble",
+     "offset": 1.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:florida_sinkhole_exterior",
+   "description": "Camera rises out of the water back to the top-down drone view of the calm green pond — same framing as S01 so the loop into 'This pond has killed at least ten divers' is seamless. Small memorial text fades in and out.",
+   "camera": "Crane up through the surface to top-down 28 mm; final 0.5 s = S01 first-frame composition.",
+   "characters": [],
+   "lighting": "Morning sun (matches S01).",
+   "fx": [
+    "mist"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "IN MEMORY OF EVERY DIVER\nLOST AT EAGLE'S NEST",
+     "params": {
+      "y": 1020,
+      "size": 48
+     },
+     "start": 0.3,
+     "duration": 2.0
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
   ],
-  "music_curve": [
-    [
-      0,
-      0.5
-    ],
-    [
-      7,
-      0.7
-    ],
-    [
-      14,
-      0.6
-    ],
-    [
-      24,
-      0.8
-    ],
-    [
-      34,
-      0.3
-    ],
-    [
-      37,
-      0.6
-    ],
-    [
-      44,
-      0.9
-    ],
-    [
-      48,
-      0.2
-    ],
-    [
-      52,
-      0.6
-    ],
-    [
-      60,
-      0.4
-    ]
+  [
+   7,
+   0.7
   ],
-  "loop_line": "And from above, it still looks like a pond."
+  [
+   14,
+   0.6
+  ],
+  [
+   24,
+   0.8
+  ],
+  [
+   34,
+   0.3
+  ],
+  [
+   37,
+   0.6
+  ],
+  [
+   44,
+   0.9
+  ],
+  [
+   48,
+   0.2
+  ],
+  [
+   52,
+   0.6
+  ],
+  [
+   60,
+   0.4
+  ]
+ ],
+ "loop_line": "And from above, it still looks like a pond.",
+ "voice_original": "am_michael"
 }

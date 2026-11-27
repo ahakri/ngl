@@ -2,7 +2,7 @@
  "id": "HAUNT-04",
  "title": "The Ghost on the Raynham Hall Staircase",
  "category": "haunted",
- "voice": "bm_george",
+ "voice": "am_adam",
  "speed": 1.07,
  "mood": "haunted",
  "target_seconds": 52,
@@ -821,5 +821,6 @@
    0.35
   ]
  ],
- "loop_line": "So look again at these stairs."
+ "loop_line": "So look again at these stairs.",
+ "voice_original": "bm_george"
 }

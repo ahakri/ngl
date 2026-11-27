@@ -2,7 +2,7 @@
  "id": "MURDER-06",
  "title": "The Ghost Ship's Creepiest Detail Was Fiction",
  "category": "murder",
- "voice": "am_michael",
+ "voice": "am_adam",
  "speed": 1.06,
  "mood": "murder",
  "target_seconds": 72,
@@ -1105,5 +1105,6 @@
    0.55
   ]
  ],
- "loop_line": "After the last log entry, nine days passed. Until she was..."
+ "loop_line": "After the last log entry, nine days passed. Until she was...",
+ "voice_original": "am_michael"
 }

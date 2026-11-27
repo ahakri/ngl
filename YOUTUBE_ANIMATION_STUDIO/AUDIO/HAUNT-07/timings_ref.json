@@ -1,0 +1,705 @@
+{
+ "duration": 48.31,
+ "voice": "bm_george",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 2.75,
+   "text": "A driver says he hit a girl on this hill.",
+   "words": [
+    {
+     "w": "A",
+     "start": 0.18,
+     "end": 0.31
+    },
+    {
+     "w": "driver",
+     "start": 0.31,
+     "end": 0.82
+    },
+    {
+     "w": "says",
+     "start": 0.82,
+     "end": 1.11
+    },
+    {
+     "w": "he",
+     "start": 1.11,
+     "end": 1.24
+    },
+    {
+     "w": "hit",
+     "start": 1.24,
+     "end": 1.48
+    },
+    {
+     "w": "a",
+     "start": 1.48,
+     "end": 1.65
+    },
+    {
+     "w": "girl",
+     "start": 1.65,
+     "end": 2.0
+    },
+    {
+     "w": "on",
+     "start": 2.0,
+     "end": 2.19
+    },
+    {
+     "w": "this",
+     "start": 2.19,
+     "end": 2.4
+    },
+    {
+     "w": "hill.",
+     "start": 2.4,
+     "end": 2.69
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 2.85,
+   "end": 4.06,
+   "text": "Then she vanished.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 2.88,
+     "end": 3.2
+    },
+    {
+     "w": "she",
+     "start": 3.2,
+     "end": 3.49
+    },
+    {
+     "w": "vanished.",
+     "start": 3.49,
+     "end": 4.0
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 4.46,
+   "end": 8.87,
+   "text": "Blue Bell Hill, Kent, on the A229 near Maidstone.",
+   "words": [
+    {
+     "w": "Blue",
+     "start": 4.49,
+     "end": 4.82
+    },
+    {
+     "w": "Bell",
+     "start": 4.82,
+     "end": 5.14
+    },
+    {
+     "w": "Hill,",
+     "start": 5.14,
+     "end": 5.42
+    },
+    {
+     "w": "Kent,",
+     "start": 5.42,
+     "end": 5.74
+    },
+    {
+     "w": "on",
+     "start": 5.74,
+     "end": 5.96
+    },
+    {
+     "w": "the",
+     "start": 5.96,
+     "end": 6.07
+    },
+    {
+     "w": "A229",
+     "start": 6.07,
+     "end": 7.89
+    },
+    {
+     "w": "near",
+     "start": 7.89,
+     "end": 8.08
+    },
+    {
+     "w": "Maidstone.",
+     "start": 8.08,
+     "end": 8.81
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 9.12,
+   "end": 14.53,
+   "text": "In 1974, a local bricklayer reported hitting a young girl here at night.",
+   "words": [
+    {
+     "w": "In",
+     "start": 9.14,
+     "end": 9.41
+    },
+    {
+     "w": "1974,",
+     "start": 9.41,
+     "end": 10.29
+    },
+    {
+     "w": "a",
+     "start": 10.29,
+     "end": 10.39
+    },
+    {
+     "w": "local",
+     "start": 10.39,
+     "end": 11.0
+    },
+    {
+     "w": "bricklayer",
+     "start": 11.0,
+     "end": 11.68
+    },
+    {
+     "w": "reported",
+     "start": 11.68,
+     "end": 12.35
+    },
+    {
+     "w": "hitting",
+     "start": 12.35,
+     "end": 12.76
+    },
+    {
+     "w": "a",
+     "start": 12.76,
+     "end": 13.01
+    },
+    {
+     "w": "young",
+     "start": 13.01,
+     "end": 13.24
+    },
+    {
+     "w": "girl",
+     "start": 13.24,
+     "end": 13.7
+    },
+    {
+     "w": "here",
+     "start": 13.7,
+     "end": 14.01
+    },
+    {
+     "w": "at",
+     "start": 14.01,
+     "end": 14.04
+    },
+    {
+     "w": "night.",
+     "start": 14.04,
+     "end": 14.47
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 14.78,
+   "end": 17.84,
+   "text": "He covered her with a blanket and went for the police.",
+   "words": [
+    {
+     "w": "He",
+     "start": 14.81,
+     "end": 14.93
+    },
+    {
+     "w": "covered",
+     "start": 14.93,
+     "end": 15.42
+    },
+    {
+     "w": "her",
+     "start": 15.42,
+     "end": 15.55
+    },
+    {
+     "w": "with",
+     "start": 15.55,
+     "end": 15.73
+    },
+    {
+     "w": "a",
+     "start": 15.73,
+     "end": 15.99
+    },
+    {
+     "w": "blanket",
+     "start": 15.99,
+     "end": 16.5
+    },
+    {
+     "w": "and",
+     "start": 16.5,
+     "end": 16.7
+    },
+    {
+     "w": "went",
+     "start": 16.7,
+     "end": 16.93
+    },
+    {
+     "w": "for",
+     "start": 16.93,
+     "end": 17.21
+    },
+    {
+     "w": "the",
+     "start": 17.21,
+     "end": 17.36
+    },
+    {
+     "w": "police.",
+     "start": 17.36,
+     "end": 17.78
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 18.09,
+   "end": 21.52,
+   "text": "When he came back with officers, only the blanket was there.",
+   "words": [
+    {
+     "w": "When",
+     "start": 18.12,
+     "end": 18.32
+    },
+    {
+     "w": "he",
+     "start": 18.32,
+     "end": 18.64
+    },
+    {
+     "w": "came",
+     "start": 18.64,
+     "end": 18.87
+    },
+    {
+     "w": "back",
+     "start": 18.87,
+     "end": 19.24
+    },
+    {
+     "w": "with",
+     "start": 19.24,
+     "end": 19.43
+    },
+    {
+     "w": "officers,",
+     "start": 19.43,
+     "end": 19.89
+    },
+    {
+     "w": "only",
+     "start": 19.89,
+     "end": 20.33
+    },
+    {
+     "w": "the",
+     "start": 20.33,
+     "end": 20.47
+    },
+    {
+     "w": "blanket",
+     "start": 20.47,
+     "end": 20.93
+    },
+    {
+     "w": "was",
+     "start": 20.93,
+     "end": 21.13
+    },
+    {
+     "w": "there.",
+     "start": 21.13,
+     "end": 21.46
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.97,
+   "end": 23.27,
+   "text": "And he wasn't the last.",
+   "words": [
+    {
+     "w": "And",
+     "start": 22.0,
+     "end": 22.25
+    },
+    {
+     "w": "he",
+     "start": 22.25,
+     "end": 22.38
+    },
+    {
+     "w": "wasn't",
+     "start": 22.38,
+     "end": 22.81
+    },
+    {
+     "w": "the",
+     "start": 22.81,
+     "end": 22.95
+    },
+    {
+     "w": "last.",
+     "start": 22.95,
+     "end": 23.21
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 23.57,
+   "end": 29.41,
+   "text": "In November 1992, motorists again reported running down a young woman here.",
+   "words": [
+    {
+     "w": "In",
+     "start": 23.59,
+     "end": 23.86
+    },
+    {
+     "w": "November",
+     "start": 23.86,
+     "end": 24.41
+    },
+    {
+     "w": "1992,",
+     "start": 24.41,
+     "end": 25.31
+    },
+    {
+     "w": "motorists",
+     "start": 25.31,
+     "end": 26.15
+    },
+    {
+     "w": "again",
+     "start": 26.15,
+     "end": 26.51
+    },
+    {
+     "w": "reported",
+     "start": 26.51,
+     "end": 27.3
+    },
+    {
+     "w": "running",
+     "start": 27.3,
+     "end": 27.75
+    },
+    {
+     "w": "down",
+     "start": 27.75,
+     "end": 28.16
+    },
+    {
+     "w": "a",
+     "start": 28.16,
+     "end": 28.38
+    },
+    {
+     "w": "young",
+     "start": 28.38,
+     "end": 28.67
+    },
+    {
+     "w": "woman",
+     "start": 28.67,
+     "end": 29.11
+    },
+    {
+     "w": "here.",
+     "start": 29.11,
+     "end": 29.35
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 29.66,
+   "end": 31.93,
+   "text": "No trace of her was ever found.",
+   "words": [
+    {
+     "w": "No",
+     "start": 29.69,
+     "end": 29.95
+    },
+    {
+     "w": "trace",
+     "start": 29.95,
+     "end": 30.45
+    },
+    {
+     "w": "of",
+     "start": 30.45,
+     "end": 30.68
+    },
+    {
+     "w": "her",
+     "start": 30.68,
+     "end": 30.83
+    },
+    {
+     "w": "was",
+     "start": 30.83,
+     "end": 31.09
+    },
+    {
+     "w": "ever",
+     "start": 31.09,
+     "end": 31.41
+    },
+    {
+     "w": "found.",
+     "start": 31.41,
+     "end": 31.87
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 32.28,
+   "end": 36.14,
+   "text": "Sceptics call it a classic folk tale, told on roads worldwide.",
+   "words": [
+    {
+     "w": "Sceptics",
+     "start": 32.31,
+     "end": 32.84
+    },
+    {
+     "w": "call",
+     "start": 32.84,
+     "end": 33.23
+    },
+    {
+     "w": "it",
+     "start": 33.23,
+     "end": 33.23
+    },
+    {
+     "w": "a",
+     "start": 33.23,
+     "end": 33.53
+    },
+    {
+     "w": "classic",
+     "start": 33.53,
+     "end": 33.97
+    },
+    {
+     "w": "folk",
+     "start": 33.97,
+     "end": 34.28
+    },
+    {
+     "w": "tale,",
+     "start": 34.28,
+     "end": 34.48
+    },
+    {
+     "w": "told",
+     "start": 34.48,
+     "end": 34.9
+    },
+    {
+     "w": "on",
+     "start": 34.9,
+     "end": 35.15
+    },
+    {
+     "w": "roads",
+     "start": 35.15,
+     "end": 35.51
+    },
+    {
+     "w": "worldwide.",
+     "start": 35.51,
+     "end": 36.08
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 36.39,
+   "end": 40.23,
+   "text": "Even local accounts disagree on when the sightings began.",
+   "words": [
+    {
+     "w": "Even",
+     "start": 36.41,
+     "end": 36.88
+    },
+    {
+     "w": "local",
+     "start": 36.88,
+     "end": 37.32
+    },
+    {
+     "w": "accounts",
+     "start": 37.32,
+     "end": 37.81
+    },
+    {
+     "w": "disagree",
+     "start": 37.81,
+     "end": 38.62
+    },
+    {
+     "w": "on",
+     "start": 38.62,
+     "end": 38.82
+    },
+    {
+     "w": "when",
+     "start": 38.82,
+     "end": 39.1
+    },
+    {
+     "w": "the",
+     "start": 39.1,
+     "end": 39.16
+    },
+    {
+     "w": "sightings",
+     "start": 39.16,
+     "end": 39.69
+    },
+    {
+     "w": "began.",
+     "start": 39.69,
+     "end": 40.17
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 40.53,
+   "end": 43.44,
+   "text": "None of these reports has ever been confirmed.",
+   "words": [
+    {
+     "w": "None",
+     "start": 40.55,
+     "end": 40.85
+    },
+    {
+     "w": "of",
+     "start": 40.85,
+     "end": 40.9
+    },
+    {
+     "w": "these",
+     "start": 40.9,
+     "end": 41.31
+    },
+    {
+     "w": "reports",
+     "start": 41.31,
+     "end": 41.91
+    },
+    {
+     "w": "has",
+     "start": 41.91,
+     "end": 42.17
+    },
+    {
+     "w": "ever",
+     "start": 42.17,
+     "end": 42.49
+    },
+    {
+     "w": "been",
+     "start": 42.49,
+     "end": 42.71
+    },
+    {
+     "w": "confirmed.",
+     "start": 42.71,
+     "end": 43.38
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 44.64,
+   "end": 47.51,
+   "text": "So if someone steps into your headlights on this hill...",
+   "words": [
+    {
+     "w": "So",
+     "start": 44.67,
+     "end": 44.96
+    },
+    {
+     "w": "if",
+     "start": 44.96,
+     "end": 45.0
+    },
+    {
+     "w": "someone",
+     "start": 45.0,
+     "end": 45.47
+    },
+    {
+     "w": "steps",
+     "start": 45.47,
+     "end": 45.76
+    },
+    {
+     "w": "into",
+     "start": 45.76,
+     "end": 46.14
+    },
+    {
+     "w": "your",
+     "start": 46.14,
+     "end": 46.3
+    },
+    {
+     "w": "headlights",
+     "start": 46.3,
+     "end": 46.77
+    },
+    {
+     "w": "on",
+     "start": 46.77,
+     "end": 46.99
+    },
+    {
+     "w": "this",
+     "start": 46.99,
+     "end": 47.16
+    },
+    {
+     "w": "hill...",
+     "start": 47.16,
+     "end": 47.45
+    }
+   ]
+  }
+ ]
+}

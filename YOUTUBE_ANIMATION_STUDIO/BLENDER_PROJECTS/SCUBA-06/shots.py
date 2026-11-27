@@ -336,15 +336,8 @@ def S03(L, n):
                     (dive + 18, (-0.5, -1.8, -0.7), (-0.9, 1.2, -1.0)), (n, (-1.2, -1.8, -1.6), (-1.8, 1.3, -2.3))])
     L.cam_light(cam, energy=20, color=(0.7, 0.9, 0.9))
     L.handheld(cam, n, amp=0.015, rate=0.5, rot_amp=0.003)
-    ic = tank_icon(L, f0=30, f1=36)
-    ic.parent = cam
-    for f, s in ((1, 0.001), (29, 0.001), (31, 1.0), (dive + 6, 1.0), (dive + 12, 0.001)):
-        ic.scale = (s * 0.55,) * 3
-        ic.keyframe_insert("scale", frame=f)
-    ic.location = (-0.75, 0.15, -4.0)
-    st = S.draw_on_curve([(-0.45, -0.75, 0.02), (0.45, 0.9, 0.02)], 36, 41, color=(1.0, 0.12, 0.08), width=0.05,
-                         strength=6.0, name="strike")
-    st.parent = ic
+    # NOTE (fact-check 2026-11-27): the "no tank / breath-hold" icon + strike-through was removed. No second source
+    # explicitly confirms the breathing method, so the shot no longer asserts it on screen (see FACTCHECK.md L03).
     _finish(L)
 
 

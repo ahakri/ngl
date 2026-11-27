@@ -2,7 +2,7 @@
  "id": "HAUNT-02",
  "title": "The Real Room 217",
  "category": "haunted",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.05,
  "mood": "haunted",
  "target_seconds": 50,
@@ -848,5 +848,6 @@
    0.35
   ]
  ],
- "loop_line": "Nobody knows. But it started like this:"
+ "loop_line": "Nobody knows. But it started like this:",
+ "voice_original": "am_onyx"
 }

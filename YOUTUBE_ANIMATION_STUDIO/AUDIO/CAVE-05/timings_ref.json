@@ -1,0 +1,922 @@
+{
+ "duration": 58.58,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 2.65,
+   "text": "Air for one diver to get out. There were two.",
+   "words": [
+    {
+     "w": "Air",
+     "start": 0.18,
+     "end": 0.42
+    },
+    {
+     "w": "for",
+     "start": 0.42,
+     "end": 0.55
+    },
+    {
+     "w": "one",
+     "start": 0.55,
+     "end": 0.8
+    },
+    {
+     "w": "diver",
+     "start": 0.8,
+     "end": 1.17
+    },
+    {
+     "w": "to",
+     "start": 1.17,
+     "end": 1.36
+    },
+    {
+     "w": "get",
+     "start": 1.36,
+     "end": 1.68
+    },
+    {
+     "w": "out.",
+     "start": 1.68,
+     "end": 1.92
+    },
+    {
+     "w": "There",
+     "start": 1.92,
+     "end": 2.13
+    },
+    {
+     "w": "were",
+     "start": 2.13,
+     "end": 2.29
+    },
+    {
+     "w": "two.",
+     "start": 2.29,
+     "end": 2.59
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 2.95,
+   "end": 5.29,
+   "text": "So one stayed behind, inside the rock.",
+   "words": [
+    {
+     "w": "So",
+     "start": 2.98,
+     "end": 3.25
+    },
+    {
+     "w": "one",
+     "start": 3.25,
+     "end": 3.54
+    },
+    {
+     "w": "stayed",
+     "start": 3.54,
+     "end": 3.79
+    },
+    {
+     "w": "behind,",
+     "start": 3.79,
+     "end": 4.32
+    },
+    {
+     "w": "inside",
+     "start": 4.32,
+     "end": 4.77
+    },
+    {
+     "w": "the",
+     "start": 4.77,
+     "end": 4.86
+    },
+    {
+     "w": "rock.",
+     "start": 4.86,
+     "end": 5.23
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 5.64,
+   "end": 10.51,
+   "text": "Mallorca, Spain. April 2017. The cave of Sa Piqueta.",
+   "words": [
+    {
+     "w": "Mallorca,",
+     "start": 5.67,
+     "end": 6.39
+    },
+    {
+     "w": "Spain.",
+     "start": 6.39,
+     "end": 7.02
+    },
+    {
+     "w": "April",
+     "start": 7.02,
+     "end": 7.63
+    },
+    {
+     "w": "2017.",
+     "start": 7.63,
+     "end": 8.66
+    },
+    {
+     "w": "The",
+     "start": 8.66,
+     "end": 8.81
+    },
+    {
+     "w": "cave",
+     "start": 8.81,
+     "end": 9.2
+    },
+    {
+     "w": "of",
+     "start": 9.2,
+     "end": 9.46
+    },
+    {
+     "w": "Sa",
+     "start": 9.46,
+     "end": 9.69
+    },
+    {
+     "w": "Piqueta.",
+     "start": 9.69,
+     "end": 10.45
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 10.76,
+   "end": 13.72,
+   "text": "Xisco Gr\u00e0cia and Guillem Mascar\u00f3 were mapping it.",
+   "words": [
+    {
+     "w": "Xisco",
+     "start": 10.79,
+     "end": 11.21
+    },
+    {
+     "w": "Gr\u00e0cia",
+     "start": 11.21,
+     "end": 11.72
+    },
+    {
+     "w": "and",
+     "start": 11.72,
+     "end": 11.86
+    },
+    {
+     "w": "Guillem",
+     "start": 11.86,
+     "end": 12.35
+    },
+    {
+     "w": "Mascar\u00f3",
+     "start": 12.35,
+     "end": 12.95
+    },
+    {
+     "w": "were",
+     "start": 12.95,
+     "end": 13.07
+    },
+    {
+     "w": "mapping",
+     "start": 13.07,
+     "end": 13.57
+    },
+    {
+     "w": "it.",
+     "start": 13.57,
+     "end": 13.66
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 13.92,
+   "end": 16.5,
+   "text": "Their guideline broke. Their gas ran low.",
+   "words": [
+    {
+     "w": "Their",
+     "start": 13.95,
+     "end": 14.11
+    },
+    {
+     "w": "guideline",
+     "start": 14.11,
+     "end": 14.91
+    },
+    {
+     "w": "broke.",
+     "start": 14.91,
+     "end": 15.31
+    },
+    {
+     "w": "Their",
+     "start": 15.31,
+     "end": 15.51
+    },
+    {
+     "w": "gas",
+     "start": 15.51,
+     "end": 15.88
+    },
+    {
+     "w": "ran",
+     "start": 15.88,
+     "end": 16.18
+    },
+    {
+     "w": "low.",
+     "start": 16.18,
+     "end": 16.44
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 16.8,
+   "end": 20.55,
+   "text": "Gr\u00e0cia gave his partner his remaining gas and sent him for help.",
+   "words": [
+    {
+     "w": "Gr\u00e0cia",
+     "start": 16.83,
+     "end": 17.25
+    },
+    {
+     "w": "gave",
+     "start": 17.25,
+     "end": 17.48
+    },
+    {
+     "w": "his",
+     "start": 17.48,
+     "end": 17.67
+    },
+    {
+     "w": "partner",
+     "start": 17.67,
+     "end": 18.15
+    },
+    {
+     "w": "his",
+     "start": 18.15,
+     "end": 18.41
+    },
+    {
+     "w": "remaining",
+     "start": 18.41,
+     "end": 19.04
+    },
+    {
+     "w": "gas",
+     "start": 19.04,
+     "end": 19.26
+    },
+    {
+     "w": "and",
+     "start": 19.26,
+     "end": 19.38
+    },
+    {
+     "w": "sent",
+     "start": 19.38,
+     "end": 19.67
+    },
+    {
+     "w": "him",
+     "start": 19.67,
+     "end": 19.92
+    },
+    {
+     "w": "for",
+     "start": 19.92,
+     "end": 20.15
+    },
+    {
+     "w": "help.",
+     "start": 20.15,
+     "end": 20.49
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 20.85,
+   "end": 24.78,
+   "text": "Then he waited alone in an air pocket, about 900 metres in.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 20.88,
+     "end": 21.13
+    },
+    {
+     "w": "he",
+     "start": 21.13,
+     "end": 21.31
+    },
+    {
+     "w": "waited",
+     "start": 21.31,
+     "end": 21.83
+    },
+    {
+     "w": "alone",
+     "start": 21.83,
+     "end": 22.15
+    },
+    {
+     "w": "in",
+     "start": 22.15,
+     "end": 22.35
+    },
+    {
+     "w": "an",
+     "start": 22.35,
+     "end": 22.44
+    },
+    {
+     "w": "air",
+     "start": 22.44,
+     "end": 22.63
+    },
+    {
+     "w": "pocket,",
+     "start": 22.63,
+     "end": 23.13
+    },
+    {
+     "w": "about",
+     "start": 23.13,
+     "end": 23.45
+    },
+    {
+     "w": "900",
+     "start": 23.45,
+     "end": 24.14
+    },
+    {
+     "w": "metres",
+     "start": 24.14,
+     "end": 24.48
+    },
+    {
+     "w": "in.",
+     "start": 24.48,
+     "end": 24.72
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 25.08,
+   "end": 29.62,
+   "text": "Fresh water to drink. Almost no light. Air thick with carbon dioxide.",
+   "words": [
+    {
+     "w": "Fresh",
+     "start": 25.11,
+     "end": 25.38
+    },
+    {
+     "w": "water",
+     "start": 25.38,
+     "end": 25.85
+    },
+    {
+     "w": "to",
+     "start": 25.85,
+     "end": 26.08
+    },
+    {
+     "w": "drink.",
+     "start": 26.08,
+     "end": 26.48
+    },
+    {
+     "w": "Almost",
+     "start": 26.48,
+     "end": 27.04
+    },
+    {
+     "w": "no",
+     "start": 27.04,
+     "end": 27.36
+    },
+    {
+     "w": "light.",
+     "start": 27.36,
+     "end": 27.68
+    },
+    {
+     "w": "Air",
+     "start": 27.68,
+     "end": 27.89
+    },
+    {
+     "w": "thick",
+     "start": 27.89,
+     "end": 28.15
+    },
+    {
+     "w": "with",
+     "start": 28.15,
+     "end": 28.35
+    },
+    {
+     "w": "carbon",
+     "start": 28.35,
+     "end": 28.81
+    },
+    {
+     "w": "dioxide.",
+     "start": 28.81,
+     "end": 29.56
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 29.97,
+   "end": 33.63,
+   "text": "Hours went by. He began to believe his partner hadn't made it.",
+   "words": [
+    {
+     "w": "Hours",
+     "start": 30.0,
+     "end": 30.33
+    },
+    {
+     "w": "went",
+     "start": 30.33,
+     "end": 30.62
+    },
+    {
+     "w": "by.",
+     "start": 30.62,
+     "end": 30.9
+    },
+    {
+     "w": "He",
+     "start": 30.9,
+     "end": 31.08
+    },
+    {
+     "w": "began",
+     "start": 31.08,
+     "end": 31.42
+    },
+    {
+     "w": "to",
+     "start": 31.42,
+     "end": 31.63
+    },
+    {
+     "w": "believe",
+     "start": 31.63,
+     "end": 32.01
+    },
+    {
+     "w": "his",
+     "start": 32.01,
+     "end": 32.26
+    },
+    {
+     "w": "partner",
+     "start": 32.26,
+     "end": 32.78
+    },
+    {
+     "w": "hadn't",
+     "start": 32.78,
+     "end": 33.15
+    },
+    {
+     "w": "made",
+     "start": 33.15,
+     "end": 33.5
+    },
+    {
+     "w": "it.",
+     "start": 33.5,
+     "end": 33.57
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 33.93,
+   "end": 37.63,
+   "text": "Above him, rescuers tried to drill down through the rock. It failed.",
+   "words": [
+    {
+     "w": "Above",
+     "start": 33.96,
+     "end": 34.29
+    },
+    {
+     "w": "him,",
+     "start": 34.29,
+     "end": 34.47
+    },
+    {
+     "w": "rescuers",
+     "start": 34.47,
+     "end": 35.12
+    },
+    {
+     "w": "tried",
+     "start": 35.12,
+     "end": 35.45
+    },
+    {
+     "w": "to",
+     "start": 35.45,
+     "end": 35.67
+    },
+    {
+     "w": "drill",
+     "start": 35.67,
+     "end": 35.98
+    },
+    {
+     "w": "down",
+     "start": 35.98,
+     "end": 36.26
+    },
+    {
+     "w": "through",
+     "start": 36.26,
+     "end": 36.59
+    },
+    {
+     "w": "the",
+     "start": 36.59,
+     "end": 36.7
+    },
+    {
+     "w": "rock.",
+     "start": 36.7,
+     "end": 37.02
+    },
+    {
+     "w": "It",
+     "start": 37.02,
+     "end": 37.13
+    },
+    {
+     "w": "failed.",
+     "start": 37.13,
+     "end": 37.57
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 37.93,
+   "end": 41.0,
+   "text": "Divers tried to swim in. The water was too murky.",
+   "words": [
+    {
+     "w": "Divers",
+     "start": 37.96,
+     "end": 38.43
+    },
+    {
+     "w": "tried",
+     "start": 38.43,
+     "end": 38.87
+    },
+    {
+     "w": "to",
+     "start": 38.87,
+     "end": 39.0
+    },
+    {
+     "w": "swim",
+     "start": 39.0,
+     "end": 39.38
+    },
+    {
+     "w": "in.",
+     "start": 39.38,
+     "end": 39.6
+    },
+    {
+     "w": "The",
+     "start": 39.6,
+     "end": 39.65
+    },
+    {
+     "w": "water",
+     "start": 39.65,
+     "end": 40.02
+    },
+    {
+     "w": "was",
+     "start": 40.02,
+     "end": 40.33
+    },
+    {
+     "w": "too",
+     "start": 40.33,
+     "end": 40.5
+    },
+    {
+     "w": "murky.",
+     "start": 40.5,
+     "end": 40.94
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 41.3,
+   "end": 43.03,
+   "text": "The bad air made him hallucinate.",
+   "words": [
+    {
+     "w": "The",
+     "start": 41.33,
+     "end": 41.42
+    },
+    {
+     "w": "bad",
+     "start": 41.42,
+     "end": 41.7
+    },
+    {
+     "w": "air",
+     "start": 41.7,
+     "end": 41.85
+    },
+    {
+     "w": "made",
+     "start": 41.85,
+     "end": 42.06
+    },
+    {
+     "w": "him",
+     "start": 42.06,
+     "end": 42.34
+    },
+    {
+     "w": "hallucinate.",
+     "start": 42.34,
+     "end": 42.97
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 43.63,
+   "end": 46.88,
+   "text": "Then, around hour 60, a light rose through the water.",
+   "words": [
+    {
+     "w": "Then,",
+     "start": 43.66,
+     "end": 43.92
+    },
+    {
+     "w": "around",
+     "start": 43.92,
+     "end": 44.44
+    },
+    {
+     "w": "hour",
+     "start": 44.44,
+     "end": 44.67
+    },
+    {
+     "w": "60,",
+     "start": 44.67,
+     "end": 45.01
+    },
+    {
+     "w": "a",
+     "start": 45.01,
+     "end": 45.26
+    },
+    {
+     "w": "light",
+     "start": 45.26,
+     "end": 45.65
+    },
+    {
+     "w": "rose",
+     "start": 45.65,
+     "end": 46.0
+    },
+    {
+     "w": "through",
+     "start": 46.0,
+     "end": 46.24
+    },
+    {
+     "w": "the",
+     "start": 46.24,
+     "end": 46.38
+    },
+    {
+     "w": "water.",
+     "start": 46.38,
+     "end": 46.82
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 47.38,
+   "end": 48.29,
+   "text": "It was real.",
+   "words": [
+    {
+     "w": "It",
+     "start": 47.41,
+     "end": 47.52
+    },
+    {
+     "w": "was",
+     "start": 47.52,
+     "end": 47.76
+    },
+    {
+     "w": "real.",
+     "start": 47.76,
+     "end": 48.23
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 48.79,
+   "end": 51.1,
+   "text": "Rescue divers had found him. Alive.",
+   "words": [
+    {
+     "w": "Rescue",
+     "start": 48.82,
+     "end": 49.33
+    },
+    {
+     "w": "divers",
+     "start": 49.33,
+     "end": 49.83
+    },
+    {
+     "w": "had",
+     "start": 49.83,
+     "end": 50.08
+    },
+    {
+     "w": "found",
+     "start": 50.08,
+     "end": 50.46
+    },
+    {
+     "w": "him.",
+     "start": 50.46,
+     "end": 50.59
+    },
+    {
+     "w": "Alive.",
+     "start": 50.59,
+     "end": 51.04
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 51.4,
+   "end": 54.21,
+   "text": "His partner had made it out, and raised the alarm.",
+   "words": [
+    {
+     "w": "His",
+     "start": 51.43,
+     "end": 51.64
+    },
+    {
+     "w": "partner",
+     "start": 51.64,
+     "end": 52.15
+    },
+    {
+     "w": "had",
+     "start": 52.15,
+     "end": 52.34
+    },
+    {
+     "w": "made",
+     "start": 52.34,
+     "end": 52.74
+    },
+    {
+     "w": "it",
+     "start": 52.74,
+     "end": 52.77
+    },
+    {
+     "w": "out,",
+     "start": 52.77,
+     "end": 53.03
+    },
+    {
+     "w": "and",
+     "start": 53.03,
+     "end": 53.23
+    },
+    {
+     "w": "raised",
+     "start": 53.23,
+     "end": 53.6
+    },
+    {
+     "w": "the",
+     "start": 53.6,
+     "end": 53.68
+    },
+    {
+     "w": "alarm.",
+     "start": 53.68,
+     "end": 54.15
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 54.61,
+   "end": 57.38,
+   "text": "Air for one diver to get out. Both came home.",
+   "words": [
+    {
+     "w": "Air",
+     "start": 54.64,
+     "end": 54.88
+    },
+    {
+     "w": "for",
+     "start": 54.88,
+     "end": 55.01
+    },
+    {
+     "w": "one",
+     "start": 55.01,
+     "end": 55.26
+    },
+    {
+     "w": "diver",
+     "start": 55.26,
+     "end": 55.68
+    },
+    {
+     "w": "to",
+     "start": 55.68,
+     "end": 55.83
+    },
+    {
+     "w": "get",
+     "start": 55.83,
+     "end": 56.1
+    },
+    {
+     "w": "out.",
+     "start": 56.1,
+     "end": 56.37
+    },
+    {
+     "w": "Both",
+     "start": 56.37,
+     "end": 56.74
+    },
+    {
+     "w": "came",
+     "start": 56.74,
+     "end": 57.06
+    },
+    {
+     "w": "home.",
+     "start": 57.06,
+     "end": 57.32
+    }
+   ]
+  }
+ ]
+}

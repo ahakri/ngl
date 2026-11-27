@@ -1,0 +1,961 @@
+{
+ "duration": 62.68,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.16,
+   "text": "Thirteen people, trapped about four kilometres inside a flooded cave.",
+   "words": [
+    {
+     "w": "Thirteen",
+     "start": 0.18,
+     "end": 0.62
+    },
+    {
+     "w": "people,",
+     "start": 0.62,
+     "end": 1.1
+    },
+    {
+     "w": "trapped",
+     "start": 1.1,
+     "end": 1.42
+    },
+    {
+     "w": "about",
+     "start": 1.42,
+     "end": 1.73
+    },
+    {
+     "w": "four",
+     "start": 1.73,
+     "end": 2.09
+    },
+    {
+     "w": "kilometres",
+     "start": 2.09,
+     "end": 2.82
+    },
+    {
+     "w": "inside",
+     "start": 2.82,
+     "end": 3.18
+    },
+    {
+     "w": "a",
+     "start": 3.18,
+     "end": 3.38
+    },
+    {
+     "w": "flooded",
+     "start": 3.38,
+     "end": 3.81
+    },
+    {
+     "w": "cave.",
+     "start": 3.81,
+     "end": 4.1
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.36,
+   "end": 7.24,
+   "text": "After nine days, a torch broke the surface.",
+   "words": [
+    {
+     "w": "After",
+     "start": 4.39,
+     "end": 4.69
+    },
+    {
+     "w": "nine",
+     "start": 4.69,
+     "end": 5.02
+    },
+    {
+     "w": "days,",
+     "start": 5.02,
+     "end": 5.42
+    },
+    {
+     "w": "a",
+     "start": 5.42,
+     "end": 5.65
+    },
+    {
+     "w": "torch",
+     "start": 5.65,
+     "end": 6.12
+    },
+    {
+     "w": "broke",
+     "start": 6.12,
+     "end": 6.49
+    },
+    {
+     "w": "the",
+     "start": 6.49,
+     "end": 6.7
+    },
+    {
+     "w": "surface.",
+     "start": 6.7,
+     "end": 7.18
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 7.54,
+   "end": 9.49,
+   "text": "The diver asked: how many of you?",
+   "words": [
+    {
+     "w": "The",
+     "start": 7.57,
+     "end": 7.66
+    },
+    {
+     "w": "diver",
+     "start": 7.66,
+     "end": 8.06
+    },
+    {
+     "w": "asked:",
+     "start": 8.06,
+     "end": 8.4
+    },
+    {
+     "w": "how",
+     "start": 8.4,
+     "end": 8.77
+    },
+    {
+     "w": "many",
+     "start": 8.77,
+     "end": 9.09
+    },
+    {
+     "w": "of",
+     "start": 9.09,
+     "end": 9.28
+    },
+    {
+     "w": "you?",
+     "start": 9.28,
+     "end": 9.43
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 9.84,
+   "end": 12.44,
+   "text": "A boy answered: thirteen. All of them alive.",
+   "words": [
+    {
+     "w": "A",
+     "start": 9.87,
+     "end": 10.05
+    },
+    {
+     "w": "boy",
+     "start": 10.05,
+     "end": 10.28
+    },
+    {
+     "w": "answered:",
+     "start": 10.28,
+     "end": 10.79
+    },
+    {
+     "w": "thirteen.",
+     "start": 10.79,
+     "end": 11.29
+    },
+    {
+     "w": "All",
+     "start": 11.29,
+     "end": 11.57
+    },
+    {
+     "w": "of",
+     "start": 11.57,
+     "end": 11.76
+    },
+    {
+     "w": "them",
+     "start": 11.76,
+     "end": 11.91
+    },
+    {
+     "w": "alive.",
+     "start": 11.91,
+     "end": 12.38
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 12.84,
+   "end": 16.16,
+   "text": "Tham Luang cave, northern Thailand, 2018.",
+   "words": [
+    {
+     "w": "Tham",
+     "start": 12.87,
+     "end": 13.15
+    },
+    {
+     "w": "Luang",
+     "start": 13.15,
+     "end": 13.6
+    },
+    {
+     "w": "cave,",
+     "start": 13.6,
+     "end": 13.98
+    },
+    {
+     "w": "northern",
+     "start": 13.98,
+     "end": 14.54
+    },
+    {
+     "w": "Thailand,",
+     "start": 14.54,
+     "end": 15.13
+    },
+    {
+     "w": "2018.",
+     "start": 15.13,
+     "end": 16.1
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 16.36,
+   "end": 20.04,
+   "text": "June 23rd: twelve young footballers and their coach went in.",
+   "words": [
+    {
+     "w": "June",
+     "start": 16.39,
+     "end": 16.76
+    },
+    {
+     "w": "23rd:",
+     "start": 16.76,
+     "end": 17.44
+    },
+    {
+     "w": "twelve",
+     "start": 17.44,
+     "end": 17.85
+    },
+    {
+     "w": "young",
+     "start": 17.85,
+     "end": 18.06
+    },
+    {
+     "w": "footballers",
+     "start": 18.06,
+     "end": 18.76
+    },
+    {
+     "w": "and",
+     "start": 18.76,
+     "end": 18.96
+    },
+    {
+     "w": "their",
+     "start": 18.96,
+     "end": 19.17
+    },
+    {
+     "w": "coach",
+     "start": 19.17,
+     "end": 19.47
+    },
+    {
+     "w": "went",
+     "start": 19.47,
+     "end": 19.76
+    },
+    {
+     "w": "in.",
+     "start": 19.76,
+     "end": 19.98
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 20.24,
+   "end": 22.06,
+   "text": "Then heavy rain flooded the way out.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 20.27,
+     "end": 20.43
+    },
+    {
+     "w": "heavy",
+     "start": 20.43,
+     "end": 20.77
+    },
+    {
+     "w": "rain",
+     "start": 20.77,
+     "end": 21.11
+    },
+    {
+     "w": "flooded",
+     "start": 21.11,
+     "end": 21.5
+    },
+    {
+     "w": "the",
+     "start": 21.5,
+     "end": 21.52
+    },
+    {
+     "w": "way",
+     "start": 21.52,
+     "end": 21.77
+    },
+    {
+     "w": "out.",
+     "start": 21.77,
+     "end": 22.0
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 22.36,
+   "end": 26.87,
+   "text": "July 2nd: British divers John Volanthen and Rick Stanton found them.",
+   "words": [
+    {
+     "w": "July",
+     "start": 22.39,
+     "end": 22.88
+    },
+    {
+     "w": "2nd:",
+     "start": 22.88,
+     "end": 23.3
+    },
+    {
+     "w": "British",
+     "start": 23.3,
+     "end": 23.71
+    },
+    {
+     "w": "divers",
+     "start": 23.71,
+     "end": 24.28
+    },
+    {
+     "w": "John",
+     "start": 24.28,
+     "end": 24.53
+    },
+    {
+     "w": "Volanthen",
+     "start": 24.53,
+     "end": 25.29
+    },
+    {
+     "w": "and",
+     "start": 25.29,
+     "end": 25.37
+    },
+    {
+     "w": "Rick",
+     "start": 25.37,
+     "end": 25.68
+    },
+    {
+     "w": "Stanton",
+     "start": 25.68,
+     "end": 26.17
+    },
+    {
+     "w": "found",
+     "start": 26.17,
+     "end": 26.51
+    },
+    {
+     "w": "them.",
+     "start": 26.51,
+     "end": 26.81
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 27.17,
+   "end": 28.88,
+   "text": "Finding them was the easy part.",
+   "words": [
+    {
+     "w": "Finding",
+     "start": 27.2,
+     "end": 27.67
+    },
+    {
+     "w": "them",
+     "start": 27.67,
+     "end": 27.86
+    },
+    {
+     "w": "was",
+     "start": 27.86,
+     "end": 28.08
+    },
+    {
+     "w": "the",
+     "start": 28.08,
+     "end": 28.24
+    },
+    {
+     "w": "easy",
+     "start": 28.24,
+     "end": 28.5
+    },
+    {
+     "w": "part.",
+     "start": 28.5,
+     "end": 28.82
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 29.13,
+   "end": 30.95,
+   "text": "None of the boys had ever dived.",
+   "words": [
+    {
+     "w": "None",
+     "start": 29.16,
+     "end": 29.45
+    },
+    {
+     "w": "of",
+     "start": 29.45,
+     "end": 29.6
+    },
+    {
+     "w": "the",
+     "start": 29.6,
+     "end": 29.63
+    },
+    {
+     "w": "boys",
+     "start": 29.63,
+     "end": 30.0
+    },
+    {
+     "w": "had",
+     "start": 30.0,
+     "end": 30.27
+    },
+    {
+     "w": "ever",
+     "start": 30.27,
+     "end": 30.45
+    },
+    {
+     "w": "dived.",
+     "start": 30.45,
+     "end": 30.89
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 31.3,
+   "end": 35.83,
+   "text": "Former Thai Navy SEAL Saman Kunan was placing air tanks along the route.",
+   "words": [
+    {
+     "w": "Former",
+     "start": 31.33,
+     "end": 31.75
+    },
+    {
+     "w": "Thai",
+     "start": 31.75,
+     "end": 32.13
+    },
+    {
+     "w": "Navy",
+     "start": 32.13,
+     "end": 32.41
+    },
+    {
+     "w": "SEAL",
+     "start": 32.41,
+     "end": 32.8
+    },
+    {
+     "w": "Saman",
+     "start": 32.8,
+     "end": 33.15
+    },
+    {
+     "w": "Kunan",
+     "start": 33.15,
+     "end": 33.56
+    },
+    {
+     "w": "was",
+     "start": 33.56,
+     "end": 33.84
+    },
+    {
+     "w": "placing",
+     "start": 33.84,
+     "end": 34.33
+    },
+    {
+     "w": "air",
+     "start": 34.33,
+     "end": 34.49
+    },
+    {
+     "w": "tanks",
+     "start": 34.49,
+     "end": 35.02
+    },
+    {
+     "w": "along",
+     "start": 35.02,
+     "end": 35.23
+    },
+    {
+     "w": "the",
+     "start": 35.23,
+     "end": 35.47
+    },
+    {
+     "w": "route.",
+     "start": 35.47,
+     "end": 35.77
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 36.08,
+   "end": 37.82,
+   "text": "On the way back, he ran out of air.",
+   "words": [
+    {
+     "w": "On",
+     "start": 36.11,
+     "end": 36.32
+    },
+    {
+     "w": "the",
+     "start": 36.32,
+     "end": 36.33
+    },
+    {
+     "w": "way",
+     "start": 36.33,
+     "end": 36.56
+    },
+    {
+     "w": "back,",
+     "start": 36.56,
+     "end": 36.82
+    },
+    {
+     "w": "he",
+     "start": 36.82,
+     "end": 37.01
+    },
+    {
+     "w": "ran",
+     "start": 37.01,
+     "end": 37.3
+    },
+    {
+     "w": "out",
+     "start": 37.3,
+     "end": 37.51
+    },
+    {
+     "w": "of",
+     "start": 37.51,
+     "end": 37.52
+    },
+    {
+     "w": "air.",
+     "start": 37.52,
+     "end": 37.76
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 38.12,
+   "end": 39.29,
+   "text": "He did not survive.",
+   "words": [
+    {
+     "w": "He",
+     "start": 38.15,
+     "end": 38.35
+    },
+    {
+     "w": "did",
+     "start": 38.35,
+     "end": 38.6
+    },
+    {
+     "w": "not",
+     "start": 38.6,
+     "end": 38.85
+    },
+    {
+     "w": "survive.",
+     "start": 38.85,
+     "end": 39.23
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 40.09,
+   "end": 42.39,
+   "text": "The plan that followed sounded impossible.",
+   "words": [
+    {
+     "w": "The",
+     "start": 40.12,
+     "end": 40.21
+    },
+    {
+     "w": "plan",
+     "start": 40.21,
+     "end": 40.58
+    },
+    {
+     "w": "that",
+     "start": 40.58,
+     "end": 40.72
+    },
+    {
+     "w": "followed",
+     "start": 40.72,
+     "end": 41.26
+    },
+    {
+     "w": "sounded",
+     "start": 41.26,
+     "end": 41.67
+    },
+    {
+     "w": "impossible.",
+     "start": 41.67,
+     "end": 42.33
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 42.59,
+   "end": 46.03,
+   "text": "Each boy was sedated and fitted with a full-face mask.",
+   "words": [
+    {
+     "w": "Each",
+     "start": 42.62,
+     "end": 42.89
+    },
+    {
+     "w": "boy",
+     "start": 42.89,
+     "end": 43.18
+    },
+    {
+     "w": "was",
+     "start": 43.18,
+     "end": 43.39
+    },
+    {
+     "w": "sedated",
+     "start": 43.39,
+     "end": 43.96
+    },
+    {
+     "w": "and",
+     "start": 43.96,
+     "end": 44.19
+    },
+    {
+     "w": "fitted",
+     "start": 44.19,
+     "end": 44.59
+    },
+    {
+     "w": "with",
+     "start": 44.59,
+     "end": 44.88
+    },
+    {
+     "w": "a",
+     "start": 44.88,
+     "end": 45.08
+    },
+    {
+     "w": "full-face",
+     "start": 45.08,
+     "end": 45.57
+    },
+    {
+     "w": "mask.",
+     "start": 45.57,
+     "end": 45.97
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 46.28,
+   "end": 49.05,
+   "text": "Expert divers guided them out, one by one.",
+   "words": [
+    {
+     "w": "Expert",
+     "start": 46.31,
+     "end": 46.81
+    },
+    {
+     "w": "divers",
+     "start": 46.81,
+     "end": 47.22
+    },
+    {
+     "w": "guided",
+     "start": 47.22,
+     "end": 47.73
+    },
+    {
+     "w": "them",
+     "start": 47.73,
+     "end": 48.0
+    },
+    {
+     "w": "out,",
+     "start": 48.0,
+     "end": 48.25
+    },
+    {
+     "w": "one",
+     "start": 48.25,
+     "end": 48.53
+    },
+    {
+     "w": "by",
+     "start": 48.53,
+     "end": 48.79
+    },
+    {
+     "w": "one.",
+     "start": 48.79,
+     "end": 48.99
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 49.35,
+   "end": 52.68,
+   "text": "July 8th: four out. July 9th: four more.",
+   "words": [
+    {
+     "w": "July",
+     "start": 49.38,
+     "end": 50.0
+    },
+    {
+     "w": "8th:",
+     "start": 50.0,
+     "end": 50.28
+    },
+    {
+     "w": "four",
+     "start": 50.28,
+     "end": 50.7
+    },
+    {
+     "w": "out.",
+     "start": 50.7,
+     "end": 50.86
+    },
+    {
+     "w": "July",
+     "start": 50.86,
+     "end": 51.54
+    },
+    {
+     "w": "9th:",
+     "start": 51.54,
+     "end": 51.9
+    },
+    {
+     "w": "four",
+     "start": 51.9,
+     "end": 52.32
+    },
+    {
+     "w": "more.",
+     "start": 52.32,
+     "end": 52.62
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 52.88,
+   "end": 55.54,
+   "text": "July 10th: the last four, and their coach.",
+   "words": [
+    {
+     "w": "July",
+     "start": 52.91,
+     "end": 53.42
+    },
+    {
+     "w": "10th:",
+     "start": 53.42,
+     "end": 53.87
+    },
+    {
+     "w": "the",
+     "start": 53.87,
+     "end": 53.96
+    },
+    {
+     "w": "last",
+     "start": 53.96,
+     "end": 54.34
+    },
+    {
+     "w": "four,",
+     "start": 54.34,
+     "end": 54.7
+    },
+    {
+     "w": "and",
+     "start": 54.7,
+     "end": 54.89
+    },
+    {
+     "w": "their",
+     "start": 54.89,
+     "end": 55.03
+    },
+    {
+     "w": "coach.",
+     "start": 55.03,
+     "end": 55.48
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 56.04,
+   "end": 58.71,
+   "text": "Saman Kunan died helping make it possible.",
+   "words": [
+    {
+     "w": "Saman",
+     "start": 56.07,
+     "end": 56.48
+    },
+    {
+     "w": "Kunan",
+     "start": 56.48,
+     "end": 56.89
+    },
+    {
+     "w": "died",
+     "start": 56.89,
+     "end": 57.1
+    },
+    {
+     "w": "helping",
+     "start": 57.1,
+     "end": 57.66
+    },
+    {
+     "w": "make",
+     "start": 57.66,
+     "end": 58.0
+    },
+    {
+     "w": "it",
+     "start": 58.0,
+     "end": 58.12
+    },
+    {
+     "w": "possible.",
+     "start": 58.12,
+     "end": 58.65
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "start": 59.21,
+   "end": 61.48,
+   "text": "Thirteen went in. Thirteen came out.",
+   "words": [
+    {
+     "w": "Thirteen",
+     "start": 59.24,
+     "end": 59.7
+    },
+    {
+     "w": "went",
+     "start": 59.7,
+     "end": 60.14
+    },
+    {
+     "w": "in.",
+     "start": 60.14,
+     "end": 60.24
+    },
+    {
+     "w": "Thirteen",
+     "start": 60.24,
+     "end": 60.77
+    },
+    {
+     "w": "came",
+     "start": 60.77,
+     "end": 61.2
+    },
+    {
+     "w": "out.",
+     "start": 61.2,
+     "end": 61.42
+    }
+   ]
+  }
+ ]
+}

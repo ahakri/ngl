@@ -1,1084 +1,1085 @@
 {
-  "id": "CAVE-05",
-  "title": "Air for One Diver. There Were Two.",
-  "category": "cave",
-  "voice": "am_michael",
-  "speed": 1.07,
-  "mood": "cave",
-  "target_seconds": 66,
-  "lines": [
+ "id": "CAVE-05",
+ "title": "Air for One Diver. There Were Two.",
+ "category": "cave",
+ "voice": "am_adam",
+ "speed": 1.07,
+ "mood": "cave",
+ "target_seconds": 66,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Air for one diver to get out. There were two.",
+   "pause_after": 0.3,
+   "shot": "S01",
+   "emphasis": [
+    "one",
+    "two"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "So one stayed behind, inside the rock.",
+   "pause_after": 0.35,
+   "shot": "S02",
+   "emphasis": [
+    "stayed",
+    "behind"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Mallorca, Spain. April 2017. The cave of Sa Piqueta.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "Mallorca",
+    "Piqueta"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "Xisco Gràcia and Guillem Mascaró were mapping it.",
+   "pause_after": 0.2,
+   "shot": "S04",
+   "emphasis": [
+    "Xisco",
+    "Gràcia"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Their guideline broke. Their gas ran low.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "broke",
+    "gas"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Gràcia gave his partner his remaining gas and sent him for help.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "remaining",
+    "help"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Then he waited alone in an air pocket, about 900 metres in.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "alone",
+    "900"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Fresh water to drink. Almost no light. Air thick with carbon dioxide.",
+   "pause_after": 0.35,
+   "shot": "S08",
+   "emphasis": [
+    "water",
+    "light",
+    "carbon",
+    "dioxide"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Hours went by. He began to believe his partner hadn't made it.",
+   "pause_after": 0.3,
+   "shot": "S09",
+   "emphasis": [
+    "hadn't",
+    "made"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Above him, rescuers tried to drill down through the rock. It failed.",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "drill",
+    "failed"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Divers tried to swim in. The water was too murky.",
+   "pause_after": 0.3,
+   "shot": "S11",
+   "emphasis": [
+    "murky"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "The bad air made him hallucinate.",
+   "pause_after": 0.6,
+   "shot": "S12",
+   "emphasis": [
+    "hallucinate"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Then, around hour 60, a light rose through the water.",
+   "pause_after": 0.5,
+   "shot": "S13",
+   "emphasis": [
+    "60",
+    "light"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "It was real.",
+   "pause_after": 0.5,
+   "shot": "S14",
+   "emphasis": [
+    "real"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Rescue divers had found him. Alive.",
+   "pause_after": 0.3,
+   "shot": "S15",
+   "emphasis": [
+    "Alive"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "His partner had made it out, and raised the alarm.",
+   "pause_after": 0.4,
+   "shot": "S16",
+   "emphasis": [
+    "made",
+    "alarm"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "Air for one diver to get out. Both came home.",
+   "pause_after": 0.6,
+   "shot": "S17",
+   "emphasis": [
+    "one",
+    "Both"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "cave_tunnel",
+   "description": "COLD OPEN, frame 1 already moving. Murky flooded passage, brown-green water. Two divers hang face to face over a silt floor, torch cones crossing. Between them a cut guideline end drifts slack. One diver taps his pressure gauge (gauge face reads generic low, no number).",
+   "camera": "Slow push-in 35 mm at mid-water between the two divers, handheld drift (amp 0.02); rack from gauge to the slack line.",
+   "characters": [
+    "diver_A Gràcia (yellow fins, back-mounted twins, helmet torch)",
+    "diver_B Mascaró (orange fins, helmet torch)"
+   ],
+   "lighting": "Two warm-white torch spots (22 deg) cutting a dense brown volume; no ambient.",
+   "fx": [
+    "silt",
+    "volumetric_water",
+    "torch_cone"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "Air for one diver to get out. There were two.",
-      "pause_after": 0.3,
-      "shot": "S01",
-      "emphasis": [
-        "one",
-        "two"
-      ]
+     "type": "label",
+     "text": "EYEWITNESS CLAIM",
+     "params": {
+      "y": 200
+     }
     },
     {
-      "id": "L02",
-      "text": "So one stayed behind, inside the rock.",
-      "pause_after": 0.35,
-      "shot": "S02",
-      "emphasis": [
-        "stayed",
-        "behind"
+     "type": "text",
+     "text": "AIR FOR 1",
+     "params": {
+      "y": 460,
+      "size": 120,
+      "color": [
+       255,
+       70,
+       60
       ]
-    },
-    {
-      "id": "L03",
-      "text": "Mallorca, Spain. April 2017. The cave of Sa Piqueta.",
-      "pause_after": 0.25,
-      "shot": "S03",
-      "emphasis": [
-        "Mallorca",
-        "Piqueta"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "Xisco Gràcia and Guillem Mascaró were mapping it.",
-      "pause_after": 0.2,
-      "shot": "S04",
-      "emphasis": [
-        "Xisco",
-        "Gràcia"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "Their guideline broke. Their gas ran low.",
-      "pause_after": 0.3,
-      "shot": "S05",
-      "emphasis": [
-        "broke",
-        "gas"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "Gràcia gave his partner his remaining gas and sent him for help.",
-      "pause_after": 0.3,
-      "shot": "S06",
-      "emphasis": [
-        "remaining",
-        "help"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Then he waited alone in an air pocket, about 900 metres in.",
-      "pause_after": 0.3,
-      "shot": "S07",
-      "emphasis": [
-        "alone",
-        "900"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "Fresh water to drink. Almost no light. Air thick with carbon dioxide.",
-      "pause_after": 0.35,
-      "shot": "S08",
-      "emphasis": [
-        "water",
-        "light",
-        "carbon",
-        "dioxide"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Hours went by. He began to believe his partner hadn't made it.",
-      "pause_after": 0.3,
-      "shot": "S09",
-      "emphasis": [
-        "hadn't",
-        "made"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "Above him, rescuers tried to drill down through the rock. It failed.",
-      "pause_after": 0.3,
-      "shot": "S10",
-      "emphasis": [
-        "drill",
-        "failed"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Divers tried to swim in. The water was too murky.",
-      "pause_after": 0.3,
-      "shot": "S11",
-      "emphasis": [
-        "murky"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "The bad air made him hallucinate.",
-      "pause_after": 0.6,
-      "shot": "S12",
-      "emphasis": [
-        "hallucinate"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "Then, around hour 60, a light rose through the water.",
-      "pause_after": 0.5,
-      "shot": "S13",
-      "emphasis": [
-        "60",
-        "light"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "It was real.",
-      "pause_after": 0.5,
-      "shot": "S14",
-      "emphasis": [
-        "real"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "Rescue divers had found him. Alive.",
-      "pause_after": 0.3,
-      "shot": "S15",
-      "emphasis": [
-        "Alive"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "His partner had made it out, and raised the alarm.",
-      "pause_after": 0.4,
-      "shot": "S16",
-      "emphasis": [
-        "made",
-        "alarm"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "Air for one diver to get out. Both came home.",
-      "pause_after": 0.6,
-      "shot": "S17",
-      "emphasis": [
-        "one",
-        "Both"
-      ]
+     },
+     "start": 1.6
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "cave_tunnel",
-      "description": "COLD OPEN, frame 1 already moving. Murky flooded passage, brown-green water. Two divers hang face to face over a silt floor, torch cones crossing. Between them a cut guideline end drifts slack. One diver taps his pressure gauge (gauge face reads generic low, no number).",
-      "camera": "Slow push-in 35 mm at mid-water between the two divers, handheld drift (amp 0.02); rack from gauge to the slack line.",
-      "characters": [
-        "diver_A Gràcia (yellow fins, back-mounted twins, helmet torch)",
-        "diver_B Mascaró (orange fins, helmet torch)"
-      ],
-      "lighting": "Two warm-white torch spots (22 deg) cutting a dense brown volume; no ambient.",
-      "fx": [
-        "silt",
-        "volumetric_water",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "EYEWITNESS CLAIM",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "AIR FOR 1",
-          "params": {
-            "y": 460,
-            "size": 120,
-            "color": [
-              255,
-              70,
-              60
-            ]
-          },
-          "start": 1.6
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.15,
-          "gain": 0.6
-        },
-        {
-          "name": "sting",
-          "offset": 1.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "A head and helmet torch break the black water surface inside a low rock dome. Ripples spread; drips fall from the ceiling; breath vapour in the torch beam. Nothing else: rock, water, one light.",
-      "camera": "Water-level 28 mm, lens half an inch above the surface, slow pull-back revealing how small the dome is.",
-      "characters": [
-        "diver_A Gràcia (yellow fins, masked, faceless)"
-      ],
-      "lighting": "Helmet torch only; warm bounce off wet rock; everything outside the dome black.",
-      "fx": [
-        "ripples",
-        "drips",
-        "breath_vapour"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.4,
-          "gain": 0.6
-        },
-        {
-          "name": "creak",
-          "offset": 1.6,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
+     "name": "breath",
+     "offset": 0.15,
+     "gain": 0.6
     },
     {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "map",
-      "description": "Pattern interrupt. Stylised map card of Mallorca (land blob on grid). Route line draws from Palma to the east side; pin drops near Manacor.",
-      "camera": "Overlay card over a dark, slow-drifting silt background; card scales 0.95 → 1.0.",
-      "characters": [],
-      "lighting": "Graphic.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "SA PIQUETA\nNEAR MANACOR, MALLORCA",
-          "params": {
-            "land": [
-              [
-                0.08,
-                0.45
-              ],
-              [
-                0.22,
-                0.32
-              ],
-              [
-                0.36,
-                0.18
-              ],
-              [
-                0.55,
-                0.12
-              ],
-              [
-                0.68,
-                0.2
-              ],
-              [
-                0.8,
-                0.28
-              ],
-              [
-                0.9,
-                0.44
-              ],
-              [
-                0.87,
-                0.62
-              ],
-              [
-                0.72,
-                0.75
-              ],
-              [
-                0.52,
-                0.86
-              ],
-              [
-                0.42,
-                0.72
-              ],
-              [
-                0.32,
-                0.64
-              ],
-              [
-                0.18,
-                0.6
-              ],
-              [
-                0.1,
-                0.54
-              ]
-            ],
-            "points": [
-              [
-                0.33,
-                0.62
-              ],
-              [
-                0.55,
-                0.55
-              ],
-              [
-                0.75,
-                0.55
-              ]
-            ],
-            "pin": -1
-          }
-        },
-        {
-          "type": "stamp",
-          "text": "15 APRIL 2017",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 2.2,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Rewind. Clearer teal water: the two divers swim side by side along a white survey line; one writes on a slate, the other reels line. Name cards pop beside each diver.",
-      "camera": "Side-tracking 28 mm alongside the divers, slow.",
-      "characters": [
-        "diver_A Gràcia (yellow fins, slate)",
-        "diver_B Mascaró (orange fins, reel)"
-      ],
-      "lighting": "Two torch cones in clearer water; faint cyan ambient.",
-      "fx": [
-        "particles_dust",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "SURVEY DIVE",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "text",
-          "text": "XISCO GRÀCIA",
-          "params": {
-            "y": 1000,
-            "size": 60,
-            "color": [
-              255,
-              220,
-              60
-            ]
-          }
-        },
-        {
-          "type": "text",
-          "text": "GUILLEM MASCARÓ",
-          "params": {
-            "y": 1080,
-            "size": 60,
-            "color": [
-              255,
-              150,
-              60
-            ]
-          },
-          "start": 1.0
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "breath",
-          "offset": 0.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "cave_tunnel",
-      "description": "The line snaps at a sharp rock edge; the loose end whips away into a rising silt cloud and the water turns brown. Cut-in: a generic pressure gauge needle sinks toward the red.",
-      "camera": "Quick push onto the snapping line (35 mm), then insert 50 mm on the gauge.",
-      "characters": [
-        "diver_A Gràcia (hands, gauge)"
-      ],
-      "lighting": "Torch cones fragmenting in silt; water goes teal → brown.",
-      "fx": [
-        "silt_cloud",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "hit",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "rumble",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 1.4,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Close two-shot: yellow-fin diver unclips a cylinder and pushes it into the orange-fin diver's hands. The orange-fin diver turns and swims away; his torch shrinks into the brown water until it is a dot, then gone.",
-      "camera": "Tight 40 mm over Gràcia's shoulder; hold as the other torch recedes (focus stays on the receding light).",
-      "characters": [
-        "diver_A Gràcia (yellow fins)",
-        "diver_B Mascaró (orange fins, receding)"
-      ],
-      "lighting": "Gràcia's torch on the handover; the receding torch is the only other light.",
-      "fx": [
-        "silt",
-        "torch_cone"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "click",
-          "offset": 0.8,
-          "gain": 0.4
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.5,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "other:cross_section_2.5D",
-      "description": "Schematic side-section: entrance pool at left, a long flooded passage, a small dome of air far right. Orange dot travels left toward the entrance; cyan dot rises into the dome and stops. A dotted ruler along the passage counts the distance.",
-      "camera": "Locked diagram; slow pan right-to-left following the orange dot, then snap back to the cyan dot.",
-      "characters": [
-        "diver_dot Gràcia (cyan)",
-        "diver_dot Mascaró (orange)"
-      ],
-      "lighting": "Graphic; black background, cyan rock outline, air dome filled pale grey.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "~900 M FROM\nTHE ENTRANCE",
-          "params": {
-            "y": 1000,
-            "size": 78
-          },
-          "start": 1.6
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "SCHEMATIC, NOT TO SCALE",
-          "params": {
-            "y": 300,
-            "size": 34,
-            "color": [
-              180,
-              180,
-              180
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 1.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "Gràcia sits on a rock ledge at the water's edge, helmet torch dimmed to a faint glow. He cups water to his mouth. The air in the beam is hazy and slow; then the torch clicks off and the frame drops to near-black (≤1 s), only drips audible.",
-      "camera": "Medium 35 mm from across the water, slow push; hold through the blackout.",
-      "characters": [
-        "diver_A Gràcia (seated, mask pushed up, faceless silhouette)"
-      ],
-      "lighting": "Dim torch (energy keyed 1500 → 200 → 0); faint cyan rim on wet rock so the frame is never pure black for > 1 s.",
-      "fx": [
-        "haze",
-        "drips",
-        "breath_vapour"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "CO2 RISING",
-          "params": {
-            "y": 420,
-            "size": 120,
-            "color": [
-              255,
-              70,
-              60
-            ]
-          },
-          "start": 2.6
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 2.4,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 2.8,
-          "gain": 0.7
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "MID-POINT TURN. Near-black dome. Every second, the torch clicks on for a beat, sweeps the empty water where his partner left, and clicks off. The water stays flat. No light comes.",
-      "camera": "POV from the ledge, 24 mm, static between flashes; tiny drift.",
-      "characters": [],
-      "lighting": "Strobe-like torch flashes (on 0.4 s / off 0.6 s) — no faster than 2 Hz (photosensitivity).",
-      "fx": [
-        "flicker",
-        "drips"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "HOURS UNDERGROUND",
-          "params": {
-            "from": 6,
-            "to": 30,
-            "fmt": "hours",
-            "y": 250
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 0.4,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 1.4,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 2.4,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:surface_drill_site + cross_section_2.5D",
-      "description": "Night on the dry scrub above the cave: a simple drill tower prop with two work lights and a generator. Camera tilts down through the ground into a schematic cut-away: the drill bore descends, stops short; the air dome sits below it, unreached.",
-      "camera": "28 mm crane down from the rig, transition through the ground plane into the 2.5D section (match on the bore line).",
-      "characters": [
-        "figure x2 (faceless silhouettes, hard hats)"
-      ],
-      "lighting": "Sodium-orange work lights, blue night sky; section is graphic.",
-      "fx": [
-        "dust",
-        "particles"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "DRILL: FAILED",
-          "params": {
-            "y": 1040,
-            "size": 84,
-            "color": [
-              255,
-              70,
-              60
-            ]
-          },
-          "start": 2.6
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.6
-        },
-        {
-          "name": "metal_groan",
-          "offset": 1.0,
-          "gain": 0.4
-        },
-        {
-          "name": "hit",
-          "offset": 2.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Two rescue divers (white fins) enter the passage; their torches stop dead a metre ahead in brown water. One holds a hand up to his mask; the hand vanishes in the murk.",
-      "camera": "From behind the rescuers, 24 mm; slow push that gains nothing (the frame stays brown).",
-      "characters": [
-        "rescuer_1 (white fins, twin tanks)",
-        "rescuer_2 (white fins)"
-      ],
-      "lighting": "Torch cones that turn into a flat brown glow.",
-      "fx": [
-        "volumetric_water_dense",
-        "silt"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "VISIBILITY: ~0",
-          "params": {
-            "y": 420,
-            "size": 84
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.3,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "Inside the dome, the rock walls seem to breathe (slow scale wobble); faint soft glows pulse under the water and fade before they resolve. Abstract, no figures.",
-      "camera": "Slow 360-deg rotation from the centre of the dome, 20 mm, slight lens breathing.",
-      "characters": [],
-      "lighting": "Low cyan glows under the surface pulsing (slow, ≤1 Hz) then dying.",
-      "fx": [
-        "warp",
-        "glow_pulse"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 450
-          }
-        },
-        {
-          "type": "timer",
-          "text": "HOURS UNDERGROUND",
-          "params": {
-            "from": 30,
-            "to": 45,
-            "fmt": "hours",
-            "y": 250
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "static",
-          "offset": 0.0,
-          "gain": 0.25
-        },
-        {
-          "name": "riser",
-          "offset": 0.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "From the ledge: under the black water, a single white glow grows, sharpening into a torch beam pointed up. Ripples lit from below.",
-      "camera": "Low 35 mm aimed at the water, slow push-in; the glow fills the lower third.",
-      "characters": [],
-      "lighting": "One underwater spot (rescuer torch) rising; caustic ripples on the dome ceiling.",
-      "fx": [
-        "caustics",
-        "ripples"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "HOURS UNDERGROUND",
-          "params": {
-            "from": 45,
-            "to": 60,
-            "fmt": "hours",
-            "y": 250
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.4,
-          "gain": 0.5
-        },
-        {
-          "name": "riser",
-          "offset": 0.6,
-          "gain": 0.6
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "A rescuer's helmet and torch break the surface: same composition as S02 (head at the waterline, ripples), but now the torch faces Gràcia on the ledge.",
-      "camera": "Mirror of S02 framing, 28 mm water-level, quick push.",
-      "characters": [
-        "rescuer_1 (white fins, masked, faceless)"
-      ],
-      "lighting": "Two torches now; the dome is lit for the first time.",
-      "fx": [
-        "ripples",
-        "bubbles",
-        "drips"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.7
-        },
-        {
-          "name": "sting",
-          "offset": 0.1,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "flash"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "Wide: two rescuers in the water beside the ledge, one passing a regulator up to Gràcia. All three torches up; the dome finally visible: wet rock, a tiny ledge, the flat lake.",
-      "camera": "Wide 20 mm from the far side of the dome, slow crane up.",
-      "characters": [
-        "diver_A Gràcia (yellow fins)",
-        "rescuer_1",
-        "rescuer_2"
-      ],
-      "lighting": "Three torch cones; warm bounce.",
-      "fx": [
-        "ripples",
-        "breath_vapour"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "17 APRIL 2017\nFOUND ALIVE",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 460
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:surface_entrance_night",
-      "description": "Reveal. Night at the cave entrance on the surface: emergency vehicle lights (generic blue/amber, no markings) on rock and scrub; a lone figure in a wetsuit (orange fin in hand) stands at the entrance watching the water.",
-      "camera": "Low 28 mm from behind the figure, slow dolly-in.",
-      "characters": [
-        "figure Mascaró (silhouette, wetsuit, orange fin in hand)",
-        "figures x3 (rescue team silhouettes)"
-      ],
-      "lighting": "Blue/amber rotating lights (slow, ≤2 Hz), night sky.",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "footsteps",
-          "offset": 0.8,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "other:air_bell_chamber",
-      "description": "The empty air bell: still water, the ledge, drips, lit by a single torch beam from below the surface. Last 0.5 s matches the S01/S02 framing so the loop back to 'Air for one diver…' is seamless.",
-      "camera": "Slow pull-back 28 mm at water level; final frame = S02 composition.",
-      "characters": [],
-      "lighting": "Single torch from below; ripples.",
-      "fx": [
-        "ripples",
-        "drips"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.8,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 1.6,
+     "gain": 0.5
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "A head and helmet torch break the black water surface inside a low rock dome. Ripples spread; drips fall from the ceiling; breath vapour in the torch beam. Nothing else: rock, water, one light.",
+   "camera": "Water-level 28 mm, lens half an inch above the surface, slow pull-back revealing how small the dome is.",
+   "characters": [
+    "diver_A Gràcia (yellow fins, masked, faceless)"
+   ],
+   "lighting": "Helmet torch only; warm bounce off wet rock; everything outside the dome black.",
+   "fx": [
+    "ripples",
+    "drips",
+    "breath_vapour"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 0.4,
+     "gain": 0.6
+    },
+    {
+     "name": "creak",
+     "offset": 1.6,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "map",
+   "description": "Pattern interrupt. Stylised map card of Mallorca (land blob on grid). Route line draws from Palma to the east side; pin drops near Manacor.",
+   "camera": "Overlay card over a dark, slow-drifting silt background; card scales 0.95 → 1.0.",
+   "characters": [],
+   "lighting": "Graphic.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "SA PIQUETA\nNEAR MANACOR, MALLORCA",
+     "params": {
+      "land": [
+       [
+        0.08,
+        0.45
+       ],
+       [
+        0.22,
+        0.32
+       ],
+       [
+        0.36,
+        0.18
+       ],
+       [
+        0.55,
+        0.12
+       ],
+       [
+        0.68,
+        0.2
+       ],
+       [
+        0.8,
+        0.28
+       ],
+       [
+        0.9,
+        0.44
+       ],
+       [
+        0.87,
+        0.62
+       ],
+       [
+        0.72,
+        0.75
+       ],
+       [
+        0.52,
+        0.86
+       ],
+       [
+        0.42,
+        0.72
+       ],
+       [
+        0.32,
+        0.64
+       ],
+       [
+        0.18,
+        0.6
+       ],
+       [
+        0.1,
+        0.54
+       ]
+      ],
+      "points": [
+       [
+        0.33,
+        0.62
+       ],
+       [
+        0.55,
+        0.55
+       ],
+       [
+        0.75,
+        0.55
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "15 APRIL 2017",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 2.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Rewind. Clearer teal water: the two divers swim side by side along a white survey line; one writes on a slate, the other reels line. Name cards pop beside each diver.",
+   "camera": "Side-tracking 28 mm alongside the divers, slow.",
+   "characters": [
+    "diver_A Gràcia (yellow fins, slate)",
+    "diver_B Mascaró (orange fins, reel)"
+   ],
+   "lighting": "Two torch cones in clearer water; faint cyan ambient.",
+   "fx": [
+    "particles_dust",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "SURVEY DIVE",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "text",
+     "text": "XISCO GRÀCIA",
+     "params": {
+      "y": 1000,
+      "size": 60,
+      "color": [
+       255,
+       220,
+       60
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "GUILLEM MASCARÓ",
+     "params": {
+      "y": 1080,
+      "size": 60,
+      "color": [
+       255,
+       150,
+       60
+      ]
+     },
+     "start": 1.0
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "breath",
+     "offset": 0.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "cave_tunnel",
+   "description": "The line snaps at a sharp rock edge; the loose end whips away into a rising silt cloud and the water turns brown. Cut-in: a generic pressure gauge needle sinks toward the red.",
+   "camera": "Quick push onto the snapping line (35 mm), then insert 50 mm on the gauge.",
+   "characters": [
+    "diver_A Gràcia (hands, gauge)"
+   ],
+   "lighting": "Torch cones fragmenting in silt; water goes teal → brown.",
+   "fx": [
+    "silt_cloud",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "rumble",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Close two-shot: yellow-fin diver unclips a cylinder and pushes it into the orange-fin diver's hands. The orange-fin diver turns and swims away; his torch shrinks into the brown water until it is a dot, then gone.",
+   "camera": "Tight 40 mm over Gràcia's shoulder; hold as the other torch recedes (focus stays on the receding light).",
+   "characters": [
+    "diver_A Gràcia (yellow fins)",
+    "diver_B Mascaró (orange fins, receding)"
+   ],
+   "lighting": "Gràcia's torch on the handover; the receding torch is the only other light.",
+   "fx": [
+    "silt",
+    "torch_cone"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "click",
+     "offset": 0.8,
+     "gain": 0.4
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.5,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "other:cross_section_2.5D",
+   "description": "Schematic side-section: entrance pool at left, a long flooded passage, a small dome of air far right. Orange dot travels left toward the entrance; cyan dot rises into the dome and stops. A dotted ruler along the passage counts the distance.",
+   "camera": "Locked diagram; slow pan right-to-left following the orange dot, then snap back to the cyan dot.",
+   "characters": [
+    "diver_dot Gràcia (cyan)",
+    "diver_dot Mascaró (orange)"
+   ],
+   "lighting": "Graphic; black background, cyan rock outline, air dome filled pale grey.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "~900 M FROM\nTHE ENTRANCE",
+     "params": {
+      "y": 1000,
+      "size": 78
+     },
+     "start": 1.6
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "SCHEMATIC, NOT TO SCALE",
+     "params": {
+      "y": 300,
+      "size": 34,
+      "color": [
+       180,
+       180,
+       180
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "Gràcia sits on a rock ledge at the water's edge, helmet torch dimmed to a faint glow. He cups water to his mouth. The air in the beam is hazy and slow; then the torch clicks off and the frame drops to near-black (≤1 s), only drips audible.",
+   "camera": "Medium 35 mm from across the water, slow push; hold through the blackout.",
+   "characters": [
+    "diver_A Gràcia (seated, mask pushed up, faceless silhouette)"
+   ],
+   "lighting": "Dim torch (energy keyed 1500 → 200 → 0); faint cyan rim on wet rock so the frame is never pure black for > 1 s.",
+   "fx": [
+    "haze",
+    "drips",
+    "breath_vapour"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "CO2 RISING",
+     "params": {
+      "y": 420,
+      "size": 120,
+      "color": [
+       255,
+       70,
+       60
+      ]
+     },
+     "start": 2.6
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 2.4,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 2.8,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "MID-POINT TURN. Near-black dome. Every second, the torch clicks on for a beat, sweeps the empty water where his partner left, and clicks off. The water stays flat. No light comes.",
+   "camera": "POV from the ledge, 24 mm, static between flashes; tiny drift.",
+   "characters": [],
+   "lighting": "Strobe-like torch flashes (on 0.4 s / off 0.6 s) — no faster than 2 Hz (photosensitivity).",
+   "fx": [
+    "flicker",
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "HOURS UNDERGROUND",
+     "params": {
+      "from": 6,
+      "to": 30,
+      "fmt": "hours",
+      "y": 250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 1.4,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 2.4,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:surface_drill_site + cross_section_2.5D",
+   "description": "Night on the dry scrub above the cave: a simple drill tower prop with two work lights and a generator. Camera tilts down through the ground into a schematic cut-away: the drill bore descends, stops short; the air dome sits below it, unreached.",
+   "camera": "28 mm crane down from the rig, transition through the ground plane into the 2.5D section (match on the bore line).",
+   "characters": [
+    "figure x2 (faceless silhouettes, hard hats)"
+   ],
+   "lighting": "Sodium-orange work lights, blue night sky; section is graphic.",
+   "fx": [
+    "dust",
+    "particles"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "DRILL: FAILED",
+     "params": {
+      "y": 1040,
+      "size": 84,
+      "color": [
+       255,
+       70,
+       60
+      ]
+     },
+     "start": 2.6
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "metal_groan",
+     "offset": 1.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 2.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Two rescue divers (white fins) enter the passage; their torches stop dead a metre ahead in brown water. One holds a hand up to his mask; the hand vanishes in the murk.",
+   "camera": "From behind the rescuers, 24 mm; slow push that gains nothing (the frame stays brown).",
+   "characters": [
+    "rescuer_1 (white fins, twin tanks)",
+    "rescuer_2 (white fins)"
+   ],
+   "lighting": "Torch cones that turn into a flat brown glow.",
+   "fx": [
+    "volumetric_water_dense",
+    "silt"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "VISIBILITY: ~0",
+     "params": {
+      "y": 420,
+      "size": 84
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 0.3,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "Inside the dome, the rock walls seem to breathe (slow scale wobble); faint soft glows pulse under the water and fade before they resolve. Abstract, no figures.",
+   "camera": "Slow 360-deg rotation from the centre of the dome, 20 mm, slight lens breathing.",
+   "characters": [],
+   "lighting": "Low cyan glows under the surface pulsing (slow, ≤1 Hz) then dying.",
+   "fx": [
+    "warp",
+    "glow_pulse"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 450
+     }
+    },
+    {
+     "type": "timer",
+     "text": "HOURS UNDERGROUND",
+     "params": {
+      "from": 30,
+      "to": 45,
+      "fmt": "hours",
+      "y": 250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "static",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "riser",
+     "offset": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "From the ledge: under the black water, a single white glow grows, sharpening into a torch beam pointed up. Ripples lit from below.",
+   "camera": "Low 35 mm aimed at the water, slow push-in; the glow fills the lower third.",
+   "characters": [],
+   "lighting": "One underwater spot (rescuer torch) rising; caustic ripples on the dome ceiling.",
+   "fx": [
+    "caustics",
+    "ripples"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "HOURS UNDERGROUND",
+     "params": {
+      "from": 45,
+      "to": 60,
+      "fmt": "hours",
+      "y": 250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.4,
+     "gain": 0.5
+    },
+    {
+     "name": "riser",
+     "offset": 0.6,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "A rescuer's helmet and torch break the surface: same composition as S02 (head at the waterline, ripples), but now the torch faces Gràcia on the ledge.",
+   "camera": "Mirror of S02 framing, 28 mm water-level, quick push.",
+   "characters": [
+    "rescuer_1 (white fins, masked, faceless)"
+   ],
+   "lighting": "Two torches now; the dome is lit for the first time.",
+   "fx": [
+    "ripples",
+    "bubbles",
+    "drips"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "sting",
+     "offset": 0.1,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "Wide: two rescuers in the water beside the ledge, one passing a regulator up to Gràcia. All three torches up; the dome finally visible: wet rock, a tiny ledge, the flat lake.",
+   "camera": "Wide 20 mm from the far side of the dome, slow crane up.",
+   "characters": [
+    "diver_A Gràcia (yellow fins)",
+    "rescuer_1",
+    "rescuer_2"
+   ],
+   "lighting": "Three torch cones; warm bounce.",
+   "fx": [
+    "ripples",
+    "breath_vapour"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "17 APRIL 2017\nFOUND ALIVE",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 460
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:surface_entrance_night",
+   "description": "Reveal. Night at the cave entrance on the surface: emergency vehicle lights (generic blue/amber, no markings) on rock and scrub; a lone figure in a wetsuit (orange fin in hand) stands at the entrance watching the water.",
+   "camera": "Low 28 mm from behind the figure, slow dolly-in.",
+   "characters": [
+    "figure Mascaró (silhouette, wetsuit, orange fin in hand)",
+    "figures x3 (rescue team silhouettes)"
+   ],
+   "lighting": "Blue/amber rotating lights (slow, ≤2 Hz), night sky.",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.8,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:air_bell_chamber",
+   "description": "The empty air bell: still water, the ledge, drips, lit by a single torch beam from below the surface. Last 0.5 s matches the S01/S02 framing so the loop back to 'Air for one diver…' is seamless.",
+   "camera": "Slow pull-back 28 mm at water level; final frame = S02 composition.",
+   "characters": [],
+   "lighting": "Single torch from below; ripples.",
+   "fx": [
+    "ripples",
+    "drips"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.8,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
   ],
-  "music_curve": [
-    [
-      0,
-      0.5
-    ],
-    [
-      9,
-      0.6
-    ],
-    [
-      22,
-      0.75
-    ],
-    [
-      33,
-      0.9
-    ],
-    [
-      40,
-      0.25
-    ],
-    [
-      44,
-      0.5
-    ],
-    [
-      50,
-      0.9
-    ],
-    [
-      54,
-      1.0
-    ],
-    [
-      60,
-      0.7
-    ],
-    [
-      66,
-      0.4
-    ]
+  [
+   9,
+   0.6
   ],
-  "loop_line": "Air for one diver to get out. Both came home."
+  [
+   22,
+   0.75
+  ],
+  [
+   33,
+   0.9
+  ],
+  [
+   40,
+   0.25
+  ],
+  [
+   44,
+   0.5
+  ],
+  [
+   50,
+   0.9
+  ],
+  [
+   54,
+   1.0
+  ],
+  [
+   60,
+   0.7
+  ],
+  [
+   66,
+   0.4
+  ]
+ ],
+ "loop_line": "Air for one diver to get out. Both came home.",
+ "voice_original": "am_michael"
 }

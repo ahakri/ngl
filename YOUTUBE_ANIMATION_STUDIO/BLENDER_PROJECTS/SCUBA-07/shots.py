@@ -90,7 +90,7 @@ def _plinth_set(L, n, xray=False):
         L.assign(pl, L.mat_principled("plinth_m", (0.008, 0.01, 0.012), rough=0.95))
     else:
         L.assign(pl, S.mat_caustic_ground("plinth_m", c1=(0.008, 0.01, 0.012), c2=(0.03, 0.035, 0.04),
-                                          caustic=(0.45, 0.85, 1.0), strength=0.1, scale=4.0, nframes=n, base_scale=30))
+                                          caustic=(0.45, 0.85, 1.0), strength=0.05, scale=4.0, nframes=n, base_scale=30))
         pl.active_material.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.95
     _spot_at(L, (0.15, -0.1, 1.3), (0, 0, LUMP_Z), 70, 30, (0.8, 0.92, 1.0), "keyspot", blend=0.6)
     _aim_area(L, (0.1, 0.9, 0.35), (0, 0, LUMP_Z), 25, 0.6, (0.3, 0.9, 0.85), "tealrim")
@@ -103,7 +103,7 @@ def S01(L, n):
     lp = _the_lump()
     lp.location = (0, 0, LUMP_Z)
     S.keys(lp, "rotation_euler", [(1, (0, 0, 0.15)), (n, (0, 0, 0.55))])
-    _dust(n, (0, 0, 0.2), (0.6, 0.6, 0.4), count=300, emit=0.5)
+    _dust(n, (0, 0, 0.2), (0.6, 0.6, 0.4), count=110, emit=0.3)
     cam = C.camera(lens=85)
     keys = []
     for f in range(1, n + 1, 4):
@@ -240,7 +240,7 @@ def S03(L, n):
     boat = S.caique("caique")
     b = boat["root"]
     by0, by1 = 18.0, 26.0
-    S.bob(b, n + 2, amp=0.35, rate=0.3, tilt=0.09, base=(0, by0, 0.0))
+    S.bob(b, n + 2, amp=0.3, rate=0.3, tilt=0.09, base=(0, by0, 0.25))
     # forward motion layered on the bob via a parent
     car = L.link(bpy.data.objects.new("boatcar", None))
     b.parent = car
@@ -273,7 +273,7 @@ def _seabed(L, n, depth_z=0.0, vol_center=(0, 2, 5), vol_size=(40, 40, 16), dens
                    center=vol_center, size=vol_size)
     sb = L.seabed(size=40, strength=0.45, z=depth_z,
                   mat=S.mat_caustic_ground("bed", c1=(0.06, 0.07, 0.07), c2=(0.16, 0.17, 0.16), caustic=(0.6, 0.85, 0.9),
-                                           strength=0.05, scale=0.4, nframes=n))
+                                           strength=0.02, scale=0.4, nframes=n))
     sb.rotation_euler = (0.1, 0, 0)
     sun = L.sun(rot=(0.15, 0.1, 0.2), energy=1.6, color=(0.5, 0.8, 1.0), angle=5)
     if rays:
@@ -368,7 +368,7 @@ def S04(L, n):
           radius=0.004)
     _aim_area(L, (3.5, -2.5, 6.0), (0, 1.0, 1.0), 300, 6, (0.5, 0.8, 1.0), "fill")
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (1.8, -2.6, 5.9), (-0.6, 0.4, 5.6)), (land, (2.0, -1.2, 2.0), (0.4, 2.2, 0.4)),
+    C.aim_cam(cam, n, [(1, (1.9, -2.7, 7.3), (-0.6, 0.4, 6.95)), (land, (2.0, -1.2, 2.0), (0.4, 2.2, 0.4)),
                        (n, (1.9, -0.6, 1.6), (0.5, 2.6, 0.25))], shake=0.03, rot_shake=0.004, rate=0.4)
     C.cam_fill(cam, energy=60, color=(0.55, 0.8, 1.0))
     _finish(L)
@@ -561,7 +561,7 @@ def S08(L, n):
                                         voronoi=False))
     shard.parent = basket
     up, over, land = 34, 52, 62
-    path = [(1, (gx + 0.55, -0.4, -0.05)), (up, (gx + 0.45, -0.4, dz + 0.55)), (over, (gx - 0.4, -0.45, dz + 0.65)),
+    path = [(1, (gx + 0.55, -0.4, 0.25)), (up, (gx + 0.45, -0.4, dz + 0.55)), (over, (gx - 0.4, -0.45, dz + 0.65)),
             (land, (gx - 0.75, -0.45, dz + 0.04)), (n, (gx - 0.75, -0.45, dz + 0.04))]
     C.key_loc(basket, path)
     for f, rx in ((1, 0.12), (up, -0.08), (over, 0.1), (land, 0.0), (n, 0.0)):
@@ -680,20 +680,20 @@ def S09(L, n):
     lp = _the_lump("lump_s")
     lp.location = (0, 0.2, 0.82 + LUMP_Z)
     bpy.context.view_layer.update()
-    nrm = Vector((0.25, -1.0, 0.2)).normalized()
-    a, b = S.split_halves(lp, plane_no=tuple(nrm), plane_co=(0, 0.2 - 0.005, 0.82 + LUMP_Z),
+    nrm = Vector((-1.0, -0.4, 0.1)).normalized()
+    a, b = S.split_halves(lp, plane_no=tuple(nrm), plane_co=(0, 0, 0),
                           inner_mat=L.mat_principled("lump_in", (0.07, 0.1, 0.06), rough=0.9))
     # a: front piece falls away toward camera; b: back piece shows its cut face with a gear in it
-    for o, dv, rot in ((a, nrm * 0.07 + Vector((0, 0, -0.025)), (0.5, 0.0, 0.15)), (b, -nrm * 0.006, (0, 0, 0))):
+    for o, dv, rot in ((a, Vector((-0.13, 0.08, -0.012)), (0.0, -0.25, 0.75)), (b, Vector((0.015, 0.0, 0.0)), (0, 0, -0.18))):
         o0 = Vector(o.location)
         r0 = o.rotation_euler.copy()
         C.key_loc(o, [(1, tuple(o0)), (snap, tuple(o0)), (snap + 5, tuple(o0 + dv))])
         for f, rr in ((1, r0), (snap, r0), (snap + 6, (r0.x + rot[0], r0.y + rot[1], r0.z + rot[2]))):
             o.rotation_euler = rr
             o.keyframe_insert("rotation_euler", frame=f)
-    gb = S.mat_bronze("gear_bz", (0.55, 0.38, 0.17), rough=0.35, patina=0.35)
-    g = S.gear("relic_gear", teeth=26, r=0.032, thick=0.006, mat=gb, spokes=4)
-    gm = S.mount(g, (0.01, 0.2 - 0.004, 0.82 + LUMP_Z + 0.004), normal=tuple(nrm))
+    gb = S.mat_bronze("gear_bz", (0.62, 0.42, 0.18), rough=0.22, patina=0.25)
+    g = S.gear("relic_gear", teeth=28, r=0.034, thick=0.006, mat=gb, spokes=4)
+    gm = S.mount(g, tuple(Vector((0.0, 0.2, 0.82 + LUMP_Z)) - nrm * 0.0005), normal=tuple(nrm))
     gm.parent = b
     gm.matrix_parent_inverse = b.matrix_world.inverted()
     # desk lamp swings onto the tray
@@ -727,10 +727,11 @@ def S09(L, n):
     L.assign(sl, L.mat_principled("sleeve_m", (0.05, 0.05, 0.06), rough=0.85))
     _dust(n, (-0.2, 0.2, 1.05), (0.8, 0.6, 0.6), count=400, color=(1.0, 0.85, 0.6), emit=0.5, vel=(0.005, 0, 0.004),
           radius=0.0004)
+    L.point((-0.12, -0.05, 0.98), energy=2.5, color=(1.0, 0.8, 0.55), radius=0.05, name="glint")
     L.point((0.5, -1.0, 1.6), energy=25, color=(0.7, 0.75, 0.85), radius=0.5, name="cool_amb")
     L.point((0.0, 0.9, 1.8), energy=12, color=(1.0, 0.75, 0.5), radius=0.5, name="shelf_amb")
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0.25, -0.95, 1.22), (0.0, 0.2, 0.86)), (n, (0.15, -0.62, 1.08), (0.0, 0.2, 0.86))],
+    C.aim_cam(cam, n, [(1, (0.15, -0.95, 1.22), (0.0, 0.2, 0.86)), (n, (-0.3, -0.45, 1.02), (0.015, 0.2, 0.865))],
               shake=0.003, rot_shake=0.001, rate=0.5)
     S.shake(cam, snap, length=6, amp=0.01, rot=0.01, seed=2)
     _finish(L)
@@ -746,7 +747,7 @@ def S10(L, n):
     L.assign(fl, L.mat_principled("labfloor_m", (0.35, 0.37, 0.4), rough=0.35))
     wall = L.prim("plane", loc=(0, 3.0, 2.5), rot=(PI / 2, 0, 0), size=14, name="labwall")
     L.assign(wall, L.mat_principled("labwall_m", (0.55, 0.58, 0.6), rough=0.8))
-    grey = L.mat_principled("cab_m", (0.62, 0.64, 0.66), rough=0.4, metal=0.2)
+    grey = L.mat_principled("cab_m", (0.4, 0.42, 0.44), rough=0.4, metal=0.2)
     cab = L.prim("cube", loc=(0, 1.0, 1.0), name="cabinet")
     cab.scale = (0.9, 0.8, 1.0)
     L.bevel(cab, 0.08, 3)
@@ -852,7 +853,7 @@ def _blue_void(L, n):
     L.set_world(color=(0.004, 0.015, 0.04), strength=1.0)
     S.backdrop_z("void_bg", stops=((-6, (0.0, 0.004, 0.012)), (0, (0.006, 0.025, 0.06)), (6, (0.012, 0.045, 0.09))),
                  loc=(0, 6, 0), size=(40, 40), strength=1.0)
-    _dust(n, (0, 0.5, 0), (5, 3, 6), count=700, color=(0.6, 0.8, 1.0), emit=0.3, vel=(0.01, 0, 0.02), radius=0.004)
+    _dust(n, (0, 0.5, 0), (5, 3, 6), count=500, color=(0.6, 0.8, 1.0), emit=0.12, vel=(0.01, 0, 0.02), radius=0.003)
 
 
 def _train(L, n, rate=0.08, bronze=BRONZE):

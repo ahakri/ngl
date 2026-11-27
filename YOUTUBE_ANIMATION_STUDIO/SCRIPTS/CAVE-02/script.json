@@ -1,1202 +1,1203 @@
 {
-  "id": "CAVE-02",
-  "title": "13 Trapped 4 km Inside a Flooded Cave",
-  "category": "cave",
-  "voice": "am_michael",
-  "speed": 1.07,
-  "mood": "cave",
-  "target_seconds": 68,
-  "lines": [
+ "id": "CAVE-02",
+ "title": "13 Trapped 4 km Inside a Flooded Cave",
+ "category": "cave",
+ "voice": "am_adam",
+ "speed": 1.07,
+ "mood": "cave",
+ "target_seconds": 68,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "Thirteen people, trapped about four kilometres inside a flooded cave.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "Thirteen",
+    "four",
+    "kilometres"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "After nine days, a torch broke the surface.",
+   "pause_after": 0.3,
+   "shot": "S02",
+   "emphasis": [
+    "Nine",
+    "days",
+    "torch"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "The diver asked: how many of you?",
+   "pause_after": 0.35,
+   "shot": "S03",
+   "emphasis": [
+    "how",
+    "many"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "A boy answered: thirteen. All of them alive.",
+   "pause_after": 0.4,
+   "shot": "S04",
+   "emphasis": [
+    "thirteen",
+    "alive"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Tham Luang cave, northern Thailand, 2018.",
+   "pause_after": 0.2,
+   "shot": "S05",
+   "emphasis": [
+    "Tham",
+    "Luang"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "June 23rd: twelve young footballers and their coach went in.",
+   "pause_after": 0.2,
+   "shot": "S06",
+   "emphasis": [
+    "twelve",
+    "coach"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Then heavy rain flooded the way out.",
+   "pause_after": 0.3,
+   "shot": "S07",
+   "emphasis": [
+    "flooded"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "July 2nd: British divers John Volanthen and Rick Stanton found them.",
+   "pause_after": 0.3,
+   "shot": "S08",
+   "emphasis": [
+    "Volanthen",
+    "Stanton"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Finding them was the easy part.",
+   "pause_after": 0.25,
+   "shot": "S09",
+   "emphasis": [
+    "easy"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "None of the boys had ever dived.",
+   "pause_after": 0.35,
+   "shot": "S10",
+   "emphasis": [
+    "ever",
+    "dived"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Former Thai Navy SEAL Saman Kunan was placing air tanks along the route.",
+   "pause_after": 0.25,
+   "shot": "S11",
+   "emphasis": [
+    "Saman",
+    "Kunan",
+    "air",
+    "tanks"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "On the way back, he ran out of air.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "ran",
+    "out"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "He did not survive.",
+   "pause_after": 0.8,
+   "shot": "S13",
+   "emphasis": [
+    "not",
+    "survive"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The plan that followed sounded impossible.",
+   "pause_after": 0.2,
+   "shot": "S14",
+   "emphasis": [
+    "impossible"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "Each boy was sedated and fitted with a full-face mask.",
+   "pause_after": 0.25,
+   "shot": "S15",
+   "emphasis": [
+    "sedated",
+    "full-face"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Expert divers guided them out, one by one.",
+   "pause_after": 0.3,
+   "shot": "S16",
+   "emphasis": [
+    "one",
+    "by",
+    "one"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "July 8th: four out. July 9th: four more.",
+   "pause_after": 0.2,
+   "shot": "S17",
+   "emphasis": [
+    "four",
+    "more"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "July 10th: the last four, and their coach.",
+   "pause_after": 0.5,
+   "shot": "S18",
+   "emphasis": [
+    "last",
+    "coach"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "Saman Kunan died helping make it possible.",
+   "pause_after": 0.5,
+   "shot": "S19",
+   "emphasis": [
+    "Saman",
+    "Kunan"
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "Thirteen went in. Thirteen came out.",
+   "pause_after": 0.6,
+   "shot": "S20",
+   "emphasis": [
+    "Thirteen",
+    "came",
+    "out"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "cave_tunnel",
+   "description": "COLD OPEN, frame 1 already moving. A flooded limestone passage: black, glassy water fills the tunnel almost to the ceiling, leaving a thin air gap of about 40 cm. Stalactites hang just above the waterline. Far ahead, the gap opens onto a faint mud slope in darkness. Water drips make slow rings on the surface.",
+   "camera": "Gliding dolly 24 mm, 20 cm above the waterline, pushing forward through the air gap; ceiling fills the top third; subtle handheld (amp 0.015).",
+   "characters": [],
+   "lighting": "Almost black; faint cool-cyan bounce from an off-screen torch behind camera; specular streaks on the water.",
+   "fx": [
+    "water_surface",
+    "drips",
+    "fog_volume_light"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "Thirteen people, trapped about four kilometres inside a flooded cave.",
-      "pause_after": 0.2,
-      "shot": "S01",
-      "emphasis": [
-        "Thirteen",
-        "four",
-        "kilometres"
-      ]
-    },
-    {
-      "id": "L02",
-      "text": "After nine days, a torch broke the surface.",
-      "pause_after": 0.3,
-      "shot": "S02",
-      "emphasis": [
-        "Nine",
-        "days",
-        "torch"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "The diver asked: how many of you?",
-      "pause_after": 0.35,
-      "shot": "S03",
-      "emphasis": [
-        "how",
-        "many"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "A boy answered: thirteen. All of them alive.",
-      "pause_after": 0.4,
-      "shot": "S04",
-      "emphasis": [
-        "thirteen",
-        "alive"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "Tham Luang cave, northern Thailand, 2018.",
-      "pause_after": 0.2,
-      "shot": "S05",
-      "emphasis": [
-        "Tham",
-        "Luang"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "June 23rd: twelve young footballers and their coach went in.",
-      "pause_after": 0.2,
-      "shot": "S06",
-      "emphasis": [
-        "twelve",
-        "coach"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "Then heavy rain flooded the way out.",
-      "pause_after": 0.3,
-      "shot": "S07",
-      "emphasis": [
-        "flooded"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "July 2nd: British divers John Volanthen and Rick Stanton found them.",
-      "pause_after": 0.3,
-      "shot": "S08",
-      "emphasis": [
-        "Volanthen",
-        "Stanton"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Finding them was the easy part.",
-      "pause_after": 0.25,
-      "shot": "S09",
-      "emphasis": [
-        "easy"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "None of the boys had ever dived.",
-      "pause_after": 0.35,
-      "shot": "S10",
-      "emphasis": [
-        "ever",
-        "dived"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Former Thai Navy SEAL Saman Kunan was placing air tanks along the route.",
-      "pause_after": 0.25,
-      "shot": "S11",
-      "emphasis": [
-        "Saman",
-        "Kunan",
-        "air",
-        "tanks"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "On the way back, he ran out of air.",
-      "pause_after": 0.3,
-      "shot": "S12",
-      "emphasis": [
-        "ran",
-        "out"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "He did not survive.",
-      "pause_after": 0.8,
-      "shot": "S13",
-      "emphasis": [
-        "not",
-        "survive"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "The plan that followed sounded impossible.",
-      "pause_after": 0.2,
-      "shot": "S14",
-      "emphasis": [
-        "impossible"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "Each boy was sedated and fitted with a full-face mask.",
-      "pause_after": 0.25,
-      "shot": "S15",
-      "emphasis": [
-        "sedated",
-        "full-face"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "Expert divers guided them out, one by one.",
-      "pause_after": 0.3,
-      "shot": "S16",
-      "emphasis": [
-        "one",
-        "by",
-        "one"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "July 8th: four out. July 9th: four more.",
-      "pause_after": 0.2,
-      "shot": "S17",
-      "emphasis": [
-        "four",
-        "more"
-      ]
-    },
-    {
-      "id": "L18",
-      "text": "July 10th: the last four, and their coach.",
-      "pause_after": 0.5,
-      "shot": "S18",
-      "emphasis": [
-        "last",
-        "coach"
-      ]
-    },
-    {
-      "id": "L19",
-      "text": "Saman Kunan died helping make it possible.",
-      "pause_after": 0.5,
-      "shot": "S19",
-      "emphasis": [
-        "Saman",
-        "Kunan"
-      ]
-    },
-    {
-      "id": "L20",
-      "text": "Thirteen went in. Thirteen came out.",
-      "pause_after": 0.6,
-      "shot": "S20",
-      "emphasis": [
-        "Thirteen",
-        "came",
-        "out"
-      ]
+     "type": "counter",
+     "text": "KM INSIDE (APPROX.)",
+     "params": {
+      "from": 0,
+      "to": 4,
+      "y": 330
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "cave_tunnel",
-      "description": "COLD OPEN, frame 1 already moving. A flooded limestone passage: black, glassy water fills the tunnel almost to the ceiling, leaving a thin air gap of about 40 cm. Stalactites hang just above the waterline. Far ahead, the gap opens onto a faint mud slope in darkness. Water drips make slow rings on the surface.",
-      "camera": "Gliding dolly 24 mm, 20 cm above the waterline, pushing forward through the air gap; ceiling fills the top third; subtle handheld (amp 0.015).",
-      "characters": [],
-      "lighting": "Almost black; faint cool-cyan bounce from an off-screen torch behind camera; specular streaks on the water.",
-      "fx": [
-        "water_surface",
-        "drips",
-        "fog_volume_light"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "KM INSIDE (APPROX.)",
-          "params": {
-            "from": 0,
-            "to": 4,
-            "y": 330
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.45
-        },
-        {
-          "name": "rumble",
-          "offset": 0.3,
-          "gain": 0.35
-        },
-        {
-          "name": "sting",
-          "offset": 1.2,
-          "gain": 0.45
-        }
-      ],
-      "transition_in": "cut"
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.45
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Reverse angle from the mud slope looking down at the water. The surface is dark and still; a counter ticks the days. Then a white torch beam rises from below, the surface glows green-white, and a diver's head and helmet torch break through (silhouette, mask catching the light, no face).",
-      "camera": "Static 35 mm low on the slope, water in the lower half; tiny push-in as the beam breaks through.",
-      "characters": [
-        "diver_A Volanthen (black suit, yellow fins, sidemount, helmet torch; silhouette only)"
-      ],
-      "lighting": "Pitch black until the torch; then a hard white beam spilling across the ceiling.",
-      "fx": [
-        "bubbles",
-        "water_surface",
-        "torch_cone",
-        "silt"
-      ],
-      "overlay": [
-        {
-          "type": "timer",
-          "text": "DAYS MISSING",
-          "params": {
-            "from": 1,
-            "to": 9,
-            "fmt": "int",
-            "y": 330
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "heartbeat",
-          "offset": 0.4,
-          "gain": 0.4
-        },
-        {
-          "name": "whoosh",
-          "offset": 1.9,
-          "gain": 0.55
-        }
-      ],
-      "transition_in": "cut"
+     "name": "rumble",
+     "offset": 0.3,
+     "gain": 0.35
     },
     {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "other:mud_ledge_chamber",
-      "description": "Diver chest-deep at the base of a steep mud slope. His helmet torch sweeps up the slope across a group of 13 small seated figures (faceless silhouettes; 12 smaller, 1 taller) huddled on a ledge near the top. Silhouettes raise hands against the glare.",
-      "camera": "Over-the-shoulder 28 mm from behind the diver's helmet; slow tilt up the slope following the beam.",
-      "characters": [
-        "diver_A Volanthen (silhouette)",
-        "13 seated silhouettes (12 smaller boys, 1 adult coach; faceless, no likenesses)"
-      ],
-      "lighting": "Single torch beam, warm-white, raking across mud; deep shadows behind the figures.",
-      "fx": [
-        "torch_cone",
-        "dust",
-        "water_surface"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "\"HOW MANY OF YOU?\"",
-          "params": {
-            "y": 1010,
-            "size": 72
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "breath",
-          "offset": 0.1,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "other:mud_ledge_chamber",
-      "description": "Reverse: from just above the ledge, looking down the slope at the diver's torch. One by one, the 13 silhouettes are rim-lit as the beam passes over them; a counter ticks 1 to 13 in sync.",
-      "camera": "Locked 35 mm, slight rack focus from figures to the torch below.",
-      "characters": [
-        "13 seated silhouettes",
-        "diver_A (torch only, background)"
-      ],
-      "lighting": "Torch from below as key light; cyan rim on each figure as it is counted.",
-      "fx": [
-        "torch_cone",
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "ALL ALIVE",
-          "params": {
-            "from": 0,
-            "to": 13,
-            "y": 330
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.3,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 0.6,
-          "gain": 0.3
-        },
-        {
-          "name": "click",
-          "offset": 0.9,
-          "gain": 0.3
-        },
-        {
-          "name": "riser",
-          "offset": 1.0,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "forest",
-      "description": "Day exterior: a steep, jungle-covered limestone mountain under heavy grey cloud; rain streaks; a dark cave mouth at the foot of the cliff with a muddy stream running out of it.",
-      "camera": "Descending crane 24 mm from above the canopy down to the cave mouth.",
-      "characters": [],
-      "lighting": "Overcast, flat grey-green; cave mouth pure black.",
-      "fx": [
-        "rain_particles",
-        "fog_volume",
-        "mist"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "THAM LUANG NANG NON\nCHIANG RAI, THAILAND",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "thunder",
-          "offset": 0.6,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "other:cave_mouth_entrance",
-      "description": "Inside the entrance chamber looking out at daylight: 13 small faceless silhouettes walk single file into the cave past the camera, torchlight bobbing. Dry floor, a few puddles.",
-      "camera": "Low 28 mm on the cave floor, figures pass left-to-right in front of the bright entrance, slight follow pan.",
-      "characters": [
-        "13 walking silhouettes (12 smaller, 1 taller; faceless)"
-      ],
-      "lighting": "Backlit by the bright entrance; small warm torch points.",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "23 JUNE 2018",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "footsteps",
-          "offset": 0.2,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Same passage seen from deeper inside: muddy brown water surges in from the entrance side, the waterline climbing the walls; the daylight behind is cut off as the water reaches the ceiling.",
-      "camera": "Low static 20 mm at floor level; water rises past the lens at the end (lens goes under).",
-      "characters": [],
-      "lighting": "Fading daylight from the entrance; ends in darkness.",
-      "fx": [
-        "water_volume_rising",
-        "foam_particles"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.55
-        },
-        {
-          "name": "bubbles",
-          "offset": 1.6,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "map",
-      "description": "Pattern interrupt: stylised top-down map card of the cave system. The route line draws from the entrance (lower left) through the chambers to a pin at the ledge (upper right). The flooded 'Pattaya Beach' chamber is marked just before the pin.",
-      "camera": "2D card; slow 4% push-in.",
-      "characters": [],
-      "lighting": "Graphic: dark card, cyan route, white pin.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "THAM LUANG\n~4 KM: ENTRANCE TO LEDGE",
-          "params": {
-            "points": [
-              [
-                0.1,
-                0.86
-              ],
-              [
-                0.24,
-                0.72
-              ],
-              [
-                0.38,
-                0.68
-              ],
-              [
-                0.5,
-                0.54
-              ],
-              [
-                0.64,
-                0.46
-              ],
-              [
-                0.76,
-                0.33
-              ],
-              [
-                0.86,
-                0.22
-              ]
-            ],
-            "land": [
-              [
-                0.04,
-                0.95
-              ],
-              [
-                0.12,
-                0.6
-              ],
-              [
-                0.3,
-                0.45
-              ],
-              [
-                0.5,
-                0.2
-              ],
-              [
-                0.72,
-                0.1
-              ],
-              [
-                0.95,
-                0.15
-              ],
-              [
-                0.97,
-                0.6
-              ],
-              [
-                0.8,
-                0.95
-              ]
-            ],
-            "pin": -1
-          }
-        },
-        {
-          "type": "stamp",
-          "text": "2 JULY 2018\nJOHN VOLANTHEN + RICK STANTON (UK)",
-          "params": {
-            "y": 170
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "whoosh",
-          "offset": 0.1,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 2.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Underwater: a narrow, silty restriction. A guideline runs through a gap barely wider than a diver's tanks; a diver turns sideways to squeeze through while silt billows into zero visibility.",
-      "camera": "Tight 28 mm behind the diver, handheld (amp 0.03); the silt swallows the frame at the end.",
-      "characters": [
-        "diver_B Stanton (black suit, orange fins, sidemount, helmet torch)"
-      ],
-      "lighting": "Helmet torch only; beam scattering in brown silt.",
-      "fx": [
-        "silt_cloud",
-        "bubbles",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.55
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.5
-        },
-        {
-          "name": "metal_groan",
-          "offset": 1.4,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:mud_ledge_chamber",
-      "description": "Back on the ledge: the 13 faceless silhouettes sit at the edge of the black water, looking down at it; a single diver's torch lies on the mud, its beam across the surface. The water is the only way out.",
-      "camera": "High angle 28 mm from the ceiling looking down past the figures to the water; slow crane down.",
-      "characters": [
-        "13 seated silhouettes (faceless)"
-      ],
-      "lighting": "One torch on the mud as key light; cold blue on the water.",
-      "fx": [
-        "dust",
-        "water_surface"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "12 boys + their coach\nNone had ever dived",
-          "params": {
-            "header": "THE PROBLEM",
-            "y": 300,
-            "mood": "cave"
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "sting",
-          "offset": 0.6,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Murky green-brown water. A row of air tanks clipped along the guideline recedes into darkness. A single diver silhouette swims away from camera along the row, his torch shrinking.",
-      "camera": "Static 35 mm low beside the first tank; long lens compression of the tank row.",
-      "characters": [
-        "diver_C Saman Kunan (dark silhouette, no face, single torch; seen only from behind and far away)"
-      ],
-      "lighting": "Dim, green-brown murk; one torch moving away.",
-      "fx": [
-        "silt",
-        "particles_dust",
-        "bubbles"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "6 JULY 2018",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "breath",
-          "offset": 0.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "cave_tunnel",
-      "description": "MID-POINT TURN. The same tank row, now empty of divers. Far down the line, the torch glow dims slowly to nothing. No figure and no struggle are shown.",
-      "camera": "Locked, same framing as S11 (deliberate echo).",
-      "characters": [],
-      "lighting": "The distant glow fades to black; faint cool fill on the nearest tank.",
-      "fx": [
-        "silt",
-        "light_fade"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Black frame. The guideline alone, lit faintly, hanging still in the water; silt settles. Memorial card slides in.",
-      "camera": "Locked 50 mm on the line; 0.8 s held silence after the line.",
-      "characters": [],
-      "lighting": "Near black; faint cool fill on the line.",
-      "fx": [
-        "silt"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "Saman Kunan\nFormer Thai Navy SEAL",
-          "params": {
-            "header": "IN MEMORY",
-            "y": 760,
-            "mood": "cave"
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14"
-      ],
-      "environment": "other:cross_section_2.5D",
-      "description": "Pattern interrupt: 2.5D side cross-section of the cave. Dry chambers (dark grey) alternate with flooded sections (deep blue). A dotted route line runs from the ledge back to the entrance; flooded stretches pulse blue.",
-      "camera": "Locked full-frame diagram; slow horizontal pan from ledge to entrance.",
-      "characters": [],
-      "lighting": "Graphic: black background, cyan rock outline, blue water fills.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "THE WAY OUT",
-          "params": {
-            "y": 420,
-            "size": 110
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "riser",
-          "offset": 0.0,
-          "gain": 0.45
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L15"
-      ],
-      "environment": "other:stylised_closeup",
-      "description": "Close-up, clean and clinical: a full-face diving mask (simple clear visor, black rim, regulator) is placed over a small faceless silhouette lying still on a dark ledge, wrapped in a wetsuit. An air hose connects to a small tank.",
-      "camera": "Macro 50 mm, slow 15-degree orbit.",
-      "characters": [
-        "small faceless silhouette (one boy, generic, no likeness)"
-      ],
-      "lighting": "Soft cyan key, warm fill; dark background.",
-      "fx": [
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "label",
-          "text": "DISPUTED",
-          "params": {
-            "y": 290
-          }
-        },
-        {
-          "type": "text",
-          "text": "HOW DEEPLY SEDATED: DISPUTED",
-          "params": {
-            "y": 1010,
-            "size": 52
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "click",
-          "offset": 1.2,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L16"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Underwater: a diver swims along the guideline holding a small wrapped figure close in front of him (masked silhouette, no face); a second diver follows behind with a torch. Bubbles rise from both.",
-      "camera": "Side tracking 28 mm, moving with the divers left to right; slow rack to the second diver.",
-      "characters": [
-        "diver_A (yellow fins)",
-        "small wrapped silhouette in full-face mask",
-        "diver_D (white fins, torch)"
-      ],
-      "lighting": "Two torches; cyan haze.",
-      "fx": [
-        "bubbles",
-        "silt",
-        "torch_cone"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DRAMATISATION",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.0,
-          "gain": 0.55
-        },
-        {
-          "name": "breath",
-          "offset": 0.4,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L17"
-      ],
-      "environment": "timeline",
-      "description": "Pattern interrupt: timeline over a darkened, blurred cave-mouth plate. Events pop in as they are spoken.",
-      "camera": "2D; slow push-in 3%.",
-      "characters": [],
-      "lighting": "Graphic.",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "timeline",
-          "text": "OUT ALIVE",
-          "params": {
-            "events": [
-              [
-                "8 JUL",
-                "4 BOYS"
-              ],
-              [
-                "9 JUL",
-                "4 MORE"
-              ],
-              [
-                "10 JUL",
-                "4 + COACH"
-              ]
-            ],
-            "highlight_last": true,
-            "y": 960
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "click",
-          "offset": 1.6,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S18",
-      "lines": [
-        "L18"
-      ],
-      "environment": "other:cave_mouth_entrance",
-      "description": "Night exterior at the cave mouth: work lights, rain, mud. Faceless silhouettes carry small stretchers out of the dark entrance towards the lights. A counter completes 8 to 13.",
-      "camera": "Low wide 24 mm from outside, stretchers emerging toward camera; slow dolly back.",
-      "characters": [
-        "rescuer silhouettes x6 (faceless)",
-        "stretchers with small wrapped shapes"
-      ],
-      "lighting": "Hard white work lights through rain; cave interior black.",
-      "fx": [
-        "rain_particles",
-        "fog_volume"
-      ],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "OUT",
-          "params": {
-            "from": 8,
-            "to": 13,
-            "y": 330
-          }
-        },
-        {
-          "type": "stamp",
-          "text": "10 JULY 2018",
-          "params": {
-            "y": 520
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "footsteps",
-          "offset": 0.3,
-          "gain": 0.35
-        },
-        {
-          "name": "riser",
-          "offset": 0.8,
-          "gain": 0.5
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S19",
-      "lines": [
-        "L19"
-      ],
-      "environment": "other:cave_mouth_entrance",
-      "description": "Dawn, rain stopped. The empty cave mouth, mist drifting. On a rock just inside the entrance, a single diving torch has been left switched on, its beam pointing into the dark (generic tribute image, not a real object).",
-      "camera": "Slow push-in 35 mm toward the torch.",
-      "characters": [],
-      "lighting": "Soft blue dawn; one warm torch beam.",
-      "fx": [
-        "mist",
-        "dust"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "IN MEMORY OF\nSAMAN KUNAN",
-          "params": {
-            "y": 420,
-            "size": 80
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S20",
-      "lines": [
-        "L20"
-      ],
-      "environment": "cave_tunnel",
-      "description": "LOOP POINT. The flooded passage from S01, same composition: black water and a thin air gap. The mud ledge far ahead is now empty. The last frame matches S01 frame 1.",
-      "camera": "Same dolly as S01 (24 mm, just above waterline) so the end flows straight into frame 1.",
-      "characters": [],
-      "lighting": "As S01: near black, cyan bounce.",
-      "fx": [
-        "water_surface",
-        "drips"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "13 IN · 13 OUT",
-          "params": {
-            "y": 420,
-            "size": 110
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "sting",
-          "offset": 1.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 1.2,
+     "gain": 0.45
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Reverse angle from the mud slope looking down at the water. The surface is dark and still; a counter ticks the days. Then a white torch beam rises from below, the surface glows green-white, and a diver's head and helmet torch break through (silhouette, mask catching the light, no face).",
+   "camera": "Static 35 mm low on the slope, water in the lower half; tiny push-in as the beam breaks through.",
+   "characters": [
+    "diver_A Volanthen (black suit, yellow fins, sidemount, helmet torch; silhouette only)"
+   ],
+   "lighting": "Pitch black until the torch; then a hard white beam spilling across the ceiling.",
+   "fx": [
+    "bubbles",
+    "water_surface",
+    "torch_cone",
+    "silt"
+   ],
+   "overlay": [
+    {
+     "type": "timer",
+     "text": "DAYS MISSING",
+     "params": {
+      "from": 1,
+      "to": 9,
+      "fmt": "int",
+      "y": 330
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.4,
+     "gain": 0.4
+    },
+    {
+     "name": "whoosh",
+     "offset": 1.9,
+     "gain": 0.55
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:mud_ledge_chamber",
+   "description": "Diver chest-deep at the base of a steep mud slope. His helmet torch sweeps up the slope across a group of 13 small seated figures (faceless silhouettes; 12 smaller, 1 taller) huddled on a ledge near the top. Silhouettes raise hands against the glare.",
+   "camera": "Over-the-shoulder 28 mm from behind the diver's helmet; slow tilt up the slope following the beam.",
+   "characters": [
+    "diver_A Volanthen (silhouette)",
+    "13 seated silhouettes (12 smaller boys, 1 adult coach; faceless, no likenesses)"
+   ],
+   "lighting": "Single torch beam, warm-white, raking across mud; deep shadows behind the figures.",
+   "fx": [
+    "torch_cone",
+    "dust",
+    "water_surface"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "\"HOW MANY OF YOU?\"",
+     "params": {
+      "y": 1010,
+      "size": 72
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "breath",
+     "offset": 0.1,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:mud_ledge_chamber",
+   "description": "Reverse: from just above the ledge, looking down the slope at the diver's torch. One by one, the 13 silhouettes are rim-lit as the beam passes over them; a counter ticks 1 to 13 in sync.",
+   "camera": "Locked 35 mm, slight rack focus from figures to the torch below.",
+   "characters": [
+    "13 seated silhouettes",
+    "diver_A (torch only, background)"
+   ],
+   "lighting": "Torch from below as key light; cyan rim on each figure as it is counted.",
+   "fx": [
+    "torch_cone",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "ALL ALIVE",
+     "params": {
+      "from": 0,
+      "to": 13,
+      "y": 330
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.3,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.6,
+     "gain": 0.3
+    },
+    {
+     "name": "click",
+     "offset": 0.9,
+     "gain": 0.3
+    },
+    {
+     "name": "riser",
+     "offset": 1.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "forest",
+   "description": "Day exterior: a steep, jungle-covered limestone mountain under heavy grey cloud; rain streaks; a dark cave mouth at the foot of the cliff with a muddy stream running out of it.",
+   "camera": "Descending crane 24 mm from above the canopy down to the cave mouth.",
+   "characters": [],
+   "lighting": "Overcast, flat grey-green; cave mouth pure black.",
+   "fx": [
+    "rain_particles",
+    "fog_volume",
+    "mist"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "THAM LUANG NANG NON\nCHIANG RAI, THAILAND",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "thunder",
+     "offset": 0.6,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:cave_mouth_entrance",
+   "description": "Inside the entrance chamber looking out at daylight: 13 small faceless silhouettes walk single file into the cave past the camera, torchlight bobbing. Dry floor, a few puddles.",
+   "camera": "Low 28 mm on the cave floor, figures pass left-to-right in front of the bright entrance, slight follow pan.",
+   "characters": [
+    "13 walking silhouettes (12 smaller, 1 taller; faceless)"
+   ],
+   "lighting": "Backlit by the bright entrance; small warm torch points.",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "23 JUNE 2018",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.2,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Same passage seen from deeper inside: muddy brown water surges in from the entrance side, the waterline climbing the walls; the daylight behind is cut off as the water reaches the ceiling.",
+   "camera": "Low static 20 mm at floor level; water rises past the lens at the end (lens goes under).",
+   "characters": [],
+   "lighting": "Fading daylight from the entrance; ends in darkness.",
+   "fx": [
+    "water_volume_rising",
+    "foam_particles"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.55
+    },
+    {
+     "name": "bubbles",
+     "offset": 1.6,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "map",
+   "description": "Pattern interrupt: stylised top-down map card of the cave system. The route line draws from the entrance (lower left) through the chambers to a pin at the ledge (upper right). The flooded 'Pattaya Beach' chamber is marked just before the pin.",
+   "camera": "2D card; slow 4% push-in.",
+   "characters": [],
+   "lighting": "Graphic: dark card, cyan route, white pin.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "THAM LUANG\n~4 KM: ENTRANCE TO LEDGE",
+     "params": {
+      "points": [
+       [
+        0.1,
+        0.86
+       ],
+       [
+        0.24,
+        0.72
+       ],
+       [
+        0.38,
+        0.68
+       ],
+       [
+        0.5,
+        0.54
+       ],
+       [
+        0.64,
+        0.46
+       ],
+       [
+        0.76,
+        0.33
+       ],
+       [
+        0.86,
+        0.22
+       ]
+      ],
+      "land": [
+       [
+        0.04,
+        0.95
+       ],
+       [
+        0.12,
+        0.6
+       ],
+       [
+        0.3,
+        0.45
+       ],
+       [
+        0.5,
+        0.2
+       ],
+       [
+        0.72,
+        0.1
+       ],
+       [
+        0.95,
+        0.15
+       ],
+       [
+        0.97,
+        0.6
+       ],
+       [
+        0.8,
+        0.95
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "2 JULY 2018\nJOHN VOLANTHEN + RICK STANTON (UK)",
+     "params": {
+      "y": 170
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "whoosh",
+     "offset": 0.1,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 2.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Underwater: a narrow, silty restriction. A guideline runs through a gap barely wider than a diver's tanks; a diver turns sideways to squeeze through while silt billows into zero visibility.",
+   "camera": "Tight 28 mm behind the diver, handheld (amp 0.03); the silt swallows the frame at the end.",
+   "characters": [
+    "diver_B Stanton (black suit, orange fins, sidemount, helmet torch)"
+   ],
+   "lighting": "Helmet torch only; beam scattering in brown silt.",
+   "fx": [
+    "silt_cloud",
+    "bubbles",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.55
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.5
+    },
+    {
+     "name": "metal_groan",
+     "offset": 1.4,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:mud_ledge_chamber",
+   "description": "Back on the ledge: the 13 faceless silhouettes sit at the edge of the black water, looking down at it; a single diver's torch lies on the mud, its beam across the surface. The water is the only way out.",
+   "camera": "High angle 28 mm from the ceiling looking down past the figures to the water; slow crane down.",
+   "characters": [
+    "13 seated silhouettes (faceless)"
+   ],
+   "lighting": "One torch on the mud as key light; cold blue on the water.",
+   "fx": [
+    "dust",
+    "water_surface"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "12 boys + their coach\nNone had ever dived",
+     "params": {
+      "header": "THE PROBLEM",
+      "y": 300,
+      "mood": "cave"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "sting",
+     "offset": 0.6,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Murky green-brown water. A row of air tanks clipped along the guideline recedes into darkness. A single diver silhouette swims away from camera along the row, his torch shrinking.",
+   "camera": "Static 35 mm low beside the first tank; long lens compression of the tank row.",
+   "characters": [
+    "diver_C Saman Kunan (dark silhouette, no face, single torch; seen only from behind and far away)"
+   ],
+   "lighting": "Dim, green-brown murk; one torch moving away.",
+   "fx": [
+    "silt",
+    "particles_dust",
+    "bubbles"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "6 JULY 2018",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "breath",
+     "offset": 0.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "cave_tunnel",
+   "description": "MID-POINT TURN. The same tank row, now empty of divers. Far down the line, the torch glow dims slowly to nothing. No figure and no struggle are shown.",
+   "camera": "Locked, same framing as S11 (deliberate echo).",
+   "characters": [],
+   "lighting": "The distant glow fades to black; faint cool fill on the nearest tank.",
+   "fx": [
+    "silt",
+    "light_fade"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Black frame. The guideline alone, lit faintly, hanging still in the water; silt settles. Memorial card slides in.",
+   "camera": "Locked 50 mm on the line; 0.8 s held silence after the line.",
+   "characters": [],
+   "lighting": "Near black; faint cool fill on the line.",
+   "fx": [
+    "silt"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Saman Kunan\nFormer Thai Navy SEAL",
+     "params": {
+      "header": "IN MEMORY",
+      "y": 760,
+      "mood": "cave"
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:cross_section_2.5D",
+   "description": "Pattern interrupt: 2.5D side cross-section of the cave. Dry chambers (dark grey) alternate with flooded sections (deep blue). A dotted route line runs from the ledge back to the entrance; flooded stretches pulse blue.",
+   "camera": "Locked full-frame diagram; slow horizontal pan from ledge to entrance.",
+   "characters": [],
+   "lighting": "Graphic: black background, cyan rock outline, blue water fills.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "THE WAY OUT",
+     "params": {
+      "y": 420,
+      "size": 110
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.45
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "other:stylised_closeup",
+   "description": "Close-up, clean and clinical: a full-face diving mask (simple clear visor, black rim, regulator) is placed over a small faceless silhouette lying still on a dark ledge, wrapped in a wetsuit. An air hose connects to a small tank.",
+   "camera": "Macro 50 mm, slow 15-degree orbit.",
+   "characters": [
+    "small faceless silhouette (one boy, generic, no likeness)"
+   ],
+   "lighting": "Soft cyan key, warm fill; dark background.",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 290
+     }
+    },
+    {
+     "type": "text",
+     "text": "HOW DEEPLY SEDATED: DISPUTED",
+     "params": {
+      "y": 1010,
+      "size": 52
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "click",
+     "offset": 1.2,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Underwater: a diver swims along the guideline holding a small wrapped figure close in front of him (masked silhouette, no face); a second diver follows behind with a torch. Bubbles rise from both.",
+   "camera": "Side tracking 28 mm, moving with the divers left to right; slow rack to the second diver.",
+   "characters": [
+    "diver_A (yellow fins)",
+    "small wrapped silhouette in full-face mask",
+    "diver_D (white fins, torch)"
+   ],
+   "lighting": "Two torches; cyan haze.",
+   "fx": [
+    "bubbles",
+    "silt",
+    "torch_cone"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.0,
+     "gain": 0.55
+    },
+    {
+     "name": "breath",
+     "offset": 0.4,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "timeline",
+   "description": "Pattern interrupt: timeline over a darkened, blurred cave-mouth plate. Events pop in as they are spoken.",
+   "camera": "2D; slow push-in 3%.",
+   "characters": [],
+   "lighting": "Graphic.",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "timeline",
+     "text": "OUT ALIVE",
+     "params": {
+      "events": [
+       [
+        "8 JUL",
+        "4 BOYS"
+       ],
+       [
+        "9 JUL",
+        "4 MORE"
+       ],
+       [
+        "10 JUL",
+        "4 + COACH"
+       ]
+      ],
+      "highlight_last": true,
+      "y": 960
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "click",
+     "offset": 1.6,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "other:cave_mouth_entrance",
+   "description": "Night exterior at the cave mouth: work lights, rain, mud. Faceless silhouettes carry small stretchers out of the dark entrance towards the lights. A counter completes 8 to 13.",
+   "camera": "Low wide 24 mm from outside, stretchers emerging toward camera; slow dolly back.",
+   "characters": [
+    "rescuer silhouettes x6 (faceless)",
+    "stretchers with small wrapped shapes"
+   ],
+   "lighting": "Hard white work lights through rain; cave interior black.",
+   "fx": [
+    "rain_particles",
+    "fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "OUT",
+     "params": {
+      "from": 8,
+      "to": 13,
+      "y": 330
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "10 JULY 2018",
+     "params": {
+      "y": 520
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.3,
+     "gain": 0.35
+    },
+    {
+     "name": "riser",
+     "offset": 0.8,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S19",
+   "lines": [
+    "L19"
+   ],
+   "environment": "other:cave_mouth_entrance",
+   "description": "Dawn, rain stopped. The empty cave mouth, mist drifting. On a rock just inside the entrance, a single diving torch has been left switched on, its beam pointing into the dark (generic tribute image, not a real object).",
+   "camera": "Slow push-in 35 mm toward the torch.",
+   "characters": [],
+   "lighting": "Soft blue dawn; one warm torch beam.",
+   "fx": [
+    "mist",
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "IN MEMORY OF\nSAMAN KUNAN",
+     "params": {
+      "y": 420,
+      "size": 80
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S20",
+   "lines": [
+    "L20"
+   ],
+   "environment": "cave_tunnel",
+   "description": "LOOP POINT. The flooded passage from S01, same composition: black water and a thin air gap. The mud ledge far ahead is now empty. The last frame matches S01 frame 1.",
+   "camera": "Same dolly as S01 (24 mm, just above waterline) so the end flows straight into frame 1.",
+   "characters": [],
+   "lighting": "As S01: near black, cyan bounce.",
+   "fx": [
+    "water_surface",
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "13 IN · 13 OUT",
+     "params": {
+      "y": 420,
+      "size": 110
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "sting",
+     "offset": 1.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.5
   ],
-  "music_curve": [
-    [
-      0,
-      0.5
-    ],
-    [
-      8,
-      0.45
-    ],
-    [
-      11,
-      0.6
-    ],
-    [
-      22,
-      0.7
-    ],
-    [
-      33,
-      0.85
-    ],
-    [
-      38,
-      0.4
-    ],
-    [
-      43,
-      0.2
-    ],
-    [
-      45,
-      0.5
-    ],
-    [
-      52,
-      0.8
-    ],
-    [
-      58,
-      1.0
-    ],
-    [
-      61,
-      0.5
-    ],
-    [
-      67,
-      0.4
-    ]
+  [
+   8,
+   0.45
   ],
-  "loop_line": "Thirteen went in. Thirteen came out."
+  [
+   11,
+   0.6
+  ],
+  [
+   22,
+   0.7
+  ],
+  [
+   33,
+   0.85
+  ],
+  [
+   38,
+   0.4
+  ],
+  [
+   43,
+   0.2
+  ],
+  [
+   45,
+   0.5
+  ],
+  [
+   52,
+   0.8
+  ],
+  [
+   58,
+   1.0
+  ],
+  [
+   61,
+   0.5
+  ],
+  [
+   67,
+   0.4
+  ]
+ ],
+ "loop_line": "Thirteen went in. Thirteen came out.",
+ "voice_original": "am_michael"
 }

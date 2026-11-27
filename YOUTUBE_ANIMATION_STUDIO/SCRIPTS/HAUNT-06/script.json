@@ -2,7 +2,7 @@
  "id": "HAUNT-06",
  "title": "The Woman on the Gravestone (1991)",
  "category": "haunted",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.07,
  "mood": "haunted",
  "target_seconds": 48,
@@ -793,5 +793,6 @@
    0.35
   ]
  ],
- "loop_line": "All we know is that on"
+ "loop_line": "All we know is that on",
+ "voice_original": "am_onyx"
 }

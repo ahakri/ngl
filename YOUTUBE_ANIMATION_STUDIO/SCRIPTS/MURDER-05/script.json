@@ -2,7 +2,7 @@
  "id": "MURDER-05",
  "title": "Footprints Led to the Farm. None Led Away.",
  "category": "murder",
- "voice": "am_onyx",
+ "voice": "am_adam",
  "speed": 1.06,
  "mood": "murder",
  "target_seconds": 69,
@@ -1125,5 +1125,6 @@
    0.55
   ]
  ],
- "loop_line": "And it all began in the snow."
+ "loop_line": "And it all began in the snow.",
+ "voice_original": "am_onyx"
 }

@@ -12,7 +12,7 @@ The owner stated these videos are for **YouTube Shorts**. Therefore:
 - Long-form reference videos are still valid evidence for *topic demand*; Shorts references are evidence for *format*.
 
 ## Animation reality (what the pipeline can actually produce)
-Toolchain verified in this container: Blender 5.0 (bpy, Python 3.11, headless, Cycles + EEVEE on CPU, no GPU), Kokoro neural TTS (24 kHz, voices e.g. am_michael, am_onyx, bm_george, af_heart), ffmpeg, sox, numpy, Pillow.
+Toolchain verified in this container: Blender 5.0 (bpy, Python 3.11, headless, Cycles + EEVEE on CPU, no GPU), Kokoro neural TTS (24 kHz; studio narrator voice = am_adam, set in PIPELINE/studio_config.json), ffmpeg, sox, numpy, Pillow.
 - 3D procedural environments: caves, wrecks, reefs, rooms, corridors, forests, roads, houses, maps, evidence boards.
 - Characters: stylised/low-poly procedural divers and silhouettes with simple rigs (walk/swim/turn). No photoreal faces.
 - Effects: volumetric fog, particles (silt, bubbles, dust), flashlight cones, caustics, lightning, flicker.

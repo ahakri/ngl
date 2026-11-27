@@ -1,0 +1,794 @@
+{
+ "duration": 50.78,
+ "voice": "am_onyx",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.68,
+   "text": "In 1974, Stephen King checked into Room 217.",
+   "words": [
+    {
+     "w": "In",
+     "start": 0.18,
+     "end": 0.47
+    },
+    {
+     "w": "1974,",
+     "start": 0.47,
+     "end": 1.52
+    },
+    {
+     "w": "Stephen",
+     "start": 1.52,
+     "end": 2.08
+    },
+    {
+     "w": "King",
+     "start": 2.08,
+     "end": 2.48
+    },
+    {
+     "w": "checked",
+     "start": 2.48,
+     "end": 2.94
+    },
+    {
+     "w": "into",
+     "start": 2.94,
+     "end": 3.38
+    },
+    {
+     "w": "Room",
+     "start": 3.38,
+     "end": 3.91
+    },
+    {
+     "w": "217.",
+     "start": 3.91,
+     "end": 4.62
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.88,
+   "end": 8.66,
+   "text": "The Stanley Hotel, Colorado. Closing for winter. Nearly empty.",
+   "words": [
+    {
+     "w": "The",
+     "start": 4.91,
+     "end": 5.04
+    },
+    {
+     "w": "Stanley",
+     "start": 5.04,
+     "end": 5.41
+    },
+    {
+     "w": "Hotel,",
+     "start": 5.41,
+     "end": 5.91
+    },
+    {
+     "w": "Colorado.",
+     "start": 5.91,
+     "end": 6.7
+    },
+    {
+     "w": "Closing",
+     "start": 6.7,
+     "end": 7.21
+    },
+    {
+     "w": "for",
+     "start": 7.21,
+     "end": 7.5
+    },
+    {
+     "w": "winter.",
+     "start": 7.5,
+     "end": 7.8
+    },
+    {
+     "w": "Nearly",
+     "start": 7.8,
+     "end": 8.16
+    },
+    {
+     "w": "empty.",
+     "start": 8.16,
+     "end": 8.6
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 8.91,
+   "end": 11.72,
+   "text": "That night he dreamed of a fire hose chasing his son.",
+   "words": [
+    {
+     "w": "That",
+     "start": 8.94,
+     "end": 9.09
+    },
+    {
+     "w": "night",
+     "start": 9.09,
+     "end": 9.44
+    },
+    {
+     "w": "he",
+     "start": 9.44,
+     "end": 9.64
+    },
+    {
+     "w": "dreamed",
+     "start": 9.64,
+     "end": 10.01
+    },
+    {
+     "w": "of",
+     "start": 10.01,
+     "end": 10.02
+    },
+    {
+     "w": "a",
+     "start": 10.02,
+     "end": 10.3
+    },
+    {
+     "w": "fire",
+     "start": 10.3,
+     "end": 10.56
+    },
+    {
+     "w": "hose",
+     "start": 10.56,
+     "end": 10.76
+    },
+    {
+     "w": "chasing",
+     "start": 10.76,
+     "end": 11.27
+    },
+    {
+     "w": "his",
+     "start": 11.27,
+     "end": 11.39
+    },
+    {
+     "w": "son.",
+     "start": 11.39,
+     "end": 11.66
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 12.02,
+   "end": 14.77,
+   "text": "One cigarette later, he had the bones of The Shining.",
+   "words": [
+    {
+     "w": "One",
+     "start": 12.05,
+     "end": 12.33
+    },
+    {
+     "w": "cigarette",
+     "start": 12.33,
+     "end": 12.75
+    },
+    {
+     "w": "later,",
+     "start": 12.75,
+     "end": 13.16
+    },
+    {
+     "w": "he",
+     "start": 13.16,
+     "end": 13.4
+    },
+    {
+     "w": "had",
+     "start": 13.4,
+     "end": 13.59
+    },
+    {
+     "w": "the",
+     "start": 13.59,
+     "end": 13.76
+    },
+    {
+     "w": "bones",
+     "start": 13.76,
+     "end": 14.11
+    },
+    {
+     "w": "of",
+     "start": 14.11,
+     "end": 14.14
+    },
+    {
+     "w": "The",
+     "start": 14.14,
+     "end": 14.32
+    },
+    {
+     "w": "Shining.",
+     "start": 14.32,
+     "end": 14.71
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 15.07,
+   "end": 16.99,
+   "text": "But the staff tell an older story.",
+   "words": [
+    {
+     "w": "But",
+     "start": 15.1,
+     "end": 15.34
+    },
+    {
+     "w": "the",
+     "start": 15.34,
+     "end": 15.52
+    },
+    {
+     "w": "staff",
+     "start": 15.52,
+     "end": 15.71
+    },
+    {
+     "w": "tell",
+     "start": 15.71,
+     "end": 16.01
+    },
+    {
+     "w": "an",
+     "start": 16.01,
+     "end": 16.19
+    },
+    {
+     "w": "older",
+     "start": 16.19,
+     "end": 16.46
+    },
+    {
+     "w": "story.",
+     "start": 16.46,
+     "end": 16.93
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 17.34,
+   "end": 21.45,
+   "text": "June 1911. Gas is leaking in 217.",
+   "words": [
+    {
+     "w": "June",
+     "start": 17.37,
+     "end": 17.98
+    },
+    {
+     "w": "1911.",
+     "start": 17.98,
+     "end": 19.0
+    },
+    {
+     "w": "Gas",
+     "start": 19.0,
+     "end": 19.38
+    },
+    {
+     "w": "is",
+     "start": 19.38,
+     "end": 19.67
+    },
+    {
+     "w": "leaking",
+     "start": 19.67,
+     "end": 20.2
+    },
+    {
+     "w": "in",
+     "start": 20.2,
+     "end": 20.52
+    },
+    {
+     "w": "217.",
+     "start": 20.52,
+     "end": 21.39
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.7,
+   "end": 24.87,
+   "text": "Chambermaid Elizabeth Wilson walks in with a lit candle.",
+   "words": [
+    {
+     "w": "Chambermaid",
+     "start": 21.73,
+     "end": 22.43
+    },
+    {
+     "w": "Elizabeth",
+     "start": 22.43,
+     "end": 23.02
+    },
+    {
+     "w": "Wilson",
+     "start": 23.02,
+     "end": 23.32
+    },
+    {
+     "w": "walks",
+     "start": 23.32,
+     "end": 23.63
+    },
+    {
+     "w": "in",
+     "start": 23.63,
+     "end": 23.89
+    },
+    {
+     "w": "with",
+     "start": 23.89,
+     "end": 23.97
+    },
+    {
+     "w": "a",
+     "start": 23.97,
+     "end": 24.25
+    },
+    {
+     "w": "lit",
+     "start": 24.25,
+     "end": 24.41
+    },
+    {
+     "w": "candle.",
+     "start": 24.41,
+     "end": 24.81
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 25.27,
+   "end": 28.13,
+   "text": "The blast drops her through the floor, into the dining room.",
+   "words": [
+    {
+     "w": "The",
+     "start": 25.3,
+     "end": 25.39
+    },
+    {
+     "w": "blast",
+     "start": 25.39,
+     "end": 25.76
+    },
+    {
+     "w": "drops",
+     "start": 25.76,
+     "end": 26.19
+    },
+    {
+     "w": "her",
+     "start": 26.19,
+     "end": 26.23
+    },
+    {
+     "w": "through",
+     "start": 26.23,
+     "end": 26.62
+    },
+    {
+     "w": "the",
+     "start": 26.62,
+     "end": 26.62
+    },
+    {
+     "w": "floor,",
+     "start": 26.62,
+     "end": 27.07
+    },
+    {
+     "w": "into",
+     "start": 27.07,
+     "end": 27.35
+    },
+    {
+     "w": "the",
+     "start": 27.35,
+     "end": 27.35
+    },
+    {
+     "w": "dining",
+     "start": 27.35,
+     "end": 27.73
+    },
+    {
+     "w": "room.",
+     "start": 27.73,
+     "end": 28.07
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 28.48,
+   "end": 32.11,
+   "text": "Guests now report unpacked suitcases, lights switching on and off.",
+   "words": [
+    {
+     "w": "Guests",
+     "start": 28.51,
+     "end": 28.81
+    },
+    {
+     "w": "now",
+     "start": 28.81,
+     "end": 29.17
+    },
+    {
+     "w": "report",
+     "start": 29.17,
+     "end": 29.65
+    },
+    {
+     "w": "unpacked",
+     "start": 29.65,
+     "end": 29.95
+    },
+    {
+     "w": "suitcases,",
+     "start": 29.95,
+     "end": 30.69
+    },
+    {
+     "w": "lights",
+     "start": 30.69,
+     "end": 31.08
+    },
+    {
+     "w": "switching",
+     "start": 31.08,
+     "end": 31.52
+    },
+    {
+     "w": "on",
+     "start": 31.52,
+     "end": 31.73
+    },
+    {
+     "w": "and",
+     "start": 31.73,
+     "end": 31.92
+    },
+    {
+     "w": "off.",
+     "start": 31.92,
+     "end": 32.05
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 32.36,
+   "end": 34.25,
+   "text": "The legend says she's still on shift.",
+   "words": [
+    {
+     "w": "The",
+     "start": 32.39,
+     "end": 32.45
+    },
+    {
+     "w": "legend",
+     "start": 32.45,
+     "end": 32.97
+    },
+    {
+     "w": "says",
+     "start": 32.97,
+     "end": 33.21
+    },
+    {
+     "w": "she's",
+     "start": 33.21,
+     "end": 33.47
+    },
+    {
+     "w": "still",
+     "start": 33.47,
+     "end": 33.76
+    },
+    {
+     "w": "on",
+     "start": 33.76,
+     "end": 33.87
+    },
+    {
+     "w": "shift.",
+     "start": 33.87,
+     "end": 34.19
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 34.65,
+   "end": 37.16,
+   "text": "But the record says Elizabeth Wilson survived.",
+   "words": [
+    {
+     "w": "But",
+     "start": 34.68,
+     "end": 34.87
+    },
+    {
+     "w": "the",
+     "start": 34.87,
+     "end": 35.06
+    },
+    {
+     "w": "record",
+     "start": 35.06,
+     "end": 35.34
+    },
+    {
+     "w": "says",
+     "start": 35.34,
+     "end": 35.63
+    },
+    {
+     "w": "Elizabeth",
+     "start": 35.63,
+     "end": 36.24
+    },
+    {
+     "w": "Wilson",
+     "start": 36.24,
+     "end": 36.61
+    },
+    {
+     "w": "survived.",
+     "start": 36.61,
+     "end": 37.1
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 37.36,
+   "end": 39.24,
+   "text": "She went back to work at the hotel.",
+   "words": [
+    {
+     "w": "She",
+     "start": 37.39,
+     "end": 37.54
+    },
+    {
+     "w": "went",
+     "start": 37.54,
+     "end": 37.91
+    },
+    {
+     "w": "back",
+     "start": 37.91,
+     "end": 38.02
+    },
+    {
+     "w": "to",
+     "start": 38.02,
+     "end": 38.31
+    },
+    {
+     "w": "work",
+     "start": 38.31,
+     "end": 38.48
+    },
+    {
+     "w": "at",
+     "start": 38.48,
+     "end": 38.6
+    },
+    {
+     "w": "the",
+     "start": 38.6,
+     "end": 38.78
+    },
+    {
+     "w": "hotel.",
+     "start": 38.78,
+     "end": 39.18
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 39.49,
+   "end": 42.65,
+   "text": "The woman said to haunt 217 didn't die in it.",
+   "words": [
+    {
+     "w": "The",
+     "start": 39.52,
+     "end": 39.59
+    },
+    {
+     "w": "woman",
+     "start": 39.59,
+     "end": 40.09
+    },
+    {
+     "w": "said",
+     "start": 40.09,
+     "end": 40.39
+    },
+    {
+     "w": "to",
+     "start": 40.39,
+     "end": 40.52
+    },
+    {
+     "w": "haunt",
+     "start": 40.52,
+     "end": 41.0
+    },
+    {
+     "w": "217",
+     "start": 41.0,
+     "end": 41.61
+    },
+    {
+     "w": "didn't",
+     "start": 41.61,
+     "end": 42.03
+    },
+    {
+     "w": "die",
+     "start": 42.03,
+     "end": 42.3
+    },
+    {
+     "w": "in",
+     "start": 42.3,
+     "end": 42.46
+    },
+    {
+     "w": "it.",
+     "start": 42.46,
+     "end": 42.59
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 42.95,
+   "end": 44.9,
+   "text": "And the hotel sells ghost tours.",
+   "words": [
+    {
+     "w": "And",
+     "start": 42.98,
+     "end": 43.16
+    },
+    {
+     "w": "the",
+     "start": 43.16,
+     "end": 43.36
+    },
+    {
+     "w": "hotel",
+     "start": 43.36,
+     "end": 43.81
+    },
+    {
+     "w": "sells",
+     "start": 43.81,
+     "end": 44.05
+    },
+    {
+     "w": "ghost",
+     "start": 44.05,
+     "end": 44.44
+    },
+    {
+     "w": "tours.",
+     "start": 44.44,
+     "end": 44.84
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 45.8,
+   "end": 47.62,
+   "text": "So who unpacked this suitcase?",
+   "words": [
+    {
+     "w": "So",
+     "start": 45.83,
+     "end": 46.06
+    },
+    {
+     "w": "who",
+     "start": 46.06,
+     "end": 46.32
+    },
+    {
+     "w": "unpacked",
+     "start": 46.32,
+     "end": 46.81
+    },
+    {
+     "w": "this",
+     "start": 46.81,
+     "end": 47.06
+    },
+    {
+     "w": "suitcase?",
+     "start": 47.06,
+     "end": 47.56
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 47.97,
+   "end": 50.08,
+   "text": "Nobody knows. But it started like this:",
+   "words": [
+    {
+     "w": "Nobody",
+     "start": 48.0,
+     "end": 48.42
+    },
+    {
+     "w": "knows.",
+     "start": 48.42,
+     "end": 48.8
+    },
+    {
+     "w": "But",
+     "start": 48.8,
+     "end": 48.89
+    },
+    {
+     "w": "it",
+     "start": 48.89,
+     "end": 49.06
+    },
+    {
+     "w": "started",
+     "start": 49.06,
+     "end": 49.48
+    },
+    {
+     "w": "like",
+     "start": 49.48,
+     "end": 49.74
+    },
+    {
+     "w": "this:",
+     "start": 49.74,
+     "end": 50.02
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,953 @@
+{
+ "duration": 65.92,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 2.91,
+   "text": "He found a body 270 metres down.",
+   "words": [
+    {
+     "w": "He",
+     "start": 0.18,
+     "end": 0.43
+    },
+    {
+     "w": "found",
+     "start": 0.43,
+     "end": 0.8
+    },
+    {
+     "w": "a",
+     "start": 0.8,
+     "end": 1.06
+    },
+    {
+     "w": "body",
+     "start": 1.06,
+     "end": 1.36
+    },
+    {
+     "w": "270",
+     "start": 1.36,
+     "end": 2.08
+    },
+    {
+     "w": "metres",
+     "start": 2.08,
+     "end": 2.56
+    },
+    {
+     "w": "down.",
+     "start": 2.56,
+     "end": 2.85
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 3.06,
+   "end": 4.19,
+   "text": "Then he went back for it.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 3.09,
+     "end": 3.32
+    },
+    {
+     "w": "he",
+     "start": 3.32,
+     "end": 3.48
+    },
+    {
+     "w": "went",
+     "start": 3.48,
+     "end": 3.71
+    },
+    {
+     "w": "back",
+     "start": 3.71,
+     "end": 3.87
+    },
+    {
+     "w": "for",
+     "start": 3.87,
+     "end": 4.09
+    },
+    {
+     "w": "it.",
+     "start": 4.09,
+     "end": 4.13
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 4.54,
+   "end": 7.77,
+   "text": "Ten minutes down. About ten hours of stops back up.",
+   "words": [
+    {
+     "w": "Ten",
+     "start": 4.57,
+     "end": 4.88
+    },
+    {
+     "w": "minutes",
+     "start": 4.88,
+     "end": 5.35
+    },
+    {
+     "w": "down.",
+     "start": 5.35,
+     "end": 5.57
+    },
+    {
+     "w": "About",
+     "start": 5.57,
+     "end": 6.09
+    },
+    {
+     "w": "ten",
+     "start": 6.09,
+     "end": 6.24
+    },
+    {
+     "w": "hours",
+     "start": 6.24,
+     "end": 6.64
+    },
+    {
+     "w": "of",
+     "start": 6.64,
+     "end": 6.75
+    },
+    {
+     "w": "stops",
+     "start": 6.75,
+     "end": 7.28
+    },
+    {
+     "w": "back",
+     "start": 7.28,
+     "end": 7.54
+    },
+    {
+     "w": "up.",
+     "start": 7.54,
+     "end": 7.71
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 8.07,
+   "end": 11.23,
+   "text": "This is Boesmansgat, Bushman's Hole, South Africa.",
+   "words": [
+    {
+     "w": "This",
+     "start": 8.1,
+     "end": 8.43
+    },
+    {
+     "w": "is",
+     "start": 8.43,
+     "end": 8.46
+    },
+    {
+     "w": "Boesmansgat,",
+     "start": 8.46,
+     "end": 9.48
+    },
+    {
+     "w": "Bushman's",
+     "start": 9.48,
+     "end": 10.01
+    },
+    {
+     "w": "Hole,",
+     "start": 10.01,
+     "end": 10.33
+    },
+    {
+     "w": "South",
+     "start": 10.33,
+     "end": 10.66
+    },
+    {
+     "w": "Africa.",
+     "start": 10.66,
+     "end": 11.17
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 11.48,
+   "end": 16.03,
+   "text": "In 2004, Australian pilot Dave Shaw set a depth record here.",
+   "words": [
+    {
+     "w": "In",
+     "start": 11.51,
+     "end": 11.69
+    },
+    {
+     "w": "2004,",
+     "start": 11.69,
+     "end": 12.57
+    },
+    {
+     "w": "Australian",
+     "start": 12.57,
+     "end": 13.36
+    },
+    {
+     "w": "pilot",
+     "start": 13.36,
+     "end": 13.86
+    },
+    {
+     "w": "Dave",
+     "start": 13.86,
+     "end": 14.14
+    },
+    {
+     "w": "Shaw",
+     "start": 14.14,
+     "end": 14.42
+    },
+    {
+     "w": "set",
+     "start": 14.42,
+     "end": 14.79
+    },
+    {
+     "w": "a",
+     "start": 14.79,
+     "end": 14.93
+    },
+    {
+     "w": "depth",
+     "start": 14.93,
+     "end": 15.34
+    },
+    {
+     "w": "record",
+     "start": 15.34,
+     "end": 15.64
+    },
+    {
+     "w": "here.",
+     "start": 15.64,
+     "end": 15.97
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 16.23,
+   "end": 18.75,
+   "text": "At the bottom, his torch found another diver.",
+   "words": [
+    {
+     "w": "At",
+     "start": 16.26,
+     "end": 16.35
+    },
+    {
+     "w": "the",
+     "start": 16.35,
+     "end": 16.47
+    },
+    {
+     "w": "bottom,",
+     "start": 16.47,
+     "end": 16.98
+    },
+    {
+     "w": "his",
+     "start": 16.98,
+     "end": 17.23
+    },
+    {
+     "w": "torch",
+     "start": 17.23,
+     "end": 17.54
+    },
+    {
+     "w": "found",
+     "start": 17.54,
+     "end": 17.93
+    },
+    {
+     "w": "another",
+     "start": 17.93,
+     "end": 18.32
+    },
+    {
+     "w": "diver.",
+     "start": 18.32,
+     "end": 18.69
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 19.05,
+   "end": 23.34,
+   "text": "Deon Dreyer. Lost here in 1994, never recovered.",
+   "words": [
+    {
+     "w": "Deon",
+     "start": 19.08,
+     "end": 19.6
+    },
+    {
+     "w": "Dreyer.",
+     "start": 19.6,
+     "end": 20.11
+    },
+    {
+     "w": "Lost",
+     "start": 20.11,
+     "end": 20.65
+    },
+    {
+     "w": "here",
+     "start": 20.65,
+     "end": 20.88
+    },
+    {
+     "w": "in",
+     "start": 20.88,
+     "end": 21.14
+    },
+    {
+     "w": "1994,",
+     "start": 21.14,
+     "end": 22.15
+    },
+    {
+     "w": "never",
+     "start": 22.15,
+     "end": 22.55
+    },
+    {
+     "w": "recovered.",
+     "start": 22.55,
+     "end": 23.28
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 23.64,
+   "end": 26.22,
+   "text": "Shaw planned one more dive, to bring him home.",
+   "words": [
+    {
+     "w": "Shaw",
+     "start": 23.67,
+     "end": 23.94
+    },
+    {
+     "w": "planned",
+     "start": 23.94,
+     "end": 24.3
+    },
+    {
+     "w": "one",
+     "start": 24.3,
+     "end": 24.58
+    },
+    {
+     "w": "more",
+     "start": 24.58,
+     "end": 24.82
+    },
+    {
+     "w": "dive,",
+     "start": 24.82,
+     "end": 25.15
+    },
+    {
+     "w": "to",
+     "start": 25.15,
+     "end": 25.32
+    },
+    {
+     "w": "bring",
+     "start": 25.32,
+     "end": 25.57
+    },
+    {
+     "w": "him",
+     "start": 25.57,
+     "end": 25.83
+    },
+    {
+     "w": "home.",
+     "start": 25.83,
+     "end": 26.16
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 26.47,
+   "end": 31.69,
+   "text": "January 2005. Don Shirley would meet him at 220 metres.",
+   "words": [
+    {
+     "w": "January",
+     "start": 26.5,
+     "end": 27.48
+    },
+    {
+     "w": "2005.",
+     "start": 27.48,
+     "end": 28.3
+    },
+    {
+     "w": "Don",
+     "start": 28.3,
+     "end": 28.81
+    },
+    {
+     "w": "Shirley",
+     "start": 28.81,
+     "end": 29.17
+    },
+    {
+     "w": "would",
+     "start": 29.17,
+     "end": 29.47
+    },
+    {
+     "w": "meet",
+     "start": 29.47,
+     "end": 29.92
+    },
+    {
+     "w": "him",
+     "start": 29.92,
+     "end": 30.21
+    },
+    {
+     "w": "at",
+     "start": 30.21,
+     "end": 30.39
+    },
+    {
+     "w": "220",
+     "start": 30.39,
+     "end": 31.02
+    },
+    {
+     "w": "metres.",
+     "start": 31.02,
+     "end": 31.63
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 31.89,
+   "end": 35.05,
+   "text": "Shaw reached the body and began easing it into a bag.",
+   "words": [
+    {
+     "w": "Shaw",
+     "start": 31.92,
+     "end": 32.23
+    },
+    {
+     "w": "reached",
+     "start": 32.23,
+     "end": 32.63
+    },
+    {
+     "w": "the",
+     "start": 32.63,
+     "end": 32.71
+    },
+    {
+     "w": "body",
+     "start": 32.71,
+     "end": 33.08
+    },
+    {
+     "w": "and",
+     "start": 33.08,
+     "end": 33.35
+    },
+    {
+     "w": "began",
+     "start": 33.35,
+     "end": 33.76
+    },
+    {
+     "w": "easing",
+     "start": 33.76,
+     "end": 34.09
+    },
+    {
+     "w": "it",
+     "start": 34.09,
+     "end": 34.16
+    },
+    {
+     "w": "into",
+     "start": 34.16,
+     "end": 34.48
+    },
+    {
+     "w": "a",
+     "start": 34.48,
+     "end": 34.73
+    },
+    {
+     "w": "bag.",
+     "start": 34.73,
+     "end": 34.99
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 35.25,
+   "end": 38.03,
+   "text": "This deep, dense gas makes every breath hard work.",
+   "words": [
+    {
+     "w": "This",
+     "start": 35.28,
+     "end": 35.45
+    },
+    {
+     "w": "deep,",
+     "start": 35.45,
+     "end": 35.75
+    },
+    {
+     "w": "dense",
+     "start": 35.75,
+     "end": 36.12
+    },
+    {
+     "w": "gas",
+     "start": 36.12,
+     "end": 36.29
+    },
+    {
+     "w": "makes",
+     "start": 36.29,
+     "end": 36.75
+    },
+    {
+     "w": "every",
+     "start": 36.75,
+     "end": 37.01
+    },
+    {
+     "w": "breath",
+     "start": 37.01,
+     "end": 37.37
+    },
+    {
+     "w": "hard",
+     "start": 37.37,
+     "end": 37.72
+    },
+    {
+     "w": "work.",
+     "start": 37.72,
+     "end": 37.97
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 38.23,
+   "end": 42.35,
+   "text": "His lines snagged. He worked harder. Carbon dioxide built up.",
+   "words": [
+    {
+     "w": "His",
+     "start": 38.26,
+     "end": 38.49
+    },
+    {
+     "w": "lines",
+     "start": 38.49,
+     "end": 38.95
+    },
+    {
+     "w": "snagged.",
+     "start": 38.95,
+     "end": 39.38
+    },
+    {
+     "w": "He",
+     "start": 39.38,
+     "end": 39.61
+    },
+    {
+     "w": "worked",
+     "start": 39.61,
+     "end": 39.97
+    },
+    {
+     "w": "harder.",
+     "start": 39.97,
+     "end": 40.48
+    },
+    {
+     "w": "Carbon",
+     "start": 40.48,
+     "end": 40.97
+    },
+    {
+     "w": "dioxide",
+     "start": 40.97,
+     "end": 41.8
+    },
+    {
+     "w": "built",
+     "start": 41.8,
+     "end": 42.12
+    },
+    {
+     "w": "up.",
+     "start": 42.12,
+     "end": 42.29
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 43.05,
+   "end": 44.94,
+   "text": "He never reached 220.",
+   "words": [
+    {
+     "w": "He",
+     "start": 43.08,
+     "end": 43.3
+    },
+    {
+     "w": "never",
+     "start": 43.3,
+     "end": 43.74
+    },
+    {
+     "w": "reached",
+     "start": 43.74,
+     "end": 44.21
+    },
+    {
+     "w": "220.",
+     "start": 44.21,
+     "end": 44.88
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 45.34,
+   "end": 49.65,
+   "text": "Shirley searched deeper, and was struck by decompression sickness. He survived.",
+   "words": [
+    {
+     "w": "Shirley",
+     "start": 45.37,
+     "end": 45.69
+    },
+    {
+     "w": "searched",
+     "start": 45.69,
+     "end": 46.17
+    },
+    {
+     "w": "deeper,",
+     "start": 46.17,
+     "end": 46.5
+    },
+    {
+     "w": "and",
+     "start": 46.5,
+     "end": 46.81
+    },
+    {
+     "w": "was",
+     "start": 46.81,
+     "end": 46.88
+    },
+    {
+     "w": "struck",
+     "start": 46.88,
+     "end": 47.32
+    },
+    {
+     "w": "by",
+     "start": 47.32,
+     "end": 47.6
+    },
+    {
+     "w": "decompression",
+     "start": 47.6,
+     "end": 48.41
+    },
+    {
+     "w": "sickness.",
+     "start": 48.41,
+     "end": 48.89
+    },
+    {
+     "w": "He",
+     "start": 48.89,
+     "end": 49.09
+    },
+    {
+     "w": "survived.",
+     "start": 49.09,
+     "end": 49.59
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 49.95,
+   "end": 51.99,
+   "text": "Shaw's helmet camera recorded it all.",
+   "words": [
+    {
+     "w": "Shaw's",
+     "start": 49.98,
+     "end": 50.32
+    },
+    {
+     "w": "helmet",
+     "start": 50.32,
+     "end": 50.71
+    },
+    {
+     "w": "camera",
+     "start": 50.71,
+     "end": 51.07
+    },
+    {
+     "w": "recorded",
+     "start": 51.07,
+     "end": 51.64
+    },
+    {
+     "w": "it",
+     "start": 51.64,
+     "end": 51.72
+    },
+    {
+     "w": "all.",
+     "start": 51.72,
+     "end": 51.93
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 52.19,
+   "end": 55.42,
+   "text": "Experts concluded carbon dioxide made him black out.",
+   "words": [
+    {
+     "w": "Experts",
+     "start": 52.22,
+     "end": 52.75
+    },
+    {
+     "w": "concluded",
+     "start": 52.75,
+     "end": 53.26
+    },
+    {
+     "w": "carbon",
+     "start": 53.26,
+     "end": 53.73
+    },
+    {
+     "w": "dioxide",
+     "start": 53.73,
+     "end": 54.42
+    },
+    {
+     "w": "made",
+     "start": 54.42,
+     "end": 54.67
+    },
+    {
+     "w": "him",
+     "start": 54.67,
+     "end": 54.89
+    },
+    {
+     "w": "black",
+     "start": 54.89,
+     "end": 55.14
+    },
+    {
+     "w": "out.",
+     "start": 55.14,
+     "end": 55.36
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 55.82,
+   "end": 58.6,
+   "text": "Four days later, divers hauled up his lines.",
+   "words": [
+    {
+     "w": "Four",
+     "start": 55.85,
+     "end": 56.13
+    },
+    {
+     "w": "days",
+     "start": 56.13,
+     "end": 56.43
+    },
+    {
+     "w": "later,",
+     "start": 56.43,
+     "end": 56.87
+    },
+    {
+     "w": "divers",
+     "start": 56.87,
+     "end": 57.34
+    },
+    {
+     "w": "hauled",
+     "start": 57.34,
+     "end": 57.71
+    },
+    {
+     "w": "up",
+     "start": 57.71,
+     "end": 57.83
+    },
+    {
+     "w": "his",
+     "start": 57.83,
+     "end": 58.21
+    },
+    {
+     "w": "lines.",
+     "start": 58.21,
+     "end": 58.54
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 58.8,
+   "end": 61.0,
+   "text": "Two bodies came up, tangled together.",
+   "words": [
+    {
+     "w": "Two",
+     "start": 58.82,
+     "end": 59.02
+    },
+    {
+     "w": "bodies",
+     "start": 59.02,
+     "end": 59.45
+    },
+    {
+     "w": "came",
+     "start": 59.45,
+     "end": 59.87
+    },
+    {
+     "w": "up,",
+     "start": 59.87,
+     "end": 60.03
+    },
+    {
+     "w": "tangled",
+     "start": 60.03,
+     "end": 60.55
+    },
+    {
+     "w": "together.",
+     "start": 60.55,
+     "end": 60.94
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 61.5,
+   "end": 64.72,
+   "text": "Ten years after he was lost, Deon Dreyer came home.",
+   "words": [
+    {
+     "w": "Ten",
+     "start": 61.52,
+     "end": 61.78
+    },
+    {
+     "w": "years",
+     "start": 61.78,
+     "end": 62.16
+    },
+    {
+     "w": "after",
+     "start": 62.16,
+     "end": 62.49
+    },
+    {
+     "w": "he",
+     "start": 62.49,
+     "end": 62.57
+    },
+    {
+     "w": "was",
+     "start": 62.57,
+     "end": 62.83
+    },
+    {
+     "w": "lost,",
+     "start": 62.83,
+     "end": 63.2
+    },
+    {
+     "w": "Deon",
+     "start": 63.2,
+     "end": 63.63
+    },
+    {
+     "w": "Dreyer",
+     "start": 63.63,
+     "end": 64.06
+    },
+    {
+     "w": "came",
+     "start": 64.06,
+     "end": 64.39
+    },
+    {
+     "w": "home.",
+     "start": 64.39,
+     "end": 64.66
+    }
+   ]
+  }
+ ]
+}
