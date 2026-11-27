@@ -6,7 +6,7 @@ Narration has not been auditioned by ear inside the build container — listen o
 ## CAVE-01 — He Went 270 m Down to Bring a Body Home
 
 - Video: `FINAL_VIDEOS/CAVE-01.mp4` (43 MB) · Subtitles: `FINAL_VIDEOS/CAVE-01.srt` (25 cues)
-- Thumbnails: not made yet
+- Thumbnails: `THUMBNAILS/CAVE-01/thumb_A.png`, `THUMBNAILS/CAVE-01/thumb_B.png`
 - QC: `QUALITY_CONTROL/CAVE-01/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/CAVE-01/FACTCHECK.md`
 
 ### Titles
@@ -90,4 +90,33 @@ Hashtags (max 2): #DyatlovPass #unsolvedmysteries
 ### Thumbnail pick
 
 **Recommended pick: A**, with title A, at upload. It matches the Short's frame 1 and line 1 (S01: the light finding the slit, "Nine hikers cut their own tent open."), so search and channel-grid viewers get exactly what the cover promised. It reads at grid size from one bright stripe, and it states only an established fact. **B** is the alternate. Shorts have no Test & Compare, so keep B (with title C) as the cover for a long-form or "science reopens the case" cut, where Test & Compare can test A against B. Do not re-upload this Short to test it.
+
+## MURDER-02 — The Dead Man With 'Tamam Shud' in a Hidden Pocket
+
+- Video: `FINAL_VIDEOS/MURDER-02.mp4` (44 MB) · Subtitles: `FINAL_VIDEOS/MURDER-02.srt` (40 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/MURDER-02/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/MURDER-02/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Use |
+|---|---|---|---|
+| A (primary) | Somerton Man: The Code Nobody Can Crack | 39 | Search noun + the still-open hook that drives comments. |
+| B | 'Tamam Shud': The Note in a Dead Man's Hidden Pocket | 52 | Object-led curiosity gap (concept title, corrected). |
+| C | Somerton Man: DNA Points to a Name — Not Yet Official | 53 | Twist-led but honest; use only while status is unconfirmed (update if the coroner rules). |
+
+Rejected: "74 Years Unnamed — Until DNA Spoke" (implies settled ID).
+
+### Description
+
+On 1 December 1948 a man was found dead on Somerton Beach, Adelaide — clothing labels cut out, no ID, and a scrap reading "Tamám Shud" ("ended") hidden in a tiny pocket. The book it came from carried a pencilled code that has never been cracked. In 2022, researchers Derek Abbott and Colleen Fitzpatrick named him as Carl "Charles" Webb using DNA from hair; police and the coroner have not officially confirmed it (as of Nov 2026). What do you think the code says?
+
+Sources: State Records of South Australia; Smithsonian; InDaily (2021, 2022); ABC News (July 2026). Animated dramatisation; no real photos.
+
+Hashtags (max 2): #SomertonMan #unsolvedmysteries
+
+### Check before upload
+
+- Action before upload:** search "Somerton Man coroner finding" / Coroners Court of SA. If a finding has been published, rewrite L18 + S18 (and title variant B) accordingly. On-screen stamp in S18 reads "status checked Nov 2026".
+- Status can change any day (police report to coroner "very soon" in July 2026). Re-verify before publish.
 

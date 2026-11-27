@@ -618,11 +618,12 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\n~~MLIAOI~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "BACK COVER - RECREATED",
-      "cps": 40
+      "cps": 40,
+      "size": 64
      }
     },
     {
@@ -702,41 +703,11 @@
     },
     {
      "type": "text",
-     "text": "SPY",
-     "start": 0.2,
-     "duration": 0.7,
-     "params": {
-      "size": 110,
-      "y": 700
-     }
-    },
-    {
-     "type": "text",
-     "text": "LOST LOVE",
-     "start": 0.9,
-     "duration": 0.8,
-     "params": {
-      "size": 100,
-      "y": 900
-     }
-    },
-    {
-     "type": "text",
-     "text": "SUICIDE",
-     "start": 1.7,
-     "duration": 0.8,
-     "params": {
-      "size": 100,
-      "y": 1100
-     }
-    },
-    {
-     "type": "text",
      "text": "NO PROOF",
      "start": 2.6,
      "params": {
       "size": 110,
-      "y": 1300,
+      "y": 1480,
       "color": [
        230,
        40,
@@ -1008,11 +979,12 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\n~~MLIAOI~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "STILL UNSOLVED",
-      "cps": 200
+      "cps": 200,
+      "size": 64
      }
     }
    ],
@@ -1039,11 +1011,12 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\n~~MLIAOI~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "STILL UNSOLVED",
-      "cps": 400
+      "cps": 400,
+      "size": 64
      }
     },
     {
@@ -1052,7 +1025,7 @@
      "start": 0.3,
      "params": {
       "size": 90,
-      "y": 260
+      "y": 1480
      }
     }
    ],

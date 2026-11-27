@@ -252,31 +252,41 @@ def ov_document(t, dur, text, p):
         yy += 70
     fsz = p.get("size", 54 if style == "scrap" else 38)
     fnt = font(F_SERIF if style != "telegram" else F_MONO, fsz)
-    wrapped = []
+    # layout first (markup-aware), typewriter second, so "~~struck~~" pairs are never cut in half or stripped
+    lines = []  # each line: list of (segment_text, struck)
     for para in text.split("\n"):
+        if "~~" in para:
+            parts = para.split("~~")
+            lines.append([(sg, k % 2 == 1) for k, sg in enumerate(parts) if sg != ""])
+            continue
         cur = ""
         for w in para.split(" "):
-            cand = (cur + " " + w).strip()
-            if cur and "~~" not in cand and pd.textlength(cand, font=fnt) > pw - 120:
-                wrapped.append(cur)
+            cand = (cur + " " + w) if cur else w
+            if cur and pd.textlength(cand, font=fnt) > pw - 120:
+                lines.append([(cur, False)])
                 cur = w
             else:
                 cur = cand
-        wrapped.append(cur)
-    body = typewriter("\n".join(wrapped), max(0, t - 0.4), p.get("cps", 30))
-    for i, ln in enumerate(body.split("\n")):
+        lines.append([(cur, False)])
+    budget = int(max(0.0, t - 0.4) * p.get("cps", 30))  # visible characters typed so far
+    for i, segs in enumerate(lines):
+        if budget <= 0:
+            break
+        shown = []
+        for sg, struck in segs:
+            if budget <= 0:
+                break
+            shown.append((sg[:budget], struck))
+            budget -= len(sg)
+        budget -= 1  # the line break
         y = yy + i * int(fsz * 1.35) + (ph // 2 - 60 if style == "scrap" else 0)
-        segs = ln.split("~~")  # odd segments are struck through: "ABC ~~struck~~ DEF"
-        plain = "".join(segs)
-        wtot = pd.textlength(plain, font=fnt)
+        wtot = pd.textlength("".join(sg for sg, _ in segs), font=fnt)
         x = (pw // 2 - wtot / 2) if style == "scrap" else 60
         ytop = y - fsz * 0.5 if style == "scrap" else y
-        for k, sg in enumerate(segs):
-            if not sg:
-                continue
+        for sg, struck in shown:
             pd.text((x, ytop), sg, font=fnt, fill=(30, 25, 22, 255), anchor="la")
             w = pd.textlength(sg, font=fnt)
-            if k % 2 == 1:
+            if struck and sg:
                 my = ytop + fsz * 0.6
                 pd.line((x - 4, my, x + w + 4, my), fill=(30, 25, 22, 255), width=max(3, fsz // 10))
             x += w
