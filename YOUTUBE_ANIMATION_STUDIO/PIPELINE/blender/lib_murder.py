@@ -2809,22 +2809,15 @@ def crt_tv(loc=(0, 0, 0), rot_z=0.0, screen_mat=None, name="tv", legs=True):
     fr.scale = (0.3, 0.005, 0.24)
     L.assign(fr, L.mat_principled(name + "_fr", (0.03, 0.03, 0.03), rough=0.4))
     fr.parent = root
-    sc = L.prim("sphere", loc=(-0.08, -0.12, z0 + 0.3), radius=1.0, segments=32, ring_count=16, name=name + "_screen")
-    sc.scale = (0.27, 0.17, 0.21)
-    bpy.context.view_layer.objects.active = sc
-    me = sc.data
-    bmx = bmesh.new()
-    bmx.from_mesh(me)
-    bmesh.ops.delete(bmx, geom=[v for v in bmx.verts if v.co.y > -0.82], context="VERTS")
-    bmx.to_mesh(me)
-    bmx.free()
-    # UVs: project front view
-    me.uv_layers.new(name="UVMap")
-    uv = me.uv_layers.active.data
-    for poly in me.polygons:
-        for li in poly.loop_indices:
-            v = me.vertices[me.loops[li].vertex_index].co
-            uv[li].uv = (v.x * 0.5 + 0.5, v.z * 0.5 + 0.5)
+    # slightly bulged flat screen (subdivided grid, default 0..1 UVs keep the whole picture)
+    bpy.ops.mesh.primitive_grid_add(x_subdivisions=16, y_subdivisions=16, size=1.0, location=(-0.08, -0.28, z0 + 0.3),
+                                    rotation=(math.pi / 2, 0, 0))
+    sc = bpy.context.active_object
+    sc.name = name + "_screen"
+    sc.scale = (0.58, 0.46, 1)
+    for v in sc.data.vertices:
+        r2 = (v.co.x * 2) ** 2 + (v.co.y * 2) ** 2
+        v.co.z = 0.03 * max(0.0, 1 - 0.5 * r2) / 1.0
     smooth_obj(sc)
     if screen_mat:
         L.assign(sc, screen_mat)

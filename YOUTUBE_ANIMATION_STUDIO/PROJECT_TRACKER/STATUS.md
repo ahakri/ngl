@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T14:24:46Z
+Updated: 2026-11-27T14:32:43Z
 
 ## Concept counts
 
@@ -16,10 +16,10 @@ Updated: 2026-11-27T14:24:46Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 18
+- ANIMATED - in render queue: 19
 - ANIMATING: 1
 - CONCEPT: 72
-- SCRIPTED: 9
+- SCRIPTED: 8
 
 ## Videos in production
 
@@ -37,12 +37,12 @@ Updated: 2026-11-27T14:24:46Z
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | ANIMATED - in render queue |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | ANIMATED - in render queue |
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | ANIMATED - in render queue |
-| SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | SCRIPTED |
+| SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATING |
 | SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATED - in render queue |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | ANIMATED - in render queue |
-| MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | ANIMATING |
+| MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | ANIMATED - in render queue |
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | SCRIPTED |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | SCRIPTED |
