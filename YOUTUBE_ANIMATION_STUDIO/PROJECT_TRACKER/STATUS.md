@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T18:09:49Z
+Updated: 2026-11-27T18:22:00Z
 
 ## Concept counts
 
@@ -17,9 +17,9 @@ Updated: 2026-11-27T18:09:49Z
 ## Pipeline status
 
 - ANIMATED - in render queue: 25
-- CONCEPT: 69
+- CONCEPT: 68
 - QC PASSED: 3
-- SCRIPTED: 3
+- SCRIPTED: 4
 
 ## Videos in production
 
@@ -56,3 +56,4 @@ Updated: 2026-11-27T18:09:49Z
 | HAUNT-04 | The Ghost Photo Country Life Published | 75 | ANIMATED - in render queue |
 | HAUNT-06 | The Woman on the Gravestone (1991) | 73 | ANIMATED - in render queue |
 | HAUNT-07 | Drivers Keep Reporting They Hit Her | 72 | ANIMATED - in render queue |
+| HAUNT-10 | Stairs That Lead Into the Ceiling | 69 | SCRIPTED |

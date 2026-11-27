@@ -1,0 +1,720 @@
+{
+ "duration": 47.74,
+ "voice": "am_adam",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 2.46,
+   "text": "This staircase climbs straight into the ceiling.",
+   "words": [
+    {
+     "w": "This",
+     "start": 0.18,
+     "end": 0.4
+    },
+    {
+     "w": "staircase",
+     "start": 0.4,
+     "end": 0.91
+    },
+    {
+     "w": "climbs",
+     "start": 0.91,
+     "end": 1.24
+    },
+    {
+     "w": "straight",
+     "start": 1.24,
+     "end": 1.63
+    },
+    {
+     "w": "into",
+     "start": 1.63,
+     "end": 1.91
+    },
+    {
+     "w": "the",
+     "start": 1.91,
+     "end": 2.03
+    },
+    {
+     "w": "ceiling.",
+     "start": 2.03,
+     "end": 2.4
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 2.76,
+   "end": 5.16,
+   "text": "Legend says it was built to confuse ghosts.",
+   "words": [
+    {
+     "w": "Legend",
+     "start": 2.79,
+     "end": 3.25
+    },
+    {
+     "w": "says",
+     "start": 3.25,
+     "end": 3.47
+    },
+    {
+     "w": "it",
+     "start": 3.47,
+     "end": 3.57
+    },
+    {
+     "w": "was",
+     "start": 3.57,
+     "end": 3.78
+    },
+    {
+     "w": "built",
+     "start": 3.78,
+     "end": 4.01
+    },
+    {
+     "w": "to",
+     "start": 4.01,
+     "end": 4.13
+    },
+    {
+     "w": "confuse",
+     "start": 4.13,
+     "end": 4.76
+    },
+    {
+     "w": "ghosts.",
+     "start": 4.76,
+     "end": 5.1
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 5.41,
+   "end": 8.4,
+   "text": "Winchester Mystery House, San Jose, California.",
+   "words": [
+    {
+     "w": "Winchester",
+     "start": 5.44,
+     "end": 6.1
+    },
+    {
+     "w": "Mystery",
+     "start": 6.1,
+     "end": 6.55
+    },
+    {
+     "w": "House,",
+     "start": 6.55,
+     "end": 6.8
+    },
+    {
+     "w": "San",
+     "start": 6.8,
+     "end": 7.09
+    },
+    {
+     "w": "Jose,",
+     "start": 7.09,
+     "end": 7.59
+    },
+    {
+     "w": "California.",
+     "start": 7.59,
+     "end": 8.34
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 8.65,
+   "end": 11.51,
+   "text": "Rifle heiress Sarah Winchester bought a farmhouse here.",
+   "words": [
+    {
+     "w": "Rifle",
+     "start": 8.68,
+     "end": 9.05
+    },
+    {
+     "w": "heiress",
+     "start": 9.05,
+     "end": 9.4
+    },
+    {
+     "w": "Sarah",
+     "start": 9.4,
+     "end": 9.65
+    },
+    {
+     "w": "Winchester",
+     "start": 9.65,
+     "end": 10.25
+    },
+    {
+     "w": "bought",
+     "start": 10.25,
+     "end": 10.54
+    },
+    {
+     "w": "a",
+     "start": 10.54,
+     "end": 10.67
+    },
+    {
+     "w": "farmhouse",
+     "start": 10.67,
+     "end": 11.28
+    },
+    {
+     "w": "here.",
+     "start": 11.28,
+     "end": 11.45
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 11.71,
+   "end": 16.2,
+   "text": "She kept adding to it for decades, until she died in 1922.",
+   "words": [
+    {
+     "w": "She",
+     "start": 11.74,
+     "end": 11.9
+    },
+    {
+     "w": "kept",
+     "start": 11.9,
+     "end": 12.34
+    },
+    {
+     "w": "adding",
+     "start": 12.34,
+     "end": 12.73
+    },
+    {
+     "w": "to",
+     "start": 12.73,
+     "end": 12.94
+    },
+    {
+     "w": "it",
+     "start": 12.94,
+     "end": 13.12
+    },
+    {
+     "w": "for",
+     "start": 13.12,
+     "end": 13.44
+    },
+    {
+     "w": "decades,",
+     "start": 13.44,
+     "end": 13.99
+    },
+    {
+     "w": "until",
+     "start": 13.99,
+     "end": 14.48
+    },
+    {
+     "w": "she",
+     "start": 14.48,
+     "end": 14.64
+    },
+    {
+     "w": "died",
+     "start": 14.64,
+     "end": 15.01
+    },
+    {
+     "w": "in",
+     "start": 15.01,
+     "end": 15.19
+    },
+    {
+     "w": "1922.",
+     "start": 15.19,
+     "end": 16.14
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 16.45,
+   "end": 20.8,
+   "text": "A medium supposedly warned her about the ghosts of Winchester rifle victims.",
+   "words": [
+    {
+     "w": "A",
+     "start": 16.48,
+     "end": 16.71
+    },
+    {
+     "w": "medium",
+     "start": 16.71,
+     "end": 17.17
+    },
+    {
+     "w": "supposedly",
+     "start": 17.17,
+     "end": 17.76
+    },
+    {
+     "w": "warned",
+     "start": 17.76,
+     "end": 18.08
+    },
+    {
+     "w": "her",
+     "start": 18.08,
+     "end": 18.32
+    },
+    {
+     "w": "about",
+     "start": 18.32,
+     "end": 18.65
+    },
+    {
+     "w": "the",
+     "start": 18.65,
+     "end": 18.83
+    },
+    {
+     "w": "ghosts",
+     "start": 18.83,
+     "end": 19.19
+    },
+    {
+     "w": "of",
+     "start": 19.19,
+     "end": 19.24
+    },
+    {
+     "w": "Winchester",
+     "start": 19.24,
+     "end": 19.84
+    },
+    {
+     "w": "rifle",
+     "start": 19.84,
+     "end": 20.24
+    },
+    {
+     "w": "victims.",
+     "start": 20.24,
+     "end": 20.74
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.0,
+   "end": 24.53,
+   "text": "To escape them, the story goes, she had to keep building forever.",
+   "words": [
+    {
+     "w": "To",
+     "start": 21.03,
+     "end": 21.21
+    },
+    {
+     "w": "escape",
+     "start": 21.21,
+     "end": 21.57
+    },
+    {
+     "w": "them,",
+     "start": 21.57,
+     "end": 21.91
+    },
+    {
+     "w": "the",
+     "start": 21.91,
+     "end": 22.02
+    },
+    {
+     "w": "story",
+     "start": 22.02,
+     "end": 22.35
+    },
+    {
+     "w": "goes,",
+     "start": 22.35,
+     "end": 22.7
+    },
+    {
+     "w": "she",
+     "start": 22.7,
+     "end": 22.96
+    },
+    {
+     "w": "had",
+     "start": 22.96,
+     "end": 23.08
+    },
+    {
+     "w": "to",
+     "start": 23.08,
+     "end": 23.35
+    },
+    {
+     "w": "keep",
+     "start": 23.35,
+     "end": 23.6
+    },
+    {
+     "w": "building",
+     "start": 23.6,
+     "end": 24.04
+    },
+    {
+     "w": "forever.",
+     "start": 24.04,
+     "end": 24.47
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 24.93,
+   "end": 29.3,
+   "text": "In 1906, an earthquake cut the house from seven floors to four.",
+   "words": [
+    {
+     "w": "In",
+     "start": 24.96,
+     "end": 25.22
+    },
+    {
+     "w": "1906,",
+     "start": 25.22,
+     "end": 26.02
+    },
+    {
+     "w": "an",
+     "start": 26.02,
+     "end": 26.19
+    },
+    {
+     "w": "earthquake",
+     "start": 26.19,
+     "end": 26.79
+    },
+    {
+     "w": "cut",
+     "start": 26.79,
+     "end": 27.09
+    },
+    {
+     "w": "the",
+     "start": 27.09,
+     "end": 27.16
+    },
+    {
+     "w": "house",
+     "start": 27.16,
+     "end": 27.45
+    },
+    {
+     "w": "from",
+     "start": 27.45,
+     "end": 27.74
+    },
+    {
+     "w": "seven",
+     "start": 27.74,
+     "end": 28.26
+    },
+    {
+     "w": "floors",
+     "start": 28.26,
+     "end": 28.71
+    },
+    {
+     "w": "to",
+     "start": 28.71,
+     "end": 28.87
+    },
+    {
+     "w": "four.",
+     "start": 28.87,
+     "end": 29.24
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 29.6,
+   "end": 33.21,
+   "text": "And the stairs into the ceiling? Likely leftovers from remodeling.",
+   "words": [
+    {
+     "w": "And",
+     "start": 29.63,
+     "end": 29.79
+    },
+    {
+     "w": "the",
+     "start": 29.79,
+     "end": 29.91
+    },
+    {
+     "w": "stairs",
+     "start": 29.91,
+     "end": 30.32
+    },
+    {
+     "w": "into",
+     "start": 30.32,
+     "end": 30.6
+    },
+    {
+     "w": "the",
+     "start": 30.6,
+     "end": 30.8
+    },
+    {
+     "w": "ceiling?",
+     "start": 30.8,
+     "end": 31.21
+    },
+    {
+     "w": "Likely",
+     "start": 31.21,
+     "end": 31.55
+    },
+    {
+     "w": "leftovers",
+     "start": 31.55,
+     "end": 32.26
+    },
+    {
+     "w": "from",
+     "start": 32.26,
+     "end": 32.44
+    },
+    {
+     "w": "remodeling.",
+     "start": 32.44,
+     "end": 33.15
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 33.51,
+   "end": 38.03,
+   "text": "Her biographer, Mary Jo Ignoffo, found no evidence for the ghost story.",
+   "words": [
+    {
+     "w": "Her",
+     "start": 33.54,
+     "end": 33.66
+    },
+    {
+     "w": "biographer,",
+     "start": 33.66,
+     "end": 34.45
+    },
+    {
+     "w": "Mary",
+     "start": 34.45,
+     "end": 34.8
+    },
+    {
+     "w": "Jo",
+     "start": 34.8,
+     "end": 35.05
+    },
+    {
+     "w": "Ignoffo,",
+     "start": 35.05,
+     "end": 35.68
+    },
+    {
+     "w": "found",
+     "start": 35.68,
+     "end": 35.99
+    },
+    {
+     "w": "no",
+     "start": 35.99,
+     "end": 36.2
+    },
+    {
+     "w": "evidence",
+     "start": 36.2,
+     "end": 36.79
+    },
+    {
+     "w": "for",
+     "start": 36.79,
+     "end": 37.03
+    },
+    {
+     "w": "the",
+     "start": 37.03,
+     "end": 37.13
+    },
+    {
+     "w": "ghost",
+     "start": 37.13,
+     "end": 37.46
+    },
+    {
+     "w": "story.",
+     "start": 37.46,
+     "end": 37.97
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 38.33,
+   "end": 41.6,
+   "text": "Soon after she died, the house opened to paying visitors.",
+   "words": [
+    {
+     "w": "Soon",
+     "start": 38.36,
+     "end": 38.74
+    },
+    {
+     "w": "after",
+     "start": 38.74,
+     "end": 39.04
+    },
+    {
+     "w": "she",
+     "start": 39.04,
+     "end": 39.26
+    },
+    {
+     "w": "died,",
+     "start": 39.26,
+     "end": 39.49
+    },
+    {
+     "w": "the",
+     "start": 39.49,
+     "end": 39.65
+    },
+    {
+     "w": "house",
+     "start": 39.65,
+     "end": 40.01
+    },
+    {
+     "w": "opened",
+     "start": 40.01,
+     "end": 40.48
+    },
+    {
+     "w": "to",
+     "start": 40.48,
+     "end": 40.61
+    },
+    {
+     "w": "paying",
+     "start": 40.61,
+     "end": 40.99
+    },
+    {
+     "w": "visitors.",
+     "start": 40.99,
+     "end": 41.54
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 41.8,
+   "end": 43.62,
+   "text": "The ghost story sold the tickets.",
+   "words": [
+    {
+     "w": "The",
+     "start": 41.83,
+     "end": 41.93
+    },
+    {
+     "w": "ghost",
+     "start": 41.93,
+     "end": 42.29
+    },
+    {
+     "w": "story",
+     "start": 42.29,
+     "end": 42.74
+    },
+    {
+     "w": "sold",
+     "start": 42.74,
+     "end": 43.04
+    },
+    {
+     "w": "the",
+     "start": 43.04,
+     "end": 43.21
+    },
+    {
+     "w": "tickets.",
+     "start": 43.21,
+     "end": 43.56
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 44.62,
+   "end": 46.94,
+   "text": "Whatever the truth, one thing hasn't changed.",
+   "words": [
+    {
+     "w": "Whatever",
+     "start": 44.64,
+     "end": 45.09
+    },
+    {
+     "w": "the",
+     "start": 45.09,
+     "end": 45.09
+    },
+    {
+     "w": "truth,",
+     "start": 45.09,
+     "end": 45.56
+    },
+    {
+     "w": "one",
+     "start": 45.56,
+     "end": 45.76
+    },
+    {
+     "w": "thing",
+     "start": 45.76,
+     "end": 45.9
+    },
+    {
+     "w": "hasn't",
+     "start": 45.9,
+     "end": 46.37
+    },
+    {
+     "w": "changed.",
+     "start": 46.37,
+     "end": 46.88
+    }
+   ]
+  }
+ ]
+}

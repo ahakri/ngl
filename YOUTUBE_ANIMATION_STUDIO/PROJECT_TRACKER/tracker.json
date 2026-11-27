@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T18:09:49Z",
+ "updated": "2026-11-27T18:22:00Z",
  "phases": {
   "P1_research": {
    "status": "done",
@@ -69,6 +69,7 @@
   "HAUNT-05": "ANIMATED - in render queue",
   "HAUNT-04": "ANIMATED - in render queue",
   "HAUNT-06": "ANIMATED - in render queue",
-  "HAUNT-07": "ANIMATED - in render queue"
+  "HAUNT-07": "ANIMATED - in render queue",
+  "HAUNT-10": "SCRIPTED"
  }
 }

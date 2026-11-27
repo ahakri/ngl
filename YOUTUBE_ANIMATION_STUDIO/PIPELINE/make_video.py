@@ -41,9 +41,13 @@ def tts(id_, retime=False):
     if retime and os.path.exists(ref):
         os.remove(ref)
     cmd = [TTSPY, os.path.join(HERE, "tts.py"), os.path.join(adir, "tts_input.json"), adir]
-    if os.path.exists(ref):
+    locked = os.path.exists(ref)
+    if locked:
         cmd += ["--ref", ref]
     subprocess.run(cmd, check=True)
+    if not locked:  # first narration of a script: its timing becomes the reference that animation is built against
+        import shutil
+        shutil.copyfile(os.path.join(adir, "timings.json"), ref)
 
 
 def timing(id_):

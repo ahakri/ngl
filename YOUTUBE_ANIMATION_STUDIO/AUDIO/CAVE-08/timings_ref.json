@@ -1,0 +1,978 @@
+{
+ "duration": 57.71,
+ "voice": "am_adam",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 3.53,
+   "text": "A diver stayed missing under this swimming hole for 21 years.",
+   "words": [
+    {
+     "w": "A",
+     "start": 0.18,
+     "end": 0.3
+    },
+    {
+     "w": "diver",
+     "start": 0.3,
+     "end": 0.75
+    },
+    {
+     "w": "stayed",
+     "start": 0.75,
+     "end": 1.02
+    },
+    {
+     "w": "missing",
+     "start": 1.02,
+     "end": 1.45
+    },
+    {
+     "w": "under",
+     "start": 1.45,
+     "end": 1.62
+    },
+    {
+     "w": "this",
+     "start": 1.62,
+     "end": 1.96
+    },
+    {
+     "w": "swimming",
+     "start": 1.96,
+     "end": 2.36
+    },
+    {
+     "w": "hole",
+     "start": 2.36,
+     "end": 2.54
+    },
+    {
+     "w": "for",
+     "start": 2.54,
+     "end": 2.82
+    },
+    {
+     "w": "21",
+     "start": 2.82,
+     "end": 3.24
+    },
+    {
+     "w": "years.",
+     "start": 3.24,
+     "end": 3.47
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 3.73,
+   "end": 6.45,
+   "text": "Thirty feet down, the well turns into a flooded cave.",
+   "words": [
+    {
+     "w": "Thirty",
+     "start": 3.76,
+     "end": 4.02
+    },
+    {
+     "w": "feet",
+     "start": 4.02,
+     "end": 4.42
+    },
+    {
+     "w": "down,",
+     "start": 4.42,
+     "end": 4.64
+    },
+    {
+     "w": "the",
+     "start": 4.64,
+     "end": 4.68
+    },
+    {
+     "w": "well",
+     "start": 4.68,
+     "end": 4.99
+    },
+    {
+     "w": "turns",
+     "start": 4.99,
+     "end": 5.28
+    },
+    {
+     "w": "into",
+     "start": 5.28,
+     "end": 5.6
+    },
+    {
+     "w": "a",
+     "start": 5.6,
+     "end": 5.67
+    },
+    {
+     "w": "flooded",
+     "start": 5.67,
+     "end": 6.07
+    },
+    {
+     "w": "cave.",
+     "start": 6.07,
+     "end": 6.39
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 6.65,
+   "end": 8.87,
+   "text": "The water wells up from an aquifer below.",
+   "words": [
+    {
+     "w": "The",
+     "start": 6.68,
+     "end": 6.76
+    },
+    {
+     "w": "water",
+     "start": 6.76,
+     "end": 7.14
+    },
+    {
+     "w": "wells",
+     "start": 7.14,
+     "end": 7.43
+    },
+    {
+     "w": "up",
+     "start": 7.43,
+     "end": 7.62
+    },
+    {
+     "w": "from",
+     "start": 7.62,
+     "end": 7.9
+    },
+    {
+     "w": "an",
+     "start": 7.9,
+     "end": 8.07
+    },
+    {
+     "w": "aquifer",
+     "start": 8.07,
+     "end": 8.39
+    },
+    {
+     "w": "below.",
+     "start": 8.39,
+     "end": 8.81
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 9.07,
+   "end": 11.5,
+   "text": "This is Jacob's Well, in Wimberley, Texas.",
+   "words": [
+    {
+     "w": "This",
+     "start": 9.1,
+     "end": 9.39
+    },
+    {
+     "w": "is",
+     "start": 9.39,
+     "end": 9.42
+    },
+    {
+     "w": "Jacob's",
+     "start": 9.42,
+     "end": 10.07
+    },
+    {
+     "w": "Well,",
+     "start": 10.07,
+     "end": 10.27
+    },
+    {
+     "w": "in",
+     "start": 10.27,
+     "end": 10.47
+    },
+    {
+     "w": "Wimberley,",
+     "start": 10.47,
+     "end": 10.93
+    },
+    {
+     "w": "Texas.",
+     "start": 10.93,
+     "end": 11.44
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 11.75,
+   "end": 14.1,
+   "text": "Its chambers drop more than a hundred feet.",
+   "words": [
+    {
+     "w": "Its",
+     "start": 11.78,
+     "end": 11.93
+    },
+    {
+     "w": "chambers",
+     "start": 11.93,
+     "end": 12.47
+    },
+    {
+     "w": "drop",
+     "start": 12.47,
+     "end": 12.8
+    },
+    {
+     "w": "more",
+     "start": 12.8,
+     "end": 13.06
+    },
+    {
+     "w": "than",
+     "start": 13.06,
+     "end": 13.23
+    },
+    {
+     "w": "a",
+     "start": 13.23,
+     "end": 13.28
+    },
+    {
+     "w": "hundred",
+     "start": 13.28,
+     "end": 13.73
+    },
+    {
+     "w": "feet.",
+     "start": 13.73,
+     "end": 14.04
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 14.35,
+   "end": 17.55,
+   "text": "Divers have died in them. Nobody even agrees how many.",
+   "words": [
+    {
+     "w": "Divers",
+     "start": 14.37,
+     "end": 14.8
+    },
+    {
+     "w": "have",
+     "start": 14.8,
+     "end": 15.02
+    },
+    {
+     "w": "died",
+     "start": 15.02,
+     "end": 15.32
+    },
+    {
+     "w": "in",
+     "start": 15.32,
+     "end": 15.51
+    },
+    {
+     "w": "them.",
+     "start": 15.51,
+     "end": 15.67
+    },
+    {
+     "w": "Nobody",
+     "start": 15.67,
+     "end": 16.15
+    },
+    {
+     "w": "even",
+     "start": 16.15,
+     "end": 16.62
+    },
+    {
+     "w": "agrees",
+     "start": 16.62,
+     "end": 16.98
+    },
+    {
+     "w": "how",
+     "start": 16.98,
+     "end": 17.17
+    },
+    {
+     "w": "many.",
+     "start": 17.17,
+     "end": 17.49
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 17.9,
+   "end": 21.32,
+   "text": "In 1979, two young divers went in together.",
+   "words": [
+    {
+     "w": "In",
+     "start": 17.93,
+     "end": 18.21
+    },
+    {
+     "w": "1979,",
+     "start": 18.21,
+     "end": 19.03
+    },
+    {
+     "w": "two",
+     "start": 19.03,
+     "end": 19.34
+    },
+    {
+     "w": "young",
+     "start": 19.34,
+     "end": 19.62
+    },
+    {
+     "w": "divers",
+     "start": 19.62,
+     "end": 20.08
+    },
+    {
+     "w": "went",
+     "start": 20.08,
+     "end": 20.52
+    },
+    {
+     "w": "in",
+     "start": 20.52,
+     "end": 20.69
+    },
+    {
+     "w": "together.",
+     "start": 20.69,
+     "end": 21.26
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 21.52,
+   "end": 22.72,
+   "text": "Neither came back up.",
+   "words": [
+    {
+     "w": "Neither",
+     "start": 21.55,
+     "end": 21.89
+    },
+    {
+     "w": "came",
+     "start": 21.89,
+     "end": 22.18
+    },
+    {
+     "w": "back",
+     "start": 22.18,
+     "end": 22.41
+    },
+    {
+     "w": "up.",
+     "start": 22.41,
+     "end": 22.66
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 23.47,
+   "end": 25.79,
+   "text": "Deeper in, the passages squeeze down tight.",
+   "words": [
+    {
+     "w": "Deeper",
+     "start": 23.5,
+     "end": 23.9
+    },
+    {
+     "w": "in,",
+     "start": 23.9,
+     "end": 24.05
+    },
+    {
+     "w": "the",
+     "start": 24.05,
+     "end": 24.16
+    },
+    {
+     "w": "passages",
+     "start": 24.16,
+     "end": 24.67
+    },
+    {
+     "w": "squeeze",
+     "start": 24.67,
+     "end": 25.15
+    },
+    {
+     "w": "down",
+     "start": 25.15,
+     "end": 25.45
+    },
+    {
+     "w": "tight.",
+     "start": 25.45,
+     "end": 25.73
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 25.94,
+   "end": 28.22,
+   "text": "And the floor is loose gravel that can slide.",
+   "words": [
+    {
+     "w": "And",
+     "start": 25.97,
+     "end": 26.13
+    },
+    {
+     "w": "the",
+     "start": 26.13,
+     "end": 26.19
+    },
+    {
+     "w": "floor",
+     "start": 26.19,
+     "end": 26.64
+    },
+    {
+     "w": "is",
+     "start": 26.64,
+     "end": 26.65
+    },
+    {
+     "w": "loose",
+     "start": 26.65,
+     "end": 26.95
+    },
+    {
+     "w": "gravel",
+     "start": 26.95,
+     "end": 27.35
+    },
+    {
+     "w": "that",
+     "start": 27.35,
+     "end": 27.53
+    },
+    {
+     "w": "can",
+     "start": 27.53,
+     "end": 27.78
+    },
+    {
+     "w": "slide.",
+     "start": 27.78,
+     "end": 28.16
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 28.52,
+   "end": 31.72,
+   "text": "Recovery divers went in after them, but couldn't bring them out.",
+   "words": [
+    {
+     "w": "Recovery",
+     "start": 28.55,
+     "end": 29.03
+    },
+    {
+     "w": "divers",
+     "start": 29.03,
+     "end": 29.47
+    },
+    {
+     "w": "went",
+     "start": 29.47,
+     "end": 29.64
+    },
+    {
+     "w": "in",
+     "start": 29.64,
+     "end": 29.84
+    },
+    {
+     "w": "after",
+     "start": 29.84,
+     "end": 30.09
+    },
+    {
+     "w": "them,",
+     "start": 30.09,
+     "end": 30.41
+    },
+    {
+     "w": "but",
+     "start": 30.41,
+     "end": 30.62
+    },
+    {
+     "w": "couldn't",
+     "start": 30.62,
+     "end": 31.01
+    },
+    {
+     "w": "bring",
+     "start": 31.01,
+     "end": 31.24
+    },
+    {
+     "w": "them",
+     "start": 31.24,
+     "end": 31.5
+    },
+    {
+     "w": "out.",
+     "start": 31.5,
+     "end": 31.66
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 32.02,
+   "end": 35.63,
+   "text": "One of the recovery divers then built a grate to keep others out.",
+   "words": [
+    {
+     "w": "One",
+     "start": 32.05,
+     "end": 32.27
+    },
+    {
+     "w": "of",
+     "start": 32.27,
+     "end": 32.46
+    },
+    {
+     "w": "the",
+     "start": 32.46,
+     "end": 32.48
+    },
+    {
+     "w": "recovery",
+     "start": 32.48,
+     "end": 33.12
+    },
+    {
+     "w": "divers",
+     "start": 33.12,
+     "end": 33.54
+    },
+    {
+     "w": "then",
+     "start": 33.54,
+     "end": 33.76
+    },
+    {
+     "w": "built",
+     "start": 33.76,
+     "end": 34.05
+    },
+    {
+     "w": "a",
+     "start": 34.05,
+     "end": 34.21
+    },
+    {
+     "w": "grate",
+     "start": 34.21,
+     "end": 34.54
+    },
+    {
+     "w": "to",
+     "start": 34.54,
+     "end": 34.68
+    },
+    {
+     "w": "keep",
+     "start": 34.68,
+     "end": 35.05
+    },
+    {
+     "w": "others",
+     "start": 35.05,
+     "end": 35.38
+    },
+    {
+     "w": "out.",
+     "start": 35.38,
+     "end": 35.57
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 35.98,
+   "end": 40.17,
+   "text": "In 1981, a flood carried one of the young divers back out.",
+   "words": [
+    {
+     "w": "In",
+     "start": 36.01,
+     "end": 36.28
+    },
+    {
+     "w": "1981,",
+     "start": 36.28,
+     "end": 37.14
+    },
+    {
+     "w": "a",
+     "start": 37.14,
+     "end": 37.27
+    },
+    {
+     "w": "flood",
+     "start": 37.27,
+     "end": 37.66
+    },
+    {
+     "w": "carried",
+     "start": 37.66,
+     "end": 38.09
+    },
+    {
+     "w": "one",
+     "start": 38.09,
+     "end": 38.43
+    },
+    {
+     "w": "of",
+     "start": 38.43,
+     "end": 38.63
+    },
+    {
+     "w": "the",
+     "start": 38.63,
+     "end": 38.68
+    },
+    {
+     "w": "young",
+     "start": 38.68,
+     "end": 39.07
+    },
+    {
+     "w": "divers",
+     "start": 39.07,
+     "end": 39.55
+    },
+    {
+     "w": "back",
+     "start": 39.55,
+     "end": 39.76
+    },
+    {
+     "w": "out.",
+     "start": 39.76,
+     "end": 40.11
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 40.52,
+   "end": 41.8,
+   "text": "The other stayed lost.",
+   "words": [
+    {
+     "w": "The",
+     "start": 40.55,
+     "end": 40.64
+    },
+    {
+     "w": "other",
+     "start": 40.64,
+     "end": 41.02
+    },
+    {
+     "w": "stayed",
+     "start": 41.02,
+     "end": 41.45
+    },
+    {
+     "w": "lost.",
+     "start": 41.45,
+     "end": 41.74
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 42.05,
+   "end": 43.27,
+   "text": "For 21 years.",
+   "words": [
+    {
+     "w": "For",
+     "start": 42.08,
+     "end": 42.42
+    },
+    {
+     "w": "21",
+     "start": 42.42,
+     "end": 42.82
+    },
+    {
+     "w": "years.",
+     "start": 42.82,
+     "end": 43.21
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 44.02,
+   "end": 47.41,
+   "text": "In 2000, a recovery team pushed into the fourth chamber.",
+   "words": [
+    {
+     "w": "In",
+     "start": 44.05,
+     "end": 44.19
+    },
+    {
+     "w": "2000,",
+     "start": 44.19,
+     "end": 44.96
+    },
+    {
+     "w": "a",
+     "start": 44.96,
+     "end": 45.13
+    },
+    {
+     "w": "recovery",
+     "start": 45.13,
+     "end": 45.63
+    },
+    {
+     "w": "team",
+     "start": 45.63,
+     "end": 45.81
+    },
+    {
+     "w": "pushed",
+     "start": 45.81,
+     "end": 46.12
+    },
+    {
+     "w": "into",
+     "start": 46.12,
+     "end": 46.37
+    },
+    {
+     "w": "the",
+     "start": 46.37,
+     "end": 46.61
+    },
+    {
+     "w": "fourth",
+     "start": 46.61,
+     "end": 46.92
+    },
+    {
+     "w": "chamber.",
+     "start": 46.92,
+     "end": 47.35
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 47.66,
+   "end": 49.27,
+   "text": "And there, at last, they found him.",
+   "words": [
+    {
+     "w": "And",
+     "start": 47.69,
+     "end": 47.8
+    },
+    {
+     "w": "there,",
+     "start": 47.8,
+     "end": 48.13
+    },
+    {
+     "w": "at",
+     "start": 48.13,
+     "end": 48.13
+    },
+    {
+     "w": "last,",
+     "start": 48.13,
+     "end": 48.53
+    },
+    {
+     "w": "they",
+     "start": 48.53,
+     "end": 48.58
+    },
+    {
+     "w": "found",
+     "start": 48.58,
+     "end": 48.99
+    },
+    {
+     "w": "him.",
+     "start": 48.99,
+     "end": 49.21
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 49.87,
+   "end": 54.09,
+   "text": "Today, scuba diving here is banned, except for one exploration team.",
+   "words": [
+    {
+     "w": "Today,",
+     "start": 49.9,
+     "end": 50.34
+    },
+    {
+     "w": "scuba",
+     "start": 50.34,
+     "end": 50.69
+    },
+    {
+     "w": "diving",
+     "start": 50.69,
+     "end": 51.11
+    },
+    {
+     "w": "here",
+     "start": 51.11,
+     "end": 51.47
+    },
+    {
+     "w": "is",
+     "start": 51.47,
+     "end": 51.49
+    },
+    {
+     "w": "banned,",
+     "start": 51.49,
+     "end": 51.92
+    },
+    {
+     "w": "except",
+     "start": 51.92,
+     "end": 52.31
+    },
+    {
+     "w": "for",
+     "start": 52.31,
+     "end": 52.53
+    },
+    {
+     "w": "one",
+     "start": 52.53,
+     "end": 52.88
+    },
+    {
+     "w": "exploration",
+     "start": 52.88,
+     "end": 53.72
+    },
+    {
+     "w": "team.",
+     "start": 53.72,
+     "end": 54.03
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 54.39,
+   "end": 56.91,
+   "text": "And from up top, it still looks like a swimming hole.",
+   "words": [
+    {
+     "w": "And",
+     "start": 54.42,
+     "end": 54.52
+    },
+    {
+     "w": "from",
+     "start": 54.52,
+     "end": 54.83
+    },
+    {
+     "w": "up",
+     "start": 54.83,
+     "end": 54.88
+    },
+    {
+     "w": "top,",
+     "start": 54.88,
+     "end": 55.19
+    },
+    {
+     "w": "it",
+     "start": 55.19,
+     "end": 55.26
+    },
+    {
+     "w": "still",
+     "start": 55.26,
+     "end": 55.49
+    },
+    {
+     "w": "looks",
+     "start": 55.49,
+     "end": 55.79
+    },
+    {
+     "w": "like",
+     "start": 55.79,
+     "end": 56.01
+    },
+    {
+     "w": "a",
+     "start": 56.01,
+     "end": 56.22
+    },
+    {
+     "w": "swimming",
+     "start": 56.22,
+     "end": 56.54
+    },
+    {
+     "w": "hole.",
+     "start": 56.54,
+     "end": 56.85
+    }
+   ]
+  }
+ ]
+}

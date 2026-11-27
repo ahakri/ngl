@@ -1,6 +1,6 @@
 # SCUBA-08 — Storyboard (Shackleton's Ship Was Found a Century Later, 3 km Down)
 
-Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Captions: burned-in, word-synced, centred at y≈1240 (keep all text overlays out of y 1150–1400), accent words = `emphasis`. Overlays avoid the bottom 20% and right 15% (Shorts UI). Shot times come from a scratch TTS measurement; the pipeline derives the real durations from its own render.
+Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.4 s. Mood `scuba`. Captions: burned-in, word-synced, centred at y≈1240 (keep all text overlays out of y 1150–1400), accent words = `emphasis`. Overlays avoid the bottom 20% and right 15% (Shorts UI). Shot times come from a scratch TTS measurement; the pipeline derives the real durations from its own render.
 
 **Build notes.** Sets: (1) the deep wreck = lib_murder `brigantine()` re-rigged as a three-masted barquentine (masts broken for the wreck), dark silt-dusted `mat_hull()`, gold `text3d('ENDURANCE')` arced across the counter stern with an extruded five-point star beneath (both are on the real stern: E4, E5); studio_lib `seabed()`; lib_scuba `world_volume()` near-black; two drone lamps + lib_scuba `beam_cone()`; `particle_cloud()` marine snow; (2) 1915 pack ice = the same ship upright and rigged, lib_cave `ice_sheet()` slabs and noise-displaced pressure-ridge chunks, lib_murder `dawn_sky()`, `snowfall()`; crew = lib_murder `hiker()` silhouettes (tiny, faceless) and three `lifeboat()` hulls on the floe; (3) 2019 under-ice = lib_cave `ice_sheet()` seen from below + yellow torpedo robot (new simple prop); (4) 2022 icebreaker = lib_scuba `dsv()` re-dressed (red hull, white block) in broken sea ice; (5) drone = new simple prop (yellow rounded box body, four thruster pods, two lamps); (6) maps/timeline/cards via overlays. Metres for depth (sources give 3,008 m); miles for the offset (sources give "about four miles").
 
@@ -34,7 +34,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** whip
 - **Narration (L02):** "It's Ernest Shackleton's Endurance, three kilometres under the Weddell Sea."
 
-## S03 · 8.2–10.7 s (2.5 s) · other:pack_ice_1915
+## S03 · 8.2–10.6 s (2.4 s) · other:pack_ice_1915
 
 - **Visual:** 1915. A three-masted wooden ship sits locked in a white plain of pack ice under a low, pale sun. Pressure ridges heave up against the hull; the hull lists and timbers bend; a yard snaps and swings.
 - **Camera:** 50 mm, slow push from the ice toward the straining hull; slight shake on the snap
@@ -49,7 +49,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L03):** "Pack ice trapped it for months, then crushed it."
 
-## S04 · 10.7–13.6 s (3.0 s) · other:pack_ice_1915
+## S04 · 10.6–13.6 s (3.0 s) · other:pack_ice_1915
 
 - **Visual:** Dusk on the ice. In the foreground, a long line of tiny faceless figures and three small wooden boats on the floe watch from a distance as, far behind them, the ship's stern tilts up and slides down through a gap in the ice.
 - **Camera:** 35 mm wide, locked, slow push
@@ -64,7 +64,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L04):** "It sank, but all 28 men on board survived."
 
-## S05 · 13.6–16.4 s (2.8 s) · timeline
+## S05 · 13.6–16.3 s (2.7 s) · timeline
 
 - **Visual:** Pattern interrupt: a timeline draws across dark water: 1915 'sank' on the left, a long empty stretch, 2022 'found' on the right, highlighted.
 - **Camera:** 2.5D graphic, slow push
@@ -79,7 +79,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** whip
 - **Narration (L05):** "The ship wasn't seen again for over a century."
 
-## S06 · 16.4–20.9 s (4.4 s) · other:under_sea_ice
+## S06 · 16.3–20.7 s (4.4 s) · other:under_sea_ice
 
 - **Visual:** 2019, under the sea ice, seen from below: a long yellow torpedo-shaped robot glides away beneath the milky-white underside of the ice; its single lamp shrinks into the blue-black and does not come back.
 - **Camera:** 28 mm, low angle looking up at the ice ceiling, locked; robot exits frame
@@ -94,7 +94,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L06):** "A 2019 search lost its underwater robot and was called off."
 
-## S07 · 20.9–25.4 s (4.5 s) · other:icebreaker_sea_ice
+## S07 · 20.7–25.2 s (4.4 s) · other:icebreaker_sea_ice
 
 - **Visual:** 2022, aerial: a red-hulled icebreaker with a white superstructure grinds slowly through broken white sea ice under a heavy overcast sky, leaving a dark lane of open water behind it.
 - **Camera:** high 35 mm drone, slow tracking alongside and ahead of the bow
@@ -109,7 +109,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L07):** "In 2022, a new expedition went back, aboard an icebreaker."
 
-## S08 · 25.4–29.3 s (4.0 s) · other:deep_descent
+## S08 · 25.2–29.1 s (4.0 s) · other:deep_descent
 
 - **Visual:** A yellow box-shaped underwater drone with four thruster pods and two lamps descends through black water; marine snow streams upward past it; its lamps point down into nothing.
 - **Camera:** 35 mm, camera sinks with the drone, slight sway
@@ -124,7 +124,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L08):** "Its underwater drone searched the seabed, three kilometres down."
 
-## S09 · 29.3–31.3 s (2.0 s) · other:deep_wreck_bow
+## S09 · 29.1–31.1 s (2.0 s) · other:deep_wreck_bow
 
 - **Visual:** MID-POINT TURN. In the drone's lamps, the black resolves into the wooden bow of a ship rising out of the seabed: planks, a rail, a broken mast stump. The lamps stop and hold on it.
 - **Camera:** 35 mm drone POV, slow approach, then hold
@@ -139,7 +139,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** flash
 - **Narration (L09):** "On March 5th, it found her."
 
-## S10 · 31.3–34.8 s (3.4 s) · map
+## S10 · 31.1–34.6 s (3.5 s) · map
 
 - **Visual:** Map card zoomed into the search area: a small marker for the position recorded by the ship's captain in 1915, a line drawing about four miles south, a pin on the wreck.
 - **Camera:** 2.5D map card
@@ -154,7 +154,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L10):** "About four miles from the position her captain had recorded."
 
-## S11 · 34.8–38.0 s (3.2 s) · wreck
+## S11 · 34.6–37.8 s (3.2 s) · wreck
 
 - **Visual:** Wide reveal: the whole ship sits upright on the grey seabed, hull intact, masts broken and fallen across the deck, rigging draped; the drone lamps travel slowly along its length.
 - **Camera:** 24 mm, slow orbit at mid-height, drone-lamp light travelling along the hull
@@ -169,7 +169,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L11):** "Upright, intact, 3,008 metres down."
 
-## S12 · 38.0–42.5 s (4.5 s) · other:wreck_macro
+## S12 · 37.8–42.2 s (4.5 s) · other:wreck_macro
 
 - **Visual:** Macro along the wooden rail and deck planks: the wood is whole and sharp-edged; sea anemones and small pale animals cling to it. A card slides in.
 - **Camera:** 85 mm macro, slow slide along the rail
@@ -184,7 +184,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L12):** "Experts say the creatures that eat wooden wrecks elsewhere don't live in these waters."
 
-## S13 · 42.5–46.2 s (3.8 s) · wreck
+## S13 · 42.2–46.0 s (3.7 s) · wreck
 
 - **Visual:** The drone lamps slowly pull away and up; the ship sinks back into darkness, untouched. A card slides in.
 - **Camera:** 35 mm, slow pull-back and rise
@@ -199,7 +199,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 - **Transition in:** cut
 - **Narration (L13):** "Today it's a protected monument. Nothing may be taken."
 
-## S14 · 46.2–50.7 s (4.4 s) · other:deep_wreck_stern
+## S14 · 46.0–50.4 s (4.4 s) · other:deep_wreck_stern
 
 - **Visual:** LOOP FRAME: back on the stern, the gold ENDURANCE letters and the star caught again in the drone lamps, ending on the S01 framing so a replay flows into 'This ship sank in 1915'.
 - **Camera:** 35 mm, same slide + push as S01, ending on S01's first-frame pose
@@ -217,7 +217,7 @@ Vertical 9:16, 1080x1920, 24 fps. 14 shots, measured 50.7 s. Mood `scuba`. Capti
 ## Timing checks
 
 - Line 1 starts at 0.15 s; "sank in 1915" lands by ~1.6 s and "read its name" by ~3.8 s, with the ENDURANCE letters lit in frame 1 and "SANK 1915" on screen. Frame 1 moves (lamps sweeping, camera sliding).
-- New information every ≤4.5 s: Shackleton/Endurance/3 km (≈4.1 s) → trapped and crushed (≈8.3 s) → all 28 survived (≈10.8 s) → over a century (≈13.7 s) → 2019 failure (≈16.5 s) → 2022 icebreaker (≈21.0 s) → drone at 3 km (≈25.4 s) → **turn (≈29.4 s): found** → four miles (≈31.3 s) → upright/intact/3,008 m (≈34.8 s) → no wood-eaters (≈38.0 s) → protected (≈42.4 s) → funeral payoff (≈46.2 s).
+- New information every ≤4.5 s: Shackleton/Endurance/3 km (≈4.1 s) → trapped and crushed (≈8.3 s) → all 28 survived (≈10.7 s) → over a century (≈13.7 s) → 2019 failure (≈16.4 s) → 2022 icebreaker (≈20.8 s) → drone at 3 km (≈25.2 s) → **turn (≈29.2 s): found** → four miles (≈31.2 s) → upright/intact/3,008 m (≈34.7 s) → no wood-eaters (≈37.9 s) → protected (≈42.3 s) → funeral payoff (≈46.1 s).
 - Pattern interrupts: deep wreck → map → 1915 ice → timeline → under-ice → aerial icebreaker → descent → wreck → map → wreck → macro → wreck.
 - Silence beats: after L08 (0.5 s, before the find) and after L13 (0.6 s, before the payoff). Two max.
 - Payoff in the last 8 s: L13 (protected) + L14 (100 years to the day).

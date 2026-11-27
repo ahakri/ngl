@@ -1,0 +1,1134 @@
+{
+ "duration": 66.83,
+ "voice": "am_adam",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 1.76,
+   "text": "Who put Bella down the Wych Elm?",
+   "words": [
+    {
+     "w": "Who",
+     "start": 0.18,
+     "end": 0.42
+    },
+    {
+     "w": "put",
+     "start": 0.42,
+     "end": 0.53
+    },
+    {
+     "w": "Bella",
+     "start": 0.53,
+     "end": 0.84
+    },
+    {
+     "w": "down",
+     "start": 0.84,
+     "end": 1.14
+    },
+    {
+     "w": "the",
+     "start": 1.14,
+     "end": 1.26
+    },
+    {
+     "w": "Wych",
+     "start": 1.26,
+     "end": 1.53
+    },
+    {
+     "w": "Elm?",
+     "start": 1.53,
+     "end": 1.7
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 2.11,
+   "end": 5.85,
+   "text": "In 1944, someone wrote that on a wall in Birmingham.",
+   "words": [
+    {
+     "w": "In",
+     "start": 2.14,
+     "end": 2.39
+    },
+    {
+     "w": "1944,",
+     "start": 2.39,
+     "end": 3.09
+    },
+    {
+     "w": "someone",
+     "start": 3.09,
+     "end": 3.64
+    },
+    {
+     "w": "wrote",
+     "start": 3.64,
+     "end": 3.87
+    },
+    {
+     "w": "that",
+     "start": 3.87,
+     "end": 4.13
+    },
+    {
+     "w": "on",
+     "start": 4.13,
+     "end": 4.36
+    },
+    {
+     "w": "a",
+     "start": 4.36,
+     "end": 4.53
+    },
+    {
+     "w": "wall",
+     "start": 4.53,
+     "end": 4.98
+    },
+    {
+     "w": "in",
+     "start": 4.98,
+     "end": 5.12
+    },
+    {
+     "w": "Birmingham.",
+     "start": 5.12,
+     "end": 5.79
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 6.1,
+   "end": 9.14,
+   "text": "It was about a real woman. Nobody knows who she was.",
+   "words": [
+    {
+     "w": "It",
+     "start": 6.12,
+     "end": 6.19
+    },
+    {
+     "w": "was",
+     "start": 6.19,
+     "end": 6.37
+    },
+    {
+     "w": "about",
+     "start": 6.37,
+     "end": 6.71
+    },
+    {
+     "w": "a",
+     "start": 6.71,
+     "end": 7.0
+    },
+    {
+     "w": "real",
+     "start": 7.0,
+     "end": 7.36
+    },
+    {
+     "w": "woman.",
+     "start": 7.36,
+     "end": 7.59
+    },
+    {
+     "w": "Nobody",
+     "start": 7.59,
+     "end": 8.14
+    },
+    {
+     "w": "knows",
+     "start": 8.14,
+     "end": 8.44
+    },
+    {
+     "w": "who",
+     "start": 8.44,
+     "end": 8.69
+    },
+    {
+     "w": "she",
+     "start": 8.69,
+     "end": 8.96
+    },
+    {
+     "w": "was.",
+     "start": 8.96,
+     "end": 9.08
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 9.54,
+   "end": 14.24,
+   "text": "April 1943. Four boys were out in Hagley Wood, in Worcestershire.",
+   "words": [
+    {
+     "w": "April",
+     "start": 9.57,
+     "end": 10.05
+    },
+    {
+     "w": "1943.",
+     "start": 10.05,
+     "end": 11.08
+    },
+    {
+     "w": "Four",
+     "start": 11.08,
+     "end": 11.39
+    },
+    {
+     "w": "boys",
+     "start": 11.39,
+     "end": 11.85
+    },
+    {
+     "w": "were",
+     "start": 11.85,
+     "end": 12.05
+    },
+    {
+     "w": "out",
+     "start": 12.05,
+     "end": 12.27
+    },
+    {
+     "w": "in",
+     "start": 12.27,
+     "end": 12.62
+    },
+    {
+     "w": "Hagley",
+     "start": 12.62,
+     "end": 13.05
+    },
+    {
+     "w": "Wood,",
+     "start": 13.05,
+     "end": 13.27
+    },
+    {
+     "w": "in",
+     "start": 13.27,
+     "end": 13.5
+    },
+    {
+     "w": "Worcestershire.",
+     "start": 13.5,
+     "end": 14.18
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 14.44,
+   "end": 17.89,
+   "text": "One climbed an old wych elm and looked down into its hollow trunk.",
+   "words": [
+    {
+     "w": "One",
+     "start": 14.46,
+     "end": 14.7
+    },
+    {
+     "w": "climbed",
+     "start": 14.7,
+     "end": 15.02
+    },
+    {
+     "w": "an",
+     "start": 15.02,
+     "end": 15.17
+    },
+    {
+     "w": "old",
+     "start": 15.17,
+     "end": 15.4
+    },
+    {
+     "w": "wych",
+     "start": 15.4,
+     "end": 15.69
+    },
+    {
+     "w": "elm",
+     "start": 15.69,
+     "end": 16.01
+    },
+    {
+     "w": "and",
+     "start": 16.01,
+     "end": 16.06
+    },
+    {
+     "w": "looked",
+     "start": 16.06,
+     "end": 16.43
+    },
+    {
+     "w": "down",
+     "start": 16.43,
+     "end": 16.62
+    },
+    {
+     "w": "into",
+     "start": 16.62,
+     "end": 16.99
+    },
+    {
+     "w": "its",
+     "start": 16.99,
+     "end": 17.16
+    },
+    {
+     "w": "hollow",
+     "start": 17.16,
+     "end": 17.55
+    },
+    {
+     "w": "trunk.",
+     "start": 17.55,
+     "end": 17.83
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 18.09,
+   "end": 19.48,
+   "text": "In the dark, he saw a skull.",
+   "words": [
+    {
+     "w": "In",
+     "start": 18.12,
+     "end": 18.32
+    },
+    {
+     "w": "the",
+     "start": 18.32,
+     "end": 18.32
+    },
+    {
+     "w": "dark,",
+     "start": 18.32,
+     "end": 18.62
+    },
+    {
+     "w": "he",
+     "start": 18.62,
+     "end": 18.83
+    },
+    {
+     "w": "saw",
+     "start": 18.83,
+     "end": 18.99
+    },
+    {
+     "w": "a",
+     "start": 18.99,
+     "end": 19.12
+    },
+    {
+     "w": "skull.",
+     "start": 19.12,
+     "end": 19.42
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 20.08,
+   "end": 22.84,
+   "text": "Inside the tree, police found the skeleton of a woman.",
+   "words": [
+    {
+     "w": "Inside",
+     "start": 20.11,
+     "end": 20.55
+    },
+    {
+     "w": "the",
+     "start": 20.55,
+     "end": 20.57
+    },
+    {
+     "w": "tree,",
+     "start": 20.57,
+     "end": 20.93
+    },
+    {
+     "w": "police",
+     "start": 20.93,
+     "end": 21.26
+    },
+    {
+     "w": "found",
+     "start": 21.26,
+     "end": 21.52
+    },
+    {
+     "w": "the",
+     "start": 21.52,
+     "end": 21.7
+    },
+    {
+     "w": "skeleton",
+     "start": 21.7,
+     "end": 22.13
+    },
+    {
+     "w": "of",
+     "start": 22.13,
+     "end": 22.33
+    },
+    {
+     "w": "a",
+     "start": 22.33,
+     "end": 22.46
+    },
+    {
+     "w": "woman.",
+     "start": 22.46,
+     "end": 22.78
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 23.09,
+   "end": 26.45,
+   "text": "Investigators estimated she'd been dead about a year and a half.",
+   "words": [
+    {
+     "w": "Investigators",
+     "start": 23.12,
+     "end": 23.93
+    },
+    {
+     "w": "estimated",
+     "start": 23.93,
+     "end": 24.54
+    },
+    {
+     "w": "she'd",
+     "start": 24.54,
+     "end": 24.69
+    },
+    {
+     "w": "been",
+     "start": 24.69,
+     "end": 25.02
+    },
+    {
+     "w": "dead",
+     "start": 25.02,
+     "end": 25.23
+    },
+    {
+     "w": "about",
+     "start": 25.23,
+     "end": 25.49
+    },
+    {
+     "w": "a",
+     "start": 25.49,
+     "end": 25.62
+    },
+    {
+     "w": "year",
+     "start": 25.62,
+     "end": 25.8
+    },
+    {
+     "w": "and",
+     "start": 25.8,
+     "end": 26.01
+    },
+    {
+     "w": "a",
+     "start": 26.01,
+     "end": 26.11
+    },
+    {
+     "w": "half.",
+     "start": 26.11,
+     "end": 26.39
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 26.7,
+   "end": 29.45,
+   "text": "She was probably about 35, and five feet tall.",
+   "words": [
+    {
+     "w": "She",
+     "start": 26.73,
+     "end": 26.96
+    },
+    {
+     "w": "was",
+     "start": 26.96,
+     "end": 27.01
+    },
+    {
+     "w": "probably",
+     "start": 27.01,
+     "end": 27.65
+    },
+    {
+     "w": "about",
+     "start": 27.65,
+     "end": 27.94
+    },
+    {
+     "w": "35,",
+     "start": 27.94,
+     "end": 28.33
+    },
+    {
+     "w": "and",
+     "start": 28.33,
+     "end": 28.5
+    },
+    {
+     "w": "five",
+     "start": 28.5,
+     "end": 28.83
+    },
+    {
+     "w": "feet",
+     "start": 28.83,
+     "end": 29.04
+    },
+    {
+     "w": "tall.",
+     "start": 29.04,
+     "end": 29.39
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 29.7,
+   "end": 32.3,
+   "text": "There was a shoe, a wedding ring, and scraps of clothing.",
+   "words": [
+    {
+     "w": "There",
+     "start": 29.73,
+     "end": 29.96
+    },
+    {
+     "w": "was",
+     "start": 29.96,
+     "end": 30.08
+    },
+    {
+     "w": "a",
+     "start": 30.08,
+     "end": 30.32
+    },
+    {
+     "w": "shoe,",
+     "start": 30.32,
+     "end": 30.45
+    },
+    {
+     "w": "a",
+     "start": 30.45,
+     "end": 30.6
+    },
+    {
+     "w": "wedding",
+     "start": 30.6,
+     "end": 30.9
+    },
+    {
+     "w": "ring,",
+     "start": 30.9,
+     "end": 31.15
+    },
+    {
+     "w": "and",
+     "start": 31.15,
+     "end": 31.39
+    },
+    {
+     "w": "scraps",
+     "start": 31.39,
+     "end": 31.64
+    },
+    {
+     "w": "of",
+     "start": 31.64,
+     "end": 31.83
+    },
+    {
+     "w": "clothing.",
+     "start": 31.83,
+     "end": 32.24
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 32.6,
+   "end": 34.25,
+   "text": "But no one could put a name to her.",
+   "words": [
+    {
+     "w": "But",
+     "start": 32.63,
+     "end": 32.75
+    },
+    {
+     "w": "no",
+     "start": 32.75,
+     "end": 32.94
+    },
+    {
+     "w": "one",
+     "start": 32.94,
+     "end": 33.18
+    },
+    {
+     "w": "could",
+     "start": 33.18,
+     "end": 33.31
+    },
+    {
+     "w": "put",
+     "start": 33.31,
+     "end": 33.48
+    },
+    {
+     "w": "a",
+     "start": 33.48,
+     "end": 33.71
+    },
+    {
+     "w": "name",
+     "start": 33.71,
+     "end": 33.97
+    },
+    {
+     "w": "to",
+     "start": 33.97,
+     "end": 34.08
+    },
+    {
+     "w": "her.",
+     "start": 34.08,
+     "end": 34.19
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 34.7,
+   "end": 38.63,
+   "text": "Then, in 1944, the messages began, calling her Bella.",
+   "words": [
+    {
+     "w": "Then,",
+     "start": 34.73,
+     "end": 35.02
+    },
+    {
+     "w": "in",
+     "start": 35.02,
+     "end": 35.28
+    },
+    {
+     "w": "1944,",
+     "start": 35.28,
+     "end": 36.22
+    },
+    {
+     "w": "the",
+     "start": 36.22,
+     "end": 36.34
+    },
+    {
+     "w": "messages",
+     "start": 36.34,
+     "end": 37.01
+    },
+    {
+     "w": "began,",
+     "start": 37.01,
+     "end": 37.41
+    },
+    {
+     "w": "calling",
+     "start": 37.41,
+     "end": 37.9
+    },
+    {
+     "w": "her",
+     "start": 37.9,
+     "end": 38.16
+    },
+    {
+     "w": "Bella.",
+     "start": 38.16,
+     "end": 38.57
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 38.93,
+   "end": 41.15,
+   "text": "The writer of the messages was never found.",
+   "words": [
+    {
+     "w": "The",
+     "start": 38.96,
+     "end": 39.05
+    },
+    {
+     "w": "writer",
+     "start": 39.05,
+     "end": 39.45
+    },
+    {
+     "w": "of",
+     "start": 39.45,
+     "end": 39.5
+    },
+    {
+     "w": "the",
+     "start": 39.5,
+     "end": 39.72
+    },
+    {
+     "w": "messages",
+     "start": 39.72,
+     "end": 40.24
+    },
+    {
+     "w": "was",
+     "start": 40.24,
+     "end": 40.42
+    },
+    {
+     "w": "never",
+     "start": 40.42,
+     "end": 40.76
+    },
+    {
+     "w": "found.",
+     "start": 40.76,
+     "end": 41.09
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 41.55,
+   "end": 45.42,
+   "text": "In 1945, an anthropologist suggested witchcraft.",
+   "words": [
+    {
+     "w": "In",
+     "start": 41.58,
+     "end": 41.84
+    },
+    {
+     "w": "1945,",
+     "start": 41.84,
+     "end": 42.67
+    },
+    {
+     "w": "an",
+     "start": 42.67,
+     "end": 42.74
+    },
+    {
+     "w": "anthropologist",
+     "start": 42.74,
+     "end": 43.95
+    },
+    {
+     "w": "suggested",
+     "start": 43.95,
+     "end": 44.65
+    },
+    {
+     "w": "witchcraft.",
+     "start": 44.65,
+     "end": 45.36
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 45.57,
+   "end": 47.55,
+   "text": "Investigators dismissed the idea.",
+   "words": [
+    {
+     "w": "Investigators",
+     "start": 45.6,
+     "end": 46.45
+    },
+    {
+     "w": "dismissed",
+     "start": 46.45,
+     "end": 46.94
+    },
+    {
+     "w": "the",
+     "start": 46.94,
+     "end": 47.18
+    },
+    {
+     "w": "idea.",
+     "start": 47.18,
+     "end": 47.49
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 47.9,
+   "end": 52.52,
+   "text": "A 1953 letter to a local paper tied her to a wartime spy ring.",
+   "words": [
+    {
+     "w": "A",
+     "start": 47.92,
+     "end": 48.17
+    },
+    {
+     "w": "1953",
+     "start": 48.17,
+     "end": 48.83
+    },
+    {
+     "w": "letter",
+     "start": 48.83,
+     "end": 49.22
+    },
+    {
+     "w": "to",
+     "start": 49.22,
+     "end": 49.36
+    },
+    {
+     "w": "a",
+     "start": 49.36,
+     "end": 49.55
+    },
+    {
+     "w": "local",
+     "start": 49.55,
+     "end": 50.09
+    },
+    {
+     "w": "paper",
+     "start": 50.09,
+     "end": 50.47
+    },
+    {
+     "w": "tied",
+     "start": 50.47,
+     "end": 50.74
+    },
+    {
+     "w": "her",
+     "start": 50.74,
+     "end": 50.98
+    },
+    {
+     "w": "to",
+     "start": 50.98,
+     "end": 51.05
+    },
+    {
+     "w": "a",
+     "start": 51.05,
+     "end": 51.26
+    },
+    {
+     "w": "wartime",
+     "start": 51.26,
+     "end": 51.94
+    },
+    {
+     "w": "spy",
+     "start": 51.94,
+     "end": 52.26
+    },
+    {
+     "w": "ring.",
+     "start": 52.26,
+     "end": 52.46
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 52.72,
+   "end": 54.48,
+   "text": "That claim was never proven either.",
+   "words": [
+    {
+     "w": "That",
+     "start": 52.75,
+     "end": 52.9
+    },
+    {
+     "w": "claim",
+     "start": 52.9,
+     "end": 53.31
+    },
+    {
+     "w": "was",
+     "start": 53.31,
+     "end": 53.41
+    },
+    {
+     "w": "never",
+     "start": 53.41,
+     "end": 53.72
+    },
+    {
+     "w": "proven",
+     "start": 53.72,
+     "end": 54.1
+    },
+    {
+     "w": "either.",
+     "start": 54.1,
+     "end": 54.42
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 54.93,
+   "end": 57.03,
+   "text": "And today, even her skeleton is missing.",
+   "words": [
+    {
+     "w": "And",
+     "start": 54.96,
+     "end": 55.15
+    },
+    {
+     "w": "today,",
+     "start": 55.15,
+     "end": 55.5
+    },
+    {
+     "w": "even",
+     "start": 55.5,
+     "end": 55.85
+    },
+    {
+     "w": "her",
+     "start": 55.85,
+     "end": 55.98
+    },
+    {
+     "w": "skeleton",
+     "start": 55.98,
+     "end": 56.51
+    },
+    {
+     "w": "is",
+     "start": 56.51,
+     "end": 56.68
+    },
+    {
+     "w": "missing.",
+     "start": 56.68,
+     "end": 56.97
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 57.28,
+   "end": 58.68,
+   "text": "So are key case records.",
+   "words": [
+    {
+     "w": "So",
+     "start": 57.31,
+     "end": 57.57
+    },
+    {
+     "w": "are",
+     "start": 57.57,
+     "end": 57.64
+    },
+    {
+     "w": "key",
+     "start": 57.64,
+     "end": 57.87
+    },
+    {
+     "w": "case",
+     "start": 57.87,
+     "end": 58.28
+    },
+    {
+     "w": "records.",
+     "start": 58.28,
+     "end": 58.62
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "start": 59.18,
+   "end": 62.96,
+   "text": "For decades, the question has kept reappearing on an obelisk near the wood.",
+   "words": [
+    {
+     "w": "For",
+     "start": 59.21,
+     "end": 59.49
+    },
+    {
+     "w": "decades,",
+     "start": 59.49,
+     "end": 59.93
+    },
+    {
+     "w": "the",
+     "start": 59.93,
+     "end": 59.93
+    },
+    {
+     "w": "question",
+     "start": 59.93,
+     "end": 60.53
+    },
+    {
+     "w": "has",
+     "start": 60.53,
+     "end": 60.63
+    },
+    {
+     "w": "kept",
+     "start": 60.63,
+     "end": 60.91
+    },
+    {
+     "w": "reappearing",
+     "start": 60.91,
+     "end": 61.52
+    },
+    {
+     "w": "on",
+     "start": 61.52,
+     "end": 61.77
+    },
+    {
+     "w": "an",
+     "start": 61.77,
+     "end": 61.79
+    },
+    {
+     "w": "obelisk",
+     "start": 61.79,
+     "end": 62.28
+    },
+    {
+     "w": "near",
+     "start": 62.28,
+     "end": 62.51
+    },
+    {
+     "w": "the",
+     "start": 62.51,
+     "end": 62.61
+    },
+    {
+     "w": "wood.",
+     "start": 62.61,
+     "end": 62.9
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "start": 63.26,
+   "end": 65.93,
+   "text": "More than 80 years on, all that's left is the question.",
+   "words": [
+    {
+     "w": "More",
+     "start": 63.29,
+     "end": 63.56
+    },
+    {
+     "w": "than",
+     "start": 63.56,
+     "end": 63.68
+    },
+    {
+     "w": "80",
+     "start": 63.68,
+     "end": 64.01
+    },
+    {
+     "w": "years",
+     "start": 64.01,
+     "end": 64.35
+    },
+    {
+     "w": "on,",
+     "start": 64.35,
+     "end": 64.46
+    },
+    {
+     "w": "all",
+     "start": 64.46,
+     "end": 64.66
+    },
+    {
+     "w": "that's",
+     "start": 64.66,
+     "end": 64.88
+    },
+    {
+     "w": "left",
+     "start": 64.88,
+     "end": 65.16
+    },
+    {
+     "w": "is",
+     "start": 65.16,
+     "end": 65.3
+    },
+    {
+     "w": "the",
+     "start": 65.3,
+     "end": 65.42
+    },
+    {
+     "w": "question.",
+     "start": 65.42,
+     "end": 65.87
+    }
+   ]
+  }
+ ]
+}

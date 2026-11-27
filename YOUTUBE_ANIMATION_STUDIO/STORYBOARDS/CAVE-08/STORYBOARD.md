@@ -1,10 +1,10 @@
 # CAVE-08 — Storyboard (The Swimming Hole That Hid a Diver for 21 Years)
 
-Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captions: burned-in, word-synced, centred at y≈1240 (keep all text overlays out of y 1150–1400), accent words = `emphasis`. Overlays avoid the bottom 20% and right 15% (Shorts UI). Shot times come from a scratch TTS measurement; the pipeline derives the real durations from its own render.
+Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 57.7 s. Mood `cave`. Captions: burned-in, word-synced, centred at y≈1240 (keep all text overlays out of y 1150–1400), accent words = `emphasis`. Overlays avoid the bottom 20% and right 15% (Shorts UI). Shot times come from a scratch TTS measurement; the pipeline derives the real durations from its own render.
 
 **Build notes.** Sets: (1) creek swimming hole = `heightfield()` pale limestone creek bed + `florida_woods()` cypress banks + round mouth (`shaft()` r≈2 m dropping into black) + `water_surface()` and `glow_disc()` for the blue, `sky_world()` + hard sun; swimmers = `figure()` in bright suits, waist-deep, faceless, generic (they stand for 'the swimming hole', not a dated scene; no one jumps from the ledge); (2) vertical shaft + bend = `shaft()` + `water()` + start of a `passage()`; (3) angled passage, squeeze and gravel slope = `passage()` (low half_h) + `rocks()` pebbles + `cloud()` / `noisy_volume()` silt; (4) 2.5D side-section = `xsection()` + `text()` chamber numbers + `glow_dot()` (generic; not traced from the JWEP survey); (5) small pale fourth chamber = inward-facing `shaft()` room + short low `passage()`; (6) creek in flood = S01 terrain + brown fast `water_surface()` + `rain()`. Divers: `diver()` faceless; the 1979 pair = single tanks, blue/white fins, handheld lights; recovery divers = doubles, black suits. Feet throughout (US site and sources). No remains or body shapes anywhere. The S17 sign is generic (no agency logo).
 
-## S01 · 0.0–3.7 s (3.7 s) · other:texas_creek_swimming_hole
+## S01 · 0.0–3.6 s (3.6 s) · other:texas_creek_swimming_hole
 
 - **Visual:** COLD OPEN, moving at frame 1. Bright summer day over a shallow limestone creek bed shaded by tall cypress trees. In the middle of a pale rock shelf, a round hole about 4 m across glows deep blue, fading to black at its centre. Two faceless swimmers float at the hole's rim, feet dangling over the dark. The camera is already dropping and tilting toward the mouth.
 - **Camera:** 24 mm drone, descending from ~12 m to ~4 m above the water while tilting from 45° to straight down
@@ -19,7 +19,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L01):** "A diver stayed missing under this swimming hole for 21 years."
 
-## S02 · 3.7–6.6 s (3.0 s) · other:vertical_spring_shaft
+## S02 · 3.6–6.6 s (2.9 s) · other:vertical_spring_shaft
 
 - **Visual:** Underwater, looking straight down the vertical shaft: bright aqua daylight from the mouth above fades to teal-black below. The two swimmers' legs hang as dark silhouettes against the bright circle at the top of frame. Grey limestone walls slide upward as the camera sinks; at the bottom the shaft bends away into a dark, angled opening.
 - **Camera:** 20 mm, straight down, continuous sink; last second pitches toward the bend
@@ -34,7 +34,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L02):** "Thirty feet down, the well turns into a flooded cave."
 
-## S03 · 6.6–9.1 s (2.4 s) · other:spring_vent
+## S03 · 6.6–9.0 s (2.4 s) · other:spring_vent
 
 - **Visual:** At the bend below the shaft: sand grains and fine silt on the floor shiver and lift, carried by clear water flowing up and out of a dark opening deeper down. A steady stream of particles rises past the lens toward the light.
 - **Camera:** 28 mm low, slow push toward the dark opening; particles stream toward camera
@@ -49,7 +49,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L03):** "The water wells up from an aquifer below."
 
-## S04 · 9.1–11.8 s (2.8 s) · map
+## S04 · 9.0–11.7 s (2.7 s) · map
 
 - **Visual:** Map card over a slow, wide aerial of the creek and its cypress banks (S01 set from ~60 m, defocused): a simplified Texas outline, a route line drawing in from the north-east toward the Hill Country, a pin dropping on Wimberley.
 - **Camera:** 2.5D map card; background aerial drifts slowly
@@ -64,7 +64,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** whip
 - **Narration (L04):** "This is Jacob's Well, in Wimberley, Texas."
 
-## S05 · 11.8–14.5 s (2.7 s) · other:cave_cross_section
+## S05 · 11.7–14.3 s (2.6 s) · other:cave_cross_section
 
 - **Visual:** Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest; a dashed line continues past chamber 4 (the diagram does not claim the cave ends there). A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.
 - **Camera:** 2.5D orthographic, slow pan down following the dot
@@ -79,7 +79,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L05):** "Its chambers drop more than a hundred feet."
 
-## S06 · 14.5–18.1 s (3.7 s) · document
+## S06 · 14.3–17.8 s (3.6 s) · document
 
 - **Visual:** A paper note slides up over a wet rock slab lit by a dive torch; the counts are typed, then each is struck through, ending on NO AGREED COUNT. A coil of guideline and a torch lie on the rock.
 - **Camera:** top-down 50 mm, slight rotation
@@ -94,7 +94,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L06):** "Divers have died in them. Nobody even agrees how many."
 
-## S07 · 18.1–21.8 s (3.7 s) · cave_tunnel
+## S07 · 17.8–21.4 s (3.6 s) · cave_tunnel
 
 - **Visual:** Inside the angled passage below the shaft: two faceless divers with single back-mounted tanks and handheld lights glide side by side down the slope; their two beams sweep the walls; fin kicks lift small puffs of silt.
 - **Camera:** 35 mm, tracking behind and slightly above the pair
@@ -109,7 +109,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L07):** "In 1979, two young divers went in together."
 
-## S08 · 21.8–23.8 s (2.0 s) · cave_tunnel
+## S08 · 21.4–23.4 s (1.9 s) · cave_tunnel
 
 - **Visual:** Looking down the same passage from above: the two lights shrink away around a bend and disappear. Their glow lingers on the silt for a moment, then the frame is black except for faint teal walls. Nothing comes back.
 - **Camera:** 35 mm locked, very slow push
@@ -124,7 +124,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L08):** "Neither came back up."
 
-## S09 · 23.8–26.4 s (2.6 s) · other:gravel_restriction
+## S09 · 23.4–25.9 s (2.5 s) · other:gravel_restriction
 
 - **Visual:** POV squeeze: the camera pushes forward through a low, flat slot. The rock ceiling is inches above a floor of pebbles, and the torch beam shows the gap narrowing ahead.
 - **Camera:** POV 18 mm, slow forward push, slight handheld
@@ -139,7 +139,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L09):** "Deeper in, the passages squeeze down tight."
 
-## S10 · 26.4–29.0 s (2.6 s) · other:gravel_restriction
+## S10 · 25.9–28.4 s (2.6 s) · other:gravel_restriction
 
 - **Visual:** Macro on a steep gravel slope at the mouth of the slot: pebbles tick loose one by one, then a small slide pours down into the gap and throws up a brown silt plume that swallows the torch beam.
 - **Camera:** 50 mm macro, locked, slight push
@@ -154,7 +154,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L10):** "And the floor is loose gravel that can slide."
 
-## S11 · 29.0–32.6 s (3.6 s) · other:gravel_restriction
+## S11 · 28.4–31.9 s (3.5 s) · other:gravel_restriction
 
 - **Visual:** Two faceless recovery divers with bright lights approach the slope at the slot. Gravel trickles and silt boils up into their beams; after a moment their lights pull back the way they came. No one is shown trapped.
 - **Camera:** 35 mm side angle, slow lateral move
@@ -169,7 +169,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L11):** "Recovery divers went in after them, but couldn't bring them out."
 
-## S12 · 32.6–36.6 s (4.0 s) · other:cave_grate
+## S12 · 31.9–35.9 s (4.0 s) · other:cave_grate
 
 - **Visual:** A dark side opening in the passage wall is blocked by a crude grate of welded rebar bars set in a rough grey concrete collar. A diver's torch beam passes across it; silt drifts through the bars.
 - **Camera:** 35 mm, slow push toward the grate, slight handheld
@@ -184,7 +184,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L12):** "One of the recovery divers then built a grate to keep others out."
 
-## S13 · 36.6–41.2 s (4.6 s) · other:creek_flood
+## S13 · 35.9–40.4 s (4.5 s) · other:creek_flood
 
 - **Visual:** The creek in flood: fast brown water churns over the limestone shelf, hiding the well's mouth completely; rain lashes the surface and broken branches race past. Nothing else is shown.
 - **Camera:** 28 mm low over the water, handheld, slow pan with the current
@@ -199,7 +199,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L13):** "In 1981, a flood carried one of the young divers back out."
 
-## S14 · 41.2–44.7 s (3.5 s) · other:cave_cross_section
+## S14 · 40.4–43.9 s (3.5 s) · other:cave_cross_section
 
 - **Visual:** MID-POINT TURN. Back to the side-section: one cyan dot sits motionless in the deepest (fourth) chamber and slowly dims to a faint ember while a counter climbs to 21. Then near-silence.
 - **Camera:** 2.5D orthographic, slow push in on the deepest chamber
@@ -215,7 +215,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Narration (L14):** "The other stayed lost."
 - **Narration (L15):** "For 21 years."
 
-## S15 · 44.7–48.4 s (3.7 s) · other:fourth_chamber
+## S15 · 43.9–47.6 s (3.6 s) · other:fourth_chamber
 
 - **Visual:** Bright modern lights: two faceless recovery divers squeeze through a tight gap into a small chamber with pale, smooth, undisturbed limestone walls; their beams fan across it.
 - **Camera:** 28 mm, slow push following the second diver through the gap
@@ -230,7 +230,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** fade_black
 - **Narration (L16):** "In 2000, a recovery team pushed into the fourth chamber."
 
-## S16 · 48.4–50.6 s (2.2 s) · other:fourth_chamber
+## S16 · 47.6–49.8 s (2.2 s) · other:fourth_chamber
 
 - **Visual:** The two beams converge on a narrow dark gap in the chamber floor; silt drifts slowly through the light. One diver rests a gloved hand on the rock beside it. Nothing else is shown. A small memorial line fades in.
 - **Camera:** 50 mm, slow push down toward the gap
@@ -245,7 +245,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L17):** "And there, at last, they found him."
 
-## S17 · 50.6–55.3 s (4.6 s) · other:texas_creek_swimming_hole
+## S17 · 49.8–54.3 s (4.5 s) · other:texas_creek_swimming_hole
 
 - **Visual:** Present day, daylight at the rock ledge beside the hole: a plain park sign on a post reads NO SCUBA DIVING; behind it the calm blue mouth. A card slides in.
 - **Camera:** 35 mm, slow arc past the sign toward the water
@@ -260,7 +260,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 - **Transition in:** cut
 - **Narration (L18):** "Today, scuba diving here is banned, except for one exploration team."
 
-## S18 · 55.3–58.7 s (3.5 s) · other:texas_creek_swimming_hole
+## S18 · 54.3–57.7 s (3.4 s) · other:texas_creek_swimming_hole
 
 - **Visual:** LOOP FRAME: the camera rises back into the S01 drone position: sunlit creek, cypress shade, the round blue mouth with a swimmer floating at its rim. The final frame matches frame 1, so a replay flows into 'A diver stayed missing under this swimming hole…'.
 - **Camera:** 24 mm drone, rising and tilting up; ends on S01's first-frame pose
@@ -278,7 +278,7 @@ Vertical 9:16, 1080x1920, 24 fps. 18 shots, measured 58.7 s. Mood `cave`. Captio
 ## Timing checks
 
 - Line 1 starts at 0.15 s; 'missing … swimming hole' lands by ~1.8 s and '21 years' by ~3.4 s, with '21 YEARS' on screen from frame 1. Frame 1 moves (descending, tilting drone).
-- New information every ≤4.6 s: flooded cave at 30 ft (≈3.8 s) → aquifer (≈6.7 s) → place (≈9.1 s) → >100 ft (≈11.9 s) → disputed toll (≈14.6 s) → 1979 (≈18.2 s) → neither returned (≈21.9 s) → squeeze (≈23.9 s) → gravel (≈26.4 s) → **turn (≈29.1 s): recovery fails** → grate (≈32.6 s) → 1981 flood (≈36.7 s) → **21 years (≈41.3–44.1 s)** → 2000 (≈44.8 s) → found (≈48.5 s) → banned today (≈50.7 s) → loop (≈55.4 s).
+- New information every ≤4.6 s: flooded cave at 30 ft (≈3.7 s) → aquifer (≈6.7 s) → place (≈9.1 s) → >100 ft (≈11.8 s) → disputed toll (≈14.4 s) → 1979 (≈17.9 s) → neither returned (≈21.5 s) → squeeze (≈23.5 s) → gravel (≈25.9 s) → **turn (≈28.5 s): recovery fails** → grate (≈32.0 s) → 1981 flood (≈36.0 s) → **21 years (≈40.5–43.3 s)** → 2000 (≈44.0 s) → found (≈47.7 s) → banned today (≈49.9 s) → loop (≈54.4 s).
 - Pattern interrupts: surface → shaft → map → section diagram → document → 3D cave → squeeze/gravel macro → grate → surface flood → section diagram → chamber → surface.
 - Silence beats: after L08 (0.75 s) and after L15 (0.75 s, music near 0). Two max.
 - Payoff in the last 8 s: L18 (banned, one team) + L19 loop line.

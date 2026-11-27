@@ -1,12 +1,12 @@
 # MURDER-08 — Who Put Bella in the Wych Elm? Nobody Ever Answered
 
 Series: **Cold File** (murder/mystery) · Category: murder · Target 62–70 s · Format: RESEARCH/MURDER_MYSTERY FORMAT TEMPLATE.
-Voice: studio narrator `am_adam` at speed **1.05** (coordinator's murder setting; overrides the 0.97 default in SCRIPT_SPEC).
+Voice: studio narrator `am_adam`. script.json `speed` = **1.05** (coordinator's murder setting), the same as `PIPELINE/studio_config.json` `natural_speed` (MURDER 1.05), which is what the pipeline uses at render time.
 Beat map: cold open: the graffiti question itself (L01) → 1944, a Birmingham wall (L02) → a real, unidentified woman (L03) → April 1943, Hagley Wood (L04) → the boy, the hollow, the skull (L05–L06, silence beat) → the skeleton, ~18 months (L07–L08) → ~35, five feet tall (L09) → evidence, no name (L10–L11) → **mid-point turn (~35 s): the messages begin, calling her Bella** (L12) → writer never found (L13) → theory ladder: witchcraft (dismissed), spy ring (never proven) (L14–L17) → **twist (~55 s): her skeleton and key records are missing** (L18–L19) → the question on the obelisk (L20) → loop line (L21) back into the question.
 Ethics: no remains are shown (the skull moment is a POV from inside the trunk with nothing visible; police scenes show only the tree, a ladder and a screen). The four boys, the 1953 letter-writer, the people she named and every later "identity" claim (e.g. names floated in the 1960s) are **not named**; both theories are labelled THEORY and immediately qualified (dismissed / never proven). No invented quotes; the only quoted words are the documented graffiti. No cause of death is narrated (the pathologist's findings on this are not needed and border on graphic). The woman is treated as a person: a memorial line "UNIDENTIFIED WOMAN, FOUND 18 APRIL 1943".
 Wording: L01 uses the documented 1944 Birmingham wording "down the Wych Elm"; titles use the better-known search form "in the Wych Elm" (both are documented variants; the obelisk version reads "in the Witch Elm").
 
-**Narration:** 192 words · measured runtime **66.8 s** (scratch Kokoro render, studio voice `am_adam`, speed 1.05, incl. 0.15 s lead-in, pauses and 0.6 s tail) ≈ 172 wpm overall. Band: murder 55–80 s. The pipeline re-times from its own TTS render.
+**Narration:** 192 words · measured runtime **66.8 s** (scratch Kokoro render, studio voice `am_adam`, speed 1.05 = PIPELINE/studio_config.json natural_speed for this prefix, which overrides script.json's speed 1.05 at render time; incl. 0.15 s lead-in, pauses and 0.6 s tail) ≈ 172 wpm overall. Band: murder 55–80 s. The pipeline re-times from its own TTS render.
 
 Line 1 starts at 0.15 s and ends at 1.8 s.
 
@@ -14,27 +14,27 @@ Line 1 starts at 0.15 s and ends at 1.8 s.
 
 | Line | Time | Narration | Shot | Fact label | Sources |
 |---|---|---|---|---|---|
-| L01 |   0.1–  1.8 s (+0.35s) | Who put Bella down the Wych Elm? | S01 | DOCUMENTED FACT (the 1944 graffiti wording) | B1,B2,B6 |
-| L02 |   2.1–  5.8 s (+0.25s) | In 1944, someone wrote that on a wall in Birmingham. | S02 | DOCUMENTED FACT (Upper Dean Street, March 1944) | B1,B2,B4 |
-| L03 |   6.1–  9.1 s (+0.4s) | It was about a real woman. Nobody knows who she was. | S03 | DOCUMENTED FACT (never identified) | B1,B3,B5 |
-| L04 |   9.5– 14.2 s (+0.2s) | April 1943. Four boys were out in Hagley Wood, in Worcestershire. | S04 | DOCUMENTED FACT (18 Apr 1943) | B1,B3,B4 |
-| L05 |  14.4– 17.9 s (+0.2s) | One climbed an old wych elm and looked down into its hollow trunk. | S05 | DOCUMENTED FACT | B1,B4,B2 |
-| L06 |  18.1– 19.5 s (+0.6s) | In the dark, he saw a skull. | S06 | DOCUMENTED FACT | B1,B4,B2 |
-| L07 |  20.1– 22.8 s (+0.25s) | Inside the tree, police found the skeleton of a woman. | S07 | DOCUMENTED FACT | B1,B3,B4 |
-| L08 |  23.1– 26.4 s (+0.25s) | Investigators estimated she'd been dead about a year and a half. | S08 | DOCUMENTED FACT (examiner's estimate, ~18 months) | B1,B5,B3 |
-| L09 |  26.7– 29.4 s (+0.25s) | She was probably about 35, and five feet tall. | S09 | DOCUMENTED FACT (estimate: age 25–40, most probably 35; 5 ft) | B3,B5,B1 |
-| L10 |  29.7– 32.3 s (+0.3s) | There was a shoe, a wedding ring, and scraps of clothing. | S10 | DOCUMENTED FACT (1943 inquest description) | B5,B1,B3 |
-| L11 |  32.6– 34.2 s (+0.45s) | But no one could put a name to her. | S11 | DOCUMENTED FACT | B1,B3,B5 |
-| L12 |  34.7– 38.6 s (+0.3s) | Then, in 1944, the messages began, calling her Bella. | S12 | DOCUMENTED FACT (1944 graffiti: 'Luebella', 'Bella') | B1,B2,B6 |
-| L13 |  38.9– 41.1 s (+0.4s) | The writer of the messages was never found. | S13 | DOCUMENTED FACT | B1,B15 |
-| L14 |  41.5– 45.4 s (+0.15s) | In 1945, an anthropologist suggested witchcraft. | S14 | THEORY (Margaret Murray, 1945) | B1,B6,B11 |
-| L15 |  45.6– 47.5 s (+0.35s) | Investigators dismissed the idea. | S15 | DOCUMENTED FACT (the dismissal) | B1,B11 |
-| L16 |  47.9– 52.5 s (+0.2s) | A 1953 letter to a local paper tied her to a wartime spy ring. | S16 | THEORY (the 'Anna' letter, 1953) | B6,B4,B9,B10 |
-| L17 |  52.7– 54.5 s (+0.45s) | That claim was never proven either. | S17 | DOCUMENTED FACT (unproven) | B6,B4,B10 |
-| L18 |  54.9– 57.0 s (+0.25s) | And today, even her skeleton is missing. | S18 | DOCUMENTED FACT | B1,B7,B8 |
-| L19 |  57.3– 58.7 s (+0.5s) | So are key case records. | S18 | DOCUMENTED FACT | B1,B14 |
-| L20 |  59.2– 63.0 s (+0.3s) | For decades, the question has kept reappearing on an obelisk near the wood. | S19 | DOCUMENTED FACT (since at least the 1970s) | B12,B13 |
-| L21 |  63.3– 65.9 s (+0.3s) | More than 80 years on, all that's left is the question. | S20 | none (loop line; 1943 → 2026) | — |
+| L01 |  0.15– 1.76 s (+0.35s) | Who put Bella down the Wych Elm? | S01 | DOCUMENTED FACT (the 1944 graffiti wording) | B1,B2,B6 |
+| L02 |  2.11– 5.85 s (+0.25s) | In 1944, someone wrote that on a wall in Birmingham. | S02 | DOCUMENTED FACT (Upper Dean Street, March 1944) | B1,B2,B4 |
+| L03 |  6.10– 9.14 s (+0.4s) | It was about a real woman. Nobody knows who she was. | S03 | DOCUMENTED FACT (never identified) | B1,B3,B5 |
+| L04 |  9.54–14.24 s (+0.2s) | April 1943. Four boys were out in Hagley Wood, in Worcestershire. | S04 | DOCUMENTED FACT (18 Apr 1943) | B1,B3,B4 |
+| L05 | 14.44–17.89 s (+0.2s) | One climbed an old wych elm and looked down into its hollow trunk. | S05 | DOCUMENTED FACT | B1,B4,B2 |
+| L06 | 18.09–19.48 s (+0.6s) | In the dark, he saw a skull. | S06 | DOCUMENTED FACT | B1,B4,B2 |
+| L07 | 20.08–22.84 s (+0.25s) | Inside the tree, police found the skeleton of a woman. | S07 | DOCUMENTED FACT | B1,B3,B4 |
+| L08 | 23.09–26.45 s (+0.25s) | Investigators estimated she'd been dead about a year and a half. | S08 | DOCUMENTED FACT (examiner's estimate, ~18 months) | B1,B5,B3 |
+| L09 | 26.70–29.45 s (+0.25s) | She was probably about 35, and five feet tall. | S09 | DOCUMENTED FACT (estimate: age 25–40, most probably 35; 5 ft) | B3,B5,B1 |
+| L10 | 29.70–32.30 s (+0.3s) | There was a shoe, a wedding ring, and scraps of clothing. | S10 | DOCUMENTED FACT (1943 inquest description) | B5,B1,B3 |
+| L11 | 32.60–34.25 s (+0.45s) | But no one could put a name to her. | S11 | DOCUMENTED FACT | B1,B3,B5 |
+| L12 | 34.70–38.63 s (+0.3s) | Then, in 1944, the messages began, calling her Bella. | S12 | DOCUMENTED FACT (1944 graffiti: 'Luebella', 'Bella') | B1,B2,B6 |
+| L13 | 38.93–41.15 s (+0.4s) | The writer of the messages was never found. | S13 | DOCUMENTED FACT | B1,B15 |
+| L14 | 41.55–45.42 s (+0.15s) | In 1945, an anthropologist suggested witchcraft. | S14 | THEORY (Margaret Murray, 1945) | B1,B6,B11 |
+| L15 | 45.57–47.55 s (+0.35s) | Investigators dismissed the idea. | S15 | DOCUMENTED FACT (the dismissal) | B1,B11 |
+| L16 | 47.90–52.52 s (+0.2s) | A 1953 letter to a local paper tied her to a wartime spy ring. | S16 | THEORY (the 'Anna' letter, 1953) | B6,B4,B9,B10 |
+| L17 | 52.72–54.48 s (+0.45s) | That claim was never proven either. | S17 | DOCUMENTED FACT (unproven) | B6,B4,B10 |
+| L18 | 54.93–57.03 s (+0.25s) | And today, even her skeleton is missing. | S18 | DOCUMENTED FACT | B1,B7,B8 |
+| L19 | 57.28–58.68 s (+0.5s) | So are key case records. | S18 | DOCUMENTED FACT | B1,B14 |
+| L20 | 59.18–62.96 s (+0.3s) | For decades, the question has kept reappearing on an obelisk near the wood. | S19 | DOCUMENTED FACT (since at least the 1970s) | B12,B13 |
+| L21 | 63.26–65.93 s (+0.3s) | More than 80 years on, all that's left is the question. | S20 | none (loop line; 1943 → 2026) | — |
 
 ## Clean read (for TTS / SRT)
 

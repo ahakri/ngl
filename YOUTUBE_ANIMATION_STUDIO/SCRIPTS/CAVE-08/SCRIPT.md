@@ -1,38 +1,38 @@
 # CAVE-08 — The Swimming Hole That Hid a Diver for 21 Years
 
 Series: **Line Lost** (cave incidents; 'deadliest caves' set with CAVE-06/CAVE-12) · Category: cave · Target 55–62 s · Format: RESEARCH/CAVE_DIVING FORMAT TEMPLATE.
-Voice: studio narrator `am_adam` at speed **0.96** (coordinator's cave setting; overrides the 0.97 default in SCRIPT_SPEC).
+Voice: studio narrator `am_adam`. script.json `speed` = **0.96** (coordinator's cave setting); at render time `PIPELINE/studio_config.json` `natural_speed` (CAVE 1.00) overrides it, so the timings below are measured at 1.00.
 Beat map: cold open: a diver missing 21 years under a swimming hole (L01) → the hole is a flooded cave fed by an aquifer (L02–L03) → anchor: Jacob's Well, Wimberley (L04) → scale + disputed death toll (L05–L06) → 1979: two young divers, neither returns (L07–L08) → the traps: squeezes and sliding gravel (L09–L10) → **mid-point turn (~29 s): the recovery fails** (L11) → a grate to keep people out (L12) → 1981 flood (L13) → **late reveal (~41 s): the other stayed lost for 21 years** (L14–L15, silence beat) → 2000: found in the fourth chamber (L16–L17) → today: diving banned except the exploration project (L18) → loop line (L19) into L01.
 Corrections vs the concept: '22 years' → **21 years** (IUCRR: recovered 21 years after he was reported missing; 1979 → 2000). 'People swim here every summer' → 'swimming hole' (swimming has been suspended in drought years). 'A tunnel that seals behind you' is not used (not sourced).
 Ethics: no remains are shown or described. The 1981 flood is surface water only; the 2000 discovery is two beams on a dark gap in the floor. The two young men are named only on a small memorial line (S16), names confirmed by two sources (Bond; Grunge); the narration never says which of them was found when. The recovery diver who was reportedly half-buried in gravel is NOT named and his ordeal is not narrated (one source). The 'no backup lights or safety line' detail (one account, reads as blame) is not used. No invented quotes. The death toll is spoken as disputed, and the document overlay shows only struck-through question marks, never a number as fact.
 
-**Narration:** 164 words · measured runtime **58.7 s** (scratch Kokoro render, studio voice `am_adam`, speed 0.96, incl. 0.15 s lead-in, pauses and 0.6 s tail) ≈ 168 wpm overall. Band: cave 50–70 s. The pipeline re-times from its own TTS render.
+**Narration:** 164 words · measured runtime **57.7 s** (scratch Kokoro render, studio voice `am_adam`, speed 1.0 = PIPELINE/studio_config.json natural_speed for this prefix, which overrides script.json's speed 0.96 at render time; incl. 0.15 s lead-in, pauses and 0.6 s tail) ≈ 171 wpm overall. Band: cave 50–70 s. The pipeline re-times from its own TTS render.
 
-Line 1 starts at 0.15 s and ends at 3.6 s.
+Line 1 starts at 0.15 s and ends at 3.5 s.
 
 ## Narration (timed)
 
 | Line | Time | Narration | Shot | Fact label | Sources |
 |---|---|---|---|---|---|
-| L01 |   0.1–  3.6 s (+0.2s) | A diver stayed missing under this swimming hole for 21 years. | S01 | DOCUMENTED FACT (1979 → 2000) | J1,J2,J3 (21 yrs); J4,J5 (swimming hole) |
-| L02 |   3.8–  6.5 s (+0.2s) | Thirty feet down, the well turns into a flooded cave. | S02 | DOCUMENTED FACT (~30 ft vertical, then angled chambers) | J6,J7 |
-| L03 |   6.7–  8.9 s (+0.2s) | The water wells up from an aquifer below. | S03 | DOCUMENTED FACT (artesian spring, Trinity Aquifer) | J1,J8,J5 |
-| L04 |   9.1– 11.7 s (+0.25s) | This is Jacob's Well, in Wimberley, Texas. | S04 | DOCUMENTED FACT | J4,J5,J1 |
-| L05 |  11.9– 14.3 s (+0.25s) | Its chambers drop more than a hundred feet. | S05 | DOCUMENTED FACT (deepest ~137 ft) | J7,J2 |
-| L06 |  14.6– 17.9 s (+0.35s) | Divers have died in them. Nobody even agrees how many. | S06 | DISPUTED (counts of 9, 12, 'more') | J3,J6,J7 |
-| L07 |  18.2– 21.7 s (+0.2s) | In 1979, two young divers went in together. | S07 | DOCUMENTED FACT (9 Sep 1979) | J1,J2,J3 |
-| L08 |  21.9– 23.1 s (+0.75s) | Neither came back up. | S08 | DOCUMENTED FACT | J1,J2,J3 |
-| L09 |  23.9– 26.3 s (+0.15s) | Deeper in, the passages squeeze down tight. | S09 | DOCUMENTED FACT (restrictions) | J2,J9,J10 |
-| L10 |  26.4– 28.8 s (+0.3s) | And the floor is loose gravel that can slide. | S10 | DOCUMENTED FACT (unstable gravel) | J2,J9 |
-| L11 |  29.1– 32.3 s (+0.3s) | Recovery divers went in after them, but couldn't bring them out. | S11 | DOCUMENTED FACT (1979 recovery failed) | J2,J3 |
-| L12 |  32.6– 36.3 s (+0.35s) | One of the recovery divers then built a grate to keep others out. | S12 | DOCUMENTED FACT (grate, Jan 1980) | J2,J3 |
-| L13 |  36.7– 40.9 s (+0.35s) | In 1981, a flood carried one of the young divers back out. | S13 | DOCUMENTED FACT | J2,J3 |
-| L14 |  41.3– 42.6 s (+0.25s) | The other stayed lost. | S14 | DOCUMENTED FACT | J1,J2,J3 |
-| L15 |  42.8– 44.1 s (+0.75s) | For 21 years. | S14 | DOCUMENTED FACT (recovered 21 years later) | J1,J2,J3 |
-| L16 |  44.8– 48.2 s (+0.25s) | In 2000, a recovery team pushed into the fourth chamber. | S15 | DOCUMENTED FACT (SMART divers, from 11 Oct 2000) | J1,J2,J3 |
-| L17 |  48.5– 50.1 s (+0.6s) | And there, at last, they found him. | S16 | DOCUMENTED FACT | J1,J2,J3 |
-| L18 |  50.7– 55.1 s (+0.3s) | Today, scuba diving here is banned, except for one exploration team. | S17 | DOCUMENTED FACT (no scuba; JWEP permit only) | J4,J9,J11 |
-| L19 |  55.4– 57.9 s (+0.2s) | And from up top, it still looks like a swimming hole. | S18 | none (loop line; swimming hole = J4,J5) | J4,J5 |
+| L01 |  0.15– 3.53 s (+0.2s) | A diver stayed missing under this swimming hole for 21 years. | S01 | DOCUMENTED FACT (1979 → 2000) | J1,J2,J3 (21 yrs); J4,J5 (swimming hole) |
+| L02 |  3.73– 6.45 s (+0.2s) | Thirty feet down, the well turns into a flooded cave. | S02 | DOCUMENTED FACT (~30 ft vertical, then angled chambers) | J6,J7 |
+| L03 |  6.65– 8.87 s (+0.2s) | The water wells up from an aquifer below. | S03 | DOCUMENTED FACT (artesian spring, Trinity Aquifer) | J1,J8,J5 |
+| L04 |  9.07–11.50 s (+0.25s) | This is Jacob's Well, in Wimberley, Texas. | S04 | DOCUMENTED FACT | J4,J5,J1 |
+| L05 | 11.75–14.10 s (+0.25s) | Its chambers drop more than a hundred feet. | S05 | DOCUMENTED FACT (deepest ~137 ft) | J7,J2 |
+| L06 | 14.35–17.55 s (+0.35s) | Divers have died in them. Nobody even agrees how many. | S06 | DISPUTED (counts of 9, 12, 'more') | J3,J6,J7 |
+| L07 | 17.90–21.32 s (+0.2s) | In 1979, two young divers went in together. | S07 | DOCUMENTED FACT (9 Sep 1979) | J1,J2,J3 |
+| L08 | 21.52–22.72 s (+0.75s) | Neither came back up. | S08 | DOCUMENTED FACT | J1,J2,J3 |
+| L09 | 23.47–25.79 s (+0.15s) | Deeper in, the passages squeeze down tight. | S09 | DOCUMENTED FACT (restrictions) | J2,J9,J10 |
+| L10 | 25.94–28.22 s (+0.3s) | And the floor is loose gravel that can slide. | S10 | DOCUMENTED FACT (unstable gravel) | J2,J9 |
+| L11 | 28.52–31.72 s (+0.3s) | Recovery divers went in after them, but couldn't bring them out. | S11 | DOCUMENTED FACT (1979 recovery failed) | J2,J3 |
+| L12 | 32.02–35.63 s (+0.35s) | One of the recovery divers then built a grate to keep others out. | S12 | DOCUMENTED FACT (grate, Jan 1980) | J2,J3 |
+| L13 | 35.98–40.17 s (+0.35s) | In 1981, a flood carried one of the young divers back out. | S13 | DOCUMENTED FACT | J2,J3 |
+| L14 | 40.52–41.80 s (+0.25s) | The other stayed lost. | S14 | DOCUMENTED FACT | J1,J2,J3 |
+| L15 | 42.05–43.27 s (+0.75s) | For 21 years. | S14 | DOCUMENTED FACT (recovered 21 years later) | J1,J2,J3 |
+| L16 | 44.02–47.41 s (+0.25s) | In 2000, a recovery team pushed into the fourth chamber. | S15 | DOCUMENTED FACT (SMART divers, from 11 Oct 2000) | J1,J2,J3 |
+| L17 | 47.66–49.27 s (+0.6s) | And there, at last, they found him. | S16 | DOCUMENTED FACT | J1,J2,J3 |
+| L18 | 49.87–54.09 s (+0.3s) | Today, scuba diving here is banned, except for one exploration team. | S17 | DOCUMENTED FACT (no scuba; JWEP permit only) | J4,J9,J11 |
+| L19 | 54.39–56.91 s (+0.2s) | And from up top, it still looks like a swimming hole. | S18 | none (loop line; swimming hole = J4,J5) | J4,J5 |
 
 ## Clean read (for TTS / SRT)
 

@@ -1,0 +1,750 @@
+{
+  "id": "HAUNT-10",
+  "title": "The Staircase That Leads Into the Ceiling",
+  "category": "haunted",
+  "voice": "am_adam",
+  "speed": 0.92,
+  "mood": "haunted",
+  "target_seconds": 48,
+  "lines": [
+    {
+      "id": "L01",
+      "text": "This staircase climbs straight into the ceiling.",
+      "pause_after": 0.3,
+      "shot": "S01",
+      "emphasis": [
+        "ceiling"
+      ]
+    },
+    {
+      "id": "L02",
+      "text": "Legend says it was built to confuse ghosts.",
+      "pause_after": 0.25,
+      "shot": "S02",
+      "emphasis": [
+        "Legend",
+        "ghosts"
+      ]
+    },
+    {
+      "id": "L03",
+      "text": "Winchester Mystery House, San Jose, California.",
+      "pause_after": 0.25,
+      "shot": "S03",
+      "emphasis": [
+        "Winchester"
+      ]
+    },
+    {
+      "id": "L04",
+      "text": "Rifle heiress Sarah Winchester bought a farmhouse here.",
+      "pause_after": 0.2,
+      "shot": "S04",
+      "emphasis": [
+        "rifle",
+        "heiress"
+      ]
+    },
+    {
+      "id": "L05",
+      "text": "She kept adding to it for decades, until she died in 1922.",
+      "pause_after": 0.25,
+      "shot": "S05",
+      "emphasis": [
+        "decades",
+        "1922"
+      ]
+    },
+    {
+      "id": "L06",
+      "text": "A medium supposedly warned her about the ghosts of Winchester rifle victims.",
+      "pause_after": 0.2,
+      "shot": "S06",
+      "emphasis": [
+        "medium",
+        "ghosts"
+      ]
+    },
+    {
+      "id": "L07",
+      "text": "To escape them, the story goes, she had to keep building forever.",
+      "pause_after": 0.4,
+      "shot": "S07",
+      "emphasis": [
+        "forever"
+      ]
+    },
+    {
+      "id": "L08",
+      "text": "In 1906, an earthquake cut the house from seven floors to four.",
+      "pause_after": 0.3,
+      "shot": "S08",
+      "emphasis": [
+        "1906",
+        "four"
+      ]
+    },
+    {
+      "id": "L09",
+      "text": "And the stairs into the ceiling? Likely leftovers from remodeling.",
+      "pause_after": 0.3,
+      "shot": "S09",
+      "emphasis": [
+        "remodeling"
+      ]
+    },
+    {
+      "id": "L10",
+      "text": "Her biographer, Mary Jo Ignoffo, found no evidence for the ghost story.",
+      "pause_after": 0.3,
+      "shot": "S10",
+      "emphasis": [
+        "no",
+        "evidence"
+      ]
+    },
+    {
+      "id": "L11",
+      "text": "Soon after she died, the house opened to paying visitors.",
+      "pause_after": 0.2,
+      "shot": "S11",
+      "emphasis": [
+        "paying"
+      ]
+    },
+    {
+      "id": "L12",
+      "text": "The ghost story sold the tickets.",
+      "pause_after": 1.0,
+      "shot": "S12",
+      "emphasis": [
+        "sold"
+      ]
+    },
+    {
+      "id": "L13",
+      "text": "Whatever the truth, one thing hasn't changed.",
+      "pause_after": 0.2,
+      "shot": "S13",
+      "emphasis": [
+        "truth"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "lines": [
+        "L01"
+      ],
+      "environment": "room",
+      "description": "COLD OPEN, moving at frame 1. A narrow Victorian staircase of dark varnished wood with a turned handrail rises steeply between papered walls and ends flush against a plaster ceiling: the top step meets the ceiling with nowhere to go. Dust hangs in the light of one wall gas lamp.",
+      "camera": "28 mm, low from the bottom step, slow tilt and push up the flight toward the ceiling",
+      "characters": [],
+      "lighting": "one warm gas-lamp glow, deep shadow above; faint cool fill",
+      "fx": [
+        "dust motes",
+        "light flicker"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.3,
+          "gain": 0.3
+        },
+        {
+          "name": "sting",
+          "offset": 1.6,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S02",
+      "lines": [
+        "L02"
+      ],
+      "environment": "room",
+      "description": "The camera arrives at the top step: the ceiling plaster is inches from the lens. The gas lamp below dips and recovers; a draught stirs the dust.",
+      "camera": "28 mm, slow push to the ceiling, slight roll",
+      "characters": [],
+      "lighting": "gas lamp from below; shadows climbing the walls",
+      "fx": [
+        "dust motes",
+        "flicker"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "FOLKLORE",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "door_creak",
+          "offset": 0.5,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S03",
+      "lines": [
+        "L03"
+      ],
+      "environment": "house_exterior",
+      "description": "Dusk: a sprawling Victorian mansion (generic, not a replica) of turrets, gables and bay windows rambling across a lawn behind a low hedge; a few windows glow amber. The camera pushes in over the hedge.",
+      "camera": "35 mm, slow push-in at eye level",
+      "characters": [],
+      "lighting": "violet dusk sky; warm window glow",
+      "fx": [
+        "light mist"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "SAN JOSE, CALIFORNIA",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.25
+        },
+        {
+          "name": "creak",
+          "offset": 1.6,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S04",
+      "lines": [
+        "L04"
+      ],
+      "environment": "other:orchard_farmhouse_1880s",
+      "description": "Daylight, the 1880s: a modest two-storey farmhouse among young fruit trees in a flat valley. A faceless woman's silhouette in a long dark Victorian dress stands at the gate, looking at it.",
+      "camera": "35 mm, slow lateral move along the fence",
+      "characters": [
+        "Sarah Winchester (faceless silhouette, long dark dress; not a likeness)"
+      ],
+      "lighting": "soft warm sun, long shadows",
+      "fx": [
+        "dust in sunlight"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "1880s",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "wind",
+          "offset": 0.0,
+          "gain": 0.2
+        },
+        {
+          "name": "footsteps",
+          "offset": 1.2,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S05",
+      "lines": [
+        "L05"
+      ],
+      "environment": "other:construction_timelapse",
+      "description": "Time-lapse from a fixed hilltop view: the farmhouse sprouts wings, towers and gables; scaffolding appears and vanishes; days flicker into nights. A timeline draws across the sky.",
+      "camera": "35 mm, locked wide, very slow push",
+      "characters": [],
+      "lighting": "cycling day/night light",
+      "fx": [
+        "dust",
+        "scaffold pop-ins"
+      ],
+      "overlay": [
+        {
+          "type": "timeline",
+          "text": "ADDED TO FOR DECADES",
+          "params": {
+            "events": [
+              [
+                "1880s",
+                "bought"
+              ],
+              [
+                "1922",
+                "her death"
+              ]
+            ],
+            "y": 900
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "click",
+          "offset": 0.2,
+          "gain": 0.25
+        },
+        {
+          "name": "whoosh",
+          "offset": 1.0,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "whip"
+    },
+    {
+      "id": "S06",
+      "lines": [
+        "L06"
+      ],
+      "environment": "room",
+      "description": "A candlelit parlour: a round table under a dark cloth, a single candle, two faceless seated silhouettes facing each other. On the wall behind, a rack of generic lever-action rifles (no markings); pale wisps drift out of the dark around them and fade.",
+      "camera": "50 mm, slow orbit around the table toward the rifle rack",
+      "characters": [
+        "medium (faceless silhouette, legend figure)",
+        "Sarah (faceless silhouette, long dark dress)"
+      ],
+      "lighting": "one candle, deep shadows, faint cold rim light",
+      "fx": [
+        "candle smoke",
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "FOLKLORE",
+          "params": {
+            "y": 200
+          }
+        },
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 290
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "heartbeat",
+          "offset": 0.2,
+          "gain": 0.25
+        },
+        {
+          "name": "door_creak",
+          "offset": 1.5,
+          "gain": 0.2
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S07",
+      "lines": [
+        "L07"
+      ],
+      "environment": "house_exterior",
+      "description": "Night: lantern light on the half-built mansion; faceless carpenters' silhouettes hammer on scaffolding as a new gable rises. The legend's endless building.",
+      "camera": "35 mm, slow crane up the scaffold",
+      "characters": [
+        "carpenters x3 (faceless silhouettes)"
+      ],
+      "lighting": "warm lanterns, dark blue night",
+      "fx": [
+        "sawdust",
+        "lantern flicker"
+      ],
+      "overlay": [
+        {
+          "type": "label",
+          "text": "FOLKLORE",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "hit",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "hit",
+          "offset": 0.9,
+          "gain": 0.25
+        },
+        {
+          "name": "hit",
+          "offset": 1.6,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S08",
+      "lines": [
+        "L08"
+      ],
+      "environment": "house_exterior",
+      "description": "MID-POINT TURN. Day, the mansion's tall central tower and upper floors shudder; chimneys topple and the top storeys crumble inward in a cloud of dust; the camera shakes hard.",
+      "camera": "35 mm, low angle, heavy shake",
+      "characters": [],
+      "lighting": "flat morning light, dust haze",
+      "fx": [
+        "dust cloud",
+        "falling debris"
+      ],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "SAN JOSE, 1906",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "rumble",
+          "offset": 0.0,
+          "gain": 0.6
+        },
+        {
+          "name": "boom",
+          "offset": 0.8,
+          "gain": 0.5
+        }
+      ],
+      "transition_in": "flash"
+    },
+    {
+      "id": "S09",
+      "lines": [
+        "L09"
+      ],
+      "environment": "room",
+      "description": "Back to the staircase, now in flat daylight and cut away like a dollhouse: the ceiling lifts off to show a later floor built right over the top of the old flight. A card slides in.",
+      "camera": "2.5D-feel orthographic side view, slow pull-back",
+      "characters": [],
+      "lighting": "even daylight; no flicker",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "card",
+          "text": "Stairs left over from\nremodeling (likely)",
+          "params": {
+            "header": "THE PRACTICAL ANSWER",
+            "y": 820
+          }
+        },
+        {
+          "type": "label",
+          "text": "THEORY",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "whoosh",
+          "offset": 0.1,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 0.9,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S10",
+      "lines": [
+        "L10"
+      ],
+      "environment": "document",
+      "description": "A plain typed index card slides onto a desk under a lamp: the biographer's name and the finding.",
+      "camera": "top-down 50 mm, slight push",
+      "characters": [],
+      "lighting": "warm desk lamp",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "document",
+          "text": "BIOGRAPHER: MARY JO IGNOFFO\nEVIDENCE FOR THE\nGHOST STORY:\nNONE FOUND",
+          "params": {
+            "style": "paper",
+            "title": "SARAH WINCHESTER",
+            "rot": -2,
+            "size": 42,
+            "y": 70
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "typewriter",
+          "offset": 0.3,
+          "gain": 0.3
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S11",
+      "lines": [
+        "L11"
+      ],
+      "environment": "house_exterior",
+      "description": "1920s daytime: the mansion's front gate with a small ticket booth; a short line of faceless visitors in hats and coats; two boxy vintage cars parked by the hedge.",
+      "camera": "35 mm, slow lateral dolly along the queue",
+      "characters": [
+        "visitors x5 (faceless silhouettes, 1920s hats and coats)"
+      ],
+      "lighting": "bright flat day",
+      "fx": [],
+      "overlay": [
+        {
+          "type": "stamp",
+          "text": "1923",
+          "params": {
+            "y": 300
+          }
+        },
+        {
+          "type": "label",
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "footsteps",
+          "offset": 0.2,
+          "gain": 0.3
+        },
+        {
+          "name": "click",
+          "offset": 1.4,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S12",
+      "lines": [
+        "L12"
+      ],
+      "environment": "house_exterior",
+      "description": "DEAD-AIR REVEAL. Night: from inside an upstairs room, a visitor's lantern lights an exterior door; it swings open onto nothing, a sheer drop to the dark garden. In the silence, the lantern beam finds a pale, faceless figure standing far below, looking up. Then it is gone.",
+      "camera": "28 mm POV at the doorway, slow tilt down into the drop",
+      "characters": [
+        "visitor (lantern only)",
+        "pale figure (generic, faceless, plain coat; dramatisation, not Sarah Winchester)"
+      ],
+      "lighting": "one lantern; moonlight on the garden",
+      "fx": [
+        "mist",
+        "dust"
+      ],
+      "overlay": [
+        {
+          "type": "text",
+          "text": "THE DOOR TO NOWHERE",
+          "params": {
+            "y": 420,
+            "size": 70
+          }
+        },
+        {
+          "type": "label",
+          "text": "DRAMATISATION",
+          "params": {
+            "y": 200
+          }
+        }
+      ],
+      "sfx": [
+        {
+          "name": "door_creak",
+          "offset": 0.3,
+          "gain": 0.45
+        },
+        {
+          "name": "wind",
+          "offset": 1.0,
+          "gain": 0.3
+        },
+        {
+          "name": "sting",
+          "offset": 2.6,
+          "gain": 0.35
+        }
+      ],
+      "transition_in": "cut"
+    },
+    {
+      "id": "S13",
+      "lines": [
+        "L13"
+      ],
+      "environment": "room",
+      "description": "LOOP FRAME: back at the bottom of the staircase in gas-lamp light; the camera settles into S01's first-frame position, so a replay flows into 'This staircase climbs straight into the ceiling.'",
+      "camera": "28 mm, slow settle into S01's start pose",
+      "characters": [],
+      "lighting": "gas lamp, as S01",
+      "fx": [
+        "dust motes"
+      ],
+      "overlay": [],
+      "sfx": [
+        {
+          "name": "creak",
+          "offset": 0.4,
+          "gain": 0.25
+        }
+      ],
+      "transition_in": "cut"
+    }
+  ],
+  "music_curve": [
+    [
+      0,
+      0.3
+    ],
+    [
+      2.8,
+      0.35
+    ],
+    [
+      5.4,
+      0.45
+    ],
+    [
+      11.7,
+      0.5
+    ],
+    [
+      16.5,
+      0.55
+    ],
+    [
+      21.0,
+      0.6
+    ],
+    [
+      24.8,
+      0.2
+    ],
+    [
+      25.1,
+      0.55
+    ],
+    [
+      29.6,
+      0.35
+    ],
+    [
+      33.5,
+      0.3
+    ],
+    [
+      38.3,
+      0.3
+    ],
+    [
+      41.8,
+      0.2
+    ],
+    [
+      43.6,
+      0.0
+    ],
+    [
+      44.5,
+      0.0
+    ],
+    [
+      44.8,
+      0.3
+    ],
+    [
+      47.8,
+      0.35
+    ]
+  ],
+  "loop_line": "Whatever the truth, one thing hasn't changed."
+}
