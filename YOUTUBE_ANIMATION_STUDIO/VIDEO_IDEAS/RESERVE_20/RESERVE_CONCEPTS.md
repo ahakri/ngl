@@ -407,3 +407,180 @@ Reserve pool (Agent 5), HAUNT-R1..R5, separate from HAUNTED_20. Facts checked 20
 - https://en.wikipedia.org/wiki/Pluckley
 - https://www.uwe.ac.uk/news/research-uncovers-truth-about-pluckleys-ghosts
 - https://higgypop.com/news/is-pluckley-still-the-most-haunted-village-in-england
+
+## MURDER
+
+Reserve pool of 5 murder and mystery concepts (MURDER-R1..R5). None of them is in VIDEO_IDEAS/MURDER_MYSTERY_20. Same schema and scoring as the main 20. Machine version: `MURDER_reserve.json`.
+
+**Verification warning:** these 5 cases have NOT been web-verified. The shared search budget ran out before any reserve search could run. The facts come from well-established public record, and the source URLs are marked 'not re-verified'. Fact-check before promoting any of them.
+
+**Demand cap:** no reference videos were captured for these cases, so demand is capped at 12–14.
+
+| Rank | ID | Title | D | S | P | R | F | Total |
+|---|---|---|---|---|---|---|---|---|
+| 1 | MURDER-R1 | The Serial Killer Who Was a Cotton Swab | 13 | 18 | 16 | 15 | 16 | **78** |
+| 2 | MURDER-R2 | The Queen of Crime Vanished for 11 Days | 14 | 16 | 16 | 14 | 16 | **76** |
+| 3 | MURDER-R3 | Caught by Radio Mid-Atlantic | 12 | 17 | 15 | 15 | 16 | **75** |
+| 4 | MURDER-R4 | An Entire Colony Vanished — and Left One Word | 13 | 14 | 16 | 14 | 16 | **73** |
+| 5 | MURDER-R5 | Caught Because of How He Wrote One Phrase | 13 | 16 | 14 | 14 | 14 | **71** |
+
+### MURDER-R1 — The Serial Killer Who Was a Cotton Swab
+*Alt title:* Police Hunted a Woman Who Didn't Exist · *Score:* **78/100** (D13 S18 P16 R15 F16) · *Difficulty:* Low · *Duration:* 55 s
+
+**Subject:** 'Phantom of Heilbronn': from 1993 to 2009, police in Germany, Austria and France linked the same unknown female DNA profile to roughly 40 crime scenes, including the 2007 killing of police officer Michele Kiesewetter in Heilbronn. In March 2009 investigators concluded the DNA came from contaminated cotton swabs, traced to a worker at the factory that packaged them. The Kiesewetter killing was later attributed to the NSU terror cell (2011).
+
+**Why it can work:** One of the best 'twist' payoffs in true crime: the most wanted woman in Europe was a manufacturing contaminant. Object-led (swab, lab, map of crime scenes), no gore, no private suspect to name (the factory worker is NOT named). Demand for this exact case not measured, but DNA/forensics twists perform in the niche.
+
+**Verification:** NOT web-verified. Ad-safe: no gore, victim only acknowledged. Do not name the factory worker.
+
+**15-second hook:** 0-2s: A cotton swab under a lab lamp; VO 'Police hunted this woman for 16 years.' 2-6s: Map of Europe fills with 40 red pins. 6-15s: 'Her DNA was at murders, burglaries, car thefts — in three countries. Nobody ever saw her. In 2009 they found out why.'
+
+**Structure:**
+
+1. Cold open: swab + 'most wanted woman'
+2. Pins spread across Germany, Austria, France (1993-2009)
+3. Strange pattern: crimes with nothing in common
+4. 2007 Heilbronn police officer killing raises the stakes (memorial card, no detail)
+5. Twist: DNA came from the swabs themselves — factory contamination (worker not named)
+6. Aftermath: Heilbronn case later linked to the NSU; forensic swab standards changed (verify)
+7. Prompt: 'How many other cases did this touch?'
+8. Loop to swab
+
+**Retention moments:** 0s swab; ~8s pins explode across map; ~22s 'nothing in common'; ~38s contamination reveal; ~52s loop
+
+**Thumbnail / first frame:** Single cotton swab glowing like evidence, silhouette of a woman made of DNA strands behind it; text 'SHE NEVER EXISTED'.
+
+**Animation style:** Clean lab environment, macro props, 2.5D Europe map with pins, DNA-strand motion graphics, factory conveyor (generic).
+
+**Scenes:** Lab bench swab macro; Europe crime-pin map; Evidence board of mismatched crimes; Police memorial card; Swab factory conveyor; Swab loop
+
+**Sources:** https://en.wikipedia.org/wiki/Phantom_of_Heilbronn (URL not re-verified) · Der Spiegel / BBC News coverage, March 2009 (URL not captured)
+
+### MURDER-R2 — The Queen of Crime Vanished for 11 Days
+*Alt title:* Agatha Christie's Real-Life Mystery · *Score:* **76/100** (D14 S16 P16 R14 F16) · *Difficulty:* Low · *Duration:* 55 s
+
+**Subject:** On the night of 3 Dec 1926 Agatha Christie left her home in Sunningdale, Berkshire; her car was found next morning at Newlands Corner, Surrey, near the Silent Pool. A huge public search followed. On 14 Dec she was found at the Swan Hydropathic Hotel in Harrogate, registered under the surname of her husband's mistress (Neele). She never publicly explained the episode; amnesia was the official account.
+
+**Why it can work:** Celebrity + genuine unexplained mystery + no victim = fully ad-safe and broadly appealing; the hotel-register name is a perfect single strange detail. Strong comment driver (amnesia vs. revenge plot vs. publicity). Demand not measured by a captured reference.
+
+**Verification:** NOT web-verified. Real person, deceased; no invented dialogue; theories labelled.
+
+**15-second hook:** 0-2s: Abandoned 1920s car on a frosty hill, headlights still on; VO 'The world's greatest mystery writer disappeared.' 2-6s: Newspaper-style search map. 6-15s: 'December 1926. Thousands searched for 11 days. When she was found, she'd signed in under one very strange name.'
+
+**Structure:**
+
+1. Cold open: abandoned car (documented location)
+2. Search: police, volunteers, press frenzy
+3. Theories at the time (labelled)
+4. Found at Harrogate hotel
+5. Twist: the name in the register
+6. Her silence; official 'amnesia' account
+7. Prompt: 'What do you think happened?'
+8. Loop to the car
+
+**Retention moments:** 0s car; ~10s search map; ~28s hotel; ~36s register name reveal; ~52s question
+
+**Thumbnail / first frame:** Hotel register page with a signature circled in red ink, 1920s fountain pen; text 'WRONG NAME'.
+
+**Animation style:** Frosty hillside, 1920s car (low-poly), hotel lobby interior with register prop, 2.5D map of England, newspaper-style typography (neutral, not real mastheads).
+
+**Scenes:** Car on frosty hill; Search lines with torches; Map Sunningdale→Harrogate; Hotel ballroom silhouettes; Register reveal; Car loop
+
+**Sources:** https://en.wikipedia.org/wiki/Agatha_Christie (section on 1926 disappearance; URL not re-verified) · Christie biography / Agatha Christie Ltd official site (URL not captured)
+
+### MURDER-R3 — Caught by Radio Mid-Atlantic
+*Alt title:* The First Fugitive Caught by Wireless · *Score:* **75/100** (D12 S17 P15 R15 F16) · *Difficulty:* Medium · *Duration:* 58 s
+
+**Subject:** London, 1910: after music-hall singer Cora Crippen ('Belle Elmore') disappeared, Dr Hawley Crippen and Ethel Le Neve fled on the SS Montrose to Canada, Le Neve disguised as a boy. Captain Henry Kendall recognised them and sent a wireless telegram; Inspector Walter Dew of Scotland Yard took a faster ship and arrested them on arrival in Canada. Crippen was convicted and hanged (Nov 1910); Le Neve was acquitted. A 2007 mtDNA study claimed the remains were not Cora's — disputed.
+
+**Why it can work:** A chase where the detective overtakes the fugitive across the Atlantic thanks to new technology; a disguise detail; and a 2007 DNA twist that reopens the case. Ships/ocean/wireless are excellent pipeline fits. Remains in cellar must not be shown or described.
+
+**Verification:** NOT web-verified. Historical; convicted person deceased. 2007 DNA claim must be labelled DISPUTED.
+
+**15-second hook:** 0-2s: Ship's wireless key sparks in the dark; VO 'This message caught a fugitive in the middle of the ocean.' 2-6s: A 'boy' on deck whose suit doesn't fit. 6-15s: 'Summer 1910. A captain recognised two passengers — and Scotland Yard raced them across the Atlantic on a faster ship.'
+
+**Structure:**
+
+1. Cold open: wireless sparks
+2. Disappearance of Cora Crippen (no detail of remains)
+3. Flight on the Montrose; disguise
+4. Captain's suspicion + wireless message
+5. Dew's faster ship overtakes; arrest in Canada
+6. Trial outcome (court record)
+7. Twist: 2007 DNA claim — disputed (labelled)
+8. Prompt + loop
+
+**Retention moments:** 0s wireless; ~8s disguise; ~25s telegram text; ~38s ships racing on map; ~50s DNA twist
+
+**Thumbnail / first frame:** Two ocean liners on a map, one overtaking the other, Morse dots across the sea; text 'CAUGHT BY RADIO'.
+
+**Animation style:** Ocean + liner exteriors (procedural), wireless room interior, 2.5D Atlantic race map, Morse-code motion graphics.
+
+**Scenes:** Wireless room; Deck with disguised passenger; Telegram reveal; Atlantic race map; Arrival in Canada (silhouettes); DNA lab card
+
+**Sources:** https://en.wikipedia.org/wiki/Hawley_Harvey_Crippen (URL not re-verified) · Royal Museums Greenwich / Marconi archives coverage of the Montrose telegram (URL not captured)
+
+### MURDER-R4 — An Entire Colony Vanished — and Left One Word
+*Alt title:* 'CROATOAN': The Lost Colony of Roanoke · *Score:* **73/100** (D13 S14 P16 R14 F16) · *Difficulty:* Medium · *Duration:* 55 s
+
+**Subject:** Roanoke colony (present-day North Carolina): about 115 English settlers arrived in 1587 under governor John White; his granddaughter Virginia Dare was the first English child born in the Americas. White sailed to England for supplies; war with Spain delayed his return until August 1590, when he found the settlement deserted and 'CROATOAN' carved into a post — without the agreed cross that would signal distress. Their fate is unknown; archaeological work continues.
+
+**Why it can work:** Iconic single-word cold open, no violence, and a 'missing distress signal' clue that viewers love to debate. Highly animatable (palisade, carved post, ocean, coastline map). Mystery rather than murder — slight niche-fit penalty.
+
+**Verification:** NOT web-verified. Avoid portraying Indigenous peoples as threats; theories labelled.
+
+**15-second hook:** 0-2s: Torch light crawls over a carved wooden post: C-R-O-A-T-O-A-N. VO 'Over 100 people vanished. They left one word.' 2-6s: Empty palisade in fog. 6-15s: '1590. Their governor came back three years late. One sign was missing — the one they'd agreed meant danger.'
+
+**Structure:**
+
+1. Cold open: carved word
+2. The 1587 colony, Virginia Dare
+3. White leaves for supplies; war delays him
+4. 1590 return: empty settlement
+5. Twist: no distress cross
+6. Theories: moved to Croatoan Island / joined inland groups / lost — labelled
+7. Archaeology today (verify latest)
+8. Prompt + loop
+
+**Retention moments:** 0s carved word; ~10s empty fort; ~25s three-year delay; ~36s no-cross reveal; ~50s theory map
+
+**Thumbnail / first frame:** Carved post in fog with the word 'CROATOAN' lit by a torch; text '115 GONE'.
+
+**Animation style:** Coastal forest, palisade, fog, ship arriving, 2.5D Outer Banks map with theory routes; silhouettes only, Indigenous peoples depicted respectfully or not at all (map labels).
+
+**Scenes:** Carved post; Ship arrival; Empty settlement; Atlantic delay map; Theory routes map; Post loop
+
+**Sources:** https://en.wikipedia.org/wiki/Roanoke_Colony (URL not re-verified) · US National Park Service, Fort Raleigh National Historic Site (nps.gov/fora; URL not re-verified)
+
+### MURDER-R5 — Caught Because of How He Wrote One Phrase
+*Alt title:* The Unabomber's Manifesto Gave Him Away · *Score:* **71/100** (D13 S16 P14 R14 F14) · *Difficulty:* Low · *Duration:* 55 s
+
+**Subject:** The 'Unabomber' mailed or placed bombs from 1978 to 1995, killing three people and injuring 23. In 1995 the Washington Post (with the New York Times) published his manifesto; David Kaczynski and his wife recognised the writing style and ideas, and contacted the FBI. Linguistic comparison — including the unusual form 'you can't eat your cake and have it too' — supported the case. Ted Kaczynski was arrested at his Montana cabin in April 1996, pleaded guilty in 1998 and died in 2023.
+
+**Why it can work:** Forensic-linguistics twist (a phrase as evidence) is clever and non-graphic; cabin + typewritten pages animate well. Constraints: domestic-terrorism topic is advertiser-sensitive; victims acknowledged on a card; brother's decision framed respectfully (he is a living public figure via his own advocacy).
+
+**Verification:** NOT web-verified. Sensitive (terrorism): no bomb depiction, no manifesto promotion, victims card.
+
+**15-second hook:** 0-2s: Typewriter keys strike '...eat your cake and have it too'; VO 'He was caught by the order of six words.' 2-6s: FBI case map of 17 years. 6-15s: 'For 17 years the FBI couldn't find him. Then newspapers printed his 35,000-word manifesto — and one reader recognised the voice.'
+
+**Structure:**
+
+1. Cold open: the phrase
+2. Scale: 17 years, victims card (no detail)
+3. Decision to publish (1995)
+4. A family member recognises the writing
+5. Linguistics: the phrase and other matches
+6. Arrest at the cabin (1996), guilty plea (1998)
+7. Prompt: 'Could your writing identify you?'
+8. Loop to typewriter
+
+**Retention moments:** 0s typewriter; ~10s 17-year map; ~25s publication; ~35s phrase comparison; ~48s cabin arrest
+
+**Thumbnail / first frame:** Typewritten page with the reversed idiom highlighted, small cabin silhouette in snow; text 'HIS WORDS GAVE HIM AWAY'.
+
+**Animation style:** Typewriter macro, newspaper-style page (neutral, no real mastheads), snowy forest cabin, 2.5D US case map; no bomb imagery beyond abstract icons.
+
+**Scenes:** Typewriter macro; Case map; Printing press; Family letter silhouettes; Phrase comparison graphic; Cabin in snow
+
+**Sources:** https://www.fbi.gov/history/famous-cases/unabomber (URL not re-verified) · https://en.wikipedia.org/wiki/Ted_Kaczynski (URL not re-verified)
+
