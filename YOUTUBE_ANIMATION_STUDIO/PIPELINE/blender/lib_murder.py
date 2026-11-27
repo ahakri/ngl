@@ -4130,7 +4130,7 @@ def mat_glacier_ice(name="ice", deep=(0.06, 0.26, 0.46), surf=(0.62, 0.8, 0.92),
     l.new(bp2.outputs["Normal"], bp.inputs["Normal"])
     l.new(bp.outputs["Normal"], p.inputs["Normal"])
     try:
-        m.surface_render_method = "DITHERED"
+        m.surface_render_method = "BLENDED"
     except Exception:
         pass
     return m
@@ -4402,7 +4402,7 @@ def lightbox(loc=(0, 0, 0), w=1.0, h=1.25, energy=4.0, color=(0.82, 0.9, 1.0), n
         c.scale = (0.04, 0.008, 0.03)
         L.assign(c, clip_m)
         c.parent = root
-    a = L.area((0, -0.25, 0), (math.radians(90), 0, 0), energy=energy * 12, size=max(w, h), color=color, name=name + "_a")
+    a = L.area((0, -0.25, 0), (math.radians(-90), 0, 0), energy=energy * 12, size=max(w, h), color=color, name=name + "_a")
     a.parent = root
     node = [nd for nd in pm.node_tree.nodes if nd.type == "EMISSION"][0]
     return {"root": root, "node": node, "light": a, "panel": pan}
@@ -4531,7 +4531,7 @@ def flint_dagger(loc, rot=(0, 0, 0), name="dagger", scale=1.0):
     bl.scale = (0.017, 0.0045, 0.05)
     L.apply_scale(bl)
     for v in bl.data.vertices:  # leaf shape: pointed tip, broad base
-        t = (v.co.z / 0.05 + 1) / 2
+        t = min(1.0, max(0.0, (v.co.z / 0.05 + 1) / 2))
         v.co.x *= 1.15 - 0.85 * t ** 1.4
     L.assign(bl, fm)
     for o in (hd, bl):
