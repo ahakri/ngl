@@ -2978,3 +2978,486 @@ def fast_conifers(name, spots, mat=None, tiers=(3, 4), seg=6, seed=1, **kw):
     o = mesh_obj(name, verts, faces, mat=mat or mat_dusted(name + "_m"))
     o.visible_shadow = kw.get("shadow", False)  # thousands of shadow casters are very slow in EEVEE (virtual shadow maps)
     return o
+
+
+# ============================================================================ MURDER-05 (Hinterkaifeck farm, 1922) builders
+# Farmstead (studio_lib.house_exterior + attached gabled barn wing), plank material, keyable lit window, fence, lantern,
+# primitive cattle, iron key, question-mark suspect cards, newspaper, oil lamp, laptop, case folder.
+# Farm layout: house centred at loc, front (gable end with windows) faces -Y; barn wing attached on +X, ridge along X.
+
+def mat_planks(name, c1=(0.05, 0.032, 0.02), c2=(0.13, 0.085, 0.05), width=0.22, axis="X", rough=0.85):
+    """Weathered vertical planks: dark seams every `width` m along `axis` (object coords) + grain noise."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sep.inputs[0])
+    coord = sep.outputs[axis]
+    fr = _mathn(n, l, "FRACT", _mathn(n, l, "DIVIDE", coord, width))
+    seam = _mathn(n, l, "LESS_THAN", fr, 0.06)
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 9.0
+    nz.inputs["Detail"].default_value = 6
+    mp = n.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (6, 6, 0.6) if axis == "X" else (0.6, 6, 6)
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].color = (*c2, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    l.new(seam, mix.inputs[0])
+    l.new(ramp.outputs["Color"], mix.inputs[6])
+    mix.inputs[7].default_value = (c1[0] * 0.25, c1[1] * 0.25, c1[2] * 0.25, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = rough
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.25
+    l.new(_mathn(n, l, "SUBTRACT", 1.0, seam), bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def gable_box(name, x0, x1, y0, y1, wall_h, roof_h, wall_mat, roof_mat, overhang=0.4, ridge="X", z0=0.0):
+    """Walls box + gabled roof prism. ridge='X': ridge runs along X (gables at the X ends). Returns (walls, roof)."""
+    w = L.prim("cube", loc=((x0 + x1) / 2, (y0 + y1) / 2, z0 + wall_h / 2), name=name + "_walls")
+    w.scale = ((x1 - x0) / 2, (y1 - y0) / 2, wall_h / 2)
+    L.apply_scale(w)
+    L.assign(w, wall_mat)
+    o = overhang
+    zt = z0 + wall_h
+    if ridge == "X":
+        ym = (y0 + y1) / 2
+        v = [(x0 - o, y0 - o, zt - 0.15), (x1 + o, y0 - o, zt - 0.15), (x1 + o, ym, zt + roof_h), (x0 - o, ym, zt + roof_h),
+             (x0 - o, y1 + o, zt - 0.15), (x1 + o, y1 + o, zt - 0.15)]
+        f = [(0, 1, 2, 3), (3, 2, 5, 4), (0, 3, 4), (1, 5, 2), (0, 4, 5, 1)]
+        gv = [(x0, y0, zt), (x0, y1, zt), (x0, ym, zt + roof_h), (x1, y0, zt), (x1, y1, zt), (x1, ym, zt + roof_h)]
+    else:
+        xm = (x0 + x1) / 2
+        v = [(x0 - o, y0 - o, zt - 0.15), (xm, y0 - o, zt + roof_h), (xm, y1 + o, zt + roof_h), (x0 - o, y1 + o, zt - 0.15),
+             (x1 + o, y0 - o, zt - 0.15), (x1 + o, y1 + o, zt - 0.15)]
+        f = [(0, 1, 2, 3), (1, 4, 5, 2), (0, 4, 1), (3, 2, 5), (0, 3, 5, 4)]
+        gv = [(x0, y0, zt), (x1, y0, zt), (xm, y0, zt + roof_h), (x0, y1, zt), (x1, y1, zt), (xm, y1, zt + roof_h)]
+    r = mesh_obj(name + "_roof", v, f, mat=roof_mat)
+    solidify(r, 0.18)
+    g = mesh_obj(name + "_gables", gv, [(0, 1, 2), (3, 5, 4)], mat=wall_mat)
+    solidify(g, 0.1)
+    return w, r
+
+
+def farmstead(loc=(0, 0, 0), lit=True, seed=1, window_energy=3.0, spill=35.0, smoke=False, lit_xz=(3.0, 1.6)):
+    """Hinterkaifeck-style farmstead: two-storey gabled house (studio_lib.house_exterior, porch removed, snow-dusted
+    roof, chimney) + attached barn wing (14 x 7 x 5 m, planks, double door). One lit window with a keyable emission
+    strength (out['win_strength'] socket) and a warm spill point light (out['win_light'])."""
+    lx, ly, lz = loc
+    roofm = mat_dusted("farm_roof", base=(0.03, 0.022, 0.02), snow=(0.66, 0.71, 0.8), thresh=0.5, noise_scale=3.0)
+    plaster = L.mat_noise_surface("farm_plaster", (0.2, 0.19, 0.17), (0.36, 0.34, 0.3), scale=3, bump=0.25, voronoi=False)
+    house = L.house_exterior(loc=(lx, ly, lz - 0.1), w=9, d=7, floors=2, roof_h=3.4, siding=plaster, roof=roofm, lit_windows=())
+    for c in list(house.children):
+        if c.location.y < -3.5 - 0.5:  # porch roof + columns (not on a Bavarian farmhouse)
+            bpy.data.objects.remove(c, do_unlink=True)
+        elif abs(c.location.x) < 0.01 and abs(c.location.z - 1.6) < 0.01:  # window overlapping the door
+            bpy.data.objects.remove(c, do_unlink=True)
+    # window frames (pale) around every front window
+    fm = L.mat_principled("farm_winframe", (0.32, 0.3, 0.26), rough=0.7)
+    for fl in range(2):
+        for xx in (-3.0, 0.0, 3.0):
+            if fl == 0 and xx == 0.0:
+                continue
+            for (dx, dz, sx, sz) in ((0, 0.74, 0.52, 0.05), (0, -0.74, 0.52, 0.05), (0.49, 0, 0.04, 0.74), (-0.49, 0, 0.04, 0.74),
+                                     (0, 0, 0.45, 0.025)):
+                b = L.prim("cube", loc=(lx + xx + dx, ly - 3.58, lz - 0.1 + fl * 3.0 + 1.6 + dz))
+                b.scale = (sx, 0.04, sz)
+                L.assign(b, fm)
+    out = {"house": house}
+    # chimney
+    ch = L.prim("cube", loc=(lx + 1.3, ly + 1.0, lz + 8.9), name="chimney")
+    ch.scale = (0.32, 0.32, 1.5)
+    L.assign(ch, L.mat_noise_surface("chimney_m", (0.12, 0.08, 0.07), (0.25, 0.16, 0.12), scale=12, bump=0.3, voronoi=False))
+    out["chimney_top"] = Vector((lx + 1.3, ly + 1.0, lz + 10.4))
+    # barn wing
+    planks = mat_planks("barn_planks", axis="X")
+    w, r = gable_box("barn", lx + 4.5, lx + 18.5, ly - 3.5, ly + 3.5, 5.0, 3.0, planks, roofm, ridge="X", z0=lz - 0.1)
+    out["barn"] = w
+    dm = mat_planks("barn_door", c1=(0.035, 0.022, 0.014), c2=(0.08, 0.05, 0.03), width=0.16, axis="X")
+    bm_ = L.mat_principled("door_brace", (0.03, 0.02, 0.012), rough=0.8)
+    for sx in (-1, 1):
+        d = L.prim("cube", loc=(lx + 12 + sx * 0.92, ly - 3.56, lz + 1.6))
+        d.scale = (0.9, 0.05, 1.7)
+        L.assign(d, dm)
+        br = L.prim("cube", loc=(lx + 12 + sx * 0.92, ly - 3.62, lz + 1.6), rot=(0, sx * 0.95, 0))
+        br.scale = (0.06, 0.02, 1.85)
+        L.assign(br, bm_)
+    lintel = L.prim("cube", loc=(lx + 12, ly - 3.58, lz + 3.4))
+    lintel.scale = (2.0, 0.08, 0.1)
+    L.assign(lintel, bm_)
+    # small dark barn windows
+    dark = L.mat_principled("barn_win", (0.008, 0.008, 0.01), rough=0.3)
+    for xx in (7.0, 16.5):
+        bw = L.prim("cube", loc=(lx + xx, ly - 3.55, lz + 2.6))
+        bw.scale = (0.35, 0.04, 0.3)
+        L.assign(bw, dark)
+    # the lit window (own material so it can be switched off)
+    m, n, l = L._mat("win_glow")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    e = n.new("ShaderNodeEmission")
+    e.inputs[0].default_value = (1.0, 0.7, 0.4, 1)
+    e.inputs[1].default_value = window_energy if lit else 0.0
+    l.new(e.outputs[0], n["Material Output"].inputs["Surface"])
+    wx, wz = lit_xz
+    win = L.prim("cube", loc=(lx + wx, ly - 3.555, lz - 0.1 + wz), name="lit_window")
+    win.scale = (0.44, 0.02, 0.69)
+    L.assign(win, m)
+    pt = L.point((lx + wx, ly - 4.3, lz + wz), energy=spill if lit else 0.0, color=(1.0, 0.62, 0.3), radius=0.4, name="win_spill")
+    out.update(win_strength=e.inputs[1], win_light=pt, win_energy=window_energy, win_spill=spill, window=win)
+    return out
+
+
+def window_keys(F, keys):
+    """keys = [(frame, 0..1)] -> animates window glow + spill together (constant interpolation for flicker)."""
+    s = F["win_strength"]
+    pt = F["win_light"].data
+    for f, v in keys:
+        s.default_value = F["win_energy"] * v
+        s.keyframe_insert("default_value", frame=f)
+        pt.energy = F["win_spill"] * v
+        pt.keyframe_insert("energy", frame=f)
+
+
+def fence(x0, x1, y, z_of=None, gate=None, step=2.2, h=1.1, name="fence", mat=None, seed=3):
+    """Simple post-and-two-rail farm fence along X at y. gate=(gx, half_width) leaves a gap. One mesh."""
+    rnd = random.Random(seed)
+    m = mat or mat_dusted(name + "_m", base=(0.05, 0.035, 0.022), thresh=0.6)
+    bm = bmesh.new()
+    zf = z_of or (lambda x, yy: 0.0)
+    xs = []
+    x = x0
+    while x <= x1:
+        if not (gate and abs(x - gate[0]) < gate[1]):
+            xs.append(x)
+        x += step
+    if gate:
+        xs += [gate[0] - gate[1], gate[0] + gate[1]]
+    xs.sort()
+    for x in xs:
+        z = zf(x, y)
+        bmesh.ops.create_cube(bm, size=1, matrix=Matrix.Translation((x, y, z + h / 2 - 0.1)) @ Matrix.Rotation(rnd.uniform(-0.05, 0.05), 4, "Y")
+                              @ Matrix.Diagonal((0.1, 0.1, h + 0.2, 1)))
+    for a, b in zip(xs[:-1], xs[1:]):
+        if gate and a < gate[0] < b:
+            continue
+        for zz in (0.45, 0.9):
+            za, zb = zf(a, y) + zz, zf(b, y) + zz
+            mid = Vector(((a + b) / 2, y - 0.06, (za + zb) / 2))
+            ln = math.hypot(b - a, zb - za)
+            ang = math.atan2(zb - za, b - a)
+            bmesh.ops.create_cube(bm, size=1, matrix=Matrix.Translation(mid) @ Matrix.Rotation(-ang, 4, "Y") @ Matrix.Diagonal((ln, 0.05, 0.08, 1)))
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, m)
+    return o
+
+
+def lantern(loc, energy=40.0, color=(1.0, 0.62, 0.28), name="lantern", parent=None, flicker_n=0):
+    """Small storm lantern (iron frame, glowing glass) + warm point light. Returns (root, light)."""
+    root = empty(name, loc, parent)
+    im = L.mat_principled(name + "_iron", (0.03, 0.03, 0.03), rough=0.5, metal=0.6)
+    gm = L.mat_emission(name + "_glass", (1.0, 0.7, 0.35), 6.0)
+    g = L.prim("cyl", loc=(0, 0, 0.12), vertices=12, radius=0.055, depth=0.14)
+    L.assign(g, gm)
+    g.visible_shadow = False
+    for z, r, dpt in ((0.03, 0.07, 0.04), (0.21, 0.065, 0.03)):
+        c = L.prim("cyl", loc=(0, 0, z), vertices=12, radius=r, depth=dpt)
+        L.assign(c, im)
+        c.parent = root
+        c.location = (0, 0, z)
+    top = L.prim("cone", loc=(0, 0, 0.26), vertices=12, radius1=0.06, radius2=0.015, depth=0.07)
+    L.assign(top, im)
+    hd = L.prim("torus", loc=(0, 0, 0.33), major_radius=0.05, minor_radius=0.006, rot=(math.pi / 2, 0, 0))
+    L.assign(hd, im)
+    for o in (g, top, hd):
+        o.parent = root
+    pt = L.point((0, 0, 0.12), energy=energy, color=color, radius=0.05, name=name + "_pt")
+    pt.parent = root
+    pt.location = (0, 0, 0.12)
+    if flicker_n:
+        L.flicker(pt, flicker_n, depth=0.15, rate=0.5, seed=7)
+    return root, pt
+
+
+def cow(loc, rot_z=0.0, color=(0.09, 0.05, 0.03), name="cow", head_down=0.6, seed=1):
+    """Primitive dairy cow silhouette (rounded body, head box, four legs, horns). Faces +X locally. Returns dict."""
+    rnd = random.Random(seed)
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_noise_surface(name + "_m", tuple(c * 0.6 for c in color), color, scale=6, bump=0.15, voronoi=False, rough=0.8)
+    pale = L.mat_principled(name + "_pale", (0.42, 0.38, 0.32), rough=0.8)
+    body = rounded_box((0, 0, 1.0), (1.9, 0.72, 0.75), color, bevel=0.4, name=name + "_body", mat=m)
+    body.parent = root
+    for sx in (-0.72, 0.72):
+        for sy in (-0.24, 0.24):
+            lg = L.prim("cyl", loc=(sx, sy, 0.38), vertices=8, radius=0.07, depth=0.78)
+            L.assign(lg, m)
+            lg.parent = root
+    neck = empty(name + "_neck", (0.9, 0, 1.15), root)
+    nk = L.prim("cyl", loc=(0, 0, 0), vertices=10, radius=0.2, depth=0.5, rot=(0, math.radians(70), 0))
+    L.assign(nk, m)
+    nk.parent = neck
+    nk.location = (0.18, 0, -0.05)
+    hd = rounded_box((0, 0, 0), (0.5, 0.3, 0.32), color, bevel=0.3, name=name + "_head", mat=m)
+    hd.parent = neck
+    hd.location = (0.45, 0, -0.15)
+    hd.rotation_euler = (0, math.radians(35), 0)
+    mz = rounded_box((0, 0, 0), (0.2, 0.26, 0.2), color, bevel=0.3, name=name + "_muzzle", mat=pale)
+    mz.parent = neck
+    mz.location = (0.68, 0, -0.3)
+    for sy in (-1, 1):
+        hn = L.prim("cone", loc=(0, 0, 0), vertices=6, radius1=0.035, radius2=0.005, depth=0.18)
+        L.assign(hn, pale)
+        hn.parent = neck
+        hn.location = (0.32, sy * 0.15, 0.05)
+        hn.rotation_euler = (sy * -0.9, -0.3, 0)
+        ear = L.prim("cube", loc=(0, 0, 0))
+        ear.scale = (0.04, 0.09, 0.03)
+        L.assign(ear, m)
+        ear.parent = neck
+        ear.location = (0.3, sy * 0.2, -0.04)
+    tail = L.prim("cyl", loc=(-0.98, 0, 0.85), vertices=6, radius=0.025, depth=0.7, rot=(0, 0.12, 0))
+    L.assign(tail, m)
+    tail.parent = root
+    neck.rotation_euler = (0, head_down, 0)
+    return {"root": root, "neck": neck, "body": body, "tail": tail}
+
+
+def iron_key(loc, rot=(0, 0, 0), scale=1.0, name="key", mat=None):
+    """Old iron key (bow ring + shaft + bit) lying in the local XZ plane, bow at top. Returns root."""
+    root = empty(name, loc)
+    root.rotation_euler = rot
+    root.scale = (scale,) * 3
+    m = mat or L.mat_principled(name + "_m", (0.06, 0.055, 0.05), rough=0.45, metal=0.85)
+    bow = L.prim("torus", loc=(0, 0, 0), major_radius=0.028, minor_radius=0.006, rot=(math.pi / 2, 0, 0))
+    sh = L.prim("cyl", loc=(0, 0, -0.085), vertices=10, radius=0.0055, depth=0.12)
+    bit = L.prim("cube", loc=(0.012, 0, -0.13))
+    bit.scale = (0.012, 0.004, 0.014)
+    col = L.prim("cyl", loc=(0, 0, -0.03), vertices=10, radius=0.009, depth=0.01)
+    for o in (bow, sh, bit, col):
+        L.assign(o, m)
+        o.parent = root
+    return root
+
+
+def qmark_cards(positions, size=(0.36, 0.48), name="qcards", paper=(0.42, 0.42, 0.41), mark=(0.12, 0.12, 0.13), seed=5):
+    """Blank grey suspect cards with a single '?' (no names/faces). positions: list of (x, z) in the board plane (y=-0.01).
+    Linked-duplicate meshes (cheap). Returns list of root empties (each with paper + mark + pin children)."""
+    rnd = random.Random(seed)
+    pm = mat_paper(name + "_pm", paper)
+    mm = L.mat_principled(name + "_mm", mark, rough=0.8)
+    pinm = L.mat_principled(name + "_pin", (0.6, 0.04, 0.03), rough=0.3)
+    pl = L.prim("plane", loc=(0, 0, 0), size=1, rot=(math.pi / 2, 0, 0), name=name + "_proto")
+    pl.scale = (size[0], size[1], 1)
+    L.apply_scale(pl)
+    t = L.text3d("?", loc=(0, 0, 0), size=size[1] * 0.62, extrude=0.0, mat=mm, name=name + "_q")
+    t.data.font = _font(F_ANTON) or t.data.font
+    t.data.align_y = "CENTER"
+    bpy.context.view_layer.update()
+    qme = bpy.data.meshes.new_from_object(t.evaluated_get(bpy.context.evaluated_depsgraph_get()))
+    qme.materials.clear()
+    qme.materials.append(mm)
+    bpy.data.objects.remove(t, do_unlink=True)
+    pin = L.prim("sphere", loc=(0, 0, 0), radius=0.018, segments=8, ring_count=5)
+    L.assign(pin, pinm)
+    out = []
+    for i, (x, z) in enumerate(positions):
+        r = empty(f"{name}{i}", (x, -0.012, z))
+        r.rotation_euler = (0, rnd.uniform(-0.07, 0.07), 0)
+        a = L.link(bpy.data.objects.new(f"{name}{i}_p", pl.data))
+        a.parent = r
+        a.rotation_euler = (math.pi / 2, 0, 0)
+        b = L.link(bpy.data.objects.new(f"{name}{i}_q", qme))
+        b.parent = r
+        b.location = (0, -0.003, 0)
+        b.rotation_euler = (math.pi / 2, 0, 0)
+        c = L.link(bpy.data.objects.new(f"{name}{i}_n", pin.data))
+        c.parent = r
+        c.location = (0, -0.02, size[1] / 2 - 0.05)
+        out.append(r)
+    pl.data.materials.clear()
+    pl.data.materials.append(pm)
+    bpy.data.objects.remove(pl, do_unlink=True)
+    bpy.data.objects.remove(pin, do_unlink=True)
+    return out
+
+
+def pop_in(root, f, dur=4, s0=0.01):
+    """Scale pop (0 -> 1.08 -> 1) starting at frame f."""
+    root.scale = (s0,) * 3
+    root.keyframe_insert("scale", frame=max(1, f - 1))
+    root.scale = (1.08,) * 3
+    root.keyframe_insert("scale", frame=f + dur)
+    root.scale = (1.0,) * 3
+    root.keyframe_insert("scale", frame=f + dur + 3)
+
+
+def newspaper(loc, rot_z=0.0, size=(0.46, 0.32), name="paper", masthead="ZEITUNG"):
+    """Folded generic broadsheet lying flat (XY): paper slab, masthead text, column rules and grey text bars (no real
+    title or article text). Returns root."""
+    rnd = random.Random(4)
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    w, h = size
+    sl = L.prim("cube", loc=(0, 0, 0.004))
+    sl.scale = (w / 2, h / 2, 0.004)
+    L.assign(sl, mat_paper(name + "_pm", (0.66, 0.62, 0.52)))
+    sl.parent = root
+    ink = L.mat_principled(name + "_ink", (0.05, 0.045, 0.04), rough=0.8)
+    grey = L.mat_principled(name + "_grey", (0.3, 0.28, 0.24), rough=0.9)
+    t = L.text3d(masthead, loc=(0, h / 2 - 0.045, 0.0085), rot=(0, 0, 0), size=0.05, extrude=0, mat=ink, name=name + "_mast")
+    t.data.font = _font(F_SERIF_B) or t.data.font
+    t.data.align_y = "CENTER"
+    t.parent = root
+    bm = bmesh.new()
+    for yy in (h / 2 - 0.078, h / 2 - 0.084):
+        bmesh.ops.create_grid(bm, x_segments=1, y_segments=1, size=0.5, matrix=Matrix.Translation((0, yy, 0.0084)) @ Matrix.Diagonal((w - 0.04, 0.0018, 1, 1)))
+    cols = 4
+    cw = (w - 0.05) / cols
+    for c in range(cols):
+        cx = -w / 2 + 0.025 + cw * (c + 0.5)
+        y = h / 2 - 0.1
+        while y > -h / 2 + 0.03:
+            if rnd.random() < 0.12:
+                y -= 0.014
+                continue
+            ln = cw * 0.86 * (rnd.uniform(0.5, 0.9) if rnd.random() < 0.15 else 1.0)
+            bmesh.ops.create_grid(bm, x_segments=1, y_segments=1, size=0.5,
+                                  matrix=Matrix.Translation((cx - (cw * 0.86 - ln) / 2, y, 0.0084)) @ Matrix.Diagonal((ln, 0.0045, 1, 1)))
+            y -= 0.0095
+    o = L.mesh_from_bm(name + "_lines", bm)
+    L.assign(o, grey)
+    o.parent = root
+    return root
+
+
+def oil_lamp(loc, energy=60.0, name="oillamp", flicker_n=0):
+    """Paraffin table lamp: brass base, glass chimney with flame, warm point light. Returns (root, light)."""
+    root = empty(name, loc)
+    br = L.mat_principled(name + "_brass", (0.35, 0.24, 0.1), rough=0.35, metal=0.9)
+    gl = L.mat_principled(name + "_glass", (0.9, 0.85, 0.75), rough=0.05, emit=(1.0, 0.7, 0.4), emit_strength=0.6, alpha=0.35)
+    gl.surface_render_method = "BLENDED"
+    for (z, r1, r2, d) in ((0.02, 0.07, 0.07, 0.04), (0.08, 0.055, 0.07, 0.09), (0.15, 0.03, 0.04, 0.05)):
+        c = L.prim("cone", loc=(0, 0, z), vertices=20, radius1=r2, radius2=r1, depth=d)
+        L.assign(c, br)
+        c.parent = root
+        c.location = (0, 0, z)
+    ch = L.prim("cyl", loc=(0, 0, 0.26), vertices=20, radius=0.032, depth=0.18)
+    L.assign(ch, gl)
+    ch.parent = root
+    ch.location = (0, 0, 0.26)
+    ch.visible_shadow = False
+    fl = L.prim("sphere", loc=(0, 0, 0.21), radius=0.012, segments=10, ring_count=6)
+    fl.scale = (1, 1, 2.0)
+    L.assign(fl, L.mat_emission(name + "_flame", (1.0, 0.65, 0.25), 25))
+    fl.parent = root
+    fl.location = (0, 0, 0.21)
+    fl.visible_shadow = False
+    pt = L.point((0, 0, 0.23), energy=energy, color=(1.0, 0.62, 0.3), radius=0.03, name=name + "_pt")
+    pt.parent = root
+    pt.location = (0, 0, 0.23)
+    if flicker_n:
+        L.flicker(pt, flicker_n, depth=0.12, rate=0.5, seed=4)
+    return root, pt
+
+
+def laptop(loc, rot_z=0.0, open_deg=105, screen_color=(0.45, 0.62, 0.9), strength=2.5, name="laptop"):
+    """Generic modern laptop: dark base + lid with a glowing (abstract, text-free) screen. Screen faces -Y locally."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    m = L.mat_principled(name + "_m", (0.06, 0.065, 0.07), rough=0.35, metal=0.6)
+    b = L.prim("cube", loc=(0, 0, 0.009))
+    b.scale = (0.17, 0.12, 0.009)
+    L.assign(b, m)
+    b.parent = root
+    kb = L.prim("plane", loc=(0, 0.015, 0.0185), size=1)
+    kb.scale = (0.3, 0.1, 1)
+    L.assign(kb, L.mat_principled(name + "_kb", (0.015, 0.015, 0.018), rough=0.6))
+    kb.parent = root
+    hinge = empty(name + "_hinge", (0, 0.12, 0.018), root)
+    hinge.rotation_euler = (math.radians(open_deg - 90) * -1 + 0, 0, 0)
+    lid = L.prim("cube", loc=(0, 0, 0.115))
+    lid.scale = (0.17, 0.006, 0.115)
+    L.assign(lid, m)
+    lid.parent = hinge
+    lid.location = (0, 0.0, 0.115)
+    sm, n, l = L._mat(name + "_scr")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    tc = n.new("ShaderNodeTexCoord")
+    wv = n.new("ShaderNodeTexWave")
+    wv.wave_type = "BANDS"
+    wv.bands_direction = "Y"
+    wv.inputs["Scale"].default_value = 3.0
+    l.new(tc.outputs["UV"], wv.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = (screen_color[0] * 0.5, screen_color[1] * 0.5, screen_color[2] * 0.5, 1)
+    ramp.color_ramp.elements[1].color = (*screen_color, 1)
+    l.new(wv.outputs["Fac"], ramp.inputs["Fac"])
+    e = n.new("ShaderNodeEmission")
+    e.inputs[1].default_value = strength
+    l.new(ramp.outputs["Color"], e.inputs[0])
+    l.new(e.outputs[0], n["Material Output"].inputs["Surface"])
+    sc = L.prim("plane", loc=(0, 0, 0), size=1, rot=(math.pi / 2, 0, 0))
+    sc.scale = (0.31, 0.2, 1)
+    L.assign(sc, sm)
+    sc.parent = hinge
+    sc.location = (0, -0.0065, 0.118)
+    return root, hinge
+
+
+def case_folder(loc, rot_z=0.0, size=(0.34, 0.25), name="folder", color=(0.5, 0.4, 0.22), label="AKTE"):
+    """Thick manila case file with a stack of yellowed pages; cover hinged on the local -X edge (animate
+    out['cover'].rotation_euler.y from 0 to -pi). Returns dict."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    w, h = size
+    fm = L.mat_noise_surface(name + "_m", tuple(c * 0.75 for c in color), color, scale=20, bump=0.08, voronoi=False, rough=0.8)
+    back = L.prim("cube", loc=(0, 0, 0.002))
+    back.scale = (w / 2, h / 2, 0.002)
+    L.assign(back, fm)
+    back.parent = root
+    st = L.prim("cube", loc=(0.004, 0, 0.022))
+    st.scale = (w / 2 - 0.01, h / 2 - 0.008, 0.018)
+    L.assign(st, mat_paper(name + "_pages", (0.62, 0.56, 0.4)))
+    st.parent = root
+    hinge = empty(name + "_hinge", (-w / 2, 0, 0.042), root)
+    cv = L.prim("cube", loc=(0, 0, 0))
+    cv.scale = (w / 2, h / 2, 0.002)
+    L.assign(cv, fm)
+    cv.parent = hinge
+    cv.location = (w / 2, 0, 0)
+    ink = L.mat_principled(name + "_ink", (0.08, 0.05, 0.03), rough=0.8)
+    lb = L.prim("plane", loc=(0, 0, 0), size=1)
+    lb.scale = (0.16, 0.06, 1)
+    L.assign(lb, mat_paper(name + "_lab", (0.75, 0.72, 0.62)))
+    lb.parent = hinge
+    lb.location = (w / 2, 0.04, 0.0025)
+    t = L.text3d(label, loc=(0, 0, 0), rot=(0, 0, 0), size=0.03, extrude=0, mat=ink, name=name + "_t")
+    t.data.font = _font(F_SERIF_B) or t.data.font
+    t.data.align_y = "CENTER"
+    t.parent = hinge
+    t.location = (w / 2, 0.04, 0.003)
+    # top page with typed-text bars (generic)
+    bm = bmesh.new()
+    rnd = random.Random(2)
+    y = h / 2 - 0.035
+    while y > -h / 2 + 0.03:
+        ln = (w - 0.07) * (rnd.uniform(0.4, 0.95) if rnd.random() < 0.3 else 0.95)
+        bmesh.ops.create_grid(bm, x_segments=1, y_segments=1, size=0.5,
+                              matrix=Matrix.Translation((-w / 2 + 0.035 + ln / 2, y, 0.0405)) @ Matrix.Diagonal((ln, 0.004, 1, 1)))
+        y -= 0.011 if rnd.random() > 0.1 else 0.022
+    o = L.mesh_from_bm(name + "_lines", bm)
+    L.assign(o, L.mat_principled(name + "_lm", (0.22, 0.2, 0.17), rough=0.9))
+    o.parent = root
+    return {"root": root, "cover": hinge}

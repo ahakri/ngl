@@ -189,9 +189,10 @@ def ov_map(t, dur, text, p):
     d = ImageDraw.Draw(im)
     if text:
         lines = text.split("\n")
-        shadow_text(d, (W // 2, cy0 - 70), lines[0], font(F_ANTON, 84), fill=(255, 255, 255, int(255 * a)), anchor="mm", stroke=5)
-        if len(lines) > 1:
-            shadow_text(d, (W // 2, cy0 + ch + 60), lines[1], font(F_OSWALD, 44), fill=(*acc, int(255 * a)), anchor="mm", stroke=3)
+        two = len(lines) > 1
+        shadow_text(d, (W // 2, cy0 - (120 if two else 70)), lines[0], font(F_ANTON, 84), fill=(255, 255, 255, int(255 * a)), anchor="mm", stroke=5)
+        if two:  # subtitle sits between title and card (below-card position collided with captions)
+            shadow_text(d, (W // 2, cy0 - 40), lines[1], font(F_OSWALD, 44), fill=(*acc, int(255 * a)), anchor="mm", stroke=3)
     return im
 
 

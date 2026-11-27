@@ -214,7 +214,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "EYEWITNESS CLAIM",
      "start": 0.6,
      "params": {
       "y": 200
@@ -256,7 +256,7 @@
    "overlay": [
     {
      "type": "map",
-     "text": "HINTERKAIFECK\nUpper Bavaria, Germany",
+     "text": "HINTERKAIFECK",
      "params": {
       "land": [
        [
@@ -344,7 +344,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "EYEWITNESS CLAIM",
      "start": 0.3,
      "params": {
       "y": 200
@@ -356,7 +356,7 @@
      "start": 1.0,
      "params": {
       "header": "SOURCE",
-      "y": 1350
+      "y": 1420
      }
     }
    ],
@@ -386,7 +386,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "EYEWITNESS CLAIM",
      "start": 0.3,
      "params": {
       "y": 200
@@ -436,7 +436,7 @@
     },
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "EYEWITNESS CLAIM",
      "params": {
       "y": 200
      }
@@ -476,7 +476,7 @@
      "start": 0.8,
      "params": {
       "size": 90,
-      "y": 1400
+      "y": 1470
      }
     }
    ],
@@ -718,7 +718,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "WITNESS CLAIM",
+     "text": "EYEWITNESS CLAIM",
      "start": 0.2,
      "params": {
       "y": 200
@@ -762,7 +762,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "WITNESS CLAIM",
+     "text": "EYEWITNESS CLAIM",
      "params": {
       "y": 200
      }
@@ -811,7 +811,7 @@
      "start": 1.0,
      "params": {
       "header": "CONCLUSION",
-      "y": 1300
+      "y": 1420
      }
     }
    ],
@@ -855,7 +855,7 @@
    "overlay": [
     {
      "type": "counter",
-     "text": "SUSPECTS LOOKED AT",
+     "text": "SUSPECTS LOOKED AT (100+)",
      "params": {
       "from": 0,
       "to": 100
@@ -950,7 +950,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "DOCUMENTED FACT",
      "params": {
       "y": 200
      }
@@ -961,7 +961,7 @@
      "start": 1.4,
      "params": {
       "header": "MAIN SUSPECT",
-      "y": 1300
+      "y": 1420
      }
     }
    ],
@@ -999,7 +999,7 @@
      "start": 0.3,
      "params": {
       "header": "IN MEMORY - 31 MARCH 1922",
-      "y": 1200
+      "y": 1420
      }
     },
     {

@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T15:53:03Z
+Updated: 2026-11-27T16:12:04Z
 
 ## Concept counts
 
@@ -16,10 +16,11 @@ Updated: 2026-11-27T15:53:03Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 21
+- ANIMATED - in render queue: 20
+- ANIMATING: 1
 - CONCEPT: 72
-- QC PASSED: 1
-- SCRIPTED: 6
+- QC PASSED: 2
+- SCRIPTED: 5
 
 ## Videos in production
 
@@ -39,11 +40,11 @@ Updated: 2026-11-27T15:53:03Z
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | ANIMATED - in render queue |
 | SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | ANIMATED - in render queue |
 | SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 75 | SCRIPTED |
-| MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATED - in render queue |
+| MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | QC PASSED |
 | MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | ANIMATED - in render queue |
 | MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | ANIMATED - in render queue |
-| MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | SCRIPTED |
+| MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | ANIMATING |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |
