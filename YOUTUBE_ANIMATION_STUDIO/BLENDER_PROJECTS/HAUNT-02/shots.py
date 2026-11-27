@@ -13,12 +13,12 @@ S01_N = 118
 BED_C = (-0.2, 0.3, 0.7)
 
 
-def _orbit_pos(deg, r=3.1, h=1.75):
+def _orbit_pos(deg, r=2.5, h=1.75):
     a = math.radians(deg)
     return (BED_C[0] + r * math.cos(a), BED_C[1] + r * math.sin(a), h)
 
 
-S09_P0 = _orbit_pos(-118)
+S09_P0 = _orbit_pos(-112)
 S09_T = (BED_C[0] + 0.05, BED_C[1] + 0.2, 0.62)
 
 
@@ -41,20 +41,14 @@ def S02(L, n):
     bpy.context.scene.eevee.volumetric_end = 140
     L.set_world((0.02, 0.03, 0.055), 1.0)
     H.hotel_facade(n)
-    L.sun(rot=(1.1, 0.0, 2.8), energy=0.9, color=(0.55, 0.65, 1.0), angle=6)
+    L.sun(rot=(1.0, 0.0, 2.8), energy=1.6, color=(0.6, 0.7, 1.0), angle=6)
     moon = L.prim("sphere", loc=(-40, 260, 120), segments=24, ring_count=12, radius=7)
     L.assign(moon, L.mat_emission("moonm", (0.8, 0.85, 1.0), 3))
     # layered fog cards in front of the mountains + volume around the hotel
-    for i, (y, z, a) in enumerate(((120, 25, 0.55), (160, 45, 0.5), (80, 12, 0.35))):
-        card = L.prim("plane", loc=(0, y, z), size=1, rot=(math.pi / 2, 0, 0))
-        card.scale = (500, 40, 1)
-        m = L.mat_principled(f"fogcard{i}", (0.3, 0.34, 0.42), rough=1, emit=(0.22, 0.26, 0.34), emit_strength=0.8, alpha=a)
-        m.surface_render_method = "BLENDED"
-        L.assign(card, m)
     L.fog_volume(center=(0, -10, 10), size=(140, 110, 30), density=0.006, color=(0.7, 0.75, 0.85))
-    H.snowfall((0, -50, 9), (36, 30, 22), n, count=1800, speed=1.2)
+    H.snowfall((0, -25, 9), (40, 40, 22), n, count=1800, speed=1.2)
     p0, t0 = (0.0, -78.0, 24.0), (0.0, 0.0, 9.0)
-    p1, t1 = (0.0, -64.0, 5.0), (0.0, 0.0, 11.0)
+    p1, t1 = (0.0, -50.0, 4.0), (0.0, 0.0, 10.5)
     c = H.cam(p0, t0, lens=35)
     H.cam_move(c, [(1, p0, t0), (n, p1, t1)])
     L.bake_static()
@@ -123,13 +117,13 @@ def S04(L, n):
 # --------------------------------------------------------------------------- S05 corridor reverse angle
 def S05(L, n):
     _night_world(L)
-    H.hotel_corridor(n, sconce_level=0.0, d217="ajar", spill=1.3, far_window=1.6, dust_count=300)
+    H.hotel_corridor(n, sconce_level=0.12, d217="ajar", spill=1.6, far_window=0.35, fog=0.02, dust_count=300)
     p, t = (0.25, 22.6, 1.6), (0.5, 8.0, 1.15)
     c = H.cam(p, t, lens=28)
     c.data.keyframe_insert("lens", frame=1)
     c.data.lens = 28 * 1.03
     c.data.keyframe_insert("lens", frame=n)
-    L.cam_light(c, energy=6, color=(0.6, 0.7, 1.0))
+    L.cam_light(c, energy=20, color=(0.6, 0.7, 1.0))
     L.bake_static()
 
 
@@ -140,8 +134,9 @@ def S06(L, n):
     r = H.room217(n, era="1911", gaslamp=True, dust_count=300)
     g = (-2.1 + 0.26, 0.9, 2.1)
     p0, p1 = (1.3, -1.7, 1.7), (0.3, -0.75, 1.85)
-    c = H.cam(p0, g, lens=50)
-    H.cam_move(c, [(1, p0, g), (n, p1, g)])
+    p0, p1 = (1.6, -2.1, 1.65), (0.6, -1.0, 1.8)
+    c = H.cam(p0, g, lens=30)
+    H.cam_move(c, [(1, p0, g, None, 30), (n, p1, g, None, 50)])
     L.cam_light(c, energy=8, color=(1.0, 0.85, 0.6))
     L.bake_static()
 
@@ -215,6 +210,7 @@ def S08(L, n):
     fc.parent = c
     L.assign(fc, fm)
     H.key_emission(fm, [(1, 60), (3, 40), (5, 12), (7, 2), (9, 0)], interp="LINEAR")
+    H.key_vis(fc, [(1, True), (9, False)])
     fl_l = L.point((0, 0.6, Hh + 0.5), energy=0, color=(1, 0.95, 0.85), radius=0.5, name="flashl")
     H.key_energy(fl_l, [(1, 60000), (4, 20000), (8, 0)], interp="LINEAR")
     rnd = random.Random(2)
@@ -241,7 +237,7 @@ def S09(L, n):
     pairs = [(1, 24), (int(n * 0.24), 0), (int(n * 0.24) + 3, 24), (int(n * 0.42), 0), (int(n * 0.42) + 4, 24)]
     H.key_energy(dl["light"], pairs)
     H.key_emission(dl["shade_mat"], [(f, 1.6 if e else 0) for f, e in pairs])
-    keys = [(1, S09_P0, S09_T), (n, _orbit_pos(-100), S09_T)]
+    keys = [(1, S09_P0, S09_T), (n, _orbit_pos(-102), S09_T)]
     c = H.cam(S09_P0, S09_T, lens=28)
     H.cam_move(c, keys)
     L.cam_light(c, energy=12, color=(0.7, 0.75, 0.9))
@@ -345,20 +341,20 @@ def S12(L, n):
     lin = H.box_mesh("linen", [(0, 0, 0, 0.2, 0.15, 0.09)], L.mat_principled("linenm", (0.9, 0.88, 0.84), rough=0.9), bevel=0.02)
     lin.parent = maid["pelvis"]
     lin.location = (0, 0.32, 0.38)
-    p0, t0 = (0.1, 0.6, 1.5), (0.0, 9.0, 1.1)
+    p0, t0 = (0.1, -0.6, 1.55), (0.0, 9.0, 1.0)
     c = H.cam(p0, t0, lens=35)
-    H.cam_move(c, [(1, p0, t0), (n, (0.12, 3.1, 1.5), (0.05, 11.0, 1.1))], ease=False)
+    H.cam_move(c, [(1, p0, t0), (n, (0.12, 1.5, 1.55), (0.05, 11.0, 1.0))], ease=False)
     L.bake_static()
 
 
 # --------------------------------------------------------------------------- S14 the ghost tour
 def S14(L, n):
     _night_world(L, (0.003, 0.004, 0.007))
-    H.hotel_corridor(n, sconce_level=0.0, d217="closed", spill=0.0, far_window=1.0, dust_count=250)
+    H.hotel_corridor(n, sconce_level=0.3, d217="closed", spill=0.6, far_window=1.0, dust_count=250)
     exit_f = n - 22
     group = []
-    starts = [(0.25, 11.7), (-0.25, 12.3), (0.3, 12.75), (-0.2, 13.2), (0.2, 13.7)]
-    travel = 5.0
+    starts = [(0.45, 10.45), (0.7, 10.85), (0.35, 11.25), (0.65, 11.65), (0.4, 12.05)]
+    travel = 3.75
     for i, (x, y) in enumerate(starts):
         f = H.figure(f"tour{i}", height=[1.8, 1.7, 1.62, 1.85, 1.68][i], coat=i > 0)
         f["root"].rotation_euler = (0, 0, math.pi)
@@ -375,14 +371,14 @@ def S14(L, n):
     gl = L.prim("sphere", loc=(0, 0, 0), segments=10, ring_count=6, radius=0.04)
     L.assign(gl, lm)
     gl.parent = lan
-    ll = L.point((0, 0, 0), energy=60, color=(1.0, 0.68, 0.35), radius=0.05, name="lanl")
+    ll = L.point((0, 0, 0), energy=160, color=(1.0, 0.68, 0.35), radius=0.05, name="lanl")
     ll.parent = lan
-    H.flicker_mat_with_light(ll, lm, n, 60, 12, seed=7, depth=0.3, rate=0.7)
+    H.flicker_mat_with_light(ll, lm, n, 160, 12, seed=7, depth=0.3, rate=0.7)
     H.key_vis([gl], [(1, True)])
     # after the group leaves, the lantern light must be gone too (it is parented, so it leaves with them)
-    p, t = (-0.95, 6.9, 1.5), (1.2, 10.2, 1.25)
-    c = H.cam(p, t, lens=28)
-    L.cam_light(c, energy=4, color=(0.6, 0.7, 1.0))
+    p, t = (-1.05, 9.5, 1.45), (1.2, 9.5, 1.3)
+    c = H.cam(p, t, lens=24)
+    L.cam_light(c, energy=25, color=(0.6, 0.7, 1.0))
     L.bake_static()
 
 
@@ -414,6 +410,8 @@ def S16(L, n):
             kp.interpolation = "CONSTANT"
     H.key_energy(s["spill"], [(1, 120), (off_f, 0), (cut_f, 650)])
     H.key_emission(s["strip_mat"], [(1, 4.0), (off_f, 0.0), (cut_f, 0.0)])
+    H.key_emission(s["slit_mat"], [(1, 0.0), (cut_f, 8.0)])
+    H.key_emission(s["wedge_mat"], [(1, 0.0), (cut_f, 0.9)])
     cm = H.cam(CC["start"], CC["target"], lens=CC["lens"])
     e = tuple(CC["start"][i] + (CC["end"][i] - CC["start"][i]) * (n - cut_f) / S01_N for i in range(3))
     H.cam_move(cm, [(1, CC["start"], CC["target"]), (cut_f, CC["start"], CC["target"]), (n, e, CC["target"])], ease=False)

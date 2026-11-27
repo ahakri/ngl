@@ -130,7 +130,10 @@ def okene_set(L, n, ripple=0.012, debris=500, fig=True, flashlight=True, water_d
     out["bounce"] = L.area((0.0, 0.2, WATER + 0.06), (0, 0, 0), energy=pocket_light, size=1.6, color=WARM, name="bounce")
     out["bounce"].rotation_euler = (PI, 0, 0)  # emit upward
     out["underfill"] = L.point((0.4, -0.5, 0.45), energy=12, color=(0.3, 0.8, 0.75), radius=0.4, name="underfill")
-    out["rim"] = L.point((-0.6, 0.85, h - 0.35), energy=8, color=WARM, radius=0.15, name="rim")
+    out["rim"] = L.point((-0.6, 0.85, h - 0.35), energy=14, color=WARM, radius=0.15, name="rim")
+    if fig:
+        fl = Vector(fig_loc)
+        out["figkey"] = L.point((fl.x + 0.55, fl.y - 0.45, WATER + 0.75), energy=10, color=WARM, radius=0.25, name="figkey")
     if debris:
         L.particle_cloud((0, 0, WATER / 2), (w * 0.95, d * 0.95, WATER * 0.9), count=debris, radius=0.003, nframes=n,
                          drift=(0.01, 0.0, 0.015), name="debris",
@@ -267,7 +270,7 @@ def S03(L, n):
         hinge.location = (door.location.x, door.location.y - 0.42, door.location.z)
         door.parent = hinge
         door.location = (0, 0.42, 0)
-        for f, a in ((1, -0.45), (16, -0.4), (30, -0.08), (34, 0.0), (n, 0.0)):
+        for f, a in ((1, 0.9), (16, 0.8), (30, 0.12), (34, 0.0), (n, 0.0)):
             hinge.rotation_euler = (0, 0, a)
             hinge.keyframe_insert("rotation_euler", frame=f)
     # rush of water under/through the door + sliding bucket
@@ -997,8 +1000,8 @@ def S17(L, n):
         lamp.scale = (0.25, 0.1, 0.15)
         L.assign(lamp, L.mat_emission("floodm", (1.0, 0.6, 0.25), 20))
     # steam from a vent + light rain
-    L.particle_cloud((-1.9, 1.2, 2.2), (0.4, 0.4, 1.6), count=700, radius=0.015, nframes=n, drift=(0.1, 0, 0.6), name="steam",
-                     mat=L.mat_principled("stm", (0.8, 0.8, 0.8), rough=1, emit=(0.5, 0.45, 0.4), emit_strength=0.3))
+    L.particle_cloud((-1.9, 1.2, 2.2), (0.5, 0.5, 2.2), count=260, radius=0.012, nframes=n, drift=(0.15, 0, 0.6), name="steam",
+                     mat=L.mat_principled("stm", (0.5, 0.5, 0.5), rough=1, emit=(0.3, 0.28, 0.25), emit_strength=0.1))
     vent = L.prim("cyl", loc=(-1.9, 1.2, 1.9), vertices=10, radius=0.06, depth=0.3, name="vent")
     L.assign(vent, L.mat_principled("ventm", (0.3, 0.3, 0.3), metal=1, rough=0.3))
     rain = L.particle_cloud((0, 0, 2.5), (14, 14, 1.0), count=1000, radius=0.008, nframes=n, drift=(0.2, 0, -2.0), name="rain",
@@ -1030,7 +1033,7 @@ def S18(L, n):
 def S19(L, n):
     o = okene_set(L, n, pocket_light=14, arm_up=False, fig_loc=(-0.1, 0.4, 0.0), fig_rot=0.2)
     o["flash_spot"].data.energy = 40
-    dv = _diver_in_pocket(L, n, (0.65, -0.3, WATER - 0.62), (-0.1, 0.4), energy=260)
+    dv = _diver_in_pocket(L, n, (0.32, -0.05, WATER - 0.62), (-0.1, 0.4), energy=260)
     # torch beam settles onto the figure
     t = dv["torch"]
     for f, rx, ry in ((1, 0.6, 0.45), (int(n * 0.5), 0.3, 0.05), (n, 0.25, 0.0)):

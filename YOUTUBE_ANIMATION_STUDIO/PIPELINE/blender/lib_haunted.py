@@ -154,7 +154,7 @@ def flicker_mat_with_light(light_o, mat, nframes, base_e, base_m, seed=1, depth=
     rnd = random.Random(seed)
     nt = mat.node_tree
     node = next((n for n in nt.nodes if n.type == "EMISSION"), None)
-    sock = node.inputs[1]
+    sock = node.inputs[1] if node else nt.nodes["Principled BSDF"].inputs["Emission Strength"]
     for f in range(1, nframes + 1, 2):
         k = 1 - depth * max(0, noise.noise(Vector((f * rate, seed, 0)))) - depth * 0.3 * rnd.random()
         if any(a <= f <= b for a, b in blackouts):
@@ -1110,6 +1110,20 @@ def hotel_corridor(n, mode="night", sconce_level=0.3, d217="ajar", spill=1.0, fa
              L.mat_principled("r217m", (0.6, 0.45, 0.3), rough=0.8))
     sp = L.point((rx + 0.9, D217_Y + 0.2, 1.3), energy=650 * spill, color=(1.0, 0.62, 0.3), radius=0.15, name="spill217")
     out["spill"] = sp
+    # light slit in the ajar gap + a warm wedge of spill across the carpet (the WRONG detail must read on a phone)
+    on = d217 in ("ajar", "open")
+    slit_m = L.mat_emission("slit217", (1.0, 0.66, 0.32), 8.0 * spill if on else 0.0)
+    out["slit"] = box_mesh("slit217", [(W / 2 + 0.06, D217_Y + 0.44, 1.08, 0.03, 0.035, 1.06)], slit_m)
+    out["slit_mat"] = slit_m
+    wm = L.mat_principled("wedge217", (0.0, 0.0, 0.0), rough=1, emit=(1.0, 0.6, 0.28), emit_strength=(0.9 * spill if on else 0.0), alpha=0.85)
+    wm.surface_render_method = "BLENDED"
+    bm_ = bmesh.new()
+    Y = D217_Y
+    vv = [bm_.verts.new(c) for c in ((W / 2, Y + 0.41, 0.004), (W / 2, Y + 0.49, 0.004), (W / 2 - 2.3, Y + 1.25, 0.004), (W / 2 - 2.3, Y + 0.85, 0.004))]
+    bm_.faces.new(vv)
+    out["wedge"] = L.mesh_from_bm("wedge217", bm_)
+    L.assign(out["wedge"], wm)
+    out["wedge_mat"] = wm
     # under-door glow strip (used when closed)
     strip_m = L.mat_emission("understrip", (1.0, 0.6, 0.28), 4.0 * spill if d217 == "closed" else 0.0)
     out["strip"] = box_mesh("strip217", [(W / 2 - 0.02, D217_Y, 0.004, 0.06, 0.45, 0.003)], strip_m)
@@ -1250,7 +1264,7 @@ def _hip_roof(name, c, w, d, h, mat):
 
 def snowfall(center, size, n, count=1500, speed=0.9, seed=31, name="snow"):
     m = L.mat_principled(name + "_m", (0.9, 0.92, 0.95), rough=1, emit=(0.6, 0.65, 0.75), emit_strength=0.25)
-    return L.particle_cloud(center, size, count=count, radius=0.05, mat=m, drift=(0.3, 0.0, -speed), seed=seed, nframes=n, name=name)
+    return L.particle_cloud(center, size, count=count, radius=0.022, mat=m, drift=(0.3, 0.0, -speed), seed=seed, nframes=n, name=name)
 
 
 def brass_bed(loc, name="bbed", w=1.5, l=2.0):
@@ -1310,7 +1324,7 @@ def suitcase(loc, rot_z=0.0, state="closed", name="case"):
         hp = empty(name + "_hinge", (0, D / 2, Hb), parent=root)
         box_mesh(name + "_lid", [(0, -D / 2, 0.05, W / 2, D / 2, 0.005), (0, -D / 2, 0.025, W / 2 - t, D / 2 - t, 0.002)], lea, parent=hp)
         box_mesh(name + "_lidlin", [(0, -D / 2, 0.012, W / 2 - t, D / 2 - t, 0.002)], lining, parent=hp)
-        hp.rotation_euler = (math.radians(105), 0, 0)
+        hp.rotation_euler = (math.radians(-105), 0, 0)
     return root
 
 

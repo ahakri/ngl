@@ -13,8 +13,8 @@ importlib.reload(S)
 
 PI = math.pi
 GOLD = dict(top=(0.05, 0.16, 0.45), horizon=(1.0, 0.55, 0.25), sun_col=(1.0, 0.68, 0.38))
-S01_CAM_A = (0.15, -2.2, 0.55)
-S01_CAM_B = (0.1, -1.6, 0.5)
+S01_CAM_A = (0.15, -2.2, 1.0)
+S01_CAM_B = (0.1, -1.6, 0.95)
 S01_TGT = (0.0, 30.0, 0.9)
 S01_BOB = 0.9  # phase
 
@@ -86,7 +86,7 @@ def boat_on_horizon(L, n, dist=240, x=-18, recede=30, name="boat"):
 # ----------------------------------------------------------------------------- S01 / S18 the empty horizon
 
 def _horizon_shot(L, n, cam_from, cam_to, t0=1.0, phase=S01_BOB, boat_from=(-18, 240), recede=40):
-    surface_env(L, n, elev=11, az=6, t0=t0, wave=2.2, chop=1.2)
+    surface_env(L, n, elev=11, az=6, t0=t0, wave=1.3, chop=1.1)
     two_divers(L, n, phase=phase)
     boat_on_horizon(L, n, dist=boat_from[1], x=boat_from[0], recede=recede)
     cam, tgt = L.camera(loc=cam_from, target=S01_TGT, lens=35)
@@ -113,7 +113,7 @@ def _swell(cam, n, a, b, ph):
 
 def S18(L, n):
     # ends exactly where S01 begins (camera, ocean time, bob phase), then hard cut back to S01
-    start = (0.2, -2.8, 0.6)
+    start = (0.2, -2.8, 1.05)
     t0 = 1.0 - (n - 1) / 24
     phase = S01_BOB - 2 * PI * 0.32 * (n - 1) / 24
     cam = _horizon_shot(L, n, start, S01_CAM_A, t0=t0, phase=phase, boat_from=(-18, 240), recede=0)
@@ -323,8 +323,8 @@ def S17(L, n):
     crew_with_clipboard(L, n, (-0.45, -3.2, 1.3), PI - 0.35, "crewA", ticks=8, tick_start=8, tick_every=9, check=int(n * 0.55))
     crew_with_clipboard(L, n, (0.6, -2.6, 1.3), PI + 0.4, "crewB", hat=(0.1, 0.25, 0.6), ticks=8, tick_start=12,
                         tick_every=9, check=int(n * 0.62))
-    cam, tgt = L.camera(loc=(-2.5, -6.8, 2.6), target=(0.05, -2.6, 2.3), lens=35)
-    L.cam_keys(cam, [(1, (-2.6, -6.6, 2.7)), (n, (1.8, -6.9, 2.6))])
+    cam, tgt = L.camera(loc=(-2.0, -7.4, 3.4), target=(0.05, -2.8, 2.2), lens=35)
+    L.cam_keys(cam, [(1, (-2.0, -7.6, 3.4)), (n, (1.6, -7.8, 3.3))])
     L.handheld(cam, n, amp=0.01, rate=0.4)
     _finish(L)
 
@@ -624,13 +624,13 @@ def S12(L, n):
     ws = S.wetsuit(loc=(0.4, 6.2, 0.03), rot=(0, 0, 2.4))
     S.seaweed_clump((0.4, 6.2, 0.0), count=16, seed=2)
     S.seaweed_clump((1.2, 3.5, 0.0), count=8, seed=5)
-    cam, tgt = L.camera(loc=(-1.0, -1.6, 0.55), target=(0.7, 1.6, 0.1), lens=35)
+    cam, tgt = L.camera(loc=(-0.6, -0.6, 0.4), target=(0.7, 1.6, 0.1), lens=35)
     far_cam(cam)
-    L.cam_keys(cam, [(1, (-1.1, -1.8, 0.55)), (n, (-0.9, 1.4, 0.5))], ease=False)
+    L.cam_keys(cam, [(1, (-0.6, -0.7, 0.4)), (n, (-0.5, 2.6, 0.38))], ease=False)
     L.cam_keys(tgt, [(1, (0.8, 1.5, 0.1)), (int(n * 0.45), (0.8, 2.6, 0.1)), (n, (0.4, 6.2, 0.05))])
     cam.data.dof.use_dof = True
     cam.data.dof.aperture_fstop = 1.6
-    for f, dd in ((1, 3.3), (int(n * 0.45), 3.4), (int(n * 0.7), 5.2), (n, 4.9)):
+    for f, dd in ((1, 2.6), (int(n * 0.45), 2.4), (int(n * 0.7), 3.9), (n, 3.7)):
         cam.data.dof.focus_distance = dd
         cam.data.dof.keyframe_insert("focus_distance", frame=f)
     L.handheld(cam, n, amp=0.01, rate=0.4)

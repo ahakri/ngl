@@ -532,14 +532,9 @@ def wavy_plane(size=10, nframes=120, loc=(0, 0, 0), amp=0.03, mat=None, sub=6, n
     s = o.modifiers.new("sub", "SUBSURF")
     s.subdivision_type = "SIMPLE"
     s.levels = s.render_levels = sub
-    for i, (sx, sy, w, sp) in enumerate(((0.3, -0.2, 0.35, 0.05), (-0.5, 0.4, 0.22, 0.07))):
-        wv = o.modifiers.new(f"wave{i}", "WAVE")
-        wv.height = amp * (1 - 0.4 * i)
-        wv.width = w
-        wv.speed = sp
-        wv.start_position_x = sx
-        wv.start_position_y = sy
-        wv.narrowness = 1.5
+    # NOTE: Wave modifiers made glossy domes that mirrored the air pocket as white discs; the animated bump in the
+    # surface material carries the ripples instead. A faint static swell keeps the reflection alive.
+    L.add_displace(o, strength=amp, scale=0.3, name=name + "_swell")
     L.smooth(o)
     if mat:
         L.assign(o, mat)
@@ -1014,7 +1009,7 @@ def inverted_compartment(w=2.4, d=2.2, h=2.4, water=1.2, nframes=120, wall_col=(
     vol = L.water_volume(center=(0, 0, water / 2 - 0.05), size=(w + 0.02, d + 0.02, water + 0.1), color=water_col,
                          density=water_density, anisotropy=0.6, absorption=(0.02, 0.12, 0.12), name=name + "_water")
     P["volume"] = vol
-    sm = mat_water_surface(name + "_surfm", color=(0.01, 0.04, 0.045), rough=0.03, alpha=surface_alpha,
+    sm = mat_water_surface(name + "_surfm", color=(0.01, 0.04, 0.045), rough=0.22, alpha=surface_alpha,
                            under_color=(0.25, 0.55, 0.5), under_strength=0.25, ripple=0.04, nframes=nframes)
     surf = wavy_plane(size=(w, d), nframes=nframes, loc=(0, 0, water), amp=ripple_amp, mat=sm, name=name + "_surface")
     P["surface"] = surf

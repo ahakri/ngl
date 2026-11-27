@@ -1072,8 +1072,8 @@ def ice_sheet(z=0.0, size=40, thickness=0.5, hole=None, seed=3, name="ice"):
     vr.inputs["Scale"].default_value = 1.6
     l.new(tc.outputs["Object"], vr.inputs["Vector"])
     ramp = n.new("ShaderNodeValToRGB")
-    ramp.color_ramp.elements[0].color = (0.25, 0.25, 0.25, 1)
-    ramp.color_ramp.elements[1].color = (0.05, 0.05, 0.05, 1)
+    ramp.color_ramp.elements[0].color = (0.14, 0.14, 0.14, 1)
+    ramp.color_ramp.elements[1].color = (0.06, 0.06, 0.06, 1)
     ramp.color_ramp.elements[1].position = 0.6
     l.new(vr.outputs["Distance"], ramp.inputs["Fac"])
     l.new(ramp.outputs["Color"], p.inputs["Emission Strength"])

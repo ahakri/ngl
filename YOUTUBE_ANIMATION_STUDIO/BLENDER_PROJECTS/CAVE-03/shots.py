@@ -75,9 +75,15 @@ def S01(L, n):
         bar.keyframe_insert("location", frame=f)
     bar.location = (b.x + 0.1, -0.42, 0.6)
     bar.keyframe_insert("location", frame=cut_end + 6)
+    # glowing kerfs: sides 0-1 and 2-0 already cut, side 1-2 follows the bar
+    km = C.emis("kerf", (0.9, 0.97, 1.0), 12)
+    for i0, i1 in ((0, 1), (2, 0)):
+        C.curve([(*TRI[i0], -0.01), (*TRI[i1], -0.01)], thickness=0.012, mat=km, name="kerf")
+    k2 = C.curve([(*TRI[1], -0.01), (*TRI[2], -0.01)], thickness=0.012, mat=km, name="kerf2")
+    C.grow_curve(k2, [(1, 0.0), (cut_end, 1.0)])
     # bubbles + ice chips from the cut
     L.bubbles_stream((0.0, -0.45, -0.3), count=60, nframes=n, rise=0.5, spread=0.4, size=0.02, name="cutbub")
-    chips = C.cloud((0.0, -0.45, -0.35), (1.2, 0.3, 0.3), count=300, radius=0.008, color=(0.9, 0.95, 1.0), emit=0.5,
+    chips = C.cloud((0.0, -0.45, -0.35), (1.6, 0.6, 0.5), count=150, radius=0.008, color=(0.9, 0.95, 1.0), emit=0.5,
                     seed=2, name="chips")
     C.key_loc(chips, [(1, (0, -0.45, -0.25)), (n, (0.1, -0.6, -1.4))])
     C.key_scale(chips, [(1, 0.4), (n, 1.6)])
@@ -121,8 +127,9 @@ def S18(L, n):
         L.assign(lens, C.emis("recl", (1, 0.95, 0.85), 30))
         lens.parent = root
         x, y = rnd.uniform(-0.25, 0.25), rnd.uniform(-0.15, 0.3)
-        C.key_loc(root, [(1, (x, y, 1.8)), (st, (x, y, 1.6)), (st + 30, (x * 3, y * 3 - 0.2, -2.5)),
-                         (n, (x * 4, y * 4 - 0.3, -3.5))])
+        ang = i * 2.4
+        ex, ey = math.cos(ang) * 1.6, math.sin(ang) * 1.6 + 0.4
+        C.key_loc(root, [(1, (x, y, 1.8)), (st, (x, y, 1.6)), (st + 30, (ex, ey, -1.4)), (n, (ex * 1.2, ey * 1.2, -1.9))])
         C.hide_from_frame([root, body, lens], f_show=st)
     p = C.cloud((0, 0, -2), (6, 6, 3), count=1500, radius=0.005, emit=0.15, seed=4)
     C.drift(p, n, (0.02, 0.01, 0.03))
@@ -452,8 +459,8 @@ def S05(L, n):
         lon += 1.1
     C.text("ARCTIC CIRCLE", mp(24.5, 66.8, 0.04), size=0.32, color=(0.85, 0.9, 1.0), strength=2.5, rot=(0, 0, 0),
            name="aclab")
-    for name_, ll, sz in (("NORWAY", (8.2, 61.6), 0.55), ("SWEDEN", (15.2, 62.3), 0.5), ("FINLAND", (26.4, 63.0), 0.45)):
-        C.text(name_, mp(*ll, 0.04), size=sz, color=(0.55, 0.65, 0.75), strength=1.5, rot=(0, 0, 0), name="ctry")
+    for name_, ll, sz in (("NORWAY", (8.4, 61.4), 0.8), ("SWEDEN", (15.6, 62.6), 0.7), ("FINLAND", (26.4, 63.2), 0.65)):
+        C.text(name_, mp(*ll, 0.14), size=sz, color=(0.7, 0.8, 0.9), strength=3.0, rot=(0, 0, 0), name="ctry")
     # pin
     px, py, _ = mp(*PLURA_LL)
     pin = L.link(bpy.data.objects.new("pin", None))
@@ -465,15 +472,15 @@ def S05(L, n):
     land_ring = L.prim("torus", loc=(px, py, 0.05), major_radius=0.3, minor_radius=0.02, name="pinring")
     L.assign(land_ring, C.emis("pinring_m", C.CYAN, 5))
     drop = int(n * 0.6)
-    C.key_loc(pin, [(1, (px, py, 6)), (drop - 6, (px, py, 6)), (drop, (px, py, 0.05)), (drop + 3, (px, py, 0.15)),
+    C.key_loc(pin, [(1, (px, py, 2.5)), (drop - 6, (px, py, 2.5)), (drop, (px, py, 0.05)), (drop + 3, (px, py, 0.15)),
                     (drop + 6, (px, py, 0.05))])
     C.key_scale(land_ring, [(1, 0.0), (drop, 0.0), (drop + 4, 1.4), (n, 1.0)])
-    C.text("PLURA", (px + 0.25, py + 0.45, 0.06), size=0.3, color=(1, 1, 1), strength=4, rot=(0, 0, 0), align="LEFT",
+    C.text("PLURA", (px + 0.3, py + 0.1, 0.16), size=0.55, color=(1, 1, 1), strength=4, rot=(0, 0, 0), align="LEFT",
            name="plab")
     L.sun(rot=(0.3, 0.2, 0.4), energy=2.0, color=(0.8, 0.9, 1.0))
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (0.6, -2.5, 30), (0.6, 0.0, 0)), (int(n * 0.55), (px, py - 1.0, 8.0), (px, py + 0.4, 0)),
-                       (n, (px, py - 0.8, 6.0), (px, py + 0.5, 0))])
+    C.aim_cam(cam, n, [(1, (0.6, -1.6, 21), (0.6, -0.6, 0)), (int(n * 0.55), (px + 0.5, py - 1.8, 13.0), (px + 0.5, py - 0.2, 0)),
+                       (n, (px + 0.5, py - 1.6, 12.0), (px + 0.5, py - 0.1, 0))])
     L.bake_static()
 
 
@@ -483,6 +490,11 @@ def _plura_water(L, density=0.03, center=(0, 0, 0), size=(40, 40, 12)):
     C.world_black((0.0, 0.006, 0.01))
     C.render_quality(vol_end=35)
     return C.water(center=center, size=size, color=(0.5, 0.72, 0.82), density=density, absorption=(0.1, 0.22, 0.25))
+
+
+def _amb(L, pts, energy=250, color=(0.45, 0.7, 0.95)):
+    for p in pts:
+        L.point(p, energy=energy, color=color, radius=1.0, name="amb")
 
 
 MARBLE = lambda: C.rock_mat("marble", (0.08, 0.1, 0.12), (0.42, 0.47, 0.52), scale=1.1, bump=0.7)
@@ -508,12 +520,13 @@ def S07(L, n):
     _plura_water(L, density=0.025, size=(60, 20, 12))
     path = [(-24, 0, 0), (-10, 0.3, 0.3), (2, 0, -0.2), (14, -0.3, 0.2), (28, 0, 0)]
     C.tunnel(path, radius=3.2, seed=3, rough=0.5, mat=MARBLE(), name="plura_t")
+    _amb(L, [(x, 0.5, 1.2) for x in (-10, -4, 2, 8, 14)], energy=400)
     C.line([(-24, 0.9, -1.6), (-6, 1.0, -1.7), (6, 0.8, -1.6), (28, 0.9, -1.6)], thickness=0.01, emit=0.8, name="gl")
     divers = []
     for i, (fins, y, z, st) in enumerate(((FIN_A, 0.7, 0.2, 1), (FIN_B, 1.4, -0.3, 8))):
         d = _scooter_diver(f"t1d{i}", fins)
         d["root"].rotation_euler = (0, 0, -math.pi / 2)
-        C.key_loc(d["root"], [(st, (-7, y, z)), (st + 40, (9, y, z + 0.1))])
+        C.key_loc(d["root"], [(1, (-5 - st * 0.3, y, z)), (34, (7 - st * 0.3, y, z + 0.1))])
         L.linear_fcurves(d["root"])
         L.anim_swim(d, n, kick_rate=0.3, amp=0.08)
         divers.append(d)
@@ -525,16 +538,16 @@ def S07(L, n):
     fm = C.emis("flashm", (1, 1, 1), 0.0)
     L.assign(fl, fm)
     fe = fm.node_tree.nodes["Emission"].inputs[1]
-    C.key_input(fe, [(1, 0), (38, 0), (41, 30), (44, 30), (50, 0)])
-    C.hide_from_frame([fl], f_show=38, f_hide=51)
+    C.key_input(fe, [(1, 0), (34, 0), (37, 30), (39, 30), (44, 0)])
+    C.hide_from_frame([fl], f_show=34, f_hide=45)
     # team two: three lights entering later
     for i, fins in enumerate((FIN_C, FIN_T2[0], FIN_T2[1])):
         d = _scooter_diver(f"t2d{i}", fins, light=1800)
         d["root"].rotation_euler = (0, 0, -math.pi / 2)
         y = 1.0 + i * 0.7
-        C.key_loc(d["root"], [(1, (-30, y, 0)), (46, (-14 - i * 2, y, 0.1 * i)), (n, (-3 - i * 2.2, y, 0.1 * i))])
+        C.key_loc(d["root"], [(1, (-30, y, 0)), (40, (-9 - i * 2, y, 0.1 * i)), (n, (0.5 - i * 2.2, y, 0.1 * i))])
         L.linear_fcurves(d["root"])
-        C.hide_from_frame([o for o in bpy.data.objects if o.name.startswith(f"t2d{i}")], f_show=46)
+        C.hide_from_frame([o for o in bpy.data.objects if o.name.startswith(f"t2d{i}")], f_show=40)
     p = C.cloud((0, 1, 0), (16, 5, 4), count=2000, radius=0.005, emit=0.06, seed=2)
     C.drift(p, n, (0.05, 0, 0.02))
     C.cam_fill(cam, energy=60, color=(0.6, 0.8, 0.95))
@@ -566,12 +579,15 @@ def _squeeze(L, n, density=0.04, wide_far=True):
     C.rocks([(-1.2, -1.0, -1.3), (1.3, -1.2, -1.3), (0.7, -0.9, -1.0), (-0.8, -1.6, -1.4)], count=4, size=(0.35, 0.6),
             seed=4, mat=marble)
     C.floor(size=(6, 18), center=(0, -6, -1.55), strength=0.15, name="siltbed")
+    _amb(L, [(0.5, -3.0, 1.2), (-0.6, -7.0, 1.0)], energy=220)
+    if wide_far:
+        _amb(L, [(0.3, 5.5, 0.6)], energy=120)
     return Vector((0, -0.2, -0.5))
 
 
 def S08(L, n):
     slot = _squeeze(L, n, density=0.04)
-    for i, (pos, col) in enumerate((((-0.9, -5.6, 0.3), C.TORCH), ((1.0, -6.2, 0.1), (0.95, 0.97, 1.0)))):
+    for i, (pos, col) in enumerate((((-0.8, -7.6, 0.3), C.TORCH), ((0.9, -7.9, 0.1), (0.95, 0.97, 1.0)))):
         sp = L.spot(pos, (0, 0, 0), energy=2600, size_deg=16, blend=0.4, color=col, name=f"beam{i}")
         sp.rotation_mode = "QUATERNION"
         tgt = slot + Vector((0.15 * (1 if i else -1), 0, 0))
@@ -581,7 +597,7 @@ def S08(L, n):
         sp.keyframe_insert("rotation_quaternion", frame=1)
         sp.rotation_quaternion = q1
         sp.keyframe_insert("rotation_quaternion", frame=int(n * 0.7))
-        C.beam_cone(sp, length=6.5, strength=0.3, name=f"bc{i}")
+        pass
     p = C.cloud((0, -3, -0.6), (4, 5, 2), count=2000, radius=0.005, emit=0.06, seed=3)
     C.drift(p, n, (0.02, 0.03, 0.01))
     cam = C.camera(lens=28)
@@ -596,7 +612,7 @@ def S09(L, n):
     d = C.diver("diverB", fins=FIN_B, rebreather=False, tanks="doubles", light_energy=1800, beam_len=4, beam_strength=0.25)
     r = d["root"]
     turn0, turn1 = 46, 66
-    C.key_loc(r, [(1, (0.05, -0.7, -0.5)), (turn0, (0.15, 2.6, -0.45)), (n, (0.18, 2.75, -0.45))])
+    C.key_loc(r, [(1, (0.05, -0.7, -0.5)), (turn0, (0.15, 2.0, -0.45)), (n, (0.18, 2.1, -0.45))])
     r.rotation_euler = (0, 0, 0)
     r.keyframe_insert("rotation_euler", frame=turn0)
     r.rotation_euler = (0.2, 0.3, math.pi * 0.92)
@@ -608,12 +624,12 @@ def S09(L, n):
     behind, dens, _ = C.noisy_volume((0, -1.6, -0.4), (2.5, 2.5, 1.6), color=(0.6, 0.55, 0.45), density=2.0, name="behind")
     L.point((0.0, -1.8, -0.35), energy=180, color=C.TORCH, radius=0.1, name="buddyglow")
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (0.7, 4.6, -0.1), (0.05, 0.5, -0.5)), (n, (0.65, 4.4, -0.12), (0.05, -0.1, -0.5))],
+    C.aim_cam(cam, n, [(1, (0.8, 5.6, 0.0), (0.05, 0.5, -0.5)), (n, (0.75, 5.4, -0.02), (0.05, -0.1, -0.5))],
               shake=0.01, rot_shake=0.003)
     c = cam.data
     c.dof.use_dof = True
     c.dof.aperture_fstop = 1.2
-    for f, dist in ((1, 4.0), (turn0, 2.0), (turn1, 2.0), (n, 4.7)):
+    for f, dist in ((1, 5.0), (turn0, 3.0), (turn1, 3.0), (n, 5.7)):
         c.dof.focus_distance = dist
         c.dof.keyframe_insert("focus_distance", frame=f)
     C.cam_fill(cam, energy=25)
@@ -676,7 +692,7 @@ def S10(L, n):
     cloud, dens, _ = C.noisy_volume(tuple(slot + Vector((0, -1.0, 0))), (2.6, 2.6, 1.8), color=(0.6, 0.55, 0.45),
                                     density=2.5, scale=2.0, name="siltcloud")
     C.key_scale(cloud, [(1, 0.9), (n, 1.15)])
-    p = C.cloud(tuple(slot + Vector((0, -0.8, 0))), (2, 1.6, 1.2), count=2000, radius=0.004, emit=0.08, seed=9)
+    p = C.cloud(tuple(slot + Vector((0, -0.8, 0))), (2, 1.6, 1.2), count=1200, radius=0.0025, emit=0.08, seed=9)
     C.drift(p, n, (0.03, 0.05, 0.03))
     cam = C.camera(lens=50)
     C.aim_cam(cam, n, [(1, (0.05, 2.4, -0.4), (0.0, -1.2, -0.45)), (n, (0.05, 2.1, -0.42), (0.0, -1.2, -0.45))],
@@ -696,15 +712,15 @@ def S11(L, n):
     C.key_loc(cloud, [(1, tuple(cloud.location)), (n, tuple(cloud.location + Vector((0, 0, -0.3))))])
     d = C.diver("diverB", fins=FIN_B, rebreather=False, tanks="doubles", light_energy=1500, beam_len=3.5, beam_strength=0.22)
     r = d["root"]
-    r.location = (0.15, 2.3, -0.42)
+    r.location = (0.15, 1.7, -0.42)
     r.rotation_euler = (0.1, 0.25, math.pi * 0.95)
     L.anim_swim(d, n, kick_rate=0.12, amp=0.05)
     p = C.cloud((0, 1.0, -0.2), (2.2, 3, 1.4), count=1600, radius=0.004, emit=0.06, seed=5)
     C.drift(p, n, (0.0, 0.0, -0.08))
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (0.6, 4.9, 0.05), (0.0, 0.3, -0.5)), (n, (0.65, 5.3, 0.1), (0.0, 0.3, -0.5))], shake=0.004)
-    C.cam_fill(cam, energy=18)
-    C.rim_light((0.15, 2.3, -0.4), (-0.4, 2.0, 1.3), energy=350, name="b2rim")
+    C.aim_cam(cam, n, [(1, (0.9, 6.2, 0.25), (0.0, 0.8, -0.5)), (n, (0.95, 6.6, 0.3), (0.0, 0.8, -0.5))], shake=0.004)
+    C.cam_fill(cam, energy=30)
+    C.rim_light((0.15, 1.7, -0.4), (-0.4, 2.0, 1.3), energy=350, name="b2rim")
     L.bake_static()
 
 
@@ -720,18 +736,18 @@ def S14(L, n):
     hose = L.prim("torus", loc=tuple(slot + Vector((-0.25, 0.05, 0.05))), rot=(0.4, 0.8, 0), major_radius=0.12,
                   minor_radius=0.015, name="blockhose")
     L.assign(hose, sil)
-    d = C.diver("diverC", fins=FIN_C, rebreather=False, tanks="doubles", light_energy=2400, beam_len=3.2,
+    d = C.diver("diverC", fins=FIN_C, rebreather=False, tanks="doubles", light_energy=1100, beam_len=3.2,
                 beam_strength=0.25, beam_deg=20)
     r = d["root"]
-    C.key_loc(r, [(1, (0.25, -3.4, -0.3)), (int(n * 0.6), (0.2, -2.0, -0.38)), (n, (0.2, -1.95, -0.38))])
+    C.key_loc(r, [(1, (0.25, -2.6, -0.4)), (int(n * 0.6), (0.2, -1.6, -0.45)), (n, (0.2, -1.55, -0.45))])
     r.rotation_euler = (-0.05, 0, 0.05)
     L.anim_swim(d, n, kick_rate=0.5, amp=0.15)
     d["torch"].rotation_euler = (math.pi / 2 - 0.1, 0, 0.0)
     p = C.cloud((0, -1.2, -0.5), (2.5, 2.5, 1.2), count=1600, radius=0.004, emit=0.08, seed=8)
     C.drift(p, n, (0.02, 0.0, 0.03))
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (0.75, -5.6, 0.25), (0.0, -0.2, -0.45)), (int(n * 0.7), (0.65, -4.3, 0.15), (0.0, -0.2, -0.45)),
-                       (n, (0.64, -4.25, 0.15), (0.0, -0.2, -0.45))], shake=0.008, rot_shake=0.002)
+    C.aim_cam(cam, n, [(1, (0.9, -4.4, 0.7), (0.0, -0.2, -0.6)), (int(n * 0.7), (0.8, -3.4, 0.55), (0.0, -0.2, -0.6)),
+                       (n, (0.8, -3.35, 0.55), (0.0, -0.2, -0.6))], shake=0.008, rot_shake=0.002)
     C.cam_fill(cam, energy=15)
     C.rim_light((0.2, -2.0, -0.35), (-1.0, -1.0, 1.5), energy=300, color=(0.4, 0.7, 1.0), name="crim")
     L.bake_static()
@@ -753,7 +769,7 @@ def S13(L, n):
         sp = L.spot((0.5, 0, 0.05), (0, math.radians(90), 0), energy=2000, size_deg=18, blend=0.4, color=C.TORCH,
                     name="t2torch")
         sp.parent = root
-        C.beam_cone(sp, length=6, strength=0.25, name="t2beam")
+        C.beam_cone(sp, length=6, strength=0.45, name="t2beam")
         lens = L.prim("sphere", loc=(0.52, 0, 0.05), segments=8, ring_count=6, radius=0.03)
         L.assign(lens, C.emis("t2l", C.TORCH, 25))
         lens.parent = root
@@ -770,7 +786,8 @@ def S13(L, n):
     p = C.cloud((2, 0, -0.8), (10, 5, 3), count=3000, radius=0.005, emit=0.06, seed=3)
     C.drift(p, n, (0.04, 0.0, 0.02))
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (-4.2, -1.8, -2.0), (2.0, 0.2, -0.8)), (n, (-3.3, -1.5, -1.9), (2.4, 0.2, -0.9))],
+    _amb(L, [(x, 0.0, 2.6) for x in (-6, 0, 6, 12)], energy=60, color=(0.3, 0.5, 0.85))
+    C.aim_cam(cam, n, [(1, (-3.4, -1.1, -1.25), (1.8, 0.0, -0.9)), (n, (-2.7, -0.9, -1.25), (1.8, 0.0, -0.95))],
               shake=0.01, rot_shake=0.002)
     C.cam_fill(cam, energy=15, color=(0.4, 0.6, 0.9))
     L.bake_static()
