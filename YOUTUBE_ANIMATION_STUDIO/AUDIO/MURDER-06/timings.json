@@ -1,0 +1,1131 @@
+{
+ "duration": 75.04,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 3.23,
+   "text": "Found sailing the Atlantic. Nobody on board.",
+   "words": [
+    {
+     "w": "Found",
+     "start": 0.18,
+     "end": 0.55
+    },
+    {
+     "w": "sailing",
+     "start": 0.55,
+     "end": 1.04
+    },
+    {
+     "w": "the",
+     "start": 1.04,
+     "end": 1.18
+    },
+    {
+     "w": "Atlantic.",
+     "start": 1.18,
+     "end": 1.94
+    },
+    {
+     "w": "Nobody",
+     "start": 1.94,
+     "end": 2.56
+    },
+    {
+     "w": "on",
+     "start": 2.56,
+     "end": 2.77
+    },
+    {
+     "w": "board.",
+     "start": 2.77,
+     "end": 3.17
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 3.63,
+   "end": 6.96,
+   "text": "You know the legend: warm tea, breakfast on the table.",
+   "words": [
+    {
+     "w": "You",
+     "start": 3.66,
+     "end": 3.8
+    },
+    {
+     "w": "know",
+     "start": 3.8,
+     "end": 4.08
+    },
+    {
+     "w": "the",
+     "start": 4.08,
+     "end": 4.31
+    },
+    {
+     "w": "legend:",
+     "start": 4.31,
+     "end": 4.76
+    },
+    {
+     "w": "warm",
+     "start": 4.76,
+     "end": 5.26
+    },
+    {
+     "w": "tea,",
+     "start": 5.26,
+     "end": 5.47
+    },
+    {
+     "w": "breakfast",
+     "start": 5.47,
+     "end": 6.08
+    },
+    {
+     "w": "on",
+     "start": 6.08,
+     "end": 6.23
+    },
+    {
+     "w": "the",
+     "start": 6.23,
+     "end": 6.48
+    },
+    {
+     "w": "table.",
+     "start": 6.48,
+     "end": 6.9
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 7.21,
+   "end": 9.48,
+   "text": "Most of that is fiction. Even the name.",
+   "words": [
+    {
+     "w": "Most",
+     "start": 7.24,
+     "end": 7.58
+    },
+    {
+     "w": "of",
+     "start": 7.58,
+     "end": 7.76
+    },
+    {
+     "w": "that",
+     "start": 7.76,
+     "end": 7.98
+    },
+    {
+     "w": "is",
+     "start": 7.98,
+     "end": 8.09
+    },
+    {
+     "w": "fiction.",
+     "start": 8.09,
+     "end": 8.63
+    },
+    {
+     "w": "Even",
+     "start": 8.63,
+     "end": 9.01
+    },
+    {
+     "w": "the",
+     "start": 9.01,
+     "end": 9.07
+    },
+    {
+     "w": "name.",
+     "start": 9.07,
+     "end": 9.42
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 9.83,
+   "end": 16.14,
+   "text": "December 1872, east of the Azores. Another crew spots a ship drifting.",
+   "words": [
+    {
+     "w": "December",
+     "start": 9.86,
+     "end": 10.58
+    },
+    {
+     "w": "1872,",
+     "start": 10.58,
+     "end": 11.65
+    },
+    {
+     "w": "east",
+     "start": 11.65,
+     "end": 12.17
+    },
+    {
+     "w": "of",
+     "start": 12.17,
+     "end": 12.34
+    },
+    {
+     "w": "the",
+     "start": 12.34,
+     "end": 12.53
+    },
+    {
+     "w": "Azores.",
+     "start": 12.53,
+     "end": 13.05
+    },
+    {
+     "w": "Another",
+     "start": 13.05,
+     "end": 13.61
+    },
+    {
+     "w": "crew",
+     "start": 13.61,
+     "end": 14.15
+    },
+    {
+     "w": "spots",
+     "start": 14.15,
+     "end": 14.66
+    },
+    {
+     "w": "a",
+     "start": 14.66,
+     "end": 14.97
+    },
+    {
+     "w": "ship",
+     "start": 14.97,
+     "end": 15.29
+    },
+    {
+     "w": "drifting.",
+     "start": 15.29,
+     "end": 16.08
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 16.39,
+   "end": 18.71,
+   "text": "The Mary Celeste. Her lifeboat: gone.",
+   "words": [
+    {
+     "w": "The",
+     "start": 16.42,
+     "end": 16.62
+    },
+    {
+     "w": "Mary",
+     "start": 16.62,
+     "end": 16.89
+    },
+    {
+     "w": "Celeste.",
+     "start": 16.89,
+     "end": 17.52
+    },
+    {
+     "w": "Her",
+     "start": 17.52,
+     "end": 17.68
+    },
+    {
+     "w": "lifeboat:",
+     "start": 17.68,
+     "end": 18.29
+    },
+    {
+     "w": "gone.",
+     "start": 18.29,
+     "end": 18.65
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 19.06,
+   "end": 21.42,
+   "text": "Six months of food and water still aboard.",
+   "words": [
+    {
+     "w": "Six",
+     "start": 19.09,
+     "end": 19.35
+    },
+    {
+     "w": "months",
+     "start": 19.35,
+     "end": 19.77
+    },
+    {
+     "w": "of",
+     "start": 19.77,
+     "end": 19.81
+    },
+    {
+     "w": "food",
+     "start": 19.81,
+     "end": 20.1
+    },
+    {
+     "w": "and",
+     "start": 20.1,
+     "end": 20.29
+    },
+    {
+     "w": "water",
+     "start": 20.29,
+     "end": 20.72
+    },
+    {
+     "w": "still",
+     "start": 20.72,
+     "end": 21.01
+    },
+    {
+     "w": "aboard.",
+     "start": 21.01,
+     "end": 21.36
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 21.62,
+   "end": 24.46,
+   "text": "Seventeen hundred barrels of alcohol in the hold.",
+   "words": [
+    {
+     "w": "Seventeen",
+     "start": 21.65,
+     "end": 22.23
+    },
+    {
+     "w": "hundred",
+     "start": 22.23,
+     "end": 22.66
+    },
+    {
+     "w": "barrels",
+     "start": 22.66,
+     "end": 23.16
+    },
+    {
+     "w": "of",
+     "start": 23.16,
+     "end": 23.25
+    },
+    {
+     "w": "alcohol",
+     "start": 23.25,
+     "end": 23.84
+    },
+    {
+     "w": "in",
+     "start": 23.84,
+     "end": 23.9
+    },
+    {
+     "w": "the",
+     "start": 23.9,
+     "end": 24.11
+    },
+    {
+     "w": "hold.",
+     "start": 24.11,
+     "end": 24.4
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 24.71,
+   "end": 28.55,
+   "text": "A sounding rod lay on deck, as if someone had checked for leaks.",
+   "words": [
+    {
+     "w": "A",
+     "start": 24.74,
+     "end": 24.91
+    },
+    {
+     "w": "sounding",
+     "start": 24.91,
+     "end": 25.39
+    },
+    {
+     "w": "rod",
+     "start": 25.39,
+     "end": 25.71
+    },
+    {
+     "w": "lay",
+     "start": 25.71,
+     "end": 26.09
+    },
+    {
+     "w": "on",
+     "start": 26.09,
+     "end": 26.16
+    },
+    {
+     "w": "deck,",
+     "start": 26.16,
+     "end": 26.5
+    },
+    {
+     "w": "as",
+     "start": 26.5,
+     "end": 26.55
+    },
+    {
+     "w": "if",
+     "start": 26.55,
+     "end": 26.77
+    },
+    {
+     "w": "someone",
+     "start": 26.77,
+     "end": 27.17
+    },
+    {
+     "w": "had",
+     "start": 27.17,
+     "end": 27.51
+    },
+    {
+     "w": "checked",
+     "start": 27.51,
+     "end": 27.83
+    },
+    {
+     "w": "for",
+     "start": 27.83,
+     "end": 28.08
+    },
+    {
+     "w": "leaks.",
+     "start": 28.08,
+     "end": 28.49
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 28.8,
+   "end": 32.01,
+   "text": "Three and a half feet of water below. Yet she was seaworthy.",
+   "words": [
+    {
+     "w": "Three",
+     "start": 28.83,
+     "end": 29.18
+    },
+    {
+     "w": "and",
+     "start": 29.18,
+     "end": 29.24
+    },
+    {
+     "w": "a",
+     "start": 29.24,
+     "end": 29.52
+    },
+    {
+     "w": "half",
+     "start": 29.52,
+     "end": 29.74
+    },
+    {
+     "w": "feet",
+     "start": 29.74,
+     "end": 29.97
+    },
+    {
+     "w": "of",
+     "start": 29.97,
+     "end": 30.11
+    },
+    {
+     "w": "water",
+     "start": 30.11,
+     "end": 30.51
+    },
+    {
+     "w": "below.",
+     "start": 30.51,
+     "end": 30.89
+    },
+    {
+     "w": "Yet",
+     "start": 30.89,
+     "end": 31.07
+    },
+    {
+     "w": "she",
+     "start": 31.07,
+     "end": 31.24
+    },
+    {
+     "w": "was",
+     "start": 31.24,
+     "end": 31.47
+    },
+    {
+     "w": "seaworthy.",
+     "start": 31.47,
+     "end": 31.95
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 32.46,
+   "end": 34.33,
+   "text": "So where did the warm tea come from?",
+   "words": [
+    {
+     "w": "So",
+     "start": 32.49,
+     "end": 32.7
+    },
+    {
+     "w": "where",
+     "start": 32.7,
+     "end": 32.98
+    },
+    {
+     "w": "did",
+     "start": 32.98,
+     "end": 33.14
+    },
+    {
+     "w": "the",
+     "start": 33.14,
+     "end": 33.2
+    },
+    {
+     "w": "warm",
+     "start": 33.2,
+     "end": 33.55
+    },
+    {
+     "w": "tea",
+     "start": 33.55,
+     "end": 33.81
+    },
+    {
+     "w": "come",
+     "start": 33.81,
+     "end": 34.1
+    },
+    {
+     "w": "from?",
+     "start": 34.1,
+     "end": 34.27
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 34.63,
+   "end": 40.7,
+   "text": "In 1884, an anonymous magazine story renamed her Marie Celeste.",
+   "words": [
+    {
+     "w": "In",
+     "start": 34.65,
+     "end": 34.97
+    },
+    {
+     "w": "1884,",
+     "start": 34.97,
+     "end": 36.03
+    },
+    {
+     "w": "an",
+     "start": 36.03,
+     "end": 36.18
+    },
+    {
+     "w": "anonymous",
+     "start": 36.18,
+     "end": 36.96
+    },
+    {
+     "w": "magazine",
+     "start": 36.96,
+     "end": 37.96
+    },
+    {
+     "w": "story",
+     "start": 37.96,
+     "end": 38.46
+    },
+    {
+     "w": "renamed",
+     "start": 38.46,
+     "end": 39.17
+    },
+    {
+     "w": "her",
+     "start": 39.17,
+     "end": 39.54
+    },
+    {
+     "w": "Marie",
+     "start": 39.54,
+     "end": 40.08
+    },
+    {
+     "w": "Celeste.",
+     "start": 40.08,
+     "end": 40.64
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 40.95,
+   "end": 46.31,
+   "text": "Many readers took it as fact. The author: Arthur Conan Doyle, before Sherlock Holmes.",
+   "words": [
+    {
+     "w": "Many",
+     "start": 40.98,
+     "end": 41.41
+    },
+    {
+     "w": "readers",
+     "start": 41.41,
+     "end": 41.83
+    },
+    {
+     "w": "took",
+     "start": 41.83,
+     "end": 42.13
+    },
+    {
+     "w": "it",
+     "start": 42.13,
+     "end": 42.37
+    },
+    {
+     "w": "as",
+     "start": 42.37,
+     "end": 42.44
+    },
+    {
+     "w": "fact.",
+     "start": 42.44,
+     "end": 42.84
+    },
+    {
+     "w": "The",
+     "start": 42.84,
+     "end": 43.0
+    },
+    {
+     "w": "author:",
+     "start": 43.0,
+     "end": 43.41
+    },
+    {
+     "w": "Arthur",
+     "start": 43.41,
+     "end": 43.86
+    },
+    {
+     "w": "Conan",
+     "start": 43.86,
+     "end": 44.32
+    },
+    {
+     "w": "Doyle,",
+     "start": 44.32,
+     "end": 44.75
+    },
+    {
+     "w": "before",
+     "start": 44.75,
+     "end": 45.21
+    },
+    {
+     "w": "Sherlock",
+     "start": 45.21,
+     "end": 45.74
+    },
+    {
+     "w": "Holmes.",
+     "start": 45.74,
+     "end": 46.25
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 46.71,
+   "end": 51.17,
+   "text": "The cosy breakfast scenes came from retellings like these. Not from the ship.",
+   "words": [
+    {
+     "w": "The",
+     "start": 46.74,
+     "end": 46.85
+    },
+    {
+     "w": "cosy",
+     "start": 46.85,
+     "end": 47.32
+    },
+    {
+     "w": "breakfast",
+     "start": 47.32,
+     "end": 47.84
+    },
+    {
+     "w": "scenes",
+     "start": 47.84,
+     "end": 48.24
+    },
+    {
+     "w": "came",
+     "start": 48.24,
+     "end": 48.54
+    },
+    {
+     "w": "from",
+     "start": 48.54,
+     "end": 48.82
+    },
+    {
+     "w": "retellings",
+     "start": 48.82,
+     "end": 49.39
+    },
+    {
+     "w": "like",
+     "start": 49.39,
+     "end": 49.77
+    },
+    {
+     "w": "these.",
+     "start": 49.77,
+     "end": 50.06
+    },
+    {
+     "w": "Not",
+     "start": 50.06,
+     "end": 50.5
+    },
+    {
+     "w": "from",
+     "start": 50.5,
+     "end": 50.65
+    },
+    {
+     "w": "the",
+     "start": 50.65,
+     "end": 50.84
+    },
+    {
+     "w": "ship.",
+     "start": 50.84,
+     "end": 51.11
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 51.57,
+   "end": 53.34,
+   "text": "The leading theories are ordinary.",
+   "words": [
+    {
+     "w": "The",
+     "start": 51.6,
+     "end": 51.7
+    },
+    {
+     "w": "leading",
+     "start": 51.7,
+     "end": 52.05
+    },
+    {
+     "w": "theories",
+     "start": 52.05,
+     "end": 52.55
+    },
+    {
+     "w": "are",
+     "start": 52.55,
+     "end": 52.72
+    },
+    {
+     "w": "ordinary.",
+     "start": 52.72,
+     "end": 53.28
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 53.54,
+   "end": 56.1,
+   "text": "Alcohol fumes, and fear of an explosion.",
+   "words": [
+    {
+     "w": "Alcohol",
+     "start": 53.57,
+     "end": 54.15
+    },
+    {
+     "w": "fumes,",
+     "start": 54.15,
+     "end": 54.59
+    },
+    {
+     "w": "and",
+     "start": 54.59,
+     "end": 54.89
+    },
+    {
+     "w": "fear",
+     "start": 54.89,
+     "end": 55.06
+    },
+    {
+     "w": "of",
+     "start": 55.06,
+     "end": 55.27
+    },
+    {
+     "w": "an",
+     "start": 55.27,
+     "end": 55.3
+    },
+    {
+     "w": "explosion.",
+     "start": 55.3,
+     "end": 56.04
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 56.3,
+   "end": 58.75,
+   "text": "Or a broken pump, and fear she was sinking.",
+   "words": [
+    {
+     "w": "Or",
+     "start": 56.33,
+     "end": 56.55
+    },
+    {
+     "w": "a",
+     "start": 56.55,
+     "end": 56.75
+    },
+    {
+     "w": "broken",
+     "start": 56.75,
+     "end": 57.23
+    },
+    {
+     "w": "pump,",
+     "start": 57.23,
+     "end": 57.5
+    },
+    {
+     "w": "and",
+     "start": 57.5,
+     "end": 57.72
+    },
+    {
+     "w": "fear",
+     "start": 57.72,
+     "end": 57.87
+    },
+    {
+     "w": "she",
+     "start": 57.87,
+     "end": 58.09
+    },
+    {
+     "w": "was",
+     "start": 58.09,
+     "end": 58.22
+    },
+    {
+     "w": "sinking.",
+     "start": 58.22,
+     "end": 58.69
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 59.05,
+   "end": 62.14,
+   "text": "Either way, they may have taken the lifeboat, and lost the ship.",
+   "words": [
+    {
+     "w": "Either",
+     "start": 59.08,
+     "end": 59.36
+    },
+    {
+     "w": "way,",
+     "start": 59.36,
+     "end": 59.65
+    },
+    {
+     "w": "they",
+     "start": 59.65,
+     "end": 59.74
+    },
+    {
+     "w": "may",
+     "start": 59.74,
+     "end": 60.06
+    },
+    {
+     "w": "have",
+     "start": 60.06,
+     "end": 60.18
+    },
+    {
+     "w": "taken",
+     "start": 60.18,
+     "end": 60.57
+    },
+    {
+     "w": "the",
+     "start": 60.57,
+     "end": 60.8
+    },
+    {
+     "w": "lifeboat,",
+     "start": 60.8,
+     "end": 61.25
+    },
+    {
+     "w": "and",
+     "start": 61.25,
+     "end": 61.45
+    },
+    {
+     "w": "lost",
+     "start": 61.45,
+     "end": 61.75
+    },
+    {
+     "w": "the",
+     "start": 61.75,
+     "end": 61.78
+    },
+    {
+     "w": "ship.",
+     "start": 61.78,
+     "end": 62.08
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 62.59,
+   "end": 67.67,
+   "text": "Captain Briggs, his wife Sarah, two-year-old Sophia and seven crew were never found.",
+   "words": [
+    {
+     "w": "Captain",
+     "start": 62.62,
+     "end": 63.02
+    },
+    {
+     "w": "Briggs,",
+     "start": 63.02,
+     "end": 63.45
+    },
+    {
+     "w": "his",
+     "start": 63.45,
+     "end": 63.81
+    },
+    {
+     "w": "wife",
+     "start": 63.81,
+     "end": 64.13
+    },
+    {
+     "w": "Sarah,",
+     "start": 64.13,
+     "end": 64.47
+    },
+    {
+     "w": "two-year-old",
+     "start": 64.47,
+     "end": 65.25
+    },
+    {
+     "w": "Sophia",
+     "start": 65.25,
+     "end": 65.73
+    },
+    {
+     "w": "and",
+     "start": 65.73,
+     "end": 66.0
+    },
+    {
+     "w": "seven",
+     "start": 66.0,
+     "end": 66.3
+    },
+    {
+     "w": "crew",
+     "start": 66.3,
+     "end": 66.62
+    },
+    {
+     "w": "were",
+     "start": 66.62,
+     "end": 66.91
+    },
+    {
+     "w": "never",
+     "start": 66.91,
+     "end": 67.27
+    },
+    {
+     "w": "found.",
+     "start": 67.27,
+     "end": 67.61
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 68.12,
+   "end": 69.93,
+   "text": "Would you have left? Tell me below.",
+   "words": [
+    {
+     "w": "Would",
+     "start": 68.15,
+     "end": 68.36
+    },
+    {
+     "w": "you",
+     "start": 68.36,
+     "end": 68.49
+    },
+    {
+     "w": "have",
+     "start": 68.49,
+     "end": 68.78
+    },
+    {
+     "w": "left?",
+     "start": 68.78,
+     "end": 69.06
+    },
+    {
+     "w": "Tell",
+     "start": 69.06,
+     "end": 69.25
+    },
+    {
+     "w": "me",
+     "start": 69.25,
+     "end": 69.53
+    },
+    {
+     "w": "below.",
+     "start": 69.53,
+     "end": 69.87
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "start": 70.38,
+   "end": 74.44,
+   "text": "After the last log entry, nine days passed. Until she was...",
+   "words": [
+    {
+     "w": "After",
+     "start": 70.41,
+     "end": 70.76
+    },
+    {
+     "w": "the",
+     "start": 70.76,
+     "end": 71.03
+    },
+    {
+     "w": "last",
+     "start": 71.03,
+     "end": 71.44
+    },
+    {
+     "w": "log",
+     "start": 71.44,
+     "end": 71.76
+    },
+    {
+     "w": "entry,",
+     "start": 71.76,
+     "end": 72.25
+    },
+    {
+     "w": "nine",
+     "start": 72.25,
+     "end": 72.58
+    },
+    {
+     "w": "days",
+     "start": 72.58,
+     "end": 73.04
+    },
+    {
+     "w": "passed.",
+     "start": 73.04,
+     "end": 73.42
+    },
+    {
+     "w": "Until",
+     "start": 73.42,
+     "end": 73.87
+    },
+    {
+     "w": "she",
+     "start": 73.87,
+     "end": 74.18
+    },
+    {
+     "w": "was...",
+     "start": 74.18,
+     "end": 74.38
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,890 @@
+{
+ "duration": 57.82,
+ "voice": "bm_george",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 3.25,
+   "text": "A great white shark seized this man around the chest.",
+   "words": [
+    {
+     "w": "A",
+     "start": 0.18,
+     "end": 0.3
+    },
+    {
+     "w": "great",
+     "start": 0.3,
+     "end": 0.79
+    },
+    {
+     "w": "white",
+     "start": 0.79,
+     "end": 0.99
+    },
+    {
+     "w": "shark",
+     "start": 0.99,
+     "end": 1.36
+    },
+    {
+     "w": "seized",
+     "start": 1.36,
+     "end": 1.83
+    },
+    {
+     "w": "this",
+     "start": 1.83,
+     "end": 2.02
+    },
+    {
+     "w": "man",
+     "start": 2.02,
+     "end": 2.28
+    },
+    {
+     "w": "around",
+     "start": 2.28,
+     "end": 2.74
+    },
+    {
+     "w": "the",
+     "start": 2.74,
+     "end": 2.83
+    },
+    {
+     "w": "chest.",
+     "start": 2.83,
+     "end": 3.19
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 3.45,
+   "end": 9.26,
+   "text": "South Australia, 1963. A spearfishing championship at Aldinga Beach.",
+   "words": [
+    {
+     "w": "South",
+     "start": 3.48,
+     "end": 3.93
+    },
+    {
+     "w": "Australia,",
+     "start": 3.93,
+     "end": 4.7
+    },
+    {
+     "w": "1963.",
+     "start": 4.7,
+     "end": 5.74
+    },
+    {
+     "w": "A",
+     "start": 5.74,
+     "end": 6.0
+    },
+    {
+     "w": "spearfishing",
+     "start": 6.0,
+     "end": 6.75
+    },
+    {
+     "w": "championship",
+     "start": 6.75,
+     "end": 7.81
+    },
+    {
+     "w": "at",
+     "start": 7.81,
+     "end": 8.05
+    },
+    {
+     "w": "Aldinga",
+     "start": 8.05,
+     "end": 8.77
+    },
+    {
+     "w": "Beach.",
+     "start": 8.77,
+     "end": 9.2
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 9.46,
+   "end": 13.02,
+   "text": "Rodney Fox had no tank. He dived on a single breath.",
+   "words": [
+    {
+     "w": "Rodney",
+     "start": 9.49,
+     "end": 9.94
+    },
+    {
+     "w": "Fox",
+     "start": 9.94,
+     "end": 10.31
+    },
+    {
+     "w": "had",
+     "start": 10.31,
+     "end": 10.65
+    },
+    {
+     "w": "no",
+     "start": 10.65,
+     "end": 10.8
+    },
+    {
+     "w": "tank.",
+     "start": 10.8,
+     "end": 11.24
+    },
+    {
+     "w": "He",
+     "start": 11.24,
+     "end": 11.39
+    },
+    {
+     "w": "dived",
+     "start": 11.39,
+     "end": 11.74
+    },
+    {
+     "w": "on",
+     "start": 11.74,
+     "end": 11.94
+    },
+    {
+     "w": "a",
+     "start": 11.94,
+     "end": 12.23
+    },
+    {
+     "w": "single",
+     "start": 12.23,
+     "end": 12.6
+    },
+    {
+     "w": "breath.",
+     "start": 12.6,
+     "end": 12.96
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 13.27,
+   "end": 16.2,
+   "text": "The jaws closed around him and wouldn't let go.",
+   "words": [
+    {
+     "w": "The",
+     "start": 13.3,
+     "end": 13.4
+    },
+    {
+     "w": "jaws",
+     "start": 13.4,
+     "end": 13.86
+    },
+    {
+     "w": "closed",
+     "start": 13.86,
+     "end": 14.22
+    },
+    {
+     "w": "around",
+     "start": 14.22,
+     "end": 14.77
+    },
+    {
+     "w": "him",
+     "start": 14.77,
+     "end": 15.0
+    },
+    {
+     "w": "and",
+     "start": 15.0,
+     "end": 15.11
+    },
+    {
+     "w": "wouldn't",
+     "start": 15.11,
+     "end": 15.68
+    },
+    {
+     "w": "let",
+     "start": 15.68,
+     "end": 15.94
+    },
+    {
+     "w": "go.",
+     "start": 15.94,
+     "end": 16.14
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 16.4,
+   "end": 19.12,
+   "text": "He reached for the shark's eyes. It released him.",
+   "words": [
+    {
+     "w": "He",
+     "start": 16.43,
+     "end": 16.68
+    },
+    {
+     "w": "reached",
+     "start": 16.68,
+     "end": 17.13
+    },
+    {
+     "w": "for",
+     "start": 17.13,
+     "end": 17.38
+    },
+    {
+     "w": "the",
+     "start": 17.38,
+     "end": 17.42
+    },
+    {
+     "w": "shark's",
+     "start": 17.42,
+     "end": 17.96
+    },
+    {
+     "w": "eyes.",
+     "start": 17.96,
+     "end": 18.13
+    },
+    {
+     "w": "It",
+     "start": 18.13,
+     "end": 18.23
+    },
+    {
+     "w": "released",
+     "start": 18.23,
+     "end": 18.77
+    },
+    {
+     "w": "him.",
+     "start": 18.77,
+     "end": 19.06
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 19.62,
+   "end": 21.97,
+   "text": "Then it came back and seized his float.",
+   "words": [
+    {
+     "w": "Then",
+     "start": 19.65,
+     "end": 19.86
+    },
+    {
+     "w": "it",
+     "start": 19.86,
+     "end": 20.0
+    },
+    {
+     "w": "came",
+     "start": 20.0,
+     "end": 20.41
+    },
+    {
+     "w": "back",
+     "start": 20.41,
+     "end": 20.66
+    },
+    {
+     "w": "and",
+     "start": 20.66,
+     "end": 20.9
+    },
+    {
+     "w": "seized",
+     "start": 20.9,
+     "end": 21.27
+    },
+    {
+     "w": "his",
+     "start": 21.27,
+     "end": 21.5
+    },
+    {
+     "w": "float.",
+     "start": 21.5,
+     "end": 21.91
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 22.17,
+   "end": 23.7,
+   "text": "He fought free of the line.",
+   "words": [
+    {
+     "w": "He",
+     "start": 22.2,
+     "end": 22.34
+    },
+    {
+     "w": "fought",
+     "start": 22.34,
+     "end": 22.69
+    },
+    {
+     "w": "free",
+     "start": 22.69,
+     "end": 23.0
+    },
+    {
+     "w": "of",
+     "start": 23.0,
+     "end": 23.12
+    },
+    {
+     "w": "the",
+     "start": 23.12,
+     "end": 23.35
+    },
+    {
+     "w": "line.",
+     "start": 23.35,
+     "end": 23.64
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 23.95,
+   "end": 26.1,
+   "text": "He was pulled out, barely alive.",
+   "words": [
+    {
+     "w": "He",
+     "start": 23.98,
+     "end": 24.25
+    },
+    {
+     "w": "was",
+     "start": 24.25,
+     "end": 24.49
+    },
+    {
+     "w": "pulled",
+     "start": 24.49,
+     "end": 24.82
+    },
+    {
+     "w": "out,",
+     "start": 24.82,
+     "end": 25.07
+    },
+    {
+     "w": "barely",
+     "start": 25.07,
+     "end": 25.63
+    },
+    {
+     "w": "alive.",
+     "start": 25.63,
+     "end": 26.04
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 26.4,
+   "end": 28.66,
+   "text": "Broken ribs. A punctured lung.",
+   "words": [
+    {
+     "w": "Broken",
+     "start": 26.43,
+     "end": 27.05
+    },
+    {
+     "w": "ribs.",
+     "start": 27.05,
+     "end": 27.46
+    },
+    {
+     "w": "A",
+     "start": 27.46,
+     "end": 27.65
+    },
+    {
+     "w": "punctured",
+     "start": 27.65,
+     "end": 28.36
+    },
+    {
+     "w": "lung.",
+     "start": 28.36,
+     "end": 28.6
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 28.86,
+   "end": 32.9,
+   "text": "It took four hundred and sixty-two stitches to close the wounds.",
+   "words": [
+    {
+     "w": "It",
+     "start": 28.88,
+     "end": 28.99
+    },
+    {
+     "w": "took",
+     "start": 28.99,
+     "end": 29.25
+    },
+    {
+     "w": "four",
+     "start": 29.25,
+     "end": 29.58
+    },
+    {
+     "w": "hundred",
+     "start": 29.58,
+     "end": 30.21
+    },
+    {
+     "w": "and",
+     "start": 30.21,
+     "end": 30.29
+    },
+    {
+     "w": "sixty-two",
+     "start": 30.29,
+     "end": 31.1
+    },
+    {
+     "w": "stitches",
+     "start": 31.1,
+     "end": 31.69
+    },
+    {
+     "w": "to",
+     "start": 31.69,
+     "end": 31.84
+    },
+    {
+     "w": "close",
+     "start": 31.84,
+     "end": 32.17
+    },
+    {
+     "w": "the",
+     "start": 32.17,
+     "end": 32.31
+    },
+    {
+     "w": "wounds.",
+     "start": 32.31,
+     "end": 32.84
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 33.3,
+   "end": 35.73,
+   "text": "Fox still wanted to go back in the water.",
+   "words": [
+    {
+     "w": "Fox",
+     "start": 33.33,
+     "end": 33.74
+    },
+    {
+     "w": "still",
+     "start": 33.74,
+     "end": 33.97
+    },
+    {
+     "w": "wanted",
+     "start": 33.97,
+     "end": 34.34
+    },
+    {
+     "w": "to",
+     "start": 34.34,
+     "end": 34.61
+    },
+    {
+     "w": "go",
+     "start": 34.61,
+     "end": 34.85
+    },
+    {
+     "w": "back",
+     "start": 34.85,
+     "end": 34.98
+    },
+    {
+     "w": "in",
+     "start": 34.98,
+     "end": 35.2
+    },
+    {
+     "w": "the",
+     "start": 35.2,
+     "end": 35.3
+    },
+    {
+     "w": "water.",
+     "start": 35.3,
+     "end": 35.67
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 35.93,
+   "end": 37.33,
+   "text": "So he built a cage.",
+   "words": [
+    {
+     "w": "So",
+     "start": 35.95,
+     "end": 36.26
+    },
+    {
+     "w": "he",
+     "start": 36.26,
+     "end": 36.45
+    },
+    {
+     "w": "built",
+     "start": 36.45,
+     "end": 36.67
+    },
+    {
+     "w": "a",
+     "start": 36.67,
+     "end": 36.95
+    },
+    {
+     "w": "cage.",
+     "start": 36.95,
+     "end": 37.27
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 37.63,
+   "end": 39.93,
+   "text": "Steel between him and the jaws.",
+   "words": [
+    {
+     "w": "Steel",
+     "start": 37.66,
+     "end": 38.1
+    },
+    {
+     "w": "between",
+     "start": 38.1,
+     "end": 38.67
+    },
+    {
+     "w": "him",
+     "start": 38.67,
+     "end": 39.03
+    },
+    {
+     "w": "and",
+     "start": 39.03,
+     "end": 39.32
+    },
+    {
+     "w": "the",
+     "start": 39.32,
+     "end": 39.36
+    },
+    {
+     "w": "jaws.",
+     "start": 39.36,
+     "end": 39.87
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 40.13,
+   "end": 43.8,
+   "text": "From that cage, Ron Taylor filmed great whites underwater.",
+   "words": [
+    {
+     "w": "From",
+     "start": 40.16,
+     "end": 40.48
+    },
+    {
+     "w": "that",
+     "start": 40.48,
+     "end": 40.71
+    },
+    {
+     "w": "cage,",
+     "start": 40.71,
+     "end": 41.12
+    },
+    {
+     "w": "Ron",
+     "start": 41.12,
+     "end": 41.44
+    },
+    {
+     "w": "Taylor",
+     "start": 41.44,
+     "end": 41.75
+    },
+    {
+     "w": "filmed",
+     "start": 41.75,
+     "end": 42.27
+    },
+    {
+     "w": "great",
+     "start": 42.27,
+     "end": 42.65
+    },
+    {
+     "w": "whites",
+     "start": 42.65,
+     "end": 42.95
+    },
+    {
+     "w": "underwater.",
+     "start": 42.95,
+     "end": 43.74
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 43.95,
+   "end": 46.28,
+   "text": "Some of the first footage of its kind.",
+   "words": [
+    {
+     "w": "Some",
+     "start": 43.98,
+     "end": 44.21
+    },
+    {
+     "w": "of",
+     "start": 44.21,
+     "end": 44.41
+    },
+    {
+     "w": "the",
+     "start": 44.41,
+     "end": 44.6
+    },
+    {
+     "w": "first",
+     "start": 44.6,
+     "end": 44.94
+    },
+    {
+     "w": "footage",
+     "start": 44.94,
+     "end": 45.39
+    },
+    {
+     "w": "of",
+     "start": 45.39,
+     "end": 45.6
+    },
+    {
+     "w": "its",
+     "start": 45.6,
+     "end": 45.74
+    },
+    {
+     "w": "kind.",
+     "start": 45.74,
+     "end": 46.22
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 46.53,
+   "end": 49.01,
+   "text": "He ran cage-diving trips for decades.",
+   "words": [
+    {
+     "w": "He",
+     "start": 46.56,
+     "end": 46.8
+    },
+    {
+     "w": "ran",
+     "start": 46.8,
+     "end": 47.04
+    },
+    {
+     "w": "cage-diving",
+     "start": 47.04,
+     "end": 47.83
+    },
+    {
+     "w": "trips",
+     "start": 47.83,
+     "end": 48.18
+    },
+    {
+     "w": "for",
+     "start": 48.18,
+     "end": 48.5
+    },
+    {
+     "w": "decades.",
+     "start": 48.5,
+     "end": 48.95
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 49.21,
+   "end": 53.33,
+   "text": "He co-founded a foundation to study and protect great whites.",
+   "words": [
+    {
+     "w": "He",
+     "start": 49.24,
+     "end": 49.37
+    },
+    {
+     "w": "co-founded",
+     "start": 49.37,
+     "end": 50.18
+    },
+    {
+     "w": "a",
+     "start": 50.18,
+     "end": 50.42
+    },
+    {
+     "w": "foundation",
+     "start": 50.42,
+     "end": 51.18
+    },
+    {
+     "w": "to",
+     "start": 51.18,
+     "end": 51.33
+    },
+    {
+     "w": "study",
+     "start": 51.33,
+     "end": 51.73
+    },
+    {
+     "w": "and",
+     "start": 51.73,
+     "end": 51.91
+    },
+    {
+     "w": "protect",
+     "start": 51.91,
+     "end": 52.43
+    },
+    {
+     "w": "great",
+     "start": 52.43,
+     "end": 52.93
+    },
+    {
+     "w": "whites.",
+     "start": 52.93,
+     "end": 53.27
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 53.68,
+   "end": 57.22,
+   "text": "The shark that nearly killed him turned him into its defender.",
+   "words": [
+    {
+     "w": "The",
+     "start": 53.71,
+     "end": 53.87
+    },
+    {
+     "w": "shark",
+     "start": 53.87,
+     "end": 54.2
+    },
+    {
+     "w": "that",
+     "start": 54.2,
+     "end": 54.55
+    },
+    {
+     "w": "nearly",
+     "start": 54.55,
+     "end": 54.85
+    },
+    {
+     "w": "killed",
+     "start": 54.85,
+     "end": 55.26
+    },
+    {
+     "w": "him",
+     "start": 55.26,
+     "end": 55.51
+    },
+    {
+     "w": "turned",
+     "start": 55.51,
+     "end": 55.89
+    },
+    {
+     "w": "him",
+     "start": 55.89,
+     "end": 56.09
+    },
+    {
+     "w": "into",
+     "start": 56.09,
+     "end": 56.45
+    },
+    {
+     "w": "its",
+     "start": 56.45,
+     "end": 56.57
+    },
+    {
+     "w": "defender.",
+     "start": 56.57,
+     "end": 57.16
+    }
+   ]
+  }
+ ]
+}

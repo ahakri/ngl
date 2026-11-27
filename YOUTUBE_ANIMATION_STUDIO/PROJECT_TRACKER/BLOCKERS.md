@@ -7,3 +7,5 @@
   (5 per niche, IDs CAVE-R1..R5, SCUBA-R1..R5, MURDER-R1..R5, HAUNT-R1..R5) so the library totals exactly 100.
 - RESOLVED: CAVE-04 (Nutty Putty) fact-check completed (16 claims, ≥2 sources each).
 - RESOLVED: MURDER-04 (Zodiac 340) fact-check VERIFIED.
+- 2026-11-27 ~09:00–12:00 UTC: account 5-hour usage limit hit (12 concurrent agents). All agents paused; the worker restarts killed the render queue mid HAUNT-01. Resumed 12:38 UTC. Mitigation: ≤4–5 concurrent agents; render queue now launched with setsid so it survives worker restarts.
+- SCUBA-06 (Rodney Fox) and MURDER-05 (Hinterkaifeck) fact-checks are PROVISIONAL (1 line each; verified fallback wording exists). CAVE-05/06 scripting interrupted by the usage limit (resume pending).
