@@ -1,0 +1,1330 @@
+{
+ "id": "MURDER-03",
+ "title": "He Hijacked a Plane, Then Jumped Into the Night",
+ "category": "murder",
+ "voice": "am_onyx",
+ "speed": 1.06,
+ "mood": "murder",
+ "target_seconds": 70,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "He opened the back door of a jetliner in flight. And jumped.",
+   "pause_after": 0.35,
+   "shot": "S01",
+   "emphasis": [
+    "flight",
+    "jumped"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "With two hundred thousand dollars in ransom.",
+   "pause_after": 0.3,
+   "shot": "S02",
+   "emphasis": [
+    "two",
+    "hundred",
+    "thousand"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "November 24th, 1971. Northwest Orient Flight 305.",
+   "pause_after": 0.25,
+   "shot": "S03",
+   "emphasis": [
+    "1971"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "A passenger ticketed as Dan Cooper handed a flight attendant a note.",
+   "pause_after": 0.25,
+   "shot": "S04",
+   "emphasis": [
+    "Dan",
+    "Cooper",
+    "note"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "It claimed he had a bomb.",
+   "pause_after": 0.3,
+   "shot": "S05",
+   "emphasis": [
+    "bomb"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "He wanted two hundred thousand dollars. And four parachutes.",
+   "pause_after": 0.3,
+   "shot": "S06",
+   "emphasis": [
+    "four",
+    "parachutes"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "In Seattle, he traded thirty-six passengers for the cash and chutes.",
+   "pause_after": 0.25,
+   "shot": "S07",
+   "emphasis": [
+    "thirty-six",
+    "passengers"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Then he sent the jet back up, south, toward Mexico.",
+   "pause_after": 0.25,
+   "shot": "S08",
+   "emphasis": [
+    "Mexico"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Over southwest Washington, in a night storm, he lowered the rear stairs.",
+   "pause_after": 0.3,
+   "shot": "S09",
+   "emphasis": [
+    "rear",
+    "stairs"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "And stepped off into the dark.",
+   "pause_after": 0.45,
+   "shot": "S10",
+   "emphasis": [
+    "dark"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Searchers combed the forest below. No trace of him was ever found.",
+   "pause_after": 0.3,
+   "shot": "S11",
+   "emphasis": [
+    "No",
+    "trace"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Then, in 1980, an eight-year-old boy was smoothing sand for a campfire on the Columbia River.",
+   "pause_after": 0.3,
+   "shot": "S12",
+   "emphasis": [
+    "1980",
+    "eight-year-old"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Under the sand: three rotting bundles of twenty-dollar bills.",
+   "pause_after": 0.35,
+   "shot": "S13",
+   "emphasis": [
+    "twenty-dollar",
+    "bills"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "About five thousand eight hundred dollars. The serial numbers matched the ransom.",
+   "pause_after": 0.35,
+   "shot": "S14",
+   "emphasis": [
+    "serial",
+    "matched"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "But that riverbank sits miles from where investigators believed he jumped.",
+   "pause_after": 0.3,
+   "shot": "S15",
+   "emphasis": [
+    "miles"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Washed downstream? Buried? Nobody has proven how it got there.",
+   "pause_after": 0.3,
+   "shot": "S16",
+   "emphasis": [
+    "proven"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "The rest of the money has never been found.",
+   "pause_after": 0.4,
+   "shot": "S17",
+   "emphasis": [
+    "never"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "Hijackings like his led the FAA to order a lock on the 727's rear stairs. It's called the Cooper vane.",
+   "pause_after": 0.35,
+   "shot": "S18",
+   "emphasis": [
+    "Cooper",
+    "vane"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "In 2016, the FBI stopped actively investigating. Hundreds of suspects. No charges.",
+   "pause_after": 0.35,
+   "shot": "S19",
+   "emphasis": [
+    "2016",
+    "No",
+    "charges"
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "Did he die in those woods? Or walk out of them?",
+   "pause_after": 0.3,
+   "shot": "S20",
+   "emphasis": [
+    "die",
+    "walk"
+   ]
+  },
+  {
+   "id": "L21",
+   "text": "Where do you think he landed?",
+   "pause_after": 0.4,
+   "shot": "S21",
+   "emphasis": [
+    "landed"
+   ]
+  },
+  {
+   "id": "L22",
+   "text": "Because all anyone knows for sure is this.",
+   "pause_after": 0.3,
+   "shot": "S22",
+   "emphasis": [
+    "sure"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:night sky / jet exterior",
+   "description": "Frame 1 already moving: underside of the tail of the stylised 727 at night in heavy rain. Stylised Boeing 727 built from primitives: fuselage = cylinder (r 1.9 m, 40 m) with tapered cone nose and tail cone, dark navy-grey metal with a red cheat-line stripe (no airline logo), three rear engines = short cylinders clustered at the tail, T-tail = thin boxes on top of a swept fin, swept wings = flattened bevelled boxes. Ventral airstair = hinged box ramp (0.9 m wide, 6 m long, stepped bump-map) dropping from under the tail cone, open, with a warm cabin-light spill above it. A faceless suited silhouette stands on the lowest step of the open airstair, coat flapping, a small bag strapped to the chest; on 'jumped' he drops out of frame downward and the stairs bounce up.",
+   "camera": "low angle from behind/below the tail, 28mm, slow push-in from frame 1, handheld amp 0.03 (turbulence), slight roll",
+   "characters": [
+    "hijacker silhouette (char_figure, coat=True, dark suit, faceless, no glasses detail)"
+   ],
+   "lighting": "black-blue night; warm sodium cabin spill through the stair opening; lightning flash (flicker) on 'jumped'",
+   "fx": [
+    "rain streaks (particle_cloud, fast diagonal)",
+    "cloud fog_volume below the jet"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "start": 0.6,
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "thunder",
+     "offset": 2.2,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:night sky freefall",
+   "description": "Close tracking shot of a canvas money bag (rounded box mesh, khaki cloth, drawstring) tumbling through rain and cloud, strapped to the dark silhouette's torso (only torso + arm visible, no face). A couple of $20-style green paper rectangles (plain, no real banknote artwork) flutter past camera.",
+   "camera": "tracking freefall, 35mm, camera rotates slowly around the bag; motion blur",
+   "characters": [
+    "hijacker silhouette (torso only)"
+   ],
+   "lighting": "dark blue ambient, lightning rim light from above",
+   "fx": [
+    "rain particles",
+    "cloud fog_volume",
+    "paper bill particles (3-5 flat planes)"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "RANSOM (USD)",
+     "params": {
+      "from": 0,
+      "to": 200000,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "map",
+   "description": "Map card: stylised Pacific Northwest coastline; a route line draws north from PORTLAND to SEATTLE; pin on Seattle. Date stamp types on.",
+   "camera": "2D overlay over a darkened rain-on-window background plate (slow zoom)",
+   "characters": [],
+   "lighting": "n/a (overlay); background plate dim blue-grey",
+   "fx": [
+    "rain drops on glass in background plate"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "FLIGHT 305\nPortland to Seattle",
+     "params": {
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.62,
+        0.0
+       ],
+       [
+        0.58,
+        0.18
+       ],
+       [
+        0.66,
+        0.32
+       ],
+       [
+        0.6,
+        0.5
+       ],
+       [
+        0.64,
+        0.7
+       ],
+       [
+        0.58,
+        1.0
+       ],
+       [
+        0.0,
+        1.0
+       ]
+      ],
+      "points": [
+       [
+        0.7,
+        0.82
+       ],
+       [
+        0.72,
+        0.55
+       ],
+       [
+        0.7,
+        0.22
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "stamp",
+     "text": "24 NOVEMBER 1971\nNORTHWEST ORIENT FLIGHT 305",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "typewriter",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "other:aircraft cabin interior",
+   "description": "Low-poly 727 cabin (corridor builder re-skinned: narrow aisle, rows of box seats in muted 1970s orange/brown, small round windows with rain). Rear-row faceless suited silhouette extends an arm; a folded paper note passes into the hand of a second silhouette in a flight attendant's uniform (char_figure, lighter colour). Focus pulls to the note.",
+   "camera": "aisle-level 50mm, slow dolly toward the rear row; rack focus to the note",
+   "characters": [
+    "hijacker silhouette (dark suit)",
+    "flight attendant silhouette (light uniform, faceless)"
+   ],
+   "lighting": "warm overhead cabin light, cool window light, soft",
+   "fx": [
+    "subtle cabin haze"
+   ],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "'DAN COOPER'",
+     "start": 0.3,
+     "params": {
+      "size": 100,
+      "y": 560
+     }
+    },
+    {
+     "type": "card",
+     "text": "\"D.B.\" came later - a press mix-up",
+     "start": 1.4,
+     "params": {
+      "header": "NAME ON THE TICKET",
+      "y": 1250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.2,
+     "gain": 0.3
+    },
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "document",
+   "description": "Document reveal: a small torn note card slides up (paraphrase only, not the real wording). Behind it, the cabin plate blurs; a dark briefcase on the seat is lit by a single overhead spot.",
+   "camera": "2D overlay over blurred cabin plate; slow push on the briefcase behind",
+   "characters": [],
+   "lighting": "single top-light on the briefcase, rest dark",
+   "fx": [
+    "dust motes in light"
+   ],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "(paraphrase)\nI HAVE A BOMB",
+     "params": {
+      "style": "scrap",
+      "rot": -4
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.7
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.4,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "other:evidence table",
+   "description": "Top-down on a dark table: four parachute packs (rounded boxes with harness straps, olive and white) slam down one after another in time with the words, next to a stack of banded green bill-bricks.",
+   "camera": "top-down 35mm, tiny push-in each time a pack lands",
+   "characters": [],
+   "lighting": "hard top-light, red rim from below",
+   "fx": [
+    "dust puff on each impact"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "$200,000 in $20 bills\n4 parachutes",
+     "params": {
+      "header": "DEMANDS",
+      "y": 1300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 0.6,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 1.2,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 1.8,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "road_night",
+   "description": "Rain-soaked airport apron at night (ground plane, wet roughness 0.1, yellow taxi line). The stylised 727 sits under floodlights, front door open; a line of small faceless silhouettes walks down a boarding stair away from the jet while a single figure carries a bag toward the tail.",
+   "camera": "wide 35mm from the apron, slow truck right, reflections in the puddles",
+   "characters": [
+    "passenger silhouettes x8-10 (anim_walk)",
+    "courier silhouette with bag"
+   ],
+   "lighting": "orange sodium floodlights, wet reflections, rain backlit",
+   "fx": [
+    "rain particles",
+    "light fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "SEATTLE-TACOMA AIRPORT\nPASSENGERS RELEASED",
+     "start": 0.3,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "map",
+   "description": "Same map card style: route line now draws SOUTH from Seattle, past Portland, dashed toward the bottom edge with 'RENO (refuel) / MEXICO' label off-card. A small jet icon rides the line.",
+   "camera": "2D overlay over dark cloud plate, slow drift down",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [
+    "clouds drifting in background"
+   ],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "HEADING SOUTH\ntoward Mexico, via Reno to refuel",
+     "params": {
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.62,
+        0.0
+       ],
+       [
+        0.58,
+        0.18
+       ],
+       [
+        0.66,
+        0.32
+       ],
+       [
+        0.6,
+        0.5
+       ],
+       [
+        0.64,
+        0.7
+       ],
+       [
+        0.58,
+        1.0
+       ],
+       [
+        0.0,
+        1.0
+       ]
+      ],
+      "points": [
+       [
+        0.7,
+        0.22
+       ],
+       [
+        0.72,
+        0.55
+       ],
+       [
+        0.73,
+        0.98
+       ]
+      ],
+      "pin_first": true,
+      "pin": 0
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "rumble",
+     "offset": 0.3,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:night sky / jet exterior",
+   "description": "Side view of the stylised 727 flying through rain cloud; the ventral airstair under the tail slowly hinges down, spilling a wedge of warm light into the rain. Lightning backlights the cloud deck.",
+   "camera": "parallel tracking shot, 50mm, jet left-to-right, slow push toward the tail",
+   "characters": [],
+   "lighting": "dark storm blue; lightning flicker every ~1.5 s; warm stair light",
+   "fx": [
+    "rain streaks",
+    "cloud fog_volume (thick)"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "APPROX. 8:13 PM\nSW WASHINGTON",
+     "start": 0.3,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "metal_groan",
+     "offset": 0.4,
+     "gain": 0.6
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "thunder",
+     "offset": 1.5,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "forest",
+   "description": "Looking straight down: a tiny silhouette falls away from camera into black cloud; a parachute canopy (half-sphere mesh, pale fabric) blooms; through a cloud break, an endless dark forest (forest builder, dense conifers as cone stacks) far below.",
+   "camera": "top-down from the stair, 24mm, camera holds while figure shrinks; slow rotation",
+   "characters": [
+    "hijacker silhouette under canopy"
+   ],
+   "lighting": "almost black; faint moon/cloud glow; canopy lit by one lightning flash",
+   "fx": [
+    "rain",
+    "cloud fog_volume parting"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.8
+    },
+    {
+     "name": "wind",
+     "offset": 0.2,
+     "gain": 0.5
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "forest",
+   "description": "Daylight-grey overcast: low aerial over wet conifer forest and a river bend; three faceless searcher silhouettes in a line push through ferns with torches; nothing found.",
+   "camera": "low drone pass over the treetops, 35mm, then tilt down to the searchers",
+   "characters": [
+    "searcher silhouettes x3 (anim_walk, rain jackets)"
+   ],
+   "lighting": "flat overcast grey-green, torch cones in mist",
+   "fx": [
+    "fog_volume in the trees",
+    "drizzle"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "footsteps",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:riverbank",
+   "description": "MID-POINT TURN — colour flips from storm blue to pale winter daylight. A wide sandy riverbank (ground plane with sand material + ripples) beside a broad grey river; a small child silhouette kneels, sweeping sand flat with his hands; a parent silhouette in the background stacks driftwood.",
+   "camera": "wide 35mm, slow push toward the kneeling child",
+   "characters": [
+    "child silhouette (small char_figure, faceless)",
+    "adult silhouette (background)"
+   ],
+   "lighting": "low cold winter sun, long shadows, soft haze over the water",
+   "fx": [
+    "light mist over the river"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "10 FEBRUARY 1980\nTENA BAR, COLUMBIA RIVER",
+     "start": 0.2,
+     "params": {
+      "y": 1500
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "sting",
+     "offset": 0.0,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "flash"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:riverbank macro",
+   "description": "Macro: sand slides away to reveal three blackened, swollen bundles of green paper (stacked thin planes, edges frayed, darker at corners), held by perished rubber bands. Generic bills only — no real banknote design.",
+   "camera": "macro 85mm, top-down rack focus as sand pours off",
+   "characters": [],
+   "lighting": "low raking winter sun, wet sand sparkle",
+   "fx": [
+    "falling sand grains (particle_cloud tan)"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "riser",
+     "offset": 0.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14"
+   ],
+   "environment": "other:evidence board",
+   "description": "Evidence card: a recovered bill fragment on the left, a 1971 ransom-list microfilm strip on the right; serial-number rows highlight and a red line connects them, then a red MATCH stamp. Serial numbers are placeholders (e.g. L0000000A), not real ones.",
+   "camera": "2D overlay, push-in on the matching rows",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "~$5,800 in $20 bills\nSerials on the 1971 ransom list",
+     "params": {
+      "header": "FBI: MATCH",
+      "y": 1250
+     }
+    },
+    {
+     "type": "title",
+     "text": "MATCH",
+     "start": 1.6,
+     "params": {
+      "size": 150,
+      "y": 760,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.6,
+     "gain": 0.8
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L15"
+   ],
+   "environment": "map",
+   "description": "Map card: the estimated flight path is a thin dashed line north-south; a soft red oval marks the presumed drop zone; the route line draws from the drop zone to a pin on Tena Bar further south-west on the river, with a '~20 MI?' tag.",
+   "camera": "2D overlay over dark river plate",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "DROP ZONE vs. TENA BAR\nestimates vary",
+     "params": {
+      "land": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        1.0,
+        0.0
+       ],
+       [
+        1.0,
+        0.62
+       ],
+       [
+        0.55,
+        0.66
+       ],
+       [
+        0.2,
+        0.72
+       ],
+       [
+        0.0,
+        0.7
+       ]
+      ],
+      "points": [
+       [
+        0.68,
+        0.3
+       ],
+       [
+        0.5,
+        0.5
+       ],
+       [
+        0.3,
+        0.68
+       ]
+      ],
+      "pin": -1
+     }
+    },
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "boom",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:evidence board",
+   "description": "Evidence board (dark cork wall): two theory cards pin on in time with the words; a third card reads '?'. Red string links them to a photo-style card of the sandbar (rendered, not a photo).",
+   "camera": "slow push-in, 35mm, slight handheld",
+   "characters": [],
+   "lighting": "single desk lamp, warm, deep shadows",
+   "fx": [
+    "dust"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "WASHED DOWNSTREAM?",
+     "start": 0.1,
+     "duration": 1.2,
+     "params": {
+      "size": 90,
+      "y": 700
+     }
+    },
+    {
+     "type": "text",
+     "text": "BURIED?",
+     "start": 1.3,
+     "duration": 1.0,
+     "params": {
+      "size": 100,
+      "y": 900
+     }
+    },
+    {
+     "type": "text",
+     "text": "UNPROVEN",
+     "start": 2.4,
+     "params": {
+      "size": 110,
+      "y": 1100,
+      "color": [
+       230,
+       40,
+       40
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "hit",
+     "offset": 0.1,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 1.3,
+     "gain": 0.4
+    },
+    {
+     "name": "hit",
+     "offset": 2.4,
+     "gain": 0.6
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:night sky freefall",
+   "description": "Callback to S02: the empty sky over the dark forest at night, rain; no figure, no bag. A counter subtracts the find from the ransom.",
+   "camera": "slow tilt down from cloud to treetops, 35mm",
+   "characters": [],
+   "lighting": "dark blue, faint moon",
+   "fx": [
+    "rain",
+    "fog_volume"
+   ],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "STILL MISSING (USD)",
+     "params": {
+      "from": 200000,
+      "to": 194200,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "heartbeat",
+     "offset": 0.3,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L18"
+   ],
+   "environment": "other:jet exterior, hangar",
+   "description": "Clean technical cutaway: the stylised 727 tail in a dim hangar; a small spring-loaded paddle (thin box on a hinge) under the fuselage flips into the airflow line, and the airstair attempts to drop but is blocked. Blueprint-blue line overlay draws the paddle.",
+   "camera": "side 50mm, slow orbit 20 deg around the tail",
+   "characters": [],
+   "lighting": "cool hangar top-lights, blue blueprint lines",
+   "fx": [
+    "faint dust"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "Spring-loaded vane blocks the\nrear stairs from opening in flight",
+     "params": {
+      "header": "THE \"COOPER VANE\"",
+      "y": 1250
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 1.0,
+     "gain": 0.6
+    },
+    {
+     "name": "metal_groan",
+     "offset": 1.2,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S19",
+   "lines": [
+    "L19"
+   ],
+   "environment": "document",
+   "description": "Document reveal: a neutral recreated case-file cover (no real FBI seal or letterhead) with 'NORJAK' typed; a rubber stamp slams 'ACTIVE INVESTIGATION ENDED - JULY 2016'.",
+   "camera": "2D overlay over a dark desk plate, slight push",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "CASE: NORJAK (Northwest hijacking)\nSuspects considered: 800+\nCharged: none\nStatus: active investigation ended,\nJuly 2016",
+     "params": {
+      "style": "paper",
+      "title": "CASE FILE (recreation)"
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.4,
+     "gain": 0.5
+    },
+    {
+     "name": "hit",
+     "offset": 2.4,
+     "gain": 0.7
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S20",
+   "lines": [
+    "L20"
+   ],
+   "environment": "forest",
+   "description": "Dawn in the conifer forest, mist on the ground; a single pale parachute shape tangled high in a tree branch?  NO — keep it ambiguous: empty clearing, a faint line of footprints that fades out after a few metres.",
+   "camera": "slow ground-level push through the trees, 24mm",
+   "characters": [],
+   "lighting": "blue-grey dawn, god rays through fog",
+   "fx": [
+    "fog_volume",
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "THEORY",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "card",
+     "text": "FBI view: he probably didn't survive\nNo body has ever been found",
+     "start": 0.8,
+     "params": {
+      "header": "UNRESOLVED",
+      "y": 1250
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "footsteps",
+     "offset": 0.6,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S21",
+   "lines": [
+    "L21"
+   ],
+   "environment": "map",
+   "description": "Map card from S15 again, empty of pins; a pulsing '?' pin waits over the forest region.",
+   "camera": "2D overlay, slow zoom",
+   "characters": [],
+   "lighting": "n/a",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "text",
+     "text": "WHERE DID HE LAND?",
+     "start": 0.2,
+     "params": {
+      "size": 90,
+      "y": 700
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S22",
+   "lines": [
+    "L22"
+   ],
+   "environment": "other:night sky / jet exterior",
+   "description": "Loop frame: same framing as S01 — underside of the 727 tail in rain, airstair open, warm spill; the suited silhouette steps back onto the bottom stair, matching frame 1.",
+   "camera": "matches S01: low angle 28mm, push-in, handheld",
+   "characters": [
+    "hijacker silhouette"
+   ],
+   "lighting": "as S01",
+   "fx": [
+    "rain streaks",
+    "cloud fog_volume"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.6
+    },
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.4
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.55
+  ],
+  [
+   10,
+   0.6
+  ],
+  [
+   30,
+   0.7
+  ],
+  [
+   33,
+   0.45
+  ],
+  [
+   33.6,
+   0.85
+  ],
+  [
+   50,
+   0.95
+  ],
+  [
+   60,
+   0.7
+  ],
+  [
+   68,
+   0.55
+  ]
+ ],
+ "loop_line": "Because all anyone knows for sure is this."
+}
