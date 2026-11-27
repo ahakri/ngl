@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T13:05:04Z
+Updated: 2026-11-27T13:08:28Z
 
 ## Concept counts
 
@@ -16,8 +16,7 @@ Updated: 2026-11-27T13:05:04Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 7
-- ANIMATING: 1
+- ANIMATED - in render queue: 8
 - CONCEPT: 76
 - SCRIPTED: 16
 
@@ -32,7 +31,7 @@ Updated: 2026-11-27T13:05:04Z
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | SCRIPTED |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | SCRIPTED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |
-| SCUBA-02 | The Boat Left Without Them | 82 | ANIMATING |
+| SCUBA-02 | The Boat Left Without Them | 82 | ANIMATED - in render queue |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | SCRIPTED |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | SCRIPTED |
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | SCRIPTED |

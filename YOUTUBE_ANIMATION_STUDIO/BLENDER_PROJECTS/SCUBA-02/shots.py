@@ -64,7 +64,7 @@ def two_divers(L, n, a=(-0.55, 4.2), b=(0.6, 4.9), phase=0.0, end_match=None):
     for i, (p, bcd) in enumerate(((a, (0.05, 0.12, 0.32)), (b, (0.08, 0.3, 0.35)))):
         sw = S.swimmer(f"diver{i}", bcd=bcd, seed=i)
         r = sw["root"]
-        r.location = (p[0], p[1], -0.02)
+        r.location = (p[0], p[1], 0.05)  # sit a little proud so wave crests never swallow the heads
         r.rotation_euler = (0, 0, 0.15 * (1 - 2 * i))
         ph = phase + i * 1.7
         S.bob(r, n + 2, amp=0.1, rate=0.32, phase=ph, tilt=0.05)

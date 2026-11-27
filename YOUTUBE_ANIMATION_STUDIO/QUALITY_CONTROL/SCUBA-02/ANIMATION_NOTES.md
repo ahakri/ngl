@@ -33,3 +33,6 @@ S13 "REPORTED" -> "DISPUTED"; S15 "UNKNOWN" -> "DRAMATISATION"; S06/S17 ✓ remo
 - EEVEE Next world volumes absorb the sun entirely (infinite path) -> `lib_scuba.world_volume()` now makes a big volume cube.
 - Area lights inside volumes show as glowing rectangles -> shots set `volume_factor = 0` on area lights (`_finish`).
 - Ocean surfaces have `visible_shadow = False` so they don't shadow the underwater scene.
+
+## After the last preview
+- In S01's last preview frame a swell crest hid the swimmers. They now sit 7 cm higher (`two_divers`, shared with S18 so the loop still matches). I made this change after the preview-round limit, so no preview has checked it.
