@@ -2,7 +2,7 @@
 
 Format: YouTube Shorts, 9:16, 45–65 s. Scored 0–20 on demand, story, packaging, retention and feasibility (brief calibration: a good idea scores ~65–75, and anything over 85 needs strong evidence). No concept scored above 85, because the reference view counts are aggregator snapshots, not verified figures.
 
-Cave-diving stories are excluded (separate category). `verification_status` says which facts were confirmed this session. **NEEDS FACT-CHECK** concepts must be verified with 2 or more sources before scripting, because the search budget ran out.
+Cave-diving stories are excluded (separate category). `verification_status` says which facts were confirmed this session. After a second fact-check pass, all 20 concepts are verified with 2 or more sources. Where sources disagree, the safer wording is noted.
 
 | Rank | ID | Title | D | S | P | R | F | Total | Verified? |
 |---|---|---|---|---|---|---|---|---|---|
@@ -14,18 +14,18 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 | 6 | SCUBA-06 | 462 Stitches, Then He Went Back In | 15 | 17 | 16 | 15 | 14 | **77** | yes |
 | 7 | SCUBA-07 | Sponge Divers Found a 2,000-Year-Old Computer | 14 | 16 | 15 | 14 | 16 | **75** | yes |
 | 8 | SCUBA-08 | Found After 107 Years, 3 km Under the Ice | 14 | 15 | 15 | 13 | 16 | **73** | yes |
-| 9 | SCUBA-09 | Why Divers Fear the Arch | 16 | 13 | 15 | 14 | 15 | **73** | partial |
-| 10 | SCUBA-10 | A Whole Fleet Is Still Down There | 13 | 14 | 15 | 13 | 17 | **72** | NO |
-| 11 | SCUBA-11 | A WWII Ship Full of Motorbikes | 13 | 14 | 15 | 13 | 17 | **72** | NO |
-| 12 | SCUBA-12 | Titanic's Sister Is Diveable | 13 | 14 | 15 | 13 | 16 | **71** | NO |
-| 13 | SCUBA-13 | Found 5.5 km Down, 72 Years Later | 15 | 15 | 14 | 13 | 13 | **70** | NO |
-| 14 | SCUBA-14 | She Swam With a 20-Foot Great White | 14 | 12 | 16 | 13 | 14 | **69** | yes |
-| 15 | SCUBA-15 | 16 Years of 'Today's the Day' | 13 | 15 | 14 | 13 | 14 | **69** | NO |
-| 16 | SCUBA-16 | They Nuked a Fleet, and You Can Dive It | 13 | 14 | 14 | 12 | 15 | **68** | NO |
+| 9 | SCUBA-09 | Why Divers Fear the Arch | 16 | 13 | 15 | 14 | 15 | **73** | yes |
+| 10 | SCUBA-10 | Found 5.5 km Down, 72 Years Later | 15 | 16 | 15 | 14 | 13 | **73** | yes |
+| 11 | SCUBA-11 | A Whole Fleet Is Still Down There | 13 | 14 | 15 | 13 | 17 | **72** | yes |
+| 12 | SCUBA-12 | A WWII Ship Full of Motorbikes | 13 | 14 | 15 | 13 | 17 | **72** | yes |
+| 13 | SCUBA-13 | 16 Years of 'Today's the Day' | 13 | 16 | 15 | 14 | 14 | **72** | yes |
+| 14 | SCUBA-14 | Titanic's Sister Is Diveable | 13 | 14 | 15 | 13 | 16 | **71** | yes |
+| 15 | SCUBA-15 | She Swam With a 20-Foot Great White | 14 | 12 | 16 | 13 | 14 | **69** | yes |
+| 16 | SCUBA-16 | They Nuked a Fleet, and You Can Dive It | 13 | 14 | 14 | 12 | 15 | **68** | yes |
 | 17 | SCUBA-17 | Pyramid or Rock? Japan's Underwater 'Monument' | 14 | 11 | 15 | 12 | 15 | **67** | yes |
-| 18 | SCUBA-18 | The 'Mount Everest' of Wreck Diving | 12 | 14 | 13 | 12 | 15 | **66** | NO |
+| 18 | SCUBA-18 | The 'Mount Everest' of Wreck Diving | 12 | 14 | 13 | 12 | 15 | **66** | yes |
 | 19 | SCUBA-19 | The Sonar Image Nobody Can Explain (Or Can They?) | 13 | 9 | 14 | 11 | 16 | **63** | yes |
-| 20 | SCUBA-20 | Why Is There a Statue of Jesus 17 m Underwater? | 10 | 11 | 13 | 10 | 16 | **60** | NO |
+| 20 | SCUBA-20 | Why Is There a Statue of Jesus 17 m Underwater? | 10 | 11 | 13 | 10 | 16 | **60** | yes |
 
 ## SCUBA-01 — He Lived 60 Hours at the Bottom of the Sea
 *Alt title:* The Cook Who Breathed in a Sunken Ship  
@@ -427,11 +427,11 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 *Alt title:* The Red Sea's Most Dangerous Dive Site  
 *Score:* **73/100** (demand 16, story 13, packaging 15, retention 14, feasibility 15) · *Difficulty:* Low · *Duration:* 55 s
 
-**Subject:** The Blue Hole, Dahab, Egypt: a marine sinkhole with an underwater arch at ~55 m that tempts divers past recreational limits; it has a long list of fatalities (Yuri Lipski, 2000, is the best-known case). Framed as a site-safety explainer: nitrogen narcosis and depth illusion.
+**Subject:** The Blue Hole, Dahab, Egypt: a marine sinkhole beside a reef wall with a tunnel called 'the Arch' at ~55 m (181 ft) - beyond recreational air limits. A memorial wall of plaques on shore commemorates dozens of divers, mostly lost attempting the Arch on air, many from nitrogen narcosis. Egyptian authorities publish no official death toll. Yuri Lipski (2000) is the best-known case; freediver Stephen Keenan died there in 2017 (Netflix 'The Deepest Breath'). Framed as a site-safety explainer.
 
 **Why it can work:** Proven 'killer dive site' demand (MrBallen 5.6M on a different blue hole; Netflix 'The Deepest Breath'). The science of narcosis is visual. Ethics sharply limit the human story, so feasibility of a respectful version is fine, but story score is capped.
 
-**Verification:** PARTIAL: Lipski 2000 and the 2017 Keenan/Zecchini case confirmed in LADbible snippets; arch depth ~55 m and fatality counts NEED FACT-CHECK. ETHICS: never describe Lipski's footage.
+**Verification:** VERIFIED this pass (IFLScience, Slate/Atlas Obscura, Divernet, LADbible): Arch ~55 m; memorial plaques; no official toll. Never state a precise death count - say 'dozens (memorial plaques)'. ETHICS: never describe Lipski's footage.
 
 **15-second hook:**
 
@@ -465,21 +465,73 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 **Sources:**
 
+- https://www.iflscience.com/divers-cemetery-why-this-is-the-deadliest-place-in-the-world-to-dive-65467
+- https://www.slate.com/blogs/atlas_obscura/2014/03/04/diver_s_cemetery_the_blue_hole_of_dahab_on_the_red_sea_in_egypt.html
+- https://divernet.com/world-dives/africa/dog-days-in-dahab-exploring-the-enchanting-and-edgy-dive-sites-of-egypts-underwater-gem/
 - https://ladbible.com/community/blue-hole-deepest-breath-netflix-footage-death-842820-20230802
-- https://ladbible.com/community/most-dangerous-dive-site-earth-740331-20240520
-- https://en.wikipedia.org/wiki/Blue_Hole_(Red_Sea)
 
 ---
 
-## SCUBA-10 — A Whole Fleet Is Still Down There
+## SCUBA-10 — Found 5.5 km Down, 72 Years Later
+*Alt title:* The Ship That Delivered the Bomb  
+*Score:* **73/100** (demand 15, story 16, packaging 15, retention 14, feasibility 13) · *Difficulty:* High · *Duration:* 60 s
+
+**Subject:** USS Indianapolis (CA-35) delivered atomic-bomb components to Tinian, then was torpedoed by Japanese submarine I-58 shortly after midnight on 30 Jul 1945 (sinking time 00:14 per NHHC). Of ~1,195 crew, roughly 800-900 went into the water; 316 survived after days adrift (exposure, dehydration, sharks). In 2016 NHHC historian Richard Hulver found that tank landing ship LST-779 had logged passing the cruiser ~11 h before it sank - shifting the search area west. Paul Allen's R/V Petrel found the wreck on 19 Aug 2017 at ~5,500 m (18,000 ft) in the Philippine Sea. Location kept secret; war grave.
+
+**Why it can work:** A deep-sea discovery with an infamous survival story, plus a perfect detective beat: a forgotten deck log of a passing landing ship cracked a 72-year mystery. Demand is high, but the deaths are sensitive and the sharks are heavily covered. Smithsonian's 4.4K shows that packaging matters.
+
+**Verification:** VERIFIED this pass (US Navy NHHC x2, PBS NewsHour, NBC, Smithsonian). Crew 1,195/1,196 and survivors 316/317 vary by source. The popular '12 minutes' sinking time was NOT confirmed - script as 'within minutes'. Depth 5,500 m (one outlier source says 2,000 ft - ignore).
+
+**15-second hook:**
+
+- 0-2 s: ROV light finds a hull plate with '35'. VO: 'This wreck was lost for 72 years. A forgotten logbook found it.'
+- 2-6 s: Depth counter to ~5,500 m.
+- 6-15 s: VO: 'Days earlier it had delivered the parts of an atomic bomb. Then it vanished in minutes, and the Navy searched in the wrong place for decades.'
+
+**Structure:**
+
+1. Hook hull number + logbook
+2. Secret mission to Tinian
+3. Torpedoed after midnight; sank within minutes
+4. Men in water for days (respectful, no gore; shark threat stated)
+5. 316 survive
+6. 2016: Hulver finds LST-779 deck log - search moves west
+7. 19 Aug 2017: Petrel's ROV finds hull number 35 at ~5,500 m
+8. Loop: 'a ship that passed in the night found it'
+
+**Retention moments:** 0 s hull number; 8 s 'atomic bomb'; 25 s 'sank in minutes'; 38 s survivor count; 45 s LST-779 logbook reveal; 55 s discovery + loop
+
+**Thumbnail / first frame:** ROV beam on hull number in black water, '5,500 m'.
+
+**Animation style:** Deep-sea black, ROV light cones, map with search box; surface ocean wide shots without bodies.
+
+**Scenes:** Cruiser at sea at night; Torpedo track silhouette; Wide ocean with life rafts (distant); Search map; ROV descent; Hull number reveal
+
+**References:**
+
+- Smithsonian Channel — "Make It Out Alive: USS Indianapolis" — views: 4,456 (si.edu) — url: https://www.youtube.com/watch?v=CnTIEYuRozA (underperformer - weak packaging)
+- AiTelly — "How the Titan Sub Imploded" — views: 10M+ (dailyo.in) — url: unverified (Blender-made outlier, ~37x subs)
+- MetaBallStudios — "Ocean DEPTH Comparison (3D Animation)" — views: unverified — url: https://www.youtube.com/watch?v=Q5C7sqVe2Vg (evergreen depth-scale animation; press 2021-2025)
+
+**Sources:**
+
+- https://www.history.navy.mil/news-and-events/news/2017/august/USSIndianapolisLocated.html
+- https://www.history.navy.mil/research/histories/ship-histories/loss-of-uss-indianapolis-ca-35.html
+- https://www.pbs.org/newshour/show/uss-indianapolis-wwii-navy-ship-dramatic-history-finally-rediscovered
+- https://www.nbcnews.com/news/world/microsoft-co-founder-s-team-finds-wreckage-wwii-era-uss-n794296
+- https://www.smithsonianmag.com/history/the-worst-shark-attack-in-history-25715092/
+
+---
+
+## SCUBA-11 — A Whole Fleet Is Still Down There
 *Alt title:* The Lagoon Full of Warships  
 *Score:* **72/100** (demand 13, story 14, packaging 15, retention 13, feasibility 17) · *Difficulty:* Low · *Duration:* 58 s
 
-**Subject:** Chuuk (Truk) Lagoon, Micronesia: US carrier strikes in Operation Hailstone (17-18 Feb 1944) sank dozens of Japanese ships and aircraft; the 'ghost fleet' is now a famous wreck-diving site with cargo (trucks, aircraft, munitions) still aboard.
+**Subject:** Chuuk (Truk) Lagoon, Micronesia: US carrier raid Operation Hailstone (17-18 Feb 1944) destroyed roughly 250+ Japanese aircraft and sank dozens of ships (estimates range from ~40 to ~70 vessels by source). It is now a world-famous wreck-diving site, with holds still holding aircraft and vehicles. Shinkoku Maru and Yamagiri Maru are well-known dives (~9-37 m). Cousteau's 1969 documentary popularised it. 30 US aircraft were lost.
 
 **Why it can work:** The scale reveal ('an entire fleet') plus cargo still in the holds. Wreck exploration is highly feasible procedurally. Moderate demand; there is no single protagonist, so the story is weaker.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session - search budget exhausted). Ship/aircraft counts vary by source.
+**Verification:** VERIFIED this pass (US Navy NHHC H-Gram, Wikipedia, DAN Alert Diver, History Hit). Ship count varies by source (~40 to ~70): script as 'dozens of ships'. Aircraft ~250 (NHHC: ~365 at Truk, ~100 survived).
 
 **15-second hook:**
 
@@ -491,11 +543,12 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 1. Hook truck
 2. Map: Truk as Japanese base
-3. Operation Hailstone 2-day timeline
-4. Ships sinking (silhouettes)
-5. Today: coral-covered holds, aircraft, munitions
-6. Respect: war graves - divers don't remove
-7. Loop
+3. Operation Hailstone 2-day timeline (17-18 Feb 1944)
+4. Ships sinking (silhouettes); 'dozens of ships, ~250 aircraft'
+5. Today: coral-covered holds, aircraft, vehicles
+6. Cousteau 1969 film made it famous
+7. Respect: war graves - divers don't remove
+8. Loop
 
 **Retention moments:** 0 s truck in hold; 4 s fleet pull-out; 25 s ship count ticker; 40 s coral time-lapse; 56 s loop
 
@@ -513,20 +566,22 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 **Sources:**
 
-- https://en.wikipedia.org/wiki/Operation_Hailstone
-- https://en.wikipedia.org/wiki/Chuuk_Lagoon
+- https://history.navy.mil/about-us/leadership/director/directors-corner/h-grams/h-gram-026/H-026-3.html
+- https://www.wikipedia.org/wiki/Battle_of_Truk
+- https://dan.org/alert-diver/article/66-years-down/
+- https://www.historyhit.com/locations/chuuk-lagoon/
 
 ---
 
-## SCUBA-11 — A WWII Ship Full of Motorbikes
+## SCUBA-12 — A WWII Ship Full of Motorbikes
 *Alt title:* The Wreck Cousteau Found  
 *Score:* **72/100** (demand 13, story 14, packaging 15, retention 13, feasibility 17) · *Difficulty:* Low · *Duration:* 55 s
 
-**Subject:** SS Thistlegorm, a British cargo ship sunk by German aircraft in the Red Sea in October 1941 carrying war supplies (motorcycles, trucks, rifles, locomotives). Rediscovered by Jacques Cousteau in the 1950s; now one of the world's most-dived wrecks (~30 m).
+**Subject:** SS Thistlegorm, British cargo ship sunk by German aircraft in the Red Sea (Strait of Gubal) on the night of 5/6 October 1941 (sources give 5 or 6 Oct). Cargo: BSA M20 and Norton 16H motorcycles, Bedford trucks, Morris cars, rifles, munitions. Jacques Cousteau found it in the early 1950s (sources say 'early fifties' or 1955) and raised items including a motorcycle and the ship's bell. Wreck depth ~16-32 m.
 
 **Why it can work:** The visual hook (rows of motorbikes in a hold) is unbeatable for a still frame. The Cousteau name. Easy, high-quality procedural set.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session). Confirm date (6 Oct 1941), cargo list and Cousteau year.
+**Verification:** VERIFIED this pass (Wikipedia, The Thistlegorm Project, PADI, Scuba Diving). Sinking date given as 5 or 6 Oct 1941 - say 'October 1941'. Cousteau year: 'early 1950s'.
 
 **15-second hook:**
 
@@ -560,19 +615,70 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 **Sources:**
 
 - https://en.wikipedia.org/wiki/SS_Thistlegorm
-- https://www.thistlegorm.com (project site; verify URL)
+- https://thethistlegormproject.com/history/
+- https://blog.padi.com/a-brief-history-of-the-ss-thistlegorm/
+- https://www.scubadiving.com/history-red-sea-thistlegorm-shipwreck
 
 ---
 
-## SCUBA-12 — Titanic's Sister Is Diveable
+## SCUBA-13 — 16 Years of 'Today's the Day'
+*Alt title:* The Treasure That Cost Him His Son  
+*Score:* **72/100** (demand 13, story 16, packaging 15, retention 14, feasibility 14) · *Difficulty:* Medium · *Duration:* 60 s
+
+**Subject:** Treasure hunter Mel Fisher searched from 1969 for the Spanish galleon Nuestra Señora de Atocha (sank in a 1622 hurricane off the Florida Keys) under the motto 'Today's the day'. On 20 Jul 1975 the salvage boat Northwind capsized at night, killing his son Dirk, Dirk's wife Angel and diver Rick Gage. Exactly ten years later, on 20 Jul 1985, son Kane radioed that they had found the 'mother lode' (estimated ~$400-450 million). His company won a long legal fight over the treasure (Supreme Court 1982, reported).
+
+**Why it can work:** Obsession, tragedy and payoff, with a built-in catchphrase loop and an eerie same-date coincidence (20 July 1975 / 20 July 1985). Treasure is a strong click driver. Wreck and gold piles are feasible.
+
+**Verification:** VERIFIED this pass (Time, CBS News, Mel Fisher company history, Wikipedia). Value ~$400-450M (estimates vary). Cause of the Northwind capsize is reported inconsistently - do not state one.
+
+**15-second hook:**
+
+- 0-2 s: Diver fans silt off a reef of silver bars. VO: 'He told his crew the same thing every morning for 16 years.'
+- 2-6 s: Caption 'TODAY'S THE DAY'.
+- 6-15 s: '1622 - Florida Keys'. VO: 'He found it, ten years to the day after it cost him his son.'
+
+**Structure:**
+
+1. Hook motto
+2. 1622 hurricane sinks galleon
+3. 1969 search begins
+4. Early finds keep hope alive
+5. 20 July 1975: Northwind capsizes; Dirk, Angel and Rick Gage lost (respectful, no depiction)
+6. 20 July 1985: Kane's 'mother lode' radio call
+7. Same date, ten years apart
+8. Loop: 'today was the day'
+
+**Retention moments:** 0 s silver bars; 8 s motto; 30 s tragedy turn; 45 s mother-lode reveal; 58 s loop
+
+**Thumbnail / first frame:** Diver light on a heap of silver bars and coins on a reef, 'FOUND IT'.
+
+**Animation style:** Shallow turquoise reef, gold/silver emissive piles, 1622 galleon silhouette in storm.
+
+**Scenes:** Galleon in hurricane; Search boat with prop-wash 'mailbox' deflectors; Silt clouds; Silver bars reveal; Calendar flip 1969-1985
+
+**References:**
+
+- unverified — "Unsolved Mysteries of Titanic Shipwreck" — views: ~4.02M (socialcounts.org) — url: https://www.youtube.com/watch?v=MtThLKVpLHs (wreck-mystery demand)
+- MrBallen — "The Caribbean Disaster (*DISTRESSING CONTENT*)" — views: ~6.0M (rosetta.to) — url: https://www.youtube.com/watch?v=RF1syl8x6kU (trapped-diver physics story; ID from summarizer URL)
+
+**Sources:**
+
+- https://en.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_de_Atocha
+- https://time.com/archive/6672163/sunken-treasure-we-found-it-we-found-it
+- https://www.cbsnews.com/news/treasure-hunter-mel-fisher-dies/
+- https://store.melfisher.com/blogs/news/the-mel-fisher-story
+
+---
+
+## SCUBA-14 — Titanic's Sister Is Diveable
 *Alt title:* The Biggest Ship on the Seafloor  
 *Score:* **71/100** (demand 13, story 14, packaging 15, retention 13, feasibility 16) · *Difficulty:* Medium · *Duration:* 58 s
 
-**Subject:** HMHS Britannic, Olympic-class sister of Titanic, serving as a hospital ship, sank in the Aegean on 21 Nov 1916 after striking a mine (~30 of ~1,000+ aboard died). Located by Jacques Cousteau in 1975; lies at ~120 m, reachable only by technical divers.
+**Subject:** HMHS Britannic, Olympic-class sister of Titanic serving as a hospital ship, struck a mine laid by U-73 in the Kea Channel (Aegean) on 21 Nov 1916 and sank in ~55 minutes; ~30 died, many when two lifeboats were drawn into a still-turning propeller. Found by Jacques Cousteau in Dec 1975 (some sources say 1976); lies on her side at ~120 m - a technical dive.
 
 **Why it can work:** Riding on the Titanic name (Titanic mystery content ~4M). Sank in under an hour (reported ~55 min). A 'divers can visit it' twist.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session): death toll (~30), sinking time (~55 min), depth (~120 m), Cousteau 1975.
+**Verification:** VERIFIED this pass (Wikipedia, History.com, Divernet, Al Jazeera). ~55 min sinking, ~30 deaths, U-73 mine, ~120-122 m. Discovery 1975 vs 1976 differs - say 'the mid-1970s'. Propeller-lifeboat deaths: show as abstract (no bodies).
 
 **15-second hook:**
 
@@ -585,9 +691,9 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 1. Hook scale
 2. Olympic-class lineup (Olympic, Titanic, Britannic)
 3. Hospital ship role
-4. Mine strike; open portholes accelerate flooding (reported)
-5. Lifeboats; most survive
-6. 1975 rediscovery; 120 m technical dive
+4. Mine from U-73; open portholes accelerate flooding (reported)
+5. Sinks in ~55 min; ~30 lost, most of 1,000+ survive
+6. Mid-1970s Cousteau rediscovery; ~120 m technical dive
 7. Loop
 
 **Retention moments:** 0 s bow scale; 12 s sister-ship lineup; 28 s flooding cutaway; 45 s depth counter to 120 m; 57 s loop
@@ -606,60 +712,14 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 **Sources:**
 
-- https://en.wikipedia.org/wiki/HMHS_Britannic
-- https://www.rmg.co.uk (Royal Museums Greenwich; verify page)
+- https://en.wikipedia.com/wiki/RMS_Britannic
+- https://www.history.com/this-day-in-history/november-21/britannic-sinks-in-aegean-sea
+- https://divernet.com/scuba-news/wrecks/britannic-wreck-truth/
+- https://www.aljazeera.com/features/2016/11/21/the-britannic-and-the-titanic-a-story-of-two-ships
 
 ---
 
-## SCUBA-13 — Found 5.5 km Down, 72 Years Later
-*Alt title:* The Ship That Delivered the Bomb  
-*Score:* **70/100** (demand 15, story 15, packaging 14, retention 13, feasibility 13) · *Difficulty:* High · *Duration:* 60 s
-
-**Subject:** USS Indianapolis, sunk by Japanese submarine I-58 on 30 Jul 1945 after delivering atomic-bomb components; ~300 died in the sinking and ~900 went into the water, of whom 316 survived (shark attacks, exposure). Wreck located Aug 2017 at ~5,500 m by Paul Allen's RV Petrel team.
-
-**Why it can work:** A deep-sea discovery with an infamous shark story. High demand, but sensitive deaths and the sharks are well covered. Smithsonian's 4.4K shows that packaging matters.
-
-**Verification:** NEEDS FACT-CHECK for 2017 discovery specifics (depth, date, log clue); casualty numbers from standard references.
-
-**15-second hook:**
-
-- 0-2 s: ROV light finds a hull plate with '35'. VO: 'This wreck was lost for 72 years.'
-- 2-6 s: Depth counter to ~5,500 m.
-- 6-15 s: VO: 'Days earlier it had delivered the parts of an atomic bomb. Then it vanished in 12 minutes.'
-
-**Structure:**
-
-1. Hook hull number
-2. Secret mission
-3. Torpedoed; sank in ~12 min (reported)
-4. Men in water for days (respectful, no gore; shark threat stated)
-5. 316 survive
-6. 2017 search narrows using a newly found ship log entry (reported)
-7. Loop
-
-**Retention moments:** 0 s hull number; 8 s 'atomic bomb'; 25 s '12 minutes'; 40 s survivor count; 50 s discovery
-
-**Thumbnail / first frame:** ROV beam on hull number in black water, '5,500 m'.
-
-**Animation style:** Deep-sea black, ROV light cones, map with search box; surface ocean wide shots without bodies.
-
-**Scenes:** Cruiser at sea at night; Torpedo track silhouette; Wide ocean with life rafts (distant); Search map; ROV descent; Hull number reveal
-
-**References:**
-
-- Smithsonian Channel — "Make It Out Alive: USS Indianapolis" — views: 4,456 (si.edu) — url: https://www.youtube.com/watch?v=CnTIEYuRozA (underperformer - weak packaging)
-- AiTelly — "How the Titan Sub Imploded" — views: 10M+ (dailyo.in) — url: unverified (Blender-made outlier, ~37x subs)
-- MetaBallStudios — "Ocean DEPTH Comparison (3D Animation)" — views: unverified — url: https://www.youtube.com/watch?v=Q5C7sqVe2Vg (evergreen depth-scale animation; press 2021-2025)
-
-**Sources:**
-
-- https://en.wikipedia.org/wiki/USS_Indianapolis_(CA-35)
-- https://www.history.navy.mil (NHHC USS Indianapolis page; verify URL)
-- https://www.pbs.org/video/uss-indianapolis-the-final-chapter-aabbsw
-
----
-
-## SCUBA-14 — She Swam With a 20-Foot Great White
+## SCUBA-15 — She Swam With a 20-Foot Great White
 *Alt title:* Was It Really Deep Blue?  
 *Score:* **69/100** (demand 14, story 12, packaging 16, retention 13, feasibility 14) · *Difficulty:* Low · *Duration:* 48 s
 
@@ -707,63 +767,15 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 ---
 
-## SCUBA-15 — 16 Years of 'Today's the Day'
-*Alt title:* The Treasure That Cost Him His Son  
-*Score:* **69/100** (demand 13, story 15, packaging 14, retention 13, feasibility 14) · *Difficulty:* Medium · *Duration:* 60 s
-
-**Subject:** Treasure hunter Mel Fisher searched for the Spanish galleon Nuestra Señora de Atocha (sank 1622 off the Florida Keys) for ~16 years under the motto 'Today's the day'. His son Dirk, Dirk's wife Angel and a diver died when a salvage boat capsized in 1975. The 'mother lode' was found on 20 Jul 1985 (reported value hundreds of millions USD).
-
-**Why it can work:** Obsession, tragedy and payoff, with a catchphrase loop. Treasure is a strong click driver. Wreck and gold piles are feasible.
-
-**Verification:** NEEDS FACT-CHECK (not verified this session): 1975 victims, 20 Jul 1985 date, treasure valuation.
-
-**15-second hook:**
-
-- 0-2 s: Diver fans silt off a reef of silver bars. VO: 'He told his crew the same thing every morning for 16 years.'
-- 2-6 s: Caption 'TODAY'S THE DAY'.
-- 6-15 s: '1622 - Florida Keys'. VO: 'He found it, but it cost him more than money.'
-
-**Structure:**
-
-1. Hook motto
-2. 1622 hurricane sinks galleon
-3. 1969 search begins
-4. Early finds keep hope alive
-5. 1975 tragedy (respectful, no depiction of deaths)
-6. 1985: 'the mother lode' radio call (reported phrase)
-7. Legal fight with the state (reported)
-8. Loop: 'today was the day'
-
-**Retention moments:** 0 s silver bars; 8 s motto; 30 s tragedy turn; 45 s mother-lode reveal; 58 s loop
-
-**Thumbnail / first frame:** Diver light on a heap of silver bars and coins on a reef, 'FOUND IT'.
-
-**Animation style:** Shallow turquoise reef, gold/silver emissive piles, 1622 galleon silhouette in storm.
-
-**Scenes:** Galleon in hurricane; Search boat with prop-wash 'mailbox' deflectors; Silt clouds; Silver bars reveal; Calendar flip 1969-1985
-
-**References:**
-
-- unverified — "Unsolved Mysteries of Titanic Shipwreck" — views: ~4.02M (socialcounts.org) — url: https://www.youtube.com/watch?v=MtThLKVpLHs (wreck-mystery demand)
-- MrBallen — "The Caribbean Disaster (*DISTRESSING CONTENT*)" — views: ~6.0M (rosetta.to) — url: https://www.youtube.com/watch?v=RF1syl8x6kU (trapped-diver physics story; ID from summarizer URL)
-
-**Sources:**
-
-- https://en.wikipedia.org/wiki/Nuestra_Se%C3%B1ora_de_Atocha
-- https://en.wikipedia.org/wiki/Mel_Fisher
-- https://www.melfisher.org (museum; verify URL)
-
----
-
 ## SCUBA-16 — They Nuked a Fleet, and You Can Dive It
 *Alt title:* Atomic Ghost Fleet  
 *Score:* **68/100** (demand 13, story 14, packaging 14, retention 12, feasibility 15) · *Difficulty:* Medium · *Duration:* 58 s
 
-**Subject:** Bikini Atoll, Marshall Islands: in 1946 Operation Crossroads used nuclear tests against a target fleet; wrecks including the aircraft carrier USS Saratoga and battleship Nagato lie in the lagoon. Inscribed as a UNESCO World Heritage Site (2010); diving access is limited/remote.
+**Subject:** Bikini Atoll, Marshall Islands: Operation Crossroads (1946) - Test Able (1 Jul, air burst) and Test Baker (25 Jul, underwater) against a target fleet. The carrier USS Saratoga sank after Baker; the Japanese battleship Nagato sank days later (29 Jul) and lies upside down. About 21 Crossroads wrecks are diveable at Bikini and Kwajalein (advanced/technical diving only). The Bikinians were relocated and contamination still prevents permanent return. 'Bikini Atoll Nuclear Test Site' was inscribed on the UNESCO World Heritage List in 2010.
 
 **Why it can work:** An extreme juxtaposition (atom bomb plus coral) and an aircraft carrier you can swim into. Moderate demand. The displacement of the Bikinians must be mentioned respectfully.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session): ship list, test names (Able/Baker), UNESCO year, current dive access.
+**Verification:** VERIFIED this pass (UNESCO WHC 1339, NPS Submerged Cultural Resources survey, Divernet, Wikipedia, ANU Press). Do not quote radiation numbers.
 
 **15-second hook:**
 
@@ -774,12 +786,12 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 **Structure:**
 
 1. Hook
-2. Why: testing bombs on ships
-3. Islanders relocated (respectful)
-4. Test Able / Baker (labelled)
-5. Saratoga sinks
-6. Coral reclaims
-7. Is it safe? (state what sources say; no invented numbers)
+2. Why: testing atomic bombs on ships
+3. Bikinians relocated (respectful)
+4. Test Able (1 Jul 1946) / Test Baker (25 Jul 1946)
+5. Saratoga sinks; Nagato rolls over
+6. Coral reclaims; UNESCO 2010
+7. Diving it today: technical only, remote
 8. Loop
 
 **Retention moments:** 0 s carrier deck; 12 s blast; 30 s sinking; 45 s coral time-lapse
@@ -797,9 +809,11 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 **Sources:**
 
-- https://en.wikipedia.org/wiki/Operation_Crossroads
+- https://whc.unesco.org/en/list/1339
+- https://www.nps.gov/parkhistory/online_books/swcrc/37/chap4.htm
+- https://divernet.com/scuba-diving/technical-diving/diving-the-wrecks-of-bikini-atoll/
 - https://en.wikipedia.org/wiki/Bikini_Atoll
-- UNESCO World Heritage List: Bikini Atoll Nuclear Test Site (2010)
+- https://press-files.anu.edu.au/downloads/press/p223681/pdf/ch032.pdf
 
 ---
 
@@ -854,11 +868,11 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 *Alt title:* The Luxury Liner That Keeps Claiming Divers  
 *Score:* **66/100** (demand 12, story 14, packaging 13, retention 12, feasibility 15) · *Difficulty:* Medium · *Duration:* 60 s
 
-**Subject:** SS Andrea Doria, Italian liner, collided with MS Stockholm in fog off Nantucket on 25 Jul 1956 and sank the next day; 46 died on Andrea Doria (plus 5 on Stockholm), ~1,660 rescued. The wreck (~50-75 m, cold, strong currents) is called the 'Mount Everest of wreck diving' and has claimed many divers chasing its china and artefacts.
+**Subject:** SS Andrea Doria, Italian liner, collided with MS Stockholm in fog off Nantucket on the night of 25 Jul 1956 and sank the next morning; 46 died on Andrea Doria and 5 on Stockholm, while most of the ~1,706 aboard were rescued. Fog, speed and misuse of radar were cited as contributing causes. The wreck (~240-250 ft / ~76 m) was dubbed the 'Mount Everest of wreck diving' (credited to cameraman Al Giddings); reported diver deaths range from ~16 to 18+.
 
 **Why it can work:** A fog collision with radar confusion is a good mid-turn. 'Most dangerous wreck' framing. Lower name recognition with younger audiences.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session): casualty and rescue counts, wreck depth, diver death count (often cited ~16+, unverified).
+**Verification:** VERIFIED this pass (Britannica, History.com, Boston.com, Fox News, DAN). Diver death count varies (16/17/18+) - say 'more than a dozen divers'. '1,660 rescued' NOT confirmed - say 'most of the 1,706 aboard'.
 
 **15-second hook:**
 
@@ -869,10 +883,10 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 **Structure:**
 
 1. Hook radar
-2. Collision mechanics (each turned the wrong way - reported)
-3. Great rescue (~1,660 saved)
-4. Wreck today: depth, cold, collapse
-5. Why divers go: china/artefacts
+2. Collision in fog (radar misuse cited)
+3. Rescue: most of 1,706 saved; 51 dead across both ships
+4. Wreck today: ~75 m, cold, collapsing
+5. Why divers go: china/artefacts; 'Everest' nickname
 6. Respect: no individual death depictions
 7. Loop
 
@@ -892,8 +906,11 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 
 **Sources:**
 
-- https://en.wikipedia.org/wiki/SS_Andrea_Doria
-- https://www.history.com (Andrea Doria article; verify URL)
+- https://www.britannica.com/print/article/23905
+- https://www.history.com/articles/the-sinking-of-andrea-doria
+- https://www.boston.com/news/local-news/2017/08/02/the-lures-and-dangers-of-diving-to-the-andrea-doria/
+- https://www.foxnews.com/travel/divers-brave-deadly-mount-everest-shipwrecks-famed-wreck-breaks-apart
+- https://dan.org/?p=19459
 
 ---
 
@@ -949,11 +966,11 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 *Alt title:* Christ of the Abyss  
 *Score:* **60/100** (demand 10, story 11, packaging 13, retention 10, feasibility 16) · *Difficulty:* Low · *Duration:* 45 s
 
-**Subject:** Il Cristo degli Abissi, a bronze statue by Guido Galletti placed in 1954 in San Fruttuoso bay (Italy) at ~17 m, in memory of diver Dario Gonzatti (died 1947) and associated with diving pioneer Duilio Marcante. Copies exist elsewhere (e.g., Key Largo, Grenada).
+**Subject:** Il Cristo degli Abissi, a 2.5 m bronze by Guido Galletti, placed on 22 Aug 1954 at ~17 m (some sources say 18 m) in San Fruttuoso bay near Camogli, Italy. Idea credited to diving instructor Duilio Marcante; commemorates diver Dario Gonzatti (reported died 1947) and others lost at sea. Copies exist elsewhere (e.g., Key Largo).
 
 **Why it can work:** A strange-image curiosity gap with a heartfelt memorial answer. Low demand and low stakes, but very feasible and calm. Useful as a gentle, loopable Short.
 
-**Verification:** NEEDS FACT-CHECK (not verified this session): depth, dates, the Gonzatti dedication, sculptor.
+**Verification:** VERIFIED this pass (Wikipedia, Italia.it official tourism, Atlas Obscura, Jerusalem Post). Depth 17 vs 18 m; Marcante and Gonzatti details carry citation-needed tags on Wikipedia - attribute as 'reported'.
 
 **15-second hook:**
 
@@ -985,5 +1002,8 @@ Cave-diving stories are excluded (separate category). `verification_status` says
 **Sources:**
 
 - https://en.wikipedia.org/wiki/Christ_of_the_Abyss
+- https://www.italia.it/it/liguria/genova/camogli/cristo-negli-abissi
+- https://atlasobscura.com/places/christ-of-the-abyss-italy
+- https://www.jpost.com/archaeology/article-865108
 
 ---

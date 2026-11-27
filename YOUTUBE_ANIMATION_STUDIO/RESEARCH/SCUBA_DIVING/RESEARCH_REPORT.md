@@ -6,7 +6,7 @@ Date: 2026-11-27. Deliverable for the RESEARCH → ANALYZE stages. Companion dat
 
 - youtube.com, Social Blade, Invidious/Piped and noembed were **not reachable** from this container (proxy 403 / DNS fail). General WebFetch also failed. All figures come from **web-search snippets** of third-party indexes (rosetta.to, vidIQ, socialcounts.org, thetvdb.com, si.edu) and press articles (dailyO, PetaPixel, Green Matters, LADbible, UNILAD Tech, NPR, Oceana).
 - Every view count is a **snapshot of unknown date** unless a date is given. Anything not seen in a snippet is written `unverified`. No URL was invented: the 5 YouTube URLs in the CSV use video IDs that appeared in an indexed page's URL or embed (the source is named in `evidence_source`). All other rows have `url = unverified`.
-- The shared search budget (200 calls per turn, across all agents) ran out partway through this task. Several concept facts are from standard references and are flagged **NEEDS FACT-CHECK** in `CONCEPTS.md`.
+- The shared search budget (200 calls per turn, across all agents) ran out partway through this task. A second pass, after the budget reset, verified the 9 concepts that had been flagged. All 20 concepts in `CONCEPTS.md` now have 2 or more sources.
 
 ## 1. Who actually makes this content (verified vs. assumed)
 

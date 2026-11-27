@@ -1,0 +1,1478 @@
+[
+  {
+    "id": "CAVE-01",
+    "number": 1,
+    "category": "Cave diving — fatal accident / body recovery",
+    "working_title": "He Went 270 m Down to Bring a Body Home",
+    "alt_title": "The Promise That Killed Dave Shaw",
+    "subject": "Boesmansgat (Bushman's Hole), Northern Cape, South Africa. 8 Jan 2005: Dave Shaw died at ~270 m trying to recover the body of Deon Dreyer (died Dec 1994). Support diver Don Shirley was injured on his own dive and survived. Dreyer's body surfaced days later tangled in Shaw's line.",
+    "why_potential": "Combines the niche's two strongest triggers: body recovery (Dive Talk 9.15M) and an extreme number (270 m, ~15-min descent vs ~12-h ascent). Covered repeatedly in long-form (MrBallen, doc 'Dave Not Coming Back') and in Shorts, including non-English ones, so demand travels. Few 3D-animated Shorts exist. A depth cross-section is ideal for our pipeline.",
+    "references": [
+      {
+        "title": "The Boesmansgat CAVE DIVING DISASTER",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=42Gp37zeDcQ",
+        "views": "unverified",
+        "note": "long-form coverage exists"
+      },
+      {
+        "title": "The Tragic Story of David Shaw's Final Dive",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/4jGx-bu719U",
+        "views": "unverified",
+        "note": "Short-format competitor"
+      },
+      {
+        "title": "CAVE DIVER REACTS TO LAST DIVE OF DAVID SHAW",
+        "creator": "unverified",
+        "url": "unverified",
+        "views": "385,000 (Playboard snippet)",
+        "note": "reaction to real footage (we will not use footage)"
+      },
+      {
+        "title": "Dave Not Coming Back - Documentary",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=PQjaLhbVRr0",
+        "views": "unverified",
+        "note": "2020 feature doc"
+      },
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery trigger; site not named in title"
+      }
+    ],
+    "duration_s": 62,
+    "hook_15s": "0–2 s: Torch beam hits a still diver shape on the cave floor, depth readout 270 M. VO: 'He found the body at 270 metres. Then it pulled him down.' 2–6 s: Cross-section snaps in: surface far above, a 12-HOUR ASCENT bar. VO: 'Getting down took 15 minutes. Getting back up would take 12 hours.' 6–15 s: Sinkhole in desert scrub at dawn. VO: 'This is Bushman's Hole, South Africa, and this is why Dave Shaw never came back. (reported)'",
+    "structure": [
+      "Cold open: torch on body at 270 m",
+      "Complication: 15 min down vs 12 h up",
+      "Setup: Oct 2004, Shaw finds 20-yr-old Deon Dreyer, lost here in Dec 1994",
+      "The plan: return Jan 2005 to bring him home for his family",
+      "Descent: dot drops through the cross-section, line reel, Don Shirley staging below",
+      "The failure: body is heavier than planned, lines tangle, breathing becomes laboured (later attributed to CO2 build-up, as reported)",
+      "Consequence: Shaw does not ascend; Shirley injured on his own dive",
+      "Payoff: days later both bodies rise together; Dreyer comes home",
+      "Loop/hard cut: the still surface of the sinkhole"
+    ],
+    "retention_moments": [
+      "Depth counter ticking past 100/200/270 m",
+      "Twist at ~22 s: he'd already found the body once before",
+      "Tension pause before 'the line wrapped around him'",
+      "Reveal: the body he came for rose with him"
+    ],
+    "thumbnail_concept": "Tiny diver silhouette at the bottom of a vast black cross-section, one torch beam, red '270 M' and thin line back up to a pin-prick of light.",
+    "animation_style": "3D low-poly diver in a volumetric-fog sinkhole + 2.5D cross-section with a depth bar; cool cyan palette; no faces.",
+    "scenes": [
+      "Desert sinkhole exterior at dawn (procedural terrain + water plane)",
+      "Vertical shaft descent with bubbles and particles",
+      "Cave floor at depth: silt, torch cone, sheathed body shape (abstract, wrapped, no gore)",
+      "Cross-section diagram with diver dots and a 12-h deco bar",
+      "Tangled line close-up (curve objects)",
+      "Surface: two shapes rising (silhouette), sunrise"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Boesmansgat (search result)",
+      "https://en.wikipedia.org/wiki/Dave_Shaw (search result)",
+      "https://divernet.com/scuba-news/dave-shaw-died-from-carbon-dioxide-black-out/ (search result)",
+      "https://www.outsideonline.com/outdoor-adventure/water-activities/raising-dead/ (search result)",
+      "https://ladbible.com/community/deon-dreyer-david-shaw-divers-bushmans-hole-775865-20230228 (search result)",
+      "https://divernet.com/scuba-diving/dave-not-coming-back-documentary-follows-fateful-dive/ (search result)",
+      "VERIFICATION: date 8 Jan 2005, Dreyer Dec 1994 aged 20 and 270 m confirmed in 2+ snippets; 28 Oct 2004 discovery date appears in one Short and matches standard accounts; CO2 cause per Divernet headline. Don Shirley's injuries: established accounts, details not re-checked."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 16,
+      "story": 18,
+      "packaging": 17,
+      "retention": 16,
+      "feasibility": 15
+    },
+    "total": 82,
+    "rank": 1
+  },
+  {
+    "id": "CAVE-02",
+    "number": 2,
+    "category": "Cave rescue (flooded cave)",
+    "working_title": "13 Trapped Behind Kilometres of Flooded Cave",
+    "alt_title": "The Rescue That Shouldn't Have Worked",
+    "subject": "Tham Luang Nang Non, Chiang Rai, Thailand. 23 June 2018: 12 boys of the Wild Boars football team and their coach were trapped by monsoon flooding. British divers Rick Stanton and John Volanthen found them alive on 2 July. All 13 were brought out through flooded passages 8–10 July. Former Thai Navy SEAL Saman Kunan died on 6 July.",
+    "why_potential": "Highest raw demand signal in the set: Zack D. Films' 3D Short was reported at ~60M views (unverified). It's a rescue with hope, so it's advertiser-safe and has a broad audience. Risk: heavily covered, so we need a fresh angle (one specific moment: the 'how many of you?' discovery or the sedated dive out).",
+    "references": [
+      {
+        "title": "Tham Luang Cave Rescue (explained)",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "60,000,000 (unverified - fan wiki snippet)",
+        "note": "3D-animated Short, 0:51"
+      },
+      {
+        "title": "Sucked into an oil pipe | The Paria Diving Disaster",
+        "creator": "FatalBreakdown",
+        "url": "unverified",
+        "views": "5,030,000 (vidIQ snippet)",
+        "note": "entrapment-underwater demand proxy"
+      },
+      {
+        "title": "Divers Trapped in a Cave With Only 5 Minutes of Oxygen Left",
+        "creator": "Zem TV",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "air-countdown title formula"
+      }
+    ],
+    "duration_s": 65,
+    "hook_15s": "0–2 s: A torch beam breaks the surface of black water; 13 small silhouettes on a mud slope. VO: 'After nine days in the dark, a light came out of the water.' 2–6 s: Map shows kilometres of flooded passage to the entrance (distance to verify). VO: 'The only way home was hours of diving, and none of them could dive.' 6–15 s: Rain on the cave mouth, 23 June caption. VO: 'Thailand, 2018. This is how 13 people came out of Tham Luang.'",
+    "structure": [
+      "Cold open: diver's light finds the team",
+      "Stakes: km of flooded passage, non-divers, rising water",
+      "Rewind: 23 June practice, cave visit, monsoon arrives",
+      "Search: days of pumping, international divers",
+      "Discovery 2 July (Stanton & Volanthen)",
+      "Cost: Saman Kunan dies on 6 July placing air tanks",
+      "The plan: boys sedated and dived out one by one (reported, as described by the rescue team)",
+      "8–10 July: all 13 out",
+      "Payoff: the entrance today / tribute to Saman"
+    ],
+    "retention_moments": [
+      "'Day 9' counter",
+      "Map reveal of distance",
+      "Death of rescuer as mid-story turn (~35 s)",
+      "Counter of rescued: 4... 8... 13"
+    ],
+    "thumbnail_concept": "13 tiny figures on a ledge lit by one diver's torch rising from black water; text '9 DAYS'.",
+    "animation_style": "3D cave chamber with water surface + 2.5D map/route; stylised child figures as simple silhouettes (no likenesses).",
+    "scenes": [
+      "Jungle cave mouth in rain",
+      "Chamber with mud slope and 13 silhouettes",
+      "Diver surfacing with torch",
+      "Animated route map with sump numbers",
+      "Line of tanks along passage",
+      "Exit: stretcher silhouettes in daylight"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tham_Luang_cave_rescue (not fetched this session; search budget exhausted)",
+      "https://zackdfilms.fandom.com/wiki/Tham_Luang_Cave_Rescue_%F0%9F%98%A8(explained) (demand evidence)",
+      "https://xray-mag.com/content/cave-diving-not-me-reactions-thai-cave-rescue-features (search result)",
+      "VERIFICATION: dates and names are widely reported knowledge; not re-fetched this session because of the search budget. Re-check against 2 sources at SCRIPT stage."
+    ],
+    "difficulty": "High",
+    "scores": {
+      "demand": 18,
+      "story": 17,
+      "packaging": 16,
+      "retention": 15,
+      "feasibility": 13
+    },
+    "total": 79,
+    "rank": 2
+  },
+  {
+    "id": "CAVE-03",
+    "number": 3,
+    "category": "Cave diving — fatal accident",
+    "working_title": "Under the Ice, the Only Way Out Was Deeper",
+    "alt_title": "Five Divers Went In. Three Came Out.",
+    "subject": "Plura / Steinugleflåget cave system, Plurdalen, Rana, Norway. 6 Feb 2014: five Finnish technical divers attempted a traverse entering through a hole cut in river ice. Two died at the deep section (reported ~100+ m); three survived, one after many hours of decompression.",
+    "why_potential": "Ice entry, a deep traverse with no easy way back, and a survivor forced to pass a body make a vivid story. Multiple long-form and Short versions exist, plus a feature documentary (2016). Plura's dive centre has complained that YouTube is full of misleading Plura videos (divers24.com), so an accurate, careful version can stand out.",
+    "references": [
+      {
+        "title": "The Plura Traverse Cave Diving Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=53XitSUJN4k",
+        "views": "unverified",
+        "note": "long-form coverage"
+      },
+      {
+        "title": "The Plura Cave Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/IZ7TNznNjIE",
+        "views": "unverified",
+        "note": "Short competitor with weak generic hook"
+      },
+      {
+        "title": "Cave Exploring Gone WRONG | The Veryovkina Cave Incidents",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "8,590,000 (vidIQ snippet)",
+        "note": "dry caving; 'gone wrong' demand"
+      }
+    ],
+    "duration_s": 62,
+    "hook_15s": "0–2 s: Chainsaw cuts a triangle into white river ice; black water below. VO: 'They cut a hole in the ice and dived into a mountain.' 2–6 s: Cross-section: entry, a dip to depth, exit far away. VO: 'The way out was through the deepest part of the cave.' 6–15 s: Five lights descending. VO: 'Norway, February 2014. Five went in. This is what happened to the other two.'",
+    "structure": [
+      "Cold open: ice triangle",
+      "Stakes: traverse, deep middle, cold",
+      "Team of five, months of planning (no motives invented)",
+      "Descent: the constriction at depth",
+      "Failure: one diver gets into trouble at depth; a second also dies (exact sequence reported differently; keep it to agreed facts)",
+      "Survivors must continue past/around a body to exit",
+      "Hours of decompression in near-freezing water",
+      "Payoff: authorities call recovery too dangerous (link to Part 2: friends return)"
+    ],
+    "retention_moments": [
+      "Ice-cut visual",
+      "Depth bar dipping then rising (U-shaped route)",
+      "'Two did not' reveal at ~30 s",
+      "Series hook: 'so their friends went back'"
+    ],
+    "thumbnail_concept": "Triangle of light in black ice seen from below, five torch beams; text 'ONLY WAY OUT'.",
+    "animation_style": "3D under-ice scene with caustics + U-shaped 2.5D cross-section; cold blue/white palette.",
+    "scenes": [
+      "Snowy valley and frozen river",
+      "Ice-hole from below with light shafts",
+      "Narrow deep restriction",
+      "U-shaped cross-section route",
+      "Deco stop: lone diver holding a line, timer",
+      "Surface: snow, three figures"
+    ],
+    "sources": [
+      "Search snippet (YouTube description 53XitSUJN4k): five divers cut a triangular hole in the ice, Plurdalen, 6 Feb 2014",
+      "https://music.amazon.com/podcasts/70266521-49bc-470c-9298-c893dd7fec85/episodes/fbc8c019-b230-4a74-8f4d-6f0e32d927ac (search result: team of 5 Finnish divers, 2014)",
+      "https://divers24.com/?p=48578 (search result: misleading Plura videos)",
+      "Documentary 'Diving into the Unknown' (2016) (not fetched this session; search budget exhausted)",
+      "VERIFICATION: date, place and team size confirmed in 2 snippets. Depths, victims' names and the exact sequence NOT verified this session; keep them out of the script until checked."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 14,
+      "story": 17,
+      "packaging": 15,
+      "retention": 16,
+      "feasibility": 14
+    },
+    "total": 76,
+    "rank": 3
+  },
+  {
+    "id": "CAVE-04",
+    "number": 4,
+    "category": "Dry caving (adjacent audience) — entrapment",
+    "working_title": "Stuck Upside Down With No Way to Back Out",
+    "alt_title": "The Cave They Sealed With Him Inside",
+    "subject": "Nutty Putty Cave, Utah, USA. 24 Nov 2009: John Edward Jones (26) became stuck head-down in a narrow passage. Despite a large rescue effort he died about 27–28 hours later. The cave was sealed with concrete, his body still inside.",
+    "why_potential": "Biggest proven entrapment demand (FatalBreakdown 13.09M; Zack D. Films also animated it). It is dry caving, but the audience overlaps fully. Included as 1 of 2 allowed adjacent stories. Risk: very saturated, so our angle must be the rescue mechanics (the pulley that failed) rather than a straight retelling.",
+    "references": [
+      {
+        "title": "Caver trapped forever | The Nutty Putty Tragedy",
+        "creator": "FatalBreakdown",
+        "url": "unverified",
+        "views": "13,090,000 (vidIQ snippet)",
+        "note": "3D reconstruction outlier, ~52x channel subs"
+      },
+      {
+        "title": "Cave Exploring Gone WRONG | The Veryovkina Cave Incidents",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "8,590,000 (vidIQ snippet)",
+        "note": "dry caving; 'gone wrong' demand"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0–2 s: Torch on a passage the width of a shoulder, angled down. VO: 'He thought it was a tunnel. It was a dead end, pointing down.' 2–6 s: Side-section shows the body inverted at a slope. VO: 'He was stuck upside down, and every breath pushed him deeper.' 6–15 s: Clock: 27 HOURS. VO: 'Utah, 2009. More than a hundred people tried to get John Jones out.'",
+    "structure": [
+      "Cold open: the wrong turn",
+      "Stakes: inverted, can't back out",
+      "Rewind: family Thanksgiving trip",
+      "Rescue: rope and pulley system rigged",
+      "Hope: he is pulled partway up",
+      "Failure: an anchor fails (as reported)",
+      "Payoff: death after ~27 h; cave sealed; memorial plaque",
+      "Hard cut on the concrete seal"
+    ],
+    "retention_moments": [
+      "Inverted reveal",
+      "Hours counter",
+      "False-hope beat (pulley works)",
+      "Concrete seal ending"
+    ],
+    "thumbnail_concept": "Cross-section with a tiny inverted figure in a funnel-shaped crack; text '27 HOURS'.",
+    "animation_style": "3D tight-passage interior + 2.5D side-section; warm torch light; no depiction of suffering faces.",
+    "scenes": [
+      "Desert hill cave entrance at night",
+      "Tight passage POV crawl",
+      "Side-section with inverted figure",
+      "Rope/pulley rig animation",
+      "Concrete pour over entrance",
+      "Plaque close-up (generic text)"
+    ],
+    "sources": [
+      "https://knowyourmeme.com/memes/nutty-putty-cave-incident (search result)",
+      "https://science.howstuffworks.com/environmental/earth/geology/nutty-putty-cave.htm (search result)",
+      "https://ladbible.com/community/nutty-putty-cave-sealed-john-edward-jones-death-223564-20231116 (search result)",
+      "VERIFICATION: date, name, 27 h duration and sealing confirmed across LADbible/KYM snippets. Exact depth ('400 ft') and pulley-failure details are from general knowledge, so check before scripting."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 16,
+      "story": 15,
+      "packaging": 15,
+      "retention": 15,
+      "feasibility": 14
+    },
+    "total": 75,
+    "rank": 4
+  },
+  {
+    "id": "CAVE-05",
+    "number": 5,
+    "category": "Cave diving — survival",
+    "working_title": "60 Hours in an Air Bubble Under Mallorca",
+    "alt_title": "He Survived by Breathing the Cave",
+    "subject": "Sa Piqueta cave, near Manacor, Mallorca, Spain. April 2017: cave diver Xisco Gràcia was separated from his partner after a line or visibility problem and took refuge in an air pocket. He was found alive about 60 hours later (reported); his partner had gone for help.",
+    "why_potential": "A rare survival story in a death-heavy niche. Brand-safe, with built-in clock and hope triggers. Little Shorts coverage was found (open lane). A single chamber plus a single diver makes it very feasible. The ending of rescuers' lights appearing in the water can loop back to frame 1.",
+    "references": [
+      {
+        "title": "Divers Trapped in a Cave With Only 5 Minutes of Oxygen Left",
+        "creator": "Zem TV",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "air-countdown title formula"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      },
+      {
+        "title": "Tham Luang Cave Rescue (explained)",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "60,000,000 (unverified - fan wiki snippet)",
+        "note": "3D-animated Short, 0:51"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: A diver's head breaks the surface in a tiny dark air pocket. VO: 'His air was gone. So he came up inside the rock.' 2–6 s: Hours counter starts. VO: 'Nobody knew he was alive. He'd wait almost three days.' 6–15 s: Map of Mallorca and cave plan. VO: 'Spain, 2017. This is how Xisco Gràcia lasted 60 hours underground.'",
+    "structure": [
+      "Cold open: surfacing in air bell",
+      "Stakes: no air in tanks, partner gone, bad air",
+      "Rewind: survey dive, the problem in the cave (reported)",
+      "Choice: stay put in the air pocket",
+      "Survival: darkness, cold, rationing light (reported)",
+      "Above: partner raises the alarm, rescue divers come",
+      "Payoff: a light appears in the water",
+      "Loop: the same surfacing shot, now a rescuer"
+    ],
+    "retention_moments": [
+      "Hours counter",
+      "'Partner thinks he's dead' beat",
+      "Light-ration darkness moment (2 s of near-black)",
+      "Rescue-light reveal"
+    ],
+    "thumbnail_concept": "Lone diver head and torch in a small black dome of air; text '60 HOURS'.",
+    "animation_style": "3D single-chamber air bell with water surface, drips, minimal light; very achievable.",
+    "scenes": [
+      "Cave lake chamber",
+      "Underwater passage in silt",
+      "Air bell close-up, breath vapour",
+      "Map of Mallorca",
+      "Rescue divers' lights below the surface"
+    ],
+    "sources": [
+      "Spanish and international news coverage of the April 2017 Sa Piqueta rescue (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT VERIFIED this session. Name, place and ~60 h duration are from general knowledge. Needs 2 sources (e.g., Spanish press, DeeperBlue) before SCRIPT. Partner's name intentionally omitted."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 17,
+      "packaging": 15,
+      "retention": 16,
+      "feasibility": 15
+    },
+    "total": 74,
+    "rank": 5
+  },
+  {
+    "id": "CAVE-06",
+    "number": 6,
+    "category": "Cave diving — deadly site",
+    "working_title": "It Looks Like a Pond. It's Killed More Than 10 Divers.",
+    "alt_title": "The Mount Everest of Cave Diving",
+    "subject": "Eagle's Nest sink, Chassahowitzka Wildlife Management Area, Florida, USA. Nicknamed 'the Mount Everest of cave diving'. At least 10 deaths since 1981 (National Geographic; AOL says at least 13). Closed 1999, reopened 2003 after a divers' campaign. Two divers died there in 2017.",
+    "why_potential": "Same template as The Shaft (MrBallen 7.1M): an ordinary-looking pond above a giant deep chamber. It's an iconic, frequently searched site. A place-profile works well as a Short and could be serialised ('Deadliest caves #1').",
+    "references": [
+      {
+        "title": "Cave Diving Disaster at the Eagles Nest",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=Hc_rTNdzwXY",
+        "views": "unverified",
+        "note": "long-form coverage"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "The Shaft, Mount Gambier; death count is creator's claim"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Overhead of a small duckweed-covered pond in woods. VO: 'This pond has killed more than ten divers.' 2–6 s: Camera sinks below the surface into a massive dark chamber. VO: 'Under the surface, it opens into a room the size of a cathedral.' 6–15 s: Depth bar dropping. VO: 'Florida's Eagle's Nest. Divers call it the Mount Everest of cave diving.'",
+    "structure": [
+      "Cold open: innocent pond",
+      "Reveal: Main Ballroom scale",
+      "Why it's deadly: depth, narcosis, gas (generic, no individual blame)",
+      "Count: 10+ since 1981 (sources differ: 10 vs 13)",
+      "Closed 1999, reopened 2003",
+      "2017 deaths (reported, unnamed)",
+      "Payoff: the warning sign at the entrance",
+      "Loop: back to the calm pond"
+    ],
+    "retention_moments": [
+      "Surface-to-chamber reveal",
+      "Scale comparison (cathedral silhouette)",
+      "Disputed death count shown honestly",
+      "Warning-sign ending"
+    ],
+    "thumbnail_concept": "Split frame: tiny green pond above, enormous black chamber below with one diver light; text '10+ DEAD'.",
+    "animation_style": "3D pond and woodland + huge cavern with volumetric beams; 2.5D depth bar.",
+    "scenes": [
+      "Florida woods and pond (procedural)",
+      "Descent through narrow chimney",
+      "Giant chamber with light shafts",
+      "Depth bar overlay",
+      "Warning sign (generic 'Prevent your death' style, no logos)"
+    ],
+    "sources": [
+      "https://www.nationalgeographic.com/adventure/article/two-divers-die-in-eagles-nest-cave (search result)",
+      "https://www.aol.com/deadly-florida-dive-still-draws-130026321.html (search result)",
+      "https://ladbible.com/community/eagles-nest-cave-florida-diving-experience-dangers-530026-20230904 (search result)",
+      "VERIFICATION: death count (10 vs 13), 1999 closure and 2003 reopening confirmed in 2 snippets. 2017 victims not named in script."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 15,
+      "story": 13,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 73,
+    "rank": 6
+  },
+  {
+    "id": "CAVE-07",
+    "number": 7,
+    "category": "Cave diving — record attempt / legend",
+    "working_title": "The Greatest Cave Diver Ever Tried to Reach 1,000 ft",
+    "alt_title": "Sheck Exley's Last Dive",
+    "subject": "Zacatón, Tamaulipas, Mexico. 6 April 1994: Sheck Exley, a pioneer of cave diving and author of its safety rules, died during an attempt to dive to ~1,000 ft (~305 m). Partner Jim Bowden turned back at about 925 ft (reported) and survived. Exley's body came up days later attached to the descent line (reported).",
+    "why_potential": "The irony that the man who wrote cave diving's safety rules died in a cave is a strong curiosity gap. It pairs with the Shaw story (Shaw called Exley a hero, reported). A vertical cenote and a depth race are trivial to animate.",
+    "references": [
+      {
+        "title": "The Boesmansgat CAVE DIVING DISASTER",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=42Gp37zeDcQ",
+        "views": "unverified",
+        "note": "long-form coverage exists"
+      },
+      {
+        "title": "The Tragic Story of David Shaw's Final Dive",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/4jGx-bu719U",
+        "views": "unverified",
+        "note": "Short-format competitor"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0–2 s: Two lights side by side dropping into a bottomless blue-black shaft. VO: 'Two men raced each other to 1,000 feet.' 2–6 s: Depth readouts diverge. VO: 'Only one turned around.' 6–15 s: Book cover-style card 'Basic Cave Diving: A Blueprint for Survival' (generic). VO: 'The other one wrote the rules of cave diving: Sheck Exley.'",
+    "structure": [
+      "Cold open: twin descent",
+      "Twist: the rule-writer",
+      "Background: Exley's records, 'rule of thirds' (one line)",
+      "Zacatón: a hot-spring cenote, depth unknown",
+      "Descent: gas switches, narcosis (simplified)",
+      "Bowden turns at ~925 ft (reported)",
+      "Exley does not return",
+      "Payoff: line hauled up days later (reported)"
+    ],
+    "retention_moments": [
+      "Twin depth counters",
+      "'He wrote the rules' twist",
+      "Bowden's turn-around",
+      "Final reveal on the line"
+    ],
+    "thumbnail_concept": "Two descending lights in a vertical shaft, one stopped, one continuing; text '1,000 FT'.",
+    "animation_style": "3D vertical cenote with sulfur-tinted water + twin depth HUD.",
+    "scenes": [
+      "Mexican ranchland cenote from above",
+      "Vertical shaft descent (two divers)",
+      "Depth HUD split-screen",
+      "Generic book card",
+      "Line being hauled up at the surface"
+    ],
+    "sources": [
+      "https://sites.northwestern.edu/monroyrios/resources/sheck_exley (search result: 'Eulogy for an Explorer')",
+      "https://en.wikipedia.org/wiki/Sheck_Exley (not fetched this session; search budget exhausted)",
+      "VERIFICATION: date 6 Apr 1994 and Zacatón from general knowledge plus one search-result title; Bowden's depth and the body-on-line detail need a second source before SCRIPT."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 16,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 73,
+    "rank": 7
+  },
+  {
+    "id": "CAVE-08",
+    "number": 8,
+    "category": "Cave diving — deadly site",
+    "working_title": "The Swimming Hole With a Trap at the Bottom",
+    "alt_title": "Jacob's Well: Where the Tunnel Lies to You",
+    "subject": "Jacob's Well, Wimberley, Texas, USA. A popular artesian swimming hole whose cave system has claimed several divers (commonly cited as 8 or more; count unverified). It is known for a false chamber and a loose-gravel restriction that can collapse behind a diver.",
+    "why_potential": "FatalBreakdown's Jacob's Well (1.51M) and clickbait copycats ('what their cameras found at the bottom') show steady search demand. Swimmers jumping in above a deadly cave is a perfect contrast shot.",
+    "references": [
+      {
+        "title": "Dead end traps cave divers | The Jacob's Well Diving Tragedy",
+        "creator": "FatalBreakdown",
+        "url": "https://www.youtube.com/watch?v=Fal_E_eJxD4",
+        "views": "1,510,000 (vidIQ snippet)",
+        "note": "same case, long-form animated"
+      },
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Kids cannonball into clear blue water; camera keeps sinking past them into a dark hole. VO: 'People swim here every summer.' 2–6 s: A narrowing gravel tunnel. VO: 'Under them is a tunnel that seals behind you.' 6–15 s: Map pin: Wimberley, Texas. VO: 'This is Jacob's Well, and its fourth chamber is why divers stay out.'",
+    "structure": [
+      "Cold open: swimmers vs dark hole",
+      "Chamber 1–4 tour with cross-section",
+      "Trap 1: false passage that dead-ends",
+      "Trap 2: loose gravel restriction",
+      "Case beat: one documented fatality, told from public reporting (pick at SCRIPT stage)",
+      "Safety: gates/restrictions placed (verify)",
+      "Loop to swimmers"
+    ],
+    "retention_moments": [
+      "Chamber counter 1/2/3/4",
+      "False-passage reveal",
+      "Gravel collapse animation",
+      "Loop"
+    ],
+    "thumbnail_concept": "Bright swimmers at the top, dark chamber below with one light; text 'DON'T GO DEEPER'.",
+    "animation_style": "3D clear-water well + gravel-particle restriction; strong light/dark contrast.",
+    "scenes": [
+      "Texas creek and well (procedural)",
+      "Underwater chamber sequence",
+      "Gravel restriction with particles",
+      "Cross-section with 4 chambers",
+      "Gate/sign"
+    ],
+    "sources": [
+      "https://www.youtube.com/watch?v=Fal_E_eJxD4 (FatalBreakdown, demand evidence)",
+      "Jacob's Well Natural Area / Texas press coverage (not fetched this session; search budget exhausted)",
+      "VERIFICATION: location verified; death count and the 'false passage' description are general knowledge, NOT verified this session. Label 'reported' or re-check."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 14,
+      "story": 13,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 72,
+    "rank": 8
+  },
+  {
+    "id": "CAVE-09",
+    "number": 9,
+    "category": "Cave/cavern diving — fatal accident (site profile)",
+    "working_title": "His Camera Kept Recording at 91 Metres",
+    "alt_title": "The Blue Hole's Arch",
+    "subject": "Blue Hole, Dahab, Egypt. 28 April 2000: 22-year-old diving instructor Yuri Lipski died after descending to ~91 m while filming. His camera was recovered and the footage is widely circulated (we will NOT use or trace it). The Blue Hole's 'Arch' at ~55 m has lured many divers, with deaths commonly reported as 100+ (disputed).",
+    "why_potential": "'World's deadliest dive site' is the topic of Dive Talk's 9.15M outlier. Lipski reaction videos exist (293K). The arch is cavern/overhead rather than a true cave but sits squarely with the cave audience. Ethical treatment is mandatory: focus on the arch trap and narcosis, not on the death footage.",
+    "references": [
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery trigger; site not named in title"
+      },
+      {
+        "title": "CAVE DIVER REACTS TO FATAL DIVE OF YURI LIPSKI",
+        "creator": "unverified",
+        "url": "unverified",
+        "views": "293,000 (Playboard snippet)",
+        "note": "reaction to real footage"
+      },
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "The Shaft, Mount Gambier; death count is creator's claim"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: A camera POV sinking into deep blue, depth readout climbing. VO: 'He filmed himself sinking, and didn't stop.' 2–6 s: Cross-section: reef wall, hole, the arch at 55 m. VO: 'He was looking for a tunnel at 55 metres.' 6–15 s: Dahab coastline. VO: 'Egypt's Blue Hole. Divers call it the world's deadliest dive site.'",
+    "structure": [
+      "Cold open: abstract POV descent (not the real footage)",
+      "Why the arch tempts divers",
+      "Narcosis explained visually (blurring HUD)",
+      "Lipski 2000: the fact pattern, minimal and respectful",
+      "Disputed death toll",
+      "Memorial plaques on the shore (generic)",
+      "Hard cut"
+    ],
+    "retention_moments": [
+      "Depth HUD",
+      "Narcosis distortion effect",
+      "Arch reveal",
+      "Plaques ending"
+    ],
+    "thumbnail_concept": "Diver silhouette above a dark arch in blue water, depth line '91 M'.",
+    "animation_style": "3D blue-water reef wall + arch; narcosis shader effects.",
+    "scenes": [
+      "Red Sea coast",
+      "Blue hole from above",
+      "Reef wall descent",
+      "The arch",
+      "Narcosis HUD distortion",
+      "Shore plaques (generic text)"
+    ],
+    "sources": [
+      "Search snippet: Playboard listing 'CAVE DIVER REACTS TO FATAL DIVE OF YURI LIPSKI'",
+      "https://en.wikipedia.org/wiki/Blue_Hole_(Red_Sea) (not fetched this session; search budget exhausted)",
+      "VERIFICATION: date 28 Apr 2000, age 22, ~91 m and the arch depth are general knowledge, NOT verified this session. The death toll is disputed, so label it as such."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 15
+    },
+    "total": 71,
+    "rank": 9
+  },
+  {
+    "id": "CAVE-10",
+    "number": 10,
+    "category": "Cave diving — body recovery",
+    "working_title": "Police Said It Was Too Dangerous. Their Friends Went Anyway.",
+    "alt_title": "The Unauthorised Recovery at Plura",
+    "subject": "Plura, Norway, March 2014. After Norwegian authorities called off recovery of the two Finnish divers who died on 6 Feb 2014, their surviving friends and fellow Finnish divers returned and recovered the bodies themselves (reported). This was later documented in the film 'Diving into the Unknown' (2016).",
+    "why_potential": "A sequel to CAVE-03 (series retention). Loyalty and defiance, plus the body-recovery trigger (Dive Talk 9.15M). It ends on dignity rather than horror.",
+    "references": [
+      {
+        "title": "The Plura Traverse Cave Diving Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=53XitSUJN4k",
+        "views": "unverified",
+        "note": "long-form coverage"
+      },
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery trigger; site not named in title"
+      },
+      {
+        "title": "The Plura Cave Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/IZ7TNznNjIE",
+        "views": "unverified",
+        "note": "Short competitor with weak generic hook"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0–2 s: A police tape across an ice hole. VO: 'The police said nobody goes back down.' 2–6 s: Headlights in the snow at night, several divers kitting up. VO: 'Their friends went back anyway.' 6–15 s: Cross-section showing the bodies' position (abstract markers). VO: 'Norway, 2014. Part 2 of the Plura disaster.'",
+    "structure": [
+      "Cold open: tape and refusal",
+      "Recap: Feb 2014 in 2 lines",
+      "Why authorities refused (reported)",
+      "The plan: team returns in March (reported)",
+      "The recovery dive: abstract markers, no bodies shown",
+      "Bringing them out",
+      "Aftermath: police investigation (reported)",
+      "Hard cut: two crosses in snow (generic)"
+    ],
+    "retention_moments": [
+      "Defiance hook",
+      "Recap speed-run",
+      "Recovery tension (deco timer)",
+      "Aftermath twist"
+    ],
+    "thumbnail_concept": "Night, snow, headlights, divers walking toward an ice hole; text 'TOO DANGEROUS'.",
+    "animation_style": "Reuses CAVE-03 environment, re-lit for night/torches (different framing to avoid repetition).",
+    "scenes": [
+      "Night valley, vehicles",
+      "Ice-hole with tape",
+      "Underwater recovery (abstract markers)",
+      "Cross-section",
+      "Snow memorial"
+    ],
+    "sources": [
+      "https://divers24.com/?p=48578 (search result, Plura context)",
+      "Documentary 'Diving into the Unknown' (2016) (not fetched this session; search budget exhausted)",
+      "VERIFICATION: the recovery by the friends is widely reported but NOT verified this session; dates and police follow-up need 2 sources."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 12,
+      "story": 16,
+      "packaging": 14,
+      "retention": 14,
+      "feasibility": 14
+    },
+    "total": 70,
+    "rank": 10
+  },
+  {
+    "id": "CAVE-11",
+    "number": 11,
+    "category": "Discovery — archaeology",
+    "working_title": "Divers Found a 12,000-Year-Old Girl in a Flooded Pit",
+    "alt_title": "The Girl at the Bottom of the Black Hole",
+    "subject": "Hoyo Negro, Sac Actun system, Quintana Roo, Mexico. 2007: cave divers Alberto Nava, Alex Álvarez and Franco Attolini found a deep pit containing Ice Age animal bones and a near-complete human skeleton, later nicknamed 'Naia'. She was dated to ~12,000–13,000 years old and published in Science (2014).",
+    "why_potential": "A discovery story that is broad-audience, brand-safe and educational. It has a strong reveal (a skull in torchlight, depicted respectfully as stylised remains) and pairs with the 'unexplored underwater' fascination. Less proven demand, but a fresh lane.",
+    "references": [
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Tham Luang Cave Rescue (explained)",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "60,000,000 (unverified - fan wiki snippet)",
+        "note": "3D-animated Short, 0:51"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Three torch beams sweep into darkness and the floor drops away. VO: 'The floor of the tunnel suddenly disappeared.' 2–6 s: Beam lands on a giant bone. VO: 'At the bottom were animals that went extinct 10,000 years ago...' 6–15 s: Stylised skull silhouette. VO: '...and a teenage girl. Mexico, 2007: Hoyo Negro.'",
+    "structure": [
+      "Cold open: the drop-off",
+      "Reveal 1: extinct animals (sabre-tooth, gomphothere, reported)",
+      "Reveal 2: human skull",
+      "Why it's there: dry cave during the Ice Age, sea level rose",
+      "Science: dating ~12–13k years (Science, 2014)",
+      "Why it matters: early Americans",
+      "Loop: torch beams in the dark"
+    ],
+    "retention_moments": [
+      "Drop-off reveal",
+      "Bones reveal",
+      "Skull reveal",
+      "Time-lapse of water rising over 10,000 years"
+    ],
+    "thumbnail_concept": "Huge black pit, three tiny torch beams, a pale stylised skull silhouette at the bottom.",
+    "animation_style": "3D cenote passages + pit, stylised bones; sea-level timelapse in 2.5D.",
+    "scenes": [
+      "Jungle cenote entrance",
+      "Horizontal passage",
+      "Pit drop-off with volumetric light",
+      "Bone field (procedural, stylised)",
+      "Dry Ice Age cave timelapse",
+      "Map of Yucatán"
+    ],
+    "sources": [
+      "Science (2014) paper on Hoyo Negro skeleton (not fetched this session; search budget exhausted)",
+      "National Geographic / INAH coverage (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT verified this session. Discoverers' names, the 2007 date and the age range are general knowledge and need 2 sources before SCRIPT."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 12,
+      "story": 14,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 16
+    },
+    "total": 70,
+    "rank": 11
+  },
+  {
+    "id": "CAVE-12",
+    "number": 12,
+    "category": "Cave diving — deadly site",
+    "working_title": "A Hole in a Sheep Paddock That Swallowed Divers",
+    "alt_title": "The Shaft: Australia's Darkest Dive",
+    "subject": "The Shaft, Mount Gambier region, South Australia. A small opening in farmland drops into a large flooded cave. In 1973 several divers died there (reported as four), which led to the Cave Divers Association of Australia's access and permit rules. MrBallen's video title claims 16 deaths (unverified).",
+    "why_potential": "Proven: MrBallen's 7.1M on this exact site, plus a 'Cave Stories' animated version. The mundane-entrance trope is ideal for the cold open, and it pairs with the Eagle's Nest place profile as a series.",
+    "references": [
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "The Shaft, Mount Gambier; death count is creator's claim"
+      },
+      {
+        "title": "'We Know What We're Doing' - The Mount Gambier Cave Diving Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=ifdW85nX8EE",
+        "views": "unverified",
+        "note": "long-form coverage"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Sheep grazing; camera pushes into a hole barely wider than a person. VO: 'This hole in a sheep paddock has killed divers.' 2–6 s: Drop through into a vast flooded chamber. VO: 'Below it is a lake you can't see the end of.' 6–15 s: '1973' card. VO: 'South Australia: the Shaft. In 1973 it changed cave diving forever.'",
+    "structure": [
+      "Cold open: paddock hole",
+      "Reveal: huge chamber",
+      "1973 tragedy (reported facts only)",
+      "Silt and lost exit (as reported)",
+      "Consequence: permits/ratings introduced (reported)",
+      "Today: locked entrance (reported)",
+      "Loop: sheep on the paddock"
+    ],
+    "retention_moments": [
+      "Hole-to-chamber reveal",
+      "1973 date card",
+      "Silt-out",
+      "Lock/permit ending"
+    ],
+    "thumbnail_concept": "Tiny hole in green grass, cutaway showing a huge black lake below; text 'DON'T FALL IN'.",
+    "animation_style": "Reuses the Mount Gambier terrain kit (shared with CAVE-15); 3D cutaway.",
+    "scenes": [
+      "Farmland with sheep (low-poly)",
+      "Narrow entrance drop",
+      "Vast lake chamber",
+      "Silt cloud",
+      "Lock/grate on the entrance"
+    ],
+    "sources": [
+      "https://rosetta.to/u/mrballen/this-hole-has-killed-16-people (search result)",
+      "Dailymotion reupload 'The Shaft Disaster: Australia's Darkest Dive' snippet placing the event in 1973",
+      "VERIFICATION: 1973 is confirmed by one snippet; the death toll and the CDAA rule changes are NOT verified. Use 'reported' and re-check."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 14,
+      "story": 13,
+      "packaging": 14,
+      "retention": 13,
+      "feasibility": 15
+    },
+    "total": 69,
+    "rank": 12
+  },
+  {
+    "id": "CAVE-13",
+    "number": 13,
+    "category": "Cave rescue — rescuer's sacrifice",
+    "working_title": "He Delivered Air to 13 Kids and Ran Out Himself",
+    "alt_title": "The Navy SEAL Who Didn't Make It Out",
+    "subject": "Tham Luang, Thailand, 6 July 2018: former Thai Navy SEAL Saman Kunan (38, reported) died after losing consciousness while returning from placing air tanks along the flooded route for the rescue. He is honoured as a national hero.",
+    "why_potential": "A focused spin-off of the highest-demand story (Tham Luang), from an underused angle. Strong emotional core with a short, Short-friendly arc. Spin-offs from the same environment cut production cost.",
+    "references": [
+      {
+        "title": "Tham Luang Cave Rescue (explained)",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "60,000,000 (unverified - fan wiki snippet)",
+        "note": "3D-animated Short, 0:51"
+      },
+      {
+        "title": "Divers Trapped in a Cave With Only 5 Minutes of Oxygen Left",
+        "creator": "Zem TV",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "air-countdown title formula"
+      },
+      {
+        "title": "Sucked into an oil pipe | The Paria Diving Disaster",
+        "creator": "FatalBreakdown",
+        "url": "unverified",
+        "views": "5,030,000 (vidIQ snippet)",
+        "note": "entrapment-underwater demand proxy"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0–2 s: A row of air tanks clipped along a line in murky water. VO: 'Every tank on this line could save a child.' 2–6 s: One diver swimming back, gauge low. VO: 'The man who laid them ran out of air on the way back.' 6–15 s: '6 JULY 2018' card. VO: 'This is Saman Kunan, the only rescuer to die at Tham Luang.'",
+    "structure": [
+      "Cold open: tanks on the line",
+      "Twist: he ran out",
+      "Context: 13 trapped (10 s recap)",
+      "His job: staging tanks",
+      "The return trip (reported)",
+      "Rescue completes 4 days later",
+      "Payoff: tribute/statue (reported)"
+    ],
+    "retention_moments": [
+      "Gauge needle",
+      "'Only rescuer to die' reveal",
+      "Rescue-count payoff"
+    ],
+    "thumbnail_concept": "Silhouette diver beside a line of tanks, gauge near red; text '6 JULY'.",
+    "animation_style": "Reuses Tham Luang set (CAVE-02) with different routing and lighting.",
+    "scenes": [
+      "Flooded passage with staged tanks",
+      "Gauge close-up",
+      "Recap map",
+      "Tribute card with generic silhouette"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tham_Luang_cave_rescue (not fetched this session; search budget exhausted)",
+      "VERIFICATION: name and date are widely reported; age and exact circumstances need 2 sources before SCRIPT."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 13,
+      "retention": 13,
+      "feasibility": 15
+    },
+    "total": 68,
+    "rank": 13
+  },
+  {
+    "id": "CAVE-14",
+    "number": 14,
+    "category": "Cave diving — fatal accident (prequel)",
+    "working_title": "He Vanished at 20. Divers Found Him 10 Years Later.",
+    "alt_title": "Deon Dreyer's Ten Years in Bushman's Hole",
+    "subject": "Boesmansgat, South Africa. December 1994: 20-year-old Deon Dreyer, part of a support team for a deep dive, blacked out during ascent and sank (reported). His body was found ~10 years later (28 Oct 2004) by Dave Shaw at ~270 m.",
+    "why_potential": "A prequel to CAVE-01 that sets up a two-part arc. The '10 years later' gap is a strong curiosity hook (an inkl/Mirror headline on the 'body left for 10 years' angle exists).",
+    "references": [
+      {
+        "title": "The Boesmansgat CAVE DIVING DISASTER",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=42Gp37zeDcQ",
+        "views": "unverified",
+        "note": "long-form coverage exists"
+      },
+      {
+        "title": "The Tragic Story of David Shaw's Final Dive",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/4jGx-bu719U",
+        "views": "unverified",
+        "note": "Short-format competitor"
+      },
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery trigger; site not named in title"
+      }
+    ],
+    "duration_s": 52,
+    "hook_15s": "0–2 s: A diver's light fading as he sinks away from the group. VO: 'One second he was with them. The next, he was sinking.' 2–6 s: Calendar flips: 1994 to 2004. VO: 'For ten years nobody could reach him.' 6–15 s: Bushman's Hole exterior. VO: 'South Africa: the story of Deon Dreyer, and the man who found him.'",
+    "structure": [
+      "Cold open: sinking light",
+      "Ten-year jump",
+      "Dec 1994: support dive (reported)",
+      "Blackout (reported cause)",
+      "Family's wish to bring him home (reported)",
+      "Oct 2004: Shaw's discovery at 270 m",
+      "Cliffhanger: 'He promised to go back.' Part 2 = CAVE-01"
+    ],
+    "retention_moments": [
+      "Year flip",
+      "Depth reveal 270 m",
+      "Part-2 cliffhanger"
+    ],
+    "thumbnail_concept": "Fading light far below a group of divers; text '10 YEARS'.",
+    "animation_style": "Shares Boesmansgat set with CAVE-01.",
+    "scenes": [
+      "Sinkhole exterior",
+      "Group ascent",
+      "Lone sinking light",
+      "Calendar flip card",
+      "Torch finds shape at depth"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Boesmansgat (search result)",
+      "https://inkl.com/news/tragic-diver-who-died-exploring-dangerous-depths-with-body-left-for-10-years (search result)",
+      "Search snippet (YouTube 42Gp37zeDcQ description): Dec 1994, Deon Dreyer, then 20",
+      "VERIFICATION: 1994, age 20 and the 10-year interval confirmed in 2+ snippets; blackout cause is 'reported'."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 13,
+      "packaging": 14,
+      "retention": 13,
+      "feasibility": 15
+    },
+    "total": 68,
+    "rank": 14
+  },
+  {
+    "id": "CAVE-15",
+    "number": 15,
+    "category": "Cave diving — fatal accident",
+    "working_title": "She Explored Caves No One Had Seen. Then the Silt Came.",
+    "alt_title": "Agnes Milowka and Tank Cave",
+    "subject": "Tank Cave, near Millicent, South Australia. 27 Feb 2011: explorer and underwater filmmaker Agnes Milowka (29) died after becoming separated from her buddy in a restrictive section and running out of gas (reported). She had worked on the film 'Sanctum' (2011).",
+    "why_potential": "A distinctive explorer story with a Hollywood connection. It shows silt-out and restriction, which our particle pipeline renders well. Lower demand evidence and higher sensitivity (recent, family) mean a respectful tribute tone.",
+    "references": [
+      {
+        "title": "'We Know What We're Doing' - The Mount Gambier Cave Diving Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=ifdW85nX8EE",
+        "views": "unverified",
+        "note": "long-form coverage"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      },
+      {
+        "title": "Divers Trapped in a Cave With Only 5 Minutes of Oxygen Left",
+        "creator": "Zem TV",
+        "url": "unverified",
+        "views": "unverified",
+        "note": "air-countdown title formula"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Torch in a flat squeeze; silt billows across the lens. VO: 'In a passage this tight, one kick can turn the water to milk.' 2–6 s: White-out. VO: 'Agnes Milowka had pushed into caves nobody had ever seen.' 6–15 s: Map of South Australia. VO: 'Tank Cave, 2011. The film Sanctum's cave diver didn't come home.'",
+    "structure": [
+      "Cold open: silt-out",
+      "Who she was (1–2 lines: explorer, filmmaker)",
+      "Tank Cave: a maze of restrictions",
+      "Separated from buddy (reported)",
+      "Out of gas in a restriction (reported)",
+      "Payoff: legacy, her exploration maps (reported)",
+      "Hard cut"
+    ],
+    "retention_moments": [
+      "Silt white-out",
+      "Sanctum tie-in",
+      "Maze cross-section",
+      "Legacy close"
+    ],
+    "thumbnail_concept": "Flat squeeze tunnel with silt wall and one torch; text 'ONE KICK'.",
+    "animation_style": "3D low-ceiling maze with dense silt particles.",
+    "scenes": [
+      "Farmland entrance",
+      "Low bedding-plane squeeze",
+      "Silt-out particle sim",
+      "Maze plan view",
+      "Tribute card"
+    ],
+    "sources": [
+      "Australian press coverage (Feb–Mar 2011) (not fetched this session; search budget exhausted)",
+      "https://en.wikipedia.org/wiki/Sanctum_(film) (search result; production context)",
+      "VERIFICATION: date, age and Tank Cave are general knowledge, NOT verified this session; cause is 'reported'."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 15,
+      "packaging": 13,
+      "retention": 14,
+      "feasibility": 15
+    },
+    "total": 68,
+    "rank": 15
+  },
+  {
+    "id": "CAVE-16",
+    "number": 16,
+    "category": "Discovery — deepest flooded cave",
+    "working_title": "The Deepest Underwater Cave on Earth Has No Bottom (Yet)",
+    "alt_title": "Hranice Abyss: 400 m and Counting",
+    "subject": "Hranice Abyss (Hranická propast), Czech Republic. The deepest known flooded cave. In 2016 a remote-operated vehicle reached 404 m. Later geophysical surveys suggested it may continue to roughly 1 km (reported).",
+    "why_potential": "'Bottomless' and 'deepest' superlatives are proven title formulas ('The Horrifying Incidents in This Bottomless Cave'). Pure geology means no victims and low ethics risk. Strong comparison visuals (Eiffel Tower and skyscrapers next to the depth).",
+    "references": [
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0–2 s: A small lake in a forest gorge; camera dives in and keeps going. VO: 'This lake is deeper than the Eiffel Tower is tall.' 2–6 s: A robot's lights sink past 300 m. VO: 'Divers gave up. They sent a robot.' 6–15 s: Depth bar 404 m, then a '?' below. VO: 'It hit 404 metres, and it still didn't find the bottom.'",
+    "structure": [
+      "Cold open: lake to abyss",
+      "Scale comparisons",
+      "Divers' limit (Krzysztof Starnawski's dives, reported)",
+      "2016 ROV to 404 m",
+      "Geophysics: maybe ~1 km",
+      "Why: acidic water carved it from below (reported)",
+      "Loop: calm lake surface"
+    ],
+    "retention_moments": [
+      "Eiffel Tower overlay",
+      "ROV descent",
+      "'?' bottom",
+      "Loop"
+    ],
+    "thumbnail_concept": "Cross-section with landmarks beside a near-endless shaft; text '404 M+'.",
+    "animation_style": "3D shaft + ROV model; 2.5D landmark comparison.",
+    "scenes": [
+      "Forest gorge lake",
+      "Vertical shaft descent",
+      "ROV with lights",
+      "Landmark scale overlay",
+      "Geophysics scan graphic"
+    ],
+    "sources": [
+      "Press coverage of the 2016 Hranice ROV record (not fetched this session; search budget exhausted)",
+      "VERIFICATION: 404 m (2016) and the ~1 km estimate are general knowledge, NOT verified this session; re-check both."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 12,
+      "packaging": 15,
+      "retention": 13,
+      "feasibility": 16
+    },
+    "total": 67,
+    "rank": 16
+  },
+  {
+    "id": "CAVE-17",
+    "number": 17,
+    "category": "Discovery — deep sinkhole",
+    "working_title": "A Pond Near Rome That Swallows Robots",
+    "alt_title": "Pozzo del Merro",
+    "subject": "Pozzo del Merro, Lazio, Italy (north-east of Rome). A deep flooded sinkhole whose surface is covered in green plants. A 2002 ROV reached about 392 m without finding the bottom (reported). It was considered among the deepest of its kind before Hranice.",
+    "why_potential": "A companion to Hranice ('deepest' series). Lower story strength (no human arc) but very cheap to produce and loopable. A filler/series entry.",
+    "references": [
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      },
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "The Shaft, Mount Gambier; death count is creator's claim"
+      }
+    ],
+    "duration_s": 45,
+    "hook_15s": "0–2 s: A bright green duckweed surface in a rocky funnel. VO: 'That green isn't grass. It's the lid of a 400-metre hole.' 2–6 s: Camera breaks through. VO: 'A robot went down in 2002 and never found the floor.' 6–15 s: Map of Rome. VO: 'Thirty kilometres from Rome: Pozzo del Merro.'",
+    "structure": [
+      "Cold open: green lid",
+      "Break-through reveal",
+      "ROV ~392 m (reported)",
+      "Comparison with Hranice",
+      "Loop to green surface"
+    ],
+    "retention_moments": [
+      "Surface-to-abyss",
+      "Depth counter",
+      "Loop"
+    ],
+    "thumbnail_concept": "Green surface with a dark cutaway funnel below; text '392 M'.",
+    "animation_style": "3D sinkhole funnel with floating vegetation shader.",
+    "scenes": [
+      "Rocky funnel with greenery",
+      "Duckweed surface (particles)",
+      "Vertical descent",
+      "Map of Rome card"
+    ],
+    "sources": [
+      "Italian speleological and press sources on the 2002 ROV survey (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT verified this session (depth, year, distance from Rome)."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 9,
+      "story": 10,
+      "packaging": 13,
+      "retention": 12,
+      "feasibility": 16
+    },
+    "total": 60,
+    "rank": 17
+  },
+  {
+    "id": "CAVE-18",
+    "number": 18,
+    "category": "Discovery — record exploration",
+    "working_title": "Divers Connected Two Caves and Made the Longest on Earth",
+    "alt_title": "347 km Under the Jungle",
+    "subject": "Sac Actun, Quintana Roo, Mexico. January 2018: the Gran Acuífero Maya (GAM) project announced that Sac Actun connected with Dos Ojos, making it the longest known underwater cave system (~347 km reported at the time).",
+    "why_potential": "A map-reveal Short where the record and scale are the hook. A cheap 2.5D map animation. Weak story arc and moderate demand. Good for a series about the cenote world.",
+    "references": [
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "Tham Luang Cave Rescue (explained)",
+        "creator": "Zack D. Films",
+        "url": "unverified",
+        "views": "60,000,000 (unverified - fan wiki snippet)",
+        "note": "3D-animated Short, 0:51"
+      }
+    ],
+    "duration_s": 45,
+    "hook_15s": "0–2 s: Jungle from above; a glowing line spreads underground. VO: 'Under this jungle is a maze longer than a road from London to Paris.' 2–6 s: Two lines join. VO: 'In 2018, divers found the link between two systems.' 6–15 s: '347 KM' counter. VO: 'Sac Actun became the longest underwater cave on Earth.'",
+    "structure": [
+      "Cold open: glowing map",
+      "Connection moment",
+      "How it's mapped (line + survey)",
+      "What's inside (Hoyo Negro tie-in to CAVE-11)",
+      "Loop: jungle canopy"
+    ],
+    "retention_moments": [
+      "Line-join reveal",
+      "Distance comparison",
+      "Cross-link to Naia"
+    ],
+    "thumbnail_concept": "Jungle top-down with a neon cave map beneath; text '347 KM'.",
+    "animation_style": "2.5D animated map + short 3D cenote shots.",
+    "scenes": [
+      "Jungle canopy",
+      "Animated cave-line map",
+      "Cenote entrance",
+      "Survey diver with line reel"
+    ],
+    "sources": [
+      "GAM / INAH announcement coverage (Jan 2018) (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT verified this session (date, 347 km)."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 9,
+      "story": 10,
+      "packaging": 12,
+      "retention": 11,
+      "feasibility": 16
+    },
+    "total": 58,
+    "rank": 18
+  },
+  {
+    "id": "CAVE-19",
+    "number": 19,
+    "category": "Discovery — crystal-clear gypsum cave",
+    "working_title": "The Clearest Underwater Cave Is Under a Frozen Russian Field",
+    "alt_title": "Orda: Diving Inside a Crystal",
+    "subject": "Orda Cave, Perm Krai, Russia. Reported as the longest known underwater gypsum cave (several km mapped), famous for very clear water and white walls. Usually dived in winter.",
+    "why_potential": "Visual spectacle: white gypsum walls and cyan water make it our most beautiful environment. Low story stakes, so it suits a 'cave-of-the-week' series or B-roll-heavy Short. Demand evidence is weak.",
+    "references": [
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "The Plura Cave Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/shorts/IZ7TNznNjIE",
+        "views": "unverified",
+        "note": "Short competitor with weak generic hook"
+      }
+    ],
+    "duration_s": 45,
+    "hook_15s": "0–2 s: A diver floats in water so clear they seem to fly between white walls. VO: 'This diver isn't flying. He's underwater, in Russia.' 2–6 s: Pull back to a snowy field and a small hut. VO: 'The entrance is a hole in a frozen field.' 6–15 s: Map of Perm Krai. VO: 'Orda Cave: kilometres of flooded crystal.'",
+    "structure": [
+      "Cold open: flying-diver illusion",
+      "Entrance reveal",
+      "What gypsum is and why it's white",
+      "Length/record (reported)",
+      "Danger: gypsum dissolves and collapses (reported)",
+      "Loop"
+    ],
+    "retention_moments": [
+      "Illusion reveal",
+      "Pull-back",
+      "Collapse-risk turn"
+    ],
+    "thumbnail_concept": "Diver suspended between white walls, cyan water; text 'NOT FLYING'.",
+    "animation_style": "3D white gypsum cave, high-clarity water shader; strong visual showcase.",
+    "scenes": [
+      "Snowy field and hut",
+      "Ladder entrance",
+      "White-walled tunnels",
+      "Map card"
+    ],
+    "sources": [
+      "Russian Geographical Society and dive-press coverage of Orda (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT verified this session (length, record claim)."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 9,
+      "story": 9,
+      "packaging": 13,
+      "retention": 11,
+      "feasibility": 16
+    },
+    "total": 58,
+    "rank": 19
+  },
+  {
+    "id": "CAVE-20",
+    "number": 20,
+    "category": "Exploration — technology",
+    "working_title": "They Built a Robot Map of a Cave by Hand",
+    "alt_title": "Wakulla Springs: Mapping the Dark in 3D",
+    "subject": "Wakulla Springs, Florida, USA. In the late 1980s–90s US Deep Caving Team expeditions led by Bill Stone pushed deep into the system with experimental rebreathers and later a 3D 'digital wall mapper' (reported). The Woodville Karst Plain Project (WKPP) later extended exploration.",
+    "why_potential": "A niche tech story with low demand evidence. It has a visual hook (a laser-scanned cave appearing) that our pipeline can make. Kept as a low-ranked option for variety.",
+    "references": [
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place-superlative"
+      },
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "clickbait template; shows search demand for 'bottom of Jacob's Well'"
+      },
+      {
+        "title": "Caver's Only Light Breaks 1000 Feet Into Cave",
+        "creator": "Scary Interesting",
+        "url": "unverified",
+        "views": "1,520,000 (Playboard snippet; conflicting 661K)",
+        "note": "single-failure hook formula"
+      }
+    ],
+    "duration_s": 50,
+    "hook_15s": "0–2 s: A cave assembles itself out of glowing points. VO: 'This cave was scanned point by point, underwater.' 2–6 s: A bulky diver with backpack machinery. VO: 'The divers had to invent the machines to survive it.' 6–15 s: Florida map. VO: 'Wakulla Springs: one of the most ambitious cave dives ever planned.'",
+    "structure": [
+      "Cold open: point-cloud cave",
+      "Problem: too deep and long for open-circuit",
+      "Invention: rebreathers and mapper (reported)",
+      "Expedition beats (reported)",
+      "Legacy: modern technical diving",
+      "Loop"
+    ],
+    "retention_moments": [
+      "Point-cloud build",
+      "Gear reveal",
+      "Scale map"
+    ],
+    "thumbnail_concept": "Glowing point-cloud tunnel with a diver silhouette; text 'MAPPED BY HAND'.",
+    "animation_style": "3D point-cloud effect (geometry nodes) + diver.",
+    "scenes": [
+      "Spring basin",
+      "Point-cloud tunnel",
+      "Diver with bulky rig",
+      "Florida map"
+    ],
+    "sources": [
+      "US Deep Caving Team / Bill Stone expedition accounts (not fetched this session; search budget exhausted)",
+      "VERIFICATION: NOT verified this session; years and claims must be re-checked before use."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 8,
+      "story": 11,
+      "packaging": 11,
+      "retention": 11,
+      "feasibility": 13
+    },
+    "total": 54,
+    "rank": 20
+  }
+]
