@@ -1,0 +1,14 @@
+{
+ "id": "SCUBA-03",
+ "run_id": "46079759846",
+ "sha": "6f668fbea7a24e7e73843bd5a4b1ccf4db18c72b",
+ "render_seconds": 2837,
+ "assemble_qc_seconds": 390,
+ "frames": 1266,
+ "seconds_per_frame": 2.24,
+ "auto_verdict": "PASS",
+ "fail": [],
+ "duration_s": 50.83,
+ "lufs": -14.6,
+ "true_peak": -1.2
+}
