@@ -1,0 +1,753 @@
+{
+ "duration": 57.33,
+ "voice": "bm_george",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 5.65,
+   "text": "In 1936, a photographer said a woman was drifting down these stairs.",
+   "words": [
+    {
+     "w": "In",
+     "start": 0.18,
+     "end": 0.47
+    },
+    {
+     "w": "1936,",
+     "start": 0.47,
+     "end": 1.4
+    },
+    {
+     "w": "a",
+     "start": 1.4,
+     "end": 1.57
+    },
+    {
+     "w": "photographer",
+     "start": 1.57,
+     "end": 2.51
+    },
+    {
+     "w": "said",
+     "start": 2.51,
+     "end": 2.75
+    },
+    {
+     "w": "a",
+     "start": 2.75,
+     "end": 3.03
+    },
+    {
+     "w": "woman",
+     "start": 3.03,
+     "end": 3.51
+    },
+    {
+     "w": "was",
+     "start": 3.51,
+     "end": 3.76
+    },
+    {
+     "w": "drifting",
+     "start": 3.76,
+     "end": 4.34
+    },
+    {
+     "w": "down",
+     "start": 4.34,
+     "end": 4.69
+    },
+    {
+     "w": "these",
+     "start": 4.69,
+     "end": 5.11
+    },
+    {
+     "w": "stairs.",
+     "start": 5.11,
+     "end": 5.59
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 5.85,
+   "end": 9.29,
+   "text": "Raynham Hall, Norfolk. A Country Life photo shoot.",
+   "words": [
+    {
+     "w": "Raynham",
+     "start": 5.88,
+     "end": 6.32
+    },
+    {
+     "w": "Hall,",
+     "start": 6.32,
+     "end": 6.79
+    },
+    {
+     "w": "Norfolk.",
+     "start": 6.79,
+     "end": 7.3
+    },
+    {
+     "w": "A",
+     "start": 7.3,
+     "end": 7.53
+    },
+    {
+     "w": "Country",
+     "start": 7.53,
+     "end": 8.03
+    },
+    {
+     "w": "Life",
+     "start": 8.03,
+     "end": 8.43
+    },
+    {
+     "w": "photo",
+     "start": 8.43,
+     "end": 8.84
+    },
+    {
+     "w": "shoot.",
+     "start": 8.84,
+     "end": 9.23
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 9.54,
+   "end": 16.12,
+   "text": "Legend says the Brown Lady is Dorothy Walpole, who died in 1726.",
+   "words": [
+    {
+     "w": "Legend",
+     "start": 9.57,
+     "end": 10.34
+    },
+    {
+     "w": "says",
+     "start": 10.34,
+     "end": 10.72
+    },
+    {
+     "w": "the",
+     "start": 10.72,
+     "end": 10.86
+    },
+    {
+     "w": "Brown",
+     "start": 10.86,
+     "end": 11.46
+    },
+    {
+     "w": "Lady",
+     "start": 11.46,
+     "end": 12.0
+    },
+    {
+     "w": "is",
+     "start": 12.0,
+     "end": 12.25
+    },
+    {
+     "w": "Dorothy",
+     "start": 12.25,
+     "end": 12.96
+    },
+    {
+     "w": "Walpole,",
+     "start": 12.96,
+     "end": 13.7
+    },
+    {
+     "w": "who",
+     "start": 13.7,
+     "end": 14.14
+    },
+    {
+     "w": "died",
+     "start": 14.14,
+     "end": 14.62
+    },
+    {
+     "w": "in",
+     "start": 14.62,
+     "end": 14.88
+    },
+    {
+     "w": "1726.",
+     "start": 14.88,
+     "end": 16.06
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 16.37,
+   "end": 21.9,
+   "text": "In 1836, novelist Frederick Marryat claimed he shot at her.",
+   "words": [
+    {
+     "w": "In",
+     "start": 16.4,
+     "end": 16.71
+    },
+    {
+     "w": "1836,",
+     "start": 16.71,
+     "end": 17.61
+    },
+    {
+     "w": "novelist",
+     "start": 17.61,
+     "end": 18.57
+    },
+    {
+     "w": "Frederick",
+     "start": 18.57,
+     "end": 19.45
+    },
+    {
+     "w": "Marryat",
+     "start": 19.45,
+     "end": 20.15
+    },
+    {
+     "w": "claimed",
+     "start": 20.15,
+     "end": 20.76
+    },
+    {
+     "w": "he",
+     "start": 20.76,
+     "end": 20.98
+    },
+    {
+     "w": "shot",
+     "start": 20.98,
+     "end": 21.47
+    },
+    {
+     "w": "at",
+     "start": 21.47,
+     "end": 21.64
+    },
+    {
+     "w": "her.",
+     "start": 21.64,
+     "end": 21.84
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 22.2,
+   "end": 26.23,
+   "text": "A century later, Provand and Shira aimed a camera up the stairs.",
+   "words": [
+    {
+     "w": "A",
+     "start": 22.23,
+     "end": 22.37
+    },
+    {
+     "w": "century",
+     "start": 22.37,
+     "end": 22.99
+    },
+    {
+     "w": "later,",
+     "start": 22.99,
+     "end": 23.37
+    },
+    {
+     "w": "Provand",
+     "start": 23.37,
+     "end": 23.91
+    },
+    {
+     "w": "and",
+     "start": 23.91,
+     "end": 24.19
+    },
+    {
+     "w": "Shira",
+     "start": 24.19,
+     "end": 24.61
+    },
+    {
+     "w": "aimed",
+     "start": 24.61,
+     "end": 24.93
+    },
+    {
+     "w": "a",
+     "start": 24.93,
+     "end": 25.01
+    },
+    {
+     "w": "camera",
+     "start": 25.01,
+     "end": 25.45
+    },
+    {
+     "w": "up",
+     "start": 25.45,
+     "end": 25.68
+    },
+    {
+     "w": "the",
+     "start": 25.68,
+     "end": 25.72
+    },
+    {
+     "w": "stairs.",
+     "start": 25.72,
+     "end": 26.17
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 26.48,
+   "end": 30.35,
+   "text": "Shira said he saw a vapoury form, slowly becoming a woman.",
+   "words": [
+    {
+     "w": "Shira",
+     "start": 26.51,
+     "end": 26.96
+    },
+    {
+     "w": "said",
+     "start": 26.96,
+     "end": 27.22
+    },
+    {
+     "w": "he",
+     "start": 27.22,
+     "end": 27.31
+    },
+    {
+     "w": "saw",
+     "start": 27.31,
+     "end": 27.67
+    },
+    {
+     "w": "a",
+     "start": 27.67,
+     "end": 27.87
+    },
+    {
+     "w": "vapoury",
+     "start": 27.87,
+     "end": 28.39
+    },
+    {
+     "w": "form,",
+     "start": 28.39,
+     "end": 28.72
+    },
+    {
+     "w": "slowly",
+     "start": 28.72,
+     "end": 29.21
+    },
+    {
+     "w": "becoming",
+     "start": 29.21,
+     "end": 29.64
+    },
+    {
+     "w": "a",
+     "start": 29.64,
+     "end": 29.9
+    },
+    {
+     "w": "woman.",
+     "start": 29.9,
+     "end": 30.29
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 30.65,
+   "end": 34.13,
+   "text": "Provand uncapped the lens. Shira fired the flash.",
+   "words": [
+    {
+     "w": "Provand",
+     "start": 30.68,
+     "end": 31.46
+    },
+    {
+     "w": "uncapped",
+     "start": 31.46,
+     "end": 32.01
+    },
+    {
+     "w": "the",
+     "start": 32.01,
+     "end": 32.19
+    },
+    {
+     "w": "lens.",
+     "start": 32.19,
+     "end": 32.53
+    },
+    {
+     "w": "Shira",
+     "start": 32.53,
+     "end": 33.08
+    },
+    {
+     "w": "fired",
+     "start": 33.08,
+     "end": 33.5
+    },
+    {
+     "w": "the",
+     "start": 33.5,
+     "end": 33.61
+    },
+    {
+     "w": "flash.",
+     "start": 33.61,
+     "end": 34.07
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 34.48,
+   "end": 36.8,
+   "text": "The plate showed a pale, veiled shape.",
+   "words": [
+    {
+     "w": "The",
+     "start": 34.51,
+     "end": 34.59
+    },
+    {
+     "w": "plate",
+     "start": 34.59,
+     "end": 35.12
+    },
+    {
+     "w": "showed",
+     "start": 35.12,
+     "end": 35.35
+    },
+    {
+     "w": "a",
+     "start": 35.35,
+     "end": 35.63
+    },
+    {
+     "w": "pale,",
+     "start": 35.63,
+     "end": 35.91
+    },
+    {
+     "w": "veiled",
+     "start": 35.91,
+     "end": 36.4
+    },
+    {
+     "w": "shape.",
+     "start": 36.4,
+     "end": 36.74
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 37.1,
+   "end": 40.28,
+   "text": "Country Life printed it. So did Life magazine.",
+   "words": [
+    {
+     "w": "Country",
+     "start": 37.13,
+     "end": 37.62
+    },
+    {
+     "w": "Life",
+     "start": 37.62,
+     "end": 37.89
+    },
+    {
+     "w": "printed",
+     "start": 37.89,
+     "end": 38.56
+    },
+    {
+     "w": "it.",
+     "start": 38.56,
+     "end": 38.64
+    },
+    {
+     "w": "So",
+     "start": 38.64,
+     "end": 38.95
+    },
+    {
+     "w": "did",
+     "start": 38.95,
+     "end": 39.18
+    },
+    {
+     "w": "Life",
+     "start": 39.18,
+     "end": 39.5
+    },
+    {
+     "w": "magazine.",
+     "start": 39.5,
+     "end": 40.22
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 40.48,
+   "end": 43.56,
+   "text": "Experts reportedly found no sign of tampering.",
+   "words": [
+    {
+     "w": "Experts",
+     "start": 40.51,
+     "end": 41.02
+    },
+    {
+     "w": "reportedly",
+     "start": 41.02,
+     "end": 41.88
+    },
+    {
+     "w": "found",
+     "start": 41.88,
+     "end": 42.27
+    },
+    {
+     "w": "no",
+     "start": 42.27,
+     "end": 42.51
+    },
+    {
+     "w": "sign",
+     "start": 42.51,
+     "end": 42.86
+    },
+    {
+     "w": "of",
+     "start": 42.86,
+     "end": 42.89
+    },
+    {
+     "w": "tampering.",
+     "start": 42.89,
+     "end": 43.5
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 43.86,
+   "end": 47.63,
+   "text": "But sceptics see a double exposure: two images, one plate.",
+   "words": [
+    {
+     "w": "But",
+     "start": 43.89,
+     "end": 44.2
+    },
+    {
+     "w": "sceptics",
+     "start": 44.2,
+     "end": 44.77
+    },
+    {
+     "w": "see",
+     "start": 44.77,
+     "end": 44.92
+    },
+    {
+     "w": "a",
+     "start": 44.92,
+     "end": 45.15
+    },
+    {
+     "w": "double",
+     "start": 45.15,
+     "end": 45.57
+    },
+    {
+     "w": "exposure:",
+     "start": 45.57,
+     "end": 46.12
+    },
+    {
+     "w": "two",
+     "start": 46.12,
+     "end": 46.44
+    },
+    {
+     "w": "images,",
+     "start": 46.44,
+     "end": 46.95
+    },
+    {
+     "w": "one",
+     "start": 46.95,
+     "end": 47.23
+    },
+    {
+     "w": "plate.",
+     "start": 47.23,
+     "end": 47.57
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 47.88,
+   "end": 51.4,
+   "text": "Or grease on the lens. Or Shira moving on the stairs.",
+   "words": [
+    {
+     "w": "Or",
+     "start": 47.91,
+     "end": 48.13
+    },
+    {
+     "w": "grease",
+     "start": 48.13,
+     "end": 48.57
+    },
+    {
+     "w": "on",
+     "start": 48.57,
+     "end": 48.86
+    },
+    {
+     "w": "the",
+     "start": 48.86,
+     "end": 48.93
+    },
+    {
+     "w": "lens.",
+     "start": 48.93,
+     "end": 49.38
+    },
+    {
+     "w": "Or",
+     "start": 49.38,
+     "end": 49.53
+    },
+    {
+     "w": "Shira",
+     "start": 49.53,
+     "end": 49.99
+    },
+    {
+     "w": "moving",
+     "start": 49.99,
+     "end": 50.53
+    },
+    {
+     "w": "on",
+     "start": 50.53,
+     "end": 50.79
+    },
+    {
+     "w": "the",
+     "start": 50.79,
+     "end": 50.88
+    },
+    {
+     "w": "stairs.",
+     "start": 50.88,
+     "end": 51.34
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 51.65,
+   "end": 53.75,
+   "text": "Nobody has ever proved which.",
+   "words": [
+    {
+     "w": "Nobody",
+     "start": 51.68,
+     "end": 52.36
+    },
+    {
+     "w": "has",
+     "start": 52.36,
+     "end": 52.52
+    },
+    {
+     "w": "ever",
+     "start": 52.52,
+     "end": 52.79
+    },
+    {
+     "w": "proved",
+     "start": 52.79,
+     "end": 53.4
+    },
+    {
+     "w": "which.",
+     "start": 53.4,
+     "end": 53.69
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 54.65,
+   "end": 56.63,
+   "text": "So look again at these stairs.",
+   "words": [
+    {
+     "w": "So",
+     "start": 54.68,
+     "end": 55.0
+    },
+    {
+     "w": "look",
+     "start": 55.0,
+     "end": 55.29
+    },
+    {
+     "w": "again",
+     "start": 55.29,
+     "end": 55.65
+    },
+    {
+     "w": "at",
+     "start": 55.65,
+     "end": 55.78
+    },
+    {
+     "w": "these",
+     "start": 55.78,
+     "end": 56.09
+    },
+    {
+     "w": "stairs.",
+     "start": 56.09,
+     "end": 56.57
+    }
+   ]
+  }
+ ]
+}

@@ -211,11 +211,12 @@
       "overlay": [
         {
           "type": "depth",
-          "text": "270 M",
+          "text": "CHAMBER FLOOR",
           "params": {
-            "position": "top-left",
-            "units": "m",
-            "color": "cyan"
+            "from": 262,
+            "to": 270,
+            "max": 290,
+            "unit": "m"
           }
         }
       ],
@@ -284,25 +285,33 @@
       "overlay": [
         {
           "type": "timer",
-          "text": "DOWN 0:10",
+          "text": "DOWN",
           "params": {
-            "position": "left",
-            "count": "up",
-            "to": "00:10:00"
-          }
+            "from": 0,
+            "to": 600,
+            "fmt": "mmss",
+            "y": 190
+          },
+          "start": 0.0,
+          "duration": 1.55
         },
         {
           "type": "timer",
-          "text": "UP ~10:00:00",
+          "text": "BACK UP: DECO STOPS",
           "params": {
-            "position": "right",
-            "style": "stops_bar"
-          }
+            "from": 0,
+            "to": 10,
+            "fmt": "hours",
+            "y": 190
+          },
+          "start": 1.55
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 400
+          }
         }
       ],
       "sfx": [
@@ -345,9 +354,9 @@
       "overlay": [
         {
           "type": "stamp",
-          "text": "BOESMANSGAT · NORTHERN CAPE, SOUTH AFRICA",
+          "text": "BOESMANSGAT\nNORTHERN CAPE, SOUTH AFRICA",
           "params": {
-            "position": "lower-third-safe"
+            "y": 300
           }
         }
       ],
@@ -386,22 +395,27 @@
           "type": "stamp",
           "text": "OCT 2004",
           "params": {
-            "position": "top"
+            "y": 300
           }
         },
         {
           "type": "depth",
-          "text": "0 → 270 M",
+          "text": "",
           "params": {
-            "animate": true
+            "from": 0,
+            "to": 270,
+            "max": 290,
+            "speed": 0.95
           }
         },
         {
           "type": "text",
-          "text": "REBREATHER DEPTH RECORD",
+          "text": "REBREATHER\nDEPTH RECORD",
           "params": {
-            "position": "center-low"
-          }
+            "y": 1010,
+            "size": 84
+          },
+          "start": 1.2
         }
       ],
       "sfx": [
@@ -435,8 +449,12 @@
       "overlay": [
         {
           "type": "depth",
-          "text": "270 M",
-          "params": {}
+          "text": "",
+          "params": {
+            "from": 266,
+            "to": 270,
+            "max": 290
+          }
         }
       ],
       "sfx": [
@@ -466,16 +484,20 @@
       "fx": [],
       "overlay": [
         {
-          "type": "document",
-          "text": "DEON DREYER · LOST 1994 · BODY NOT RECOVERED",
+          "type": "card",
+          "text": "DEON DREYER\nLOST HERE 1994\nBODY NOT RECOVERED",
           "params": {
-            "style": "evidence_card"
+            "header": "BOESMANSGAT",
+            "y": 520,
+            "mood": "cave"
           }
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 400
+          }
         }
       ],
       "sfx": [
@@ -537,15 +559,22 @@
           "type": "stamp",
           "text": "8 JAN 2005",
           "params": {
-            "position": "top"
+            "y": 300
           }
         },
         {
           "type": "text",
           "text": "MEET @ 220 M",
           "params": {
-            "anchor": "rendezvous_line"
-          }
+            "y": 925,
+            "size": 64,
+            "color": [
+              255,
+              170,
+              80
+            ]
+          },
+          "start": 2.4
         }
       ],
       "sfx": [
@@ -581,13 +610,19 @@
       "overlay": [
         {
           "type": "depth",
-          "text": "270 M",
-          "params": {}
+          "text": "",
+          "params": {
+            "from": 268,
+            "to": 270,
+            "max": 290
+          }
         },
         {
           "type": "label",
-          "text": "REPORTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -622,14 +657,21 @@
           "type": "text",
           "text": "SURFACE",
           "params": {
-            "position": "top"
+            "y": 400,
+            "size": 76
           }
         },
         {
           "type": "text",
           "text": "270 M: DENSE GAS",
           "params": {
-            "position": "bottom"
+            "y": 1080,
+            "size": 72,
+            "color": [
+              64,
+              224,
+              208
+            ]
           }
         }
       ],
@@ -668,14 +710,22 @@
           "type": "text",
           "text": "CO₂ ↑",
           "params": {
-            "position": "right",
-            "color": "red"
-          }
+            "y": 420,
+            "size": 120,
+            "color": [
+              255,
+              70,
+              60
+            ]
+          },
+          "start": 2.9
         },
         {
           "type": "label",
-          "text": "REPORTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -716,7 +766,11 @@
           "type": "timer",
           "text": "WAITING…",
           "params": {
-            "position": "center"
+            "from": 0,
+            "to": 180,
+            "fmt": "mmss",
+            "y": 250,
+            "danger": true
           }
         }
       ],
@@ -748,9 +802,12 @@
       "overlay": [
         {
           "type": "depth",
-          "text": "220 → 250 M",
+          "text": "",
           "params": {
-            "animate": true
+            "from": 220,
+            "to": 250,
+            "max": 290,
+            "speed": 0.95
           }
         }
       ],
@@ -790,16 +847,23 @@
       "overlay": [
         {
           "type": "text",
-          "text": "● REC",
+          "text": "REC",
           "params": {
-            "position": "top-left",
-            "color": "red"
+            "y": 330,
+            "size": 70,
+            "color": [
+              255,
+              60,
+              50
+            ]
           }
         },
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -829,10 +893,10 @@
       "fx": [],
       "overlay": [
         {
-          "type": "document",
-          "text": "CASE REPORT (2007): EXTREME HYPERCAPNIA → UNCONSCIOUSNESS",
+          "type": "label",
+          "text": "DOCUMENTED FACT",
           "params": {
-            "highlight": "EXTREME HYPERCAPNIA"
+            "y": 200
           }
         }
       ],
@@ -864,7 +928,7 @@
           "type": "stamp",
           "text": "12 JAN 2005",
           "params": {
-            "position": "top"
+            "y": 300
           }
         }
       ],
@@ -901,8 +965,10 @@
       "overlay": [
         {
           "type": "label",
-          "text": "DOCUMENTED",
-          "params": {}
+          "text": "DOCUMENTED FACT",
+          "params": {
+            "y": 200
+          }
         }
       ],
       "sfx": [
@@ -930,11 +996,13 @@
       "overlay": [
         {
           "type": "text",
-          "text": "IN MEMORY OF DEON DREYER AND DAVE SHAW",
+          "text": "IN MEMORY OF\nDEON DREYER AND DAVE SHAW",
           "params": {
-            "position": "center-low",
-            "size": "small"
-          }
+            "y": 1020,
+            "size": 54
+          },
+          "start": 0.6,
+          "duration": 3.1
         }
       ],
       "sfx": [

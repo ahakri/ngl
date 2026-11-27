@@ -1,0 +1,75 @@
+{
+ "duration": 57.33,
+ "shots": {
+  "S01": {
+   "start": 0.0,
+   "duration": 5.77,
+   "frames": 141
+  },
+  "S02": {
+   "start": 5.77,
+   "duration": 3.69,
+   "frames": 91
+  },
+  "S03": {
+   "start": 9.46,
+   "duration": 6.83,
+   "frames": 166
+  },
+  "S04": {
+   "start": 16.29,
+   "duration": 5.83,
+   "frames": 142
+  },
+  "S05": {
+   "start": 22.12,
+   "duration": 4.28,
+   "frames": 105
+  },
+  "S06": {
+   "start": 26.4,
+   "duration": 4.17,
+   "frames": 103
+  },
+  "S07": {
+   "start": 30.57,
+   "duration": 3.83,
+   "frames": 94
+  },
+  "S08": {
+   "start": 34.4,
+   "duration": 2.62,
+   "frames": 65
+  },
+  "S09": {
+   "start": 37.02,
+   "duration": 3.38,
+   "frames": 84
+  },
+  "S10": {
+   "start": 40.4,
+   "duration": 3.38,
+   "frames": 84
+  },
+  "S11": {
+   "start": 43.78,
+   "duration": 4.02,
+   "frames": 99
+  },
+  "S12": {
+   "start": 47.8,
+   "duration": 3.77,
+   "frames": 93
+  },
+  "S13": {
+   "start": 51.57,
+   "duration": 3.0,
+   "frames": 74
+  },
+  "S14": {
+   "start": 54.57,
+   "duration": 2.76,
+   "frames": 69
+  }
+ }
+}

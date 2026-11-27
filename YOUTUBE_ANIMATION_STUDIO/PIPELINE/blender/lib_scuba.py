@@ -520,7 +520,6 @@ def wavy_plane(size=10, nframes=120, loc=(0, 0, 0), amp=0.03, mat=None, sub=6, n
         wv.start_position_x = sx
         wv.start_position_y = sy
         wv.narrowness = 1.5
-        wv.use_normals = False
     L.smooth(o)
     if mat:
         L.assign(o, mat)

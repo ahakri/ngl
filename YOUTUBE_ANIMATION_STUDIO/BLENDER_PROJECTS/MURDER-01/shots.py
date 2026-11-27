@@ -54,16 +54,16 @@ def lin(obj):
 
 # ----------------------------------------------------------------------------- tent close-up (S01 / S20 / S21)
 
-S01_CAM0 = (-0.55, -2.35, 0.52)
-S01_CAM1 = (-0.28, -1.72, 0.6)
-S01_TGT = (0.33, -0.55, 0.62)
+S01_CAM0 = (-1.25, -3.7, 0.78)
+S01_CAM1 = (-0.85, -2.85, 0.74)
+S01_TGT = (0.3, -0.55, 0.42)
 
 
 def tent_closeup(L, n, cam_from, cam_to, tgt_from, tgt_to, torch_keys, flap_base=0.75, flap_amp=0.35, lens=35,
                  hand=0.02, snow_count=1600):
     moon = night(stars=0.6, moon_rot=(R(58), 0, R(-35)), moon_e=1.3)
     h, pz, _ = slope_terrain(x=(-25, 25), y=(-25, 35), res=0.2)
-    t = tent_at(pz, inner=10.0)
+    t = tent_at(pz, inner=45.0, snow_amt=0.3)
     M.anim_flaps(t, n, base=flap_base, amp=flap_amp, rate=1.8, seed=3)
     # torch from camera-left
     tr, tg = M.torch((-1.9, -2.1, 1.0 + pz), torch_keys[0][1], energy=380, size_deg=16)
@@ -73,7 +73,7 @@ def tent_closeup(L, n, cam_from, cam_to, tgt_from, tgt_to, torch_keys, flap_base
     L.flicker(tr, n, depth=0.2, rate=0.4, seed=5)
     # cold rim from upslope behind the tent (moon glow on the snow edge)
     L.area((0.5, 3.5, 3.0 + pz), (R(-60), 0, 0), energy=60, size=4, color=(0.5, 0.6, 1.0), name="rim")
-    M.snowfall((0.0, -1.2, 0.9 + pz), (4.5, 3.0, 2.6), n, count=snow_count, radius=0.006, fall=0.5, wind=(1.4, 0.2, 0), seed=11)
+    M.snowfall((0.0, -1.1, 0.9 + pz), (4.5, 1.1, 2.6), n, count=snow_count, radius=0.004, fall=0.5, wind=(1.4, 0.2, 0), seed=11)
     M.snowfall((0.0, 4.0, 2.0 + pz), (14, 8, 5), n, count=900, radius=0.02, fall=0.5, wind=(1.6, 0, 0), seed=12, name="snowfar")
     M.fog((0, 6, 2 + pz), (40, 30, 8), density=0.025)
     cam, ct = L.camera(loc=(cam_from[0], cam_from[1], cam_from[2] + pz), target=(tgt_from[0], tgt_from[1], tgt_from[2] + pz), lens=lens)
@@ -92,16 +92,16 @@ def tent_closeup(L, n, cam_from, cam_to, tgt_from, tgt_to, torch_keys, flap_base
 def S01(L, n):
     # torch sweeps across the canvas from the left and lands on the slit
     s = S01_TGT
-    keys = [(1, (-1.4, -0.75, 0.45)), (int(n * 0.45), (0.1, -0.6, 0.62)), (int(n * 0.62), (s[0], s[1], s[2] + 0.08)),
-            (n, (s[0] + 0.05, s[1], s[2] + 0.05))]
-    tent_closeup(L, n, S01_CAM0, S01_CAM1, S01_TGT, (0.34, -0.55, 0.66), keys)
+    keys = [(1, (-1.5, -0.75, 0.55)), (int(n * 0.45), (0.0, -0.6, 0.7)), (int(n * 0.62), (0.33, -0.55, 0.78)),
+            (n, (0.37, -0.55, 0.74))]
+    tent_closeup(L, n, S01_CAM0, S01_CAM1, S01_TGT, (0.32, -0.55, 0.46), keys)
     L.bake_static()
 
 
 def S20(L, n):
     # medium close, torch beam resting on the slit, very slow push
     s = S01_TGT
-    keys = [(1, (s[0] - 0.03, s[1], s[2] + 0.06)), (n, (s[0] + 0.03, s[1], s[2] + 0.08))]
+    keys = [(1, (0.31, -0.55, 0.74)), (n, (0.35, -0.55, 0.77))]
     tent_closeup(L, n, (-0.9, -3.3, 0.7), (-0.8, -3.0, 0.68), (0.25, -0.5, 0.55), (0.27, -0.5, 0.56), keys,
                  flap_base=0.55, flap_amp=0.2, lens=35, hand=0.01)
     L.bake_static()
@@ -109,7 +109,7 @@ def S20(L, n):
 
 def S21(L, n):
     # loop: pushes in and ends exactly on S01 frame-1 framing
-    keys = [(1, (-1.75, -0.8, 0.42)), (n, (-1.4, -0.75, 0.45))]
+    keys = [(1, (-1.85, -0.8, 0.5)), (n, (-1.5, -0.75, 0.55))]
     back = tuple(S01_CAM0[i] + (S01_CAM0[i] - S01_CAM1[i]) * 0.9 for i in range(3))
     tent_closeup(L, n, back, S01_CAM0, S01_TGT, S01_TGT, keys)
     L.bake_static()

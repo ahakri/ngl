@@ -396,6 +396,7 @@ def shaft(z_top, z_bot, radius_fn, step=0.5, ring=40, seed=1, rough=0.35, mat=No
         bm.faces.new(list(reversed(rings[-1])))
     bm.normal_update()
     # make normals face the axis
+    bm.faces.ensure_lookup_table()
     f0 = bm.faces[0]
     cen = f0.calc_center_median()
     cx, cy = center_fn(cen.z) if center_fn else (0.0, 0.0)
@@ -828,6 +829,7 @@ def crater(R=9.0, depth=14.0, outer=70.0, seed=2, ground_mat=None, wall_mat=None
             f = bm.faces.new((rings[i][j], rings[i][(j + 1) % ang_seg], rings[i + 1][(j + 1) % ang_seg], rings[i + 1][j]))
             f.material_index = 0 if i < wall_start - 1 else 1
     bm.normal_update()
+    bm.faces.ensure_lookup_table()
     f0 = bm.faces[0]
     if f0.normal.z < 0:
         for f in bm.faces:

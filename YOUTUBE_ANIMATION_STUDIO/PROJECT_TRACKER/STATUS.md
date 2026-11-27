@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T08:19:59Z
+Updated: 2026-11-27T08:24:04Z
 
 ## Concept counts
 
@@ -16,15 +16,15 @@ Updated: 2026-11-27T08:19:59Z
 
 ## Pipeline status
 
-- ANIMATING: 3
+- ANIMATING: 4
 - CONCEPT: 84
-- SCRIPTED: 13
+- SCRIPTED: 12
 
 ## Videos in production
 
 | ID | Title | Score | Status |
 |---|---|---|---|
-| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | SCRIPTED |
+| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATING |
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | SCRIPTED |
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | SCRIPTED |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | SCRIPTED |

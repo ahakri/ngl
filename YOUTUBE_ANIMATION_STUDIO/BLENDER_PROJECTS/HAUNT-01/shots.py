@@ -270,7 +270,7 @@ def S07(L, n):
     c = H.cam(st, (-1.7, -0.4, 1.4), lens=22)
     H.cam_move(c, [(1, st, (-1.7, -0.4, 1.4)), (6, st, tg), (n, (0.35, -1.6, 1.05), (0.0, 1.2, 0.6))])
     L.handheld(c, n, amp=0.02, rate=0.7, rot_amp=0.012)
-    L.cam_light(c, energy=18, color=(0.65, 0.75, 1.0), size_deg=80)
+    L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()
 
 
@@ -443,7 +443,7 @@ def S13(L, n):
     L.set_world((0.004, 0.006, 0.012), 1.0)
     H.enfield_bedroom(n, chair="B", rec_on=False, dust_count=400)
     c = H.cam(BC["start"], BC["target"], lens=BC["lens"] / 1.1)
-    L.cam_light(c, energy=18, color=(0.65, 0.75, 1.0), size_deg=80)
+    L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()
 
 
@@ -457,7 +457,7 @@ def S14(L, n):
     c.data.keyframe_insert("lens", frame=8)
     c.data.lens = lens0 * 1.03
     c.data.keyframe_insert("lens", frame=n)
-    L.cam_light(c, energy=18, color=(0.65, 0.75, 1.0), size_deg=80)
+    L.cam_light(c, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     L.bake_static()
 
 

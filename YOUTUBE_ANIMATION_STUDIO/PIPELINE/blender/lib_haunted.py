@@ -474,17 +474,17 @@ def tape_recorder(loc=(0, 0, 0), rot_z=0.0, n=100, spin_from=1, spin_rate=0.55, 
     nd = box_mesh(name + "_nd", [(0, 0.012, 0, 0.0012, 0.012, 0.001)], dark, parent=needle_piv)
     # REC lamp
     rec_m = L.mat_emission(name + "_recm", (1.0, 0.04, 0.02), rec_strength)
-    lamp = L.prim("sphere", loc=(-0.16, -0.1, 0.124), segments=12, ring_count=8, radius=0.009)
+    lamp = L.prim("sphere", loc=(-0.16, -0.1, 0.124), segments=12, ring_count=8, radius=0.012)
     L.assign(lamp, rec_m)
     lamp.parent = root
-    rl = L.point((0, 0, 0), energy=0.8, color=(1, 0.05, 0.02), radius=0.01, name=name + "_recl")
+    rl = L.point((0, 0, 0), energy=2.5, color=(1, 0.05, 0.02), radius=0.01, name=name + "_recl")
     rl.parent = root
     rl.location = (-0.16, -0.12, 0.15)
     out = {"root": root, "reels": reels, "rec_mat": rec_m, "rec_light": rl, "vu_mat": vu_m, "needle": needle_piv, "body": body}
     start = spin_from
     if rec_on_frame:
         key_emission(rec_m, [(1, 0.0), (rec_on_frame, rec_strength)])
-        key_energy(rl, [(1, 0.0), (rec_on_frame, 0.8)])
+        key_energy(rl, [(1, 0.0), (rec_on_frame, 2.5)])
         key_emission(vu_m, [(1, 0.0), (rec_on_frame, 2.5)])
         start = rec_on_frame
     elif not rec_on:
@@ -783,7 +783,7 @@ def enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=None, reels_spin=Tru
     if toppled:
         chest_of_drawers((1.0, -1.1, 0.2), rot=(math.pi / 2, 0, 0.35), name="chest")
     else:
-        chest_of_drawers((1.25, -1.45, 0), rot=(0, 0, math.pi / 2), name="chest")
+        chest_of_drawers((1.25, -1.45, 0), rot=(0, 0, -math.pi / 2), name="chest")
     # chair
     if chair == "A":
         ch = wood_chair(CHAIR_A[0], CHAIR_A[1], jumper=jumper)
@@ -796,14 +796,14 @@ def enfield_bedroom(n, chair="A", rec_on=True, rec_on_frame=None, reels_spin=Tru
     box_mesh("rug", [(0.0, 0.3, 0.005, 0.5, 0.8, 0.005)], L.mat_noise_surface("rug_m", (0.18, 0.08, 0.05), (0.3, 0.16, 0.08), scale=20, bump=0.1, voronoi=False))
     box_mesh("poster", [(-W / 2 + 0.01, 0.8, 1.5, 0.005, 0.25, 0.32)], L.mat_principled("poster_m", (0.4, 0.3, 0.22), rough=0.8))
     # moonlight through window (+ faint bounce fill)
-    ml = L.spot((0.1, D / 2 + 2.2, 3.0), (0, 0, 0), energy=1800 * moon, size_deg=32, blend=0.25, color=(0.55, 0.68, 1.0), name="moon", radius=0.15)
+    ml = L.spot((0.1, D / 2 + 2.2, 3.0), (0, 0, 0), energy=1800 * moon, size_deg=32, blend=0.25, color=(0.55, 0.68, 1.0), name="moon", radius=0.05)
     aim(ml, (0.1, D / 2 + 2.2, 3.0), (-0.1, 0.2, 0.0))
-    amb = L.area((0, 0.2, Hh - 0.05), (0, 0, 0), energy=12 * moon, size=2.5, color=(0.5, 0.6, 0.9), name="ambfill")
+    amb = L.area((0, 0.2, Hh - 0.05), (0, 0, 0), energy=22 * moon, size=2.5, color=(0.5, 0.6, 0.9), name="ambfill")
     out = {"lamp": lamp, "rec": rec, "chair": ch, "moon": ml, "bedL": bl, "bedR": br}
     if fog:
         out["fog"] = room_fog((0, 0, Hh / 2), (W, D, Hh), density=0.025, color=(0.6, 0.68, 0.85))
     if dust_count:
-        out["dust"] = dust((0, 0.4, 1.2), (W * 0.8, D * 0.8, 1.8), n, count=dust_count, radius=0.004, drift=(0.005, 0.0, -0.01), emit=0.12)
+        out["dust"] = dust((0, 0.9, 1.3), (W * 0.7, 1.6, 1.6), n, count=int(dust_count * 0.45), radius=0.0022, drift=(0.005, 0.0, -0.01), emit=0.05)
     return out
 
 
@@ -815,7 +815,7 @@ def bedroom_camera(n, mode="push", lens=None, push=1.0):
     if mode == "push":
         e = tuple(c["start"][i] + (c["end"][i] - c["start"][i]) * push for i in range(3))
         cam_move(cm, [(1, c["start"], c["target"]), (n, e, c["target"])], ease=False)
-    L.cam_light(cm, energy=18, color=(0.65, 0.75, 1.0), size_deg=80)
+    L.cam_light(cm, energy=30, color=(0.65, 0.75, 1.0), size_deg=80)
     return cm
 
 

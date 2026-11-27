@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:19:59Z",
+ "updated": "2026-11-27T08:24:04Z",
  "phases": {
   "P1_research": {
    "status": "in_progress",
@@ -45,7 +45,7 @@
   }
  },
  "videos": {
-  "CAVE-01": "SCRIPTED",
+  "CAVE-01": "ANIMATING",
   "CAVE-02": "SCRIPTED",
   "CAVE-03": "SCRIPTED",
   "CAVE-04": "SCRIPTED",
