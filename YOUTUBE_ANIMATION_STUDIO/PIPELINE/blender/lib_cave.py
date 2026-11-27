@@ -2000,9 +2000,10 @@ def hill_set(mat=None, fine_res=0.07, coarse_res=0.7, pit=(0.0, 0.0)):
 # ============================================================================= CAVE-05 (Sa Piqueta air bell) / CAVE-06 (Eagle's Nest)
 # Added by the CAVE-05/06 director. New functions only; nothing above was changed.
 
-def air_bell(R=(3.0, 2.6), H=2.2, below=1.4, seed=5, mat=None, name="dome", res=(56, 28), rough=0.18, disp=(0.35, 0.1)):
+def air_bell(R=(3.0, 2.6), H=2.2, below=1.4, seed=5, mat=None, name="dome", res=(56, 28), rough=0.18, disp=(0.35, 0.1),
+             hole_r=0.0):
     """Low rock dome around the origin: inward-facing displaced ellipsoid (radii R, height H above z=0, `below` under it).
-    Pair with water_surface() at z=0. Returns the object."""
+    Pair with water_surface() at z=0. hole_r > 0 opens the crown (for a chimney above). Returns the object."""
     rnd = random.Random(seed)
     off = Vector((rnd.random() * 50, rnd.random() * 50, rnd.random() * 50))
     bm = bmesh.new()
@@ -2011,6 +2012,9 @@ def air_bell(R=(3.0, 2.6), H=2.2, below=1.4, seed=5, mat=None, name="dome", res=
         d = v.co.copy()
         k = 1 + rough * noise.noise(d * 1.6 + off)
         v.co = Vector((d.x * R[0] * k, d.y * R[1] * k, d.z * (H if d.z > 0 else below) * (0.85 + 0.15 * k)))
+    if hole_r:
+        dead = [f for f in bm.faces if all(math.hypot(v.co.x, v.co.y) < hole_r and v.co.z > 0 for v in f.verts)]
+        bmesh.ops.delete(bm, geom=dead, context="FACES")
     for f in bm.faces:
         f.normal_flip()
     bm.normal_update()
@@ -2211,3 +2215,149 @@ def pose_edge_sit(p, lean=0.1):
         p[f"knee{tag}"].rotation_euler = (-1.45, 0, 0)
         p[f"shoulder{tag}"].rotation_euler = (0.5, 0, (0.15 if tag == "L" else -0.15))
         p[f"elbow{tag}"].rotation_euler = (0.6, 0, 0)
+
+
+def upright_head_kit(d, helmet=(0.85, 0.68, 0.08), name=None, lens_strength=12.0):
+    """For a diver() rig posed upright (belly = local -Z): replace the forward-facing mask/lamp (which would sit on top
+    of the head) with a helmet, a mask facing the belly side and a helmet lamp; the torch spot moves to the lamp.
+    Returns dict(helmet, lens_mat)."""
+    name = name or d["root"].name
+    root = d["root"]
+    for k in ("mask", "maskframe", "lamp", "lens"):
+        o = d.get(k)
+        if o is not None:
+            o.hide_render = True
+            o.hide_viewport = True
+    hm = L.prim("sphere", loc=(0, 0.62, 0.02), segments=20, ring_count=10, radius=1.0, name=name + "_helmet")
+    hm.scale = (0.15, 0.13, 0.155)
+    L.assign(hm, L.mat_principled(name + "_helm", helmet, rough=0.35))
+    L.smooth(hm)
+    hm.parent = root
+    fr = L.prim("torus", loc=(0, 0.55, -0.115), major_radius=1.0, minor_radius=0.16, name=name + "_mframe")
+    fr.scale = (0.085, 0.06, 0.06)
+    L.assign(fr, L.mat_principled(name + "_mfm", (0.02, 0.02, 0.022), rough=0.5))
+    fr.parent = root
+    gl = L.prim("cube", loc=(0, 0.55, -0.12), name=name + "_mglass")
+    gl.scale = (0.075, 0.05, 0.008)
+    L.assign(gl, rim_glass_mat(name + "_mg", (0.55, 0.85, 1.0), strength=1.5, power=2.0, base=0.06))
+    gl.parent = root
+    reg = L.prim("cyl", loc=(0, 0.46, -0.13), vertices=10, radius=0.03, depth=0.05, rot=(0, 0, 0), name=name + "_reg")
+    L.assign(reg, L.mat_principled(name + "_regm", (0.03, 0.03, 0.03), rough=0.5))
+    reg.parent = root
+    lb = L.prim("cyl", loc=(0, 0.74, -0.08), vertices=12, radius=0.03, depth=0.07, rot=(0.6, 0, 0), name=name + "_hlamp")
+    L.assign(lb, L.mat_principled(name + "_hlm", (0.08, 0.08, 0.09), rough=0.3, metal=0.6))
+    lb.parent = root
+    ln = L.prim("cyl", loc=(0, 0.72, -0.115), vertices=12, radius=0.027, depth=0.006, rot=(0.6, 0, 0), name=name + "_hlens")
+    lm = emis(name + "_hlens_m", TORCH, lens_strength)
+    L.assign(ln, lm)
+    ln.parent = root
+    t = d.get("torch")
+    if t is not None:
+        t.location = (0, 0.72, -0.13)
+    return {"helmet": hm, "lens_mat": lm}
+
+
+
+def hooded_icon(center, size=0.3, y=0.0, color=(0.08, 0.08, 0.08), name="reaper"):
+    """Flat hooded-robe-with-scythe pictogram in the XZ plane (faces -Y) for warning signs. Returns list of objs."""
+    m = L.mat_principled(name + "_m", color, rough=0.7)
+    cx, cz = center
+    s = size
+    robe = [(-0.32, -0.5), (0.32, -0.5), (0.2, 0.05), (0.18, 0.22), (0.1, 0.36), (0.0, 0.4), (-0.1, 0.36), (-0.18, 0.22),
+            (-0.2, 0.05)]
+    out = [flat_poly([(cx + x * s, cz + z * s) for x, z in robe], y, m, name=name + "_robe")]
+    face = [(-0.085, 0.12), (0.085, 0.12), (0.1, 0.26), (0.0, 0.32), (-0.1, 0.26)]
+    out.append(flat_poly([(cx + x * s, cz + z * s) for x, z in face], y - 0.002,
+                         L.mat_principled(name + "_void", (0.9, 0.9, 0.88), rough=0.7), name=name + "_hood"))
+    out.append(curve([(cx + 0.38 * s, y - 0.002, cz - 0.5 * s), (cx + 0.38 * s, y - 0.002, cz + 0.45 * s)],
+                     thickness=0.025 * s, mat=m, name=name + "_shaft"))
+    blade = [(0.38, 0.45), (0.38, 0.38), (0.05, 0.42), (-0.12, 0.34), (0.08, 0.5)]
+    out.append(flat_poly([(cx + x * s, cz + z * s) for x, z in blade], y - 0.002, m, name=name + "_blade"))
+    return out
+
+
+def warning_sign(loc=(0, 0, 0), rot_z=0.0, w=0.7, h=0.9, post=1.2, lines=("STOP!", "PREVENT YOUR DEATH!", "GO NO FARTHER"),
+                 name="sign", face_emit=0.12):
+    """Generic underwater cave warning sign (no agency branding): white board on a pipe stake, hooded pictogram,
+    three text lines. Board faces local -Y. loc = base of the stake. Returns dict(root, board, face_mat, center)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = (0, 0, rot_z)
+    pipe = L.prim("cyl", loc=(0, 0.03, post / 2), vertices=12, radius=0.022, depth=post + h * 0.6, name=name + "_pipe")
+    L.assign(pipe, L.mat_principled(name + "_pm", (0.55, 0.55, 0.52), rough=0.5, metal=0.5))
+    pipe.parent = root
+    cz = post + h * 0.15
+    fm = L.mat_principled(name + "_fm", (0.88, 0.88, 0.84), rough=0.6, emit=(0.88, 0.88, 0.84), emit_strength=face_emit)
+    bd = L.prim("cube", loc=(0, 0, cz), name=name + "_board")
+    bd.scale = (w / 2, 0.012, h / 2)
+    L.assign(bd, fm)
+    L.bevel(bd, 0.01)
+    bd.parent = root
+    yf = -0.014
+    parts = []
+    t0 = text(lines[0], (0, yf, cz + h * 0.36), size=h * 0.17, color=(0.8, 0.04, 0.02), strength=0.0, name=name + "_t0",
+              mat=L.mat_principled(name + "_red", (0.75, 0.03, 0.02), rough=0.5))
+    parts.append(t0)
+    ic = hooded_icon((0.0, cz + h * 0.1), size=h * 0.28, y=yf, name=name + "_icon")
+    parts += ic
+    blk = L.mat_principled(name + "_blk", (0.03, 0.03, 0.03), rough=0.6)
+    for k, ln in enumerate(lines[1:]):
+        t = text(ln, (0, yf, cz - h * (0.17 + 0.13 * k)), size=h * 0.085, name=f"{name}_t{k + 1}", mat=blk)
+        parts.append(t)
+    for o in parts:
+        o.parent = root
+    # parent keeps world placement because root transform is applied through parenting
+    return {"root": root, "board": bd, "face_mat": fm, "center": (0, 0, cz)}
+
+
+def florida_woods(points, seed=3, trunk=(0.09, 0.075, 0.06), c1=(0.02, 0.045, 0.015), c2=(0.08, 0.15, 0.05),
+                  height=(6.0, 10.0), crown=(1.8, 3.2), trunks=True, name="tree"):
+    """Live-oak / cypress approximation: a trunk plus 2-3 canopy blobs per point [(x, y, z_ground)]."""
+    rnd = random.Random(seed)
+    tm = L.mat_noise_surface(name + "_bark", tuple(c * 0.5 for c in trunk), trunk, scale=6, bump=0.6, voronoi=False)
+    cm = L.mat_noise_surface(name + "_leaf", c1, c2, scale=2.5, bump=0.8, voronoi=True, rough=0.8)
+    out = []
+    for i, p in enumerate(points):
+        h = rnd.uniform(*height)
+        if trunks:
+            t = L.prim("cone", loc=(p[0], p[1], p[2] + h * 0.45), vertices=8, radius1=0.22, radius2=0.1, depth=h * 0.9,
+                       name=f"{name}{i}_trunk")
+            t.rotation_euler = (rnd.uniform(-0.08, 0.08), rnd.uniform(-0.08, 0.08), 0)
+            L.assign(t, tm)
+            out.append(t)
+        for k in range(rnd.randint(2, 3)):
+            r = rnd.uniform(*crown)
+            o = L.prim("ico", loc=(p[0] + rnd.uniform(-1.2, 1.2), p[1] + rnd.uniform(-1.2, 1.2),
+                                   p[2] + h * rnd.uniform(0.8, 1.0)), subdivisions=2, radius=r, name=f"{name}{i}_c{k}")
+            o.scale = (1.0, rnd.uniform(0.85, 1.15), rnd.uniform(0.55, 0.75))
+            L.add_displace(o, strength=r * 0.35, scale=r * 0.3, name=f"{name}{i}_d{k}")
+            L.assign(o, cm)
+            out.append(o)
+    return out
+
+
+def pond_mat(name="pond", water=(0.01, 0.035, 0.02), weed=(0.16, 0.3, 0.06), weed_cover=0.45, scale=2.2):
+    """Still blackwater with drifting duckweed patches (noise mask): glossy water, rough green weed."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale
+    nz.inputs["Detail"].default_value = 6
+    l.new(tc.outputs["Object"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 1.0 - weed_cover
+    ramp.color_ramp.elements[1].position = 1.0 - weed_cover + 0.06
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    l.new(ramp.outputs["Color"], mix.inputs["Factor"])
+    mix.inputs["A"].default_value = (*water, 1)
+    mix.inputs["B"].default_value = (*weed, 1)
+    l.new(mix.outputs["Result"], p.inputs["Base Color"])
+    rr = n.new("ShaderNodeMapRange")
+    rr.inputs["To Min"].default_value = 0.03
+    rr.inputs["To Max"].default_value = 0.85
+    l.new(ramp.outputs["Color"], rr.inputs["Value"])
+    l.new(rr.outputs["Result"], p.inputs["Roughness"])
+    return m

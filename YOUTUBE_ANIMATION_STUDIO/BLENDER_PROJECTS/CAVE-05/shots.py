@@ -36,8 +36,10 @@ def _diver(name, fins, energy=1800, beam_len=3.5, beam=0.4, deg=22, tanks="doubl
                    beam_strength=beam, beam_deg=deg)
 
 
-def _upright(d, loc, face_deg, tilt=0.3):
-    """Hover upright: head up, belly toward heading face_deg (0 = +Y, 90 = -X, -90 = +X). Arms forward-down."""
+def _upright(d, loc, face_deg, tilt=0.3, helmet=(0.85, 0.68, 0.08)):
+    """Hover upright: head up, belly toward heading face_deg (0 = +Y, 90 = -X, -90 = +X). Arms forward-down.
+    Adds a helmet + belly-facing mask (lib upright_head_kit)."""
+    C.upright_head_kit(d, helmet=helmet)
     r = d["root"]
     r.location = loc
     r.rotation_euler = (math.pi / 2 - tilt, 0, math.radians(face_deg))
@@ -76,14 +78,14 @@ def _silt(n, center, size, count=1600, seed=4, vel=(0.02, 0.0, 0.02), color=(0.8
 
 def S01(L, n):
     _passage(L, n, density=0.06)
-    a = _diver("gracia", GRACIA, energy=1600, beam_len=3.0, beam=0.2)
-    b = _diver("mascaro", MASCARO, energy=1600, beam_len=3.0, beam=0.2)
-    _upright(a, (-0.82, 2.0, -0.05), -90, tilt=0.35)
-    _upright(b, (0.82, 2.15, -0.1), 90, tilt=0.4)
+    a = _diver("gracia", GRACIA, energy=750, beam_len=3.0, beam=0.2)
+    b = _diver("mascaro", MASCARO, energy=750, beam_len=3.0, beam=0.2)
+    _upright(a, (-0.82, 2.0, -0.05), -90, tilt=0.35, helmet=(0.85, 0.68, 0.08))
+    _upright(b, (0.82, 2.15, -0.1), 90, tilt=0.4, helmet=(0.9, 0.45, 0.1))
     ta = _track(a["torch"], (0.6, 2.5, -0.7), "ta")
     tb = _track(b["torch"], (-0.6, 1.6, -0.6), "tb")
-    C.key_loc(ta, [(1, (0.6, 2.6, -0.75)), (n, (0.4, 2.3, -0.55))])
-    C.key_loc(tb, [(1, (-0.5, 1.5, -0.65)), (n, (-0.7, 1.8, -0.5))])
+    C.key_loc(ta, [(1, (0.6, 2.5, -0.15)), (n, (0.45, 2.3, -0.05))])
+    C.key_loc(tb, [(1, (-0.5, 1.6, -0.2)), (n, (-0.65, 1.8, -0.1))])
     for d, ph in ((a, 0.0), (b, 1.3)):
         r = d["root"]
         base = Vector(r.location)
@@ -150,12 +152,12 @@ def S03(L, n):
 # ============================================================================ S04 survey dive (clear teal)
 
 def S04(L, n):
-    _passage(L, n, density=0.03, color=TEAL, absorption=(0.08, 0.2, 0.25), seed=7, half_w=2.6)
+    _passage(L, n, density=0.03, color=TEAL, absorption=(0.08, 0.2, 0.25), seed=7, half_w=3.2)
     y0, y1 = -0.4, 1.9
     a = _diver("gracia", GRACIA, energy=1500, beam_len=3.5, beam=0.35, tanks="doubles")
     b = _diver("mascaro", MASCARO, energy=1500, beam_len=3.5, beam=0.35, tanks="doubles")
     ra, rb = a["root"], b["root"]
-    C.key_loc(ra, [(1, (0.1, y0, 0.38)), (n, (0.1, y1, 0.42))])
+    C.key_loc(ra, [(1, (0.1, y0, 0.45)), (n, (0.1, y1, 0.5))])
     C.key_loc(rb, [(1, (0.8, y0 - 0.5, -0.32)), (n, (0.8, y1 - 0.5, -0.3))])
     for r in (ra, rb):
         L.linear_fcurves(r)
@@ -200,9 +202,9 @@ def S04(L, n):
     _silt(n, (0, 1.0, 0), (3.2, 6, 2.2), count=1500, seed=5, color=(0.75, 0.85, 0.8))
     L.point((0.0, 1.0, 1.0), energy=30, color=(0.4, 0.85, 0.85), radius=1.0, name="cyanamb")
     C.rim_light((0.1, 0.8, 0.0), (2.2, 1.0, 1.0), energy=500, color=CYAN_RIM, size_deg=55, name="rim")
-    cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (-1.55, y0 + 0.05, 0.1), (0.45, y0 - 0.05, -0.2)),
-                       (n, (-1.55, y1 + 0.15, 0.12), (0.45, y1 - 0.05, -0.2))],
+    cam = C.camera(lens=20)
+    C.aim_cam(cam, n, [(1, (-2.3, y0 - 0.25, 0.25), (0.45, y0 - 0.35, -0.35)),
+                       (n, (-2.3, y1 - 0.15, 0.27), (0.45, y1 - 0.35, -0.35))],
               shake=0.012, rot_shake=0.003, fn=lambda x: x)
     C.cam_fill(cam, energy=160, color=(0.6, 0.85, 0.85))
     L.bake_static()
@@ -222,7 +224,7 @@ def S05(L, n):
     rk.scale = (1.4, 0.55, 0.65)
     rk.rotation_euler = (0, 0.12, 0.3)
     L.add_displace(rk, strength=0.12, scale=0.25, name="edge_d")
-    L.assign(rk, C.rock_mat("edge_m", (0.05, 0.045, 0.035), (0.35, 0.3, 0.24), scale=4.0))
+    L.assign(rk, C.rock_mat("edge_m", (0.02, 0.018, 0.015), (0.16, 0.14, 0.11), scale=4.0))
     apex = Vector((0.03, 2.0, -0.47))
     lm = L.mat_principled("gl_m", (0.95, 0.93, 0.85), rough=0.4, emit=(0.95, 0.93, 0.85), emit_strength=1.1)
     left_tie, right_tie = Vector((-2.0, 3.0, -0.2)), Vector((1.8, 1.4, -0.95))
@@ -250,7 +252,7 @@ def S05(L, n):
     C.key_loc(plume, [(1, (0.2, 2.2, -0.75)), (cut, (0.0, 1.6, -0.3))])
     _silt(n, (0, 1.8, -0.2), (3.0, 3.0, 1.8), count=1400, seed=11, vel=(0.05, -0.08, 0.08))
     # Gràcia's torch on the edge (the diver himself is just off frame)
-    tp = C.dive_torch((-0.9, 0.3, 0.6), tuple(apex), energy=1800, size_deg=26, beam_len=2.2, beam_strength=0.35)
+    tp = C.dive_torch((-0.9, 0.3, 0.6), tuple(apex), energy=700, size_deg=26, beam_len=2.2, beam_strength=0.35)
     # gauge insert set, a few metres back down the passage (same water)
     gz = Vector((0.6, -3.0, 0.15))
     g = C.gauge("g2", radius=0.06)
@@ -259,12 +261,6 @@ def S05(L, n):
     for f, a in ((1, 1.0), (cut + 1, 1.0), (cut + 8, 1.25), (n - 6, 1.85), (n, 1.9)):
         g["pivot"].rotation_euler = (0, -a, 0)
         g["pivot"].keyframe_insert("rotation_euler", frame=f)
-    gl = L.mat_principled("glove", (0.03, 0.03, 0.035), rough=0.6)
-    for k, (dx, dz) in enumerate(((-0.09, -0.06), (0.08, -0.07))):
-        h = L.prim("sphere", loc=(gz.x + dx, gz.y + 0.02, gz.z + dz), segments=10, ring_count=6, radius=1.0,
-                   name=f"glove{k}")
-        h.scale = (0.04, 0.03, 0.055)
-        L.assign(h, gl)
     gt = L.spot((gz.x - 0.5, gz.y - 0.5, gz.z + 0.5), (0, 0, 0), energy=60, size_deg=40, blend=0.8, color=C.TORCH,
                 name="gaugekey")
     gt.rotation_mode = "QUATERNION"
@@ -288,11 +284,12 @@ def S05(L, n):
 
 def S06(L, n):
     _passage(L, n, density=0.075, color=MURK, seed=13)
-    a = _diver("gracia", GRACIA, energy=1400, beam_len=2.5, beam=0.35)
-    b = _diver("mascaro", MASCARO, energy=2200, beam_len=4.0, beam=0.45)
+    a = _diver("gracia", GRACIA, energy=700, beam_len=2.5, beam=0.3)
+    b = _diver("mascaro", MASCARO, energy=1200, beam_len=4.0, beam=0.35)
     _upright(a, (-0.35, 0.0, -0.1), 0, tilt=0.35)
+    L.spot((0.0, 0.7, 2.0), (0, 0, 0), energy=500, size_deg=60, blend=0.8, color=(0.9, 0.85, 0.75), name="handtop")
     bloc, brot = Vector((0.12, 1.3, 0.0)), (math.pi / 2 - 0.35, 0, math.pi)
-    rb = _upright(b, tuple(bloc), 180, tilt=0.35)
+    rb = _upright(b, tuple(bloc), 180, tilt=0.35, helmet=(0.9, 0.45, 0.1))
     ta = _track(a["torch"], (0.1, 1.0, -0.3), "ta")
     tb = _track(b["torch"], (0.0, 0.3, -0.5), "tb")
     turn0, turn1, gone = 36, 52, 92
@@ -307,15 +304,15 @@ def S06(L, n):
     L.anim_swim(b, n, kick_rate=0.9, amp=0.28, start=turn0)
     L.anim_swim(a, n, kick_rate=0.4, amp=0.1)
     # his torch shrinks to a dot, then is gone
-    C.key_energy(b["torch"], [(1, 2200), (gone - 14, 2200), (gone, 0)])
+    C.key_energy(b["torch"], [(1, 1200), (gone - 14, 1200), (gone, 0)])
     if b.get("beam_sock") is not None:
         C.key_input(b["beam_sock"], [(1, 0.45), (gone - 14, 0.45), (gone, 0.0)])
     dot, _, dem = C.glow_dot((0, 0, 0), C.TORCH, r=0.03, halo=6, strength=10, name="bdot")
     dot.parent = rb
     dot.location = (0.0, 0.62, 0.32)
     core_em = dot.active_material.node_tree.nodes["Emission"].inputs[1]
-    C.key_input(core_em, [(1, 0.0), (turn0, 0.0), (turn1, 12.0), (gone - 10, 12.0), (gone, 0.0)])
-    C.key_input(dem.inputs[1], [(1, 0.0), (turn0, 0.0), (turn1, 3.5), (gone - 10, 3.5), (gone, 0.0)])
+    C.key_input(core_em, [(1, 0.0), (turn0, 0.0), (turn1, 6.0), (gone - 10, 6.0), (gone, 0.0)])
+    C.key_input(dem.inputs[1], [(1, 0.0), (turn0, 0.0), (turn1, 1.8), (gone - 10, 1.8), (gone, 0.0)])
     # the stage cylinder: from Gràcia's side into Mascaró's hands, then it leaves with him (child-of switch)
     tk = C.tank((-0.32, 0.12, -0.15), rot=(0.2, 0, 0.1), length=0.62, r=0.075, band=(1.0, 0.78, 0.1), name="stage")
     hand_f = 30
@@ -360,9 +357,9 @@ def S06(L, n):
 
 def S11(L, n):
     w = _passage(L, n, density=0.55, color=(0.72, 0.5, 0.26), absorption=(0.04, 0.08, 0.16), seed=17)
-    r1 = _diver("res1", RESCUE, energy=2600, beam_len=1.0, beam=0.8, deg=26)
-    r2 = _diver("res2", RESCUE, energy=2600, beam_len=1.0, beam=0.8, deg=26)
-    _upright(r1, (0.28, 0.85, -0.12), 0, tilt=0.85)
+    r1 = _diver("res1", (0.55, 0.56, 0.56), energy=2600, beam_len=1.0, beam=0.8, deg=26)
+    r2 = _diver("res2", (0.55, 0.56, 0.56), energy=2600, beam_len=1.0, beam=0.8, deg=26)
+    _upright(r1, (0.28, 0.85, -0.12), 0, tilt=0.6, helmet=(0.85, 0.85, 0.82))
     rr2 = r2["root"]
     rr2.rotation_euler = (0.1, 0, 0.05)
     C.key_loc(rr2, [(1, (-0.45, 1.9, -0.25)), (n, (-0.45, 2.6, -0.22))])
@@ -381,7 +378,7 @@ def S11(L, n):
         L.point((0.1, y, 0.0), energy=60, color=(1.0, 0.8, 0.55), radius=0.3, name="murkglow")
     _silt(n, (0, 1.5, 0), (3.0, 4.0, 2.2), count=1500, seed=12, color=(0.85, 0.7, 0.5))
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (0.12, -0.6, 0.55), (0.0, 3.0, -0.1)), (n, (0.12, -0.35, 0.5), (0.0, 3.0, -0.1))],
+    C.aim_cam(cam, n, [(1, (0.15, -0.75, 0.95), (0.1, 2.6, -0.35)), (n, (0.15, -0.5, 0.9), (0.1, 2.6, -0.35))],
               shake=0.015, rot_shake=0.004)
     C.cam_fill(cam, energy=160, color=(0.9, 0.75, 0.55))
     L.bake_static()
@@ -408,6 +405,8 @@ def _bell(L, n, haze=0.012, bump=0.12, glow_at=None, drips=True, dome_rough=0.18
     C.rocks(pts, count=16, size=(0.2, 0.5), seed=4, sink=0.5)
     ws, sock = C.water_surface(size=(7, 6), center=(0, 0, 0), n=n, flow=(0.0, 0.03), wave_scale=1.3, bump=bump,
                                glow_at=glow_at, glow_radius=0.7, rough=0.22)
+    bsdf = ws.active_material.node_tree.nodes["Principled BSDF"]
+    bsdf.inputs["Specular IOR Level"].default_value = 0.12
     if amb:
         pl = L.point((0.3, -0.2, 1.3), energy=amb, color=(0.55, 0.75, 0.8), radius=1.2, name="domeamb")
         pl.data.specular_factor = 0.2
@@ -424,7 +423,7 @@ def _bell(L, n, haze=0.012, bump=0.12, glow_at=None, drips=True, dome_rough=0.18
         L.assign(o, sm)
     if drips:
         C.drip_rings([(0.7, -0.3, 0.003), (-0.4, -0.8, 0.003), (0.9, 0.9, 0.003), (-0.5, 0.2, 0.003)], n, period=30,
-                     seed=3, strength=0.3, rmax=0.45)
+                     seed=3, strength=0.15, rmax=0.4)
     hz = None
     if haze:
         hz = C.water(center=(0, 0, 1.0), size=(6.2, 5.4, 2.1), color=(0.72, 0.74, 0.7), density=haze, anisotropy=0.5,
@@ -525,9 +524,6 @@ def S08(L, n):
     # faint cyan on wet rock keeps the frame from going fully black after the click
     C.rim_light((SEAT[0], SEAT[1], 0.8), (-0.9, 1.4, 1.2), energy=220, color=CYAN_RIM, size_deg=60, name="backrim")
     L.area((0.5, -0.5, 1.9), (0, 0, 0), energy=25, size=3, color=(0.35, 0.7, 0.85), name="cyanwash")
-    vap = C.cloud((SEAT[0] + 0.25, SEAT[1] - 0.25, 1.35), (0.5, 0.5, 0.5), count=90, radius=0.0025,
-                  color=(0.9, 0.9, 0.88), emit=0.12, seed=14, name="vapour")
-    C.drift(vap, n, (0.03, -0.03, 0.05))
     cam = C.camera(lens=35)
     C.aim_cam(cam, n, [(1, (1.25, -1.45, 0.5), (SEAT[0], SEAT[1], 0.72)), (n, (0.95, -1.1, 0.48), (SEAT[0], SEAT[1], 0.72))],
               shake=0.006, rot_shake=0.0015)
@@ -583,7 +579,7 @@ def S12(L, n):
         keys, ek = [], []
         for f in range(1, n + 1, 3):
             v = max(0.0, math.sin((f + ph) * 2 * math.pi / 30)) ** 2 * (1 - 0.6 * f / n)
-            keys.append((f, 2.2 * v))
+            keys.append((f, 3.5 * v))
             ek.append((f, 60 * v))
         C.key_input(sock, keys)
         C.key_energy(pl, ek)
@@ -604,16 +600,16 @@ def S12(L, n):
 
 def S13(L, n):
     spot_xy = (0.7, -0.75)
-    b = _bell(L, n, haze=0.03, bump=0.1, glow_at=spot_xy)
-    C.key_input(b["glow"], [(1, 0.0), (int(n * 0.35), 0.6), (int(n * 0.75), 2.5), (n, 3.5)])
+    b = _bell(L, n, haze=0.02, bump=0.1, glow_at=spot_xy, amb=10)
+    C.key_input(b["glow"], [(1, 0.25), (int(n * 0.35), 0.6), (int(n * 0.75), 2.5), (n, 3.5)])
     g, gsock = C.glow_disc((spot_xy[0], spot_xy[1], 0.006), radius=0.6, color=(0.85, 1.0, 0.95), strength=0.0,
                            power=3.0, name="riseglow")
-    C.key_input(gsock, [(1, 0.0), (int(n * 0.3), 0.3), (int(n * 0.7), 1.2), (n, 2.2)])
+    C.key_input(gsock, [(1, 0.12), (int(n * 0.3), 0.3), (int(n * 0.7), 1.2), (n, 2.2)])
     C.key_scale(g, [(1, 1.4), (n, 0.55)])
     sp = L.spot((spot_xy[0], spot_xy[1], -1.6), (math.pi, 0, 0), energy=0, size_deg=24, blend=0.5, color=C.TORCH,
                 name="risetorch", radius=0.05)
     C.key_loc(sp, [(1, (spot_xy[0], spot_xy[1], -1.6)), (n, (spot_xy[0], spot_xy[1], -0.35))])
-    C.key_energy(sp, [(1, 0), (int(n * 0.3), 300), (n, 4500)])
+    C.key_energy(sp, [(1, 60), (int(n * 0.3), 300), (n, 3500)])
     C.drip_rings([(spot_xy[0] + 0.1, spot_xy[1], 0.004), (spot_xy[0] - 0.1, spot_xy[1] + 0.08, 0.004),
                   (spot_xy[0], spot_xy[1] - 0.12, 0.004)], n, period=20, seed=13, strength=0.9, rmax=0.5,
                  name="lit_ring")
@@ -629,13 +625,8 @@ def S13(L, n):
 
 def _rescuer_in_water(L, name, loc, face_deg, aim, energy=900, beam=0.12):
     d = _diver(name, RESCUE, energy=energy, beam_len=3.0, beam=beam, deg=28)
-    _upright(d, loc, face_deg, tilt=0.08)
+    _upright(d, loc, face_deg, tilt=0.08, helmet=(0.88, 0.88, 0.85))
     _track(d["torch"], aim, name + "_t")
-    # white helmet shell so the rescuer reads as different from Gràcia
-    h = L.prim("sphere", loc=(0, 0.6, 0.08), segments=16, ring_count=8, radius=0.14, name=name + "_helm")
-    h.scale = (1, 1.05, 0.95)
-    L.assign(h, L.mat_principled(name + "_hm", (0.85, 0.85, 0.82), rough=0.35))
-    h.parent = d["root"]
     return d
 
 
@@ -679,7 +670,7 @@ def S14(L, n):
 
 def S15(L, n):
     _bell(L, n, haze=0.018, bump=0.12)
-    p, hm = _gracia_seated(L, lamp=350, rim=0.6)
+    p, hm = _gracia_seated(L, lamp=200, rim=0.6)
     C.beam_cone(hm["lamp"], length=1.6, strength=0.08, name="g_beam")
     hm["lens_mat"].node_tree.nodes["Emission"].inputs[1].default_value = 5
     # Gràcia's hand reaches down for the regulator
@@ -689,8 +680,8 @@ def S15(L, n):
     l1 = Vector((-0.45, 0.05, -0.35))
     l2 = Vector((0.2, 0.75, -0.38))
     chest = (SEAT[0], SEAT[1], 0.8)
-    d1 = _rescuer_in_water(L, "res1", tuple(l1), _face_deg(l1, chest), (SEAT[0] - 0.3, SEAT[1] + 0.6, 1.8))
-    d2 = _rescuer_in_water(L, "res2", tuple(l2), _face_deg(l2, chest) + 25, (-0.4, 1.6, 2.0))
+    d1 = _rescuer_in_water(L, "res1", tuple(l1), _face_deg(l1, chest), (SEAT[0], SEAT[1], 0.9), energy=500)
+    d2 = _rescuer_in_water(L, "res2", tuple(l2), _face_deg(l2, chest) + 25, (-1.6, 1.9, 1.0), energy=500)
     for d, ph in ((d1, 0), (d2, 1.7)):
         base = Vector(d["root"].location)
         C.key_loc(d["root"], [(1, tuple(base)), (n // 2, tuple(base + Vector((0, 0, 0.03 * math.sin(ph + 1))))),
@@ -736,7 +727,7 @@ def _section(L, cl, hw, dome, wl_dome, extent, ground_z, name, zoff=0.0, entranc
     extent = (extent[0], extent[1], extent[2] + zoff, extent[3] + zoff)
     xs = C.xsection([(x, -z) for x, z in pz], lambda d: -d, extent=extent, water_top=(0.03, 0.22, 0.28),
                     water_bot=(0.0, 0.05, 0.08), outline_color=C.CYAN, outline_strength=3.0, name=name,
-                    rock_mat_=L.mat_noise_surface(name + "_rk", (0.035, 0.032, 0.03), (0.13, 0.12, 0.11), scale=1.2,
+                    rock_mat_=L.mat_noise_surface(name + "_rk", (0.08, 0.075, 0.07), (0.32, 0.3, 0.27), scale=1.2,
                                                   bump=0.2, rough=0.9))
     yb = 0.4 - 0.12 - 0.02
     air = C.clip_poly(pz, 1, wl_dome + zoff, keep_less=False)
@@ -782,15 +773,16 @@ def S07(L, n):
     total = len(ruler)
     for k, o in enumerate(ruler):
         C.hide_from_frame([o], f_show=t_go + 1 + int((t_end - 10 - t_go) * k / max(1, total - 1)))
-    C.text("ENTRANCE", (-5.2, -0.45, 2.75), size=0.5, color=(1.0, 0.75, 0.4), strength=3.0, name="t_ent")
+    C.text("ENTRANCE", (-4.7, -0.45, 1.3), size=0.45, color=(1.0, 0.75, 0.4), strength=3.0, name="t_ent")
     C.text("AIR POCKET", (5.3, -0.45, 0.75), size=0.45, color=(0.7, 0.95, 1.0), strength=3.0, name="t_air")
     L.area((-3, -6, 5), (math.radians(55), 0, math.radians(-25)), energy=2500, size=8, color=(0.7, 0.85, 1.0))
+    L.area((4, -6, 3), (math.radians(65), 0, math.radians(30)), energy=1200, size=8, color=(0.8, 0.85, 0.9))
     cam = C.camera(lens=50)
     zc = -0.7
     keys = [(1, (4.0, -11.5, zc), (4.0, 0.0, zc - 0.6))]
     for f in range(t_go, t_end + 1, 4):
         p = C.along(route, C.piecewise([(t_go, 0.0), (t_end, 1.0)], f))
-        x = max(-4.6, min(4.0, p.x))
+        x = max(-5.2, min(4.0, p.x))
         keys.append((f, (x, -11.5, zc), (x, 0.0, zc - 0.6)))
     keys.append((88, keys[-1][1], keys[-1][2]))
     keys.append((96, (4.0, -11.5, zc), (4.0, 0.0, zc - 0.6)))
@@ -820,7 +812,7 @@ def S10(L, n):
     for x in (-3.2, 3.4):
         C.work_light((x, -3.0, 2.6), (0.0, 0.0, 1.5), energy=2200, color=(1.0, 0.58, 0.2), name=f"wl{x}")
     for k, (x, y, rz) in enumerate(((-1.9, -1.6, 0.6), (1.6, -2.1, -0.4))):
-        p = C.figure(f"crew{k}", height=1.75, base=(0.03, 0.03, 0.035), rim=(1.0, 0.7, 0.35), rim_strength=1.2)
+        p = C.figure(f"crew{k}", height=1.75, base=(0.03, 0.03, 0.035), rim=(1.0, 0.7, 0.35), rim_strength=0.4)
         p["root"].location = (x, y, 0.05)
         p["root"].rotation_euler = (0, 0, rz + math.pi)
         C.helmet(p["neck"], 1.0, color=(0.95, 0.85, 0.15), lamp_energy=0, name=f"hat{k}")
@@ -933,7 +925,7 @@ def S16(L, n):
     dust = C.cloud((0, 0, 1.2), (8, 8, 2.5), count=1200, radius=0.006, color=(0.8, 0.85, 1.0), emit=0.2, seed=12)
     C.drift(dust, n, (0.12, 0.05, 0.02))
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (0.9, -5.0, 1.55), (0.0, 1.4, -0.4)), (n, (0.75, -4.1, 1.45), (0.0, 1.4, -0.5))],
+    C.aim_cam(cam, n, [(1, (0.9, -4.9, 2.6), (0.0, 1.3, -0.6)), (n, (0.75, -4.1, 2.45), (0.0, 1.3, -0.7))],
               shake=0.01, rot_shake=0.002)
     C.cam_fill(cam, energy=30, color=(0.6, 0.7, 1.0))
     L.bake_static()

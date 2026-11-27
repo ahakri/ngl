@@ -446,7 +446,7 @@
           "type": "text",
           "text": "\"EVEREST OF CAVE DIVING\"",
           "params": {
-            "y": 1420,
+            "y": 250,
             "size": 54
           },
           "start": 2.0
@@ -495,7 +495,7 @@
           "type": "text",
           "text": "SCHEMATIC, NOT TO SCALE",
           "params": {
-            "y": 1180,
+            "y": 1080,
             "size": 34,
             "color": [
               180,
@@ -571,7 +571,7 @@
       "overlay": [
         {
           "type": "label",
-          "text": "REPORTED",
+          "text": "EYEWITNESS CLAIM",
           "params": {
             "y": 200
           }
@@ -818,7 +818,7 @@
         },
         {
           "type": "label",
-          "text": "REPORTED",
+          "text": "EYEWITNESS CLAIM",
           "params": {
             "y": 200
           }
