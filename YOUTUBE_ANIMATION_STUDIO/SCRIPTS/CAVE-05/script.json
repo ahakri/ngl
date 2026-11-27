@@ -198,7 +198,7 @@
       "overlay": [
         {
           "type": "label",
-          "text": "REPORTED",
+          "text": "EYEWITNESS CLAIM",
           "params": {
             "y": 200
           }
@@ -570,7 +570,7 @@
           "type": "text",
           "text": "SCHEMATIC, NOT TO SCALE",
           "params": {
-            "y": 1180,
+            "y": 300,
             "size": 34,
             "color": [
               180,
@@ -614,7 +614,7 @@
       "overlay": [
         {
           "type": "text",
-          "text": "CO₂ ↑",
+          "text": "CO2 RISING",
           "params": {
             "y": 420,
             "size": 120,
@@ -821,7 +821,7 @@
           "type": "label",
           "text": "DRAMATISATION",
           "params": {
-            "y": 200
+            "y": 450
           }
         },
         {

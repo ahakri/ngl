@@ -1995,3 +1995,219 @@ def hill_set(mat=None, fine_res=0.07, coarse_res=0.7, pit=(0.0, 0.0)):
     fine = heightfield(size=(12, 12), center=(pit[0], pit[1], 0), res=fine_res, fn=fn, mat=mat, name="hillpatch",
                        disp=(0, 0))
     return coarse, fine, fn
+
+
+# ============================================================================= CAVE-05 (Sa Piqueta air bell) / CAVE-06 (Eagle's Nest)
+# Added by the CAVE-05/06 director. New functions only; nothing above was changed.
+
+def air_bell(R=(3.0, 2.6), H=2.2, below=1.4, seed=5, mat=None, name="dome", res=(56, 28), rough=0.18, disp=(0.35, 0.1)):
+    """Low rock dome around the origin: inward-facing displaced ellipsoid (radii R, height H above z=0, `below` under it).
+    Pair with water_surface() at z=0. Returns the object."""
+    rnd = random.Random(seed)
+    off = Vector((rnd.random() * 50, rnd.random() * 50, rnd.random() * 50))
+    bm = bmesh.new()
+    bmesh.ops.create_uvsphere(bm, u_segments=res[0], v_segments=res[1], radius=1.0)
+    for v in bm.verts:
+        d = v.co.copy()
+        k = 1 + rough * noise.noise(d * 1.6 + off)
+        v.co = Vector((d.x * R[0] * k, d.y * R[1] * k, d.z * (H if d.z > 0 else below) * (0.85 + 0.15 * k)))
+    for f in bm.faces:
+        f.normal_flip()
+    bm.normal_update()
+    o = L.mesh_from_bm(name, bm)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 1
+    if disp[0]:
+        L.add_displace(o, strength=disp[0], scale=0.7, name=name + "_d1")
+    if disp[1]:
+        L.add_displace(o, strength=disp[1], scale=0.15, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m", (0.02, 0.02, 0.022), (0.24, 0.21, 0.18), scale=1.4))
+    return o
+
+
+def ledge(loc, size=(1.4, 0.9, 0.5), mat=None, seed=2, name="ledge"):
+    """Flat-topped rock shelf (top at loc.z). Returns the object."""
+    o = L.prim("cube", loc=(loc[0], loc[1], loc[2] - size[2] / 2), name=name)
+    o.scale = (size[0] / 2, size[1] / 2, size[2] / 2)
+    L.apply_scale(o)
+    sub = o.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = 3
+    L.add_displace(o, strength=0.12, scale=0.35, name=name + "_d1")
+    L.add_displace(o, strength=0.03, scale=0.08, name=name + "_d2")
+    L.smooth(o)
+    L.assign(o, mat or rock_mat(name + "_m", (0.03, 0.028, 0.026), (0.3, 0.27, 0.23), scale=3.0))
+    return o
+
+
+def glow_disc(loc, radius=1.0, color=(0.55, 1.0, 0.9), strength=0.0, power=2.0, name="gdisc", rot=(0, 0, 0)):
+    """Flat additive radial glow (bright centre -> 0 at radius). Lay just above a water plane to fake light from below.
+    Returns (obj, strength_socket)."""
+    o = L.prim("plane", loc=loc, rot=rot, size=2 * radius, name=name)
+    m, n, l = L._mat(name + "_m")
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    tc = n.new("ShaderNodeTexCoord")
+    ln = n.new("ShaderNodeVectorMath")
+    ln.operation = "LENGTH"
+    l.new(tc.outputs["Object"], ln.inputs[0])
+    mr = n.new("ShaderNodeMapRange")
+    mr.inputs["From Min"].default_value = 0.0
+    mr.inputs["From Max"].default_value = radius
+    mr.inputs["To Min"].default_value = 1.0
+    mr.inputs["To Max"].default_value = 0.0
+    l.new(ln.outputs["Value"], mr.inputs["Value"])
+    pw = n.new("ShaderNodeMath")
+    pw.operation = "POWER"
+    pw.inputs[1].default_value = power
+    l.new(mr.outputs["Result"], pw.inputs[0])
+    mul = n.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    mul.inputs[1].default_value = strength
+    l.new(pw.outputs[0], mul.inputs[0])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    l.new(mul.outputs[0], em.inputs[1])
+    tr = n.new("ShaderNodeBsdfTransparent")
+    ad = n.new("ShaderNodeAddShader")
+    l.new(tr.outputs[0], ad.inputs[0])
+    l.new(em.outputs[0], ad.inputs[1])
+    l.new(ad.outputs[0], n["Material Output"].inputs["Surface"])
+    _blended(m)
+    L.assign(o, m)
+    o.visible_shadow = False
+    return o, mul.inputs[1]
+
+
+def gauge(name="gauge", radius=0.06, face=(0.85, 0.85, 0.8), face_emit=0.6):
+    """Generic submersible pressure gauge (no numbers). Face in the local XZ plane facing -Y.
+    Needle angle a (radians from 12 o'clock, + = toward the left/empty end): set pivot.rotation_euler.y = -a.
+    Full ~ -2.1, empty/red ~ +2.1. Returns dict(root, pivot, face_mat)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    dark = L.mat_principled(name + "_bz", (0.03, 0.03, 0.035), rough=0.4, metal=0.3)
+    bz = L.prim("cyl", loc=(0, 0.01, 0), rot=(math.pi / 2, 0, 0), vertices=32, radius=radius * 1.18, depth=0.035,
+                name=name + "_body")
+    L.assign(bz, dark)
+    bz.parent = root
+    fm = L.mat_principled(name + "_fm", face, rough=0.5, emit=face, emit_strength=face_emit)
+    fc = L.prim("cyl", loc=(0, -0.008, 0), rot=(math.pi / 2, 0, 0), vertices=32, radius=radius, depth=0.002,
+                name=name + "_face")
+    L.assign(fc, fm)
+    fc.parent = root
+    # red sector at the empty end + green sector at the full end (fans)
+    for col, a0, a1, tag in (((0.9, 0.08, 0.05), 1.45, 2.25, "red"), ((0.1, 0.6, 0.25), -2.25, -1.4, "grn")):
+        bm = bmesh.new()
+        ring = []
+        for k in range(9):
+            a = a0 + (a1 - a0) * k / 8
+            ring.append((bm.verts.new((-math.sin(a) * radius * 0.94, -0.0105, math.cos(a) * radius * 0.94)),
+                         bm.verts.new((-math.sin(a) * radius * 0.66, -0.0105, math.cos(a) * radius * 0.66))))
+        for k in range(8):
+            bm.faces.new((ring[k][0], ring[k + 1][0], ring[k + 1][1], ring[k][1]))
+        so = L.mesh_from_bm(f"{name}_{tag}", bm)
+        L.assign(so, L.mat_principled(f"{name}_{tag}m", col, rough=0.5, emit=col, emit_strength=1.2))
+        so.parent = root
+    tm = L.mat_principled(name + "_tk", (0.05, 0.05, 0.05), rough=0.5)
+    for k in range(9):
+        a = -2.1 + 4.2 * k / 8
+        t = L.prim("cube", loc=(-math.sin(a) * radius * 0.8, -0.011, math.cos(a) * radius * 0.8), name=name + "_tick")
+        t.scale = (radius * 0.025, 0.0006, radius * 0.11)
+        t.rotation_euler = (0, -a, 0)
+        L.assign(t, tm)
+        t.parent = root
+    pv = L.link(bpy.data.objects.new(name + "_pivot", None))
+    pv.parent = root
+    pv.location = (0, -0.013, 0)
+    nd = L.prim("cube", loc=(0, 0, radius * 0.38), name=name + "_needle")
+    nd.scale = (radius * 0.045, 0.0008, radius * 0.45)
+    L.assign(nd, L.mat_principled(name + "_nm", (0.9, 0.1, 0.05), rough=0.4, emit=(0.9, 0.1, 0.05), emit_strength=1.5))
+    nd.parent = pv
+    hub = L.prim("cyl", loc=(0, -0.014, 0), rot=(math.pi / 2, 0, 0), vertices=12, radius=radius * 0.09, depth=0.003,
+                 name=name + "_hub")
+    L.assign(hub, dark)
+    hub.parent = root
+    hose = L.prim("cyl", loc=(0, 0.01, -radius * 1.5), vertices=10, radius=radius * 0.22, depth=radius * 1.3,
+                  name=name + "_hose")
+    L.assign(hose, dark)
+    hose.parent = root
+    return {"root": root, "pivot": pv, "face_mat": fm}
+
+
+def drill_rig(loc=(0, 0, 0), height=6.0, name="rig", color=(0.75, 0.45, 0.08)):
+    """Simple truck-less drill tower: 4 tapered legs + braces, crown, mast pipe to the ground, generator box.
+    Returns dict(root, mast, crown, gen)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    steel = L.mat_principled(name + "_st", color, rough=0.45, metal=0.6)
+    dark = L.mat_principled(name + "_dk", (0.06, 0.06, 0.065), rough=0.5, metal=0.4)
+    b, t = 1.1, 0.25
+    corners = [(-1, -1), (1, -1), (1, 1), (-1, 1)]
+
+    def strut(p0, p1, r=0.04, mat=steel, nm="strut"):
+        a, c = Vector(p0), Vector(p1)
+        d = c - a
+        o = L.prim("cyl", loc=tuple((a + c) / 2), vertices=6, radius=r, depth=d.length, name=f"{name}_{nm}")
+        o.rotation_mode = "QUATERNION"
+        o.rotation_quaternion = d.normalized().to_track_quat("Z", "Y")
+        L.assign(o, mat)
+        o.parent = root
+        return o
+    for sx, sy in corners:
+        strut((sx * b, sy * b, 0), (sx * t, sy * t, height))
+    for k in range(1, 5):
+        z = height * k / 5
+        w = b + (t - b) * k / 5
+        for i in range(4):
+            (ax, ay), (cx, cy) = corners[i], corners[(i + 1) % 4]
+            strut((ax * w, ay * w, z), (cx * w, cy * w, z), r=0.025, nm="brace")
+    crown = L.prim("cube", loc=(0, 0, height + 0.15), name=name + "_crown")
+    crown.scale = (0.4, 0.4, 0.15)
+    L.assign(crown, dark)
+    crown.parent = root
+    mast = L.prim("cyl", loc=(0, 0, height / 2), vertices=12, radius=0.07, depth=height, name=name + "_mast")
+    L.assign(mast, dark)
+    mast.parent = root
+    deck = L.prim("cube", loc=(0, 0, 0.12), name=name + "_deck")
+    deck.scale = (1.5, 1.5, 0.12)
+    L.assign(deck, dark)
+    deck.parent = root
+    gen = L.prim("cube", loc=(2.6, -0.6, 0.45), name=name + "_gen")
+    gen.scale = (0.7, 0.45, 0.45)
+    L.assign(gen, L.mat_principled(name + "_gm", (0.65, 0.6, 0.15), rough=0.5))
+    L.bevel(gen, 0.04)
+    gen.parent = root
+    return {"root": root, "mast": mast, "crown": crown, "gen": gen}
+
+
+def beacon(loc, color=(0.1, 0.35, 1.0), n=100, hz=0.9, energy=3000, phase=0.0, size_deg=40, tilt=0.25, name="beacon"):
+    """Rotating emergency beacon (generic, unmarked): emissive dome + spot spinning about Z at `hz` (keep <= 2 Hz)."""
+    dome = L.prim("sphere", loc=loc, segments=16, ring_count=8, radius=0.09, name=name)
+    dome.scale = (1, 1, 0.7)
+    em = emis(name + "_m", color, 6)
+    L.assign(dome, em)
+    piv = L.link(bpy.data.objects.new(name + "_piv", None))
+    piv.location = loc
+    sp = L.spot((0, 0, 0), (math.pi / 2 - tilt, 0, 0), energy=energy, size_deg=size_deg, blend=0.6, color=color,
+                name=name + "_sp", radius=0.05)
+    sp.parent = piv
+    for f in (1, n):
+        piv.rotation_euler = (0, 0, phase + 2 * math.pi * hz * (f - 1) / 24.0)
+        piv.keyframe_insert("rotation_euler", frame=f)
+    L.linear_fcurves(piv)
+    sock = em.node_tree.nodes["Emission"].inputs[1]
+    for f in range(1, n + 1, 3):
+        sock.default_value = 3 + 5 * max(0.0, math.cos(phase + 2 * math.pi * hz * (f - 1) / 24.0))
+        sock.keyframe_insert("default_value", frame=f)
+    return {"dome": dome, "spot": sp, "pivot": piv}
+
+
+def pose_edge_sit(p, lean=0.1):
+    """char_figure rig sitting on a ledge edge: thighs forward, shins hanging down. Root z = ledge top."""
+    p["pelvis"].location.z = 0.06
+    p["pelvis"].rotation_euler = (lean, 0, 0)
+    for tag in ("L", "R"):
+        p[f"hip{tag}"].rotation_euler = (1.5, 0, (0.08 if tag == "L" else -0.08))
+        p[f"knee{tag}"].rotation_euler = (-1.45, 0, 0)
+        p[f"shoulder{tag}"].rotation_euler = (0.5, 0, (0.15 if tag == "L" else -0.15))
+        p[f"elbow{tag}"].rotation_euler = (0.6, 0, 0)
