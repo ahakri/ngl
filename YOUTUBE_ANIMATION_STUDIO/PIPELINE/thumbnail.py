@@ -3,7 +3,10 @@
 Reads THUMBNAILS/<ID>/thumbs.json:
   [{"name": "A", "source": "RENDERS/<ID>/S05/0040.png" | "<abs path>", "text": "ONE WORD", "text2": "optional small line",
     "text_pos": "top|middle|bottom", "text_color": [255,230,0], "circle": [x, y, r] (0..1 coords, optional),
-    "arrow": [x1, y1, x2, y2] (optional), "zoom": 1.0, "focus": [x, y] (0..1 crop centre), "mood": "cave"}]
+    "arrow": [x1, y1, x2, y2] (optional), "zoom": 1.0, "focus": [x, y] (0..1 crop centre), "mood": "cave",
+    "exposure": 1.0 (optional brightness multiplier), "vignette": 0.55 (optional edge darkening 0..1),
+    "text_glow": [r, g, b] (optional soft coloured glow behind the main text),
+    "zoom_16x9" / "focus_16x9" (optional overrides for the 1280x720 version)}]
 Writes THUMBNAILS/<ID>/thumb_<name>.png (1080x1920 Shorts) and thumb_<name>_16x9.png (1280x720, for long-form/search previews),
 plus THUMBNAILS/<ID>/thumb_sheet.png (side-by-side for QC).
 Usage: python3 thumbnail.py <ID>
@@ -34,18 +37,15 @@ def punch(im):
 
 
 def vignette(im, strength=0.55):
+    """Darken the edges, keep the centre at full brightness (radial, elliptical to the frame)."""
     w, h = im.size
-    m = Image.new("L", (w, h), 0)
-    d = ImageDraw.Draw(m)
-    for i in range(40):
-        a = int(255 * strength * (i / 40) ** 2)
-        d.rectangle((i * w // 80, i * h // 80, w - i * w // 80, h - i * h // 80), outline=255 - a)
-    m = m.filter(ImageFilter.GaussianBlur(min(w, h) // 10))
+    g = Image.radial_gradient("L").resize((w, h), Image.BICUBIC)  # 0 centre -> 255 at the edge midpoints
+    m = g.point(lambda v: int(255 * (1 - strength * min(1.0, (v / 255) ** 2))))
     black = Image.new("RGB", (w, h), (0, 0, 0))
     return Image.composite(im, black, m)
 
 
-def big_text(im, text, pos, color, text2=None):
+def big_text(im, text, pos, color, text2=None, glow=None):
     d = ImageDraw.Draw(im)
     w, h = im.size
     size = int(w * (0.2 if len(text) <= 8 else 0.15 if len(text) <= 12 else 0.11))
@@ -54,6 +54,12 @@ def big_text(im, text, pos, color, text2=None):
         size -= 6
         f = ImageFont.truetype(ANTON, size)
     y = {"top": int(h * 0.15), "middle": int(h * 0.45), "bottom": int(h * 0.72)}[pos]
+    if glow:
+        gl = Image.new("L", im.size, 0)
+        ImageDraw.Draw(gl).text((w // 2, y), text, font=f, fill=255, anchor="mm", stroke_width=max(6, size // 12) * 3)
+        gl = gl.filter(ImageFilter.GaussianBlur(size // 5)).point(lambda v: int(v * 0.85))
+        im.paste(Image.new("RGB", im.size, tuple(glow)), (0, 0), gl)
+        d = ImageDraw.Draw(im)
     d.text((w // 2, y), text, font=f, fill=tuple(color), anchor="mm", stroke_width=max(6, size // 12), stroke_fill=(0, 0, 0))
     if text2:
         f2 = ImageFont.truetype(OSW, int(size * 0.32))
@@ -87,11 +93,18 @@ def make(id_):
         src = sp["source"] if os.path.isabs(sp["source"]) else os.path.join(ROOT, sp["source"])
         base = Image.open(src).convert("RGB")
         for (w, h, suffix) in ((1080, 1920, ""), (1280, 720, "_16x9")):
-            im = fit_crop(base, w, h, sp.get("zoom", 1.0), tuple(sp.get("focus", (0.5, 0.45))))
-            im = vignette(punch(im))
+            k = suffix.lstrip("_")  # optional per-format overrides: "zoom_16x9", "focus_16x9"
+            z = sp.get(f"zoom_{k}", sp.get("zoom", 1.0)) if k else sp.get("zoom", 1.0)
+            fc = sp.get(f"focus_{k}", sp.get("focus", (0.5, 0.45))) if k else sp.get("focus", (0.5, 0.45))
+            im = fit_crop(base, w, h, z, tuple(fc))
+            im = punch(im)
+            if sp.get("exposure", 1.0) != 1.0:
+                im = ImageEnhance.Brightness(im).enhance(sp["exposure"])
+            im = vignette(im, sp.get("vignette", 0.55))
             marks(im, sp)
             if sp.get("text"):
-                big_text(im, sp["text"].upper(), sp.get("text_pos", "top"), sp.get("text_color", [255, 230, 0]), sp.get("text2"))
+                big_text(im, sp["text"].upper(), sp.get("text_pos", "top"), sp.get("text_color", [255, 230, 0]), sp.get("text2"),
+                         sp.get("text_glow"))
             p = os.path.join(tdir, f"thumb_{sp['name']}{suffix}.png")
             im.save(p)
             if not suffix:

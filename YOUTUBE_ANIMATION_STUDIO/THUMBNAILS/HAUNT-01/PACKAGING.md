@@ -48,3 +48,26 @@ Pinned comment: the source list from QUALITY_CONTROL/HAUNT-01/FACTCHECK.md (E1, 
 
 ## Playlist
 "Recorded Claim: haunted cases, labelled".
+
+## Final thumbnails
+
+Hero stills are purpose-built compositions in `BLENDER_PROJECTS/HAUNT-01/thumbs_shots.py` (`THUMB_A`, `THUMB_B`; the video source `shots.py` is untouched). They were rendered at 1080x1920 with EEVEE at 16 samples to `hero_THUMB_A/0020.png` and `hero_THUMB_B/0020.png`, then composed by `PIPELINE/thumbnail.py` from `thumbs.json`. Both scenes are stylised 3D recreations: no real photos, no real recording and no faces.
+
+| Thumbnail | Files | Text | Pairs with title |
+|---|---|---|---|
+| **A: "THE TAPES"** | `thumb_A.png` (9:16), `thumb_A_16x9.png` | THE TAPES (2 words, white, red glow) | **A**: "The Enfield Tapes: The Voice Said It Died Here" (also works with C) |
+| **B: "2% FAKED?"** | `thumb_B.png` (9:16), `thumb_B_16x9.png` | 2% FAKED? (2 words, yellow) | **B**: "Enfield Poltergeist: She Admitted 2% Was Faked" |
+
+**A: the chair and the listening machine.** A low, tight shot inside the dark child's bedroom. The wooden chair stands askew, away from the wall, in the centre. Right behind it, the reel-to-reel recorder's red REC lamp is the only warm light, and it washes the chair back red against the cold blue window.
+- The one idea: a machine is recording an empty room, and the chair is not where a chair should be.
+- Curiosity gap: *what did the tape pick up?* The title supplies the claim ("the voice said…") with the honest word "said". The image only shows a recorder and a chair, so nothing is presented as proven, and the video pays it off (the tapes are described and the claim is labelled).
+- Contrast: one saturated red point on a near-black blue room, with white type at the top, above the subject.
+
+**B: the shadow and its source.** A knocked-over lamp throws a head-and-shoulders shadow onto the yellow wallpaper. The cause is deliberately left in frame: a chair with a jumper hung on its back (the same dramatisation as S09).
+- The one idea: something that *looks like* a figure turns out, when you look again, to be a chair.
+- Curiosity gap: "2% FAKED?" plus the title's documented admission raises the question: which 2%, and what about the rest? The image mirrors the sceptic framing, because the "ghost" has a visible ordinary cause. This builds trust instead of implying proof.
+- Contrast: a warm yellow pool of light, a hard black silhouette, a cold blue window, and yellow type on black.
+
+**Recommended pick: A**, with title A, at upload. It names the searchable artefact ("tapes" plus "Enfield" in the title), and it reads instantly at channel-grid size because of the single red light. It also matches the Short's own cold open (S01 and S14), so a viewer arriving from search gets what the cover promised. **B** is the alternate. Shorts have no Test & Compare, so use B (with title B) as the packaging of a *different* Recorded Claim Short with a sceptic angle, or as the cover if a long-form Enfield cut is made, where Test & Compare can test A against B. Do not re-upload this Short to test it.
+
+Composer changes made for this pass (backwards compatible): the vignette mask was inverted and blacked out the centre of every thumbnail, and it is now a proper radial edge-darken. New optional keys: `exposure`, `vignette`, `text_glow`, `zoom_16x9` and `focus_16x9`.
