@@ -1,0 +1,388 @@
+[
+  {
+    "id": "CAVE-R1",
+    "number": 1,
+    "category": "Cave diving — fatal accident (public swimming site)",
+    "working_title": "The Town Swimming Hole With a Cave Nobody Should Enter",
+    "alt_title": "He Took One Wrong Turn at 160 Feet",
+    "subject": "Blue Hole, Santa Rosa, New Mexico, USA. 26 March 2016: Shane Thompson (43), an experienced diver helping the ADM Exploration Foundation map the cave beneath this popular swimming and dive-training pool, entered the cave although he had been planned as the outside safety diver. His partner Mike Young said he swam upward and took a wrong turn into an unmapped offshoot about 160 ft down, where he was trapped and drowned (ruled accidental). The foundation ended exploration (the cave ends in a tight breakdown at ~194 ft) and the city kept the cave off-limits to the public.",
+    "why_potential": "It combines the 'mundane entrance, lethal below' trope (MrBallen's Shaft video, 7.1M) with a single, easy-to-picture mistake: one wrong turn into a side passage. Recreational divers train in the open pool above every weekend. MrBallen also covered it (Rosetta snippet), so there's proven audience interest. It is not in the main 20.",
+    "references": [
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "place-profile demand; MrBallen also covered the NM Blue Hole death (Rosetta snippet)"
+      },
+      {
+        "title": "Dead end traps cave divers | The Jacob's Well Diving Tragedy",
+        "creator": "FatalBreakdown",
+        "url": "https://www.youtube.com/watch?v=Fal_E_eJxD4",
+        "views": "1,510,000 (vidIQ snippet)",
+        "note": "animated single-site case"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place superlative"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Bright turquoise pool, divers in training kit hovering near the surface; camera tilts down to a grate-covered black opening. VO: 'Divers train in this pool every weekend.' 2–6 s: Camera slips through into a tight passage, depth 160 FT. VO: 'Below it is a cave. In 2016 an expert went in, and took one wrong turn.' 6–15 s: Map pin: Santa Rosa, New Mexico. VO: 'This is the Blue Hole, and this is why its cave is closed for good.'",
+    "structure": [
+      "Cold open: training divers above, a dark opening below",
+      "Stakes: one wrong turn at ~160 ft",
+      "Context: 2016 mapping project; his planned role was outside safety diver",
+      "He goes in anyway (as reported)",
+      "The turn: swims upward into an unmapped offshoot (partner's account)",
+      "Partner returns, finds him dead (police account)",
+      "Payoff: exploration ended; cave stays off-limits",
+      "Loop: back to the sunny pool"
+    ],
+    "retention_moments": [
+      "Pool-to-cave tilt reveal",
+      "Wrong-turn junction (two passages, one lit red)",
+      "Planned safety-diver twist",
+      "Off-limits ending and loop"
+    ],
+    "thumbnail_concept": "Bright blue circular pool from above, with a cutaway showing a black side tunnel at 160 FT; text 'ONE WRONG TURN'.",
+    "animation_style": "3D bright artesian pool (strong caustics) contrasting with a dark low-poly passage maze; 2.5D junction diagram.",
+    "scenes": [
+      "Desert-town pool from above (procedural)",
+      "Training divers near surface",
+      "Grate/opening descent",
+      "Passage junction with an offshoot",
+      "Junction diagram overlay",
+      "Closed-cave sign (generic)"
+    ],
+    "sources": [
+      "https://www.cbsnews.com/news/california-diver-shane-thompson-dies-in-underwater-new-mexico-cave (search result)",
+      "https://www.kpbs.org/news/public-safety/2016/03/31/san-diego-diver-dies-underwater-new-mexico-cave (search result)",
+      "https://www.foxnews.com/us/the-latest-no-more-exploration-planned-at-famed-blue-hole (search result)",
+      "https://www.ksl.com/article/39127641/the-latest-explorers-leave-no-passage-unmapped-at-blue-hole (search result)",
+      "VERIFICATION: VERIFIED (2+ sources: CBS, KPBS, Fox/AP, KSL, SCMP): 26 Mar 2016, age 43, mapping project (ADM Exploration Foundation), planned outside safety role, wrong turn into an unmapped offshoot (partner's account), ~160 ft, accidental drowning, exploration ended at a ~194-ft breakdown, cave kept off-limits. Attribute the sequence to the partner and police; the 'unexplored tunnel' framing is avoided."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 13,
+      "story": 14,
+      "packaging": 15,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 72,
+    "rank": 1
+  },
+  {
+    "id": "CAVE-R2",
+    "number": 2,
+    "category": "Cave diving — recent fatal accident / body recovery",
+    "working_title": "Five Divers Entered a Reef Cave. A Rescuer Died Bringing Them Back.",
+    "alt_title": "The Maldives Cave Recovery",
+    "subject": "Devana Kandu dive site, Vaavu Atoll, Maldives. 14 May 2026: five Italian divers on a soft-coral research trip, led by University of Genoa marine ecologist Prof. Monica Montefalcone, lost contact while exploring a deep reef cave. One body, the group's diving instructor, was found outside the cave; four lay inside at around 60 m (the Maldives recreational limit is 30 m). A Maldivian military diver died of decompression complications during a retrieval attempt and the search was paused. Finnish technical divers sent by the Italian government recovered the last bodies on 20 May. The cause is under investigation.",
+    "why_potential": "A high-interest news event, internationally reported (AP, CBS, Global News). It echoes Plura, with Finnish divers again doing the recovery no one else could. Body recovery plus a rescuer's sacrifice are the niche's strongest triggers (Dive Talk 9.15M). RISK: very recent (May 2026) and the investigation is open. Hold until official findings or at least 6 months after the event, include no speculation on cause or fault, and do not identify victims beyond what officials published.",
+    "references": [
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery / deadly-site demand"
+      },
+      {
+        "title": "The Plura Traverse Cave Diving Disaster",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=53XitSUJN4k",
+        "views": "unverified",
+        "note": "Finnish recovery-divers precedent"
+      },
+      {
+        "title": "CAVE DIVER REACTS TO FATAL DIVE OF YURI LIPSKI",
+        "creator": "unverified",
+        "url": "unverified",
+        "views": "293,000 (Playboard snippet)",
+        "note": "Dahab Blue Hole interest"
+      }
+    ],
+    "duration_s": 58,
+    "hook_15s": "0–2 s: Bright reef wall; five small lights disappear into a dark cave mouth. VO: 'Five divers went into this reef cave. None came out.' 2–6 s: Depth marker 60 M beside a 30 M LIMIT line. VO: 'They were found twice as deep as the legal limit for recreational diving.' 6–15 s: A lone rescuer's light descending. VO: 'Maldives, May 2026. Then the recovery cost another life.'",
+    "structure": [
+      "Cold open: five lights into a reef cave",
+      "Stakes: ~60 m vs the 30 m recreational limit",
+      "Who: a soft-coral research trip (no personal speculation)",
+      "Contact lost on 14 May; one body found outside the cave",
+      "Recovery: a Maldivian military diver dies of decompression complications; search paused",
+      "Finnish technical divers brought in by Italy",
+      "20 May: last bodies recovered",
+      "Payoff: 'The cause is still under investigation.' Hard cut, no loop"
+    ],
+    "retention_moments": [
+      "30 m vs 60 m limit line",
+      "Rescuer-death turn mid-video",
+      "Finnish team callback (Plura series link)",
+      "Open-investigation ending"
+    ],
+    "thumbnail_concept": "Sunlit reef wall with a black cave mouth, five fading lights inside; text '60 M' over a red '30 M LIMIT' line.",
+    "animation_style": "3D tropical reef wall (bright) into a dark cave interior; 2.5D depth-limit overlay; no faces, no bodies shown.",
+    "scenes": [
+      "Atoll aerial and dive boat",
+      "Reef wall with cave mouth",
+      "Cave interior, torch cones",
+      "Depth-limit overlay",
+      "Rescue divers with rebreather silhouettes",
+      "Map of Vaavu Atoll"
+    ],
+    "sources": [
+      "https://www.cbsnews.com/news/maldives-sea-cave-4-italians-bodies-divers/ (search result)",
+      "https://www.ajc.com/news/2026/05/finnish-divers-recover-remaining-2-bodies-of-italians-from-underwater-cave-in-maldives/ (search result, AP)",
+      "https://globalnews.ca/news/11855152/bodies-of-2-italian-divers-recovered-maldives/ (search result)",
+      "https://www.thestar.com.my/news/world/2026/05/19/bodies-of-two-italians-killed-in-scuba-diving-accident-recovered-maldives-state-media-says (search result)",
+      "VERIFICATION: VERIFIED (2+ sources: AP via AJC/KSAT/WTOP, CBS, Global News, The Star): 14 May 2026, Devana Kandu, Vaavu Atoll, five Italians (instructor found outside the cave), ~60 m, 30 m recreational limit, Maldivian rescuer died of decompression complications, Finnish team recovered the last bodies on 20 May, cause under investigation. NOT verified: equipment (CCR) or the sequence inside the cave, so do not depict it. ETHICS HOLD: recent deaths, open investigation."
+    ],
+    "difficulty": "Medium",
+    "scores": {
+      "demand": 14,
+      "story": 16,
+      "packaging": 14,
+      "retention": 14,
+      "feasibility": 13
+    },
+    "total": 71,
+    "rank": 2
+  },
+  {
+    "id": "CAVE-R3",
+    "number": 3,
+    "category": "Cave diving — explainer built from real cases",
+    "working_title": "Every Cave Diving Rule Was Written by Someone Who Died",
+    "alt_title": "Why Cave Divers Never Leave the Line",
+    "subject": "An explainer linking the core cave-diving safety rules (continuous guideline, cave training, depth limits, gas reserves, buddy contact) to the verified incidents that made them famous: The Shaft, Mount Gambier, 28 May 1973 (four ocean divers, no guideline, silt, lost; prompted a national rethink); Eagle's Nest (10+ deaths since 1981; closed 1999–2003); Jacob's Well (late-1970s fourth-chamber deaths; now closed to non-project divers); Agnes Milowka 2011 (separated from her buddy, out of air). Each rule gets one real case and one animated demonstration.",
+    "why_potential": "An evergreen, brand-safe format with no single victim at its centre. It reuses environments already built for CAVE-06/08/12/15, so production is cheap. Mistake-framed titles perform in the niche ('These Cave Divers Made a Horrifying Mistake'). It works as the channel's 'pinned explainer' that viewers of the case Shorts click into. Demand is weaker than single-case stories.",
+    "references": [
+      {
+        "title": "These Cave Divers Made a Horrifying Mistake",
+        "creator": "Scary Interesting",
+        "url": "https://youtube.com/watch?v=pvkAsZwIT00",
+        "views": "unverified",
+        "note": "mistake-framed title; rules angle"
+      },
+      {
+        "title": "Dead end traps cave divers | The Jacob's Well Diving Tragedy",
+        "creator": "FatalBreakdown",
+        "url": "https://www.youtube.com/watch?v=Fal_E_eJxD4",
+        "views": "1,510,000 (vidIQ snippet)",
+        "note": "animated single-site case"
+      },
+      {
+        "title": "This hole has killed 16 people",
+        "creator": "MrBallen",
+        "url": "unverified",
+        "views": "7,100,000 (Rosetta snippet)",
+        "note": "place-profile demand; MrBallen also covered the NM Blue Hole death (Rosetta snippet)"
+      }
+    ],
+    "duration_s": 60,
+    "hook_15s": "0–2 s: A guideline stretched through black water, then it ends in a frayed tip. VO: 'Every rule in cave diving exists because someone died without it.' 2–6 s: Rapid cards: LINE / DEPTH / GAS / BUDDY. VO: 'Four rules. Four real stories.' 6–15 s: A 1973 paddock hole. VO: 'Rule one: never leave the line. In 1973, four divers did.'",
+    "structure": [
+      "Cold open: frayed line",
+      "Promise: four rules, four cases",
+      "Rule 1, line: The Shaft 1973 (no guideline, silt)",
+      "Rule 2, depth/limits: Eagle's Nest (10+ deaths, 1999–2003 closure)",
+      "Rule 3, restrictions: Jacob's Well gravel chamber (late 1970s)",
+      "Rule 4, stay together: Tank Cave 2011 (separated from her buddy)",
+      "Payoff: 'Trained cave divers still die, but far fewer than when the rules didn't exist.' (Phrase as opinion, not statistic)",
+      "Loop: the line, now intact"
+    ],
+    "retention_moments": [
+      "Frayed-line opening",
+      "Rule counter 1/4 to 4/4",
+      "Environment switch per rule (pattern interrupt every ~12 s)",
+      "Intact-line loop"
+    ],
+    "thumbnail_concept": "A single white guideline through black water, snapping at the centre; text 'NEVER LET GO'.",
+    "animation_style": "Montage reusing four existing cave sets, with a unified rule-card graphic system (cyan accent) and a line motif connecting scenes.",
+    "scenes": [
+      "Frayed guideline close-up",
+      "Rule cards",
+      "Shaft paddock and silt tunnel",
+      "Eagle's Nest chamber",
+      "Jacob's Well gravel restriction",
+      "Tank Cave maze junction",
+      "Intact line ending"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/1973_Mount_Gambier_cave_diving_accident (search result)",
+      "https://www.wavesncaves.com/main/index.php/8-main/3-cave-diving-fatalities (search result: no guideline / training / redundant air factors)",
+      "https://www.nationalgeographic.com/adventure/article/two-divers-die-in-eagles-nest-cave (search result)",
+      "https://zmescience.com/feature-post/natural-sciences/geography/jacobs-well-texas-dangerous-diving (search result)",
+      "https://en.wikipedia.org/wiki/Agnes_Milowka (search result)",
+      "VERIFICATION: each case fact is verified with 2+ sources (see CAVE-06/08/12/15 v2 checks). NOT verified this session: attributing the rules to Sheck Exley's 1979 'Blueprint for Survival' accident analysis. Do not claim it until checked; present the rules as standard cave-diving practice."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 12,
+      "story": 12,
+      "packaging": 14,
+      "retention": 14,
+      "feasibility": 16
+    },
+    "total": 68,
+    "rank": 3
+  },
+  {
+    "id": "CAVE-R4",
+    "number": 4,
+    "category": "Cave/cavern diving — recovery diver profile",
+    "working_title": "The Diver Who Brings the Dead Back Up From the Blue Hole",
+    "alt_title": "The Keeper of Dahab's Divers' Cemetery",
+    "subject": "Blue Hole, Dahab, Egypt. Egyptian technical diver Tarek Omar ('The Elder Diver') is reported to have recovered many bodies from the Blue Hole and its deep 'Arch', including that of 22-year-old Yuri Lipski the day after Lipski's fatal descent on 28 April 2000. Memorial plaques on the shore have earned the site the nickname 'divers' cemetery'. Omar also appears in coverage of the Netflix documentary 'The Deepest Breath' (2023).",
+    "why_potential": "The recoverer's point of view is a fresh angle on the 'world's deadliest dive site' (Dive Talk's 9.15M outlier topic). It avoids recreating any death on screen and centres respect and duty. It pairs with CAVE-09 as a two-parter. Evidence on Omar himself is thinner (feature articles), so the script must stick to published facts.",
+    "references": [
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery / deadly-site demand"
+      },
+      {
+        "title": "CAVE DIVER REACTS TO FATAL DIVE OF YURI LIPSKI",
+        "creator": "unverified",
+        "url": "unverified",
+        "views": "293,000 (Playboard snippet)",
+        "note": "Dahab Blue Hole interest"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place superlative"
+      }
+    ],
+    "duration_s": 55,
+    "hook_15s": "0–2 s: Rows of plaques on a desert shore at dusk. VO: 'Every plaque on this beach is a diver who didn't come back.' 2–6 s: A single diver descending into deep blue, a lifting bag at his side. VO: 'And one man keeps going down to bring them home.' 6–15 s: Blue Hole aerial. VO: 'Dahab, Egypt. Tarek Omar, the keeper of the divers' cemetery.'",
+    "structure": [
+      "Cold open: plaques",
+      "Twist: one man brings them back",
+      "Why the Blue Hole kills: the Arch at depth and narcosis (generic)",
+      "2000: he recovers Yuri Lipski the next day (reported)",
+      "His role over the years (reported; no invented numbers)",
+      "The Deepest Breath connection (one line)",
+      "Payoff: the plaques, and the beach still full of divers",
+      "Loop: plaques at dusk"
+    ],
+    "retention_moments": [
+      "Plaque-wall opening",
+      "'One man goes down' twist",
+      "Arch depth reveal",
+      "Loop"
+    ],
+    "thumbnail_concept": "Diver silhouette rising from deep blue with a lifting bag, plaques on the shore above; text 'HE BRINGS THEM BACK'.",
+    "animation_style": "Reuses the CAVE-09 Blue Hole set; adds a shore plaque wall (generic text, no real names) and a warm dusk palette.",
+    "scenes": [
+      "Shore plaque wall at dusk (generic text)",
+      "Blue Hole aerial",
+      "Reef wall descent",
+      "The Arch",
+      "Lone diver ascending with lift bag",
+      "Beach with tourists"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Blue_Hole_(Red_Sea) (search result: Lipski recovered next day by Tarek Omar, 'The Elder Diver')",
+      "https://cairoscene.com/lifestyle/egyptian-diver-tarek-omar-the-keeper-of-dahab-s-divers-cemetery (search result)",
+      "https://www.ladbible.com/community/weird/deepest-breath-blue-hole-dahab-tarek-omar-990849-20230803 (search result)",
+      "https://www.slate.com/blogs/atlas_obscura/2014/03/04/diver_s_cemetery_the_blue_hole_of_dahab_on_the_red_sea_in_egypt.html (search result)",
+      "VERIFICATION: PARTLY VERIFIED. 2+ sources confirm Omar recovered Lipski's body the next day and the 'divers' cemetery' nickname (Wikipedia, Cairoscene, Slate). His total recovery count and career details were NOT verified (headline-level only), so no numbers in the script. Living person: no invented dialogue or motives."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 14,
+      "packaging": 14,
+      "retention": 13,
+      "feasibility": 15
+    },
+    "total": 67,
+    "rank": 4
+  },
+  {
+    "id": "CAVE-R5",
+    "number": 5,
+    "category": "Discovery — natural phenomenon",
+    "working_title": "There's a River at the Bottom of This Lake (Sort Of)",
+    "alt_title": "Cenote Angelita: The Underwater Cloud",
+    "subject": "Cenote Angelita, near Tulum, Quintana Roo, Mexico. A ~60 m-deep sinkhole: fresh water on top, salt water below. Around 28–30 m a ~3 m thick milky cloud of hydrogen sulfide sits near the halocline, with tree branches poking through, which makes it look like a river flowing underwater. The sulfide is generally attributed to decaying plant matter. The 'underwater river' label is popular but misleading, and the exact halocline depth differs between dive maps (~30 m vs ~42 m).",
+    "why_potential": "One of the most viral-looking natural phenomena in diving, and visually ideal for a loopable Short (surface, cloud, through the cloud, back to the surface). It's a myth-check ('it isn't really a river') that offers a satisfying payoff. Low story stakes and no human arc, so it's a filler/aesthetic entry. Distinct from the 20 (no cenote phenomenon covered).",
+    "references": [
+      {
+        "title": "Divers Finally Reached the Bottom of Jacob's Well — What Their Cameras Found...",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=4nfO-AxMbts",
+        "views": "unverified",
+        "note": "'what lies at the bottom' curiosity formula"
+      },
+      {
+        "title": "Florida's Deadliest Cave Systems",
+        "creator": "unverified",
+        "url": "https://www.youtube.com/watch?v=erJ5EV894GM",
+        "views": "unverified",
+        "note": "place superlative"
+      },
+      {
+        "title": "Divers React to Bodies found at World's Deadliest Dive Site",
+        "creator": "DIVE TALK",
+        "url": "unverified",
+        "views": "9,150,000 (vidIQ snippet)",
+        "note": "body-recovery / deadly-site demand"
+      }
+    ],
+    "duration_s": 45,
+    "hook_15s": "0–2 s: A diver hovers above what looks like a misty river with trees on its banks, 30 m underwater. VO: 'This diver is floating above a river, 30 metres underwater.' 2–6 s: Diver's fin dips in and the 'river' swirls like smoke. VO: 'Except it isn't water. It's a cloud of gas.' 6–15 s: Cutaway: fresh layer, cloud, salt layer. VO: 'Cenote Angelita, Mexico, where two kinds of water never mix.'",
+    "structure": [
+      "Cold open: river illusion",
+      "Twist: it's hydrogen sulfide",
+      "Cutaway: fresh over salt (halocline)",
+      "Why the cloud forms (decaying plant matter, generally attributed)",
+      "Myth-check: 'underwater river' is a nickname",
+      "Below: dark salt water, ~60 m",
+      "Loop: back to the river illusion"
+    ],
+    "retention_moments": [
+      "Illusion reveal",
+      "Fin-swirl moment",
+      "Layer cutaway",
+      "Myth-check beat",
+      "Seamless loop"
+    ],
+    "thumbnail_concept": "Diver silhouette above a white misty 'river' with dead branches, eerie green light from above; text 'NOT A RIVER'.",
+    "animation_style": "3D cenote with a layered-volume shader (clear, fog layer, dark), dead-tree meshes, god rays; minimal narration and ambient sound.",
+    "scenes": [
+      "Jungle cenote opening from above",
+      "Descent through clear fresh water",
+      "The sulfide cloud with tree branches",
+      "Fin-swirl volumetric disturbance",
+      "Layer cross-section graphic",
+      "Dark salt layer below"
+    ],
+    "sources": [
+      "https://www.discoverwildlife.com/animal-facts/marine-animals/environment/cenote-angelita (search result)",
+      "https://www.sciencealert.com/divers-are-exploring-this-giant-underwater-river-shrouded-in-a-cloud-of-toxic-gas (search result)",
+      "https://gettingstamped.com/cenote-angelita-diving (search result)",
+      "VERIFICATION: VERIFIED (2+ sources: Discover Wildlife, ScienceAlert, Getting Stamped, a Vimeo dive video): ~60 m depth, fresh over salt, ~3 m hydrogen sulfide cloud near 28–30 m, plant-decay explanation. DISPUTED: halocline depth (~30 m vs ~42 m on some maps), so say 'around 30 metres down'. The 'river' is a nickname: say so on screen."
+    ],
+    "difficulty": "Low",
+    "scores": {
+      "demand": 11,
+      "story": 9,
+      "packaging": 15,
+      "retention": 12,
+      "feasibility": 16
+    },
+    "total": 63,
+    "rank": 5
+  }
+]
