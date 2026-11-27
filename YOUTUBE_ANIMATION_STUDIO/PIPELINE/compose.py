@@ -175,7 +175,7 @@ def compose(id_, preview=False, until=None):
     tmp_out = os.path.join("/tmp", f"compose_{id_}{'_preview' if preview else ''}.mp4")
     vf = f"ass={ass}:fontsdir={os.path.join(os.path.dirname(__file__), 'fonts')}"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "21" if not preview else "28", "-maxrate", "8M" if not preview else "4M", "-bufsize", "16M",
+           "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "21" if not preview else "28", "-maxrate", "5M" if not preview else "3M", "-bufsize", "10M",
            "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", tmp_out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     rng = np.random.default_rng(1)
