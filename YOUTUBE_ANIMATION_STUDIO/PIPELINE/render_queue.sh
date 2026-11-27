@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Single render queue: renders + composes any video whose BLENDER_PROJECTS/<ID>/READY exists and whose FINAL is missing/outdated.
-# Runs until no work remains for 4 consecutive hours. Log: PROJECT_TRACKER/render_queue.log
+# A failure writes BLENDER_PROJECTS/<ID>/FAILED (skipped until READY is touched again). Exits after 4 idle hours.
+# Log: PROJECT_TRACKER/render_queue.log
 cd "$(dirname "$0")"
 ROOT=..
 LOG=$ROOT/PROJECT_TRACKER/render_queue.log
@@ -10,13 +11,21 @@ while [ $idle -lt 240 ]; do
   for ready in $(ls -tr $ROOT/BLENDER_PROJECTS/*/READY 2>/dev/null); do
     d=$(dirname $ready); id=$(basename $d)
     final=$ROOT/FINAL_VIDEOS/$id.mp4
-    if [ ! -f "$final" ] || [ "$ready" -nt "$final" ]; then
+    [ -f $d/FAILED ] && [ $d/FAILED -nt $ready ] && continue
+    if [ ! -s "$final" ] || [ "$ready" -nt "$final" ]; then
       echo "$(date -u +%FT%TZ) START $id" >> $LOG
-      if [ "$ready" -nt "$final" ] && [ -f "$final" ]; then rm -rf $ROOT/RENDERS/$id; fi
+      if [ -s "$final" ]; then rm -rf $ROOT/RENDERS/$id; fi
       python3 make_video.py $id timing >> $LOG 2>&1
       EGL_PLATFORM=surfaceless python3 make_video.py $id render --res 540 >> $LOG 2>&1
-      python3 make_video.py $id compose >> $LOG 2>&1 && echo "$(date -u +%FT%TZ) DONE $id" >> $LOG || echo "$(date -u +%FT%TZ) COMPOSE_FAIL $id" >> $LOG
-      touch -r $ready $final 2>/dev/null; touch $final 2>/dev/null
+      if ls $ROOT/QUALITY_CONTROL/$id/render_error_*.log >/dev/null 2>&1 && [ "$(find $ROOT/QUALITY_CONTROL/$id -name 'render_error_*.log' -newer $ready | head -1)" ]; then
+        echo "$(date -u +%FT%TZ) RENDER_FAIL $id" >> $LOG; date > $d/FAILED; did=1; break
+      fi
+      if python3 make_video.py $id compose >> $LOG 2>&1 && [ -s "$final" ]; then
+        python3 qc_check.py $id > /dev/null 2>> $LOG
+        echo "$(date -u +%FT%TZ) DONE $id" >> $LOG
+      else
+        echo "$(date -u +%FT%TZ) COMPOSE_FAIL $id" >> $LOG; date > $d/FAILED
+      fi
       did=1; break
     fi
   done
