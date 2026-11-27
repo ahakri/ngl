@@ -122,3 +122,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+    try:  # keep the upload kit (subtitles + titles/descriptions for QC-passed Shorts) in step with the tracker
+        import subprocess, sys
+        subprocess.run([sys.executable, os.path.join(ROOT, "PIPELINE", "upload_kit.py")], check=False)
+    except Exception as e:
+        print("upload kit skipped:", e)
