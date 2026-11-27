@@ -86,7 +86,7 @@ def boat_on_horizon(L, n, dist=240, x=-18, recede=30, name="boat"):
 # ----------------------------------------------------------------------------- S01 / S18 the empty horizon
 
 def _horizon_shot(L, n, cam_from, cam_to, t0=1.0, phase=S01_BOB, boat_from=(-18, 240), recede=40):
-    surface_env(L, n, elev=11, az=6, t0=t0)
+    surface_env(L, n, elev=11, az=6, t0=t0, wave=2.2, chop=1.2)
     two_divers(L, n, phase=phase)
     boat_on_horizon(L, n, dist=boat_from[1], x=boat_from[0], recede=recede)
     cam, tgt = L.camera(loc=cam_from, target=S01_TGT, lens=35)
@@ -159,11 +159,11 @@ def reef_env(L, n, vol=0.07, depth=8.0):
     L.set_world(color=(0.05, 0.35, 0.5), strength=1.0)
     S.world_volume(color=(0.1, 0.55, 0.7), density=vol, anisotropy=0.6, absorption=(0.6, 0.9, 0.95),
                    center=(0, 0, -depth / 2 - 1), size=(70, 70, depth + 1.9))
-    sb = L.seabed(size=80, strength=0.6, mat=S.mat_caustic_ground("reefsand", c1=(0.3, 0.36, 0.33), c2=(0.5, 0.55, 0.48),
+    sb = L.seabed(size=80, strength=0.6, mat=S.mat_caustic_ground("reefsand", c1=(0.16, 0.22, 0.2), c2=(0.34, 0.38, 0.32),
                                                                    nframes=n, strength=0.9, scale=0.5,
                                                                    caustic=(0.7, 1.0, 0.95)))
     sb.location.z = -depth
-    corals = L.coral_field(area=9, count=45, seed=4, z=-depth + 0.1)
+    corals = L.coral_field(area=8, count=70, seed=4, z=-depth + 0.1)
     surf = L.prim("plane", loc=(0, 0, 0), size=120, name="undersurface")
     L.assign(surf, S.mat_water_surface("usurf", color=(0.2, 0.5, 0.6), rough=0.1, alpha=1.0, under_color=(0.3, 0.75, 0.85),
                                        under_strength=1.0, ripple=0.4, nframes=n))

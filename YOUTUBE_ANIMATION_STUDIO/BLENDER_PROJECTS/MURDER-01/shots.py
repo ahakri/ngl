@@ -212,7 +212,7 @@ def S04(L, n):
 def S05(L, n):
     night(stars=1.0, moon_rot=(R(70), 0, R(-60)), moon_e=1.4)
     prints = M.trail((0, -1.5), (-6, -60), step=0.7, gap=0.12, seed=7, wobble=0.6)
-    h, pz, _ = slope_terrain(x=(-60, 60), y=(-120, 60), res=0.6)
+    h, pz, _ = slope_terrain(x=(-60, 60), y=(-120, 60), res=0.6, platform=False)
     M.print_decals(prints, h, color=(0.1, 0.13, 0.2))
     forest_band(h, -130, -95, count=160)
     cy = 9.0
