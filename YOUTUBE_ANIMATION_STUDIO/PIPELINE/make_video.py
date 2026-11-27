@@ -82,6 +82,9 @@ def timing(id_):
 
 def render(id_, res=540, only=None, preview=False):
     st = json.load(open(P("AUDIO", id_, "shot_timing.json")))
+    if not preview:  # a fresh production render starts with a clean error slate (stale logs would fail the queue)
+        for f in glob.glob(P("QUALITY_CONTROL", id_, "render_error_*.log")):
+            os.remove(f)
     for sid, s in st["shots"].items():
         if only and sid not in only:
             continue
