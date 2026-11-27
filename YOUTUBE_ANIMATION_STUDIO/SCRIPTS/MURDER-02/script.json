@@ -618,7 +618,7 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "BACK COVER - RECREATED",
@@ -1008,7 +1008,7 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "STILL UNSOLVED",
@@ -1039,7 +1039,7 @@
    "overlay": [
     {
      "type": "document",
-     "text": "WRGOABABD\nMLIAOI  [crossed out]\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
+     "text": "WRGOABABD\nMLIAOI ~~          ~~\nWTBIMPANETP\nMLIABOAIAQC\nITTMTSAMSTGAB",
      "params": {
       "style": "paper",
       "title": "STILL UNSOLVED",

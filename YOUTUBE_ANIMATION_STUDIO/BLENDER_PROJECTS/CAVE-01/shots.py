@@ -252,7 +252,7 @@ def _desert(L, n, tod="dawn"):
     elif tod == "dusk":
         sd = C.sun_dir(2.5, 0)  # sun straight ahead (+Y), behind the figure
         C.sky_world(top=(0.06, 0.05, 0.14), horizon=(1.0, 0.3, 0.04), ground=(0.03, 0.02, 0.015), sun_dir=sd,
-                    sun_color=(1.0, 0.45, 0.1), sun_glow=8.0, strength=1.2, glow_pow=12)
+                    sun_color=(1.0, 0.45, 0.1), sun_glow=1.2, strength=1.0, glow_pow=60)
         C.sun_from(sd, energy=2.5, color=(1.0, 0.55, 0.25), angle=2.0)
     else:  # sunrise gold
         sd = C.sun_dir(7, 60)
@@ -529,8 +529,8 @@ def S10(L, n):
     keys = []
     ctr = Vector((-0.45, -0.05, 0.5))
     for f, ang in ((1, -0.18), (n, 0.17)):
-        pos = ctr + Vector((math.sin(ang) * 2.5, -math.cos(ang) * 2.5, -0.05))
-        keys.append((f, tuple(pos), tuple(ctr + Vector((0, 0, -0.32)))))
+        pos = ctr + Vector((math.sin(ang) * 3.6, -math.cos(ang) * 3.6, 0.35))
+        keys.append((f, tuple(pos), tuple(ctr + Vector((-0.1, 0, -0.45)))))
     C.aim_cam(cam, n, keys, shake=0.01, rot_shake=0.002)
     C.cam_fill(cam, energy=30)
     C.rim_light((-0.95, -0.15, 0.9), (-1.2, 2.6, 2.2), energy=1100, color=(0.35, 0.85, 1.0), size_deg=35, name="rim1")

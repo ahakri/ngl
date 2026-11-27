@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T12:41:52Z
+Updated: 2026-11-27T12:44:57Z
 
 ## Concept counts
 
@@ -16,16 +16,16 @@ Updated: 2026-11-27T12:41:52Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 1
-- ANIMATING: 6
+- ANIMATED - in render queue: 4
+- ANIMATING: 4
 - CONCEPT: 76
-- SCRIPTED: 17
+- SCRIPTED: 16
 
 ## Videos in production
 
 | ID | Title | Score | Status |
 |---|---|---|---|
-| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATING |
+| CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATED - in render queue |
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | SCRIPTED |
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATING |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | SCRIPTED |
@@ -37,14 +37,14 @@ Updated: 2026-11-27T12:41:52Z
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | SCRIPTED |
 | SCUBA-05 | He Dived 332 m. Getting Back Took 14 Hours | 79 | SCRIPTED |
 | SCUBA-06 | 462 Stitches, Then He Went Back In | 77 | SCRIPTED |
-| MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATING |
-| MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATING |
+| MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATED - in render queue |
+| MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATED - in render queue |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | SCRIPTED |
 | MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | SCRIPTED |
 | MURDER-05 | Footprints Led to the Farm — None Led Away | 80 | SCRIPTED |
 | MURDER-06 | The Ghost Ship's Creepiest Detail Was Fiction | 78 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | ANIMATED - in render queue |
-| HAUNT-02 | The Real Room 217 | 77 | SCRIPTED |
+| HAUNT-02 | The Real Room 217 | 77 | ANIMATING |
 | HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | SCRIPTED |
 | HAUNT-05 | The Tunnel Built to Hide the Dead | 75 | SCRIPTED |
 | HAUNT-04 | The Ghost Photo Country Life Published | 75 | SCRIPTED |

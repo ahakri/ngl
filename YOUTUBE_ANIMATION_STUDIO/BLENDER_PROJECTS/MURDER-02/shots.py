@@ -45,7 +45,7 @@ def sand_grains(center=(0, 0, 0), size=(0.16, 0.12), count=160):
 
 S01_C0 = (0.05, -0.27, 0.12)
 S01_C1 = (0.045, -0.2, 0.09)
-S01_T = (0.03, -0.01, -0.012)
+S01_T = (0.028, -0.024, -0.008)
 
 
 def macro_scrap(L, n, c_from, c_to, unroll=None, tweezers_anim=False):
@@ -55,7 +55,7 @@ def macro_scrap(L, n, c_from, c_to, unroll=None, tweezers_anim=False):
     tw = None
     if tweezers_anim:
         tw = M.tweezers((0.035, 0.03, 0.18), rot=(R(-25), R(20), 0))
-    cam, ct = L.camera(loc=c_from, target=S01_T, lens=85)
+    cam, ct = L.camera(loc=c_from, target=S01_T, lens=60)
     L.cam_keys(cam, [(1, c_from), (n, c_to)])
     lin(cam)
     L.dof(cam, target=root, fstop=4.0)
@@ -205,8 +205,8 @@ def S04(L, n):
 
 def S19(L, n):
     beach(L, n, dawn=1.0, figure=False, lamps=True, mist=0.02)
-    cam, ct = L.camera(loc=(-7.0, -19.0, 1.5), target=(10, -8.0, 1.2), lens=28)
-    L.cam_keys(cam, [(1, (-7.0, -19.0, 1.5)), (n, (-5.0, -18.0, 1.5))])
+    cam, ct = L.camera(loc=(-7.0, -23.5, 1.6), target=(10, -11.0, 0.6), lens=24)
+    L.cam_keys(cam, [(1, (-7.0, -23.5, 1.6)), (n, (-5.0, -22.8, 1.6))])
     lin(cam)
     L.bake_static()
 
@@ -438,7 +438,7 @@ def S12(L, n):
     # inquest beat: dim desk plate, the plaster bust silhouette far back in the dark, lamp low
     desk_scene(L, n, lamp_energy=8, lamp_target=(-0.12, -0.05, 0.0), cold_fill=0.6)
     M.plaster_bust((0.14, 0.6, 0.0), scale=0.75)
-    rim = L.spot((0.5, 1.1, 0.6), (0, 0, 0), energy=6, size_deg=30, color=(0.6, 0.7, 1.0), name="bustrim")
+    rim = L.spot((0.5, 1.1, 0.6), (0, 0, 0), energy=45, size_deg=30, color=(0.6, 0.7, 1.0), name="bustrim")
     M.aim(rim, M.empty("bt", (0.14, 0.6, 0.3)))
     M.book((-0.12, -0.05, 0.0), title=BOOK_TITLE, rot_z=R(15))
     cam, ct = L.camera(loc=(-0.05, -0.75, 0.32), target=(0.05, 0.2, 0.12), lens=50)

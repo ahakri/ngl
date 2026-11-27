@@ -250,8 +250,21 @@ def ov_document(t, dur, text, p):
     fsz = p.get("size", 54 if style == "scrap" else 38)
     fnt = font(F_SERIF if style != "telegram" else F_MONO, fsz)
     for i, ln in enumerate(body.split("\n")):
-        pd.text((pw // 2 if style == "scrap" else 60, yy + i * int(fsz * 1.35) + (ph // 2 - 60 if style == "scrap" else 0)), ln,
-                font=fnt, fill=(30, 25, 22, 255), anchor="mm" if style == "scrap" else "la")
+        y = yy + i * int(fsz * 1.35) + (ph // 2 - 60 if style == "scrap" else 0)
+        segs = ln.split("~~")  # odd segments are struck through: "ABC ~~struck~~ DEF"
+        plain = "".join(segs)
+        wtot = pd.textlength(plain, font=fnt)
+        x = (pw // 2 - wtot / 2) if style == "scrap" else 60
+        ytop = y - fsz * 0.5 if style == "scrap" else y
+        for k, sg in enumerate(segs):
+            if not sg:
+                continue
+            pd.text((x, ytop), sg, font=fnt, fill=(30, 25, 22, 255), anchor="la")
+            w = pd.textlength(sg, font=fnt)
+            if k % 2 == 1:
+                my = ytop + fsz * 0.6
+                pd.line((x - 4, my, x + w + 4, my), fill=(30, 25, 22, 255), width=max(3, fsz // 10))
+            x += w
     paper = paper.rotate(p.get("rot", -3), expand=True, resample=Image.BICUBIC)
     sh = Image.new("RGBA", paper.size, (0, 0, 0, 0))
     sh.paste((0, 0, 0, 150), mask=paper.split()[3])
