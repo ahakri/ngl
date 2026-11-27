@@ -93,8 +93,8 @@ def S03(L, n):
     fw, fh = 0.38, 0.5
     H.box_mesh("pframe", [(-0.955, py, pz + fh, 0.03, fw + 0.06, 0.06), (-0.955, py, pz - fh, 0.03, fw + 0.06, 0.06),
                           (-0.955, py - fw, pz, 0.03, 0.06, fh), (-0.955, py + fw, pz, 0.03, 0.06, fh)], gilt, bevel=0.015)
-    H.box_mesh("canvas", [(-0.965, py, pz, 0.01, fw, fh)], L.mat_noise_surface("canv", (0.008, 0.007, 0.006), (0.03, 0.025, 0.02),
-                                                                          scale=40, bump=0.2, voronoi=False, rough=0.7))
+    H.box_mesh("canvas", [(-0.965, py, pz, 0.01, fw, fh)], L.mat_noise_surface("canv", (0.004, 0.0035, 0.003), (0.012, 0.01, 0.008),
+                                                                          scale=40, bump=0.05, voronoi=False, rough=0.7))
     H.box_mesh("sconceplate", [(-0.96, 5.62, LZ + 1.3, 0.02, 0.07, 0.12), (-0.88, 5.62, LZ + 1.25, 0.1, 0.02, 0.015)], H.mat_brass("sbr"))
     cnd = H.candle(loc=(-0.8, 5.62, LZ + 1.27), name="sc_candle", energy=35)
     H.flicker_mat_with_light(cnd["light"], cnd["flame"], n, 35, 25, seed=4, depth=0.35, rate=0.5)
@@ -156,8 +156,8 @@ def _photographers(L, n):
     H.pose_hold(a, "R", shoulder=(math.radians(55), 0, 0), elbow=(math.radians(40), 0, 0))
     H.pose_hold(a, "L", shoulder=(math.radians(50), 0, 0), elbow=(math.radians(45), 0, 0))
     b = H.figure("shira", height=1.72, cap=True, color=(0.035, 0.03, 0.028))
-    b["root"].location = (-0.45, -1.5, 0)
-    b["root"].rotation_euler = (0, 0, math.radians(8))
+    b["root"].location = (1.35, -1.3, 0)
+    b["root"].rotation_euler = (0, 0, math.radians(20))
     H.pose_hold(b, "R", shoulder=(math.radians(150), 0, math.radians(10)), elbow=(math.radians(10), 0, 0))
     fg = H.flash_gun(parent=b["elbowR"], loc=(0, 0.0, -0.36), rot=(math.radians(-60), 0, 0), name="fgun")
     return pc, a, b, fg
@@ -185,7 +185,7 @@ def S06(L, n):
     H.key_principled(lady["mat"], "Alpha", [(1, 0.0), (int(n * 0.35), 0.0), (n, 0.22)])
     col = H.room_fog((0.0, s11[1], s11[2] + 1.0), (0.9, 0.9, 2.2), density=0.0, color=(0.85, 0.86, 0.9), anis=0.6, name="vapour")
     vn = next(nd for nd in col.active_material.node_tree.nodes if nd.type == "PRINCIPLED_VOLUME")
-    for f, d in ((1, 0.05), (int(n * 0.5), 0.6), (n, 0.25)):
+    for f, d in ((1, 0.02), (int(n * 0.5), 0.2), (n, 0.08)):
         vn.inputs["Density"].default_value = d
         vn.inputs["Density"].keyframe_insert("default_value", frame=f)
     col.keyframe_insert("rotation_euler", frame=1)
@@ -400,9 +400,9 @@ def S11(L, n):
 # --------------------------------------------------------------------------- S12 grease on the lens / someone on the stairs
 def S12(L, n):
     _stairs(L, day=True, window=1.0)
-    man = H.figure("walker", height=1.75, cap=True, color=(0.08, 0.075, 0.07))
+    man = H.figure("walker", height=1.75, cap=True, color=(0.03, 0.028, 0.026))
     mm = man["torso"].data.materials[0]
-    mm.node_tree.nodes["Principled BSDF"].inputs["Alpha"].default_value = 0.45
+    mm.node_tree.nodes["Principled BSDF"].inputs["Alpha"].default_value = 0.6
     mm.surface_render_method = "BLENDED"
     man["root"].rotation_euler = (0, 0, math.pi)
     a, b = H.step_pos(12), H.step_pos(5)

@@ -7,6 +7,7 @@ import os, sys, math, random, importlib
 _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(_HERE)), "PIPELINE", "blender"))
 import lib_murder as M
+import studio_lib as L
 importlib.reload(M)
 import bpy
 from mathutils import Vector, noise
@@ -42,10 +43,10 @@ def figure_on(parts, loc, rot_z):
 # open stair: hinge (-14, 0, -1.78), angle 16-35 = -19 deg -> lowest step approx (-18.9, 0, -3.45)
 STEP_LOW = (-18.75, 0.0, -3.33)
 STEP_MID = (-16.6, 0.0, -2.62)
-S01_CAM0 = (-29.0, -7.5, -8.6)
-S01_CAM1 = (-26.4, -6.6, -7.6)
-S01_TGT0 = (-17.2, 0.0, -1.6)
-S01_TGT1 = (-17.4, 0.0, -1.9)
+S01_CAM0 = (-25.0, -4.6, -6.2)
+S01_CAM1 = (-23.6, -4.0, -5.5)
+S01_TGT0 = (-17.6, 0.0, -2.0)
+S01_TGT1 = (-17.8, 0.0, -2.3)
 
 
 def tail_night(L, n, cam0, cam1, tgt0, tgt1, flashes, fig_keys=None, stair_keys=None, hand=0.03):
@@ -63,8 +64,8 @@ def tail_night(L, n, cam0, cam1, tgt0, tgt1, flashes, fig_keys=None, stair_keys=
                    name="deck")
     M.cloud_volume((-20, 30, 26), (160, 80, 22), density=0.25, scale=0.6, drift=(-35, 0, 0), n=n, color=(0.35, 0.4, 0.55),
                    name="ceiling")
-    M.rain((-20, -1, -3), (36, 18, 16), (-34, 0, -9), n, count=2200, length=1.1, width=0.01, period=8, seed=3,
-           cam=cam0, clear=2.5, emit=0.7)
+    M.rain((-20, -1, -3), (36, 18, 16), (-34, 0, -9), n, count=1100, length=0.7, width=0.006, period=8, seed=3,
+           cam=cam0, clear=2.5, emit=0.45)
     fig = L.char_figure("hijacker", color=(0.02, 0.02, 0.024), coat=True)
     figure_on(fig, STEP_LOW, R(90))
     for t in ("L", "R"):
@@ -148,18 +149,18 @@ def S02(L, n):
         fig["shoulderL"].rotation_euler = (0.9 + 0.06 * math.sin(f * 1.1), 0, 1.1)
         fig["shoulderL"].keyframe_insert("rotation_euler", frame=f)
     # wind: rain and cloud stream upward past the falling man
-    M.rain((0, 0, 0), (40, 12, 12), (2, 0, 34), n, count=2000, length=0.9, width=0.006, period=8, seed=7, cam=(1.4, -1.4, 0.2),
+    M.rain((0, 0, 0), (40, 12, 12), (2, 0, 34), n, count=1200, length=0.6, width=0.004, period=8, seed=7, cam=(0.8, 1.1, 0.5),
            clear=0.9, emit=0.7)
     M.cloud_volume((0, 0, 0), (60, 60, 60), density=0.12, scale=1.4, drift=(0, 0, 30), n=n, color=(0.3, 0.33, 0.42), name="cloudfall")
     M.loose_bills((0.2, 0.3, -1.6), 5, n, area=(1.6, 1.6, 0.6), vel=(0.2, -0.3, 2.6), spin=5, seed=5)
     L.sun(rot=(R(-20), R(30), R(10)), energy=0.8, color=(0.5, 0.6, 0.9), name="moonfill")
     M.lightning(n, [8, 44], rot=(R(-10), R(-10), R(0)), energy=10.0, world_bg=bg, world_peak=5)
     tgt = M.empty("focus", (0, 0.2, 0.25))
-    cam, ct = L.camera(loc=(1.5, -1.3, 0.55), target=tgt, lens=35)
+    cam, ct = L.camera(loc=(0.8, 1.1, 0.5), target=tgt, lens=35)
     pts = []
     for k, f in enumerate((1, n)):
-        a = R(-40) + R(55) * k
-        cam.location = (1.9 * math.sin(a) * -1, -1.9 * math.cos(a), 0.55 + 0.2 * k)
+        a = R(-35) + R(55) * k
+        cam.location = (1.35 * math.sin(a), 1.35 * math.cos(a), 0.5 + 0.15 * k)
         cam.keyframe_insert("location", frame=f)
     L.cam_light(cam, energy=40, color=(0.7, 0.8, 1.0))
     L.handheld(cam, n, amp=0.04, rate=1.2, rot_amp=0.015)
@@ -379,7 +380,7 @@ def S15(L, n):
                   mat=L.mat_noise_surface("landm", (0.01, 0.014, 0.01), (0.03, 0.04, 0.03), scale=0.05, bump=0.3, voronoi=False))
     M.sea(size=(600, 600), loc=(0, 0, 0), color=(0.03, 0.04, 0.055), n=n, speed=(0.0, 1.0), name="river")
     spots = M.scatter_spots((-300, 300, -300, 300), 1200, h, seed=3, h=(14, 22), exclude=lambda x, y: h(x, y) < 3)
-    M.conifer_forest("forest", spots, mat=L.mat_principled("tree_m", (0.008, 0.016, 0.01), rough=0.9), seed=3, bare_frac=0.0)
+    M.fast_conifers("forest", spots, mat=L.mat_principled("tree_m", (0.008, 0.016, 0.01), rough=0.9), seed=3, bare_frac=0.0)
     cam, ct = cam_path(L, n, (0, -60, 320), (0, -40, 300), (0, 10, 0), (0, 20, 0), lens=35, ease=False)
     L.bake_static()
 
@@ -423,7 +424,7 @@ def S10(L, n):
         return -420 + 25 * noise.noise(Vector((x * 0.004, y * 0.004, 1))) + 6 * noise.noise(Vector((x * 0.02, y * 0.02, 3)))
     M.heightfield("ground", -500, 500, -500, 500, 90, 90, h, mat=L.mat_principled("gm", (0.006, 0.01, 0.007), rough=0.9))
     spots = M.scatter_spots((-260, 260, -260, 260), 2600, h, seed=4, h=(22, 34))
-    M.conifer_forest("forest", spots, mat=L.mat_principled("tm", (0.012, 0.03, 0.018), rough=0.9), seed=4, bare_frac=0.0)
+    M.fast_conifers("forest", spots, mat=L.mat_principled("tm", (0.012, 0.03, 0.018), rough=0.9), seed=4, bare_frac=0.0)
     M.cloud_volume((0, 0, -95), (500, 500, 40), density=0.2, scale=0.3, contrast=(0.5, 0.65), drift=(5, 0, 25), n=n,
                    color=(0.5, 0.55, 0.7), name="clouds")
     fig = L.char_figure("jumper", color=(0.02, 0.02, 0.024), coat=True)
@@ -489,7 +490,7 @@ def S11(L, n):
                   mat=L.mat_noise_surface("floorm", (0.03, 0.035, 0.02), (0.09, 0.09, 0.05), scale=1.5, bump=0.3, voronoi=False))
     spots = M.scatter_spots((-50, 50, -10, 60), 260, h, seed=2, h=(14, 24), exclude=lambda x, y: abs(x) < 7 and y < 12)
     spots += M.scatter_spots((-50, 50, -60, -10), 120, h, seed=3, h=(14, 24), exclude=lambda x, y: abs(x) < 9)
-    M.conifer_forest("forest", spots, mat=M.mat_dusted("trees", base=(0.02, 0.04, 0.025), snow=(0.05, 0.08, 0.05)), seed=2,
+    M.fast_conifers("forest", spots, mat=M.mat_dusted("trees", base=(0.02, 0.04, 0.025), snow=(0.05, 0.08, 0.05)), seed=2,
                      bare_frac=0.1)
     forest_floor("ferns", h, (-12, 12, -8, 14), count=500)
     jm = L.mat_principled("jacket", (0.22, 0.17, 0.04), rough=0.6)
@@ -533,7 +534,7 @@ def S12(L, n):
     L.assign(far, L.mat_principled("farbank", (0.12, 0.12, 0.11), rough=0.9))
     spots = [(random.Random(i).uniform(-250, 250), random.Random(i + 99).uniform(140, 165), 3.5, random.Random(i + 7).uniform(10, 18))
              for i in range(500)]
-    M.conifer_forest("farforest", spots, mat=L.mat_principled("ffm", (0.08, 0.09, 0.08), rough=0.9), seed=5, bare_frac=0.3)
+    M.fast_conifers("farforest", spots, mat=L.mat_principled("ffm", (0.08, 0.09, 0.08), rough=0.9), seed=5, bare_frac=0.3)
     # child kneeling, sweeping sand flat
     kid = L.char_figure("child", color=(0.03, 0.03, 0.035), height=1.25, coat=True)
     s = 1.25 / 1.75
@@ -735,7 +736,7 @@ def S17(L, n):
         return 20 * noise.noise(Vector((x * 0.006, y * 0.006, 5))) + 5 * noise.noise(Vector((x * 0.03, y * 0.03, 1)))
     M.heightfield("hills", -400, 400, -100, 700, 120, 120, h, mat=L.mat_principled("hm", (0.006, 0.01, 0.007), rough=0.9))
     spots = M.scatter_spots((-250, 250, 0, 500), 2600, h, seed=6, h=(16, 26))
-    M.conifer_forest("forest", spots, mat=M.mat_dusted("trees", base=(0.01, 0.02, 0.014), snow=(0.05, 0.06, 0.07)), seed=6,
+    M.fast_conifers("forest", spots, mat=M.mat_dusted("trees", base=(0.01, 0.02, 0.014), snow=(0.05, 0.06, 0.07)), seed=6,
                      bare_frac=0.0)
     M.cloud_volume((0, 250, 110), (700, 500, 60), density=0.06, scale=0.25, drift=(10, 0, 0), n=n, color=(0.4, 0.45, 0.6),
                    name="ceiling")
@@ -784,7 +785,7 @@ def S18(L, n):
     box = M.glow_poly(M.rect_pts(hx, bz - 0.3, 0.9, 0.9, y=-1.2), color=(0.3, 0.65, 1.0), strength=6, bevel=0.015, name="vbox",
                       closed=True)
     M.curve_draw(box, 20, 34)
-    M.particle_cloud((-14, -6, 3), (14, 8, 6), count=400, radius=0.006, drift=(0.02, 0, 0.01), nframes=n, name="dust")
+    L.particle_cloud((-14, -6, 3), (14, 8, 6), count=400, radius=0.006, drift=(0.02, 0, 0.01), nframes=n, name="dust")
     # orbit 20 deg around the tail
     tgt = (-14.5, 0, 2.6)
     r_ = 15.0
@@ -884,7 +885,7 @@ def S22(L, n):
     tm = M.mat_dusted("trees", base=(0.015, 0.03, 0.02), snow=(0.04, 0.06, 0.045))
     spots = M.scatter_spots((-60, 60, -20, 120), 700, h, seed=8, h=(14, 24), exclude=lambda x, y: math.hypot(x, y - 1) < 7)
     spots += M.scatter_spots((-150, 150, 120, 250), 900, h, seed=9, h=(14, 24))
-    M.conifer_forest("forest", spots, mat=tm, seed=8, bare_frac=0.05)
+    M.fast_conifers("forest", spots, mat=tm, seed=8, bare_frac=0.05)
     forest_floor("ferns", h, (-9, 9, -6, 10), count=280, seed=6)
     L.fog_volume(center=(0, 40, 4), size=(200, 160, 10), density=0.035, color=(0.8, 0.8, 0.85))
     cam, ct = L.camera(loc=(0, -6.5, 0.7), target=(0.2, 3, 0.4), lens=24)

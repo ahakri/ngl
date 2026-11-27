@@ -31,8 +31,13 @@ if cfg.get("engine") and cfg["engine"] != bpy.context.scene.render.engine:
         bpy.context.scene.cycles.samples = cfg.get("samples", 24); bpy.context.scene.cycles.use_denoising = True
 L.set_range(n)
 _e = bpy.context.scene.eevee
+_ov = {}
+_ovp = os.path.join(ROOT, "BLENDER_PROJECTS", args.id, "render.json")  # optional per-shot overrides {"samples": {"S01": 4}}
+if os.path.exists(_ovp):
+    import json as _json
+    _ov = _json.load(open(_ovp))
 if args.res >= 540 and bpy.context.scene.render.engine == "BLENDER_EEVEE":  # production speed profile
-    _e.taa_render_samples = min(_e.taa_render_samples, args.samples)
+    _e.taa_render_samples = _ov.get("samples", {}).get(args.shot, args.samples)
     try:
         _e.volumetric_tile_size = "8"; _e.volumetric_samples = min(_e.volumetric_samples, 24)
     except Exception:

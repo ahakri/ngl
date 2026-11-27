@@ -336,7 +336,7 @@
           "type": "text",
           "text": "\"HOW MANY OF YOU?\"",
           "params": {
-            "y": 1250,
+            "y": 1010,
             "size": 72
           }
         }
@@ -698,7 +698,8 @@
           "text": "12 boys + their coach\nNone had ever dived",
           "params": {
             "header": "THE PROBLEM",
-            "y": 1150
+            "y": 300,
+            "mood": "cave"
           }
         },
         {
@@ -826,7 +827,8 @@
           "text": "Saman Kunan\nFormer Thai Navy SEAL",
           "params": {
             "header": "IN MEMORY",
-            "y": 1150
+            "y": 760,
+            "mood": "cave"
           }
         }
       ],
@@ -903,7 +905,7 @@
           "type": "text",
           "text": "HOW DEEPLY SEDATED: DISPUTED",
           "params": {
-            "y": 1250,
+            "y": 1010,
             "size": 52
           }
         }

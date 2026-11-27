@@ -1749,3 +1749,249 @@ def bubble_trail(pos_fn, n, count=40, every=None, rise=0.9, size=0.02, seed=5, s
         o.visible_shadow = False
         out.append(o)
     return out
+
+
+# ----------------------------------------------------------------------------- CAVE-04 (Nutty Putty: dry cave, rope rig, desert hill)
+
+def clay_mat(name="clay", c1=(0.2, 0.16, 0.12), c2=(0.5, 0.43, 0.34), scale=2.2, bump=0.5):
+    return L.mat_noise_surface(name, c1, c2, scale=scale, bump=bump, rough=0.8, voronoi=False)
+
+
+def crack_floor_z(x, y, crack_y=(-0.2, 1.3), hw=0.42, depth=5.0, wall_x=0.9, back_y=1.7, seed_off=3.0):
+    """Crawlway floor with a steep V-crack across y-range crack_y (deepening toward +y), side walls, back wall."""
+    z = 0.05 * noise.noise(Vector((x * 1.3 + seed_off, y * 1.3, 0.2)))
+    z += 3.0 * max(0.0, abs(x) - wall_x) ** 1.5 + 3.0 * max(0.0, y - back_y) ** 1.5
+    y0, y1 = crack_y
+    if y0 < y < y1:
+        t = (y - y0) / (y1 - y0)
+        w = hw * math.sin(math.pi * min(1.0, t * 1.15)) ** 0.5
+        if abs(x) < w:
+            z -= min(depth * (0.5 + t), 9.0 * (w - abs(x)))
+    return z
+
+
+def crawl_ceiling_z(x, y, base=1.15, wall_x=1.1):
+    return base + 0.1 * noise.noise(Vector((x * 0.9, y * 0.9, 4.0))) - 1.6 * max(0.0, abs(x) - wall_x) \
+        - 1.2 * max(0.0, y - 2.1)
+
+
+def crawl_set(y_far=-14.0, ceiling=1.15, mat=None, cmat=None, crack=True):
+    """Low dry crawlway along -Y ending at a downward crack near y=0..1.3. Returns (floor objs, ceiling)."""
+    mat = mat or clay_mat("crawlclay")
+    cmat = cmat or clay_mat("crawlceil", (0.14, 0.12, 0.1), (0.42, 0.37, 0.3), scale=1.5)
+    fz = crack_floor_z if crack else (lambda x, y: crack_floor_z(x, y, crack_y=(9, 9)))
+    near = heightfield(size=(3.2, 3.6), center=(0, 0.6, 0), res=0.04, fn=fz, mat=mat, name="crackfloor", disp=(0, 0))
+    far = heightfield(size=(3.2, abs(y_far) - 1.15), center=(0, (y_far - 1.2) / 2, 0), res=0.1, fn=fz, mat=mat,
+                      name="crawlfloor", disp=(0, 0))
+    ce = heightfield(size=(3.2, abs(y_far) + 3.0), center=(0, (y_far + 3.0) / 2, 0), res=0.12,
+                     fn=lambda x, y: crawl_ceiling_z(x, y, ceiling), mat=cmat, name="crawlceil", disp=(0, 0))
+    return [near, far], ce
+
+
+def helmet(parent, s=1.0, color=(0.75, 0.08, 0.05), lamp_energy=300, lamp_deg=40, name="helmet", beam=False):
+    """Caving helmet with headlamp on a char_figure neck (lamp points along neck local +Y, i.e. the face)."""
+    h = L.prim("sphere", loc=(0, 0.0, 0.16 * s), segments=16, ring_count=8, radius=0.13 * s, name=name)
+    h.scale = (1, 1.08, 0.8)
+    L.assign(h, L.mat_principled(name + "_m", color, rough=0.35))
+    h.parent = parent
+    lens = L.prim("cyl", loc=(0, 0.13 * s, 0.17 * s), rot=(math.pi / 2, 0, 0), vertices=10, radius=0.028 * s,
+                  depth=0.03 * s, name=name + "_lens")
+    lm = emis(name + "_lm", (1.0, 0.85, 0.6), 18)
+    L.assign(lens, lm)
+    lens.parent = parent
+    sp = None
+    if lamp_energy:
+        sp = L.spot((0, 0.16 * s, 0.17 * s), (math.pi / 2, 0, 0), energy=lamp_energy, size_deg=lamp_deg, blend=0.6,
+                    color=(1.0, 0.85, 0.62), name=name + "_lamp", radius=0.02)
+        sp.parent = parent
+    return {"shell": h, "lens_mat": lm, "lamp": sp}
+
+
+def crawler(name="crawler", height=1.7, suit=(0.16, 0.11, 0.07), helmet_color=(0.75, 0.08, 0.05), lamp_energy=300,
+            rim=(1.0, 0.8, 0.55), rim_strength=0.6):
+    """Faceless figure lying prone along its root +Y (head first), for crawlways. Root z = floor."""
+    p = figure(name, height=height, base=suit, rim=rim, rim_strength=rim_strength)
+    s = height / 1.75
+    p["pelvis"].location = (0, -0.25 * s, 0.17 * s)
+    p["pelvis"].rotation_euler = (-math.pi / 2, 0, 0)
+    for tag, sg in (("L", 1), ("R", -1)):
+        p[f"hip{tag}"].rotation_euler = (0.1, 0, sg * 0.15)
+        p[f"knee{tag}"].rotation_euler = (-0.5, 0, 0)
+        p[f"shoulder{tag}"].rotation_euler = (2.4, 0, 0)
+        p[f"elbow{tag}"].rotation_euler = (0.9, 0, 0)
+    p["neck"].rotation_euler = (0.9, 0, 0)
+    hm = helmet(p["neck"], s, helmet_color, lamp_energy, name=name + "_hel")
+    p.update({"helmet": hm["shell"], "lamp": hm["lamp"], "lamp_mat": hm["lens_mat"]})
+    return p
+
+
+def anim_crawl(p, n, rate=0.8, start=1, amp=0.45):
+    """Alternating arm reach / knee drive on a crawler rig."""
+    for f in range(start, n + 1, 2):
+        ph = 2 * math.pi * rate * (f - start) / 24.0
+        for tag, sg in (("L", 1), ("R", -1)):
+            p[f"shoulder{tag}"].rotation_euler = (2.4 + sg * amp * math.sin(ph), 0, 0)
+            p[f"elbow{tag}"].rotation_euler = (0.9 - sg * 0.4 * math.sin(ph), 0, 0)
+            p[f"hip{tag}"].rotation_euler = (0.1 - sg * 0.35 * math.sin(ph), 0, sg * 0.15)
+            p[f"knee{tag}"].rotation_euler = (-0.5 - 0.4 * max(0.0, sg * math.sin(ph)), 0, 0)
+            for k in ("shoulder", "elbow", "hip", "knee"):
+                p[f"{k}{tag}"].keyframe_insert("rotation_euler", frame=f)
+
+
+def outline_figure(name="ofig", length=0.6, color=(0.78, 0.78, 0.76), strength=2.5, lamp=True, thick=0.012):
+    """Flat diagram figure in the XZ plane (faces -Y): head at the root origin, body along local +Z (feet at +Z).
+    Returns dict(root, mat, lamp_core, lamp_halo_emit, lamp_core_emit)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    m = emis(name + "_m", color, strength)
+    s = length / 0.6
+    head = L.prim("torus", loc=(0, 0, 0), rot=(math.pi / 2, 0, 0), major_radius=0.055 * s, minor_radius=thick * 0.8,
+                  name=name + "_head")
+    L.assign(head, m)
+    head.parent = root
+    segs = [[(0, 0, 0.06), (0, 0, 0.3)], [(0, 0, 0.1), (-0.09, 0, 0.22)], [(0, 0, 0.1), (0.09, 0, 0.22)],
+            [(0, 0, 0.3), (-0.05, 0, 0.58)], [(0, 0, 0.3), (0.05, 0, 0.58)]]
+    for i, sg in enumerate(segs):
+        c = curve([tuple(v * s for v in p) for p in sg], thickness=thick, mat=m, name=f"{name}_l{i}")
+        c.parent = root
+    out = {"root": root, "mat": m}
+    if lamp:
+        core, halo, hem = glow_dot((0, -0.01, -0.06 * s), (1.0, 0.85, 0.45), r=0.022 * s, halo=4, strength=10,
+                                   name=name + "_lamp")
+        core.parent = root
+        out.update({"lamp_core": core, "lamp_halo_emit": hem,
+                    "lamp_core_emit": core.active_material.node_tree.nodes["Emission"].inputs[1]})
+    return out
+
+
+def arrow2d(p0, p1, color=(1, 1, 1), strength=3.0, thick=0.02, head=0.12, y=-0.45, name="arrow"):
+    """Line + cone head in the XZ plane from p0 to p1 ((x, z) tuples)."""
+    m = emis(name + "_m", color, strength)
+    a, b = Vector((p0[0], y, p0[1])), Vector((p1[0], y, p1[1]))
+    d = (b - a).normalized()
+    ln = curve([tuple(a), tuple(b - d * head * 0.8)], thickness=thick, mat=m, name=name + "_ln")
+    cn = L.prim("cone", loc=tuple(b - d * head * 0.5), vertices=12, radius1=head * 0.45, radius2=0, depth=head,
+                name=name + "_hd")
+    cn.rotation_mode = "QUATERNION"
+    cn.rotation_quaternion = d.to_track_quat("Z", "Y")
+    L.assign(cn, m)
+    return [ln, cn], m
+
+
+def x_mark(center, size=0.16, color=(1.0, 0.15, 0.1), strength=5.0, y=-0.47, name="xmark"):
+    m = emis(name + "_m", color, strength)
+    cx, cz = center
+    out = []
+    for sg in (1, -1):
+        out.append(curve([(cx - size, y, cz - sg * size), (cx + size, y, cz + sg * size)], thickness=0.025, mat=m,
+                         name=name))
+    return out, m
+
+
+def bolt_anchor(loc, name="anchor", down=(0, 0, -1)):
+    """Expansion bolt + hanger plate + carabiner-style ring, hanging from a ceiling point. Returns dict."""
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    steel = L.mat_principled(name + "_st", (0.7, 0.7, 0.72), rough=0.25, metal=1.0)
+    bolt = L.prim("cyl", loc=(0, 0, 0.02), vertices=12, radius=0.012, depth=0.12, name=name + "_bolt")
+    L.assign(bolt, steel)
+    bolt.parent = root
+    nut = L.prim("cyl", loc=(0, 0, -0.035), vertices=6, radius=0.02, depth=0.015, name=name + "_nut")
+    L.assign(nut, steel)
+    nut.parent = root
+    hang = L.prim("cube", loc=(0, 0.0, -0.06), name=name + "_hanger")
+    hang.scale = (0.025, 0.004, 0.045)
+    L.assign(hang, steel)
+    hang.parent = root
+    ring = L.prim("torus", loc=(0, 0, -0.13), rot=(0, math.pi / 2, 0), major_radius=0.04, minor_radius=0.007,
+                  name=name + "_krab")
+    ring.scale = (1, 0.7, 1.4)
+    L.assign(ring, L.mat_principled(name + "_kr", (0.9, 0.55, 0.1), rough=0.3, metal=0.8))
+    ring.parent = root
+    return {"root": root, "bolt": bolt, "hanger": hang, "krab": ring, "nut": nut}
+
+
+def pulley(loc, name="pulley", rot=(0, 0, 0)):
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.rotation_euler = rot
+    wheel = L.prim("cyl", loc=(0, 0, 0), rot=(0, math.pi / 2, 0), vertices=20, radius=0.035, depth=0.02,
+                   name=name + "_wheel")
+    L.assign(wheel, L.mat_principled(name + "_wm", (0.6, 0.6, 0.62), rough=0.3, metal=1.0))
+    wheel.parent = root
+    for sx in (-1, 1):
+        pl = L.prim("cube", loc=(sx * 0.016, 0, 0.01), name=name + "_side")
+        pl.scale = (0.003, 0.045, 0.06)
+        L.assign(pl, L.mat_principled(name + "_pm", (0.15, 0.35, 0.8), rough=0.4, metal=0.6))
+        pl.parent = root
+    return root
+
+
+def star_dome(count=1500, radius=180.0, size=0.18, seed=7, strength=6.0, name="stars", min_elev=4.0):
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    for i in range(count):
+        a = rnd.uniform(0, 2 * math.pi)
+        e = math.radians(rnd.uniform(min_elev, 88))
+        c = Vector((math.cos(e) * math.cos(a), math.cos(e) * math.sin(a), math.sin(e))) * radius
+        r = size * rnd.uniform(0.5, 1.5)
+        vs = [bm.verts.new(c + Vector(v) * r) for v in ((1, 1, 1), (-1, -1, 1), (-1, 1, -1), (1, -1, -1))]
+        for f in ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2)):
+            bm.faces.new([vs[k] for k in f])
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, emis(name + "_m", (0.85, 0.9, 1.0), strength))
+    o.visible_shadow = False
+    return o
+
+
+def sagebrush(points, seed=3, color=(0.32, 0.34, 0.27), size=(0.35, 0.7), name="sage"):
+    """Low grey-green shrubs: small bare twig cluster + 2-3 fuzzy blobs each. Returns list of roots."""
+    rnd = random.Random(seed)
+    m = L.mat_noise_surface(name + "_m", tuple(c * 0.45 for c in color), color, scale=9, bump=0.7, voronoi=False)
+    tw = L.mat_principled(name + "_tw", (0.12, 0.1, 0.08), rough=0.8)
+    out = []
+    for i, p in enumerate(points):
+        s = rnd.uniform(*size)
+        root = L.link(bpy.data.objects.new(f"{name}{i}", None))
+        root.location = p
+        for k in range(rnd.randint(2, 3)):
+            b = L.prim("ico", loc=(rnd.uniform(-0.3, 0.3) * s, rnd.uniform(-0.3, 0.3) * s, s * rnd.uniform(0.35, 0.6)),
+                       subdivisions=2, radius=s * rnd.uniform(0.35, 0.55), name=f"{name}{i}_b{k}")
+            b.scale = (1, 1, 0.7)
+            L.add_displace(b, strength=s * 0.25, scale=s * 0.2, name=f"{name}{i}_d{k}")
+            L.assign(b, m)
+            b.parent = root
+        for k in range(3):
+            t = L.prim("cone", loc=(0, 0, s * 0.25), vertices=4, radius1=0.015, radius2=0.003, depth=s * 0.5,
+                       rot=(rnd.uniform(-0.6, 0.6), rnd.uniform(-0.6, 0.6), 0), name=f"{name}{i}_t{k}")
+            L.assign(t, tw)
+            t.parent = root
+        out.append(root)
+    return out
+
+
+def hill_z(x, y, pit=(0.0, 0.0), pit_r=(0.75, 0.55), pit_depth=2.6):
+    """Bare desert hill rising toward +Y, with a small steep-walled cave opening (pit) at `pit`."""
+    v = Vector((x * 0.06, y * 0.06, 1.7))
+    z = 0.16 * (y + 40) * (1 - 0.35 * C_sm((y - 10) / 30)) + 2.2 * noise.noise(v) + 0.6 * noise.noise(v * 4) \
+        - 0.0015 * x * x
+    dx, dy = (x - pit[0]) / pit_r[0], (y - pit[1]) / pit_r[1]
+    r = math.hypot(dx, dy)
+    if r < 1.0:
+        z -= pit_depth * min(1.0, ((1.0 - r) / 0.3)) ** 0.7
+    return z
+
+
+def C_sm(x):
+    return sm(x)
+
+
+def hill_set(mat=None, fine_res=0.07, coarse_res=0.7, pit=(0.0, 0.0)):
+    """Coarse hill (120 m) + fine patch (12 m) around the cave opening. Returns (coarse, fine, ground_z(x, y))."""
+    mat = mat or L.mat_noise_surface("hillsoil", (0.2, 0.16, 0.12), (0.46, 0.39, 0.3), scale=0.5, bump=0.5,
+                                     voronoi=False)
+    fn = lambda x, y: hill_z(x, y, pit)
+    coarse = heightfield(size=(140, 140), center=(0, 20, 0), res=coarse_res, fn=lambda x, y: fn(x, y) - 0.08, mat=mat,
+                         name="hill", disp=(0, 0))
+    fine = heightfield(size=(12, 12), center=(pit[0], pit[1], 0), res=fine_res, fn=fn, mat=mat, name="hillpatch",
+                       disp=(0, 0))
+    return coarse, fine, fn

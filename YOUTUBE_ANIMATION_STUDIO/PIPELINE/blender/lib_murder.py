@@ -2950,3 +2950,37 @@ def image_plane(path, loc, size, rot=(math.pi / 2, 0, 0), emit=0.0, name="img", 
     o.scale = (size[0], size[1], 1)
     L.assign(o, L.mat_image(name + "_m", path, emit=emit, rough=rough))
     return o
+
+
+def fast_conifers(name, spots, mat=None, tiers=(3, 4), seg=6, seed=1, **kw):
+    """Fast stacked-cone conifers (plain vertex lists, no bmesh ops) for big distant forests.
+    spots: (x, y, z, height). One mesh."""
+    rnd = random.Random(seed)
+    verts, faces = [], []
+    for (x, y, z, h) in spots:
+        nt = rnd.randint(*tiers)
+        rot = rnd.uniform(0, 6.28)
+        # trunk (3-sided)
+        b = len(verts)
+        tr = h * 0.03
+        for k in range(3):
+            a = rot + 2 * math.pi * k / 3
+            verts.append((x + tr * math.cos(a), y + tr * math.sin(a), z))
+        verts.append((x, y, z + h * 0.4))
+        faces += [(b, b + 1, b + 3), (b + 1, b + 2, b + 3), (b + 2, b, b + 3)]
+        for k in range(nt):
+            f = k / nt
+            r = h * (0.26 * (1 - f) + 0.05) * rnd.uniform(0.85, 1.15)
+            zb = z + h * (0.15 + 0.78 * f)
+            zt = zb + h * 0.34 * (1 - 0.4 * f)
+            b = len(verts)
+            for s in range(seg):
+                a = rot + 2 * math.pi * s / seg + k * 0.5
+                rr = r * rnd.uniform(0.85, 1.1)
+                verts.append((x + rr * math.cos(a), y + rr * math.sin(a), zb + rnd.uniform(-0.04, 0.04) * h))
+            verts.append((x, y, zt))
+            for s in range(seg):
+                faces.append((b + s, b + (s + 1) % seg, b + seg))
+            faces.append(tuple(b + s for s in reversed(range(seg))))
+    o = mesh_obj(name, verts, faces, mat=mat or mat_dusted(name + "_m"))
+    return o

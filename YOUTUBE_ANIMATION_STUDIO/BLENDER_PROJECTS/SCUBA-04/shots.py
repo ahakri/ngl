@@ -18,8 +18,8 @@ SUN_COL = (0.85, 1.0, 0.88)
 SLIT = (0.75, 1.0, 0.85)
 # S01 opening framing (S17 ends exactly here for the loop)
 DIV01 = Vector((0.0, 0.0, 0.5))
-CAM01_A = Vector((-0.75, -1.25, 1.35))
-CAM01_T = Vector((0.25, 0.85, 0.25))
+CAM01_A = Vector((-1.55, -0.85, 1.55))
+CAM01_T = Vector((0.3, 0.85, 0.2))
 CAM01_B = CAM01_A + (CAM01_T - CAM01_A).normalized() * 0.3
 
 
@@ -76,6 +76,47 @@ def glow_mat(L, name, color, strength=4.0, power=2.0):
     return m
 
 
+def xray_mat(L, name, color, strength=2.0, power=1.6, base=0.04):
+    """Line-art x-ray look: silhouette edges glow (Layer Weight 'Facing' is 1 at grazing angles), faces see-through."""
+    m, n, l = S._m(name)
+    for nd in list(n):
+        if nd.type == "BSDF_PRINCIPLED":
+            n.remove(nd)
+    lw = n.new("ShaderNodeLayerWeight")
+    lw.inputs["Blend"].default_value = 0.5
+    pw = n.new("ShaderNodeMath")
+    pw.operation = "POWER"
+    pw.inputs[1].default_value = power
+    l.new(lw.outputs["Facing"], pw.inputs[0])
+    ad = n.new("ShaderNodeMath")
+    ad.operation = "ADD"
+    ad.use_clamp = True
+    ad.inputs[1].default_value = base
+    l.new(pw.outputs[0], ad.inputs[0])
+    em = n.new("ShaderNodeEmission")
+    em.inputs[0].default_value = (*color, 1)
+    em.inputs[1].default_value = strength
+    tr = n.new("ShaderNodeBsdfTransparent")
+    mx = n.new("ShaderNodeMixShader")
+    l.new(ad.outputs[0], mx.inputs[0])
+    l.new(tr.outputs[0], mx.inputs[1])
+    l.new(em.outputs[0], mx.inputs[2])
+    l.new(mx.outputs[0], n["Material Output"].inputs["Surface"])
+    m.surface_render_method = "BLENDED"
+    m.use_backface_culling = True
+    return m
+
+
+def _xr(L, prefix, m):
+    for o in bpy.data.objects:
+        if o.name.startswith(prefix) and o.type in ("MESH", "CURVE"):
+            o.data.materials.clear()
+            o.data.materials.append(m)
+            if o.type == "MESH":
+                for poly in o.data.polygons:
+                    poly.material_index = 0
+
+
 def packard(L, loc=(0, 0, 0), rot=(0, 0, 0), name="packard"):
     """Michael Packard: black wetsuit, single tank, orange fins, mask + regulator. Faceless."""
     P = L.char_diver(name=name, suit=(0.03, 0.03, 0.035), accent=(0.95, 0.42, 0.05), tanks="single", light_on=False)
@@ -115,7 +156,7 @@ def curl(P):
         P[f"shoulder{tag}"].rotation_euler = (-1.7, 0, 0)
 
 
-def cape_env(L, n, depth=DEPTH, vol=0.07, rays=True, caustic=0.8, surface=True, snow=900, center=(0, 0), size=70,
+def cape_env(L, n, depth=DEPTH, vol=0.07, rays=True, caustic=0.3, surface=True, snow=900, center=(0, 0), size=70,
              rocks=True):
     """Green Cape Cod water: sandy bottom with caustics, sun shafts, glowing surface overhead."""
     S.setup(vol_end=60)
@@ -123,7 +164,7 @@ def cape_env(L, n, depth=DEPTH, vol=0.07, rays=True, caustic=0.8, surface=True, 
     S.world_volume(color=GREEN_VOL, density=vol, anisotropy=0.6, absorption=(0.35, 0.65, 0.45),
                    center=(center[0], center[1], depth / 2 - 0.2), size=(size, size, depth + 0.6))
     sand = S.mat_caustic_ground("capesand", c1=(0.3, 0.3, 0.22), c2=(0.52, 0.5, 0.38), caustic=(0.8, 1.0, 0.85),
-                                strength=caustic, scale=0.45, nframes=n)
+                                strength=caustic, scale=1.4, nframes=n)
     sb = L.seabed(size=size, strength=0.25, mat=sand)
     sb.location = (center[0], center[1], -0.05)
     out = {"sand": sand}
@@ -222,7 +263,7 @@ def seabed_shot(L, n, cam_a, cam_b, whale_from=None, blackout=None, shadow=None)
         S.energy_keys(fill, [(1, 60), (b - 1, 60), (b, 0.0)], "CONSTANT")
         cs = caustic_socket(env["sand"])
         if cs is not None:
-            for f, v in ((1, 0.8), (b - 1, 0.8), (b, 0.0)):
+            for f, v in ((1, 0.3), (b - 1, 0.3), (b, 0.0)):
                 cs.default_value = v
                 cs.keyframe_insert("default_value", frame=f)
             S._linear_node_anim(env["sand"])
@@ -255,7 +296,7 @@ def S02(L, n):
     S.setup()
     S.sky_gradient(top=(0.3, 0.5, 0.8), horizon=(0.8, 0.85, 0.9))
     sb = L.prim("plane", loc=(0, 0, -6), size=300, name="bed")
-    L.assign(sb, S.mat_caustic_ground("bedm", c1=(0.12, 0.3, 0.25), c2=(0.5, 0.52, 0.4), strength=0.3, scale=0.15,
+    L.assign(sb, S.mat_caustic_ground("bedm", c1=(0.12, 0.3, 0.25), c2=(0.5, 0.52, 0.4), strength=0.15, scale=0.5,
                                       nframes=n, base_scale=0.04))
     w = L.prim("plane", loc=(0, 0, 0), size=300, name="water")
     L.assign(w, S.mat_water_surface("aerialw", color=(0.0, 0.22, 0.2), rough=0.05, alpha=0.6, ripple=0.3, nframes=n))
@@ -277,7 +318,7 @@ def S03(L, n):
     S.sky_gradient(top=(0.2, 0.42, 0.8), horizon=(0.75, 0.85, 0.92), strength=1.0, sun_dir=(0.4, 0.6, 0.7),
                    sun_col=(1, 0.95, 0.85), sun_strength=6.0, below=(0.2, 0.35, 0.35))
     D = DEPTH
-    S.world_volume(color=GREEN_VOL, density=0.06, anisotropy=0.6, absorption=(0.35, 0.65, 0.45), center=(0, 25, -D / 2),
+    S.world_volume(color=(0.12, 0.42, 0.3), density=0.07, anisotropy=0.6, absorption=(0.2, 0.55, 0.35), center=(0, 25, -D / 2),
                    size=(80, 60, D + 0.2))
     sea = S.ocean(size=120, nframes=n, wave_scale=0.35, choppiness=0.8, resolution=9, spatial=40, wind=8, foam=False,
                   mat=S.mat_ocean("sea_d", deep=(0.0, 0.12, 0.12), shallow=(0.05, 0.35, 0.32), rough=0.05,
@@ -287,7 +328,7 @@ def S03(L, n):
     edge.scale = (60, 0.03, 0.08)
     L.assign(edge, L.mat_emission("cutm", (0.8, 1.0, 0.95), 1.5))
     sand = S.mat_caustic_ground("capesand", c1=(0.3, 0.3, 0.22), c2=(0.52, 0.5, 0.38), caustic=(0.8, 1.0, 0.85),
-                                strength=0.9, scale=0.45, nframes=n)
+                                strength=0.3, scale=1.4, nframes=n)
     sb = L.seabed(size=80, strength=0.25, mat=sand)
     sb.location = (0, 25, -D)
     B = S.lobster_boat("lb")
@@ -321,8 +362,8 @@ def S03(L, n):
     for f, p in ((1, (0.5, 14, 0.8)), (int(n * 0.35), (0.0, 13, -3.0)), (n, (-0.3, 12.5, -9.0))):
         tgt.location = p
         tgt.keyframe_insert("location", frame=f)
-    cam, _ = L.camera(loc=(3.0, -14, 0.8), target=tgt, lens=24)
-    L.cam_keys(cam, [(1, (3.0, -14, 0.8)), (n, (2.4, -12.5, 0.4))])
+    cam, _ = L.camera(loc=(2.0, -8.0, 0.8), target=tgt, lens=24)
+    L.cam_keys(cam, [(1, (2.0, -8.0, 0.8)), (n, (1.6, -7.0, 0.5))])
     L.handheld(cam, n, amp=0.04, rate=0.4)
     _finish(L)
 
@@ -406,7 +447,7 @@ def mouth_set(L, n, slit_energy=60, vol=0.14):
     vb = L.water_volume(center=(0, 0, 0), size=(5, 7.4, 3.2), color=(0.3, 0.6, 0.45), density=vol, anisotropy=0.6,
                         name="mouthwater")
     vb.parent = piv
-    rimL = L.area((0, 2.0, 1.0), (0, 0, 0), energy=12, size=1.5, color=SLIT, name="rimarea")
+    rimL = L.area((0, 2.0, 1.0), (0, 0, 0), energy=30, size=1.5, color=SLIT, name="rimarea")
     _aim(rimL, (0.3, 2.2, 0.9), (0, 0, -0.1))
     rimL.parent = piv
     out["rim"] = rimL
@@ -513,6 +554,8 @@ def S09(L, n):
     for f in range(1, n + 1, 8):
         piv.rotation_euler = (0.03 * math.sin(f * 0.07), 0.04 * math.sin(f * 0.05 + 1), 0)
         piv.keyframe_insert("rotation_euler", frame=f)
+    kl = L.point((-0.9, -1.0, 0.7), energy=4.0, color=(0.6, 0.8, 0.75), radius=0.3, name="faint")
+    S.no_shadow(kl)
     cam, _ = L.camera(loc=(-1.1, -2.1, 0.25), target=(0.1, 0.1, -0.45), lens=35)
     L.cam_keys(cam, [(1, (-1.1, -2.1, 0.25)), (n, (-0.95, -1.85, 0.2))])
     _finish(L)
@@ -567,9 +610,11 @@ def S06(L, n):
     snout = world_of(r, (0, 6.0, -0.15))
     fwd = (world_of(r, (0, 7.0, 0)) - world_of(r, (0, 6.0, 0))).normalized()
     side = (world_of(r, (1.0, 6.0, 0)) - world_of(r, (0, 6.0, 0))).normalized()
-    away = (fwd * 0.75 + side * 0.6 + Vector((0, 0, 0.2))).normalized()
+    away = (fwd * 0.75 + side * 0.6).normalized()
+    away.z = 0.0
+    away.normalize()
     c0 = snout + away * 0.6
-    c1 = snout + away * 24.0 + Vector((0, 0, 1.5))
+    c1 = snout + away * 15.0 + Vector((0, 0, 0.5))
     cam, _ = L.camera(loc=c0, target=snout + Vector((0, 0, 0)), lens=24)
     tg = cam.constraints[0].target
     tg.keyframe_insert("location", frame=1)
@@ -631,8 +676,8 @@ def S07(L, n):
     pc.keyframe_insert("scale", frame=int(n * 0.35))
     pc.scale = (1.2, 1.2, 1.6)
     pc.keyframe_insert("scale", frame=n)
-    cam, _ = L.camera(loc=(-2.0, -21.0, 4.2), target=(-1.5, 0, 4.0), lens=20)
-    L.cam_keys(cam, [(1, (-2.0, -21.0, 4.2)), (n, (-0.5, -20.0, 4.4))])
+    cam, _ = L.camera(loc=(-1.0, -14.5, 3.6), target=(-0.5, 0, 4.2), lens=20)
+    L.cam_keys(cam, [(1, (-1.0, -14.5, 3.6)), (n, (0.5, -13.5, 3.8))])
     L.handheld(cam, n, amp=0.03, rate=0.35)
     key = L.area((6, -12, 13), (0, 0, 0), energy=5000, size=12, color=SUN_COL, name="key")
     _aim(key, (6, -12, 13), (0, 0, 3))
@@ -665,11 +710,7 @@ def _xray_bg(L):
 def _xray_whale(L, n):
     """Whale standing snout-up (fits the 9:16 frame), side profile, slight lean; cavity/diver/throat in whale space."""
     W = S.humpback("xw", length=12.0)
-    xm = S.mat_beam("xwm", (0.8, 0.95, 1.0), 1.3, alpha=0.95)
-    for o in bpy.data.objects:
-        if o.name.startswith("xw") and o.type == "MESH":
-            o.data.materials.clear()
-            o.data.materials.append(xm)
+    _xr(L, "xw", xray_mat(L, "xwm", (0.8, 0.95, 1.0), 2.5))
     r = W["root"]
     tilt = L.link(bpy.data.objects.new("tilt", None))
     tilt.rotation_euler = (0, -0.3, 0)
@@ -685,12 +726,9 @@ def _xray_whale(L, n):
             o.scale = scl
         return o
     cav = local(L.prim("sphere", segments=24, ring_count=12, radius=1.0, name="cav"), (0, 3.3, -0.75), (0.9, 2.3, 0.65))
-    L.assign(cav, S.mat_beam("cavm", (0.2, 0.75, 0.7), 1.0, alpha=0.6))
+    L.assign(cav, xray_mat(L, "cavm", (0.2, 0.75, 0.7), 1.5, power=1.0, base=0.15))
     D = L.char_diver(name="xd", light_on=False, tanks="single")
-    dm = S.mat_beam("xdm", (1.0, 0.85, 0.3), 2.0, alpha=1.0)
-    for o in bpy.data.objects:
-        if o.name.startswith("xd") and o.type == "MESH":
-            L.assign(o, dm)
+    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=1.2, base=0.12))
     local(D["root"], (0.3, 3.4, -0.8), (0.85, 0.85, 0.85), rot=(0, PI / 2, 0.3))
     for tag in ("L", "R"):
         D[f"hip{tag}"].rotation_euler = (1.1, 0, 0)
@@ -734,14 +772,9 @@ def S11(L, n):
     for f, s in ((1, 0.001), (5, 0.001), (10, 1.15), (14, 0.9)):
         fr.scale = (s,) * 3
         fr.keyframe_insert("scale", frame=f)
-    for o in bpy.data.objects:
-        if o.name.startswith("fist") and o.type == "MESH":
-            L.assign(o, S.mat_beam("fistm", (0.9, 0.97, 1.0), 2.0, alpha=1.0))
+    _xr(L, "fist", xray_mat(L, "fistm", (0.9, 0.97, 1.0), 3.0, power=1.2, base=0.15))
     D = L.char_diver(name="xd", light_on=False, tanks="single")
-    dm = S.mat_beam("xdm", (1.0, 0.85, 0.3), 2.0, alpha=1.0)
-    for o in bpy.data.objects:
-        if o.name.startswith("xd") and o.type == "MESH":
-            L.assign(o, dm)
+    _xr(L, "xd", xray_mat(L, "xdm", (1.0, 0.85, 0.3), 3.0, power=1.2, base=0.12))
     dr = D["root"]
     dr.location = (0.0, 0.4, -0.52)
     dr.rotation_euler = (PI / 2, 0, 0)  # head toward the opening, shoulders far wider than the ring
@@ -761,7 +794,7 @@ def S11(L, n):
 
 def day_sea(L, n, size=160, wave=0.4, res=10):
     S.setup(vol_end=80)
-    S.sky_gradient(top=(0.18, 0.4, 0.8), horizon=(0.78, 0.86, 0.92), strength=1.0, sun_dir=(-0.4, 0.7, 0.45),
+    S.sky_gradient(top=(0.18, 0.4, 0.8), horizon=(0.78, 0.86, 0.92), strength=1.0, sun_dir=(0.5, -0.6, 0.6),
                    sun_col=(1, 0.95, 0.85), sun_strength=8.0, below=(0.1, 0.25, 0.28))
     sea = S.ocean(size=size, nframes=n, wave_scale=wave, choppiness=0.9, resolution=res, spatial=50, wind=9, foam=True,
                   mat=S.mat_ocean("sea_day", deep=(0.0, 0.1, 0.12), shallow=(0.05, 0.35, 0.33), rough=0.05,
@@ -775,6 +808,8 @@ def foam_ring(L, loc, r0=0.5, r1=4.0, f0=1, f1=40, name="foam", z=0.05):
     o = L.prim("torus", loc=(loc[0], loc[1], z), major_radius=1.0, minor_radius=0.25, name=name)
     L.add_displace(o, strength=0.25, scale=0.3, name=name + "_d")
     L.assign(o, m)
+    o.scale = (0.001, 0.001, 0.001)
+    o.keyframe_insert("scale", frame=max(1, f0 - 1))
     o.scale = (r0, r0, 0.4)
     o.keyframe_insert("scale", frame=f0)
     o.scale = (r1, r1, 0.15)
@@ -824,7 +859,7 @@ def S13(L, n):
     # light pouring into the parting lips
     lip = L.point((0, 3.2, 3.0), energy=0, color=(1, 0.95, 0.8), radius=0.5, name="lipgleam")
     S.energy_keys(lip, [(1, 0), (int(n * 0.6), 0), (n, 300)])
-    foam_ring(L, (0, 4.5), 0.5, 5.0, int(n * 0.12), int(n * 0.6))
+    foam_ring(L, (0, 4.5), 0.3, 2.6, int(n * 0.12), int(n * 0.6))
     splash(L, (0, 4.0, 0.3), [int(n * 0.15), int(n * 0.2), int(n * 0.25)], count=90, speed=6.0)
     L.particle_cloud((0, 4.0, 2.0), (6, 3, 4), count=700, radius=0.008, nframes=n, drift=(0.3, 0, -0.6), name="mist",
                      mat=L.mat_principled("mistm", (0.95, 0.97, 1.0), emit=(0.6, 0.65, 0.7), emit_strength=0.6))
@@ -848,8 +883,12 @@ def S14(L, n):
     S.jaw_keys(W, [(1, 0.25, 1.2), (ej, 0.75, 1.1), (ej + 10, 0.6, 1.0), (n, 0.1, 1.0)])
     P = packard(L)
     pr = P["root"]
-    for f, loc, rot in ((1, (0.2, 3.6, 2.2), (0.5, 0.2, PI)), (ej, (0.2, 3.4, 2.0), (0.6, 0.4, PI)),
-                        (ej + 8, (-0.6, 1.4, 0.6), (1.8, 1.5, PI + 0.6)), (n, (-1.0, 0.6, 0.0), (2.6, 2.6, PI + 0.9))):
+    for o in [o_ for o_ in bpy.data.objects if o_.name.startswith("packard") and o_.type in ("MESH", "CURVE")]:
+        for f, h in ((1, True), (ej - 1, True), (ej, False)):
+            o.hide_render = h
+            o.keyframe_insert("hide_render", frame=f)
+    for f, loc, rot in ((1, (0.1, 3.2, 1.0), (0.5, 0.2, PI)), (ej, (0.1, 3.0, 1.0), (0.6, 0.4, PI)),
+                        (ej + 8, (-0.6, 2.2, 0.4), (1.8, 1.5, PI + 0.6)), (n, (-0.9, 1.9, -0.1), (2.2, 2.4, PI + 0.9))):
         pr.location = loc
         pr.rotation_euler = rot
         pr.keyframe_insert("location", frame=f)
@@ -861,7 +900,7 @@ def S14(L, n):
     splash(L, (-0.6, 1.0, 0.2), [ej + 7, ej + 9], count=60, speed=4.0, name="esp")
     S.bubbles_at((-0.8, 0.8, -0.3), [ej + 6 + k % 5 for k in range(30)], rise=0.6, spread=0.3, size=0.07, life=(10, 20),
                  name="foamb")
-    foam_ring(L, (1.0, 6.0), 3.0, 6.0, 1, n, name="wfoam")
+    foam_ring(L, (1.0, 6.0), 2.0, 3.0, 2, n, name="wfoam")
     cam, _ = L.camera(loc=(0.9, -3.0, 0.75), target=(-0.2, 3.5, 2.2), lens=24)
     L.cam_keys(cam, [(1, (0.9, -3.0, 0.75)), (n, (0.7, -2.4, 0.7))])
     L.handheld(cam, n, amp=0.05, rate=0.7, rot_amp=0.01)
@@ -939,9 +978,9 @@ def S16(L, n):
     F["kneeL"].rotation_euler = (-0.1, 0, 0)
     F["hipR"].rotation_euler = (1.8, 0, -0.1)
     F["kneeR"].rotation_euler = (-1.6, 0, 0)
-    F["shoulderL"].rotation_euler = (0.2, 0, -0.3)
-    F["shoulderR"].rotation_euler = (0.8, 0, 0.2)
-    F["elbowR"].rotation_euler = (1.2, 0, 0)
+    F["shoulderL"].rotation_euler = (0.25, 0, -0.15)
+    F["shoulderR"].rotation_euler = (0.55, 0, 0.1)
+    F["elbowR"].rotation_euler = (0.7, 0, 0)
     met = L.mat_principled("tankm", (0.75, 0.77, 0.8), rough=0.25, metal=1)
     tk = L.prim("cyl", loc=(0.6, -1.4, 0.75), vertices=16, radius=0.09, depth=0.7, rot=(PI / 2, 0, 0.4), name="tank")
     L.assign(tk, met)
@@ -955,9 +994,9 @@ def S16(L, n):
     mask = L.prim("torus", loc=(0.9, -2.9, 0.64), major_radius=0.08, minor_radius=0.025, name="mask")
     L.assign(mask, fm)
     mask.parent = br
-    cam, _ = L.camera(loc=(-1.4, -5.6, 2.0), target=(0.95, -2.3, 0.9), lens=35)
+    cam, _ = L.camera(loc=(0.2, -5.8, 1.9), target=(1.2, -2.4, 0.9), lens=35)
     cam.parent = br
-    L.cam_keys(cam, [(1, (-1.4, -5.6, 2.0)), (n, (-1.1, -5.0, 1.85))])
+    L.cam_keys(cam, [(1, (0.2, -5.8, 1.9)), (n, (0.35, -5.2, 1.75))])
     fill = L.area((-2, -1, 3.5), (0, 0, 0), energy=150, size=3, color=(1.0, 0.85, 0.7), name="bounce")
     _aim(fill, (-2, -1, 3.5), (1.2, -2.4, 0.7))
     _finish(L)

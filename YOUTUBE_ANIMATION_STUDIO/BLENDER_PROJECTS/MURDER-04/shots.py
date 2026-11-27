@@ -8,6 +8,7 @@ import os, sys, math, random, importlib, subprocess
 _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(_HERE)), "PIPELINE", "blender"))
 import lib_murder as M
+import studio_lib as L
 importlib.reload(M)
 import bpy
 from mathutils import Vector, noise
