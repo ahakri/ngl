@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T08:27:16Z",
+ "updated": "2026-11-27T08:29:37Z",
  "phases": {
   "P1_research": {
    "status": "in_progress",
@@ -54,7 +54,7 @@
   "SCUBA-03": "SCRIPTED",
   "SCUBA-04": "SCRIPTED",
   "MURDER-01": "ANIMATING",
-  "MURDER-02": "SCRIPTED",
+  "MURDER-02": "ANIMATING",
   "MURDER-03": "SCRIPTED",
   "MURDER-04": "SCRIPTED",
   "HAUNT-01": "ANIMATING",

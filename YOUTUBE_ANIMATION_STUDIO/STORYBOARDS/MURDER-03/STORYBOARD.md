@@ -11,11 +11,11 @@ Beat map:
 - payoff: Cooper vane 55–61 s
 - status 61–67 s
 - open question and comment prompt 67–71 s
-- loop line 71–74 s, back to frame 1
+- open question S22, loop line 71–74 s, back to frame 1
 
 Timings come from a Kokoro test render (am_onyx, speed 1.06): total narration **74.2 s**. Shot boundaries are the start of each shot's first line (the pipeline's `timing()` rule). 9:16, 1080x1920, 24 fps. Captions are burned in (red accent, `emphasis` words highlighted). Keep overlays out of the bottom 20 % and right 15 %.
 
-**Reusable prop: STYLISED 727** (built from primitives: exterior in S01, S07, S09, S18, S19, S24; cabin interior in S04)
+**Reusable prop: STYLISED 727** (built from primitives: exterior in S01, S07, S09, S18, S19, S23; cabin interior in S04)
 - Fuselage: a cylinder (r 1.9 m, 40 m) with a tapered nose cone and tail cone, navy-grey metal, red cheat-line. No airline logo or livery.
 - Engines: three short cylinders clustered at the tail.
 - Tail and wings: a T-tail of thin boxes on a swept fin, and swept wings made from bevelled boxes.
@@ -301,33 +301,20 @@ No real photos, no FBI composite sketch, no faces. Every human is a faceless `ch
 - **SFX:** whoosh @+0.0s g0.4, hit @+1.0s g0.6
 - **Music level:** 0.60 → 0.56 (original/royalty-free dark ambient pad; no licensed music)
 
-## S22  ·  67.2–69.6 s  (2.4 s)  ·  transition in: cut
+## S22  ·  67.2–71.3 s  (4.1 s)  ·  transition in: cut
 
-- **Narration:** L22 "Did he die in those woods, or walk out?"
-- **Visual:** Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure.
+- **Narration:** L22 "Did he die in those woods, or walk out?" L23 "Where do you think he landed?"
+- **Visual:** Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure. On the question (about 2.4 s in) the camera rises above the canopy to endless treetops.
 - **Environment:** forest
-- **Camera:** slow ground-level push through the trees, 24mm
+- **Camera:** slow ground-level push through the trees, 24mm, then crane up above the canopy for the question
 - **Characters:** none
 - **Lighting:** blue-grey dawn, god rays through fog
 - **FX:** fog_volume, drips
-- **On-screen text / overlays:** [label] THEORY; [card] FBI view: he probably didn't survive / No body has ever been found
+- **On-screen text / overlays:** [label] THEORY; [card] FBI view: he probably didn't survive / No body has ever been found; [text] WHERE DID / HE LAND?
 - **SFX:** wind @+0.0s g0.4, footsteps @+0.6s g0.2
 - **Music level:** 0.56 → 0.55 (original/royalty-free dark ambient pad; no licensed music)
 
-## S23  ·  69.6–71.3 s  (1.7 s)  ·  transition in: cut
-
-- **Narration:** L23 "Where do you think he landed?"
-- **Visual:** Map card from S15 again, empty of pins; a pulsing '?' pin waits over the forest region.
-- **Environment:** map
-- **Camera:** 2D overlay, slow zoom
-- **Characters:** none
-- **Lighting:** n/a
-- **FX:** —
-- **On-screen text / overlays:** [text] WHERE DID HE LAND?
-- **SFX:** riser @+0.0s g0.4
-- **Music level:** 0.55 → 0.55 (original/royalty-free dark ambient pad; no licensed music)
-
-## S24  ·  71.3–74.2 s  (2.9 s)  ·  transition in: cut
+## S23  ·  71.3–74.2 s  (2.9 s)  ·  transition in: cut
 
 - **Narration:** L24 "All anyone knows for sure is this."
 - **Visual:** Loop frame: same framing as S01 — underside of the 727 tail in rain, airstair open, warm spill; the suited silhouette steps back onto the bottom stair, matching frame 1.

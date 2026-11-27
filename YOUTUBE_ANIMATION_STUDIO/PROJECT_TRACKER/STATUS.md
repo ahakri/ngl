@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T08:27:16Z
+Updated: 2026-11-27T08:29:37Z
 
 ## Concept counts
 
@@ -16,9 +16,9 @@ Updated: 2026-11-27T08:27:16Z
 
 ## Pipeline status
 
-- ANIMATING: 4
+- ANIMATING: 5
 - CONCEPT: 84
-- SCRIPTED: 12
+- SCRIPTED: 11
 
 ## Videos in production
 
@@ -33,7 +33,7 @@ Updated: 2026-11-27T08:27:16Z
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | SCRIPTED |
 | SCUBA-04 | A Whale Closed Its Mouth Around Him | 80 | SCRIPTED |
 | MURDER-01 | Nine Hikers Cut Their Tent From the Inside | 84 | ANIMATING |
-| MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | SCRIPTED |
+| MURDER-02 | The Dead Man With 'Tamam Shud' Sewn in His Pocket | 83 | ANIMATING |
 | MURDER-03 | He Hijacked a Plane, Then Jumped Into the Night | 82 | SCRIPTED |
 | MURDER-04 | The Zodiac's Cipher Was Cracked After 51 Years | 81 | SCRIPTED |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | ANIMATING |

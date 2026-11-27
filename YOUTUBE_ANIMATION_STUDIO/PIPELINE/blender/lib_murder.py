@@ -388,15 +388,45 @@ def moon_disc(loc, radius=3.0, strength=6.0):
 # ============================================================================ snow FX
 
 def snowfall(center, size, n, count=1500, radius=0.012, fall=0.8, wind=(0.8, 0.0, 0.0), seed=7, name="snowfall", emit=0.25,
-             color=(0.9, 0.93, 1.0)):
+             color=(0.9, 0.93, 1.0), cam=None, clear=1.0, size_var=(0.4, 1.4)):
     """Falling / blowing snow: one tetra cloud translated over the shot (cheap). Size is padded so the
-    camera stays covered during the whole drift."""
+    camera stays covered during the whole drift. cam=(start_xyz, end_xyz): flakes whose path passes within
+    `clear` metres of the camera path are dropped (no giant flakes on the lens)."""
     T = n / FPS
     d = Vector((wind[0], wind[1], -fall)) * T
-    c = (center[0] - d.x / 2, center[1] - d.y / 2, center[2] - d.z / 2)
-    sz = (size[0] + abs(d.x), size[1] + abs(d.y), size[2] + abs(d.z))
+    c = Vector((center[0] - d.x / 2, center[1] - d.y / 2, center[2] - d.z / 2))
+    sz = Vector((size[0] + abs(d.x), size[1] + abs(d.y), size[2] + abs(d.z)))
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    c0 = Vector(cam[0]) if cam else None
+    c1 = Vector(cam[1]) if cam else None
+    k = 0
+    tries = 0
+    while k < count and tries < count * 4:
+        tries += 1
+        p = c + Vector((rnd.uniform(-0.5, 0.5) * sz.x, rnd.uniform(-0.5, 0.5) * sz.y, rnd.uniform(-0.5, 0.5) * sz.z))
+        if cam:
+            near = False
+            for t in (0.0, 0.2, 0.4, 0.6, 0.8, 1.0):
+                if ((p + d * t) - (c0 + (c1 - c0) * t)).length < clear:
+                    near = True
+                    break
+            if near:
+                continue
+        r = radius * rnd.uniform(*size_var)
+        vs = [bm.verts.new(p + Vector(v) * r) for v in ((1, 1, 1), (-1, -1, 1), (-1, 1, -1), (1, -1, -1))]
+        for f in ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2)):
+            bm.faces.new([vs[i] for i in f])
+        k += 1
+    o = L.mesh_from_bm(name, bm)
     m = L.mat_principled(name + "_m", color, rough=0.6, emit=color, emit_strength=emit)
-    o = L.particle_cloud(c, sz, count=count, radius=radius, mat=m, drift=(wind[0], wind[1], -fall), seed=seed, nframes=n, name=name)
+    L.assign(o, m)
+    o.visible_shadow = False
+    o.location = (0, 0, 0)
+    o.keyframe_insert("location", frame=1)
+    o.location = d
+    o.keyframe_insert("location", frame=n)
+    L.linear_fcurves(o)
     return o
 
 

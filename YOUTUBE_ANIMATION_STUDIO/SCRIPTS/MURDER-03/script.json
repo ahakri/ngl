@@ -127,7 +127,7 @@
   },
   {
    "id": "L13",
-   "text": "Under the sand: three rotting bundles of twenties.",
+   "text": "Under it: three rotting bundles of twenties.",
    "pause_after": 0.35,
    "shot": "S13",
    "emphasis": [
@@ -223,7 +223,7 @@
    "id": "L23",
    "text": "Where do you think he landed?",
    "pause_after": 0.4,
-   "shot": "S23",
+   "shot": "S22",
    "emphasis": [
     "landed"
    ]
@@ -232,7 +232,7 @@
    "id": "L24",
    "text": "All anyone knows for sure is this.",
    "pause_after": 0.3,
-   "shot": "S24",
+   "shot": "S23",
    "emphasis": [
     "sure"
    ]
@@ -1296,11 +1296,12 @@
   {
    "id": "S22",
    "lines": [
-    "L22"
+    "L22",
+    "L23"
    ],
    "environment": "forest",
-   "description": "Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure.",
-   "camera": "slow ground-level push through the trees, 24mm",
+   "description": "Dawn in the conifer forest, mist on the ground; an empty clearing where a faint line of footprints fades out after a few metres. Deliberately ambiguous: no body, no canopy, no figure. On the question (about 2.4 s in) the camera rises above the canopy to endless treetops.",
+   "camera": "slow ground-level push through the trees, 24mm, then crane up above the canopy for the question",
    "characters": [],
    "lighting": "blue-grey dawn, god rays through fog",
    "fx": [
@@ -1318,10 +1319,20 @@
     {
      "type": "card",
      "text": "FBI view: he probably didn't survive\nNo body has ever been found",
-     "start": 0.8,
+     "start": 0.6,
+     "duration": 1.8,
      "params": {
       "header": "UNRESOLVED",
       "y": 1250
+     }
+    },
+    {
+     "type": "text",
+     "text": "WHERE DID\nHE LAND?",
+     "start": 2.4,
+     "params": {
+      "size": 110,
+      "y": 800
      }
     }
    ],
@@ -1341,37 +1352,6 @@
   },
   {
    "id": "S23",
-   "lines": [
-    "L23"
-   ],
-   "environment": "map",
-   "description": "Map card from S15 again, empty of pins; a pulsing '?' pin waits over the forest region.",
-   "camera": "2D overlay, slow zoom",
-   "characters": [],
-   "lighting": "n/a",
-   "fx": [],
-   "overlay": [
-    {
-     "type": "text",
-     "text": "WHERE DID HE LAND?",
-     "start": 0.2,
-     "params": {
-      "size": 90,
-      "y": 700
-     }
-    }
-   ],
-   "sfx": [
-    {
-     "name": "riser",
-     "offset": 0.0,
-     "gain": 0.4
-    }
-   ],
-   "transition_in": "cut"
-  },
-  {
-   "id": "S24",
    "lines": [
     "L24"
    ],

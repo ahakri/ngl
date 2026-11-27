@@ -11,7 +11,7 @@ import studio_lib as L
 # ----------------------------------------------------------------------------- scene helpers
 
 
-def setup(raytrace=True, vol_end=60, vol_tile="4", vol_samples=48):
+def setup(raytrace=False, vol_end=60, vol_tile="8", vol_samples=24):
     """EEVEE tweaks for water scenes: screen-space reflections/refraction for water surfaces."""
     e = bpy.context.scene.eevee
     for attr, val in (("use_raytracing", raytrace), ("volumetric_end", vol_end), ("volumetric_tile_size", vol_tile),

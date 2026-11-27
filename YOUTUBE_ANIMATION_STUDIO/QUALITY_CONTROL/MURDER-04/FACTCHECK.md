@@ -41,7 +41,7 @@ Source key (URLs from concepts.json research, not re-fetched this session):
 | L23 | Two shorter Zodiac ciphers remain unsolved (on screen: Z13 April 1970, Z32 June 1970) | ⚠ PROVISIONAL, high confidence. Meaning: no solution accepted by the FBI or the cryptology community. Many claimed solutions exist. **If wording is challenged**, change to "have no accepted solution". | [WOLF], [ARX] | |
 | L24 | One is 13 symbols; it follows the words "My name is" | ⚠ PROVISIONAL, high confidence (letter of 20 Apr 1970) | [WOLF], [ARX] | |
 | L25 | (question) Think you can read it? | No claim | n/a | |
-| S25 stamp | "In memory of the Zodiac's victims" | Respect card, no claim | n/a | |
+| S24 stamp | "In memory of the Zodiac's victims" | Respect card, no claim | n/a | |
 
 ## Removed or softened during scripting
 

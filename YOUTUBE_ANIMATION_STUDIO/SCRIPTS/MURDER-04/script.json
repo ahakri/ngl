@@ -59,7 +59,7 @@
    "id": "L06",
    "text": "This one didn't.",
    "pause_after": 0.3,
-   "shot": "S06",
+   "shot": "S05",
    "emphasis": [
     "didn't"
    ]
@@ -68,7 +68,7 @@
    "id": "L07",
    "text": "Then, in December 2020, three amateurs broke it.",
    "pause_after": 0.3,
-   "shot": "S07",
+   "shot": "S06",
    "emphasis": [
     "2020",
     "amateurs"
@@ -78,7 +78,7 @@
    "id": "L08",
    "text": "A software developer in Virginia.",
    "pause_after": 0.2,
-   "shot": "S08",
+   "shot": "S07",
    "emphasis": [
     "Virginia"
    ]
@@ -87,7 +87,7 @@
    "id": "L09",
    "text": "A mathematician in Australia.",
    "pause_after": 0.2,
-   "shot": "S09",
+   "shot": "S08",
    "emphasis": [
     "Australia"
    ]
@@ -96,7 +96,7 @@
    "id": "L10",
    "text": "A warehouse worker in Belgium.",
    "pause_after": 0.35,
-   "shot": "S10",
+   "shot": "S09",
    "emphasis": [
     "Belgium"
    ]
@@ -105,7 +105,7 @@
    "id": "L11",
    "text": "Their key insight: it wasn't written left to right.",
    "pause_after": 0.4,
-   "shot": "S11",
+   "shot": "S10",
    "emphasis": [
     "left",
     "to",
@@ -116,7 +116,7 @@
    "id": "L12",
    "text": "Most of it ran diagonally. Down one row, across two.",
    "pause_after": 0.3,
-   "shot": "S12",
+   "shot": "S11",
    "emphasis": [
     "diagonally"
    ]
@@ -125,7 +125,7 @@
    "id": "L13",
    "text": "The mathematician tested hundreds of thousands of reading orders.",
    "pause_after": 0.25,
-   "shot": "S13",
+   "shot": "S12",
    "emphasis": [
     "hundreds",
     "of",
@@ -136,7 +136,7 @@
    "id": "L14",
    "text": "The warehouse worker's software attacked each one.",
    "pause_after": 0.3,
-   "shot": "S14",
+   "shot": "S13",
    "emphasis": [
     "software"
    ]
@@ -145,7 +145,7 @@
    "id": "L15",
    "text": "Then words surfaced. Trying to catch me.",
    "pause_after": 0.45,
-   "shot": "S15",
+   "shot": "S14",
    "emphasis": [
     "catch",
     "me"
@@ -155,7 +155,7 @@
    "id": "L16",
    "text": "The FBI acknowledged the cipher had been solved.",
    "pause_after": 0.3,
-   "shot": "S16",
+   "shot": "S15",
    "emphasis": [
     "FBI",
     "solved"
@@ -165,16 +165,16 @@
    "id": "L17",
    "text": "So what did it say?",
    "pause_after": 0.45,
-   "shot": "S17",
+   "shot": "S16",
    "emphasis": [
-    "finally"
+    "say"
    ]
   },
   {
    "id": "L18",
    "text": "I hope you are having lots of fun in trying to catch me.",
    "pause_after": 0.25,
-   "shot": "S18",
+   "shot": "S17",
    "emphasis": [
     "fun"
    ]
@@ -183,7 +183,7 @@
    "id": "L19",
    "text": "That wasn't me on the TV show.",
    "pause_after": 0.35,
-   "shot": "S19",
+   "shot": "S18",
    "emphasis": [
     "TV",
     "show"
@@ -193,7 +193,7 @@
    "id": "L20",
    "text": "Probably a 1969 TV caller who claimed to be him.",
    "pause_after": 0.3,
-   "shot": "S20",
+   "shot": "S19",
    "emphasis": [
     "caller"
    ]
@@ -202,7 +202,7 @@
    "id": "L21",
    "text": "Fifty-one years of waiting. For a taunt.",
    "pause_after": 0.5,
-   "shot": "S21",
+   "shot": "S20",
    "emphasis": [
     "taunt"
    ]
@@ -211,7 +211,7 @@
    "id": "L22",
    "text": "No name. The killer has never been identified.",
    "pause_after": 0.35,
-   "shot": "S22",
+   "shot": "S21",
    "emphasis": [
     "never",
     "identified"
@@ -221,7 +221,7 @@
    "id": "L23",
    "text": "And two shorter Zodiac ciphers remain unsolved.",
    "pause_after": 0.3,
-   "shot": "S23",
+   "shot": "S22",
    "emphasis": [
     "unsolved"
    ]
@@ -230,7 +230,7 @@
    "id": "L24",
    "text": "One is just thirteen symbols. Right before it, he wrote: my name is.",
    "pause_after": 0.45,
-   "shot": "S24",
+   "shot": "S23",
    "emphasis": [
     "my",
     "name",
@@ -241,7 +241,7 @@
    "id": "L25",
    "text": "Think you can read it?",
    "pause_after": 0.6,
-   "shot": "S25",
+   "shot": "S24",
    "emphasis": [
     "read"
    ]
@@ -459,10 +459,11 @@
   {
    "id": "S05",
    "lines": [
-    "L05"
+    "L05",
+    "L06"
    ],
    "environment": "document",
-   "description": "Document reveal on a kitchen-table plate (warm lamp, two coffee cups as simple cylinders): a 1969-style newspaper column slides in, with a smaller earlier cipher sheet under it; pencil-drawn solving marks over its symbols.",
+   "description": "Document reveal on a kitchen-table plate (warm lamp, two coffee cups as simple cylinders): a 1969-style newspaper column slides in, with a smaller earlier cipher sheet under it; pencil-drawn solving marks over its symbols. On 'This one didn't' (about 2.3 s in) the paper whips away and the defocused 340 grid slams back in behind red text.",
    "camera": "2D overlay over the kitchen-table plate, slight push",
    "characters": [],
    "lighting": "warm domestic lamp",
@@ -471,6 +472,7 @@
     {
      "type": "document",
      "text": "First Zodiac cipher (408 symbols)\nmailed July 1969\nsolved about a week later\nby a Salinas couple",
+     "duration": 2.3,
      "params": {
       "style": "paper",
       "title": "1969 - CIPHER No. 1",
@@ -480,8 +482,23 @@
     {
      "type": "label",
      "text": "DOCUMENTED FACT",
+     "duration": 2.3,
      "params": {
       "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "THE 340:\nUNSOLVED",
+     "start": 2.3,
+     "params": {
+      "size": 120,
+      "y": 800,
+      "color": [
+       230,
+       40,
+       40
+      ]
      }
     }
    ],
@@ -496,61 +513,6 @@
   },
   {
    "id": "S06",
-   "lines": [
-    "L06"
-   ],
-   "environment": "timeline",
-   "description": "Timeline overlay over the slowly rotating cipher grid (grid in background, defocused): years tick across; the line stays red, unsolved.",
-   "camera": "background grid slow 10 deg turn, 50mm, shallow DOF",
-   "characters": [],
-   "lighting": "cold blue rim on the grid",
-   "fx": [
-    "dust"
-   ],
-   "overlay": [
-    {
-     "type": "timeline",
-     "text": "UNSOLVED",
-     "params": {
-      "events": [
-       [
-        "1969",
-        "mailed"
-       ],
-       [
-        "1990s",
-        "still unread"
-       ],
-       [
-        "2020",
-        "?"
-       ]
-      ],
-      "highlight_last": true
-     }
-    }
-   ],
-   "sfx": [
-    {
-     "name": "whoosh",
-     "offset": 0.0,
-     "gain": 0.5
-    },
-    {
-     "name": "click",
-     "offset": 0.6,
-     "gain": 0.3
-    },
-    {
-     "name": "click",
-     "offset": 1.4,
-     "gain": 0.3
-    }
-   ],
-   "transition_in": "cut"
-  },
-  {
-   "id": "S07",
    "lines": [
     "L07"
    ],
@@ -591,7 +553,7 @@
    "transition_in": "whip"
   },
   {
-   "id": "S08",
+   "id": "S07",
    "lines": [
     "L08"
    ],
@@ -649,7 +611,7 @@
    "transition_in": "whip"
   },
   {
-   "id": "S09",
+   "id": "S08",
    "lines": [
     "L09"
    ],
@@ -711,7 +673,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S10",
+   "id": "S09",
    "lines": [
     "L10"
    ],
@@ -790,7 +752,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S11",
+   "id": "S10",
    "lines": [
     "L11"
    ],
@@ -833,7 +795,7 @@
    "transition_in": "flash"
   },
   {
-   "id": "S12",
+   "id": "S11",
    "lines": [
     "L12"
    ],
@@ -886,7 +848,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S13",
+   "id": "S12",
    "lines": [
     "L13"
    ],
@@ -926,7 +888,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S14",
+   "id": "S13",
    "lines": [
     "L14"
    ],
@@ -970,7 +932,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S15",
+   "id": "S14",
    "lines": [
     "L15"
    ],
@@ -1011,7 +973,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S16",
+   "id": "S15",
    "lines": [
     "L16"
    ],
@@ -1054,7 +1016,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S17",
+   "id": "S16",
    "lines": [
     "L17"
    ],
@@ -1075,7 +1037,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S18",
+   "id": "S17",
    "lines": [
     "L18"
    ],
@@ -1113,7 +1075,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S19",
+   "id": "S18",
    "lines": [
     "L19"
    ],
@@ -1146,7 +1108,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S20",
+   "id": "S19",
    "lines": [
     "L20"
    ],
@@ -1191,7 +1153,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S21",
+   "id": "S20",
    "lines": [
     "L21"
    ],
@@ -1224,7 +1186,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S22",
+   "id": "S21",
    "lines": [
     "L22"
    ],
@@ -1267,7 +1229,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S23",
+   "id": "S22",
    "lines": [
     "L23"
    ],
@@ -1300,7 +1262,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S24",
+   "id": "S23",
    "lines": [
     "L24"
    ],
@@ -1342,7 +1304,7 @@
    "transition_in": "cut"
   },
   {
-   "id": "S25",
+   "id": "S24",
    "lines": [
     "L25"
    ],

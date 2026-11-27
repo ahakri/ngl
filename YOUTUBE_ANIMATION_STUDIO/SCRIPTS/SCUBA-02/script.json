@@ -365,7 +365,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "EYEWITNESS CLAIM",
      "params": {
       "y": 200
      }
@@ -418,7 +418,7 @@
     },
     {
      "type": "label",
-     "text": "ONE ACCOUNT",
+     "text": "DISPUTED",
      "params": {
       "y": 200
      }
@@ -460,7 +460,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "ALL ABOARD \u2713",
+     "text": "ALL ABOARD ✓",
      "params": {
       "y": 420,
       "size": 90
@@ -704,7 +704,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "FOUND",
+     "text": "DOCUMENTED FACT",
      "params": {
       "y": 200
      }
@@ -740,7 +740,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "REPORTED",
+     "text": "DISPUTED",
      "params": {
       "y": 200
      }
@@ -808,7 +808,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "UNKNOWN",
+     "text": "DRAMATISATION",
      "params": {
       "y": 200
      }
@@ -875,7 +875,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "COUNT 1 \u2713\nCOUNT 2 \u2713",
+     "text": "COUNT 1 ✓\nCOUNT 2 ✓",
      "params": {
       "y": 420,
       "size": 90
