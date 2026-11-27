@@ -71,7 +71,7 @@ def _pond(L, n, tod="morning", trees=200, shaft=False, coarse=True, knees=True):
         C.heightfield(size=(110, 110), center=(0, 0, 0), res=0.9, fn=lambda x, y: fn(x, y) - 0.06, mat=gm,
                       name="ground", disp=(0.0, 0.0))
     C.heightfield(size=(24, 24), center=(0, 0, 0), res=0.16, fn=fn, mat=gm, name="bank", disp=(0.0, 0.0))
-    sand = L.mat_noise_surface("sand", (0.5, 0.4, 0.26), (0.82, 0.7, 0.5), scale=2.0, bump=0.3, voronoi=False)
+    sand = L.mat_noise_surface("sand", (0.3, 0.22, 0.13), (0.55, 0.44, 0.3), scale=2.0, bump=0.3, voronoi=False)
 
     def sand_z(x, y):
         k = C.sm((-y - 2.0) / 3.0) * C.sm((3.0 - abs(x) - 0.25 * max(0.0, -y - PR - 3.5)) / 1.2)
@@ -382,14 +382,15 @@ def S12(L, n):
     bpy.data.objects["pond"].hide_render = True
     sky = L.prim("plane", loc=(0, 0, WZ + 0.01), size=2 * PR + 4, name="underside")
     L.assign(sky, C.emis("underside_m", (0.45, 0.75, 0.4), 1.2))
-    sh, day = _chimney(L, n, light=500)
-    C.water(center=(0, 0, WZ - 0.8), size=(2 * PR, 2 * PR, 1.5), color=GREEN_W, density=0.08,
+    sh, day = _chimney(L, n, light=150)
+    bpy.data.objects["chimwater"].active_material.node_tree.nodes["Principled Volume"].inputs["Density"].default_value = 0.035
+    C.water(center=(0, 0, WZ - 0.8), size=(2 * PR, 2 * PR, 1.5), color=GREEN_W, density=0.025,
             absorption=(0.3, 0.15, 0.35), name="poolwater")
     c = C.diver("diverC", fins=(0.2, 0.75, 0.3), tanks="doubles", rebreather=False, light_energy=600, beam_len=2.0,
                 beam_strength=0.2)
     rc = c["root"]
     rc.rotation_euler = (0.35, 0, math.radians(35))
-    C.key_loc(rc, [(1, (0.75, 1.05, WZ - 2.1)), (n, (0.72, 1.0, WZ - 2.05))])
+    C.key_loc(rc, [(1, (0.85, 1.15, WZ - 2.0)), (n, (0.82, 1.1, WZ - 1.95))])
     L.anim_swim(c, n, kick_rate=0.35, amp=0.12)
     # the two deep divers: torches only (generic), shrinking down the shaft
     for k, (x, ph) in enumerate(((-0.3, 0), (0.25, 6))):
@@ -398,11 +399,11 @@ def S12(L, n):
         sp.parent = g
         C.key_loc(g, [(1, (x, 0.05 * k, WZ - 3.0 - 0.6 * k)), (n, (x * 0.6, 0.0, WZ - 13.0 - 0.8 * k))])
         em = g.active_material.node_tree.nodes["Emission"].inputs[1]
-        C.key_input(em, [(1, 10), (int(n * 0.7), 6), (n, 2.5)])
-        C.key_input(hem.inputs[1], [(1, 3.5), (int(n * 0.7), 2.0), (n, 0.8)])
+        C.key_input(em, [(1, 14), (int(n * 0.7), 9), (n, 4)])
+        C.key_input(hem.inputs[1], [(1, 5.0), (int(n * 0.7), 3.0), (n, 1.2)])
         C.key_energy(sp, [(1, 1500), (n, 400)])
     cam = C.camera(lens=24)
-    C.aim_cam(cam, n, [(1, (1.1, 2.4, WZ - 0.3), (0.0, 0.0, WZ - 9.0)), (n, (1.05, 2.3, WZ - 0.35), (0.0, 0.0, WZ - 10.0))],
+    C.aim_cam(cam, n, [(1, (0.4, 0.75, WZ - 0.3), (0.0, 0.0, WZ - 9.0)), (n, (0.38, 0.72, WZ - 0.35), (0.0, 0.0, WZ - 10.0))],
               shake=0.015, rot_shake=0.003)
     C.cam_fill(cam, energy=40, color=(0.6, 0.9, 0.6))
     L.bake_static()
@@ -535,8 +536,8 @@ def S08(L, n):
     C.key_energy(tl, [(1, 900), (fl - 1, 900), (fl, 120), (fl + 2, 650), (fl + 3, 200), (fl + 5, 900), (n, 900)])
     C.constant_keys(tl.data)
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (sc.x + 0.05, sc.y - 2.2, sc.z + 0.05), (sc.x, sc.y, sc.z - 0.26)),
-                       (n, (sc.x + 0.03, sc.y - 1.9, sc.z + 0.04), (sc.x, sc.y, sc.z - 0.23))],
+    C.aim_cam(cam, n, [(1, (sc.x + 0.05, sc.y - 2.2, sc.z + 0.05), (sc.x, sc.y, sc.z - 0.1)),
+                       (n, (sc.x + 0.03, sc.y - 1.9, sc.z + 0.04), (sc.x, sc.y, sc.z - 0.08))],
               shake=0.006, rot_shake=0.002)
     C.cam_fill(cam, energy=6, color=(0.55, 0.7, 0.85))
     s = C.cloud((sc.x, sc.y - 0.6, sc.z), (1.6, 0.6, 1.2), count=150, radius=0.0015, color=(0.8, 0.75, 0.6), emit=0.04,
@@ -570,7 +571,9 @@ def S15(L, n):
     aim = _track(torch, (0, 0, 0), "aim")
     C.key_loc(aim, [(1, (-1.2, 4.0, -0.4)), (int(n * 0.4), (1.2, 5.5, 0.2)), (int(n * 0.75), (-0.6, 7.0, 0.5)),
                     (n, (0.3, 9.0, -0.8))])
-    C.cam_fill(cam, energy=90, color=(0.4, 0.55, 0.85))
+    C.cam_fill(cam, energy=300, color=(0.4, 0.55, 0.85))
+    for y in (3.0, 8.0, 13.0):
+        L.point((0.0, y, 0.4), energy=25, color=(0.35, 0.5, 0.8), radius=0.8, name="tunfill")
     L.bake_static()
 
 
@@ -619,8 +622,8 @@ def _eagle_section(L, name="xs"):
     C.text("CHIMNEY", (0.9, -0.45, -1.7), size=0.55, color=(0.75, 0.95, 1.0), strength=3.0, align="LEFT",
            name=name + "_t1")
     C.text("BALLROOM", (-0.9, -0.45, -3.55), size=0.55, color=(0.75, 0.95, 1.0), strength=3.0, name=name + "_t2")
-    L.area((-3, -6, 2), (math.radians(60), 0, math.radians(-25)), energy=2500, size=8, color=(0.7, 0.85, 1.0))
-    L.area((5, -6, -6), (math.radians(70), 0, math.radians(30)), energy=1500, size=8, color=(0.8, 0.85, 0.9))
+    L.area((-3, -6, 2), (math.radians(60), 0, math.radians(-25)), energy=700, size=8, color=(0.7, 0.85, 1.0))
+    L.area((5, -6, -6), (math.radians(70), 0, math.radians(30)), energy=450, size=8, color=(0.8, 0.85, 0.9))
     return xs
 
 

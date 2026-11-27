@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T14:57:11Z
+Updated: 2026-11-27T15:53:03Z
 
 ## Concept counts
 
@@ -16,10 +16,10 @@ Updated: 2026-11-27T14:57:11Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 19
+- ANIMATED - in render queue: 21
 - CONCEPT: 72
 - QC PASSED: 1
-- SCRIPTED: 8
+- SCRIPTED: 6
 
 ## Videos in production
 
@@ -29,8 +29,8 @@ Updated: 2026-11-27T14:57:11Z
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | ANIMATED - in render queue |
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATED - in render queue |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | ANIMATED - in render queue |
-| CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | SCRIPTED |
-| CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | SCRIPTED |
+| CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | ANIMATED - in render queue |
+| CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | ANIMATED - in render queue |
 | CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | SCRIPTED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |
 | SCUBA-02 | The Boat Left Without Them | 82 | ANIMATED - in render queue |

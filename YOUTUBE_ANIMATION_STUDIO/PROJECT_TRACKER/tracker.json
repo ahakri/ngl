@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T14:57:11Z",
+ "updated": "2026-11-27T15:53:03Z",
  "phases": {
   "P1_research": {
    "status": "in_progress",
@@ -49,8 +49,8 @@
   "CAVE-02": "ANIMATED - in render queue",
   "CAVE-03": "ANIMATED - in render queue",
   "CAVE-04": "ANIMATED - in render queue",
-  "CAVE-05": "SCRIPTED",
-  "CAVE-06": "SCRIPTED",
+  "CAVE-05": "ANIMATED - in render queue",
+  "CAVE-06": "ANIMATED - in render queue",
   "CAVE-07": "SCRIPTED",
   "SCUBA-01": "ANIMATED - in render queue",
   "SCUBA-02": "ANIMATED - in render queue",
