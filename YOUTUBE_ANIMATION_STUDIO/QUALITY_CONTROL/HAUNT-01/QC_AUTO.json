@@ -3,10 +3,10 @@
  "checks": {
   "resolution": "1080x1920",
   "fps": "24/1",
-  "duration_s": 56.48,
+  "duration_s": 56.46,
   "has_audio": true,
-  "integrated_lufs": -14.1,
-  "true_peak_dbfs": -1.4,
+  "integrated_lufs": -14.5,
+  "true_peak_dbfs": -1.1,
   "black_segments": [],
   "frozen_starts": [],
   "silences": [],

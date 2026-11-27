@@ -1,11 +1,11 @@
 {
  "duration": 72.71,
- "voice": "am_onyx",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.9,
+   "end": 3.91,
    "text": "This scrap was hidden in a tiny pocket inside a dead man's trousers.",
    "words": [
     {
@@ -21,456 +21,456 @@
     {
      "w": "was",
      "start": 0.8,
-     "end": 0.86
+     "end": 0.94
     },
     {
      "w": "hidden",
-     "start": 0.86,
-     "end": 1.28
+     "start": 0.94,
+     "end": 1.25
     },
     {
      "w": "in",
-     "start": 1.28,
-     "end": 1.35
+     "start": 1.25,
+     "end": 1.45
     },
     {
      "w": "a",
-     "start": 1.35,
-     "end": 1.62
+     "start": 1.45,
+     "end": 1.61
     },
     {
      "w": "tiny",
-     "start": 1.62,
-     "end": 1.86
+     "start": 1.61,
+     "end": 1.99
     },
     {
      "w": "pocket",
-     "start": 1.86,
-     "end": 2.3
+     "start": 1.99,
+     "end": 2.35
     },
     {
      "w": "inside",
-     "start": 2.3,
-     "end": 2.75
+     "start": 2.35,
+     "end": 2.67
     },
     {
      "w": "a",
-     "start": 2.75,
-     "end": 2.93
+     "start": 2.67,
+     "end": 2.83
     },
     {
      "w": "dead",
-     "start": 2.93,
-     "end": 3.08
+     "start": 2.83,
+     "end": 3.17
     },
     {
      "w": "man's",
-     "start": 3.08,
-     "end": 3.32
+     "start": 3.17,
+     "end": 3.33
     },
     {
      "w": "trousers.",
-     "start": 3.32,
-     "end": 3.84
+     "start": 3.33,
+     "end": 3.85
     }
    ]
   },
   {
    "id": "L02",
    "start": 4.15,
-   "end": 6.76,
+   "end": 6.71,
    "text": "Two words. Tamam Shud. Persian for, ended.",
    "words": [
     {
      "w": "Two",
      "start": 4.18,
-     "end": 4.39
+     "end": 4.38
     },
     {
      "w": "words.",
-     "start": 4.39,
+     "start": 4.38,
      "end": 4.8
     },
     {
      "w": "Tamam",
      "start": 4.8,
-     "end": 5.2
+     "end": 5.27
     },
     {
      "w": "Shud.",
-     "start": 5.2,
-     "end": 5.6
+     "start": 5.27,
+     "end": 5.55
     },
     {
      "w": "Persian",
-     "start": 5.6,
-     "end": 6.06
+     "start": 5.55,
+     "end": 5.95
     },
     {
      "w": "for,",
-     "start": 6.06,
-     "end": 6.26
+     "start": 5.95,
+     "end": 6.28
     },
     {
      "w": "ended.",
-     "start": 6.26,
-     "end": 6.7
+     "start": 6.28,
+     "end": 6.65
     }
    ]
   },
   {
    "id": "L03",
    "start": 7.16,
-   "end": 11.1,
+   "end": 11.09,
    "text": "Somerton Beach, Adelaide. The first of December, 1948.",
    "words": [
     {
      "w": "Somerton",
      "start": 7.19,
-     "end": 7.83
+     "end": 7.7
     },
     {
      "w": "Beach,",
-     "start": 7.83,
-     "end": 8.23
+     "start": 7.7,
+     "end": 8.24
     },
     {
      "w": "Adelaide.",
-     "start": 8.23,
-     "end": 8.8
+     "start": 8.24,
+     "end": 8.79
     },
     {
      "w": "The",
-     "start": 8.8,
+     "start": 8.79,
      "end": 8.94
     },
     {
      "w": "first",
      "start": 8.94,
-     "end": 9.43
+     "end": 9.4
     },
     {
      "w": "of",
-     "start": 9.43,
-     "end": 9.61
+     "start": 9.4,
+     "end": 9.55
     },
     {
      "w": "December,",
-     "start": 9.61,
+     "start": 9.55,
      "end": 10.1
     },
     {
      "w": "1948.",
      "start": 10.1,
-     "end": 11.04
+     "end": 11.03
     }
    ]
   },
   {
    "id": "L04",
    "start": 11.3,
-   "end": 14.46,
+   "end": 14.36,
    "text": "A well-dressed man, dead against the seawall. No ID.",
    "words": [
     {
      "w": "A",
      "start": 11.33,
-     "end": 11.46
+     "end": 11.57
     },
     {
      "w": "well-dressed",
-     "start": 11.46,
-     "end": 12.16
+     "start": 11.57,
+     "end": 12.19
     },
     {
      "w": "man,",
-     "start": 12.16,
-     "end": 12.4
+     "start": 12.19,
+     "end": 12.38
     },
     {
      "w": "dead",
-     "start": 12.4,
-     "end": 12.66
+     "start": 12.38,
+     "end": 12.68
     },
     {
      "w": "against",
-     "start": 12.66,
+     "start": 12.68,
      "end": 13.07
     },
     {
      "w": "the",
      "start": 13.07,
-     "end": 13.2
+     "end": 13.24
     },
     {
      "w": "seawall.",
-     "start": 13.2,
-     "end": 13.7
+     "start": 13.24,
+     "end": 13.62
     },
     {
      "w": "No",
-     "start": 13.7,
-     "end": 14.07
+     "start": 13.62,
+     "end": 13.87
     },
     {
      "w": "ID.",
-     "start": 14.07,
-     "end": 14.4
+     "start": 13.87,
+     "end": 14.3
     }
    ]
   },
   {
    "id": "L05",
    "start": 14.66,
-   "end": 16.92,
+   "end": 16.82,
    "text": "The labels on his clothes had been cut out.",
    "words": [
     {
      "w": "The",
      "start": 14.69,
-     "end": 14.75
+     "end": 14.78
     },
     {
      "w": "labels",
-     "start": 14.75,
-     "end": 15.17
+     "start": 14.78,
+     "end": 15.16
     },
     {
      "w": "on",
-     "start": 15.17,
-     "end": 15.45
+     "start": 15.16,
+     "end": 15.41
     },
     {
      "w": "his",
-     "start": 15.45,
-     "end": 15.58
+     "start": 15.41,
+     "end": 15.52
     },
     {
      "w": "clothes",
-     "start": 15.58,
-     "end": 16.0
+     "start": 15.52,
+     "end": 15.92
     },
     {
      "w": "had",
-     "start": 16.0,
-     "end": 16.19
+     "start": 15.92,
+     "end": 16.13
     },
     {
      "w": "been",
-     "start": 16.19,
-     "end": 16.39
+     "start": 16.13,
+     "end": 16.31
     },
     {
      "w": "cut",
-     "start": 16.39,
-     "end": 16.59
+     "start": 16.31,
+     "end": 16.49
     },
     {
      "w": "out.",
-     "start": 16.59,
-     "end": 16.86
+     "start": 16.49,
+     "end": 16.76
     }
    ]
   },
   {
    "id": "L06",
    "start": 17.22,
-   "end": 21.35,
+   "end": 21.3,
    "text": "Weeks later, a suitcase linked to him turned up at Adelaide railway station.",
    "words": [
     {
      "w": "Weeks",
      "start": 17.25,
-     "end": 17.52
+     "end": 17.51
     },
     {
      "w": "later,",
-     "start": 17.52,
-     "end": 17.87
+     "start": 17.51,
+     "end": 17.96
     },
     {
      "w": "a",
-     "start": 17.87,
-     "end": 18.08
+     "start": 17.96,
+     "end": 18.0
     },
     {
      "w": "suitcase",
-     "start": 18.08,
-     "end": 18.57
+     "start": 18.0,
+     "end": 18.59
     },
     {
      "w": "linked",
-     "start": 18.57,
-     "end": 18.86
+     "start": 18.59,
+     "end": 18.9
     },
     {
      "w": "to",
-     "start": 18.86,
-     "end": 19.07
+     "start": 18.9,
+     "end": 19.01
     },
     {
      "w": "him",
-     "start": 19.07,
-     "end": 19.23
+     "start": 19.01,
+     "end": 19.25
     },
     {
      "w": "turned",
-     "start": 19.23,
-     "end": 19.68
+     "start": 19.25,
+     "end": 19.66
     },
     {
      "w": "up",
-     "start": 19.68,
-     "end": 19.85
+     "start": 19.66,
+     "end": 19.82
     },
     {
      "w": "at",
-     "start": 19.85,
-     "end": 19.85
+     "start": 19.82,
+     "end": 19.87
     },
     {
      "w": "Adelaide",
-     "start": 19.85,
-     "end": 20.35
+     "start": 19.87,
+     "end": 20.33
     },
     {
      "w": "railway",
-     "start": 20.35,
-     "end": 20.88
+     "start": 20.33,
+     "end": 20.86
     },
     {
      "w": "station.",
-     "start": 20.88,
-     "end": 21.29
+     "start": 20.86,
+     "end": 21.24
     }
    ]
   },
   {
    "id": "L07",
    "start": 21.5,
-   "end": 23.06,
+   "end": 22.97,
    "text": "Its label? Removed too.",
    "words": [
     {
      "w": "Its",
-     "start": 21.53,
-     "end": 21.68
+     "start": 21.52,
+     "end": 21.67
     },
     {
      "w": "label?",
-     "start": 21.68,
-     "end": 22.13
+     "start": 21.67,
+     "end": 22.09
     },
     {
      "w": "Removed",
-     "start": 22.13,
-     "end": 22.69
+     "start": 22.09,
+     "end": 22.62
     },
     {
      "w": "too.",
-     "start": 22.69,
-     "end": 23.0
+     "start": 22.62,
+     "end": 22.91
     }
    ]
   },
   {
    "id": "L08",
    "start": 23.36,
-   "end": 26.82,
+   "end": 26.72,
    "text": "Then someone handed police the very book that scrap was torn from.",
    "words": [
     {
      "w": "Then",
      "start": 23.39,
-     "end": 23.61
+     "end": 23.6
     },
     {
      "w": "someone",
-     "start": 23.61,
-     "end": 24.07
+     "start": 23.6,
+     "end": 24.05
     },
     {
      "w": "handed",
-     "start": 24.07,
-     "end": 24.4
+     "start": 24.05,
+     "end": 24.37
     },
     {
      "w": "police",
-     "start": 24.4,
-     "end": 24.81
+     "start": 24.37,
+     "end": 24.75
     },
     {
      "w": "the",
-     "start": 24.81,
-     "end": 24.99
+     "start": 24.75,
+     "end": 24.89
     },
     {
      "w": "very",
-     "start": 24.99,
-     "end": 25.27
+     "start": 24.89,
+     "end": 25.18
     },
     {
      "w": "book",
-     "start": 25.27,
+     "start": 25.18,
      "end": 25.38
     },
     {
      "w": "that",
      "start": 25.38,
-     "end": 25.68
+     "end": 25.66
     },
     {
      "w": "scrap",
-     "start": 25.68,
-     "end": 25.96
+     "start": 25.66,
+     "end": 25.92
     },
     {
      "w": "was",
-     "start": 25.96,
-     "end": 26.16
+     "start": 25.92,
+     "end": 26.1
     },
     {
      "w": "torn",
-     "start": 26.16,
-     "end": 26.5
+     "start": 26.1,
+     "end": 26.43
     },
     {
      "w": "from.",
-     "start": 26.5,
-     "end": 26.76
+     "start": 26.43,
+     "end": 26.66
     }
    ]
   },
   {
    "id": "L09",
    "start": 26.97,
-   "end": 28.97,
+   "end": 28.91,
    "text": "The Rubaiyat of Omar Khayyam.",
    "words": [
     {
      "w": "The",
      "start": 27.0,
-     "end": 27.09
+     "end": 27.11
     },
     {
      "w": "Rubaiyat",
-     "start": 27.09,
-     "end": 27.86
+     "start": 27.11,
+     "end": 27.77
     },
     {
      "w": "of",
-     "start": 27.86,
-     "end": 27.91
+     "start": 27.77,
+     "end": 27.97
     },
     {
      "w": "Omar",
-     "start": 27.91,
-     "end": 28.34
+     "start": 27.97,
+     "end": 28.39
     },
     {
      "w": "Khayyam.",
-     "start": 28.34,
-     "end": 28.91
+     "start": 28.39,
+     "end": 28.85
     }
    ]
   },
@@ -483,61 +483,61 @@
     {
      "w": "On",
      "start": 29.2,
-     "end": 29.4
+     "end": 29.39
     },
     {
      "w": "the",
-     "start": 29.4,
+     "start": 29.39,
      "end": 29.57
     },
     {
      "w": "back",
      "start": 29.57,
-     "end": 29.7
+     "end": 29.69
     },
     {
      "w": "cover,",
-     "start": 29.7,
+     "start": 29.69,
      "end": 30.13
     },
     {
      "w": "in",
      "start": 30.13,
-     "end": 30.21
+     "end": 30.19
     },
     {
      "w": "pencil:",
-     "start": 30.21,
-     "end": 30.73
+     "start": 30.19,
+     "end": 30.75
     },
     {
      "w": "a",
-     "start": 30.73,
-     "end": 30.84
+     "start": 30.75,
+     "end": 30.81
     },
     {
      "w": "phone",
-     "start": 30.84,
-     "end": 31.23
+     "start": 30.81,
+     "end": 31.17
     },
     {
      "w": "number,",
-     "start": 31.23,
-     "end": 31.56
+     "start": 31.17,
+     "end": 31.6
     },
     {
      "w": "and",
-     "start": 31.56,
-     "end": 31.71
+     "start": 31.6,
+     "end": 31.68
     },
     {
      "w": "lines",
-     "start": 31.71,
-     "end": 32.14
+     "start": 31.68,
+     "end": 32.16
     },
     {
      "w": "of",
-     "start": 32.14,
+     "start": 32.16,
      "end": 32.18
     },
     {
@@ -550,333 +550,333 @@
   {
    "id": "L11",
    "start": 32.88,
-   "end": 34.88,
+   "end": 34.82,
    "text": "A code. Nobody has ever cracked it.",
    "words": [
     {
      "w": "A",
-     "start": 32.91,
-     "end": 33.02
+     "start": 32.9,
+     "end": 33.0
     },
     {
      "w": "code.",
-     "start": 33.02,
-     "end": 33.41
+     "start": 33.0,
+     "end": 33.39
     },
     {
      "w": "Nobody",
-     "start": 33.41,
-     "end": 33.89
+     "start": 33.39,
+     "end": 33.81
     },
     {
      "w": "has",
-     "start": 33.89,
-     "end": 34.18
+     "start": 33.81,
+     "end": 34.14
     },
     {
      "w": "ever",
-     "start": 34.18,
-     "end": 34.29
+     "start": 34.14,
+     "end": 34.26
     },
     {
      "w": "cracked",
-     "start": 34.29,
-     "end": 34.67
+     "start": 34.26,
+     "end": 34.7
     },
     {
      "w": "it.",
-     "start": 34.67,
-     "end": 34.82
+     "start": 34.7,
+     "end": 34.76
     }
    ]
   },
   {
    "id": "L12",
    "start": 35.23,
-   "end": 39.11,
+   "end": 39.07,
    "text": "Cause of death? Never determined. Poison was suspected. None was found.",
    "words": [
     {
      "w": "Cause",
-     "start": 35.26,
-     "end": 35.64
+     "start": 35.25,
+     "end": 35.62
     },
     {
      "w": "of",
-     "start": 35.64,
-     "end": 35.65
+     "start": 35.62,
+     "end": 35.63
     },
     {
      "w": "death?",
-     "start": 35.65,
-     "end": 35.91
+     "start": 35.63,
+     "end": 35.92
     },
     {
      "w": "Never",
-     "start": 35.91,
-     "end": 36.26
+     "start": 35.92,
+     "end": 36.25
     },
     {
      "w": "determined.",
-     "start": 36.26,
-     "end": 36.96
+     "start": 36.25,
+     "end": 36.94
     },
     {
      "w": "Poison",
-     "start": 36.96,
-     "end": 37.4
+     "start": 36.94,
+     "end": 37.38
     },
     {
      "w": "was",
-     "start": 37.4,
-     "end": 37.56
+     "start": 37.38,
+     "end": 37.59
     },
     {
      "w": "suspected.",
-     "start": 37.56,
+     "start": 37.59,
      "end": 38.17
     },
     {
      "w": "None",
      "start": 38.17,
-     "end": 38.52
+     "end": 38.49
     },
     {
      "w": "was",
-     "start": 38.52,
-     "end": 38.7
+     "start": 38.49,
+     "end": 38.68
     },
     {
      "w": "found.",
-     "start": 38.7,
-     "end": 39.05
+     "start": 38.68,
+     "end": 39.01
     }
    ]
   },
   {
    "id": "L13",
    "start": 39.36,
-   "end": 42.67,
+   "end": 42.54,
    "text": "Spy. Lost love. Suicide. Plenty of theories, no proof.",
    "words": [
     {
      "w": "Spy.",
      "start": 39.39,
-     "end": 39.76
+     "end": 39.72
     },
     {
      "w": "Lost",
-     "start": 39.76,
-     "end": 40.03
+     "start": 39.72,
+     "end": 40.0
     },
     {
      "w": "love.",
-     "start": 40.03,
-     "end": 40.34
+     "start": 40.0,
+     "end": 40.3
     },
     {
      "w": "Suicide.",
-     "start": 40.34,
-     "end": 40.95
+     "start": 40.3,
+     "end": 40.81
     },
     {
      "w": "Plenty",
-     "start": 40.95,
-     "end": 41.43
+     "start": 40.81,
+     "end": 41.25
     },
     {
      "w": "of",
-     "start": 41.43,
-     "end": 41.57
+     "start": 41.25,
+     "end": 41.43
     },
     {
      "w": "theories,",
-     "start": 41.57,
-     "end": 42.0
+     "start": 41.43,
+     "end": 41.92
     },
     {
      "w": "no",
-     "start": 42.0,
-     "end": 42.28
+     "start": 41.92,
+     "end": 42.07
     },
     {
      "w": "proof.",
-     "start": 42.28,
-     "end": 42.61
+     "start": 42.07,
+     "end": 42.48
     }
    ]
   },
   {
    "id": "L14",
    "start": 43.12,
-   "end": 46.28,
+   "end": 46.34,
    "text": "Then, in 2021, police exhumed his body.",
    "words": [
     {
      "w": "Then,",
      "start": 43.15,
-     "end": 43.47
+     "end": 43.48
     },
     {
      "w": "in",
-     "start": 43.47,
-     "end": 43.69
+     "start": 43.48,
+     "end": 43.7
     },
     {
      "w": "2021,",
-     "start": 43.69,
-     "end": 44.41
+     "start": 43.7,
+     "end": 44.44
     },
     {
      "w": "police",
-     "start": 44.41,
-     "end": 44.9
+     "start": 44.44,
+     "end": 44.98
     },
     {
      "w": "exhumed",
-     "start": 44.9,
-     "end": 45.56
+     "start": 44.98,
+     "end": 45.51
     },
     {
      "w": "his",
-     "start": 45.56,
-     "end": 45.86
+     "start": 45.51,
+     "end": 45.91
     },
     {
      "w": "body.",
-     "start": 45.86,
-     "end": 46.22
+     "start": 45.91,
+     "end": 46.28
     }
    ]
   },
   {
    "id": "L15",
    "start": 46.48,
-   "end": 51.63,
+   "end": 51.71,
    "text": "In 2022, a professor and a genealogist tested hairs from his plaster death mask.",
    "words": [
     {
      "w": "In",
      "start": 46.51,
-     "end": 46.63
+     "end": 46.66
     },
     {
      "w": "2022,",
-     "start": 46.63,
-     "end": 47.46
+     "start": 46.66,
+     "end": 47.44
     },
     {
      "w": "a",
-     "start": 47.46,
-     "end": 47.52
+     "start": 47.44,
+     "end": 47.65
     },
     {
      "w": "professor",
-     "start": 47.52,
-     "end": 48.03
+     "start": 47.65,
+     "end": 48.02
     },
     {
      "w": "and",
-     "start": 48.03,
-     "end": 48.21
+     "start": 48.02,
+     "end": 48.28
     },
     {
      "w": "a",
-     "start": 48.21,
-     "end": 48.41
+     "start": 48.28,
+     "end": 48.43
     },
     {
      "w": "genealogist",
-     "start": 48.41,
-     "end": 49.48
+     "start": 48.43,
+     "end": 49.51
     },
     {
      "w": "tested",
-     "start": 49.48,
-     "end": 49.84
+     "start": 49.51,
+     "end": 49.89
     },
     {
      "w": "hairs",
-     "start": 49.84,
-     "end": 50.19
+     "start": 49.89,
+     "end": 50.25
     },
     {
      "w": "from",
-     "start": 50.19,
-     "end": 50.43
+     "start": 50.25,
+     "end": 50.4
     },
     {
      "w": "his",
-     "start": 50.43,
-     "end": 50.65
+     "start": 50.4,
+     "end": 50.68
     },
     {
      "w": "plaster",
-     "start": 50.65,
-     "end": 50.97
+     "start": 50.68,
+     "end": 51.09
     },
     {
      "w": "death",
-     "start": 50.97,
-     "end": 51.27
+     "start": 51.09,
+     "end": 51.28
     },
     {
      "w": "mask.",
-     "start": 51.27,
-     "end": 51.57
+     "start": 51.28,
+     "end": 51.65
     }
    ]
   },
   {
    "id": "L16",
    "start": 51.83,
-   "end": 54.53,
+   "end": 54.46,
    "text": "The DNA led through family trees to a name.",
    "words": [
     {
      "w": "The",
      "start": 51.86,
-     "end": 51.95
+     "end": 51.97
     },
     {
      "w": "DNA",
-     "start": 51.95,
-     "end": 52.61
+     "start": 51.97,
+     "end": 52.53
     },
     {
      "w": "led",
-     "start": 52.61,
-     "end": 52.72
+     "start": 52.53,
+     "end": 52.8
     },
     {
      "w": "through",
-     "start": 52.72,
-     "end": 53.01
+     "start": 52.8,
+     "end": 53.07
     },
     {
      "w": "family",
-     "start": 53.01,
-     "end": 53.51
+     "start": 53.07,
+     "end": 53.44
     },
     {
      "w": "trees",
-     "start": 53.51,
-     "end": 53.87
+     "start": 53.44,
+     "end": 53.76
     },
     {
      "w": "to",
-     "start": 53.87,
-     "end": 54.04
+     "start": 53.76,
+     "end": 53.88
     },
     {
      "w": "a",
-     "start": 54.04,
-     "end": 54.23
+     "start": 53.88,
+     "end": 54.05
     },
     {
      "w": "name.",
-     "start": 54.23,
-     "end": 54.47
+     "start": 54.05,
+     "end": 54.4
     }
    ]
   },
@@ -889,51 +889,51 @@
     {
      "w": "Carl,",
      "start": 54.91,
-     "end": 55.26
+     "end": 55.27
     },
     {
      "w": "Charles,",
-     "start": 55.26,
-     "end": 55.82
+     "start": 55.27,
+     "end": 55.81
     },
     {
      "w": "Webb.",
-     "start": 55.82,
-     "end": 56.15
+     "start": 55.81,
+     "end": 56.16
     },
     {
      "w": "An",
-     "start": 56.15,
-     "end": 56.29
+     "start": 56.16,
+     "end": 56.2
     },
     {
      "w": "electrical",
-     "start": 56.29,
-     "end": 57.01
+     "start": 56.2,
+     "end": 56.9
     },
     {
      "w": "engineer",
-     "start": 57.01,
-     "end": 57.64
+     "start": 56.9,
+     "end": 57.6
     },
     {
      "w": "from",
-     "start": 57.64,
-     "end": 57.82
+     "start": 57.6,
+     "end": 57.94
     },
     {
      "w": "Melbourne,",
-     "start": 57.82,
-     "end": 58.36
+     "start": 57.94,
+     "end": 58.4
     },
     {
      "w": "born",
-     "start": 58.36,
-     "end": 58.68
+     "start": 58.4,
+     "end": 58.7
     },
     {
      "w": "1905.",
-     "start": 58.68,
+     "start": 58.7,
      "end": 59.54
     }
    ]
@@ -941,75 +941,75 @@
   {
    "id": "L18",
    "start": 60.05,
-   "end": 63.42,
+   "end": 63.46,
    "text": "But it isn't official. Police and the coroner haven't confirmed it yet.",
    "words": [
     {
      "w": "But",
-     "start": 60.08,
+     "start": 60.07,
+     "end": 60.29
+    },
+    {
+     "w": "it",
+     "start": 60.29,
      "end": 60.33
     },
     {
-     "w": "it",
-     "start": 60.33,
-     "end": 60.34
-    },
-    {
      "w": "isn't",
-     "start": 60.34,
-     "end": 60.72
+     "start": 60.33,
+     "end": 60.77
     },
     {
      "w": "official.",
-     "start": 60.72,
-     "end": 61.07
+     "start": 60.77,
+     "end": 61.11
     },
     {
      "w": "Police",
-     "start": 61.07,
-     "end": 61.51
+     "start": 61.11,
+     "end": 61.54
     },
     {
      "w": "and",
-     "start": 61.51,
-     "end": 61.69
+     "start": 61.54,
+     "end": 61.67
     },
     {
      "w": "the",
-     "start": 61.69,
-     "end": 61.7
+     "start": 61.67,
+     "end": 61.73
     },
     {
      "w": "coroner",
-     "start": 61.7,
-     "end": 62.22
+     "start": 61.73,
+     "end": 62.2
     },
     {
      "w": "haven't",
-     "start": 62.22,
-     "end": 62.51
+     "start": 62.2,
+     "end": 62.61
     },
     {
      "w": "confirmed",
-     "start": 62.51,
-     "end": 63.09
+     "start": 62.61,
+     "end": 63.07
     },
     {
      "w": "it",
-     "start": 63.09,
-     "end": 63.09
+     "start": 63.07,
+     "end": 63.17
     },
     {
      "w": "yet.",
-     "start": 63.09,
-     "end": 63.36
+     "start": 63.17,
+     "end": 63.4
     }
    ]
   },
   {
    "id": "L19",
    "start": 63.72,
-   "end": 66.45,
+   "end": 66.42,
    "text": "And even if he is Webb, no one knows how he died.",
    "words": [
     {
@@ -1025,173 +1025,330 @@
     {
      "w": "if",
      "start": 64.21,
-     "end": 64.45
+     "end": 64.44
     },
     {
      "w": "he",
-     "start": 64.45,
-     "end": 64.51
+     "start": 64.44,
+     "end": 64.5
     },
     {
      "w": "is",
-     "start": 64.51,
-     "end": 64.74
+     "start": 64.5,
+     "end": 64.73
     },
     {
      "w": "Webb,",
-     "start": 64.74,
-     "end": 64.89
+     "start": 64.73,
+     "end": 64.94
     },
     {
      "w": "no",
-     "start": 64.89,
-     "end": 65.14
+     "start": 64.94,
+     "end": 65.19
     },
     {
      "w": "one",
-     "start": 65.14,
-     "end": 65.44
+     "start": 65.19,
+     "end": 65.31
     },
     {
      "w": "knows",
-     "start": 65.44,
-     "end": 65.65
+     "start": 65.31,
+     "end": 65.66
     },
     {
      "w": "how",
-     "start": 65.65,
-     "end": 65.97
+     "start": 65.66,
+     "end": 65.95
     },
     {
      "w": "he",
-     "start": 65.97,
-     "end": 66.13
+     "start": 65.95,
+     "end": 66.12
     },
     {
      "w": "died.",
-     "start": 66.13,
-     "end": 66.39
+     "start": 66.12,
+     "end": 66.36
     }
    ]
   },
   {
    "id": "L20",
    "start": 66.6,
-   "end": 67.91,
+   "end": 67.82,
    "text": "Or what the code says.",
    "words": [
     {
      "w": "Or",
      "start": 66.63,
-     "end": 66.8
+     "end": 66.79
     },
     {
      "w": "what",
-     "start": 66.8,
-     "end": 67.1
+     "start": 66.79,
+     "end": 67.07
     },
     {
      "w": "the",
-     "start": 67.1,
-     "end": 67.18
+     "start": 67.07,
+     "end": 67.22
     },
     {
      "w": "code",
-     "start": 67.18,
+     "start": 67.22,
      "end": 67.55
     },
     {
      "w": "says.",
      "start": 67.55,
-     "end": 67.85
+     "end": 67.76
     }
    ]
   },
   {
    "id": "L21",
    "start": 68.26,
-   "end": 70.15,
+   "end": 70.13,
    "text": "So what do you think those letters spell?",
    "words": [
     {
      "w": "So",
      "start": 68.29,
-     "end": 68.45
+     "end": 68.47
     },
     {
      "w": "what",
-     "start": 68.45,
-     "end": 68.74
+     "start": 68.47,
+     "end": 68.66
     },
     {
      "w": "do",
-     "start": 68.74,
-     "end": 68.95
+     "start": 68.66,
+     "end": 68.82
     },
     {
      "w": "you",
-     "start": 68.95,
-     "end": 69.0
+     "start": 68.82,
+     "end": 69.01
     },
     {
      "w": "think",
-     "start": 69.0,
-     "end": 69.23
+     "start": 69.01,
+     "end": 69.26
     },
     {
      "w": "those",
-     "start": 69.23,
+     "start": 69.26,
      "end": 69.57
     },
     {
      "w": "letters",
      "start": 69.57,
-     "end": 69.88
+     "end": 69.76
     },
     {
      "w": "spell?",
-     "start": 69.88,
-     "end": 70.09
+     "start": 69.76,
+     "end": 70.07
     }
    ]
   },
   {
    "id": "L22",
    "start": 70.6,
-   "end": 72.11,
+   "end": 72.03,
    "text": "It all comes back to this.",
    "words": [
     {
      "w": "It",
      "start": 70.63,
-     "end": 70.7
+     "end": 70.71
     },
     {
      "w": "all",
-     "start": 70.7,
-     "end": 70.97
+     "start": 70.71,
+     "end": 71.0
     },
     {
      "w": "comes",
-     "start": 70.97,
+     "start": 71.0,
      "end": 71.29
     },
     {
      "w": "back",
      "start": 71.29,
-     "end": 71.59
+     "end": 71.58
     },
     {
      "w": "to",
-     "start": 71.59,
-     "end": 71.74
+     "start": 71.58,
+     "end": 71.69
     },
     {
      "w": "this.",
-     "start": 71.74,
-     "end": 72.05
+     "start": 71.69,
+     "end": 71.97
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 1.06,
+   "target": 3.75,
+   "dur": 3.76,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 1.06,
+   "target": 2.61,
+   "dur": 2.56,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 1.06,
+   "target": 3.94,
+   "dur": 3.93,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 1.002,
+   "target": 3.16,
+   "dur": 3.06,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 0.969,
+   "target": 2.26,
+   "dur": 2.16,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 1.06,
+   "target": 4.13,
+   "dur": 4.08,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 1.06,
+   "target": 1.56,
+   "dur": 1.47,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 1.029,
+   "target": 3.46,
+   "dur": 3.36,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 1.001,
+   "target": 2.0,
+   "dur": 1.94,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 1.06,
+   "target": 3.51,
+   "dur": 3.51,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.99,
+   "target": 2.0,
+   "dur": 1.94,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 1.06,
+   "target": 3.88,
+   "dur": 3.84,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 1.06,
+   "target": 3.31,
+   "dur": 3.18,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 1.114,
+   "target": 3.16,
+   "dur": 3.22,
+   "overrun": 0.0
+  },
+  {
+   "id": "L15",
+   "speed": 1.139,
+   "target": 5.15,
+   "dur": 5.23,
+   "overrun": 0.0
+  },
+  {
+   "id": "L16",
+   "speed": 0.928,
+   "target": 2.7,
+   "dur": 2.63,
+   "overrun": 0.0
+  },
+  {
+   "id": "L17",
+   "speed": 1.094,
+   "target": 4.72,
+   "dur": 4.72,
+   "overrun": 0.0
+  },
+  {
+   "id": "L18",
+   "speed": 1.06,
+   "target": 3.37,
+   "dur": 3.41,
+   "overrun": 0.0
+  },
+  {
+   "id": "L19",
+   "speed": 0.981,
+   "target": 2.73,
+   "dur": 2.7,
+   "overrun": 0.0
+  },
+  {
+   "id": "L20",
+   "speed": 1.06,
+   "target": 1.31,
+   "dur": 1.22,
+   "overrun": 0.0
+  },
+  {
+   "id": "L21",
+   "speed": 0.974,
+   "target": 1.89,
+   "dur": 1.87,
+   "overrun": 0.0
+  },
+  {
+   "id": "L22",
+   "speed": 0.966,
+   "target": 1.51,
+   "dur": 1.43,
+   "overrun": 0.0
   }
  ]
 }

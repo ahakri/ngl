@@ -15,3 +15,10 @@ VERDICT: PASS (v2, 2026-11-27)
 - Theories stamped THEORY / NO EVIDENCE, not "ruled out"; 2021 model labelled THEORY; scientists' "not solved" caveat kept. PASS
 - No bodies, injuries described only in text card; hikers faceless. PASS
 - Ends on comment prompt + loop back to the tent. PASS
+
+## Re-voice (2026-11-27, owner's choice: narrator voice am_adam, "Voice 03")
+- Narration re-synthesised in am_adam with the timing lock (AUDIO/MURDER-01/timings_ref.json): every line starts at its original time, so
+  picture, shot cuts and overlay cues are unchanged; captions rebuilt from the new word timings; video re-assembled from the existing frames.
+- Automated QC after re-voice: PASS (-14.2 LUFS, -1.4 dBTP); caption timing consistency check: 0 problems.
+- VERDICT stays PASS. Not machine-checkable here: pronunciation and delivery of the new voice were not auditioned by ear in this
+  container (no audio playback) — owner to confirm by listening.

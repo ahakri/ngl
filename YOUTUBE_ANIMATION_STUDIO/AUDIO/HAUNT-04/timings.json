@@ -1,624 +1,624 @@
 {
  "duration": 57.33,
- "voice": "bm_george",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 5.65,
+   "end": 5.45,
    "text": "In 1936, a photographer said a woman was drifting down these stairs.",
    "words": [
     {
      "w": "In",
-     "start": 0.18,
-     "end": 0.47
+     "start": 0.17,
+     "end": 0.45
     },
     {
      "w": "1936,",
-     "start": 0.47,
-     "end": 1.4
+     "start": 0.45,
+     "end": 1.24
     },
     {
      "w": "a",
-     "start": 1.4,
-     "end": 1.57
+     "start": 1.24,
+     "end": 1.55
     },
     {
      "w": "photographer",
-     "start": 1.57,
-     "end": 2.51
+     "start": 1.55,
+     "end": 2.36
     },
     {
      "w": "said",
-     "start": 2.51,
-     "end": 2.75
+     "start": 2.36,
+     "end": 2.63
     },
     {
      "w": "a",
-     "start": 2.75,
-     "end": 3.03
+     "start": 2.63,
+     "end": 2.83
     },
     {
      "w": "woman",
-     "start": 3.03,
-     "end": 3.51
+     "start": 2.83,
+     "end": 3.29
     },
     {
      "w": "was",
-     "start": 3.51,
-     "end": 3.76
+     "start": 3.29,
+     "end": 3.62
     },
     {
      "w": "drifting",
-     "start": 3.76,
-     "end": 4.34
+     "start": 3.62,
+     "end": 4.16
     },
     {
      "w": "down",
-     "start": 4.34,
-     "end": 4.69
+     "start": 4.16,
+     "end": 4.56
     },
     {
      "w": "these",
-     "start": 4.69,
-     "end": 5.11
+     "start": 4.56,
+     "end": 4.92
     },
     {
      "w": "stairs.",
-     "start": 5.11,
-     "end": 5.59
+     "start": 4.92,
+     "end": 5.39
     }
    ]
   },
   {
    "id": "L02",
    "start": 5.85,
-   "end": 9.29,
+   "end": 9.04,
    "text": "Raynham Hall, Norfolk. A Country Life photo shoot.",
    "words": [
     {
      "w": "Raynham",
      "start": 5.88,
-     "end": 6.32
+     "end": 6.31
     },
     {
      "w": "Hall,",
-     "start": 6.32,
-     "end": 6.79
+     "start": 6.31,
+     "end": 6.61
     },
     {
      "w": "Norfolk.",
-     "start": 6.79,
-     "end": 7.3
+     "start": 6.61,
+     "end": 7.19
     },
     {
      "w": "A",
-     "start": 7.3,
-     "end": 7.53
+     "start": 7.19,
+     "end": 7.37
     },
     {
      "w": "Country",
-     "start": 7.53,
-     "end": 8.03
+     "start": 7.37,
+     "end": 7.81
     },
     {
      "w": "Life",
-     "start": 8.03,
-     "end": 8.43
+     "start": 7.81,
+     "end": 8.24
     },
     {
      "w": "photo",
-     "start": 8.43,
-     "end": 8.84
+     "start": 8.24,
+     "end": 8.6
     },
     {
      "w": "shoot.",
-     "start": 8.84,
-     "end": 9.23
+     "start": 8.6,
+     "end": 8.98
     }
    ]
   },
   {
    "id": "L03",
    "start": 9.54,
-   "end": 16.12,
+   "end": 15.58,
    "text": "Legend says the Brown Lady is Dorothy Walpole, who died in 1726.",
    "words": [
     {
      "w": "Legend",
      "start": 9.57,
-     "end": 10.34
+     "end": 10.27
     },
     {
      "w": "says",
-     "start": 10.34,
-     "end": 10.72
+     "start": 10.27,
+     "end": 10.68
     },
     {
      "w": "the",
-     "start": 10.72,
-     "end": 10.86
+     "start": 10.68,
+     "end": 10.76
     },
     {
      "w": "Brown",
-     "start": 10.86,
-     "end": 11.46
+     "start": 10.76,
+     "end": 11.38
     },
     {
      "w": "Lady",
-     "start": 11.46,
-     "end": 12.0
+     "start": 11.38,
+     "end": 11.85
     },
     {
      "w": "is",
-     "start": 12.0,
-     "end": 12.25
+     "start": 11.85,
+     "end": 12.08
     },
     {
      "w": "Dorothy",
-     "start": 12.25,
-     "end": 12.96
+     "start": 12.08,
+     "end": 12.68
     },
     {
      "w": "Walpole,",
-     "start": 12.96,
-     "end": 13.7
+     "start": 12.68,
+     "end": 13.43
     },
     {
      "w": "who",
-     "start": 13.7,
-     "end": 14.14
+     "start": 13.43,
+     "end": 13.75
     },
     {
      "w": "died",
-     "start": 14.14,
-     "end": 14.62
+     "start": 13.75,
+     "end": 14.24
     },
     {
      "w": "in",
-     "start": 14.62,
-     "end": 14.88
+     "start": 14.24,
+     "end": 14.46
     },
     {
      "w": "1726.",
-     "start": 14.88,
-     "end": 16.06
+     "start": 14.46,
+     "end": 15.52
     }
    ]
   },
   {
    "id": "L04",
    "start": 16.37,
-   "end": 21.9,
+   "end": 21.59,
    "text": "In 1836, novelist Frederick Marryat claimed he shot at her.",
    "words": [
     {
      "w": "In",
-     "start": 16.4,
-     "end": 16.71
+     "start": 16.39,
+     "end": 16.69
     },
     {
      "w": "1836,",
-     "start": 16.71,
-     "end": 17.61
+     "start": 16.69,
+     "end": 17.53
     },
     {
      "w": "novelist",
-     "start": 17.61,
-     "end": 18.57
+     "start": 17.53,
+     "end": 18.49
     },
     {
      "w": "Frederick",
-     "start": 18.57,
-     "end": 19.45
+     "start": 18.49,
+     "end": 19.25
     },
     {
      "w": "Marryat",
-     "start": 19.45,
-     "end": 20.15
+     "start": 19.25,
+     "end": 19.87
     },
     {
      "w": "claimed",
-     "start": 20.15,
-     "end": 20.76
+     "start": 19.87,
+     "end": 20.49
     },
     {
      "w": "he",
-     "start": 20.76,
-     "end": 20.98
+     "start": 20.49,
+     "end": 20.76
     },
     {
      "w": "shot",
-     "start": 20.98,
-     "end": 21.47
+     "start": 20.76,
+     "end": 21.18
     },
     {
      "w": "at",
-     "start": 21.47,
-     "end": 21.64
+     "start": 21.18,
+     "end": 21.33
     },
     {
      "w": "her.",
-     "start": 21.64,
-     "end": 21.84
+     "start": 21.33,
+     "end": 21.53
     }
    ]
   },
   {
    "id": "L05",
    "start": 22.2,
-   "end": 26.23,
+   "end": 25.89,
    "text": "A century later, Provand and Shira aimed a camera up the stairs.",
    "words": [
     {
      "w": "A",
      "start": 22.23,
-     "end": 22.37
+     "end": 22.4
     },
     {
      "w": "century",
-     "start": 22.37,
-     "end": 22.99
+     "start": 22.4,
+     "end": 22.95
     },
     {
      "w": "later,",
-     "start": 22.99,
-     "end": 23.37
+     "start": 22.95,
+     "end": 23.35
     },
     {
      "w": "Provand",
-     "start": 23.37,
-     "end": 23.91
+     "start": 23.35,
+     "end": 23.88
     },
     {
      "w": "and",
-     "start": 23.91,
-     "end": 24.19
+     "start": 23.88,
+     "end": 24.05
     },
     {
      "w": "Shira",
-     "start": 24.19,
-     "end": 24.61
+     "start": 24.05,
+     "end": 24.35
     },
     {
      "w": "aimed",
-     "start": 24.61,
-     "end": 24.93
+     "start": 24.35,
+     "end": 24.66
     },
     {
      "w": "a",
-     "start": 24.93,
-     "end": 25.01
+     "start": 24.66,
+     "end": 24.76
     },
     {
      "w": "camera",
-     "start": 25.01,
-     "end": 25.45
+     "start": 24.76,
+     "end": 25.18
     },
     {
      "w": "up",
-     "start": 25.45,
-     "end": 25.68
+     "start": 25.18,
+     "end": 25.38
     },
     {
      "w": "the",
-     "start": 25.68,
-     "end": 25.72
+     "start": 25.38,
+     "end": 25.53
     },
     {
      "w": "stairs.",
-     "start": 25.72,
-     "end": 26.17
+     "start": 25.53,
+     "end": 25.83
     }
    ]
   },
   {
    "id": "L06",
    "start": 26.48,
-   "end": 30.35,
+   "end": 30.04,
    "text": "Shira said he saw a vapoury form, slowly becoming a woman.",
    "words": [
     {
      "w": "Shira",
      "start": 26.51,
-     "end": 26.96
+     "end": 26.87
     },
     {
      "w": "said",
-     "start": 26.96,
-     "end": 27.22
+     "start": 26.87,
+     "end": 27.04
     },
     {
      "w": "he",
-     "start": 27.22,
-     "end": 27.31
+     "start": 27.04,
+     "end": 27.25
     },
     {
      "w": "saw",
-     "start": 27.31,
-     "end": 27.67
+     "start": 27.25,
+     "end": 27.48
     },
     {
      "w": "a",
-     "start": 27.67,
-     "end": 27.87
+     "start": 27.48,
+     "end": 27.7
     },
     {
      "w": "vapoury",
-     "start": 27.87,
-     "end": 28.39
+     "start": 27.7,
+     "end": 28.23
     },
     {
      "w": "form,",
-     "start": 28.39,
-     "end": 28.72
+     "start": 28.23,
+     "end": 28.55
     },
     {
      "w": "slowly",
-     "start": 28.72,
-     "end": 29.21
+     "start": 28.55,
+     "end": 28.98
     },
     {
      "w": "becoming",
-     "start": 29.21,
-     "end": 29.64
+     "start": 28.98,
+     "end": 29.5
     },
     {
      "w": "a",
-     "start": 29.64,
-     "end": 29.9
+     "start": 29.5,
+     "end": 29.65
     },
     {
      "w": "woman.",
-     "start": 29.9,
-     "end": 30.29
+     "start": 29.65,
+     "end": 29.98
     }
    ]
   },
   {
    "id": "L07",
    "start": 30.65,
-   "end": 34.13,
+   "end": 33.97,
    "text": "Provand uncapped the lens. Shira fired the flash.",
    "words": [
     {
      "w": "Provand",
      "start": 30.68,
-     "end": 31.46
+     "end": 31.37
     },
     {
      "w": "uncapped",
-     "start": 31.46,
-     "end": 32.01
+     "start": 31.37,
+     "end": 31.97
     },
     {
      "w": "the",
-     "start": 32.01,
-     "end": 32.19
+     "start": 31.97,
+     "end": 32.12
     },
     {
      "w": "lens.",
-     "start": 32.19,
-     "end": 32.53
+     "start": 32.12,
+     "end": 32.44
     },
     {
      "w": "Shira",
-     "start": 32.53,
-     "end": 33.08
+     "start": 32.44,
+     "end": 32.94
     },
     {
      "w": "fired",
-     "start": 33.08,
-     "end": 33.5
+     "start": 32.94,
+     "end": 33.38
     },
     {
      "w": "the",
-     "start": 33.5,
-     "end": 33.61
+     "start": 33.38,
+     "end": 33.46
     },
     {
      "w": "flash.",
-     "start": 33.61,
-     "end": 34.07
+     "start": 33.46,
+     "end": 33.91
     }
    ]
   },
   {
    "id": "L08",
    "start": 34.48,
-   "end": 36.8,
+   "end": 36.48,
    "text": "The plate showed a pale, veiled shape.",
    "words": [
     {
      "w": "The",
      "start": 34.51,
-     "end": 34.59
+     "end": 34.62
     },
     {
      "w": "plate",
-     "start": 34.59,
-     "end": 35.12
+     "start": 34.62,
+     "end": 34.97
     },
     {
      "w": "showed",
-     "start": 35.12,
-     "end": 35.35
+     "start": 34.97,
+     "end": 35.23
     },
     {
      "w": "a",
-     "start": 35.35,
-     "end": 35.63
+     "start": 35.23,
+     "end": 35.51
     },
     {
      "w": "pale,",
-     "start": 35.63,
-     "end": 35.91
+     "start": 35.51,
+     "end": 35.7
     },
     {
      "w": "veiled",
-     "start": 35.91,
-     "end": 36.4
+     "start": 35.7,
+     "end": 36.1
     },
     {
      "w": "shape.",
-     "start": 36.4,
-     "end": 36.74
+     "start": 36.1,
+     "end": 36.42
     }
    ]
   },
   {
    "id": "L09",
    "start": 37.1,
-   "end": 40.28,
+   "end": 40.17,
    "text": "Country Life printed it. So did Life magazine.",
    "words": [
     {
      "w": "Country",
      "start": 37.13,
-     "end": 37.62
+     "end": 37.63
     },
     {
      "w": "Life",
-     "start": 37.62,
-     "end": 37.89
+     "start": 37.63,
+     "end": 37.87
     },
     {
      "w": "printed",
-     "start": 37.89,
-     "end": 38.56
+     "start": 37.87,
+     "end": 38.39
     },
     {
      "w": "it.",
-     "start": 38.56,
-     "end": 38.64
+     "start": 38.39,
+     "end": 38.57
     },
     {
      "w": "So",
-     "start": 38.64,
-     "end": 38.95
+     "start": 38.57,
+     "end": 38.91
     },
     {
      "w": "did",
-     "start": 38.95,
-     "end": 39.18
+     "start": 38.91,
+     "end": 39.05
     },
     {
      "w": "Life",
-     "start": 39.18,
-     "end": 39.5
+     "start": 39.05,
+     "end": 39.39
     },
     {
      "w": "magazine.",
-     "start": 39.5,
-     "end": 40.22
+     "start": 39.39,
+     "end": 40.11
     }
    ]
   },
   {
    "id": "L10",
    "start": 40.48,
-   "end": 43.56,
+   "end": 43.19,
    "text": "Experts reportedly found no sign of tampering.",
    "words": [
     {
      "w": "Experts",
      "start": 40.51,
-     "end": 41.02
+     "end": 40.95
     },
     {
      "w": "reportedly",
-     "start": 41.02,
-     "end": 41.88
+     "start": 40.95,
+     "end": 41.72
     },
     {
      "w": "found",
-     "start": 41.88,
-     "end": 42.27
+     "start": 41.72,
+     "end": 41.95
     },
     {
      "w": "no",
-     "start": 42.27,
-     "end": 42.51
+     "start": 41.95,
+     "end": 42.27
     },
     {
      "w": "sign",
-     "start": 42.51,
-     "end": 42.86
+     "start": 42.27,
+     "end": 42.56
     },
     {
      "w": "of",
-     "start": 42.86,
-     "end": 42.89
+     "start": 42.56,
+     "end": 42.62
     },
     {
      "w": "tampering.",
-     "start": 42.89,
-     "end": 43.5
+     "start": 42.62,
+     "end": 43.13
     }
    ]
   },
   {
    "id": "L11",
    "start": 43.86,
-   "end": 47.63,
+   "end": 47.5,
    "text": "But sceptics see a double exposure: two images, one plate.",
    "words": [
     {
      "w": "But",
-     "start": 43.89,
-     "end": 44.2
+     "start": 43.88,
+     "end": 44.1
     },
     {
      "w": "sceptics",
-     "start": 44.2,
-     "end": 44.77
+     "start": 44.1,
+     "end": 44.75
     },
     {
      "w": "see",
-     "start": 44.77,
-     "end": 44.92
+     "start": 44.75,
+     "end": 44.91
     },
     {
      "w": "a",
-     "start": 44.92,
-     "end": 45.15
+     "start": 44.91,
+     "end": 45.11
     },
     {
      "w": "double",
-     "start": 45.15,
-     "end": 45.57
+     "start": 45.11,
+     "end": 45.54
     },
     {
      "w": "exposure:",
-     "start": 45.57,
-     "end": 46.12
+     "start": 45.54,
+     "end": 46.06
     },
     {
      "w": "two",
-     "start": 46.12,
-     "end": 46.44
+     "start": 46.06,
+     "end": 46.35
     },
     {
      "w": "images,",
-     "start": 46.44,
-     "end": 46.95
+     "start": 46.35,
+     "end": 46.79
     },
     {
      "w": "one",
-     "start": 46.95,
-     "end": 47.23
+     "start": 46.79,
+     "end": 47.08
     },
     {
      "w": "plate.",
-     "start": 47.23,
-     "end": 47.57
+     "start": 47.08,
+     "end": 47.44
     }
    ]
   },
   {
    "id": "L12",
    "start": 47.88,
-   "end": 51.4,
+   "end": 51.29,
    "text": "Or grease on the lens. Or Shira moving on the stairs.",
    "words": [
     {
@@ -629,125 +629,226 @@
     {
      "w": "grease",
      "start": 48.13,
-     "end": 48.57
+     "end": 48.6
     },
     {
      "w": "on",
-     "start": 48.57,
-     "end": 48.86
+     "start": 48.6,
+     "end": 48.71
     },
     {
      "w": "the",
-     "start": 48.86,
-     "end": 48.93
+     "start": 48.71,
+     "end": 48.98
     },
     {
      "w": "lens.",
-     "start": 48.93,
-     "end": 49.38
+     "start": 48.98,
+     "end": 49.23
     },
     {
      "w": "Or",
-     "start": 49.38,
-     "end": 49.53
+     "start": 49.23,
+     "end": 49.43
     },
     {
      "w": "Shira",
-     "start": 49.53,
-     "end": 49.99
+     "start": 49.43,
+     "end": 49.96
     },
     {
      "w": "moving",
-     "start": 49.99,
-     "end": 50.53
+     "start": 49.96,
+     "end": 50.38
     },
     {
      "w": "on",
-     "start": 50.53,
-     "end": 50.79
+     "start": 50.38,
+     "end": 50.65
     },
     {
      "w": "the",
-     "start": 50.79,
-     "end": 50.88
+     "start": 50.65,
+     "end": 50.77
     },
     {
      "w": "stairs.",
-     "start": 50.88,
-     "end": 51.34
+     "start": 50.77,
+     "end": 51.23
     }
    ]
   },
   {
    "id": "L13",
    "start": 51.65,
-   "end": 53.75,
+   "end": 53.46,
    "text": "Nobody has ever proved which.",
    "words": [
     {
      "w": "Nobody",
      "start": 51.68,
-     "end": 52.36
+     "end": 52.23
     },
     {
      "w": "has",
-     "start": 52.36,
-     "end": 52.52
+     "start": 52.23,
+     "end": 52.43
     },
     {
      "w": "ever",
-     "start": 52.52,
-     "end": 52.79
+     "start": 52.43,
+     "end": 52.62
     },
     {
      "w": "proved",
-     "start": 52.79,
-     "end": 53.4
+     "start": 52.62,
+     "end": 53.16
     },
     {
      "w": "which.",
-     "start": 53.4,
-     "end": 53.69
+     "start": 53.16,
+     "end": 53.4
     }
    ]
   },
   {
    "id": "L14",
    "start": 54.65,
-   "end": 56.63,
+   "end": 56.33,
    "text": "So look again at these stairs.",
    "words": [
     {
      "w": "So",
      "start": 54.68,
-     "end": 55.0
+     "end": 54.98
     },
     {
      "w": "look",
-     "start": 55.0,
-     "end": 55.29
+     "start": 54.98,
+     "end": 55.16
     },
     {
      "w": "again",
-     "start": 55.29,
-     "end": 55.65
+     "start": 55.16,
+     "end": 55.49
     },
     {
      "w": "at",
-     "start": 55.65,
-     "end": 55.78
+     "start": 55.49,
+     "end": 55.53
     },
     {
      "w": "these",
-     "start": 55.78,
-     "end": 56.09
+     "start": 55.53,
+     "end": 55.96
     },
     {
      "w": "stairs.",
-     "start": 56.09,
-     "end": 56.57
+     "start": 55.96,
+     "end": 56.27
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 0.9,
+   "target": 5.5,
+   "dur": 5.3,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 0.9,
+   "target": 3.44,
+   "dur": 3.19,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 0.9,
+   "target": 6.58,
+   "dur": 6.04,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 0.9,
+   "target": 5.53,
+   "dur": 5.22,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 0.9,
+   "target": 4.03,
+   "dur": 3.69,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 0.9,
+   "target": 3.87,
+   "dur": 3.56,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 0.9,
+   "target": 3.48,
+   "dur": 3.32,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 0.9,
+   "target": 2.32,
+   "dur": 2.0,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 0.9,
+   "target": 3.18,
+   "dur": 3.07,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 0.9,
+   "target": 3.08,
+   "dur": 2.71,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.9,
+   "target": 3.77,
+   "dur": 3.64,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 0.9,
+   "target": 3.52,
+   "dur": 3.41,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 0.9,
+   "target": 2.1,
+   "dur": 1.81,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 0.9,
+   "target": 1.98,
+   "dur": 1.68,
+   "overrun": 0.0
   }
  ]
 }

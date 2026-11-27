@@ -1,355 +1,355 @@
 {
  "duration": 50.82,
- "voice": "am_onyx",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.47,
+   "end": 3.35,
    "text": "His lifeline snapped nearly a hundred metres under the North Sea.",
    "words": [
     {
      "w": "His",
      "start": 0.18,
-     "end": 0.33
+     "end": 0.34
     },
     {
      "w": "lifeline",
-     "start": 0.33,
+     "start": 0.34,
      "end": 0.89
     },
     {
      "w": "snapped",
      "start": 0.89,
-     "end": 1.26
+     "end": 1.22
     },
     {
      "w": "nearly",
-     "start": 1.26,
-     "end": 1.52
+     "start": 1.22,
+     "end": 1.53
     },
     {
      "w": "a",
-     "start": 1.52,
-     "end": 1.73
+     "start": 1.53,
+     "end": 1.69
     },
     {
      "w": "hundred",
-     "start": 1.73,
-     "end": 2.05
+     "start": 1.69,
+     "end": 2.03
     },
     {
      "w": "metres",
-     "start": 2.05,
-     "end": 2.53
+     "start": 2.03,
+     "end": 2.43
     },
     {
      "w": "under",
-     "start": 2.53,
-     "end": 2.72
+     "start": 2.43,
+     "end": 2.63
     },
     {
      "w": "the",
-     "start": 2.72,
-     "end": 2.82
+     "start": 2.63,
+     "end": 2.71
     },
     {
      "w": "North",
-     "start": 2.82,
-     "end": 3.18
+     "start": 2.71,
+     "end": 3.13
     },
     {
      "w": "Sea.",
-     "start": 3.18,
-     "end": 3.41
+     "start": 3.13,
+     "end": 3.29
     }
    ]
   },
   {
    "id": "L02",
    "start": 3.67,
-   "end": 5.91,
+   "end": 5.77,
    "text": "He had about five minutes of gas on his back.",
    "words": [
     {
      "w": "He",
      "start": 3.7,
-     "end": 3.86
+     "end": 3.85
     },
     {
      "w": "had",
-     "start": 3.86,
-     "end": 4.11
+     "start": 3.85,
+     "end": 4.09
     },
     {
      "w": "about",
-     "start": 4.11,
-     "end": 4.4
+     "start": 4.09,
+     "end": 4.31
     },
     {
      "w": "five",
-     "start": 4.4,
-     "end": 4.68
+     "start": 4.31,
+     "end": 4.5
     },
     {
      "w": "minutes",
-     "start": 4.68,
-     "end": 4.96
+     "start": 4.5,
+     "end": 4.88
     },
     {
      "w": "of",
-     "start": 4.96,
-     "end": 5.12
+     "start": 4.88,
+     "end": 5.05
     },
     {
      "w": "gas",
-     "start": 5.12,
-     "end": 5.3
+     "start": 5.05,
+     "end": 5.12
     },
     {
      "w": "on",
-     "start": 5.3,
-     "end": 5.4
+     "start": 5.12,
+     "end": 5.36
     },
     {
      "w": "his",
-     "start": 5.4,
-     "end": 5.62
+     "start": 5.36,
+     "end": 5.45
     },
     {
      "w": "back.",
-     "start": 5.62,
-     "end": 5.85
+     "start": 5.45,
+     "end": 5.71
     }
    ]
   },
   {
    "id": "L03",
    "start": 6.16,
-   "end": 8.42,
+   "end": 8.29,
    "text": "North Sea, September 2012.",
    "words": [
     {
      "w": "North",
-     "start": 6.19,
-     "end": 6.55
+     "start": 6.18,
+     "end": 6.52
     },
     {
      "w": "Sea,",
-     "start": 6.55,
-     "end": 6.95
+     "start": 6.52,
+     "end": 6.8
     },
     {
      "w": "September",
-     "start": 6.95,
-     "end": 7.53
+     "start": 6.8,
+     "end": 7.49
     },
     {
      "w": "2012.",
-     "start": 7.53,
-     "end": 8.36
+     "start": 7.49,
+     "end": 8.23
     }
    ]
   },
   {
    "id": "L04",
    "start": 8.57,
-   "end": 11.93,
+   "end": 11.95,
    "text": "Chris Lemons, a saturation diver, was working on the seabed.",
    "words": [
     {
      "w": "Chris",
      "start": 8.6,
-     "end": 8.84
+     "end": 8.83
     },
     {
      "w": "Lemons,",
-     "start": 8.84,
-     "end": 9.31
+     "start": 8.83,
+     "end": 9.27
     },
     {
      "w": "a",
-     "start": 9.31,
-     "end": 9.5
+     "start": 9.27,
+     "end": 9.46
     },
     {
      "w": "saturation",
-     "start": 9.5,
-     "end": 10.18
+     "start": 9.46,
+     "end": 10.3
     },
     {
      "w": "diver,",
-     "start": 10.18,
-     "end": 10.64
+     "start": 10.3,
+     "end": 10.65
     },
     {
      "w": "was",
-     "start": 10.64,
-     "end": 10.76
+     "start": 10.65,
+     "end": 10.71
     },
     {
      "w": "working",
-     "start": 10.76,
-     "end": 11.16
+     "start": 10.71,
+     "end": 11.12
     },
     {
      "w": "on",
-     "start": 11.16,
-     "end": 11.39
+     "start": 11.12,
+     "end": 11.42
     },
     {
      "w": "the",
-     "start": 11.39,
-     "end": 11.51
+     "start": 11.42,
+     "end": 11.46
     },
     {
      "w": "seabed.",
-     "start": 11.51,
-     "end": 11.87
+     "start": 11.46,
+     "end": 11.89
     }
    ]
   },
   {
    "id": "L05",
    "start": 12.13,
-   "end": 15.1,
+   "end": 15.0,
    "text": "Above him, his support ship's positioning system failed.",
    "words": [
     {
      "w": "Above",
      "start": 12.16,
-     "end": 12.43
+     "end": 12.38
     },
     {
      "w": "him,",
-     "start": 12.43,
+     "start": 12.38,
      "end": 12.72
     },
     {
      "w": "his",
      "start": 12.72,
-     "end": 12.98
+     "end": 12.87
     },
     {
      "w": "support",
-     "start": 12.98,
-     "end": 13.35
+     "start": 12.87,
+     "end": 13.29
     },
     {
      "w": "ship's",
-     "start": 13.35,
-     "end": 13.62
+     "start": 13.29,
+     "end": 13.65
     },
     {
      "w": "positioning",
-     "start": 13.62,
-     "end": 14.33
+     "start": 13.65,
+     "end": 14.16
     },
     {
      "w": "system",
-     "start": 14.33,
-     "end": 14.62
+     "start": 14.16,
+     "end": 14.53
     },
     {
      "w": "failed.",
-     "start": 14.62,
-     "end": 15.04
+     "start": 14.53,
+     "end": 14.94
     }
    ]
   },
   {
    "id": "L06",
    "start": 15.2,
-   "end": 16.86,
+   "end": 16.75,
    "text": "In rough seas, it drifted.",
    "words": [
     {
      "w": "In",
      "start": 15.23,
-     "end": 15.38
+     "end": 15.37
     },
     {
      "w": "rough",
-     "start": 15.38,
-     "end": 15.69
+     "start": 15.37,
+     "end": 15.71
     },
     {
      "w": "seas,",
-     "start": 15.69,
-     "end": 16.13
+     "start": 15.71,
+     "end": 16.01
     },
     {
      "w": "it",
-     "start": 16.13,
-     "end": 16.19
+     "start": 16.01,
+     "end": 16.17
     },
     {
      "w": "drifted.",
-     "start": 16.19,
-     "end": 16.8
+     "start": 16.17,
+     "end": 16.69
     }
    ]
   },
   {
    "id": "L07",
    "start": 17.06,
-   "end": 20.74,
+   "end": 20.76,
    "text": "His umbilical, carrying his gas and his radio, snagged on steel.",
    "words": [
     {
      "w": "His",
      "start": 17.09,
-     "end": 17.38
+     "end": 17.39
     },
     {
      "w": "umbilical,",
-     "start": 17.38,
-     "end": 17.88
+     "start": 17.39,
+     "end": 17.91
     },
     {
      "w": "carrying",
-     "start": 17.88,
-     "end": 18.37
+     "start": 17.91,
+     "end": 18.41
     },
     {
      "w": "his",
-     "start": 18.37,
-     "end": 18.61
+     "start": 18.41,
+     "end": 18.65
     },
     {
      "w": "gas",
-     "start": 18.61,
-     "end": 18.88
+     "start": 18.65,
+     "end": 18.85
     },
     {
      "w": "and",
-     "start": 18.88,
-     "end": 18.95
+     "start": 18.85,
+     "end": 19.0
     },
     {
      "w": "his",
-     "start": 18.95,
-     "end": 19.18
+     "start": 19.0,
+     "end": 19.21
     },
     {
      "w": "radio,",
-     "start": 19.18,
-     "end": 19.72
+     "start": 19.21,
+     "end": 19.75
     },
     {
      "w": "snagged",
-     "start": 19.72,
+     "start": 19.75,
      "end": 20.09
     },
     {
      "w": "on",
      "start": 20.09,
-     "end": 20.38
+     "end": 20.39
     },
     {
      "w": "steel.",
-     "start": 20.38,
-     "end": 20.68
+     "start": 20.39,
+     "end": 20.7
     }
    ]
   },
@@ -361,17 +361,17 @@
    "words": [
     {
      "w": "Then",
-     "start": 20.92,
+     "start": 20.91,
      "end": 21.24
     },
     {
      "w": "it",
      "start": 21.24,
-     "end": 21.29
+     "end": 21.33
     },
     {
      "w": "parted.",
-     "start": 21.29,
+     "start": 21.33,
      "end": 21.86
     }
    ]
@@ -379,161 +379,161 @@
   {
    "id": "L09",
    "start": 22.32,
-   "end": 25.27,
+   "end": 25.26,
    "text": "In total darkness, he pulled himself back to the structure.",
    "words": [
     {
      "w": "In",
      "start": 22.35,
-     "end": 22.49
+     "end": 22.48
     },
     {
      "w": "total",
-     "start": 22.49,
-     "end": 22.87
+     "start": 22.48,
+     "end": 22.83
     },
     {
      "w": "darkness,",
-     "start": 22.87,
-     "end": 23.4
+     "start": 22.83,
+     "end": 23.33
     },
     {
      "w": "he",
-     "start": 23.4,
-     "end": 23.52
+     "start": 23.33,
+     "end": 23.49
     },
     {
      "w": "pulled",
-     "start": 23.52,
-     "end": 23.86
+     "start": 23.49,
+     "end": 23.83
     },
     {
      "w": "himself",
-     "start": 23.86,
-     "end": 24.2
+     "start": 23.83,
+     "end": 24.23
     },
     {
      "w": "back",
-     "start": 24.2,
-     "end": 24.43
+     "start": 24.23,
+     "end": 24.5
     },
     {
      "w": "to",
-     "start": 24.43,
-     "end": 24.56
+     "start": 24.5,
+     "end": 24.55
     },
     {
      "w": "the",
-     "start": 24.56,
-     "end": 24.72
+     "start": 24.55,
+     "end": 24.77
     },
     {
      "w": "structure.",
-     "start": 24.72,
-     "end": 25.21
+     "start": 24.77,
+     "end": 25.2
     }
    ]
   },
   {
    "id": "L10",
    "start": 25.47,
-   "end": 27.49,
+   "end": 27.38,
    "text": "Then his emergency gas ran out.",
    "words": [
     {
      "w": "Then",
-     "start": 25.5,
-     "end": 25.68
+     "start": 25.49,
+     "end": 25.76
     },
     {
      "w": "his",
-     "start": 25.68,
-     "end": 25.93
+     "start": 25.76,
+     "end": 25.92
     },
     {
      "w": "emergency",
-     "start": 25.93,
-     "end": 26.74
+     "start": 25.92,
+     "end": 26.67
     },
     {
      "w": "gas",
-     "start": 26.74,
-     "end": 26.94
+     "start": 26.67,
+     "end": 26.88
     },
     {
      "w": "ran",
-     "start": 26.94,
-     "end": 27.14
+     "start": 26.88,
+     "end": 27.07
     },
     {
      "w": "out.",
-     "start": 27.14,
-     "end": 27.43
+     "start": 27.07,
+     "end": 27.32
     }
    ]
   },
   {
    "id": "L11",
    "start": 28.09,
-   "end": 30.39,
+   "end": 30.34,
    "text": "It would take around half an hour to reach him.",
    "words": [
     {
      "w": "It",
      "start": 28.12,
-     "end": 28.19
+     "end": 28.28
     },
     {
      "w": "would",
-     "start": 28.19,
-     "end": 28.39
+     "start": 28.28,
+     "end": 28.38
     },
     {
      "w": "take",
-     "start": 28.39,
-     "end": 28.71
+     "start": 28.38,
+     "end": 28.68
     },
     {
      "w": "around",
-     "start": 28.71,
-     "end": 29.14
+     "start": 28.68,
+     "end": 29.12
     },
     {
      "w": "half",
-     "start": 29.14,
-     "end": 29.32
+     "start": 29.12,
+     "end": 29.21
     },
     {
      "w": "an",
-     "start": 29.32,
-     "end": 29.39
+     "start": 29.21,
+     "end": 29.4
     },
     {
      "w": "hour",
-     "start": 29.39,
-     "end": 29.67
+     "start": 29.4,
+     "end": 29.64
     },
     {
      "w": "to",
-     "start": 29.67,
-     "end": 29.74
+     "start": 29.64,
+     "end": 29.69
     },
     {
      "w": "reach",
-     "start": 29.74,
-     "end": 30.11
+     "start": 29.69,
+     "end": 30.08
     },
     {
      "w": "him.",
-     "start": 30.11,
-     "end": 30.33
+     "start": 30.08,
+     "end": 30.28
     }
    ]
   },
   {
    "id": "L12",
    "start": 30.59,
-   "end": 33.52,
+   "end": 33.5,
    "text": "When Dave Yuasa got there, Lemons was unresponsive.",
    "words": [
     {
@@ -544,92 +544,92 @@
     {
      "w": "Dave",
      "start": 30.9,
-     "end": 31.19
+     "end": 31.18
     },
     {
      "w": "Yuasa",
-     "start": 31.19,
-     "end": 31.57
+     "start": 31.18,
+     "end": 31.59
     },
     {
      "w": "got",
-     "start": 31.57,
-     "end": 31.9
+     "start": 31.59,
+     "end": 31.92
     },
     {
      "w": "there,",
-     "start": 31.9,
-     "end": 32.11
+     "start": 31.92,
+     "end": 32.02
     },
     {
      "w": "Lemons",
-     "start": 32.11,
-     "end": 32.45
+     "start": 32.02,
+     "end": 32.49
     },
     {
      "w": "was",
-     "start": 32.45,
-     "end": 32.66
+     "start": 32.49,
+     "end": 32.7
     },
     {
      "w": "unresponsive.",
-     "start": 32.66,
-     "end": 33.46
+     "start": 32.7,
+     "end": 33.44
     }
    ]
   },
   {
    "id": "L13",
    "start": 33.67,
-   "end": 35.62,
+   "end": 35.51,
    "text": "He hauled him back into the diving bell.",
    "words": [
     {
      "w": "He",
      "start": 33.7,
-     "end": 33.79
+     "end": 33.82
     },
     {
      "w": "hauled",
-     "start": 33.79,
-     "end": 34.23
+     "start": 33.82,
+     "end": 34.2
     },
     {
      "w": "him",
-     "start": 34.23,
-     "end": 34.45
+     "start": 34.2,
+     "end": 34.41
     },
     {
      "w": "back",
-     "start": 34.45,
-     "end": 34.55
+     "start": 34.41,
+     "end": 34.58
     },
     {
      "w": "into",
-     "start": 34.55,
-     "end": 34.86
+     "start": 34.58,
+     "end": 34.77
     },
     {
      "w": "the",
-     "start": 34.86,
-     "end": 34.92
+     "start": 34.77,
+     "end": 34.88
     },
     {
      "w": "diving",
-     "start": 34.92,
-     "end": 35.29
+     "start": 34.88,
+     "end": 35.19
     },
     {
      "w": "bell.",
-     "start": 35.29,
-     "end": 35.56
+     "start": 35.19,
+     "end": 35.45
     }
    ]
   },
   {
    "id": "L14",
    "start": 35.77,
-   "end": 38.24,
+   "end": 38.149,
    "text": "There, Duncan Allcock gave him rescue breaths.",
    "words": [
     {
@@ -640,54 +640,54 @@
     {
      "w": "Duncan",
      "start": 36.01,
-     "end": 36.48
+     "end": 36.35
     },
     {
      "w": "Allcock",
-     "start": 36.48,
-     "end": 36.91
+     "start": 36.35,
+     "end": 36.89
     },
     {
      "w": "gave",
-     "start": 36.91,
-     "end": 37.11
+     "start": 36.89,
+     "end": 37.07
     },
     {
      "w": "him",
-     "start": 37.11,
-     "end": 37.44
+     "start": 37.07,
+     "end": 37.38
     },
     {
      "w": "rescue",
-     "start": 37.44,
-     "end": 37.77
+     "start": 37.38,
+     "end": 37.7
     },
     {
      "w": "breaths.",
-     "start": 37.77,
-     "end": 38.18
+     "start": 37.7,
+     "end": 38.09
     }
    ]
   },
   {
    "id": "L15",
    "start": 38.69,
-   "end": 40.82,
+   "end": 40.75,
    "text": "And Chris Lemons started breathing again.",
    "words": [
     {
      "w": "And",
      "start": 38.72,
-     "end": 38.82
+     "end": 38.83
     },
     {
      "w": "Chris",
-     "start": 38.82,
-     "end": 39.1
+     "start": 38.83,
+     "end": 39.09
     },
     {
      "w": "Lemons",
-     "start": 39.1,
+     "start": 39.09,
      "end": 39.52
     },
     {
@@ -698,19 +698,19 @@
     {
      "w": "breathing",
      "start": 40.0,
-     "end": 40.45
+     "end": 40.42
     },
     {
      "w": "again.",
-     "start": 40.45,
-     "end": 40.76
+     "start": 40.42,
+     "end": 40.69
     }
    ]
   },
   {
    "id": "L16",
    "start": 41.12,
-   "end": 42.73,
+   "end": 42.65,
    "text": "The leading theory: the cold.",
    "words": [
     {
@@ -721,163 +721,299 @@
     {
      "w": "leading",
      "start": 41.22,
-     "end": 41.8
+     "end": 41.75
     },
     {
      "w": "theory:",
-     "start": 41.8,
-     "end": 42.1
+     "start": 41.75,
+     "end": 42.14
     },
     {
      "w": "the",
-     "start": 42.1,
-     "end": 42.23
+     "start": 42.14,
+     "end": 42.15
     },
     {
      "w": "cold.",
-     "start": 42.23,
-     "end": 42.67
+     "start": 42.15,
+     "end": 42.59
     }
    ]
   },
   {
    "id": "L17",
    "start": 42.83,
-   "end": 46.54,
+   "end": 46.55,
    "text": "Near-freezing water chilled him, slowing his brain's need for oxygen.",
    "words": [
     {
      "w": "Near-freezing",
      "start": 42.86,
-     "end": 43.48
+     "end": 43.47
     },
     {
      "w": "water",
-     "start": 43.48,
-     "end": 43.86
+     "start": 43.47,
+     "end": 43.85
     },
     {
      "w": "chilled",
-     "start": 43.86,
-     "end": 44.25
+     "start": 43.85,
+     "end": 44.23
     },
     {
      "w": "him,",
-     "start": 44.25,
-     "end": 44.36
+     "start": 44.23,
+     "end": 44.44
     },
     {
      "w": "slowing",
-     "start": 44.36,
-     "end": 44.83
+     "start": 44.44,
+     "end": 44.84
     },
     {
      "w": "his",
-     "start": 44.83,
-     "end": 45.04
+     "start": 44.84,
+     "end": 45.06
     },
     {
      "w": "brain's",
-     "start": 45.04,
-     "end": 45.43
+     "start": 45.06,
+     "end": 45.47
     },
     {
      "w": "need",
-     "start": 45.43,
-     "end": 45.71
+     "start": 45.47,
+     "end": 45.76
     },
     {
      "w": "for",
-     "start": 45.71,
-     "end": 45.86
+     "start": 45.76,
+     "end": 45.87
     },
     {
      "w": "oxygen.",
-     "start": 45.86,
-     "end": 46.48
+     "start": 45.87,
+     "end": 46.49
     }
    ]
   },
   {
    "id": "L18",
    "start": 46.74,
-   "end": 48.01,
+   "end": 47.96,
    "text": "No one can prove it.",
    "words": [
     {
      "w": "No",
      "start": 46.77,
-     "end": 47.04
+     "end": 46.97
     },
     {
      "w": "one",
-     "start": 47.04,
-     "end": 47.28
+     "start": 46.97,
+     "end": 47.23
     },
     {
      "w": "can",
-     "start": 47.28,
-     "end": 47.47
+     "start": 47.23,
+     "end": 47.42
     },
     {
      "w": "prove",
-     "start": 47.47,
-     "end": 47.81
+     "start": 47.42,
+     "end": 47.84
     },
     {
      "w": "it.",
-     "start": 47.81,
-     "end": 47.95
+     "start": 47.84,
+     "end": 47.9
     }
    ]
   },
   {
    "id": "L19",
    "start": 48.31,
-   "end": 50.22,
+   "end": 50.23,
    "text": "Three weeks later, he was back at work.",
    "words": [
     {
      "w": "Three",
      "start": 48.34,
-     "end": 48.66
+     "end": 48.54
     },
     {
      "w": "weeks",
-     "start": 48.66,
-     "end": 48.98
+     "start": 48.54,
+     "end": 48.88
     },
     {
      "w": "later,",
-     "start": 48.98,
-     "end": 49.27
+     "start": 48.88,
+     "end": 49.22
     },
     {
      "w": "he",
-     "start": 49.27,
-     "end": 49.42
+     "start": 49.22,
+     "end": 49.47
     },
     {
      "w": "was",
-     "start": 49.42,
-     "end": 49.61
+     "start": 49.47,
+     "end": 49.63
     },
     {
      "w": "back",
-     "start": 49.61,
-     "end": 49.74
+     "start": 49.63,
+     "end": 49.8
     },
     {
      "w": "at",
-     "start": 49.74,
-     "end": 49.83
+     "start": 49.8,
+     "end": 49.84
     },
     {
      "w": "work.",
-     "start": 49.83,
-     "end": 50.16
+     "start": 49.84,
+     "end": 50.17
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 1.011,
+   "target": 3.32,
+   "dur": 3.2,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 1.08,
+   "target": 2.24,
+   "dur": 2.1,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 1.017,
+   "target": 2.26,
+   "dur": 2.13,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 1.08,
+   "target": 3.36,
+   "dur": 3.38,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 1.014,
+   "target": 2.97,
+   "dur": 2.87,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 0.927,
+   "target": 1.66,
+   "dur": 1.55,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 1.08,
+   "target": 3.68,
+   "dur": 3.7,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 0.916,
+   "target": 1.03,
+   "dur": 1.03,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 1.08,
+   "target": 2.95,
+   "dur": 2.94,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 1.08,
+   "target": 2.02,
+   "dur": 1.91,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.927,
+   "target": 2.3,
+   "dur": 2.25,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 1.08,
+   "target": 2.93,
+   "dur": 2.91,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 1.018,
+   "target": 1.95,
+   "dur": 1.84,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 1.08,
+   "target": 2.47,
+   "dur": 2.379,
+   "overrun": 0.0
+  },
+  {
+   "id": "L15",
+   "speed": 0.992,
+   "target": 2.13,
+   "dur": 2.06,
+   "overrun": 0.0
+  },
+  {
+   "id": "L16",
+   "speed": 1.08,
+   "target": 1.61,
+   "dur": 1.53,
+   "overrun": 0.0
+  },
+  {
+   "id": "L17",
+   "speed": 1.08,
+   "target": 3.71,
+   "dur": 3.72,
+   "overrun": 0.0
+  },
+  {
+   "id": "L18",
+   "speed": 1.08,
+   "target": 1.27,
+   "dur": 1.22,
+   "overrun": 0.0
+  },
+  {
+   "id": "L19",
+   "speed": 1.016,
+   "target": 1.91,
+   "dur": 1.92,
+   "overrun": 0.0
   }
  ]
 }
