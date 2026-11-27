@@ -342,74 +342,65 @@ def _board(L, n, slide=True):
     import bpy
     H.eevee_quality()
     L.set_world((0.01, 0.01, 0.012), 1.0)
-    wall = H.box_mesh("bwall", [(0, 0.2, 0, 4, 0.05, 4)], L.mat_principled("bw", (0.05, 0.05, 0.055), rough=0.9))
-    H.evidence_board("board", 2.6, 3.8)
-    hdr = H.pinned_card("c_hdr", (0.0, -0.01, 1.25), 1.7, 0.42, [], header="WHAT SCEPTICS SAY", size=0.12, font_size_header=0.17,
-                        color=(0.85, 0.82, 0.7), rot=math.radians(-1.5))
-    # spoon card
-    sp = H.pinned_card("c_spoon", (-0.42, -0.012, 0.25), 1.15, 1.05, ["caught on camera,", "next room"], size=0.09,
-                       rot=math.radians(2.5))
-    ink = L.mat_principled("ink2", (0.05, 0.04, 0.035), rough=0.6)
-    H.box_mesh("spoon_handle", [(-0.26, -0.008, 0.08, 0.2, 0.002, 0.018, 0.0)], ink, parent=sp).rotation_euler = (0, math.radians(-25), 0)
-    sb = L.prim("sphere", loc=(0.2, -0.01, 0.2), segments=16, ring_count=8, radius=0.1)
-    sb.scale = (1.35, 0.05, 0.8)
-    L.assign(sb, ink)
-    sb.parent = sp
-    nk = H.box_mesh("spoon_neck", [(0.02, -0.008, 0.16, 0.1, 0.002, 0.015)], ink, parent=sp)
-    nk.rotation_euler = (0, math.radians(30), 0)
-    # ventriloquism card
-    vc = H.pinned_card("c_vent", (0.5, -0.012, -0.85), 1.25, 0.8, ["VENTRILOQUISM?"], size=0.12, rot=math.radians(-2),
+    H.box_mesh("bwall", [(0, 0.2, 0, 4, 0.05, 4)], L.mat_principled("bw", (0.05, 0.05, 0.055), rough=0.9))
+    H.evidence_board("board", 2.4, 4.0)
+    ink = L.mat_principled("ink2", (0.04, 0.035, 0.03), rough=0.6)
+    H.pinned_card("c_hdr", (0.0, -0.01, 1.3), 1.45, 0.36, [], header="WHAT SCEPTICS SAY", size=0.1, font_size_header=0.125,
+                  color=(0.86, 0.83, 0.72), rot=math.radians(-1.5))
+    sp = H.pinned_card("c_spoon", (-0.08, -0.012, 0.33), 1.1, 1.0, ["caught on camera,", "next room"], size=0.085, rot=math.radians(2.5))
+    L.guideline([(-0.38, -0.009, -0.4), (0.0, -0.009, -0.2), (0.12, -0.009, -0.03)], mat=ink, thickness=0.02, name="spoon_handle").parent = sp
+    bowl = L.prim("sphere", loc=(0.17, -0.01, 0.07), segments=16, ring_count=8, radius=0.1, rot=(0, math.radians(-28), 0))
+    bowl.scale = (0.62, 0.05, 1.05)
+    L.assign(bowl, ink)
+    bowl.parent = sp
+    vc = H.pinned_card("c_vent", (0.12, -0.012, -0.72), 1.15, 0.78, ["VENTRILOQUISM?"], size=0.11, rot=math.radians(-2),
                        color=(0.86, 0.83, 0.7))
-    head = L.prim("sphere", loc=(-0.28, -0.01, -0.12), segments=16, ring_count=8, radius=0.12)
+    head = L.prim("sphere", loc=(-0.24, -0.01, -0.12), segments=16, ring_count=8, radius=0.11)
     head.scale = (0.85, 0.05, 1.0)
     L.assign(head, ink)
     head.parent = vc
-    H.box_mesh("neckic", [(-0.3, -0.008, -0.27, 0.05, 0.002, 0.08)], ink, parent=vc)
+    H.box_mesh("neckic", [(-0.26, -0.008, -0.27, 0.05, 0.002, 0.07)], ink, parent=vc)
+    redm = L.mat_principled("wv", (0.6, 0.05, 0.04), rough=0.6)
     for k in range(3):
-        t = L.prim("torus", loc=(-0.05 + k * 0.0, -0.01, -0.14), major_radius=0.08 + k * 0.07, minor_radius=0.01, major_segments=32, minor_segments=6,
-                   rot=(math.pi / 2, 0, 0))
-        L.assign(t, L.mat_principled(f"wv{k}", (0.6, 0.05, 0.04), rough=0.6))
-        t.parent = vc
-        # keep only right half of each ring by a boolean-free trick: squash + offset reads as ')'
-        t.scale = (0.55, 1, 1)
-    # red string between pins
+        r = 0.08 + k * 0.065
+        pts = [(-0.1 + r * math.cos(a), -0.01, -0.13 + r * math.sin(a)) for a in [math.radians(-50 + 10 * j) for j in range(11)]]
+        L.guideline(pts, mat=redm, thickness=0.012, name=f"wave{k}").parent = vc
     red = L.mat_principled("string", (0.6, 0.02, 0.02), rough=0.5)
-    L.guideline([(0.0, -0.05, 1.41), (-0.42, -0.05, 0.72)], mat=red, thickness=0.006, name="str1")
-    L.guideline([(-0.42, -0.05, 0.72), (0.5, -0.05, -0.5)], mat=red, thickness=0.006, name="str2")
-    # extra texture: scraps, photos
-    H.box_mesh("scraps", [(0.95, -0.006, 0.55, 0.18, 0.002, 0.24, 0.1), (-0.9, -0.006, -0.6, 0.22, 0.002, 0.16, -0.08),
-                          (-0.75, -0.006, -1.4, 0.3, 0.002, 0.2, 0.05)], H.mat_paper("scrap", (0.6, 0.57, 0.48)))
-    H.box_mesh("photos", [(0.95, -0.009, 0.55, 0.14, 0.002, 0.18, 0.1)], L.mat_principled("photo", (0.08, 0.08, 0.08), rough=0.3))
+    L.guideline([(0.0, -0.05, 1.43), (-0.08, -0.05, 0.78)], mat=red, thickness=0.005, name="str1")
+    L.guideline([(-0.08, -0.05, 0.78), (0.12, -0.05, -0.38)], mat=red, thickness=0.005, name="str2")
+    H.box_mesh("scraps", [(0.95, -0.006, 0.55, 0.2, 0.002, 0.26, 0.1), (-0.95, -0.006, -0.5, 0.22, 0.002, 0.16, -0.08),
+                          (-0.85, -0.006, 1.0, 0.2, 0.002, 0.15, 0.05), (0.9, -0.006, -1.4, 0.25, 0.002, 0.2, -0.05)],
+               H.mat_paper("scrap", (0.6, 0.57, 0.48)))
+    H.box_mesh("photos", [(0.95, -0.009, 0.55, 0.15, 0.002, 0.19, 0.1), (-0.85, -0.009, 1.0, 0.14, 0.002, 0.1, 0.05)],
+               L.mat_principled("photo", (0.07, 0.07, 0.07), rough=0.3))
     if slide:
-        r = sp
-        tgt = tuple(r.location)
-        r.location = (tgt[0] + 2.6, tgt[1], tgt[2] + 0.1)
-        r.keyframe_insert("location", frame=1)
-        r.keyframe_insert("location", frame=6)
-        r.location = tgt
-        r.keyframe_insert("location", frame=14)
-        r.rotation_euler = (0, math.radians(-8), 0)
-        r.keyframe_insert("rotation_euler", frame=6)
-        r.rotation_euler = (0, math.radians(2.5), 0)
-        r.keyframe_insert("rotation_euler", frame=16)
-    # desk lamp from top-left
-    k = L.spot((-2.2, -1.6, 3.2), (0, 0, 0), energy=900, size_deg=48, blend=0.5, color=(1.0, 0.78, 0.5), name="desklamp", radius=0.1)
-    H.aim(k, (-2.2, -1.6, 3.2), (0.1, 0, 0.2))
+        tgt = tuple(sp.location)
+        sp.location = (tgt[0] + 2.4, tgt[1], tgt[2] + 0.1)
+        sp.keyframe_insert("location", frame=1)
+        sp.keyframe_insert("location", frame=5)
+        sp.location = tgt
+        sp.keyframe_insert("location", frame=13)
+        sp.rotation_euler = (0, math.radians(-8), 0)
+        sp.keyframe_insert("rotation_euler", frame=5)
+        sp.rotation_euler = (0, math.radians(2.5), 0)
+        sp.keyframe_insert("rotation_euler", frame=16)
+    k = L.spot((-2.2, -1.8, 3.2), (0, 0, 0), energy=1000, size_deg=50, blend=0.5, color=(1.0, 0.78, 0.5), name="desklamp", radius=0.1)
+    H.aim(k, (-2.2, -1.8, 3.2), (0.1, 0, 0.3))
     L.area((0, -3, 0.5), (math.pi / 2, 0, 0), energy=8, size=3, color=(0.6, 0.7, 0.9), name="boardfill")
     return sp, vc
 
 
 def S10(L, n):
     _board(L, n, slide=True)
-    c = H.cam((0.0, -3.9, 0.15), (0.0, 0, 0.0), lens=50)
-    H.cam_move(c, [(1, (0.0, -4.0, 0.12), (-0.05, 0, -0.02)), (n, (-0.1, -3.5, 0.2), (-0.12, 0, 0.1))], ease=False)
+    c = H.cam((0.0, -4.7, 0.15), (0.0, 0, 0.1), lens=50)
+    H.cam_move(c, [(1, (0.0, -4.8, 0.15), (-0.02, 0, 0.12)), (n, (-0.05, -4.25, 0.2), (-0.06, 0, 0.15))], ease=False)
     L.bake_static()
 
 
 def S11(L, n):
     _board(L, n, slide=False)
-    c = H.cam((0.1, -3.5, 0.1), (0.1, 0, 0.0), lens=50)
-    H.cam_move(c, [(1, (0.15, -3.4, -0.3), (0.3, 0, -0.55)), (n, (0.35, -2.6, -0.45), (0.45, 0, -0.75))])
+    c = H.cam((0.1, -3.6, -0.6), (0.12, 0, -0.95), lens=50)
+    H.cam_move(c, [(1, (0.1, -3.6, -0.6), (0.12, 0, -0.95)), (n, (0.14, -3.25, -0.62), (0.14, 0, -0.98))])
     L.bake_static()
 
 
@@ -417,24 +408,25 @@ def S11(L, n):
 def S12(L, n):
     import bpy
     H.eevee_quality()
-    L.set_world((0.01, 0.008, 0.006), 1.0)
-    desk = H.box_mesh("desk", [(0, 0, -0.03, 3, 3, 0.03)], L.WOOD_OLD())
-    page = H.box_mesh("page", [(0, 0, 0.002, 0.55, 0.75, 0.002, 0.06)], H.mat_paper("news", (0.7, 0.67, 0.58)))
-    ink = L.mat_principled("newsink", (0.12, 0.11, 0.1), rough=0.8)
-    bars = [(-0.1, 0.62, 0.006, 0.4, 0.05, 0.002)]
+    L.set_world((0.006, 0.005, 0.004), 1.0)
+    H.box_mesh("desk", [(0, 0, -0.03, 3, 3, 0.03)], L.WOOD_OLD())
+    H.box_mesh("page", [(0, 0, 0.002, 0.42, 0.58, 0.002, 0.06)], H.mat_paper("news", (0.62, 0.6, 0.52)))
+    ink = L.mat_principled("newsink", (0.1, 0.09, 0.08), rough=0.8)
+    bars = []
     for col in range(3):
-        for row in range(16):
-            bars.append((-0.38 + col * 0.33, 0.45 - row * 0.065, 0.006, 0.13, 0.012, 0.001))
+        for row in range(13):
+            bars.append((-0.27 + col * 0.27, 0.3 - row * 0.062, 0.006, 0.11, 0.01, 0.001))
     g = H.box_mesh("columns", bars, ink)
     g.rotation_euler = (0, 0, 0.06)
-    t = L.text3d("ABOUT 2% WAS FAKED", loc=(0.0, 0.55, 0.01), rot=(0, 0, 0.06), size=0.065, extrude=0.0005, mat=ink, name="headline")
-    L.spot((-0.8, -0.6, 1.6), (0, 0, 0), energy=160, size_deg=60, blend=0.6, color=(1.0, 0.8, 0.55), name="paperlamp")
+    t = L.text3d("ABOUT 2% WAS FAKED", loc=(-0.03, 0.43, 0.006), rot=(0, 0, 0.06), size=0.07, extrude=0.0005, mat=ink, name="headline")
+    t2 = L.text3d("2016 INTERVIEW", loc=(-0.02, 0.37, 0.006), rot=(0, 0, 0.06), size=0.03, extrude=0.0005, mat=ink, name="sub")
+    H.box_mesh("pencil", [(0.5, -0.2, 0.01, 0.006, 0.18, 0.006, 0.4)], L.mat_principled("pen", (0.5, 0.35, 0.05), rough=0.5))
+    L.spot((-0.8, -0.6, 1.6), (0, 0, 0), energy=120, size_deg=50, blend=0.7, color=(1.0, 0.8, 0.55), name="paperlamp")
     pl = bpy.data.objects["paperlamp"]
     H.aim(pl, (-0.8, -0.6, 1.6), (0, 0.1, 0))
-    c = H.cam((0.05, -0.55, 1.15), (0.0, 0.1, 0.0), lens=40)
-    H.cam_move(c, [(1, (0.05, -0.6, 1.15), (0.0, 0.0, 0.0)), (n, (0.0, -0.35, 1.1), (-0.02, 0.3, 0.0))], ease=False)
-    L.dof(c, distance=1.3, fstop=2.8)
-    H.dust((0, 0, 0.5), (1, 1, 0.8), n, count=150, emit=0.2)
+    c = H.cam((0.05, -0.75, 1.5), (0.0, 0.05, 0.0), lens=38)
+    H.cam_move(c, [(1, (0.05, -0.8, 1.5), (0.0, 0.0, 0.0)), (n, (0.0, -0.6, 1.45), (-0.02, 0.2, 0.0))], ease=False)
+    L.dof(c, distance=1.6, fstop=4)
     L.bake_static()
 
 

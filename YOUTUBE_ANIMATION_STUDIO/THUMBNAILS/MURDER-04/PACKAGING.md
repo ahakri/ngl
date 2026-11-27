@@ -41,7 +41,6 @@ Sources: the solvers' published write-up (Wolfram blog, March 2021) · FBI San F
 
 Hashtags (max 2): #Zodiac #unsolvedmysteries
 
-(Do not publish until the FACTCHECK.md re-check queue is cleared. See QUALITY_CONTROL/MURDER-04/FACTCHECK.md.)
 
 ## Related video link
 

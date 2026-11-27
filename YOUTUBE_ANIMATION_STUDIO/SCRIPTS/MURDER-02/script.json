@@ -627,7 +627,7 @@
     },
     {
      "type": "label",
-     "text": "UNSOLVED",
+     "text": "DOCUMENTED FACT",
      "params": {
       "y": 200
      }
@@ -856,7 +856,7 @@
    "overlay": [
     {
      "type": "label",
-     "text": "GENETIC GENEALOGY",
+     "text": "THEORY",
      "params": {
       "y": 200
      }

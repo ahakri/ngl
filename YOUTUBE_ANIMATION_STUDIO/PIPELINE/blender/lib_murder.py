@@ -1593,3 +1593,8 @@ def mat_volume_anim(name, color, density):
     l.new(m2.outputs[0], v.inputs["Density"])
     l.new(v.outputs[0], n["Material Output"].inputs["Volume"])
     return m, val.outputs[0]
+
+
+def smooth_obj(o):
+    o.data.polygons.foreach_set("use_smooth", [True] * len(o.data.polygons))
+    return o

@@ -54,8 +54,8 @@ def lin(obj):
 
 # ----------------------------------------------------------------------------- tent close-up (S01 / S20 / S21)
 
-S01_CAM0 = (-2.05, -3.05, 1.05)
-S01_CAM1 = (-1.45, -2.35, 0.98)
+S01_CAM0 = (-3.3, -2.75, 1.2)
+S01_CAM1 = (-2.6, -2.2, 1.08)
 S01_TGT = (0.25, -0.45, 0.5)
 
 
@@ -66,7 +66,7 @@ def tent_closeup(L, n, cam_from, cam_to, tgt_from, tgt_to, torch_keys, flap_base
     t = tent_at(pz, inner=30.0, snow_amt=0.0)
     M.anim_flaps(t, n, base=flap_base, amp=flap_amp, rate=1.8, seed=3)
     # torch from camera-left
-    tr, tg = M.torch((-2.7, -2.2, 1.25 + pz), torch_keys[0][1], energy=420, size_deg=15)
+    tr, tg = M.torch((-3.6, -1.7, 1.4 + pz), torch_keys[0][1], energy=480, size_deg=15)
     for f, p in torch_keys:
         tg.location = (p[0], p[1], p[2] + pz)
         tg.keyframe_insert("location", frame=f)
@@ -551,19 +551,19 @@ def S13(L, n):
     tent.location = (0, 0, 0)
     tent.keyframe_insert("location", frame=46)
     M.hide_until(tent, 34)
-    cam.data.ortho_scale = 10.0
+    cam.data.ortho_scale = 11.0
     cam.data.keyframe_insert("ortho_scale", frame=1)
-    cam.data.ortho_scale = 7.0
+    cam.data.ortho_scale = 8.0
     cam.data.keyframe_insert("ortho_scale", frame=n)
-    cam.location = (0.2, -20, zc)
+    cam.location = (-0.6, -20, zp - 1.3)
     cam.keyframe_insert("location", frame=1)
-    cam.location = (0.0, -20, zp - 0.9)
+    cam.location = (-0.2, -20, zp - 0.9)
     cam.keyframe_insert("location", frame=n)
     L.bake_static()
 
 
 def S14(L, n):
-    P, cam, zc = diagram_base(L, n, ortho_scale=8.0, slab=True, slab_full=False)
+    P, cam, zc = diagram_base(L, n, ortho_scale=10.5, slab=True, slab_full=False)
     k = P["slab_key"]
     k.value = 0.0
     k.keyframe_insert("value", frame=1)
@@ -574,9 +574,18 @@ def S14(L, n):
     a = P["a"]
     zs = P["zs"]
     pm = L.mat_principled("wind_m", (0.9, 0.95, 1.0), emit=(0.8, 0.9, 1.0), emit_strength=1.5)
-    for i in range(2):
-        c = L.particle_cloud((a - 4.0 - i * 1.0, -0.95, zs(a - 4.0) + 1.0 + i * 0.4), (4.0, 0.2, 0.9), count=900, radius=0.02, mat=pm,
-                             drift=(3.2, 0, -3.2 * tg * 0.85), seed=140 + i, nframes=n, name=f"wind{i}")
+    import random
+    rnd = random.Random(14)
+    pts = []
+    T = n / 24.0
+    for i in range(1500):
+        x = rnd.uniform(-11.0, 1.0)
+        pts.append((x, rnd.uniform(-0.95, -0.75), max(P["zg"](x) + 1.35, zs(x)) + rnd.uniform(0.12, 1.1) * (0.4 + 0.6 * rnd.random())))
+    wc = M.cloud_points(pts, radius=0.016, name="wind", mat=pm)
+    wc.keyframe_insert("location", frame=1)
+    wc.location = (3.4 * T, 0, -3.4 * T * tg * 0.8)
+    wc.keyframe_insert("location", frame=n)
+    lin(wc)
     for i, (x0, dz) in enumerate(((-4.2, 1.6), (-3.2, 2.2), (-2.4, 1.3))):
         ar = M.arrow((x0 + a, zs(x0 + a) + dz), (x0 + a + 1.4, zs(x0 + a + 1.4) + dz - 0.35), y=-1.0, name=f"arr{i}", strength=3)
         ar.location = (-0.8, 0, 0.3)
@@ -584,16 +593,16 @@ def S14(L, n):
         ar.location = (0.9, 0, -0.3)
         ar.keyframe_insert("location", frame=n)
         lin(ar)
-    cam.location = (-0.6, -20, P["zp"] - 1.0)
+    cam.location = (-0.8, -20, P["zp"] - 1.0)
     L.bake_static()
 
 
 def S15(L, n):
-    P, cam, zc = diagram_base(L, n, ortho_scale=8.0, slab=True, slab_full=True)
+    P, cam, zc = diagram_base(L, n, ortho_scale=10.5, slab=True, slab_full=True)
     sl = P["slab"]
     a, zs, tg = P["a"], P["zs"], P["tg"]
     sx0 = P["slab_x0"]
-    cam.location = (-0.6, -20, P["zp"] - 1.0)
+    cam.location = (-0.8, -20, P["zp"] - 1.0)
     f_crack, f_go = int(n * 0.45), int(n * 0.62)
     # crack line: crown fracture (upslope end) + base, glowing red, draws on
     red = L.mat_emission("crack_m", (1.0, 0.12, 0.06), 9)
@@ -634,7 +643,7 @@ def S15(L, n):
     tent.location = (cxp * (1 - 1.05), 0, zp * (1 - 0.55))
     tent.keyframe_insert("scale", frame=f_go + 18)
     tent.keyframe_insert("location", frame=f_go + 18)
-    M.snow_burst((a + 0.6, -0.9, zs(a) + 0.2), n, f_go + 13, count=700, radius=0.03, spread=1.4, rise=0.6, seed=151, emit=1.2)
+    M.snow_burst((a + 0.6, -0.9, zs(a) + 0.2), n, f_go + 13, count=500, radius=0.012, spread=1.4, rise=0.6, seed=151, emit=1.0)
     M.shake(cam, [f_crack, f_go + 13], amp=0.06, decay=8)
     L.bake_static()
 
@@ -666,46 +675,50 @@ def L_link(o):
 
 
 def S16(L, n):
-    night(stars=0.5, moon_rot=(R(60), 0, R(-40)), moon_e=1.6)
+    # side-on: the slab slides down from the right (uphill) onto the tent's gable end
+    night(stars=0.5, moon_rot=(R(62), 0, R(-60)), moon_e=1.7)
     h, pz, _ = slope_terrain(x=(-25, 25), y=(-25, 35), res=0.2)
-    t = tent_at(pz, inner=10.0)
+    t = tent_at(pz, inner=12.0, snow_amt=0.0)
     M.anim_flaps(t, n, base=0.2, amp=0.1)
     tg = math.tan(R(SLOPE))
-    sm = M.mat_snow("slab_m", tint=(0.84, 0.88, 0.98))
-    slab = slab_block("slab", size=(4.4, 2.6, 0.6), mat=sm)
-    y_start, y_end = 4.6, 1.25
-    p0 = Vector((0.0, y_start, h(0, y_start) + 0.25))
-    p1 = Vector((0.0, y_end + 0.4, pz + 1.0))
+    sm = M.mat_snow("slab_m", tint=(0.86, 0.9, 1.0))
+    slab = slab_block("slab", size=(4.4, 2.4, 0.65), mat=sm)
+    y_start, y_end = 4.4, 1.2
+    p0 = Vector((0.0, y_start, h(0, y_start) + 0.28))
+    p1 = Vector((0.0, y_end + 0.2, pz + 1.05))
     slab.rotation_euler = (math.atan(tg), 0, 0)
     f_hit = int(n * 0.45)
-    slab.location = p0 + Vector((0, 0.35, 0.13))
+    slab.location = p0 + Vector((0, 0.5, 0.18))
     slab.keyframe_insert("location", frame=1)
     slab.keyframe_insert("rotation_euler", frame=1)
     slab.location = p1
     slab.rotation_euler = (math.atan(tg) * 0.4, 0, 0)
     slab.keyframe_insert("location", frame=f_hit)
     slab.keyframe_insert("rotation_euler", frame=f_hit)
-    slab.location = p1 + Vector((0, -0.55, -0.35))
+    slab.location = p1 + Vector((0, -0.45, -0.32))
     slab.rotation_euler = (math.atan(tg) * 0.15, R(2), 0)
     slab.keyframe_insert("location", frame=n)
     slab.keyframe_insert("rotation_euler", frame=n)
-    # crack line in the snow where the slab tore loose (dark gap behind it)
-    gap = M.mesh_obj("crown", [(-2.3, y_start + 1.4, h(-2.3, y_start + 1.4) + 0.02), (2.3, y_start + 1.4, h(2.3, y_start + 1.4) + 0.02),
-                               (2.3, y_start + 1.0, h(2.3, y_start + 1.0) + 0.02), (-2.3, y_start + 1.0, h(-2.3, y_start + 1.0) + 0.02)],
-                     [(0, 1, 2, 3)], mat=L.mat_principled("gap_m", (0.04, 0.06, 0.1), rough=1))
-    # tent sags under the load
+    lin(slab)
+    # torn crown: dark step in the snow where the slab broke away
+    gm = L.mat_principled("gap_m", (0.03, 0.045, 0.08), rough=1)
+    yy = y_start + 1.6
+    M.mesh_obj("crown", [(-2.3, yy, h(-2.3, yy) + 0.02), (2.3, yy, h(2.3, yy) + 0.02), (2.3, yy - 0.5, h(2.3, yy - 0.5) - 0.3),
+                         (-2.3, yy - 0.5, h(-2.3, yy - 0.5) - 0.3)], [(0, 1, 2, 3)], mat=gm)
     r = t["root"]
     r.keyframe_insert("scale", frame=f_hit - 1)
-    r.scale = (1.02, 1.05, 0.55)
+    r.scale = (1.02, 1.05, 0.6)
     r.keyframe_insert("scale", frame=f_hit + 4)
-    L.spot((0, 7, pz + 3.5), (R(-70), 0, R(180)), energy=500, size_deg=60, blend=0.5, color=(0.55, 0.65, 1.0), name="rimslab")
-    M.snow_burst((0, 0.6, pz + 1.0), n, f_hit, count=1200, radius=0.05, spread=3.2, rise=1.0, seed=161, emit=0.35)
-    M.snow_burst((0, 2.5, pz + 1.3), n, 2, count=600, radius=0.04, spread=2.0, rise=0.5, seed=162, emit=0.3, dur=40)
-    M.snowfall((0, -1, pz + 1.5), (8, 6, 4), n, count=1000, radius=0.012, fall=0.6, wind=(1.4, 0, 0), seed=163)
+    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=400, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
+    rim.data.specular_factor = 0.0
+    M.snow_burst((0, 0.6, pz + 1.0), n, f_hit, count=900, radius=0.012, spread=3.0, rise=0.9, seed=161, emit=0.3)
+    M.volume_puff((0, 0.5, pz + 1.0), f_hit, n, size=2.6, density=0.5)
+    c0, c1 = (6.4, -1.6, pz + 1.3), (5.9, -1.4, pz + 1.25)
+    M.snowfall((2.5, 0.5, pz + 1.5), (5, 8, 4), n, count=800, radius=0.01, fall=0.6, wind=(-1.0, 0, 0), seed=163, cam=(c0, c1), clear=1.2,
+               emit=0.12)
     M.fog((0, 4, pz + 2), (40, 30, 8), density=0.02)
-    c0 = (1.6, -6.2, pz + 1.3)
-    cam, ct = L.camera(loc=c0, target=(0, 1.2, pz + 0.9), lens=35)
-    L.cam_keys(cam, [(1, c0), (n, (1.4, -5.6, pz + 1.25))])
+    cam, ct = L.camera(loc=c0, target=(0, 1.3, pz + 0.85), lens=35)
+    L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
     L.handheld(cam, n, amp=0.02, rate=0.8)
     M.shake(cam, [f_hit], amp=0.05, decay=10)
@@ -713,27 +726,30 @@ def S16(L, n):
 
 
 def S17(L, n):
-    night(stars=0.6, moon_rot=(R(64), 0, R(-50)), moon_e=1.4)
+    night(stars=0.6, moon_rot=(R(64), 0, R(-50)), moon_e=1.5)
     h, pz, _ = slope_terrain(x=(-25, 25), y=(-25, 35), res=0.2)
-    t = tent_at(pz, inner=0.0, crush=0.75, snow_amt=0.9)
+    t = tent_at(pz, inner=0.0, crush=0.5, snow_amt=0.0)
     sm = M.mat_snow("debris_m", tint=(0.84, 0.88, 0.98))
     tg = math.tan(R(SLOPE))
-    s = slab_block("slab", size=(4.0, 2.2, 0.5), mat=sm, seed=3)
-    s.location = (0.1, 1.0, pz + 0.75)
+    s = slab_block("slab", size=(4.2, 2.0, 0.5), mat=sm, seed=3)
+    s.location = (0.1, 0.9, pz + 0.95)
     s.rotation_euler = (math.atan(tg) * 0.3, R(3), R(-2))
+    M.smooth_obj(s)
     import random
     rnd = random.Random(7)
-    for i in range(14):
-        b = slab_block(f"chunk{i}", size=(rnd.uniform(0.3, 0.9), rnd.uniform(0.3, 0.7), rnd.uniform(0.15, 0.35)), mat=sm, seed=i)
-        x, y = rnd.uniform(-2.4, 2.4), rnd.uniform(-1.6, 0.2)
-        b.location = (x, y, max(pz, h(x, y)) + 0.1 + (0.35 if abs(x) < 1.9 and -1 < y < 1 else 0))
-        b.rotation_euler = (rnd.uniform(-0.4, 0.4), rnd.uniform(-0.4, 0.4), rnd.uniform(0, 3))
-    M.snow_bank((0, -0.9, pz + 0.05), (2.4, 0.5, 0.3), seed=9, mat=sm, name="debrisbank")
-    M.snowfall((0, -1, pz + 1.5), (9, 8, 4), n, count=1800, radius=0.01, fall=0.25, wind=(0.3, 0, 0), seed=171)
-    M.fog((0, 0, pz + 1), (40, 40, 5), density=0.05)
-    L.spot((0, 7, pz + 3.5), (R(-70), 0, R(180)), energy=300, size_deg=60, blend=0.5, color=(0.55, 0.65, 1.0), name="rimslab")
-    c0, c1 = (1.2, -4.2, pz + 1.4), (2.0, -7.6, pz + 2.4)
-    cam, ct = L.camera(loc=c0, target=(0, 0.2, pz + 0.5), lens=35)
+    for i in range(10):
+        b = slab_block(f"chunk{i}", size=(rnd.uniform(0.3, 0.7), rnd.uniform(0.25, 0.5), rnd.uniform(0.15, 0.3)), mat=sm, seed=i)
+        M.smooth_obj(b)
+        x, y = rnd.choice((-1, 1)) * rnd.uniform(2.1, 3.0), rnd.uniform(-1.8, 1.0)
+        b.location = (x, y, max(pz, h(x, y)) + 0.08)
+        b.rotation_euler = (rnd.uniform(-0.3, 0.3), rnd.uniform(-0.3, 0.3), rnd.uniform(0, 3))
+    c0, c1 = (1.4, -4.4, pz + 1.5), (2.2, -7.8, pz + 2.5)
+    M.snowfall((0, -1, pz + 1.5), (9, 8, 4), n, count=1200, radius=0.008, fall=0.25, wind=(0.3, 0, 0), seed=171, cam=(c0, c1), clear=1.0,
+               emit=0.15)
+    M.fog((0, 0, pz + 1), (40, 40, 5), density=0.045)
+    rim = L.area((-3.0, 6.5, pz + 3.0), (R(-60), 0, R(-150)), energy=300, size=3, color=(0.55, 0.65, 1.0), name="rimslab")
+    rim.data.specular_factor = 0.0
+    cam, ct = L.camera(loc=c0, target=(0, 0.3, pz + 0.55), lens=35)
     L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
     L.handheld(cam, n, amp=0.01)
@@ -743,38 +759,48 @@ def S17(L, n):
 # ----------------------------------------------------------------------------- S18 inside the tent, hikers step out
 
 def S18(L, n):
-    night(stars=0.6, moon_rot=(R(62), 0, R(-30)), moon_e=2.0)
+    night(stars=0.6, moon_rot=(R(58), 0, R(-20)), moon_e=2.6)
     h, pz, _ = slope_terrain(x=(-25, 25), y=(-40, 30), res=0.25)
-    t = M.tent(loc=(0, 0, pz), slit=True, gap=0.24, slit_len=(0.04, 0.95), inner_light=0, snow_amt=0.4, flap_w=0.24)
-    M.anim_flaps(t, n, base=1.0, amp=0.25, open_from=1, open_to=16)
-    # interior: torch from the camera onto the canvas
-    tr, tg = M.torch((-0.3, 0.75, pz + 0.7), (0.0, -0.6, pz + 0.65), energy=160, size_deg=40)
+    sx = 0.35
+    t = M.tent(loc=(0, 0, pz), slit=True, slit_x=sx, gap=0.2, slit_len=(0.03, 0.95), inner_light=0, snow_amt=0.0, flap_w=0.2)
+    M.anim_flaps(t, n, base=1.15, amp=0.2, open_from=1, open_to=14)
+    # warm torch inside, aimed at the canvas beside the slit
+    tr, tg = M.torch((0.0, 0.7, pz + 0.3), (sx - 0.5, -0.55, pz + 0.65), energy=45, size_deg=55)
     tg.keyframe_insert("location", frame=1)
-    tg.location = (0.4, -0.6, pz + 0.7)
+    tg.location = (sx + 0.45, -0.55, pz + 0.7)
     tg.keyframe_insert("location", frame=n)
     L.flicker(tr, n, depth=0.25, rate=0.5)
-    # bedding rolls / packs on the floor (dark shapes)
+    L.point((sx - 0.6, 0.2, pz + 0.25), energy=4, color=(1.0, 0.6, 0.3), radius=0.1, name="glow")
     pack_m = L.mat_principled("pack", (0.05, 0.045, 0.04), rough=0.9)
     for i, (x, y) in enumerate(((-1.4, 0.5), (-0.9, -0.5), (1.3, 0.4), (1.6, -0.4))):
         b = L.prim("cyl", loc=(x, y, pz + 0.12), rot=(0, math.pi / 2, 0.2 * i), vertices=12, radius=0.14, depth=0.6)
         L.assign(b, pack_m)
-    # hikers outside walking away downhill, staggered
-    sx = 0.35
+    # hikers just outside the slit, walking away downhill one after another
     for i in range(5):
         p = M.hiker(f"hiker{i}", height=1.72 + 0.05 * ((i * 7) % 3 - 1))
         r = p["root"]
-        r.rotation_euler = (0, 0, math.pi + 0.15 * (i - 2))
-        f0 = 1 + i * 8
-        x0 = sx + 0.25 * (i - 2)
-        y0, y1 = -1.6 - 0.7 * i, -1.6 - 0.7 * i - 3.2
-        y0f, y1f = y0, y1 - 1.5
-        L.anim_walk(p, 1, n, stride=0.5, rate=1.0, travel=((x0, y0f, h(x0, y0f) - 0.03), (x0 - 0.6 * (i - 2), y1f, h(x0, y1f) - 0.03)))
-    M.snowfall((0.3, -3.0, pz + 1.0), (5, 5, 3), n, count=1800, radius=0.01, fall=0.4, wind=(1.0, 1.4, 0), seed=181)
-    M.fog((0, -10, pz), (40, 30, 8), density=0.04)
-    c0 = (-0.25, 0.8, pz + 0.6)
-    cam, ct = L.camera(loc=c0, target=(sx, -0.6, pz + 0.62), lens=24)
-    L.cam_keys(cam, [(1, c0), (int(n * 0.4), c0), (n, (-0.05, 0.45, pz + 0.62))])
-    L.handheld(cam, n, amp=0.01)
+        r.rotation_euler = (0, 0, math.pi + 0.2 * (i - 2))
+        x0 = sx + 0.35 * ((i % 3) - 1)
+        ya = -1.25 - 0.15 * i
+        f0 = 1 + i * 9
+        L.anim_walk(p, 1, n, stride=0.5, rate=1.1)
+        rt = p["root"]
+        rt.animation_data_clear()
+        pa = (x0, ya, h(x0, ya) - 0.05)
+        pb = (x0 - 0.4 * (i - 2), ya - 3.0, h(x0, ya - 3.0) - 0.05)
+        rt.location = pa
+        rt.keyframe_insert("location", frame=1)
+        rt.keyframe_insert("location", frame=f0)
+        rt.location = pb
+        rt.keyframe_insert("location", frame=f0 + 60)
+        lin(rt)
+    c0, c1 = (sx - 0.05, 0.62, pz + 0.3), (sx - 0.02, 0.42, pz + 0.32)
+    M.snowfall((sx, -2.5, pz + 1.0), (5, 4, 3), n, count=1200, radius=0.008, fall=0.4, wind=(0.8, 1.2, 0), seed=181, cam=(c0, c1),
+               clear=0.8, emit=0.2)
+    M.fog((0, -10, pz), (40, 30, 8), density=0.03)
+    cam, ct = L.camera(loc=c0, target=(sx, -0.5, pz + 0.78), lens=22)
+    L.cam_keys(cam, [(1, c0), (int(n * 0.35), c0), (n, c1)])
+    L.handheld(cam, n, amp=0.008)
     L.bake_static()
 
 
@@ -786,16 +812,18 @@ def S19(L, n):
     M.heightfield("edge", -60, 60, -160, 20, 100, 140, h, mat=M.mat_snow("edge_m"))
     spots = M.scatter_spots((-60, 60, -140, -72), 360, h, seed=9, h=(9, 16))
     M.conifer_forest("forest", spots, seed=9)
-    M.fog((0, -80, h(0, -80) + 2), (120, 80, 22), density=0.05)
+    M.fog((0, -80, h(0, -80) + 2), (120, 80, 22), density=0.045)
     for i in range(4):
         p = M.hiker(f"far{i}", height=1.75)
         r = p["root"]
         r.rotation_euler = (0, 0, math.pi)
         x0 = -2.0 + 1.3 * i + (0.5 if i % 2 else 0)
-        y0 = -52 - 2.5 * i
+        y0 = -56 - 2.5 * i
         L.anim_walk(p, 1, n, stride=0.45, rate=0.9, travel=((x0, y0, h(x0, y0)), (x0 - 0.3, y0 - 4.5, h(x0, y0 - 4.5))))
-    M.snowfall((0, -40, h(0, -40) + 3), (14, 20, 10), n, count=1600, radius=0.035, fall=0.8, wind=(1.4, 0, 0), seed=191)
-    cam, ct = L.camera(loc=(0.4, -12, h(0, -12) + 2.0), target=(0, -62, h(0, -62) + 3.2), lens=85)
-    L.cam_keys(cam, [(1, (0.4, -12, h(0, -12) + 2.0)), (n, (0.1, -12.5, h(0, -12) + 2.0))])
+    c0, c1 = (0.4, -12, h(0, -12) + 2.0), (0.1, -12.5, h(0, -12) + 2.0)
+    M.snowfall((0, -45, h(0, -45) + 3), (14, 20, 10), n, count=700, radius=0.03, fall=0.8, wind=(1.4, 0, 0), seed=191, cam=(c0, c1),
+               clear=22, emit=0.1)
+    cam, ct = L.camera(loc=c0, target=(0, -62, h(0, -62) + 3.2), lens=85)
+    L.cam_keys(cam, [(1, c0), (n, c1)])
     lin(cam)
     L.bake_static()

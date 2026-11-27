@@ -6,15 +6,15 @@ Beat map:
 - cold open 0–6.5 s
 - stakes and respect beat 6.5–18 s
 - the solvers 18–28 s
-- method turn 28.4 s ("not left to right")
-- **mid-point turn 42.3 s ("Then words surfaced"): unreadable becomes readable**
-- FBI acknowledgement 45 s
-- twist and decoded taunt 48–59 s
-- anticlimax 59.5 s
-- open threads: Z13 and Z32, 65.5–73.5 s
-- comment prompt and visual loop 73.6–75.8 s, back to frame 1
+- method turn 28.2 s ("not left to right")
+- **mid-point turn 41.6 s ("Then, real English surfaced"): unreadable becomes readable**
+- FBI acknowledgement 43.7 s
+- twist and decoded taunt 48–58 s
+- anticlimax 58.1 s
+- open threads: Z13 and Z32, 64–72 s
+- comment prompt and visual loop 72.1–74.4 s, back to frame 1
 
-Timings come from a Kokoro test render (am_michael, speed 1.08): total narration **75.8 s**. Shot boundaries are the start of each shot's first line. 9:16, 1080x1920, 24 fps. Captions are burned in (red accent).
+Timings come from a Kokoro test render (am_michael, speed 1.08): total narration **74.4 s**. Shot boundaries are the start of each shot's first line. 9:16, 1080x1920, 24 fps. Captions are burned in (red accent).
 
 **Reusable prop: CIPHER GRID** (S01, S02, S10, S11, S16, S20, S22, S24; defocused behind S05)
 - A 20x17 plane of individually keyframable text3d glyphs on aged paper.
@@ -133,20 +133,20 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **SFX:** whoosh @+0.0s g0.4, hit @+0.6s g0.5
 - **Music level:** 0.46 → 0.81 (original/royalty-free dark ambient pad; no licensed music)
 
-## S09  ·  26.2–28.4 s  (2.1 s)  ·  transition in: cut
+## S09  ·  26.2–28.1 s  (1.9 s)  ·  transition in: cut
 
-- **Narration:** L10 "A warehouse worker in Belgium."
+- **Narration:** L10 "A programmer in Belgium."
 - **Visual:** Route line jumps north-west to Belgium; pin drops; card C. All three pins now visible linked by a red triangle.
 - **Environment:** map
 - **Camera:** 2D overlay; map pulls back to the whole world
 - **Characters:** none
 - **Lighting:** n/a
 - **FX:** —
-- **On-screen text / overlays:** [map] JARL VAN EYCKE / warehouse worker - Belgium; [card] All three: amateur codebreakers / working together online
+- **On-screen text / overlays:** [map] JARL VAN EYCKE / programmer, author of AZdecrypt - Belgium; [card] All three: amateur codebreakers / working together online
 - **SFX:** whoosh @+0.0s g0.4, hit @+0.6s g0.5
 - **Music level:** 0.81 → 0.83 (original/royalty-free dark ambient pad; no licensed music)
 
-## S10  ·  28.4–31.4 s  (3.1 s)  ·  transition in: flash
+## S10  ·  28.1–31.2 s  (3.1 s)  ·  transition in: flash
 
 - **Narration:** L11 "Their key insight: it wasn't written left to right."
 - **Visual:** METHOD TURN. The cipher grid returns, sharp. A white reading-arrow sweeps left-to-right along row 1, then stops, flashes red and shatters into fragments.
@@ -159,7 +159,7 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **SFX:** hit @+1.0s g0.8, riser @+0.0s g0.4
 - **Music level:** 0.83 → 0.86 (original/royalty-free dark ambient pad; no licensed music)
 
-## S11  ·  31.4–35.1 s  (3.7 s)  ·  transition in: cut
+## S11  ·  31.2–34.9 s  (3.7 s)  ·  transition in: cut
 
 - **Narration:** L12 "Most of it ran diagonally. Down one row, across two."
 - **Visual:** Letters rearranging: starting at the top-left glyph, a glowing red path hops down 1 row and right 2 columns, wrapping at the edge; each visited glyph lifts out of the grid and slides into a new straight line at the bottom of frame, forming a re-ordered strip. The grid splits into three horizontal sections (rows 1-9, 10-18, 19-20) with thin gaps.
@@ -172,7 +172,7 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **SFX:** click @+0.3s g0.3, click @+0.7s g0.3, click @+1.1s g0.3, click @+1.5s g0.3, whoosh @+2.0s g0.4
 - **Music level:** 0.86 → 0.90 (original/royalty-free dark ambient pad; no licensed music)
 
-## S12  ·  35.1–39.3 s  (4.2 s)  ·  transition in: cut
+## S12  ·  34.9–39.1 s  (4.2 s)  ·  transition in: cut
 
 - **Narration:** L13 "The mathematician tested hundreds of thousands of reading orders."
 - **Visual:** Close on a modern monitor in a dark room: dozens of tiny thumbnail grids, each a different hop-pattern, flicker past in a mosaic; screen glow fills the frame and reflects on a desk.
@@ -185,9 +185,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **SFX:** typewriter @+0.0s g0.3, riser @+0.4s g0.3
 - **Music level:** 0.90 → 0.94 (original/royalty-free dark ambient pad; no licensed music)
 
-## S13  ·  39.3–42.3 s  (2.9 s)  ·  transition in: cut
+## S13  ·  39.1–41.5 s  (2.5 s)  ·  transition in: cut
 
-- **Narration:** L14 "The warehouse worker's software attacked each one."
+- **Narration:** L14 "The Belgian's program attacked each one."
 - **Visual:** Second monitor, different room colour (amber desk lamp + screen): a program window (generic UI, labelled 'AZdecrypt' as plain text, no real screenshots) shows a score bar climbing and candidate plaintext lines scrolling as gibberish.
 - **Environment:** other:modern computer screen
 - **Camera:** over-the-shoulder 35mm, slow orbit 10 deg
@@ -196,22 +196,22 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** screen flicker
 - **On-screen text / overlays:** [card] AZdecrypt - solver software / written by Van Eycke
 - **SFX:** click @+0.0s g0.3, click @+0.5s g0.3, click @+1.0s g0.3
-- **Music level:** 0.94 → 0.80 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.94 → 0.85 (original/royalty-free dark ambient pad; no licensed music)
 
-## S14  ·  42.3–45.1 s  (2.8 s)  ·  transition in: cut
+## S14  ·  41.5–43.6 s  (2.1 s)  ·  transition in: cut
 
-- **Narration:** L15 "Then words surfaced. Trying to catch me."
-- **Visual:** MID-POINT TURN (unreadable becomes readable). Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until TRYING TO CATCH ME reads clean, glowing red, while the rest of the line stays noise.
+- **Narration:** L15 "Then, real English surfaced."
+- **Visual:** MID-POINT TURN (unreadable becomes readable). Decode cascade: on the screen the gibberish lines freeze; letters in one line flip like split-flap cells until a fragment reads as clean English, glowing red, while the rest of the line stays noise. Use a fragment of the published plaintext (e.g. LOTS OF FUN); do not imply which words appeared first.
 - **Environment:** other:modern computer screen
 - **Camera:** locked-off macro on the screen line, tiny push
 - **Characters:** none
 - **Lighting:** red text glow dominates; monitor dim
 - **FX:** —
-- **On-screen text / overlays:** [title] TRYING TO CATCH ME
+- **On-screen text / overlays:** [title] REAL WORDS
 - **SFX:** typewriter @+0.0s g0.5, sting @+1.2s g0.7
-- **Music level:** 0.80 → 0.63 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.85 → 0.72 (original/royalty-free dark ambient pad; no licensed music)
 
-## S15  ·  45.1–48.0 s  (3.0 s)  ·  transition in: cut
+## S15  ·  43.6–46.6 s  (3.0 s)  ·  transition in: cut
 
 - **Narration:** L16 "The FBI acknowledged the cipher had been solved."
 - **Visual:** Document reveal: a neutral recreated statement card (no FBI seal, no letterhead) slides up; a red stamp hits.
@@ -222,9 +222,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** —
 - **On-screen text / overlays:** [document] The FBI said a cipher attributed to / the Zodiac Killer had been solved / by private citizens. / (paraphrase, 11 Dec 2020); [label] DOCUMENTED FACT
 - **SFX:** typewriter @+0.3s g0.4, hit @+1.8s g0.7
-- **Music level:** 0.63 → 0.51 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.72 → 0.53 (original/royalty-free dark ambient pad; no licensed music)
 
-## S16  ·  48.0–49.6 s  (1.6 s)  ·  transition in: cut
+## S16  ·  46.6–48.2 s  (1.6 s)  ·  transition in: cut
 
 - **Narration:** L17 "So what did it say?"
 - **Visual:** The full 340 grid; all glyphs begin to flip toward letters at once, freezing halfway (left half symbols, right half letters) as the line ends.
@@ -235,9 +235,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** —
 - **On-screen text / overlays:** —
 - **SFX:** riser @+0.0s g0.6
-- **Music level:** 0.51 → 0.53 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.53 → 0.51 (original/royalty-free dark ambient pad; no licensed music)
 
-## S17  ·  49.6–52.7 s  (3.1 s)  ·  transition in: cut
+## S17  ·  48.2–51.3 s  (3.1 s)  ·  transition in: cut
 
 - **Narration:** L18 "I hope you are having lots of fun in trying to catch me."
 - **Visual:** Decoded text typed onto aged paper, line by line, over the half-flipped grid plate.
@@ -248,9 +248,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** —
 - **On-screen text / overlays:** [document] I HOPE YOU ARE HAVING LOTS OF FUN / IN TRYING TO CATCH ME; [label] DOCUMENTED FACT
 - **SFX:** typewriter @+0.4s g0.5
-- **Music level:** 0.53 → 0.57 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.51 → 0.55 (original/royalty-free dark ambient pad; no licensed music)
 
-## S18  ·  52.7–54.8 s  (2.1 s)  ·  transition in: cut
+## S18  ·  51.3–53.3 s  (2.1 s)  ·  transition in: cut
 
 - **Narration:** L19 "That wasn't me on the TV show."
 - **Visual:** A 1969 box TV set (rounded box, wood veneer, convex screen) alone in a dark room, screen showing a grainy talk-show set: two faceless chair silhouettes and a desk phone. Static rolls across.
@@ -261,9 +261,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** static noise on the screen texture
 - **On-screen text / overlays:** [title] "THAT WASN'T ME / ON THE TV SHOW"
 - **SFX:** static @+0.0s g0.5
-- **Music level:** 0.57 → 0.60 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.55 → 0.58 (original/royalty-free dark ambient pad; no licensed music)
 
-## S19  ·  54.8–59.5 s  (4.7 s)  ·  transition in: cut
+## S19  ·  53.3–58.0 s  (4.7 s)  ·  transition in: cut
 
 - **Narration:** L20 "Probably a 1969 TV caller who claimed to be him."
 - **Visual:** Same TV, screen now shows a big old rotary-desk-phone icon lit up; captions on screen 'LIVE CALL-IN'.
@@ -274,9 +274,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** static
 - **On-screen text / overlays:** [label] THEORY; [card] Oct 1969: a caller to a live TV show / claimed to be the Zodiac
 - **SFX:** static @+0.0s g0.3, click @+0.6s g0.3
-- **Music level:** 0.60 → 0.64 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.58 → 0.63 (original/royalty-free dark ambient pad; no licensed music)
 
-## S20  ·  59.5–62.4 s  (2.9 s)  ·  transition in: cut
+## S20  ·  58.0–61.0 s  (2.9 s)  ·  transition in: cut
 
 - **Narration:** L21 "Fifty-one years of waiting. For a taunt."
 - **Visual:** Anticlimax beat: the decoded grid of letters slowly dims to grey; one glowing letter at a time switches off.
@@ -287,9 +287,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** dust
 - **On-screen text / overlays:** [title] A TAUNT
 - **SFX:** boom @+1.2s g0.6
-- **Music level:** 0.64 → 0.67 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.63 → 0.65 (original/royalty-free dark ambient pad; no licensed music)
 
-## S21  ·  62.4–65.5 s  (3.1 s)  ·  transition in: cut
+## S21  ·  61.0–64.0 s  (3.1 s)  ·  transition in: cut
 
 - **Narration:** L22 "No name. The killer has never been identified."
 - **Visual:** Recreated case-file cover (no real seal): 'ZODIAC - UNIDENTIFIED' typed; a stamp 'OPEN' lands.
@@ -300,9 +300,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** —
 - **On-screen text / overlays:** [document] SUSPECT: UNIDENTIFIED / No one has been charged / Status: OPEN; [label] DOCUMENTED FACT
 - **SFX:** typewriter @+0.3s g0.4, hit @+1.6s g0.6
-- **Music level:** 0.67 → 0.70 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.65 → 0.68 (original/royalty-free dark ambient pad; no licensed music)
 
-## S22  ·  65.5–68.7 s  (3.2 s)  ·  transition in: cut
+## S22  ·  64.0–67.3 s  (3.2 s)  ·  transition in: cut
 
 - **Narration:** L23 "And two shorter Zodiac ciphers remain unsolved."
 - **Visual:** Two small glyph strips (13 cells and 32 cells, same stand-in glyph style) rise out of the dark below the big grid, outlined in red.
@@ -313,9 +313,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** dust
 - **On-screen text / overlays:** [card] Z13 - 13 symbols (April 1970) / Z32 - 32 symbols (June 1970)
 - **SFX:** riser @+0.0s g0.4
-- **Music level:** 0.70 → 0.56 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.68 → 0.64 (original/royalty-free dark ambient pad; no licensed music)
 
-## S23  ·  68.7–73.5 s  (4.8 s)  ·  transition in: cut
+## S23  ·  67.3–72.1 s  (4.8 s)  ·  transition in: cut
 
 - **Narration:** L24 "One is just thirteen symbols. Right before it, he wrote: my name is."
 - **Visual:** Paper scrap with 'MY NAME IS —' typed, then the 13 stand-in glyphs type on after it, one by one.
@@ -326,9 +326,9 @@ No crime scenes, victims, weapons, handwriting or real envelopes. Solvers are fa
 - **FX:** —
 - **On-screen text / overlays:** [document] MY NAME IS - / ? ? ? ? ? ? ? ? ? ? ? ? ?; [label] DOCUMENTED FACT
 - **SFX:** typewriter @+0.4s g0.5, heartbeat @+1.5s g0.4
-- **Music level:** 0.56 → 0.50 (original/royalty-free dark ambient pad; no licensed music)
+- **Music level:** 0.64 → 0.50 (original/royalty-free dark ambient pad; no licensed music)
 
-## S24  ·  73.5–75.8 s  (2.3 s)  ·  transition in: cut
+## S24  ·  72.1–74.4 s  (2.3 s)  ·  transition in: cut
 
 - **Narration:** L25 "Think you can read it?"
 - **Visual:** Loop frame: the camera slides back into the macro row-drift framing of S01 over the big grid, glyphs flickering red — frame matches S01 frame 1.

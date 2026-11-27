@@ -1,0 +1,1141 @@
+{
+ "duration": 74.4,
+ "voice": "am_michael",
+ "lines": [
+  {
+   "id": "L01",
+   "start": 0.15,
+   "end": 4.49,
+   "text": "The Zodiac Killer mailed this. For fifty-one years, nobody could read it.",
+   "words": [
+    {
+     "w": "The",
+     "start": 0.18,
+     "end": 0.28
+    },
+    {
+     "w": "Zodiac",
+     "start": 0.28,
+     "end": 0.87
+    },
+    {
+     "w": "Killer",
+     "start": 0.87,
+     "end": 1.28
+    },
+    {
+     "w": "mailed",
+     "start": 1.28,
+     "end": 1.57
+    },
+    {
+     "w": "this.",
+     "start": 1.57,
+     "end": 1.93
+    },
+    {
+     "w": "For",
+     "start": 1.93,
+     "end": 2.08
+    },
+    {
+     "w": "fifty-one",
+     "start": 2.08,
+     "end": 2.78
+    },
+    {
+     "w": "years,",
+     "start": 2.78,
+     "end": 3.17
+    },
+    {
+     "w": "nobody",
+     "start": 3.17,
+     "end": 3.67
+    },
+    {
+     "w": "could",
+     "start": 3.67,
+     "end": 3.91
+    },
+    {
+     "w": "read",
+     "start": 3.91,
+     "end": 4.33
+    },
+    {
+     "w": "it.",
+     "start": 4.33,
+     "end": 4.43
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "start": 4.84,
+   "end": 6.35,
+   "text": "Three hundred forty symbols.",
+   "words": [
+    {
+     "w": "Three",
+     "start": 4.87,
+     "end": 5.15
+    },
+    {
+     "w": "hundred",
+     "start": 5.15,
+     "end": 5.48
+    },
+    {
+     "w": "forty",
+     "start": 5.48,
+     "end": 5.85
+    },
+    {
+     "w": "symbols.",
+     "start": 5.85,
+     "end": 6.29
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "start": 6.55,
+   "end": 10.61,
+   "text": "Mailed to the San Francisco Chronicle in 1969.",
+   "words": [
+    {
+     "w": "Mailed",
+     "start": 6.58,
+     "end": 7.02
+    },
+    {
+     "w": "to",
+     "start": 7.02,
+     "end": 7.3
+    },
+    {
+     "w": "the",
+     "start": 7.3,
+     "end": 7.49
+    },
+    {
+     "w": "San",
+     "start": 7.49,
+     "end": 7.77
+    },
+    {
+     "w": "Francisco",
+     "start": 7.77,
+     "end": 8.6
+    },
+    {
+     "w": "Chronicle",
+     "start": 8.6,
+     "end": 9.44
+    },
+    {
+     "w": "in",
+     "start": 9.44,
+     "end": 9.63
+    },
+    {
+     "w": "1969.",
+     "start": 9.63,
+     "end": 10.55
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "start": 10.86,
+   "end": 14.3,
+   "text": "The Zodiac killed at least five people in Northern California.",
+   "words": [
+    {
+     "w": "The",
+     "start": 10.89,
+     "end": 10.97
+    },
+    {
+     "w": "Zodiac",
+     "start": 10.97,
+     "end": 11.56
+    },
+    {
+     "w": "killed",
+     "start": 11.56,
+     "end": 11.83
+    },
+    {
+     "w": "at",
+     "start": 11.83,
+     "end": 11.92
+    },
+    {
+     "w": "least",
+     "start": 11.92,
+     "end": 12.29
+    },
+    {
+     "w": "five",
+     "start": 12.29,
+     "end": 12.56
+    },
+    {
+     "w": "people",
+     "start": 12.56,
+     "end": 12.85
+    },
+    {
+     "w": "in",
+     "start": 12.85,
+     "end": 13.02
+    },
+    {
+     "w": "Northern",
+     "start": 13.02,
+     "end": 13.56
+    },
+    {
+     "w": "California.",
+     "start": 13.56,
+     "end": 14.24
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "start": 14.7,
+   "end": 16.65,
+   "text": "His first cipher fell in about a week.",
+   "words": [
+    {
+     "w": "His",
+     "start": 14.73,
+     "end": 14.91
+    },
+    {
+     "w": "first",
+     "start": 14.91,
+     "end": 15.22
+    },
+    {
+     "w": "cipher",
+     "start": 15.22,
+     "end": 15.47
+    },
+    {
+     "w": "fell",
+     "start": 15.47,
+     "end": 15.69
+    },
+    {
+     "w": "in",
+     "start": 15.69,
+     "end": 15.86
+    },
+    {
+     "w": "about",
+     "start": 15.86,
+     "end": 16.24
+    },
+    {
+     "w": "a",
+     "start": 16.24,
+     "end": 16.38
+    },
+    {
+     "w": "week.",
+     "start": 16.38,
+     "end": 16.59
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "start": 16.95,
+   "end": 17.94,
+   "text": "This one didn't.",
+   "words": [
+    {
+     "w": "This",
+     "start": 16.98,
+     "end": 17.22
+    },
+    {
+     "w": "one",
+     "start": 17.22,
+     "end": 17.52
+    },
+    {
+     "w": "didn't.",
+     "start": 17.52,
+     "end": 17.88
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "start": 18.24,
+   "end": 21.84,
+   "text": "Then, in December 2020, three amateurs broke it.",
+   "words": [
+    {
+     "w": "Then,",
+     "start": 18.27,
+     "end": 18.56
+    },
+    {
+     "w": "in",
+     "start": 18.56,
+     "end": 18.76
+    },
+    {
+     "w": "December",
+     "start": 18.76,
+     "end": 19.35
+    },
+    {
+     "w": "2020,",
+     "start": 19.35,
+     "end": 20.21
+    },
+    {
+     "w": "three",
+     "start": 20.21,
+     "end": 20.56
+    },
+    {
+     "w": "amateurs",
+     "start": 20.56,
+     "end": 21.18
+    },
+    {
+     "w": "broke",
+     "start": 21.18,
+     "end": 21.67
+    },
+    {
+     "w": "it.",
+     "start": 21.67,
+     "end": 21.78
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "start": 22.14,
+   "end": 24.17,
+   "text": "A software developer in Virginia.",
+   "words": [
+    {
+     "w": "A",
+     "start": 22.17,
+     "end": 22.35
+    },
+    {
+     "w": "software",
+     "start": 22.35,
+     "end": 22.75
+    },
+    {
+     "w": "developer",
+     "start": 22.75,
+     "end": 23.37
+    },
+    {
+     "w": "in",
+     "start": 23.37,
+     "end": 23.57
+    },
+    {
+     "w": "Virginia.",
+     "start": 23.57,
+     "end": 24.11
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "start": 24.37,
+   "end": 26.1,
+   "text": "A mathematician in Australia.",
+   "words": [
+    {
+     "w": "A",
+     "start": 24.4,
+     "end": 24.51
+    },
+    {
+     "w": "mathematician",
+     "start": 24.51,
+     "end": 25.33
+    },
+    {
+     "w": "in",
+     "start": 25.33,
+     "end": 25.37
+    },
+    {
+     "w": "Australia.",
+     "start": 25.37,
+     "end": 26.04
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "start": 26.3,
+   "end": 27.83,
+   "text": "A programmer in Belgium.",
+   "words": [
+    {
+     "w": "A",
+     "start": 26.33,
+     "end": 26.52
+    },
+    {
+     "w": "programmer",
+     "start": 26.52,
+     "end": 27.12
+    },
+    {
+     "w": "in",
+     "start": 27.12,
+     "end": 27.32
+    },
+    {
+     "w": "Belgium.",
+     "start": 27.32,
+     "end": 27.77
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "start": 28.18,
+   "end": 30.84,
+   "text": "Their key insight: it wasn't written left to right.",
+   "words": [
+    {
+     "w": "Their",
+     "start": 28.21,
+     "end": 28.38
+    },
+    {
+     "w": "key",
+     "start": 28.38,
+     "end": 28.63
+    },
+    {
+     "w": "insight:",
+     "start": 28.63,
+     "end": 29.16
+    },
+    {
+     "w": "it",
+     "start": 29.16,
+     "end": 29.21
+    },
+    {
+     "w": "wasn't",
+     "start": 29.21,
+     "end": 29.58
+    },
+    {
+     "w": "written",
+     "start": 29.58,
+     "end": 29.89
+    },
+    {
+     "w": "left",
+     "start": 29.89,
+     "end": 30.32
+    },
+    {
+     "w": "to",
+     "start": 30.32,
+     "end": 30.42
+    },
+    {
+     "w": "right.",
+     "start": 30.42,
+     "end": 30.78
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "start": 31.24,
+   "end": 34.66,
+   "text": "Most of it ran diagonally. Down one row, across two.",
+   "words": [
+    {
+     "w": "Most",
+     "start": 31.27,
+     "end": 31.68
+    },
+    {
+     "w": "of",
+     "start": 31.68,
+     "end": 31.75
+    },
+    {
+     "w": "it",
+     "start": 31.75,
+     "end": 32.0
+    },
+    {
+     "w": "ran",
+     "start": 32.0,
+     "end": 32.24
+    },
+    {
+     "w": "diagonally.",
+     "start": 32.24,
+     "end": 32.91
+    },
+    {
+     "w": "Down",
+     "start": 32.91,
+     "end": 33.35
+    },
+    {
+     "w": "one",
+     "start": 33.35,
+     "end": 33.64
+    },
+    {
+     "w": "row,",
+     "start": 33.64,
+     "end": 33.91
+    },
+    {
+     "w": "across",
+     "start": 33.91,
+     "end": 34.36
+    },
+    {
+     "w": "two.",
+     "start": 34.36,
+     "end": 34.6
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "start": 34.96,
+   "end": 38.89,
+   "text": "The mathematician tested hundreds of thousands of reading orders.",
+   "words": [
+    {
+     "w": "The",
+     "start": 34.99,
+     "end": 35.06
+    },
+    {
+     "w": "mathematician",
+     "start": 35.06,
+     "end": 35.97
+    },
+    {
+     "w": "tested",
+     "start": 35.97,
+     "end": 36.46
+    },
+    {
+     "w": "hundreds",
+     "start": 36.46,
+     "end": 37.1
+    },
+    {
+     "w": "of",
+     "start": 37.1,
+     "end": 37.11
+    },
+    {
+     "w": "thousands",
+     "start": 37.11,
+     "end": 37.74
+    },
+    {
+     "w": "of",
+     "start": 37.74,
+     "end": 37.89
+    },
+    {
+     "w": "reading",
+     "start": 37.89,
+     "end": 38.35
+    },
+    {
+     "w": "orders.",
+     "start": 38.35,
+     "end": 38.83
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "start": 39.14,
+   "end": 41.3,
+   "text": "The Belgian's program attacked each one.",
+   "words": [
+    {
+     "w": "The",
+     "start": 39.17,
+     "end": 39.26
+    },
+    {
+     "w": "Belgian's",
+     "start": 39.26,
+     "end": 39.76
+    },
+    {
+     "w": "program",
+     "start": 39.76,
+     "end": 40.32
+    },
+    {
+     "w": "attacked",
+     "start": 40.32,
+     "end": 40.74
+    },
+    {
+     "w": "each",
+     "start": 40.74,
+     "end": 40.96
+    },
+    {
+     "w": "one.",
+     "start": 40.96,
+     "end": 41.24
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "start": 41.6,
+   "end": 43.24,
+   "text": "Then, real English surfaced.",
+   "words": [
+    {
+     "w": "Then,",
+     "start": 41.63,
+     "end": 41.93
+    },
+    {
+     "w": "real",
+     "start": 41.93,
+     "end": 42.31
+    },
+    {
+     "w": "English",
+     "start": 42.31,
+     "end": 42.73
+    },
+    {
+     "w": "surfaced.",
+     "start": 42.73,
+     "end": 43.18
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "start": 43.69,
+   "end": 46.38,
+   "text": "The FBI acknowledged the cipher had been solved.",
+   "words": [
+    {
+     "w": "The",
+     "start": 43.72,
+     "end": 43.82
+    },
+    {
+     "w": "FBI",
+     "start": 43.82,
+     "end": 44.45
+    },
+    {
+     "w": "acknowledged",
+     "start": 44.45,
+     "end": 45.03
+    },
+    {
+     "w": "the",
+     "start": 45.03,
+     "end": 45.12
+    },
+    {
+     "w": "cipher",
+     "start": 45.12,
+     "end": 45.51
+    },
+    {
+     "w": "had",
+     "start": 45.51,
+     "end": 45.68
+    },
+    {
+     "w": "been",
+     "start": 45.68,
+     "end": 45.98
+    },
+    {
+     "w": "solved.",
+     "start": 45.98,
+     "end": 46.32
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "start": 46.68,
+   "end": 47.81,
+   "text": "So what did it say?",
+   "words": [
+    {
+     "w": "So",
+     "start": 46.71,
+     "end": 46.97
+    },
+    {
+     "w": "what",
+     "start": 46.97,
+     "end": 47.15
+    },
+    {
+     "w": "did",
+     "start": 47.15,
+     "end": 47.35
+    },
+    {
+     "w": "it",
+     "start": 47.35,
+     "end": 47.49
+    },
+    {
+     "w": "say?",
+     "start": 47.49,
+     "end": 47.75
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "start": 48.26,
+   "end": 51.1,
+   "text": "I hope you are having lots of fun in trying to catch me.",
+   "words": [
+    {
+     "w": "I",
+     "start": 48.29,
+     "end": 48.43
+    },
+    {
+     "w": "hope",
+     "start": 48.43,
+     "end": 48.63
+    },
+    {
+     "w": "you",
+     "start": 48.63,
+     "end": 48.87
+    },
+    {
+     "w": "are",
+     "start": 48.87,
+     "end": 49.05
+    },
+    {
+     "w": "having",
+     "start": 49.05,
+     "end": 49.27
+    },
+    {
+     "w": "lots",
+     "start": 49.27,
+     "end": 49.58
+    },
+    {
+     "w": "of",
+     "start": 49.58,
+     "end": 49.77
+    },
+    {
+     "w": "fun",
+     "start": 49.77,
+     "end": 49.97
+    },
+    {
+     "w": "in",
+     "start": 49.97,
+     "end": 50.11
+    },
+    {
+     "w": "trying",
+     "start": 50.11,
+     "end": 50.48
+    },
+    {
+     "w": "to",
+     "start": 50.48,
+     "end": 50.58
+    },
+    {
+     "w": "catch",
+     "start": 50.58,
+     "end": 50.79
+    },
+    {
+     "w": "me.",
+     "start": 50.79,
+     "end": 51.04
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "start": 51.35,
+   "end": 53.06,
+   "text": "That wasn't me on the TV show.",
+   "words": [
+    {
+     "w": "That",
+     "start": 51.37,
+     "end": 51.52
+    },
+    {
+     "w": "wasn't",
+     "start": 51.52,
+     "end": 51.83
+    },
+    {
+     "w": "me",
+     "start": 51.83,
+     "end": 52.09
+    },
+    {
+     "w": "on",
+     "start": 52.09,
+     "end": 52.32
+    },
+    {
+     "w": "the",
+     "start": 52.32,
+     "end": 52.36
+    },
+    {
+     "w": "TV",
+     "start": 52.36,
+     "end": 52.75
+    },
+    {
+     "w": "show.",
+     "start": 52.75,
+     "end": 53.0
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "start": 53.41,
+   "end": 57.81,
+   "text": "Probably a 1969 TV caller who claimed to be him.",
+   "words": [
+    {
+     "w": "Probably",
+     "start": 53.44,
+     "end": 54.1
+    },
+    {
+     "w": "a",
+     "start": 54.1,
+     "end": 54.29
+    },
+    {
+     "w": "1969",
+     "start": 54.29,
+     "end": 55.19
+    },
+    {
+     "w": "TV",
+     "start": 55.19,
+     "end": 55.82
+    },
+    {
+     "w": "caller",
+     "start": 55.82,
+     "end": 56.25
+    },
+    {
+     "w": "who",
+     "start": 56.25,
+     "end": 56.41
+    },
+    {
+     "w": "claimed",
+     "start": 56.41,
+     "end": 56.91
+    },
+    {
+     "w": "to",
+     "start": 56.91,
+     "end": 57.12
+    },
+    {
+     "w": "be",
+     "start": 57.12,
+     "end": 57.47
+    },
+    {
+     "w": "him.",
+     "start": 57.47,
+     "end": 57.75
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "start": 58.11,
+   "end": 60.54,
+   "text": "Fifty-one years of waiting. For a taunt.",
+   "words": [
+    {
+     "w": "Fifty-one",
+     "start": 58.14,
+     "end": 58.76
+    },
+    {
+     "w": "years",
+     "start": 58.76,
+     "end": 59.06
+    },
+    {
+     "w": "of",
+     "start": 59.06,
+     "end": 59.17
+    },
+    {
+     "w": "waiting.",
+     "start": 59.17,
+     "end": 59.71
+    },
+    {
+     "w": "For",
+     "start": 59.71,
+     "end": 59.97
+    },
+    {
+     "w": "a",
+     "start": 59.97,
+     "end": 60.04
+    },
+    {
+     "w": "taunt.",
+     "start": 60.04,
+     "end": 60.48
+    }
+   ]
+  },
+  {
+   "id": "L22",
+   "start": 61.04,
+   "end": 63.76,
+   "text": "No name. The killer has never been identified.",
+   "words": [
+    {
+     "w": "No",
+     "start": 61.07,
+     "end": 61.27
+    },
+    {
+     "w": "name.",
+     "start": 61.27,
+     "end": 61.69
+    },
+    {
+     "w": "The",
+     "start": 61.69,
+     "end": 61.76
+    },
+    {
+     "w": "killer",
+     "start": 61.76,
+     "end": 62.06
+    },
+    {
+     "w": "has",
+     "start": 62.06,
+     "end": 62.32
+    },
+    {
+     "w": "never",
+     "start": 62.32,
+     "end": 62.69
+    },
+    {
+     "w": "been",
+     "start": 62.69,
+     "end": 62.85
+    },
+    {
+     "w": "identified.",
+     "start": 62.85,
+     "end": 63.7
+    }
+   ]
+  },
+  {
+   "id": "L23",
+   "start": 64.11,
+   "end": 67.04,
+   "text": "And two shorter Zodiac ciphers remain unsolved.",
+   "words": [
+    {
+     "w": "And",
+     "start": 64.14,
+     "end": 64.26
+    },
+    {
+     "w": "two",
+     "start": 64.26,
+     "end": 64.57
+    },
+    {
+     "w": "shorter",
+     "start": 64.57,
+     "end": 65.06
+    },
+    {
+     "w": "Zodiac",
+     "start": 65.06,
+     "end": 65.56
+    },
+    {
+     "w": "ciphers",
+     "start": 65.56,
+     "end": 66.0
+    },
+    {
+     "w": "remain",
+     "start": 66.0,
+     "end": 66.43
+    },
+    {
+     "w": "unsolved.",
+     "start": 66.43,
+     "end": 66.98
+    }
+   ]
+  },
+  {
+   "id": "L24",
+   "start": 67.34,
+   "end": 71.69,
+   "text": "One is just thirteen symbols. Right before it, he wrote: my name is.",
+   "words": [
+    {
+     "w": "One",
+     "start": 67.37,
+     "end": 67.69
+    },
+    {
+     "w": "is",
+     "start": 67.69,
+     "end": 67.72
+    },
+    {
+     "w": "just",
+     "start": 67.72,
+     "end": 68.21
+    },
+    {
+     "w": "thirteen",
+     "start": 68.21,
+     "end": 68.81
+    },
+    {
+     "w": "symbols.",
+     "start": 68.81,
+     "end": 69.28
+    },
+    {
+     "w": "Right",
+     "start": 69.28,
+     "end": 69.61
+    },
+    {
+     "w": "before",
+     "start": 69.61,
+     "end": 70.11
+    },
+    {
+     "w": "it,",
+     "start": 70.11,
+     "end": 70.25
+    },
+    {
+     "w": "he",
+     "start": 70.25,
+     "end": 70.55
+    },
+    {
+     "w": "wrote:",
+     "start": 70.55,
+     "end": 70.8
+    },
+    {
+     "w": "my",
+     "start": 70.8,
+     "end": 71.08
+    },
+    {
+     "w": "name",
+     "start": 71.08,
+     "end": 71.52
+    },
+    {
+     "w": "is.",
+     "start": 71.52,
+     "end": 71.63
+    }
+   ]
+  },
+  {
+   "id": "L25",
+   "start": 72.14,
+   "end": 73.2,
+   "text": "Think you can read it?",
+   "words": [
+    {
+     "w": "Think",
+     "start": 72.17,
+     "end": 72.36
+    },
+    {
+     "w": "you",
+     "start": 72.36,
+     "end": 72.54
+    },
+    {
+     "w": "can",
+     "start": 72.54,
+     "end": 72.77
+    },
+    {
+     "w": "read",
+     "start": 72.77,
+     "end": 73.02
+    },
+    {
+     "w": "it?",
+     "start": 73.02,
+     "end": 73.14
+    }
+   ]
+  }
+ ]
+}
