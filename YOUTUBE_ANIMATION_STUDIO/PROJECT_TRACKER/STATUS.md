@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T08:08:16Z
+Updated: 2026-11-27T08:10:01Z
 
 ## Concept counts
 
@@ -8,11 +8,12 @@ Updated: 2026-11-27T08:08:16Z
 - Scuba diving: 20
 - Murder & mystery: 20
 - Haunted & paranormal: 20
-- **Total: 80**
+- Scuba diving (reserve): 5
+- **Total: 85**
 
 ## Pipeline status
 
-- CONCEPT: 72
+- CONCEPT: 77
 - SCRIPTED: 8
 
 ## Videos in production
