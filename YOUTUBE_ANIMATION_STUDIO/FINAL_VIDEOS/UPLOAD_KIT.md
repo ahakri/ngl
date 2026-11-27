@@ -27,6 +27,10 @@ In memory of Deon Dreyer and Dave Shaw.
 
 **Hashtags (≤2):** #cavediving #boesmansgat
 
+### Thumbnail pick
+
+**Recommended pick: A**, with title A ("Cave Diver Went 270 m Down to Bring a Body Home"). The title already carries the number, so the
+
 ## HAUNT-01 — The Voice on the Enfield Tapes
 
 - Video: `FINAL_VIDEOS/HAUNT-01.mp4` (37 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-01.srt` (21 cues)

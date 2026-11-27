@@ -41,3 +41,20 @@ In memory of Deon Dreyer and Dave Shaw.
 
 ## Pinned comment (draft)
 "Sources for every line are in our fact-check: Mail & Guardian (Jan 2005), Outside 'Raising the Dead', ABC News Primetime, Divernet, and the 2007 medical case report by Mitchell et al. Contested details (exact moment of entanglement) are marked REPORTED on screen."
+
+## Final thumbnails
+Files: `thumb_A.png` / `thumb_A_16x9.png`, `thumb_B.png` / `thumb_B_16x9.png` (hero renders in `hero_THUMB_A/`, `hero_THUMB_B/`,
+compositions in `BLENDER_PROJECTS/CAVE-01/thumbs_shots.py`, composer settings in `thumbs.json`). Written up by the director after the
+packaging agent was cut off by the usage limit; both images were checked on `thumb_sheet.png`.
+
+**A: "WENT BACK" (2 words, yellow).** A lone diver hangs in a vast cyan-black chamber, one line running straight up to a far-away
+light. His torch beam lands on a pale shape on the floor — the abstract tank-and-fins marker used in the Short, never a body.
+The image asks the question the title answers: back for what?
+
+**B: "270 M" (white).** A cross-section of the sinkhole under a dusk sky: a narrow throat opening into a huge flooded chamber, one red
+arrow dropping to a single glowing dot at the bottom. Scale is the whole idea; it reads at channel-grid size.
+
+**Recommended pick: A**, with title A ("Cave Diver Went 270 m Down to Bring a Body Home"). The title already carries the number, so the
+cover adds the emotional turn instead of repeating it, and A matches the Short's opening shot. **B** is the alternate and pairs with
+title B ("Bushman's Hole: The Diver Who Went Back for Him"), where the cover supplies the depth the title leaves out. Shorts have no
+A/B test: do not re-upload to compare; keep B for a long-form cut.
