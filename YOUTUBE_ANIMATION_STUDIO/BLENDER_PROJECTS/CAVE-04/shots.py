@@ -18,7 +18,7 @@ ANCHOR = (0.2, -0.35)
 def _cyl_between(L, a, b, r, mat, name="limb"):
     a, b = Vector(a), Vector(b)
     d = b - a
-    o = L.prim("cyl", loc=tuple((a + b) / 2), vertices=12, radius=r, depth=d.length, name=name)
+    o = L.prim("cyl", loc=tuple((a + b) / 2), vertices=24, radius=r, depth=d.length, name=name)
     o.rotation_mode = "QUATERNION"
     o.rotation_quaternion = d.to_track_quat("Z", "Y")
     L.assign(o, mat)
@@ -74,7 +74,7 @@ def S01(L, n):
     sp.rotation_quaternion = Vector((0, -0.3, 1)).to_track_quat("-Z", "Y")
     C.rim_light((0, 0.2, 0.3), (0.3, 1.2, 0.6), energy=250, color=(1.0, 0.85, 0.6), size_deg=50, name="bootrim")
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (0.32, -1.6, 0.6), (0.0, 0.45, -0.5)), (n, (0.28, -1.15, 0.55), (0.0, 0.5, -0.65))],
+    C.aim_cam(cam, n, [(1, (0.35, -1.75, 0.62), (0.0, 0.4, -0.15)), (n, (0.3, -1.3, 0.57), (0.0, 0.45, -0.3))],
               shake=0.02, rot_shake=0.004)
     C.cam_fill(cam, energy=10, color=(1.0, 0.85, 0.65))
     L.bake_static()
@@ -405,7 +405,7 @@ def S06(L, n):
 
 
 def _anchor_cam(L, n, keys, shake_keys=None, shake=0.006):
-    cam = C.camera(lens=50)
+    cam = C.camera(lens=32)
     C.aim_cam(cam, n, keys, shake=shake, rot_shake=shake * 0.3, shake_keys=shake_keys, rate=1.0)
     return cam
 
@@ -424,6 +424,8 @@ def S08(L, n):
     rope = C.curve([tuple(A + Vector((-0.04, 0.02, -0.22))), tuple(A + Vector((0.0, 0.3, -0.7))), (0.06, 0.62, -1.7)],
                    thickness=0.011, mat=rope_m, name="rope_down")
     C.grow_curve(rope, [(1, 0.0), (44, 0.0), (n - 6, 1.0)])
+    C.glow_dot((0.0, 0.95, -1.9), WARM, r=0.03, halo=5, strength=10, name="deeplamp")
+    L.point((0.0, 0.9, -1.6), energy=25, color=WARM, radius=0.1, name="deeplight")
     glove = L.mat_principled("glove", (0.05, 0.04, 0.035), rough=0.7)
     hands = []
     for sx in (-1, 1):
@@ -466,7 +468,7 @@ def S11(L, n):
     chunk = L.prim("ico", loc=(0, 0, 0.0), subdivisions=2, radius=0.06, name="chunk")
     chunk.scale = (1.2, 1.0, 0.5)
     L.add_displace(chunk, strength=0.03, scale=0.04, name="chunk_d")
-    L.assign(chunk, C.clay_mat("chunkm", (0.14, 0.12, 0.1), (0.42, 0.37, 0.3)))
+    L.assign(chunk, C.clay_mat("chunkm", (0.06, 0.05, 0.04), (0.2, 0.17, 0.14)))
     chunk.parent = an["root"]
     r = an["root"]
     r.keyframe_insert("location", frame=fail)
@@ -499,15 +501,15 @@ def S11(L, n):
     C.hide_from_frame([slack], f_show=fail)
     C.key_loc(slack, [(fail, (0.0, 0.0, 0.25)), (fail + 4, (0.06, 0.03, -0.08)), (fail + 8, (-0.03, 0.0, 0.04)),
                       (fail + 14, (0, 0, 0))])
-    dust = C.cloud(tuple(A + Vector((0, 0.1, -0.35))), (0.8, 0.8, 0.6), count=1800, radius=0.004, color=(1, 0.9, 0.7),
+    dust = C.cloud(tuple(A + Vector((0, 0.15, -0.3))), (0.6, 0.6, 0.45), count=2500, radius=0.0015, color=(1, 0.9, 0.7),
                    emit=0.25, shape="sphere", seed=11, name="burst")
-    C.key_scale(dust, [(1, 0.01), (fail - 1, 0.01), (fail + 3, 0.7), (n, 1.8)])
+    C.key_scale(dust, [(1, 0.01), (fail - 1, 0.01), (fail + 3, 0.6), (n, 1.0)])
     C.drift(dust, n, (0.0, 0.05, -0.05))
     lp = L.spot((0.5, -0.9, 0.2), (0, 0, 0), energy=45, size_deg=40, blend=0.7, color=WARM, name="worklamp")
     lp.rotation_mode = "QUATERNION"
     lp.rotation_quaternion = (A - Vector(lp.location)).to_track_quat("-Z", "Y")
     C.key_energy(lp, [(1, 45), (fail, 45), (fail + 2, 12), (fail + 4, 55), (fail + 7, 18), (fail + 10, 40), (n, 35)])
-    C.rim_light(tuple(A), (-0.3, 0.6, -0.3), energy=60, color=(1.0, 0.85, 0.6), size_deg=40, name="rim")
+    C.rim_light(tuple(A), (-0.3, 0.6, -0.3), energy=15, color=(1.0, 0.85, 0.6), size_deg=40, name="rim")
     cam = _anchor_cam(L, n, [(1, tuple(A + Vector((0.2, -0.45, -0.32))), tuple(A + Vector((0, 0, -0.08)))),
                              (fail, tuple(A + Vector((0.18, -0.4, -0.3))), tuple(A + Vector((0, 0, -0.1)))),
                              (n, tuple(A + Vector((0.3, -0.6, -0.4))), tuple(A + Vector((0.05, 0.4, -0.8))))],
@@ -521,7 +523,7 @@ def S11(L, n):
 def _sky4(L, tod):
     if tod == "night":
         C.sky_world(top=(0.004, 0.007, 0.018), horizon=(0.02, 0.03, 0.05), ground=(0.003, 0.003, 0.004), strength=1.0)
-        C.sun_from(C.sun_dir(35, 200), energy=0.25, color=(0.55, 0.65, 0.95), angle=3)
+        C.sun_from(C.sun_dir(35, 200), energy=0.6, color=(0.55, 0.65, 0.95), angle=3)
         C.star_dome(count=1400, radius=180, size=0.22, strength=8)
     elif tod == "dusk":
         sd = C.sun_dir(3, 15)
@@ -562,17 +564,17 @@ def S04(L, n):
     fz, sage = _hill(L, n)
     rnd = random.Random(5)
     for k in range(6):
-        x, y = -7 + k * 2.6 + rnd.uniform(-0.5, 0.5), -24 + rnd.uniform(-2, 2)
+        x, y = -7 + k * 2.6 + rnd.uniform(-0.5, 0.5), -20 + rnd.uniform(-2, 2)
         z = fz(x, y) + 0.9
         col = ((1, 0.12, 0.08), (0.2, 0.35, 1.0), (1, 0.95, 0.85))[k % 3]
         C.glow_dot((x, y, z), col, r=0.12, halo=5, strength=12, light=150, name=f"veh{k}")
-    hl = L.spot((0.0, -24, fz(0, -24) + 1.2), (0, 0, 0), energy=4000, size_deg=35, blend=0.6, color=(1, 0.95, 0.85),
+    hl = L.spot((0.0, -20, fz(0, -20) + 1.2), (0, 0, 0), energy=4000, size_deg=35, blend=0.6, color=(1, 0.95, 0.85),
                 name="headlights")
     hl.rotation_mode = "QUATERNION"
     hl.rotation_quaternion = (Vector((0, 0, fz(0, 0))) - Vector(hl.location)).to_track_quat("-Z", "Y")
     z0 = C.hill_z(0, 0, pit_depth=0.0)
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (3.5, -20.0, z0 + 9.0), (0.0, 2.0, z0 + 1.5)), (n, (1.0, -5.2, z0 + 2.2), (0.0, 0.3, z0 - 0.6))],
+    C.aim_cam(cam, n, [(1, (3.0, 15.0, z0 + 11.0), (0.0, -8.0, z0 - 1.0)), (n, (1.0, 4.6, z0 + 2.6), (0.0, -1.0, z0 - 0.8))],
               shake=0.02, rot_shake=0.001, rate=0.4)
     L.bake_static()
 

@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-27T13:54:20Z
+Updated: 2026-11-27T13:58:10Z
 
 ## Concept counts
 
@@ -16,8 +16,8 @@ Updated: 2026-11-27T13:54:20Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 13
-- ANIMATING: 4
+- ANIMATED - in render queue: 14
+- ANIMATING: 3
 - CONCEPT: 76
 - SCRIPTED: 7
 
@@ -28,7 +28,7 @@ Updated: 2026-11-27T13:54:20Z
 | CAVE-01 | He Went 270 m Down to Bring a Body Home | 82 | ANIMATED - in render queue |
 | CAVE-02 | 13 Trapped Behind Kilometres of Flooded Cave | 79 | ANIMATED - in render queue |
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATED - in render queue |
-| CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | ANIMATING |
+| CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | ANIMATED - in render queue |
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | SCRIPTED |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | SCRIPTED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | ANIMATED - in render queue |

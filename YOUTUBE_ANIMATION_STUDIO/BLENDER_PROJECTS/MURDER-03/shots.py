@@ -344,9 +344,10 @@ def S07(L, n):
     b = M.money_bag((0.22, 0, -0.4), name="cbag")
     b.parent = cour["shoulderR"]
     M.rain((12, -16, 5), (26, 26, 14), (1.5, 0, -14), n, count=2400, length=0.45, width=0.008, period=6, seed=11,
-           cam=(36, -27, 2.4), clear=2.0, emit=0.9, color=(0.9, 0.7, 0.5))
+           cam=(27, -19, 2.0), clear=2.0, emit=0.9, color=(0.9, 0.7, 0.5))
     L.fog_volume(center=(10, 0, 6), size=(90, 70, 14), density=0.012, color=(0.9, 0.75, 0.55))
-    cam, ct = cam_path(L, n, (37, -26, 2.4), (39.5, -23.5, 2.4), (11, -6, 3.2), (11, -5, 3.2), lens=35, ease=False)
+    cam, ct = cam_path(L, n, (27, -19, 2.0), (29, -16.5, 2.0), (12, -5, 3.0), (12, -4.5, 3.0), lens=35, ease=False)
+    L.area((14, -9, 15), (0, 0, 0), energy=30000, size=24, color=(1.0, 0.62, 0.3), name="sodiumwash")
     L.handheld(cam, n, amp=0.01, rate=0.4)
     L.bake_static()
 
@@ -370,8 +371,8 @@ def S08(L, n):
 
 
 def S15(L, n):
-    M.night_sky(stars=0.5, hor=(0.02, 0.025, 0.04))
-    L.sun(rot=(R(50), 0, R(40)), energy=1.0, color=(0.5, 0.6, 0.9), name="moon")
+    M.night_sky(stars=0.5, hor=(0.05, 0.06, 0.09), strength=1.5)
+    L.sun(rot=(R(50), 0, R(40)), energy=3.0, color=(0.5, 0.6, 0.9), name="moon")
     def h(x, y):
         river = math.sin(y * 0.02) * 40
         d = abs(x - river)
@@ -407,9 +408,9 @@ def S09(L, n):
                    name="behind")
     M.cloud_volume((-10, 0, -24), (200, 80, 16), density=0.35, scale=0.6, drift=(-45, 0, 0), n=n, color=(0.3, 0.34, 0.45),
                    name="deck")
-    M.rain((-14, -12, -1), (40, 22, 20), (-36, 0, -8), n, count=2400, length=1.2, width=0.012, period=8, seed=5, emit=0.6,
-           cam=(-13, -34, -1), clear=3)
-    cam, ct = cam_path(L, n, (-11, -36, -1.5), (-14.5, -28, -2.2), (-13, 0, -0.5), (-15.5, 0, -1.6), lens=50)
+    M.rain((-14, -12, -1), (40, 22, 20), (-36, 0, -8), n, count=1300, length=0.9, width=0.008, period=8, seed=5, emit=0.5,
+           cam=(-34, -22, -5), clear=3)
+    cam, ct = cam_path(L, n, (-36, -24, -5.5), (-31, -19, -4.6), (-14, 0, -0.5), (-16, 0, -1.6), lens=50)
     L.handheld(cam, n, amp=0.05, rate=0.8)
     L.bake_static()
 
@@ -447,7 +448,7 @@ def S10(L, n):
     for f, rz in ((fo, 0), (n, R(40))):
         can_root.rotation_euler = (0, 0, rz)
         can_root.keyframe_insert("rotation_euler", frame=f)
-    M.rain((0, 0, -20), (30, 8, 8), (0, 0, -16), n, count=1200, length=0.8, width=0.01, period=8, seed=2, emit=0.6)
+    M.rain((0, 0, -20), (30, 8, 8), (0, 0, -16), n, count=600, length=0.6, width=0.008, period=8, seed=2, emit=0.4)
     M.lightning(n, [fo + 3], rot=(R(10), R(-15), 0), energy=12, world_bg=bg, world_peak=4)
     cam, ct = L.camera(loc=(0, 0, 0), target=None, lens=24)
     cam.data.clip_end = 3000
@@ -482,18 +483,19 @@ def forest_floor(name, h, area, seed=5, count=700):
 
 
 def S11(L, n):
-    M.dawn_sky(hor=(0.42, 0.45, 0.44), mid=(0.33, 0.36, 0.38), zen=(0.22, 0.25, 0.28), strength=1.2)
-    L.sun(rot=(R(30), R(20), R(40)), energy=0.8, color=(0.8, 0.85, 0.9), angle=20, name="overcast")
+    M.dawn_sky(hor=(0.42, 0.45, 0.44), mid=(0.33, 0.36, 0.38), zen=(0.22, 0.25, 0.28), strength=2.0)
+    L.sun(rot=(R(30), R(20), R(40)), energy=2.5, color=(0.8, 0.85, 0.9), angle=20, name="overcast")
+    bpy.context.scene.eevee.use_volumetric_shadows = False
     def h(x, y):
         return 1.2 * noise.noise(Vector((x * 0.05, y * 0.05, 4)))
     M.heightfield("floor", -60, 60, -60, 60, 120, 120, h,
                   mat=L.mat_noise_surface("floorm", (0.03, 0.035, 0.02), (0.09, 0.09, 0.05), scale=1.5, bump=0.3, voronoi=False))
     spots = M.scatter_spots((-50, 50, -10, 60), 260, h, seed=2, h=(14, 24), exclude=lambda x, y: abs(x) < 7 and y < 12)
-    spots += M.scatter_spots((-50, 50, -60, -10), 120, h, seed=3, h=(14, 24), exclude=lambda x, y: abs(x) < 9)
+    spots += M.scatter_spots((-50, 50, -60, -10), 120, h, seed=3, h=(14, 24), exclude=lambda x, y: abs(x) < 14)
     M.fast_conifers("forest", spots, mat=M.mat_dusted("trees", base=(0.02, 0.04, 0.025), snow=(0.05, 0.08, 0.05)), seed=2,
                      bare_frac=0.1)
     forest_floor("ferns", h, (-12, 12, -8, 14), count=500)
-    jm = L.mat_principled("jacket", (0.22, 0.17, 0.04), rough=0.6)
+    jm = L.mat_principled("jacket", (0.5, 0.36, 0.05), rough=0.6)
     for i in range(3):
         f = L.char_figure(f"searcher{i}", color=(0.05, 0.05, 0.045), height=1.78, coat=True)
         L.assign(f["coat"], jm)
@@ -509,10 +511,10 @@ def S11(L, n):
         L.assign(bulb, L.mat_emission(f"tb{i}", (1, 0.9, 0.7), 30))
         bulb.parent = f["shoulderR"]
         tl.location = (0, 0, -0.62)
-    L.fog_volume(center=(0, 10, 6), size=(90, 90, 14), density=0.045, color=(0.75, 0.8, 0.78))
+    L.fog_volume(center=(0, 14, 5), size=(60, 50, 10), density=0.03, color=(0.75, 0.8, 0.78))
     M.rain((0, 2, 4), (12, 16, 14), (0.4, 0, -6), n, count=900, length=0.12, width=0.004, period=8, seed=9, emit=0.4,
            color=(0.8, 0.85, 0.85), cam=(0, -10, 6), clear=1.5)
-    cam, ct = cam_path(L, n, (0.5, -12, 12), (0, -9.5, 3.2), (0, 4, 10), (0, 2, 1.0), lens=35)
+    cam, ct = cam_path(L, n, (0.5, -11, 7.5), (0, -8.5, 2.6), (0, 4, 6), (0, 1.5, 1.0), lens=35)
     L.bake_static()
 
 
@@ -600,16 +602,16 @@ def S13(L, n):
     sk.keyframe_insert("value", frame=int(n * 0.6))
     for i, (x, y, rz) in enumerate(((-0.06, 0.035, 0.15), (0.07, 0.03, -0.2), (0.0, -0.045, 0.05))):
         M.rotten_bundle((x, y, -0.024 + i * 0.002), rot_z=rz, size=(0.156, 0.066, 0.03), name=f"bundle{i}")
-    grains = L.particle_cloud((0, 0, 0.05), (0.3, 0.25, 0.08), count=500, radius=0.0025, drift=(0.0, 0.0, -0.04), nframes=n,
+    grains = L.particle_cloud((0, 0, 0.05), (0.3, 0.25, 0.08), count=120, radius=0.0012, drift=(0.0, 0.0, -0.04), nframes=n,
                               name="grains", mat=L.mat_principled("grm", (0.5, 0.44, 0.32), rough=0.8))
     for f, s in ((1, 1.0), (int(n * 0.6), 1.0), (n, 0.001)):
         grains.scale = (s, s, s)
         grains.keyframe_insert("scale", frame=f)
     cam, ct = cam_path(L, n, (0.02, -0.25, 0.75), (0.01, -0.2, 0.62), (0, 0.0, 0), (0, 0.0, 0), lens=85)
     L.dof(cam, distance=0.8, fstop=2.0)
-    cam.data.dof.focus_distance = 0.6
+    cam.data.dof.focus_distance = 0.79
     cam.data.dof.keyframe_insert("focus_distance", frame=1)
-    cam.data.dof.focus_distance = 0.66
+    cam.data.dof.focus_distance = 0.65
     cam.data.dof.keyframe_insert("focus_distance", frame=n)
     L.bake_static()
 
@@ -658,9 +660,9 @@ def S14(L, n):
         c = M.glow_poly([(x + 0.16 * math.cos(a), y + 0.045 * math.sin(a), 0.008) for a in [i * 2 * math.pi / 24 for i in range(24)]],
                         color=(1.0, 0.08, 0.05), strength=6, bevel=0.003, name="ring", closed=True)
         M.curve_draw(c, 38, 46)
-    M.desk_lamp((-0.7, 0.9, 0), (0, 0.25, 0), energy=50, rot_z=R(200))
+    M.desk_lamp((-0.7, 0.9, 0), (0, 0.25, 0), energy=14, rot_z=R(200))
     L.area((0, 0.2, 1.5), (0, 0, 0), energy=8, size=1, color=(0.8, 0.85, 1.0), name="fill")
-    cam, ct = cam_path(L, n, (0.0, -0.15, 1.05), (0.06, 0.05, 0.75), (0.0, 0.32, 0), (0.08, 0.3, 0), lens=40)
+    cam, ct = cam_path(L, n, (0.02, -0.1, 1.25), (0.04, 0.0, 0.95), (0.02, 0.12, 0), (0.06, 0.12, 0), lens=40)
     L.bake_static()
 
 
@@ -716,7 +718,7 @@ def S16(L, n):
              ("?", (0.0, -0.05, -0.55), 58, 0.03)]
     roots = []
     for i, (txt, loc, hit, rot) in enumerate(cards):
-        c = M.paper_card(txt, loc, size=(1.0, 0.68), rot_y=rot, badge="THEORY", name=f"card{i}", text_size=0.16 if i == 0 else 0.26)
+        c = M.paper_card(txt, loc, size=(1.0, 0.68), rot_y=rot, badge="THEORY", name=f"card{i}", text_size=0.19 if i == 0 else 0.32)
         M.slam_in(c, hit, frm=(0.0, -1.2, 0.2), rot0=0.25, scale0=1.4, lead=5)
         M.hide_until(c, max(2, hit - 5))
         s = M.red_string([(loc[0], -0.06, loc[2] + 0.28), (0.0, -0.06, 1.85)], name=f"str{i}")
@@ -731,7 +733,7 @@ def S16(L, n):
 
 def S17(L, n):
     bg = M.storm_sky(zen=(0.006, 0.008, 0.014), hor=(0.03, 0.04, 0.06))
-    L.sun(rot=(R(65), 0, R(-150)), energy=0.9, color=(0.5, 0.6, 0.9), name="moon")
+    L.sun(rot=(R(65), 0, R(-150)), energy=2.2, color=(0.5, 0.6, 0.9), name="moon")
     def h(x, y):
         return 20 * noise.noise(Vector((x * 0.006, y * 0.006, 5))) + 5 * noise.noise(Vector((x * 0.03, y * 0.03, 1)))
     M.heightfield("hills", -400, 400, -100, 700, 120, 120, h, mat=L.mat_principled("hm", (0.006, 0.01, 0.007), rough=0.9))
@@ -788,10 +790,11 @@ def S18(L, n):
     L.particle_cloud((-14, -6, 3), (14, 8, 6), count=400, radius=0.006, drift=(0.02, 0, 0.01), nframes=n, name="dust")
     # orbit 20 deg around the tail
     tgt = (-14.5, 0, 2.6)
-    r_ = 15.0
-    cam, ct = L.camera(loc=(0, 0, 0), target=tgt, lens=50)
-    for f, a in ((1, R(-15)), (n, R(5))):
-        cam.location = (tgt[0] + r_ * math.sin(a), -r_ * math.cos(a), 2.4)
+    r_ = 12.0
+    tgt = (-16.0, 0, 2.3)
+    cam, ct = L.camera(loc=(0, 0, 0), target=tgt, lens=35)
+    for f, a in ((1, R(-30)), (n, R(-10))):
+        cam.location = (tgt[0] + r_ * math.sin(a), -r_ * math.cos(a), 0.7)
         cam.keyframe_insert("location", frame=f)
     L.bake_static()
 
@@ -822,7 +825,7 @@ def S19(L, n):
         for f, s in ((1, 3.0), (fv + 4, 3.0), (fv + 20, 0.0)):
             em.default_value = s
             em.keyframe_insert("default_value", frame=f)
-    L.spot((hx, -3, bz - 1.0), (R(70), 0, 0), energy=200, size_deg=40, blend=0.6, color=(0.8, 0.88, 1.0), name="macrokey")
+    L.spot((hx, -3, bz - 1.0), (R(70), 0, 0), energy=35, size_deg=40, blend=0.6, color=(0.8, 0.88, 1.0), name="macrokey")
     cam, ct = cam_path(L, n, (hx + 0.9, -4.6, bz - 0.9), (hx + 0.5, -3.3, bz - 0.6), (hx, -0.75, bz - 0.25), (hx, -0.75, bz - 0.25),
                        lens=85)
     L.dof(cam, distance=3.4, fstop=2.8)
@@ -863,8 +866,8 @@ def S21(L, n):
     wall.scale = (40, 30, 1)
     L.assign(wall, L.mat_noise_surface("wallm", (0.015, 0.015, 0.017), (0.04, 0.04, 0.045), scale=5, bump=0.2, voronoi=False))
     M.suspect_wall(cols=30, rows=18, origin=(0, 0, 3.2), seed=3)
-    L.spot((0, -9, 9), (R(42), 0, 0), energy=9000, size_deg=70, blend=0.7, color=(0.75, 0.85, 1.0), name="coldlamp", radius=0.3)
-    L.point((0, -2.5, 4.5), energy=250, color=(0.8, 0.88, 1.0), radius=0.4, name="near")
+    L.spot((0, -9, 9), (R(42), 0, 0), energy=4500, size_deg=70, blend=0.7, color=(0.75, 0.85, 1.0), name="coldlamp", radius=0.3)
+    L.point((0, -2.5, 4.5), energy=70, color=(0.8, 0.88, 1.0), radius=0.4, name="near")
     cam, ct = cam_path(L, n, (0.25, -1.1, 4.0), (0.0, -14.0, 3.6), (0.25, 0, 4.1), (0.0, 0, 3.2), lens=24)
     L.particle_cloud((0, -3, 4), (6, 4, 4), count=300, radius=0.004, drift=(0.01, 0, -0.01), nframes=n, name="dust")
     L.bake_static()
@@ -873,8 +876,9 @@ def S21(L, n):
 # ============================================================================= S22 dawn forest, open question
 
 def S22(L, n):
-    M.dawn_sky(hor=(0.5, 0.45, 0.45), mid=(0.22, 0.25, 0.32), zen=(0.06, 0.08, 0.14), strength=1.0, sun_dir=(0.6, 0.8, 0.1))
-    L.sun(rot=(R(78), 0, R(-145)), energy=2.0, color=(1.0, 0.78, 0.6), angle=2, name="dawnsun")
+    M.dawn_sky(hor=(0.5, 0.45, 0.45), mid=(0.22, 0.25, 0.32), zen=(0.06, 0.08, 0.14), strength=1.6, sun_dir=(0.6, 0.8, 0.1))
+    L.sun(rot=(R(72), 0, R(-160)), energy=4.0, color=(1.0, 0.78, 0.6), angle=2, name="dawnsun")
+    L.sun(rot=(R(20), 0, R(30)), energy=0.8, color=(0.6, 0.7, 0.9), angle=20, name="skyfill")
     def h(x, y):
         return 1.5 * noise.noise(Vector((x * 0.03, y * 0.03, 7))) + 0.15 * noise.noise(Vector((x * 0.4, y * 0.4, 2)))
     prints = M.trail((0.0, -2.0), (0.4, 3.0), step=0.6, gap=0.12, seed=4, rx=0.06, ry=0.14, depth=0.03)
@@ -887,7 +891,7 @@ def S22(L, n):
     spots += M.scatter_spots((-150, 150, 120, 250), 900, h, seed=9, h=(14, 24))
     M.fast_conifers("forest", spots, mat=tm, seed=8, bare_frac=0.05)
     forest_floor("ferns", h, (-9, 9, -6, 10), count=280, seed=6)
-    L.fog_volume(center=(0, 40, 4), size=(200, 160, 10), density=0.035, color=(0.8, 0.8, 0.85))
+    L.fog_volume(center=(0, 30, 3), size=(80, 70, 6), density=0.03, color=(0.8, 0.8, 0.85))
     cam, ct = L.camera(loc=(0, -6.5, 0.7), target=(0.2, 3, 0.4), lens=24)
     cam.data.clip_end = 3000
     fq = int(n * 0.58)
