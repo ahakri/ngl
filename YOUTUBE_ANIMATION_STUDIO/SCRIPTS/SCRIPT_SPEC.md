@@ -51,7 +51,9 @@ Shots must be describable with those parts (new simple props are fine: describe 
 ## Studio narrator voice (decided by the owner, 2026-11-27)
 - The channel narrator is Kokoro voice **`am_adam`** ("Voice 03" in AUDIO/VOICE_SAMPLER). It is set once in `PIPELINE/studio_config.json`
   and overrides any per-script `voice` field, so every Short has the same narrator. Write `"voice": "am_adam"` in new scripts.
-- Adam reads faster than the earlier voices at the same `speed` value. For NEW scripts use `"speed": 0.97` (≈155–165 wpm) and re-time from the real TTS render.
+- Narration speed is also set centrally: `natural_speed` in `PIPELINE/studio_config.json` (by ID prefix: CAVE 1.00, SCUBA 1.03,
+  MURDER 1.05, HAUNT 0.97) is used for every script that has no timing reference yet and overrides the script's `speed` field.
+  Measured: am_adam at 1.00–1.05 reads about 150–160 wpm including pauses. Always re-time from the real TTS render.
 - **Timing lock:** once a video's shots are animated, `AUDIO/<ID>/timings_ref.json` freezes its line start times. `make_video.py <ID> tts`
   then re-voices each line at a fitted speed (0.90–1.30) inside its original slot, so shot durations, rendered frames and overlay cue times
   never move. Small wording fixes are safe under the lock. For a real rewrite (line count or length changes a lot) run

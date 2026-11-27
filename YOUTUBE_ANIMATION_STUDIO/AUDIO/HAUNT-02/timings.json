@@ -36,16 +36,16 @@
     {
      "w": "into",
      "start": 3.09,
-     "end": 3.54
+     "end": 3.51
     },
     {
      "w": "Room",
-     "start": 3.54,
-     "end": 3.91
+     "start": 3.51,
+     "end": 3.89
     },
     {
      "w": "217.",
-     "start": 3.91,
+     "start": 3.89,
      "end": 4.71
     }
    ]
@@ -53,7 +53,7 @@
   {
    "id": "L02",
    "start": 4.88,
-   "end": 8.56,
+   "end": 8.67,
    "text": "The Stanley Hotel, Colorado. Closing for winter. Nearly empty.",
    "words": [
     {
@@ -64,42 +64,42 @@
     {
      "w": "Stanley",
      "start": 5.04,
-     "end": 5.4
+     "end": 5.41
     },
     {
      "w": "Hotel,",
-     "start": 5.4,
-     "end": 5.93
+     "start": 5.41,
+     "end": 5.94
     },
     {
      "w": "Colorado.",
-     "start": 5.93,
+     "start": 5.94,
      "end": 6.72
     },
     {
      "w": "Closing",
      "start": 6.72,
-     "end": 7.15
+     "end": 7.17
     },
     {
      "w": "for",
-     "start": 7.15,
-     "end": 7.46
+     "start": 7.17,
+     "end": 7.5
     },
     {
      "w": "winter.",
-     "start": 7.46,
-     "end": 7.74
+     "start": 7.5,
+     "end": 7.8
     },
     {
      "w": "Nearly",
-     "start": 7.74,
-     "end": 8.1
+     "start": 7.8,
+     "end": 8.21
     },
     {
      "w": "empty.",
-     "start": 8.1,
-     "end": 8.5
+     "start": 8.21,
+     "end": 8.61
     }
    ]
   },
@@ -127,21 +127,21 @@
     {
      "w": "dreamed",
      "start": 9.57,
-     "end": 9.97
+     "end": 9.96
     },
     {
      "w": "of",
-     "start": 9.97,
+     "start": 9.96,
      "end": 9.97
     },
     {
      "w": "a",
      "start": 9.97,
-     "end": 10.13
+     "end": 10.16
     },
     {
      "w": "fire",
-     "start": 10.13,
+     "start": 10.16,
      "end": 10.51
     },
     {
@@ -227,7 +227,7 @@
   {
    "id": "L05",
    "start": 15.07,
-   "end": 16.85,
+   "end": 16.95,
    "text": "But the staff tell an older story.",
    "words": [
     {
@@ -238,32 +238,32 @@
     {
      "w": "the",
      "start": 15.36,
-     "end": 15.37
+     "end": 15.51
     },
     {
      "w": "staff",
-     "start": 15.37,
-     "end": 15.68
+     "start": 15.51,
+     "end": 15.7
     },
     {
      "w": "tell",
-     "start": 15.68,
-     "end": 15.93
+     "start": 15.7,
+     "end": 16.01
     },
     {
      "w": "an",
-     "start": 15.93,
-     "end": 16.11
+     "start": 16.01,
+     "end": 16.17
     },
     {
      "w": "older",
-     "start": 16.11,
-     "end": 16.36
+     "start": 16.17,
+     "end": 16.43
     },
     {
      "w": "story.",
-     "start": 16.36,
-     "end": 16.79
+     "start": 16.43,
+     "end": 16.89
     }
    ]
   },
@@ -313,174 +313,174 @@
   {
    "id": "L07",
    "start": 21.7,
-   "end": 24.81,
+   "end": 24.84,
    "text": "Chambermaid Elizabeth Wilson walks in with a lit candle.",
    "words": [
     {
      "w": "Chambermaid",
      "start": 21.73,
-     "end": 22.38
+     "end": 22.39
     },
     {
      "w": "Elizabeth",
-     "start": 22.38,
-     "end": 22.87
+     "start": 22.39,
+     "end": 22.89
     },
     {
      "w": "Wilson",
-     "start": 22.87,
-     "end": 23.38
+     "start": 22.89,
+     "end": 23.39
     },
     {
      "w": "walks",
-     "start": 23.38,
-     "end": 23.63
+     "start": 23.39,
+     "end": 23.66
     },
     {
      "w": "in",
-     "start": 23.63,
-     "end": 23.81
+     "start": 23.66,
+     "end": 23.77
     },
     {
      "w": "with",
-     "start": 23.81,
-     "end": 23.98
+     "start": 23.77,
+     "end": 24.01
     },
     {
      "w": "a",
-     "start": 23.98,
-     "end": 24.12
+     "start": 24.01,
+     "end": 24.16
     },
     {
      "w": "lit",
-     "start": 24.12,
-     "end": 24.32
+     "start": 24.16,
+     "end": 24.35
     },
     {
      "w": "candle.",
-     "start": 24.32,
-     "end": 24.75
+     "start": 24.35,
+     "end": 24.78
     }
    ]
   },
   {
    "id": "L08",
    "start": 25.27,
-   "end": 28.22,
+   "end": 28.19,
    "text": "The blast drops her through the floor, into the dining room.",
    "words": [
     {
      "w": "The",
      "start": 25.3,
-     "end": 25.39
+     "end": 25.38
     },
     {
      "w": "blast",
-     "start": 25.39,
-     "end": 25.79
+     "start": 25.38,
+     "end": 25.78
     },
     {
      "w": "drops",
-     "start": 25.79,
-     "end": 26.21
+     "start": 25.78,
+     "end": 26.2
     },
     {
      "w": "her",
-     "start": 26.21,
-     "end": 26.26
+     "start": 26.2,
+     "end": 26.25
     },
     {
      "w": "through",
-     "start": 26.26,
-     "end": 26.55
+     "start": 26.25,
+     "end": 26.54
     },
     {
      "w": "the",
-     "start": 26.55,
-     "end": 26.78
+     "start": 26.54,
+     "end": 26.77
     },
     {
      "w": "floor,",
-     "start": 26.78,
-     "end": 27.09
+     "start": 26.77,
+     "end": 27.11
     },
     {
      "w": "into",
-     "start": 27.09,
-     "end": 27.32
+     "start": 27.11,
+     "end": 27.39
     },
     {
      "w": "the",
-     "start": 27.32,
-     "end": 27.44
+     "start": 27.39,
+     "end": 27.4
     },
     {
      "w": "dining",
-     "start": 27.44,
-     "end": 27.83
+     "start": 27.4,
+     "end": 27.8
     },
     {
      "w": "room.",
-     "start": 27.83,
-     "end": 28.16
+     "start": 27.8,
+     "end": 28.13
     }
    ]
   },
   {
    "id": "L09",
    "start": 28.48,
-   "end": 31.99,
+   "end": 32.17,
    "text": "Guests now report unpacked suitcases, lights switching on and off.",
    "words": [
     {
      "w": "Guests",
      "start": 28.51,
-     "end": 28.79
+     "end": 28.81
     },
     {
      "w": "now",
-     "start": 28.79,
-     "end": 29.14
+     "start": 28.81,
+     "end": 29.18
     },
     {
      "w": "report",
-     "start": 29.14,
-     "end": 29.56
+     "start": 29.18,
+     "end": 29.63
     },
     {
      "w": "unpacked",
-     "start": 29.56,
-     "end": 30.0
+     "start": 29.63,
+     "end": 30.09
     },
     {
      "w": "suitcases,",
-     "start": 30.0,
-     "end": 30.65
+     "start": 30.09,
+     "end": 30.76
     },
     {
      "w": "lights",
-     "start": 30.65,
-     "end": 30.98
+     "start": 30.76,
+     "end": 31.12
     },
     {
      "w": "switching",
-     "start": 30.98,
-     "end": 31.37
+     "start": 31.12,
+     "end": 31.51
     },
     {
      "w": "on",
-     "start": 31.37,
-     "end": 31.58
+     "start": 31.51,
+     "end": 31.74
     },
     {
      "w": "and",
-     "start": 31.58,
-     "end": 31.81
+     "start": 31.74,
+     "end": 31.98
     },
     {
      "w": "off.",
-     "start": 31.81,
-     "end": 31.93
+     "start": 31.98,
+     "end": 32.11
     }
    ]
   },
@@ -530,22 +530,22 @@
   {
    "id": "L11",
    "start": 34.65,
-   "end": 37.04,
+   "end": 37.07,
    "text": "But the record says Elizabeth Wilson survived.",
    "words": [
     {
      "w": "But",
      "start": 34.68,
-     "end": 34.97
+     "end": 34.86
     },
     {
      "w": "the",
-     "start": 34.97,
-     "end": 35.03
+     "start": 34.86,
+     "end": 35.04
     },
     {
      "w": "record",
-     "start": 35.03,
+     "start": 35.04,
      "end": 35.31
     },
     {
@@ -556,17 +556,17 @@
     {
      "w": "Elizabeth",
      "start": 35.65,
-     "end": 36.05
+     "end": 36.19
     },
     {
      "w": "Wilson",
-     "start": 36.05,
-     "end": 36.52
+     "start": 36.19,
+     "end": 36.53
     },
     {
      "w": "survived.",
-     "start": 36.52,
-     "end": 36.98
+     "start": 36.53,
+     "end": 37.01
     }
    ]
   },
@@ -621,7 +621,7 @@
   {
    "id": "L13",
    "start": 39.49,
-   "end": 42.55,
+   "end": 42.65,
    "text": "The woman said to haunt 217 didn't die in it.",
    "words": [
     {
@@ -637,80 +637,80 @@
     {
      "w": "said",
      "start": 40.1,
-     "end": 40.25
+     "end": 40.39
     },
     {
      "w": "to",
-     "start": 40.25,
-     "end": 40.46
+     "start": 40.39,
+     "end": 40.49
     },
     {
      "w": "haunt",
-     "start": 40.46,
-     "end": 40.85
+     "start": 40.49,
+     "end": 40.89
     },
     {
      "w": "217",
-     "start": 40.85,
-     "end": 41.47
+     "start": 40.89,
+     "end": 41.52
     },
     {
      "w": "didn't",
-     "start": 41.47,
-     "end": 41.95
+     "start": 41.52,
+     "end": 42.03
     },
     {
      "w": "die",
-     "start": 41.95,
-     "end": 42.22
+     "start": 42.03,
+     "end": 42.3
     },
     {
      "w": "in",
-     "start": 42.22,
-     "end": 42.39
+     "start": 42.3,
+     "end": 42.51
     },
     {
      "w": "it.",
-     "start": 42.39,
-     "end": 42.49
+     "start": 42.51,
+     "end": 42.59
     }
    ]
   },
   {
    "id": "L14",
    "start": 42.95,
-   "end": 44.81,
+   "end": 44.82,
    "text": "And the hotel sells ghost tours.",
    "words": [
     {
      "w": "And",
      "start": 42.98,
-     "end": 43.15
+     "end": 43.17
     },
     {
      "w": "the",
-     "start": 43.15,
+     "start": 43.17,
      "end": 43.35
     },
     {
      "w": "hotel",
      "start": 43.35,
-     "end": 43.67
+     "end": 43.68
     },
     {
      "w": "sells",
-     "start": 43.67,
-     "end": 43.99
+     "start": 43.68,
+     "end": 44.0
     },
     {
      "w": "ghost",
-     "start": 43.99,
-     "end": 44.49
+     "start": 44.0,
+     "end": 44.5
     },
     {
      "w": "tours.",
-     "start": 44.49,
-     "end": 44.75
+     "start": 44.5,
+     "end": 44.76
     }
    ]
   },
@@ -750,43 +750,43 @@
   {
    "id": "L16",
    "start": 47.97,
-   "end": 50.03,
+   "end": 50.12,
    "text": "Nobody knows. But it started like this:",
    "words": [
     {
      "w": "Nobody",
      "start": 48.0,
-     "end": 48.41
+     "end": 48.43
     },
     {
      "w": "knows.",
-     "start": 48.41,
-     "end": 48.77
+     "start": 48.43,
+     "end": 48.81
     },
     {
      "w": "But",
-     "start": 48.77,
-     "end": 48.97
+     "start": 48.81,
+     "end": 49.02
     },
     {
      "w": "it",
-     "start": 48.97,
-     "end": 48.97
+     "start": 49.02,
+     "end": 49.02
     },
     {
      "w": "started",
-     "start": 48.97,
-     "end": 49.49
+     "start": 49.02,
+     "end": 49.57
     },
     {
      "w": "like",
-     "start": 49.49,
-     "end": 49.7
+     "start": 49.57,
+     "end": 49.78
     },
     {
      "w": "this:",
-     "start": 49.7,
-     "end": 49.97
+     "start": 49.78,
+     "end": 50.06
     }
    ]
   }
@@ -795,114 +795,114 @@
  "fit": [
   {
    "id": "L01",
-   "speed": 1.05,
+   "speed": 1.081,
    "target": 4.53,
    "dur": 4.62,
    "overrun": 0.0
   },
   {
    "id": "L02",
-   "speed": 1.05,
+   "speed": 0.97,
    "target": 3.78,
-   "dur": 3.68,
+   "dur": 3.79,
    "overrun": 0.0
   },
   {
    "id": "L03",
-   "speed": 0.993,
+   "speed": 0.97,
    "target": 2.81,
    "dur": 2.7,
    "overrun": 0.0
   },
   {
    "id": "L04",
-   "speed": 1.05,
+   "speed": 1.042,
    "target": 2.75,
    "dur": 2.78,
    "overrun": 0.0
   },
   {
    "id": "L05",
-   "speed": 0.949,
+   "speed": 0.908,
    "target": 1.92,
-   "dur": 1.78,
+   "dur": 1.88,
    "overrun": 0.0
   },
   {
    "id": "L06",
-   "speed": 1.094,
+   "speed": 1.092,
    "target": 4.11,
    "dur": 4.11,
    "overrun": 0.0
   },
   {
    "id": "L07",
-   "speed": 0.996,
+   "speed": 0.97,
    "target": 3.17,
-   "dur": 3.11,
+   "dur": 3.14,
    "overrun": 0.0
   },
   {
    "id": "L08",
-   "speed": 1.05,
+   "speed": 1.077,
    "target": 2.86,
-   "dur": 2.95,
+   "dur": 2.92,
    "overrun": 0.0
   },
   {
    "id": "L09",
-   "speed": 1.05,
+   "speed": 0.97,
    "target": 3.63,
-   "dur": 3.51,
+   "dur": 3.69,
    "overrun": 0.0
   },
   {
    "id": "L10",
-   "speed": 0.908,
+   "speed": 0.9,
    "target": 1.89,
    "dur": 1.84,
    "overrun": 0.0
   },
   {
    "id": "L11",
-   "speed": 1.05,
+   "speed": 0.97,
    "target": 2.51,
-   "dur": 2.39,
+   "dur": 2.42,
    "overrun": 0.0
   },
   {
    "id": "L12",
-   "speed": 0.964,
+   "speed": 0.97,
    "target": 1.88,
    "dur": 1.76,
    "overrun": 0.0
   },
   {
    "id": "L13",
-   "speed": 1.013,
+   "speed": 0.97,
    "target": 3.16,
-   "dur": 3.06,
+   "dur": 3.16,
    "overrun": 0.0
   },
   {
    "id": "L14",
-   "speed": 0.99,
+   "speed": 0.97,
    "target": 1.95,
-   "dur": 1.86,
+   "dur": 1.87,
    "overrun": 0.0
   },
   {
    "id": "L15",
-   "speed": 0.9,
+   "speed": 0.905,
    "target": 1.82,
    "dur": 1.8,
    "overrun": 0.0
   },
   {
    "id": "L16",
-   "speed": 1.05,
+   "speed": 0.97,
    "target": 2.11,
-   "dur": 2.06,
+   "dur": 2.15,
    "overrun": 0.0
   }
  ]

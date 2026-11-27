@@ -15,12 +15,14 @@ def P(*a):
     return os.path.join(ROOT, *a)
 
 
+def studio_cfg():
+    cfg = os.path.join(HERE, "studio_config.json")
+    return json.load(open(cfg)) if os.path.exists(cfg) else {}
+
+
 def studio_voice(default=None):
     """Single source of truth for the channel narrator (PIPELINE/studio_config.json)."""
-    cfg = os.path.join(HERE, "studio_config.json")
-    if os.path.exists(cfg):
-        return json.load(open(cfg)).get("voice") or default
-    return default
+    return studio_cfg().get("voice") or default
 
 
 def tts(id_, retime=False):
@@ -31,7 +33,9 @@ def tts(id_, retime=False):
     sc = json.load(open(P("SCRIPTS", id_, "script.json")))
     adir = P("AUDIO", id_)
     os.makedirs(adir, exist_ok=True)
-    tj = {"voice": studio_voice(sc.get("voice", "am_adam")), "speed": sc.get("speed", 1.07), "lines": sc["lines"]}
+    ns = studio_cfg().get("natural_speed") or {}
+    base = ns.get(id_.split("-")[0]) if isinstance(ns, dict) else ns
+    tj = {"voice": studio_voice(sc.get("voice", "am_adam")), "speed": base or sc.get("speed", 1.0), "lines": sc["lines"]}
     json.dump(tj, open(os.path.join(adir, "tts_input.json"), "w"))
     ref = os.path.join(adir, "timings_ref.json")
     if retime and os.path.exists(ref):

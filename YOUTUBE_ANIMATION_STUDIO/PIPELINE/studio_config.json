@@ -1,1 +1,10 @@
-{"voice": "am_adam", "note": "Channel narrator (owner picked sampler voice 03 on 2026-11-27). Overrides per-script voice fields."}
+{
+ "voice": "am_adam",
+ "natural_speed": {
+  "CAVE": 1.0,
+  "SCUBA": 1.03,
+  "MURDER": 1.05,
+  "HAUNT": 0.97
+ },
+ "note": "Channel narrator = Kokoro am_adam (owner picked sampler voice 03 on 2026-11-27); overrides per-script voice. natural_speed (by ID prefix) is the speed used for scripts that have no timing reference yet; measured: am_adam at 1.00-1.05 reads ~150-160 wpm including pauses. Animated videos are timing-locked instead (AUDIO/<ID>/timings_ref.json)."
+}

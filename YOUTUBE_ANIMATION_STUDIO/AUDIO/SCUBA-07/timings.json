@@ -1,637 +1,637 @@
 {
  "duration": 53.85,
- "voice": "bm_george",
+ "voice": "am_adam",
  "lines": [
   {
    "id": "L01",
    "start": 0.15,
-   "end": 3.13,
+   "end": 2.85,
    "text": "This lump came off a 2,000-year-old shipwreck.",
    "words": [
     {
      "w": "This",
      "start": 0.18,
-     "end": 0.47
+     "end": 0.37
     },
     {
      "w": "lump",
-     "start": 0.47,
-     "end": 0.75
+     "start": 0.37,
+     "end": 0.65
     },
     {
      "w": "came",
-     "start": 0.75,
-     "end": 1.05
+     "start": 0.65,
+     "end": 0.93
     },
     {
      "w": "off",
-     "start": 1.05,
-     "end": 1.16
+     "start": 0.93,
+     "end": 1.09
     },
     {
      "w": "a",
-     "start": 1.16,
-     "end": 1.34
+     "start": 1.09,
+     "end": 1.3
     },
     {
      "w": "2,000-year-old",
-     "start": 1.34,
-     "end": 2.66
+     "start": 1.3,
+     "end": 2.44
     },
     {
      "w": "shipwreck.",
-     "start": 2.66,
-     "end": 3.07
+     "start": 2.44,
+     "end": 2.79
     }
    ]
   },
   {
    "id": "L02",
    "start": 3.28,
-   "end": 5.01,
+   "end": 4.74,
    "text": "Inside, there were gears.",
    "words": [
     {
      "w": "Inside,",
      "start": 3.31,
-     "end": 3.97
+     "end": 3.87
     },
     {
      "w": "there",
-     "start": 3.97,
-     "end": 4.3
+     "start": 3.87,
+     "end": 4.16
     },
     {
      "w": "were",
-     "start": 4.3,
-     "end": 4.48
+     "start": 4.16,
+     "end": 4.25
     },
     {
      "w": "gears.",
-     "start": 4.48,
-     "end": 4.95
+     "start": 4.25,
+     "end": 4.68
     }
    ]
   },
   {
    "id": "L03",
    "start": 5.36,
-   "end": 10.29,
+   "end": 10.16,
    "text": "In 1900, Greek sponge divers sheltered from a storm off Antikythera.",
    "words": [
     {
      "w": "In",
-     "start": 5.39,
-     "end": 5.65
+     "start": 5.38,
+     "end": 5.62
     },
     {
      "w": "1900,",
-     "start": 5.65,
-     "end": 6.45
+     "start": 5.62,
+     "end": 6.33
     },
     {
      "w": "Greek",
-     "start": 6.45,
-     "end": 6.8
+     "start": 6.33,
+     "end": 6.7
     },
     {
      "w": "sponge",
-     "start": 6.8,
-     "end": 7.33
+     "start": 6.7,
+     "end": 7.25
     },
     {
      "w": "divers",
-     "start": 7.33,
-     "end": 7.79
+     "start": 7.25,
+     "end": 7.69
     },
     {
      "w": "sheltered",
-     "start": 7.79,
+     "start": 7.69,
      "end": 8.19
     },
     {
      "w": "from",
      "start": 8.19,
-     "end": 8.46
+     "end": 8.45
     },
     {
      "w": "a",
-     "start": 8.46,
-     "end": 8.71
+     "start": 8.45,
+     "end": 8.65
     },
     {
      "w": "storm",
-     "start": 8.71,
-     "end": 9.16
+     "start": 8.65,
+     "end": 9.0
     },
     {
      "w": "off",
-     "start": 9.16,
-     "end": 9.41
+     "start": 9.0,
+     "end": 9.28
     },
     {
      "w": "Antikythera.",
-     "start": 9.41,
-     "end": 10.23
+     "start": 9.28,
+     "end": 10.1
     }
    ]
   },
   {
    "id": "L04",
    "start": 10.54,
-   "end": 14.09,
+   "end": 14.03,
    "text": "Around 50 metres down, they found a wreck full of statues.",
    "words": [
     {
      "w": "Around",
      "start": 10.57,
-     "end": 11.04
+     "end": 11.05
     },
     {
      "w": "50",
-     "start": 11.04,
-     "end": 11.34
+     "start": 11.05,
+     "end": 11.37
     },
     {
      "w": "metres",
-     "start": 11.34,
-     "end": 11.86
+     "start": 11.37,
+     "end": 11.84
     },
     {
      "w": "down,",
-     "start": 11.86,
-     "end": 12.17
+     "start": 11.84,
+     "end": 12.08
     },
     {
      "w": "they",
-     "start": 12.17,
-     "end": 12.24
+     "start": 12.08,
+     "end": 12.3
     },
     {
      "w": "found",
-     "start": 12.24,
-     "end": 12.63
+     "start": 12.3,
+     "end": 12.69
     },
     {
      "w": "a",
-     "start": 12.63,
-     "end": 12.91
+     "start": 12.69,
+     "end": 12.8
     },
     {
      "w": "wreck",
-     "start": 12.91,
-     "end": 13.05
+     "start": 12.8,
+     "end": 12.99
     },
     {
      "w": "full",
-     "start": 13.05,
-     "end": 13.41
+     "start": 12.99,
+     "end": 13.36
     },
     {
      "w": "of",
-     "start": 13.41,
-     "end": 13.42
+     "start": 13.36,
+     "end": 13.38
     },
     {
      "w": "statues.",
-     "start": 13.42,
-     "end": 14.03
+     "start": 13.38,
+     "end": 13.97
     }
    ]
   },
   {
    "id": "L05",
    "start": 14.34,
-   "end": 18.24,
+   "end": 18.13,
    "text": "They worked in brass helmets, breathing air pumped down from the boat.",
    "words": [
     {
      "w": "They",
      "start": 14.37,
-     "end": 14.62
+     "end": 14.52
     },
     {
      "w": "worked",
-     "start": 14.62,
-     "end": 15.02
+     "start": 14.52,
+     "end": 14.93
     },
     {
      "w": "in",
-     "start": 15.02,
-     "end": 15.17
+     "start": 14.93,
+     "end": 15.19
     },
     {
      "w": "brass",
-     "start": 15.17,
-     "end": 15.5
+     "start": 15.19,
+     "end": 15.49
     },
     {
      "w": "helmets,",
-     "start": 15.5,
-     "end": 16.01
+     "start": 15.49,
+     "end": 16.0
     },
     {
      "w": "breathing",
-     "start": 16.01,
-     "end": 16.54
+     "start": 16.0,
+     "end": 16.48
     },
     {
      "w": "air",
-     "start": 16.54,
-     "end": 16.76
+     "start": 16.48,
+     "end": 16.72
     },
     {
      "w": "pumped",
-     "start": 16.76,
-     "end": 17.18
+     "start": 16.72,
+     "end": 17.09
     },
     {
      "w": "down",
-     "start": 17.18,
-     "end": 17.51
+     "start": 17.09,
+     "end": 17.42
     },
     {
      "w": "from",
-     "start": 17.51,
-     "end": 17.76
+     "start": 17.42,
+     "end": 17.68
     },
     {
      "w": "the",
-     "start": 17.76,
-     "end": 17.84
+     "start": 17.68,
+     "end": 17.73
     },
     {
      "w": "boat.",
-     "start": 17.84,
-     "end": 18.18
+     "start": 17.73,
+     "end": 18.07
     }
    ]
   },
   {
    "id": "L06",
    "start": 18.49,
-   "end": 21.45,
+   "end": 21.06,
    "text": "The salvage ran into 1901.",
    "words": [
     {
      "w": "The",
      "start": 18.52,
-     "end": 18.67
+     "end": 18.7
     },
     {
      "w": "salvage",
-     "start": 18.67,
-     "end": 19.42
+     "start": 18.7,
+     "end": 19.26
     },
     {
      "w": "ran",
-     "start": 19.42,
-     "end": 19.86
+     "start": 19.26,
+     "end": 19.64
     },
     {
      "w": "into",
-     "start": 19.86,
-     "end": 20.21
+     "start": 19.64,
+     "end": 20.03
     },
     {
      "w": "1901.",
-     "start": 20.21,
-     "end": 21.39
+     "start": 20.03,
+     "end": 21.0
     }
    ]
   },
   {
    "id": "L07",
    "start": 21.65,
-   "end": 24.85,
+   "end": 24.64,
    "text": "One diver died of the bends. Two were paralysed.",
    "words": [
     {
      "w": "One",
      "start": 21.68,
-     "end": 21.97
+     "end": 21.95
     },
     {
      "w": "diver",
-     "start": 21.97,
-     "end": 22.39
+     "start": 21.95,
+     "end": 22.33
     },
     {
      "w": "died",
-     "start": 22.39,
-     "end": 22.8
+     "start": 22.33,
+     "end": 22.63
     },
     {
      "w": "of",
-     "start": 22.8,
-     "end": 22.93
+     "start": 22.63,
+     "end": 22.78
     },
     {
      "w": "the",
-     "start": 22.93,
-     "end": 23.11
+     "start": 22.78,
+     "end": 22.98
     },
     {
      "w": "bends.",
-     "start": 23.11,
-     "end": 23.53
+     "start": 22.98,
+     "end": 23.41
     },
     {
      "w": "Two",
-     "start": 23.53,
-     "end": 23.82
+     "start": 23.41,
+     "end": 23.57
     },
     {
      "w": "were",
-     "start": 23.82,
-     "end": 24.05
+     "start": 23.57,
+     "end": 23.86
     },
     {
      "w": "paralysed.",
-     "start": 24.05,
-     "end": 24.79
+     "start": 23.86,
+     "end": 24.58
     }
    ]
   },
   {
    "id": "L08",
    "start": 25.25,
-   "end": 28.36,
+   "end": 28.02,
    "text": "Among the bronze and marble came this corroded lump.",
    "words": [
     {
      "w": "Among",
      "start": 25.28,
-     "end": 25.64
+     "end": 25.61
     },
     {
      "w": "the",
-     "start": 25.64,
-     "end": 25.77
+     "start": 25.61,
+     "end": 25.62
     },
     {
      "w": "bronze",
-     "start": 25.77,
-     "end": 26.14
+     "start": 25.62,
+     "end": 26.03
     },
     {
      "w": "and",
-     "start": 26.14,
-     "end": 26.39
+     "start": 26.03,
+     "end": 26.16
     },
     {
      "w": "marble",
-     "start": 26.39,
-     "end": 26.91
+     "start": 26.16,
+     "end": 26.7
     },
     {
      "w": "came",
-     "start": 26.91,
-     "end": 27.19
+     "start": 26.7,
+     "end": 27.0
     },
     {
      "w": "this",
-     "start": 27.19,
-     "end": 27.46
+     "start": 27.0,
+     "end": 27.2
     },
     {
      "w": "corroded",
-     "start": 27.46,
-     "end": 27.99
+     "start": 27.2,
+     "end": 27.68
     },
     {
      "w": "lump.",
-     "start": 27.99,
-     "end": 28.3
+     "start": 27.68,
+     "end": 27.96
     }
    ]
   },
   {
    "id": "L09",
    "start": 28.66,
-   "end": 33.0,
+   "end": 32.68,
    "text": "In 1902, it split apart, and a gear wheel showed through.",
    "words": [
     {
      "w": "In",
-     "start": 28.69,
-     "end": 28.98
+     "start": 28.68,
+     "end": 28.95
     },
     {
      "w": "1902,",
-     "start": 28.98,
-     "end": 29.9
+     "start": 28.95,
+     "end": 29.79
     },
     {
      "w": "it",
-     "start": 29.9,
-     "end": 30.04
+     "start": 29.79,
+     "end": 29.9
     },
     {
      "w": "split",
-     "start": 30.04,
-     "end": 30.48
+     "start": 29.9,
+     "end": 30.31
     },
     {
      "w": "apart,",
-     "start": 30.48,
-     "end": 31.06
+     "start": 30.31,
+     "end": 30.76
     },
     {
      "w": "and",
-     "start": 31.06,
-     "end": 31.29
+     "start": 30.76,
+     "end": 31.0
     },
     {
      "w": "a",
-     "start": 31.29,
-     "end": 31.53
+     "start": 31.0,
+     "end": 31.26
     },
     {
      "w": "gear",
-     "start": 31.53,
-     "end": 31.79
+     "start": 31.26,
+     "end": 31.6
     },
     {
      "w": "wheel",
-     "start": 31.79,
-     "end": 32.21
+     "start": 31.6,
+     "end": 31.91
     },
     {
      "w": "showed",
-     "start": 32.21,
-     "end": 32.53
+     "start": 31.91,
+     "end": 32.25
     },
     {
      "w": "through.",
-     "start": 32.53,
-     "end": 32.94
+     "start": 32.25,
+     "end": 32.62
     }
    ]
   },
   {
    "id": "L10",
    "start": 33.5,
-   "end": 38.99,
+   "end": 38.74,
    "text": "In 2005, X-ray CT scans revealed hidden gears and inscriptions.",
    "words": [
     {
      "w": "In",
      "start": 33.53,
-     "end": 33.81
+     "end": 33.8
     },
     {
      "w": "2005,",
-     "start": 33.81,
-     "end": 34.72
+     "start": 33.8,
+     "end": 34.67
     },
     {
      "w": "X-ray",
-     "start": 34.72,
-     "end": 35.33
+     "start": 34.67,
+     "end": 35.14
     },
     {
      "w": "CT",
-     "start": 35.33,
-     "end": 35.93
+     "start": 35.14,
+     "end": 35.75
     },
     {
      "w": "scans",
-     "start": 35.93,
-     "end": 36.4
+     "start": 35.75,
+     "end": 36.27
     },
     {
      "w": "revealed",
-     "start": 36.4,
-     "end": 36.99
+     "start": 36.27,
+     "end": 36.73
     },
     {
      "w": "hidden",
-     "start": 36.99,
-     "end": 37.34
+     "start": 36.73,
+     "end": 37.28
     },
     {
      "w": "gears",
-     "start": 37.34,
-     "end": 37.84
+     "start": 37.28,
+     "end": 37.62
     },
     {
      "w": "and",
-     "start": 37.84,
-     "end": 37.97
+     "start": 37.62,
+     "end": 37.76
     },
     {
      "w": "inscriptions.",
-     "start": 37.97,
-     "end": 38.93
+     "start": 37.76,
+     "end": 38.68
     }
    ]
   },
   {
    "id": "L11",
    "start": 39.24,
-   "end": 41.77,
+   "end": 41.4,
    "text": "It was a geared calculator for the sky.",
    "words": [
     {
      "w": "It",
      "start": 39.27,
-     "end": 39.35
+     "end": 39.36
     },
     {
      "w": "was",
-     "start": 39.35,
-     "end": 39.65
+     "start": 39.36,
+     "end": 39.6
     },
     {
      "w": "a",
-     "start": 39.65,
-     "end": 39.77
+     "start": 39.6,
+     "end": 39.65
     },
     {
      "w": "geared",
-     "start": 39.77,
-     "end": 40.06
+     "start": 39.65,
+     "end": 39.93
     },
     {
      "w": "calculator",
-     "start": 40.06,
-     "end": 40.92
+     "start": 39.93,
+     "end": 40.68
     },
     {
      "w": "for",
-     "start": 40.92,
-     "end": 41.26
+     "start": 40.68,
+     "end": 40.92
     },
     {
      "w": "the",
-     "start": 41.26,
-     "end": 41.44
+     "start": 40.92,
+     "end": 41.12
     },
     {
      "w": "sky.",
-     "start": 41.44,
-     "end": 41.71
+     "start": 41.12,
+     "end": 41.34
     }
    ]
   },
   {
    "id": "L12",
    "start": 41.97,
-   "end": 45.11,
+   "end": 44.91,
    "text": "It tracked the Sun and Moon, and predicted eclipses.",
    "words": [
     {
      "w": "It",
-     "start": 41.99,
-     "end": 42.09
+     "start": 42.0,
+     "end": 42.11
     },
     {
      "w": "tracked",
-     "start": 42.09,
-     "end": 42.6
+     "start": 42.11,
+     "end": 42.45
     },
     {
      "w": "the",
-     "start": 42.6,
-     "end": 42.68
+     "start": 42.45,
+     "end": 42.65
     },
     {
      "w": "Sun",
-     "start": 42.68,
-     "end": 42.96
+     "start": 42.65,
+     "end": 42.86
     },
     {
      "w": "and",
-     "start": 42.96,
-     "end": 43.21
+     "start": 42.86,
+     "end": 43.04
     },
     {
      "w": "Moon,",
-     "start": 43.21,
-     "end": 43.58
+     "start": 43.04,
+     "end": 43.43
     },
     {
      "w": "and",
-     "start": 43.58,
-     "end": 43.75
+     "start": 43.43,
+     "end": 43.59
     },
     {
      "w": "predicted",
-     "start": 43.75,
-     "end": 44.47
+     "start": 43.59,
+     "end": 44.28
     },
     {
      "w": "eclipses.",
-     "start": 44.47,
-     "end": 45.05
+     "start": 44.28,
+     "end": 44.85
     }
    ]
   },
   {
    "id": "L13",
    "start": 45.41,
-   "end": 49.37,
+   "end": 49.05,
    "text": "Nothing this complex appears again for over a thousand years.",
    "words": [
     {
@@ -642,112 +642,213 @@
     {
      "w": "this",
      "start": 45.85,
-     "end": 46.08
+     "end": 46.04
     },
     {
      "w": "complex",
-     "start": 46.08,
-     "end": 46.76
+     "start": 46.04,
+     "end": 46.68
     },
     {
      "w": "appears",
-     "start": 46.76,
-     "end": 47.26
+     "start": 46.68,
+     "end": 47.08
     },
     {
      "w": "again",
-     "start": 47.26,
-     "end": 47.64
+     "start": 47.08,
+     "end": 47.46
     },
     {
      "w": "for",
-     "start": 47.64,
-     "end": 47.79
+     "start": 47.46,
+     "end": 47.59
     },
     {
      "w": "over",
-     "start": 47.79,
-     "end": 48.26
+     "start": 47.59,
+     "end": 48.03
     },
     {
      "w": "a",
-     "start": 48.26,
-     "end": 48.36
+     "start": 48.03,
+     "end": 48.17
     },
     {
      "w": "thousand",
-     "start": 48.36,
-     "end": 49.02
+     "start": 48.17,
+     "end": 48.73
     },
     {
      "w": "years.",
-     "start": 49.02,
-     "end": 49.31
+     "start": 48.73,
+     "end": 48.99
     }
    ]
   },
   {
    "id": "L14",
    "start": 49.72,
-   "end": 52.95,
+   "end": 52.63,
    "text": "And the men who found it were only looking for sponges.",
    "words": [
     {
      "w": "And",
      "start": 49.75,
-     "end": 49.99
+     "end": 49.91
     },
     {
      "w": "the",
-     "start": 49.99,
+     "start": 49.91,
      "end": 50.08
     },
     {
      "w": "men",
      "start": 50.08,
-     "end": 50.37
+     "end": 50.32
     },
     {
      "w": "who",
-     "start": 50.37,
-     "end": 50.55
+     "start": 50.32,
+     "end": 50.52
     },
     {
      "w": "found",
-     "start": 50.55,
-     "end": 51.0
+     "start": 50.52,
+     "end": 50.88
     },
     {
      "w": "it",
-     "start": 51.0,
-     "end": 51.1
+     "start": 50.88,
+     "end": 50.89
     },
     {
      "w": "were",
-     "start": 51.1,
-     "end": 51.29
+     "start": 50.89,
+     "end": 51.07
     },
     {
      "w": "only",
-     "start": 51.29,
-     "end": 51.62
+     "start": 51.07,
+     "end": 51.53
     },
     {
      "w": "looking",
-     "start": 51.62,
-     "end": 52.01
+     "start": 51.53,
+     "end": 51.76
     },
     {
      "w": "for",
-     "start": 52.01,
-     "end": 52.29
+     "start": 51.76,
+     "end": 52.02
     },
     {
      "w": "sponges.",
-     "start": 52.29,
-     "end": 52.89
+     "start": 52.02,
+     "end": 52.57
     }
    ]
+  }
+ ],
+ "timing_locked": true,
+ "fit": [
+  {
+   "id": "L01",
+   "speed": 0.9,
+   "target": 2.98,
+   "dur": 2.7,
+   "overrun": 0.0
+  },
+  {
+   "id": "L02",
+   "speed": 0.9,
+   "target": 1.73,
+   "dur": 1.46,
+   "overrun": 0.0
+  },
+  {
+   "id": "L03",
+   "speed": 0.908,
+   "target": 4.93,
+   "dur": 4.8,
+   "overrun": 0.0
+  },
+  {
+   "id": "L04",
+   "speed": 0.922,
+   "target": 3.55,
+   "dur": 3.49,
+   "overrun": 0.0
+  },
+  {
+   "id": "L05",
+   "speed": 0.9,
+   "target": 3.9,
+   "dur": 3.79,
+   "overrun": 0.0
+  },
+  {
+   "id": "L06",
+   "speed": 0.9,
+   "target": 2.96,
+   "dur": 2.57,
+   "overrun": 0.0
+  },
+  {
+   "id": "L07",
+   "speed": 0.9,
+   "target": 3.2,
+   "dur": 2.99,
+   "overrun": 0.0
+  },
+  {
+   "id": "L08",
+   "speed": 0.9,
+   "target": 3.11,
+   "dur": 2.77,
+   "overrun": 0.0
+  },
+  {
+   "id": "L09",
+   "speed": 0.9,
+   "target": 4.34,
+   "dur": 4.02,
+   "overrun": 0.0
+  },
+  {
+   "id": "L10",
+   "speed": 0.9,
+   "target": 5.49,
+   "dur": 5.24,
+   "overrun": 0.0
+  },
+  {
+   "id": "L11",
+   "speed": 0.9,
+   "target": 2.53,
+   "dur": 2.16,
+   "overrun": 0.0
+  },
+  {
+   "id": "L12",
+   "speed": 0.9,
+   "target": 3.14,
+   "dur": 2.94,
+   "overrun": 0.0
+  },
+  {
+   "id": "L13",
+   "speed": 0.9,
+   "target": 3.96,
+   "dur": 3.64,
+   "overrun": 0.0
+  },
+  {
+   "id": "L14",
+   "speed": 0.9,
+   "target": 3.23,
+   "dur": 2.91,
+   "overrun": 0.0
   }
  ]
 }

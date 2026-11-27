@@ -192,3 +192,18 @@ Runtime vs strategy bands (`SHORTS_STRATEGY.md` §2): MURDER-03, MURDER-04 and M
 - [ ] Audio: confirm no licensed music (all procedural) and loudness of about −14 LUFS.
 - [ ] Ethics pass: faceless figures, no gore, labels on every disputed or paranormal claim, no uncharged private persons named.
 - [ ] After upload, track viewed-vs-swiped, APV and engaged views against `SHORTS_STRATEGY.md` §12, and recalibrate the runtime bands after 5+ uploads per niche.
+
+
+---
+## Addendum — 2026-11-27 18:15 UTC (supersedes the counts above where they differ)
+- **Narrator voice changed by the owner** to Kokoro `am_adam` ("Voice 03" of AUDIO/VOICE_SAMPLER). All 28 scripted Shorts were re-voiced
+  with the timing lock (line starts and shot timing unchanged; 28/28 shot_timing.json files byte-identical before/after), so no animation
+  or render was invalidated. Trade-off: in six Shorts first timed with a slower voice (HAUNT-01, HAUNT-04, HAUNT-07, SCUBA-02, SCUBA-06,
+  SCUBA-07) most lines now end 0.2–0.5 s early, i.e. pauses between lines are ~0.25 s longer than designed.
+- **Finished + QC PASS: 3** — HAUNT-01, MURDER-01 (both re-assembled in the new voice, no re-render) and CAVE-01 (one shot re-rendered
+  after a visual QC fail). All three: -14.2 to -14.6 LUFS, true peak <= -1.1 dBTP.
+- **Animated and READY: 28 of 28 scripted** (slates 1–4). Render queue order continues with MURDER-02.
+- **Slate 5 scripting in progress** (CAVE-08, SCUBA-08, MURDER-08, HAUNT-10).
+- Fact-checks: 28/28 VERIFIED (SCUBA-06 and MURDER-05 resolved; SCUBA-06 S03's unverified on-screen "no tank / breath-hold" claim removed).
+- Fixed since the report: true-peak limiter + QC rule, font licence files, tracker phases, selection notes for CAVE-07/HAUNT-10.
+- Still true: narration delivery has not been auditioned by ear inside this container (no audio playback) — owner listening is the check.
