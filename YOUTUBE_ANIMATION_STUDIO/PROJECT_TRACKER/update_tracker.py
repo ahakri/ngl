@@ -47,11 +47,19 @@ def stage(id_):
 
 def main():
     rows = []
-    for folder, cat in NICHES:
-        p = os.path.join(ROOT, "VIDEO_IDEAS", folder, "concepts.json")
+    srcs = [(os.path.join(ROOT, "VIDEO_IDEAS", f, "concepts.json"), f, cat) for f, cat in NICHES]
+    rcat = {"CAVE": "Cave diving (reserve)", "SCUBA": "Scuba diving (reserve)", "MURDER": "Murder & mystery (reserve)", "HAUNT": "Haunted & paranormal (reserve)"}
+    for rp in sorted(glob.glob(os.path.join(ROOT, "VIDEO_IDEAS", "RESERVE_20", "*_reserve.json"))):
+        srcs.append((rp, "RESERVE_20", rcat.get(os.path.basename(rp).split("_")[0], "Reserve")))
+    for p, folder, cat in srcs:
         if not os.path.exists(p):
             continue
-        for c in json.load(open(p)):
+        try:
+            data = json.load(open(p))
+        except Exception as e:
+            print("unreadable", p, e)
+            continue
+        for c in data:
             s, fl = stage(c["id"])
             sc = c.get("scores", {})
             rows.append({
@@ -63,7 +71,7 @@ def main():
                 "script": f"SCRIPTS/{c['id']}/" if fl["script"] else "", "storyboard": f"STORYBOARDS/{c['id']}/" if fl["storyboard"] else "",
                 "final_video": f"FINAL_VIDEOS/{c['id']}.mp4" if fl["final_video"] else "",
                 "thumbnail": f"THUMBNAILS/{c['id']}/" if fl["thumbnail"] else "", "qc": "PASS" if fl["qc_pass"] else "",
-                "concept_file": f"VIDEO_IDEAS/{folder}/CONCEPTS.md",
+                "concept_file": f"VIDEO_IDEAS/{folder}/" + ("RESERVE_CONCEPTS.md" if folder == "RESERVE_20" else "CONCEPTS.md"),
             })
     out = os.path.join(ROOT, "PROJECT_TRACKER")
     keys = list(rows[0].keys()) if rows else []
@@ -92,7 +100,7 @@ def main():
         print("xlsx skipped:", e)
     tj_p = os.path.join(out, "tracker.json")
     tj = json.load(open(tj_p)) if os.path.exists(tj_p) else {}
-    tj["updated"] = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    tj["updated"] = datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None).isoformat(timespec="seconds") + "Z"
     tj["videos"] = {r["id"]: r["status"] for r in rows if r["status"] != "CONCEPT"}
     json.dump(tj, open(tj_p, "w"), indent=1)
     counts = {}
