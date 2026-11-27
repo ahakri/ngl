@@ -179,6 +179,15 @@ def aim_cam(cam, n, keys, shake=0.0, rot_shake=0.0, rate=0.5, seed=1, shake_keys
     return cam
 
 
+def rim_light(target, from_offset, energy=800, color=(0.4, 0.85, 1.0), size_deg=40, name="rim"):
+    """Spot placed at target+from_offset aimed at target (back/rim light so silhouettes pop)."""
+    pos = Vector(target) + Vector(from_offset)
+    sp = L.spot(tuple(pos), (0, 0, 0), energy=energy, size_deg=size_deg, blend=0.7, color=color, name=name, radius=0.2)
+    sp.rotation_mode = "QUATERNION"
+    sp.rotation_quaternion = (Vector(target) - pos).to_track_quat("-Z", "Y")
+    return sp
+
+
 def cam_fill(cam, energy=40, color=(0.6, 0.85, 0.9), size_deg=80):
     return L.cam_light(cam, energy=energy, color=color, size_deg=size_deg)
 
@@ -299,7 +308,7 @@ def _blended(m):
     m.use_backface_culling = False
 
 
-def beam_mat(name, color=TORCH, strength=1.2, along_pow=1.6):
+def beam_mat(name, color=TORCH, strength=1.2, along_pow=2.2):
     """Fake volumetric cone: emission * (closeness to apex)^p * (1-facing), additive over transparent."""
     m, n, l = L._mat(name)
     for nd in list(n):
@@ -320,7 +329,7 @@ def beam_mat(name, color=TORCH, strength=1.2, along_pow=1.6):
     l.new(lw.outputs["Facing"], inv.inputs[1])
     sq = n.new("ShaderNodeMath")
     sq.operation = "POWER"
-    sq.inputs[1].default_value = 2.0
+    sq.inputs[1].default_value = 3.0
     l.new(inv.outputs[0], sq.inputs[0])
     mul = n.new("ShaderNodeMath")
     mul.operation = "MULTIPLY"
@@ -483,9 +492,16 @@ def cloud(center, size, count=800, radius=0.01, color=(0.85, 0.8, 0.68), emit=0.
           name="silt", mat=None):
     """Particle mesh (tetrahedra) with object origin at center (so scale keys expand from the centre)."""
     rnd = random.Random(seed)
+    radius = min(radius, 0.008)
     bm = bmesh.new()
     for i in range(count):
-        if shape == "sphere":
+        if shape == "torus":  # size = (major_radius, minor_radius, _)
+            a = rnd.uniform(0, 2 * math.pi)
+            b = rnd.uniform(0, 2 * math.pi)
+            rr = size[1] * math.sqrt(rnd.random())
+            R = size[0] + rr * math.cos(b)
+            c = Vector((math.cos(a) * R, math.sin(a) * R, rr * math.sin(b)))
+        elif shape == "sphere":
             while True:
                 v = Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1)))
                 if v.length <= 1:
@@ -808,8 +824,9 @@ def crater(R=9.0, depth=14.0, outer=70.0, seed=2, ground_mat=None, wall_mat=None
                     0.06 * math.sin(3 * a + 1))
     # profile: (radius factor relative to rim (None=absolute), z)
     prof = [(outer, 0.15), (outer * 0.6, 0.1), (outer * 0.35, 0.0), (R * 2.2, 0.05), (R * 1.5, 0.0), ("rim", 1.12, 0.35),
-            ("rim", 1.03, 0.25), ("rim", 1.0, 0.0), ("rim", 0.98, -0.8), ("rim", 0.95, -2.5), ("rim", 0.9, -5.0),
-            ("rim", 0.86, -8.0), ("rim", 0.8, -11.0), ("rim", 0.74, -depth + 0.6), ("rim", 0.62, -depth - 0.5)]
+            ("rim", 1.03, 0.25), ("rim", 1.0, 0.0), ("rim", 0.98, -0.8 * depth / 14), ("rim", 0.95, -2.5 * depth / 14),
+            ("rim", 0.9, -5.0 * depth / 14), ("rim", 0.86, -8.0 * depth / 14), ("rim", 0.8, -11.0 * depth / 14),
+            ("rim", 0.74, -depth + 0.6), ("rim", 0.62, -depth - 0.5)]
     bm = bmesh.new()
     rings = []
     for k, pr in enumerate(prof):
@@ -845,7 +862,7 @@ def crater(R=9.0, depth=14.0, outer=70.0, seed=2, ground_mat=None, wall_mat=None
     L.add_displace(o, strength=0.25, scale=0.35, name=name + "_d2")
     L.smooth(o)
     pool_z = -depth + 0.9
-    pool = L.prim("circle" if False else "cyl", loc=(0, 0, pool_z - 0.05), vertices=64, radius=R * 0.9, depth=0.1,
+    pool = L.prim("cyl", loc=(0, 0, pool_z - 0.05), vertices=64, radius=R * 0.78, depth=0.1,
                   name="pool")
     L.assign(pool, pool_mat or L.mat_principled("pool_m", (0.01, 0.07, 0.065), rough=0.04))
     return {"ground": o, "pool": pool, "rim": rim, "pool_z": pool_z}
@@ -948,6 +965,22 @@ def xsection(poly, depth_to_z, x_scale=1.0, slab=(-0.4, 0.4), extent=(-4, 4, -6,
     outline = curve([(x, slab[0] - 0.02, z) for x, z in pts2] + [(pts2[0][0], slab[0] - 0.02, pts2[0][1])],
                     thickness=0.018, mat=om, name=name + "_outline")
     return {"rock": rock, "water": wat, "outline": outline, "P": P, "outline_mat": om}
+
+
+def fin_blade(loc, rot, length=0.55, w0=0.09, w1=0.2, mat=None, name="fin"):
+    """Tapered fin blade (foot pocket narrow, blade wide) as a thin solid."""
+    bm = bmesh.new()
+    pts = [(-w0, 0), (w0, 0), (w1, length), (0.02, length * 0.92), (-0.02, length * 0.92), (-w1, length)]
+    vs = [bm.verts.new((x, y, 0)) for x, y in pts]
+    bm.faces.new(vs)
+    o = L.mesh_from_bm(name, bm)
+    so = o.modifiers.new("solid", "SOLIDIFY")
+    so.thickness = 0.012
+    o.location = loc
+    o.rotation_euler = rot
+    if mat:
+        L.assign(o, mat)
+    return o
 
 
 def dotted_path(points, spacing=0.12, r=0.025, color=(1, 1, 1), strength=3.0, name="dots"):
