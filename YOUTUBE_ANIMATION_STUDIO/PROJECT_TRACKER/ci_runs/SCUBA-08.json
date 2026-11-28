@@ -1,0 +1,16 @@
+{
+ "id": "SCUBA-08",
+ "run_id": "46089116417",
+ "sha": "10db04e6a2984c0f4143ae92a7edb58f13fb9c5c",
+ "render_seconds": 3221,
+ "assemble_qc_seconds": 369,
+ "frames": 1243,
+ "seconds_per_frame": 2.59,
+ "auto_verdict": "FAIL",
+ "fail": [
+  "true peak 0.7 dBTP above -1 dBTP"
+ ],
+ "duration_s": 50.38,
+ "lufs": -14.5,
+ "true_peak": 0.7
+}

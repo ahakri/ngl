@@ -1,0 +1,19 @@
+{
+ "id": "SCUBA-08",
+ "checks": {
+  "resolution": "1080x1920",
+  "fps": "24/1",
+  "duration_s": 50.38,
+  "has_audio": true,
+  "integrated_lufs": -14.5,
+  "true_peak_dbfs": 0.7,
+  "black_segments": [],
+  "frozen_starts": [],
+  "silences": [],
+  "missing_frames": []
+ },
+ "fail": [
+  "true peak 0.7 dBTP above -1 dBTP"
+ ],
+ "auto_verdict": "FAIL"
+}
