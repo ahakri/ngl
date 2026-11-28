@@ -61,3 +61,11 @@ VERDICT: FAIL (v2, 2026-11-28)
   and aimed a little lower. Both cards and the photo read in full in frames 2/45/93; no 2D duplicate texts needed.
 - Verified: single frames at 540 px (/tmp/fix_MURDER-03_S10*, /tmp/fix_MURDER-03_S16), previews S10 and S16 clean. Frame counts 49/93 unchanged.
 - Needs: production re-render of S10 and S16, re-assembly, re-run qc_check.
+
+## Shot fix (v3)
+- **S16 theory cards** — `BLENDER_PROJECTS/MURDER-03/shots.py` S16 only: card0 text 0.19 -> 0.13 ("WASHED / DOWNSTREAM?" now fits inside
+  its card), BURIED? text 0.32 -> 0.22; cards 0.98 x 0.68, spread to x -0.6 / +0.6 and staggered in z (0.95 / 0.78) so they no
+  longer overlap; the stray "?" card (z -1.4, below the captions) removed. Camera, timing (93 frames), photo and strings unchanged.
+- Verified: stills 2/45/93 at 540 px (/tmp/fix_m03_s16): both labels read in full inside their cards, no overlap, card bottoms at
+  ~y 1040 of 1920 (above the caption band 1150-1400), nothing below the captions.
+- Needs: production re-render of S16, re-assembly, re-run qc_check.

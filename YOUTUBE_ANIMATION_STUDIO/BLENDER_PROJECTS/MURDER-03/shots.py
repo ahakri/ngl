@@ -719,11 +719,13 @@ def S16(L, n):
     pin.parent = pr
     # v2 (QC fix): cards moved inward (were cropped at the frame edges as "ASHED NSTREA" / "BURIE"), above the red
     # UNPROVEN overlay (y 1100) and the caption band; the "?" card sits below the captions.
-    cards = [("WASHED\nDOWNSTREAM?", (-0.55, -0.05, 0.85), 3, 0.06), ("BURIED?", (0.55, -0.06, 0.75), 31, -0.05),
-             ("?", (0.0, -0.05, -1.4), 58, 0.03)]
+    # v3 (QC fix): card0 text was wider than its card ("OWNSTREA") and BURIED? overlapped it; the "?" card sat below the
+    # captions as a stray fragment. Smaller text so each label fits, cards spread to x -0.6/+0.6 and staggered in z,
+    # "?" card dropped. All cards stay above the caption band (y 1150).
+    cards = [("WASHED\nDOWNSTREAM?", (-0.6, -0.05, 0.95), 3, 0.05, 0.13), ("BURIED?", (0.6, -0.06, 0.78), 31, -0.05, 0.22)]
     roots = []
-    for i, (txt, loc, hit, rot) in enumerate(cards):
-        c = M.paper_card(txt, loc, size=(1.0, 0.68), rot_y=rot, badge="THEORY", name=f"card{i}", text_size=0.19 if i == 0 else 0.32)
+    for i, (txt, loc, hit, rot, ts) in enumerate(cards):
+        c = M.paper_card(txt, loc, size=(0.98, 0.68), rot_y=rot, badge="THEORY", name=f"card{i}", text_size=ts)
         M.slam_in(c, hit, frm=(0.0, -1.2, 0.2), rot0=0.25, scale0=1.4, lead=5)
         M.hide_until(c, max(2, hit - 5))
         s = M.red_string([(loc[0], -0.07, loc[2] + 0.28), (0.0, -0.06, 2.15)], name=f"str{i}")
