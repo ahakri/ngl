@@ -1,14 +1,14 @@
 {
  "id": "SCUBA-07",
- "run_id": "46079759846",
- "sha": "6f668fbea7a24e7e73843bd5a4b1ccf4db18c72b",
- "render_seconds": 3383,
- "assemble_qc_seconds": 408,
+ "run_id": "46095080662",
+ "sha": "78308f5ccb3db7857178f3e74da9c0d781e77537",
+ "render_seconds": 0,
+ "assemble_qc_seconds": 622,
  "frames": 1327,
- "seconds_per_frame": 2.55,
+ "seconds_per_frame": 0.0,
  "auto_verdict": "PASS",
  "fail": [],
  "duration_s": 53.88,
  "lufs": -14.7,
- "true_peak": -1.2
+ "true_peak": -1.8
 }
