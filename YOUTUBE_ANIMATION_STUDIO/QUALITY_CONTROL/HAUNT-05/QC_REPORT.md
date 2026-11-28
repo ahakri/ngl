@@ -1,6 +1,6 @@
 # QC REPORT — HAUNT-05 "The Tunnel Built to Hide the Dead" (Waverly Hills Sanatorium)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 31 MB; 48.50 s (haunted band 35-60 s); -14.6 LUFS; true peak -1.2 dBTP.
@@ -21,6 +21,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      (timeline) `params.events` subs -> "TB hospital" / "five storeys" (both fit inside the frame).
   - Test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:11.9, 0:23.6, 0:37.1: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 48.50 s, -14.7 LUFS, true peak -1.6 dBTP. Frames checked at 0:11.9 (timeline subs "TB hospital" / "five storeys" inside the frame), 0:23.6 (S06 badge below the captions), 0:36.0 ("6,000 - 8,000" below the captions, struck 63,000 clear) and 0:39.5 (S11 card gone; PAID GHOST TOURS ticket visible). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s)
 - Hook: the empty gurney rolling down the tunnel, "THE BODY CHUTE" + line 1 ("reportedly") inside 1 s; THEORY + DRAMATISATION. PASS

@@ -1,6 +1,6 @@
 # QC REPORT — MURDER-04 "The Zodiac's Cipher Was Cracked After 51 Years" (Z340, solved 2020)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render) — auto_verdict FAIL
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 46 MB; 74.40 s (murder band 55-82 s); -14.5 LUFS; **true peak -0.9 dBTP (above the -1 dBTP
@@ -23,6 +23,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      only as the video ends. S24 overlay[1] (stamp) added `"cps": 50`.
   - Test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:16.75, 0:46.2, 0:50.7, 0:73.95: clean, text complete.
   - **Needs re-assembly** (with the true-peak ceiling fixed), then re-run qc_check and re-QC.
+- v2: re-assembled (true-peak limiter fixed). PASS. QC_AUTO fresh: 74.40 s, -14.7 LUFS, true peak -1.1 dBTP (<= -1.0). Frames checked at 0:16.75 (S05 document complete through "by a Salinas couple", badge below the captions), 0:18.0, 0:46.2 (S15 FBI telegram complete incl. "(paraphrase, 11 Dec 2020)"), 0:50.7 (S17 badge visible), 0:63.0, 0:63.85 (S21 badge visible) and 0:73.95 (S24 end stamp fully typed). Accepted minor: S21 document finishes "Status: OPEN" only in the last ~0.5 s of the shot. qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:17.2, 0:42.8, 0:46.3, 0:59.8)
 - Hook: macro drift on the 340 grid, line 1 inside 1 s, DOCUMENTED FACT. PASS

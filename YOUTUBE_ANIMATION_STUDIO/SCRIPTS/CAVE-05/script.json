@@ -552,7 +552,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "~900 M FROM\nTHE ENTRANCE",
+     "text": "ABOUT 900 M FROM\nTHE ENTRANCE",
      "params": {
       "y": 1000,
       "size": 78
@@ -781,7 +781,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "VISIBILITY: ~0",
+     "text": "VISIBILITY: NEAR ZERO",
      "params": {
       "y": 420,
       "size": 84

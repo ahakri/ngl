@@ -1,6 +1,6 @@
 # QC REPORT — HAUNT-03 "Don't Stop for Her on Archer Avenue" (Resurrection Mary)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 30 MB; 47.50 s (haunted band 35-60 s); -14.5 LUFS; true peak -1.4 dBTP.
@@ -22,6 +22,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      at ~2.9 s of the 4.06 s shot, and the first line no longer wraps).
   - All three test-composited with PIPELINE/overlays.py + compose.avoid_captions on frames 0:06.5, 0:32.8, 0:37.2: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 47.50 s, -14.6 LUFS, true peak -1.7 dBTP. Frames checked at 0:06.5 (badge below the captions, map subtitle clear), 0:32.8 ("THE CEMETERY'S ANSWER / No evidence of a ghost." below the 3D truck card, no overlap) and 0:37.2, 0:37.9 (FOLKLORE badge visible; Vanishing Hitchhiker paper fully typed, last line complete). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:06.5, 0:15, 0:32.8, 0:37.8)
 - Hook: driver POV on the wet road, pale figure on the verge, line 1 inside 1 s. PASS

@@ -1,6 +1,6 @@
 # QC REPORT — SCUBA-03 "His Lifeline Snapped 100 m Under the North Sea" (Chris Lemons, 2012)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 32 MB; 50.83 s (scuba band 40-65 s); -14.6 LUFS; true peak -1.2 dBTP.
@@ -17,6 +17,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      "18 SEPTEMBER 2012", `params.y` 300 -> 1420 (below the captions, over open night sea).
   - Test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:07.5 and 0:50.2: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 50.83 s, -14.5 LUFS, true peak -1.6 dBTP. Frames checked at 0:07.5 ("18 SEPTEMBER 2012" stamp below the captions, map title clean) and 0:50.2 ("ABOUT 3 WEEKS LATER", no tilde). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:04.5, 0:07.5, 0:29.5, 0:40)
 - Hook: the umbilical whips and parts over the diver, "LIFELINE CUT" + line 1 inside 1 s. PASS

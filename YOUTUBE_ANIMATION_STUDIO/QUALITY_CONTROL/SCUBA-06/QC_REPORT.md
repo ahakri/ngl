@@ -1,6 +1,6 @@
 # QC REPORT — SCUBA-06 "462 Stitches, Then He Went Back In" (Rodney Fox, Aldinga Beach 1963)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 36 MB; 57.29 s (scuba band 40-65 s); -14.4 LUFS; true peak -1.2 dBTP.
@@ -14,6 +14,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      `SCRIPTS/SCUBA-06/script.json` S15 overlay[0] (text) `text` "FIRST FOOTAGE" -> "AMONG THE FIRST" (y 430, size 100, colour
      unchanged; fits the frame width).
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 57.29 s, -14.6 LUFS, true peak -1.7 dBTP. Frame checked at 0:44.8 ("AMONG THE FIRST", fits the width). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:22.4, 0:44.8, 0:47.9)
 - Hook: from below, the great white rising toward Fox at the surface, "GREAT WHITE" + line 1 inside 1 s. PASS

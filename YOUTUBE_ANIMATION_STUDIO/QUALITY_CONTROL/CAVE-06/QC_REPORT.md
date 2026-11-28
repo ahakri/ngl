@@ -1,6 +1,6 @@
 # QC REPORT — CAVE-06 "It Looks Like a Pond. Divers Call It Everest." (Eagle's Nest Sink, Florida)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 39 MB; 61.20 s (cave band 50-72 s); -14.6 LUFS; true peak -1.1 dBTP.
@@ -18,6 +18,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      200 -> 1420 (clean dark area left of the tunnel, below the captions). Badge text unchanged.
   - Both placements were test-composited with PIPELINE/overlays.py + compose.avoid_captions on frames 0:15.4 and 0:53.5: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 61.20 s, -14.7 LUFS, true peak -1.6 dBTP. Frames checked at 0:15.4, 0:16.9 ("EVEREST OF CAVE DIVING" now below the captions; map title/subtitle clean) and 0:53.5, 0:54.7 (EYEWITNESS CLAIM badge below the captions, "CHIMNEY" label uncovered). Accepted: at 0:54.7 the camera push crops the rendered "CHIMNEY" label at the left edge (framing, not an overlay). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:01.8, 0:14.5, 0:16.9, 0:27.5, 0:43.5, 0:53.5, 0:55.5, 0:59)
 - Hook: drone top-down on the pond, "DIVERS DEAD SINCE 1981" counter to 10 with the DISPUTED badge, line 1 inside 1 s. PASS

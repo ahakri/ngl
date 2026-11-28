@@ -1,6 +1,6 @@
 # QC REPORT — SCUBA-05 "He Dived 332 m. Getting Back Took Nearly 15 Hours" (Ahmed Gabr, Dahab 2014)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: FAIL (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 33 MB; 51.96 s (scuba band 40-65 s); -14.5 LUFS; true peak -1.1 dBTP.
@@ -26,6 +26,10 @@ VERDICT: FAIL (v1, 2026-11-28)
      recognise Gabr as record-holder, FACTCHECK L16-L17; y 1420 unchanged).
   - Test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:33.8, 0:37.35, 0:39.5, 0:45.5: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2 FAIL (overlay only — re-assembly needed). QC_AUTO fresh: 51.96 s, -14.6 LUFS, true peak -1.6 dBTP.
+  - Fixed: S07 depth overlay gone, 3D "332 m" tag clean (0:17.8); S09 duplicate card gone (0:23.0); S12 "nearly 15 h" (0:32.5); S14 DISPUTED badge + "2020" stamp below the captions (0:39.5); S16 card "GUINNESS REVIEW / Record upheld" (0:45.5).
+  - **Still wrong — S13 timer (0:34.2-0:37.4).** The timer reads "NEARLY / 14 HRS" for the whole visible hold (frame 0:37.0) and only flips to 15 during the fade-out (0:37.2-0:37.35), because `ov_timer` truncates with int() and the ease only reaches `to` at the very end. Fixed in `SCRIPTS/SCUBA-05/script.json` S13 overlay[0] (timer) `params.to` 15 -> 15.9: it now shows "15 HRS" from ~1.9 s of the 3.28 s shot (checked with overlays.ease; never shows 16).
+  - **Needs re-assembly** from the existing frames (no re-render), then re-QC at 0:36.5.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:04.4, 0:17.8, 0:32.5, 0:39.5)
 - Hook: "DOWN" clock racing to 12:00 on the descent, then "UP ... NEARLY 15 HOURS"; line 1 inside 1 s. PASS

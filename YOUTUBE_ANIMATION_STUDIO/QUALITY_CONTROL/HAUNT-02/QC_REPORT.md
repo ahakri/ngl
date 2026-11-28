@@ -1,6 +1,6 @@
 # QC REPORT — HAUNT-02 "The Real Room 217" (Stanley Hotel, Elizabeth Wilson)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 32 MB; 50.79 s (haunted band 35-60 s); -14.5 LUFS; true peak -1.3 dBTP.
@@ -19,6 +19,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      520 -> 1450 (black area below the board and below the captions; text and size unchanged).
   - New placements test-composited with PIPELINE/overlays.py + compose.avoid_captions on frames 0:34.9, 0:36.5, 0:40.5: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 50.79 s, -14.6 LUFS, true peak -1.8 dBTP. Frames checked at 0:34.9, 0:36.5 (2D duplicate card gone; DOCUMENTED FACT badge in the corkboard gap, 3D card title clear) and 0:40.5, 0:42.5 ("SHE DIDN'T / DIE HERE" in the black area below the board; "DIED HERE? NO." + struck "DIED IN 217" read). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:13.3, 0:14.6, 0:26.5, 0:36.5, 0:40.5, 0:43.3, 0:44.3, 0:45.3)
 - Hook: corridor dolly to the ajar door, "ROOM 217" + line 1 inside 1 s. PASS

@@ -1,6 +1,6 @@
 # QC REPORT — HAUNT-04 "The Ghost on the Raynham Hall Staircase" (Brown Lady photograph, 1936)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 36 MB; 57.33 s (haunted band 35-60 s); -14.6 LUFS; true peak -1.3 dBTP.
@@ -22,6 +22,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      (text complete at ~2.3 s of the 3.38 s shot).
   - Item 3 test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:40.0: clean, full text visible.
 - Next: re-render S11, re-assemble (picks up the S09/S11 overlays), re-QC.
+- v2: S11 re-rendered + re-assembled. PASS. QC_AUTO fresh: 57.33 s, -14.7 LUFS, true peak -1.8 dBTP. Frames checked at 0:39.8 (S09 Country Life document complete incl. "Reprinted: Life, 4 January 1937."; DOCUMENTED FACT badge below the captions), 0:40.3, 0:44.5, 0:46.5, 0:47.5 (S11: 2D card gone, single red "ONE PLATE" under the frame — no doubled shadow copy). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:35.5, 0:39.8, 0:46.5)
 - Hook: push up the oak staircase with the veiled figure on the landing, line 1 inside 1 s; EYEWITNESS CLAIM + DRAMATISATION. PASS

@@ -1,6 +1,6 @@
 # QC REPORT — CAVE-04 "Stuck Upside Down With No Way to Back Out" (John Jones, Nutty Putty Cave 2009)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 32 MB; 51.29 s (cave band 50-72 s, near the lower edge); -14.7 LUFS; true peak -1.3 dBTP.
@@ -20,6 +20,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      Changed `SCRIPTS/CAVE-04/script.json` S14 overlay[0] (type timer) `text` "ABOUT" -> "MORE THAN" (params unchanged; reads
      "MORE THAN / 27 HRS"). Overlay-only; needs re-assembly.
 - Next: re-render S11, re-assemble (picks up the S14 overlay), re-QC.
+- v2: S11 re-rendered + re-assembled. PASS. QC_AUTO fresh: 51.29 s, -14.7 LUFS, true peak -1.7 dBTP, no black/frozen/silence. Frames checked at 0:29.5, 0:30.2, 0:30.8, 0:31.3 (S11: bolt + pulley lit, anchor visibly falling into the crack, only a few fine specks — no particle blob) and 0:39.5, 0:40.5 (S14 timer reads "MORE THAN / 27 HRS"). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames)
 - Hook: line 1 over the crack with the boots/legs inside 1.5 s. PASS (weak image, see below).

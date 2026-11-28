@@ -1,6 +1,6 @@
 # QC REPORT — SCUBA-04 "A Humpback Closed Its Mouth Around Him" (Michael Packard, Cape Cod 2021)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 31 MB; 49.29 s (scuba band 40-65 s); -14.5 LUFS; true peak -1.2 dBTP.
@@ -24,6 +24,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      Massachusetts". S02 overlay[1] (stamp): `text` -> "11 JUNE 2021", `params.y` 300 -> 1420 (below the captions).
   - Items 2-3 test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:06.5 and 0:29.9: clean.
 - Next: re-render S01, re-assemble (picks up the S02/S11 overlays), re-QC.
+- v2: S01 re-rendered + re-assembled. PASS. QC_AUTO fresh: 49.29 s, -14.5 LUFS, true peak -1.1 dBTP, no black/frozen segment flagged. Frames checked at 0:00.5 (frame-1 look unchanged, loop target intact), 0:02.9, 0:03.3, 0:03.9, 0:04.5 (S01 now essentially black with only the faint teal bubble glow on "everything went black"), 0:06.5 ("11 JUNE 2021" below the captions, map clean) and 0:29.9 ("THROAT ABOUT FIST-SIZED (EXPERT ESTIMATE)"). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:02.5, 0:02.9, 0:03.3, 0:03.9, 0:04.2, 0:05.5, 0:06.8, 0:30)
 - Never says or shows "swallowed"; "CAN'T SWALLOW" carries DOCUMENTED FACT; "Experts think ... by accident" carries THEORY

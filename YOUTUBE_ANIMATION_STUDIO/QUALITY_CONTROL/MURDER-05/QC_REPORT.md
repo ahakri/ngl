@@ -1,6 +1,6 @@
 # QC REPORT — MURDER-05 "Footprints Led to the Farm. None Led Away." (Hinterkaifeck, 1922)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 42 MB; 66.38 s (murder band 55-82 s); -14.5 LUFS; true peak -1.1 dBTP.
@@ -16,6 +16,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      the "SUSPECTS LOOKED AT (100+)" counter stays.
   - S05 placement test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:17.8: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 66.38 s, -14.6 LUFS, true peak -1.1 dBTP. Frames checked at 0:17.8 (EYEWITNESS CLAIM badge below the captions; "A Munich paper." line visible) and 0:47.0 (2D "NO ONE CONVICTED" gone; 3D NO CONVICTION stamp + 100+ counter only). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:17.5, 0:19.5, 0:47, 0:57.5)
 - Hook: footprints in the snow toward the lit farmhouse, line 1 inside 1.5 s. PASS

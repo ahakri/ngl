@@ -1,6 +1,6 @@
 # QC REPORT — MURDER-06 "The Ghost Ship's Creepiest Detail Was Fiction" (Mary Celeste, 1872)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 47 MB; 75.04 s (murder band 55-82 s); -14.5 LUFS; true peak -1.1 dBTP.
@@ -19,6 +19,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      FACTCHECK L06: "six-month supply").
   - Test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:17.6, 0:18.3, 0:31.5, 0:38.0: clean.
   - **Needs re-assembly** from the existing frames (no re-render), then re-QC.
+- v2: re-assembled from the existing frames. PASS. QC_AUTO fresh: 75.04 s, -14.6 LUFS, true peak -1.7 dBTP. Frames checked at 0:17.6, 0:18.3 ("LIFEBOAT: GONE" in the sky area; transom "MARY CELESTE" readable at 0:18.3 — at 0:17.6 the moving caption briefly crosses it, accepted), 0:20.5 (card "6 months of food and water", no tilde), 0:31.5 ("STILL SEAWORTHY" below the hull diagram, 3.5 FT line clear) and 0:38.0 (S11 badge visible). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:18.3, 0:31.5, 0:70.1)
 - Hook: the brigantine drifting out of fog with nobody aboard, line 1 inside 1 s; DOCUMENTED FACT. PASS

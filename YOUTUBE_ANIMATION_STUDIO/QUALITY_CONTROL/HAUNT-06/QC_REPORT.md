@@ -1,6 +1,6 @@
 # QC REPORT — HAUNT-06 "The Woman on the Gravestone (1991)" (Bachelor's Grove Cemetery)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: PASS (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render)
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 30 MB; 46.90 s (haunted band 35-60 s); -14.5 LUFS; true peak -1.3 dBTP.
@@ -22,6 +22,7 @@ VERDICT: FAIL (v1, 2026-11-28)
      shows). S09 overlay[0] (label) `params.y` 200 -> 1420.
   - Item 3 test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:06.5: clean.
 - Next: re-render S10, re-assemble (picks up the S02/S09/S11 overlays), re-QC.
+- v2: S10 re-rendered + re-assembled. PASS. QC_AUTO fresh: 46.90 s, -14.7 LUFS, true peak -1.7 dBTP. Frames checked at 0:06.5 (S02 badge below the captions, map subtitle clear), 0:32.0 (S09 badge below the captions, document readable), 0:34.0, 0:35.5, 0:36.2 (S10: "#2", "#3", "#4", "#5" and "Bachelor's Grove, 1991" each render once, no shadow double) and 0:38.5 (S11 card gone, DISPUTED badge stays). qc_frames skimmed: nothing new.
 
 ## Editorial checks (frames every 2 s + spot frames at 0:32.6, 0:35.5, 0:44.6)
 - Hook: the empty checkered gravestone in infrared, "10 AUGUST 1991" + line 1 inside 1 s; DOCUMENTED FACT + DRAMATISATION

@@ -1,6 +1,6 @@
 # QC REPORT — MURDER-03 "He Hijacked a Plane, Then Jumped Into the Night" (D.B. Cooper, 1971)
 
-VERDICT: FAIL (v1, 2026-11-28)
+VERDICT: FAIL (v2, 2026-11-28)
 
 ## Automated (QC_AUTO.json, CI render) — auto_verdict FAIL
 - 1080x1920, 24 fps, H.264 ~5 Mbps, 47 MB; 74.08 s (murder band 55-82 s); -14.6 LUFS; true peak -1.3 dBTP.
@@ -27,6 +27,10 @@ VERDICT: FAIL (v1, 2026-11-28)
      (FACTCHECK L18-L19: only two secondary sources, "kept the wording general and gave no exact date").
   - Items 2-3 test-composited with PIPELINE/overlays.py + compose.avoid_captions at 0:51.2 and 0:64.1: clean.
 - Next: re-render S10 and S16, re-assemble (picks up the S14/S16/S18/S20 overlays), re-run qc_check, re-QC.
+- v2 FAIL (S16 still needs a re-render). QC_AUTO fresh: 74.08 s, -14.7 LUFS, true peak -1.6 dBTP, auto PASS (S10 black frames gone).
+  - Fixed: S10 (0:28.3, 0:28.7, 0:29.1, 0:29.6) — the lit falling silhouette reads from the first frame, no near-black frames; S14 card "About $5,800 in $20 bills" (0:43.0); S18 header "FAA ORDER" (0:57.0); S20 CASE FILE complete + badge below the captions (0:64.1).
+  - **Still wrong — S16 (0:48.7-0:52.5), re-render needed.** Frames 0:49.5, 0:51.2: the 3D "WASHED / DOWNSTREAM?" text is wider than its card and is cut off at the card's edges (reads "WASHED / OWNSTREA"); the "BURIED?" card is moved in so far that it overlaps the right edge of the WASHED card; and the third ("?") card at z -1.4 lands below the caption band as a dark stray fragment (only its THEORY tag and red pin show, ~y 1480). Fix in `BLENDER_PROJECTS/MURDER-03/shots.py` S16: wider cards (or text_size ~0.14 for card0) so "DOWNSTREAM?" fits inside the card, spread the two cards so they do not overlap (e.g. x -0.62 / +0.62 with a 0.95 m card width, or stagger in z), and either drop the "?" card or raise it into the lit area. Re-render S16 (93 frames), then re-assemble.
+  - No overlay changes needed (script.json unchanged).
 
 ## Editorial checks (frames every 2 s + spot frames at 0:15.8, 0:17.5, 0:28.6, 0:29.6, 0:38.5, 0:60, 0:64.5, 0:66.3)
 - Hook: open airstair under the 727 tail, line 1 inside 1.5 s, the silhouette drops on "jumped". PASS
