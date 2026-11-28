@@ -22,6 +22,28 @@ R = math.radians
 MARKS = {}
 
 
+
+def _bake(L):
+    """QC fix 2026-11-28: the wall-sconce lamps (*_gas_l) sit almost against the stairwell paper and their shadow maps
+    speckled every wall (shadow acne). Shadows off for those lamps, energy x0.55 to keep the dim mood; then bake."""
+    import bpy
+    for o in bpy.data.objects:
+        if o.type == "LIGHT" and o.name.endswith("_gas_l"):
+            o.data.use_shadow = False
+            ad = o.data.animation_data
+            fcs = []
+            if ad and ad.action:
+                fcs = [fc for fc in L._fcurves(ad.action) if fc.data_path == "energy"]
+            if fcs:
+                for fc in fcs:
+                    for kp in fc.keyframe_points:
+                        kp.co[1] *= 0.55
+                        kp.handle_left[1] *= 0.55
+                        kp.handle_right[1] *= 0.55
+            else:
+                o.data.energy *= 0.55
+    L.bake_static()
+
 def mark(**pts):
     MARKS.update(pts)
 
@@ -90,7 +112,7 @@ def S01(L, n):
     L.cam_light(c, energy=45, color=(0.7, 0.78, 0.95))
     mark(top=(0, 3.75, 3.0), step8=(0, 2.0, 1.6), foot=(0, 0, 0.2), lamp=(-0.24, 0.95, 2.15))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 def S13(L, n):
@@ -103,7 +125,7 @@ def S13(L, n):
     L.cam_light(c, energy=45, color=(0.7, 0.78, 0.95))
     mark(top=(0, 3.75, 3.0), foot=(0, 0, 0.2))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 def S02(L, n):
@@ -113,7 +135,7 @@ def S02(L, n):
     L.cam_light(c, energy=4, color=(0.7, 0.78, 0.95))
     mark(top=(0, 3.75, 3.0), step13=(0, 3.3, 2.8))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 def S09(L, n):
@@ -146,7 +168,7 @@ def S09(L, n):
     c.data.ortho_scale = 11.8
     c.data.keyframe_insert("ortho_scale", frame=n)
     mark(top=(0.5, 3.75, 3.0), foot=(0.5, 0, 0), room_top=(0.5, 1.15, 5.9), hall=(0.5, -1.5, 0), end=(0.5, 3.85, 1.5))
-    L.bake_static()
+    _bake(L)
 
 
 # ============================================================================= the mansion exteriors
@@ -176,7 +198,7 @@ def S03(L, n):
     c = shot_cam(n, (3.0, -74.0, 1.9), (0.0, 0.0, 3.5), (1.5, -50.0, 2.4), (0.0, 0.0, 6.5), lens=35)
     mark(base=(0, 0, 0), tower_top=(0.5, 8, 24.4), roof_l=(-23, 0, 12), roof_r=(21, 0, 9), hedge=(0, -15, 1.2))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 def S04(L, n):
@@ -196,7 +218,7 @@ def S04(L, n):
     c = shot_cam(n, (-5.5, -18.5, 1.45), (-1.2, 0.0, 0.2), (-1.2, -18.5, 1.5), (-0.9, 0.0, 0.3), lens=35)
     H.dust((-1, -13, 1.5), (5, 3, 2), n, count=200, radius=0.002, drift=(0.02, 0, 0.01), emit=0.3)
     mark(head=(-1, -10.2, 1.5), feet=(-1, -10.2, 0), ridge=(-1, 0, 9.0), door=(-1, 0, 1.1))
-    L.bake_static()
+    _bake(L)
 
 
 def S05(L, n):
@@ -229,7 +251,7 @@ def S05(L, n):
     H.bare_forest("trees5", [(-90, -36, -10, 50), (36, 90, -10, 50), (-80, 80, 30, 80)], count=45, seed=7, height=(8, 14))
     c = shot_cam(n, (6.0, -92.0, 40.0), (0.0, 0.0, -19.0), (5.0, -86.0, 38.0), (0.0, 0.0, -17.0), lens=35)
     mark(base=(0, 0, 0), tower_top=(0.5, 8, 24.4), left=(-27, 0, 3), right=(26, 0, 3))
-    L.bake_static()
+    _bake(L)
 
 
 def S07(L, n):
@@ -263,7 +285,7 @@ def S07(L, n):
     M.legend_grade(sepia=1.0, grain=0.06)
     mark(carp0=(4.2, -0.15, 5.8), carp1=(7.6, -0.15, 7.8), carp2=(10.8, -0.15, 3.8), gable=(8, -0.6, 12.5), ground=(7.5, -1, 0))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 def S08(L, n):
@@ -327,7 +349,7 @@ def S08(L, n):
     H.handheld(c, n, amp=0.07, rate=3.0, seed=5, rot_amp=0.006)
     M.shake(c, [f0, f0 + 14], amp=0.18, decay=10)
     mark(tower_top=(tx, ty, 24.4), lvl4=(tx, ty - 2.1, 12.0), base=(0, 0, 0), l=(-23, 0, 6), r=(21, 0, 6))
-    L.bake_static()
+    _bake(L)
 
 
 def visitor(name, kind, x, y, rz, height=1.72, coat=True):
@@ -362,7 +384,7 @@ def S11(L, n):
     H.vintage_car("car2", loc=(-8.6, -16.9, 0), rot_z=R(-84), body=(0.07, 0.03, 0.025))
     c = shot_cam(n, (-6.0, -27.5, 1.6), (-1.5, -18.0, 1.0), (-0.5, -27.5, 1.6), (0.5, -18.0, 1.0), lens=35)
     mark(vis_head=(0.6, -18.6, 1.75), vis_feet=(0.6, -18.6, 0), booth=(3, -17.4, 2.6), tower4=(0.5, 8, 15.4), car=(-9, -17.6, 1.8))
-    L.bake_static()
+    _bake(L)
 
 
 # ============================================================================= S06 the legend: the medium's warning (sepia)
@@ -415,7 +437,7 @@ def S06(L, n):
     M.legend_grade(sepia=1.0, grain=0.06)
     mark(candle=(0, 0, 0.98), med_head=(-0.78, 0, 1.3), sar_head=(0.78, 0, 1.2), rack_top=(0, 2.18, 2.6), rack_bot=(0, 2.18, 1.2), floor=(0, 0, 0))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)
 
 
 # ============================================================================= S10 the biographer's desk
@@ -445,7 +467,7 @@ def S10(L, n):
         c.keyframe_insert("rotation_euler", frame=f)
     L.linear_fcurves(c)
     mark(card=(0, 0.02, 0.006))
-    L.bake_static()
+    _bake(L)
 
 
 # ============================================================================= S12 the door to nowhere (from the garden)
@@ -499,4 +521,4 @@ def S12(L, n):
     H.handheld(c, n, amp=0.006, rate=0.5, rot_amp=0.0015)
     mark(door_top=(0, 0, DZ + DH), door_bot=(0, 0, DZ), fig_head=(FIG[0], FIG[1], 1.66), fig_feet=FIG, wall_top=(0, 0, 11.5), ground=(0, 0, 0))
     H.crisp_shadows()
-    L.bake_static()
+    _bake(L)

@@ -30,3 +30,9 @@ S10 document `start` 0.5 (card slide reads first) and S10 label y 200 -> 1430 (i
 
 Weakest: S01/S13/S02 (stairwell: speckled paper in previews, fix unseen), S06 (wisps), S05 (small house), S12 (small door and figure).
 Unseen after the last preview: plain wallpaper in `papered_stairwell` (S01, S02, S13; S09 too).
+
+## Director fix before render (2026-11-28)
+- Stairwell speckle (S01/S02/S13 and any shot with the papered stairwell) was shadow acne from the wall sconce (`*_gas_l`) sitting
+  against the paper, not sampling noise (still present at 8 samples). `_bake(L)` in shots.py now turns that lamp's shadows off and
+  scales its energy x0.55 before baking. Verified on S01 f30 and S13 f40 at 540 px.
+- MURDER-08 material fix (by the animation agent) verified by preview of S02/S07/S13/S18.
