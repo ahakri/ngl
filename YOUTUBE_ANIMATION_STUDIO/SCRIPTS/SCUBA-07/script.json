@@ -672,8 +672,8 @@
      "params": {
       "events": [
        [
-        "~100 BC",
-        "the mechanism"
+        "100 BC",
+        "approx."
        ],
        [
         "...",
@@ -681,7 +681,7 @@
        ],
        [
         "1300s",
-        "astronomical clocks"
+        "clocks"
        ]
       ],
       "y": 900

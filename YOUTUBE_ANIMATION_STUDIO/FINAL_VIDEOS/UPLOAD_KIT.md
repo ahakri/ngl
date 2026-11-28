@@ -31,6 +31,57 @@ In memory of Deon Dreyer and Dave Shaw.
 
 **Recommended pick: A**, with title A ("Cave Diver Went 270 m Down to Bring a Body Home"). The title already carries the number, so the
 
+## CAVE-04 — Stuck Upside Down With No Way to Back Out
+
+- Video: `FINAL_VIDEOS/CAVE-04.mp4` (33 MB) · Subtitles: `FINAL_VIDEOS/CAVE-04.srt` (21 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/CAVE-04/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/CAVE-04/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Angle |
+|---|---|---|---|
+| A (primary) | Nutty Putty Cave: Stuck Upside Down With No Way Out | 51 | Searchable place name + the core horror |
+| B | The Rescue Rope Worked, Then the Anchor Failed | 46 | Our angle: the false-hope mechanic |
+| C | Why Nutty Putty Cave Was Sealed With Concrete | 45 | Search question people actually type |
+
+Avoid "The Cave They Sealed With Him Inside" (concept alt title) as the primary title. It is accurate but reads as shock-first. It is verified and may be used as a secondary title variant.
+
+### Description
+
+November 2009, Nutty Putty Cave, Utah: John Edward Jones, 26, became stuck head-down in a narrow passage. Rescuers rigged ropes and pulleys to pull him out.
+Animated retelling, no real images. Sources: AP/NBC, KSL, Deseret News, Fox News, UPI. Full list pinned in comments.
+In memory of John Edward Jones.
+
+**Hashtags (≤2):** #caving #nuttyputty
+
+### Check before upload
+
+- Checked 2026-11-27 (re-check pass: 5 web searches, snippets only; fetch hosts unreachable). **STATUS: VERIFIED.** Every narrated claim has ≥2 sources, and at least one of them is a 2009 news outlet (AP via NBC/ABC13/Inquirer, KSL, Deseret News, Fox News, UPI). Wikipedia and HowStuffWorks are used only as secondary support. Source keys match `SCRIPTS/CAVE-04/SCRIPT.md`. This replaces the earlier PR
+
+## CAVE-06 — It Looks Like a Pond. Divers Call It Everest.
+
+- Video: `FINAL_VIDEOS/CAVE-06.mp4` (40 MB) · Subtitles: `FINAL_VIDEOS/CAVE-06.srt` (24 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/CAVE-06/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/CAVE-06/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Angle |
+|---|---|---|---|
+| A (primary) | Eagle's Nest: The Mount Everest of Cave Diving | 46 | Place name (search) + famous nickname |
+| B | It Looks Like a Pond. Divers Call It Everest. | 45 | Innocent vs deadly contrast |
+| C | Florida's Deadliest Cave Dive Looks Like a Pond | 47 | Superlative + state (search). Note: "deadliest" is a common media framing; use only if A/B underperform |
+
+Avoid the concept title "It's Killed More Than 10 Divers". The count is disputed (10 vs 13+) and keeps changing. The narration's "at least ten" is safe; a title claim gets screenshotted without the label.
+
+### Description
+
+Eagle's Nest Sink in Hernando County, Florida looks like a pond from above. Below it are the Chimney, the Ballroom and passages to about 300 ft. Divers call it the "Mount Everest of cave diving". At least 10 divers have died there since 1981 (counts differ by source).
+Animated place profile. Sources: National Geographic, AP, UPI, Fox News, CBS, AOL, Newser. Full list pinned in comments. In memory of every diver lost here.
+
+**Hashtags (≤2):** #cavediving #eaglesnest
+
 ## HAUNT-01 — The Voice on the Enfield Tapes
 
 - Video: `FINAL_VIDEOS/HAUNT-01.mp4` (37 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-01.srt` (21 cues)
@@ -64,6 +115,152 @@ Pinned comment: the source list from QUALITY_CONTROL/HAUNT-01/FACTCHECK.md (E1, 
 ### Check before upload
 
 - Checked 2026-11-27. Method: WebSearch (6 searches). WebFetch could not reach `psi-encyclopedia.spr.ac.uk` or `en.wikipedia.org` from this container (DNS blocked), so verification rests on **search-result snippets** from the pages listed below, not full-page reads. The Telegraph (Will Storr, 2016) and Daily Mail (2016) interviews with Janet Hodgson were seen only as citations quoted in other pages.
+
+## HAUNT-02 — The Real Room 217
+
+- Video: `FINAL_VIDEOS/HAUNT-02.mp4` (33 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-02.srt` (20 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/HAUNT-02/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/HAUNT-02/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Why |
+|---|---|---|---|
+| A | Room 217: The Ghost in The Shining Hotel Survived | 49 | Searchable "Room 217" plus the pop-culture anchor. The documented twist is the curiosity gap. |
+| B | The Real Room 217 That Gave Stephen King The Shining | 52 | Proven template ("The Room That Inspired The Shining"); famous name and place. |
+| C | Stanley Hotel Room 217: Guests Say Someone Unpacks | 50 | Place name first. "Say" frames it as a claim, and the unpacking is a concrete anomaly. |
+
+Avoid: "REAL GHOST", "TRUE", or calling the haunting a fact.
+
+### Description
+
+> In 1974, Stephen King slept in Room 217 of the Stanley Hotel, Colorado, and left with the idea for The Shining. Staff tell a darker story about that room, from 1911. Here is what the record says. (Kubrick's film later renamed it Room 237.)
+> Every claim is labelled DOCUMENTED, EYEWITNESS CLAIM, FOLKLORE or DRAMATISATION. Sources pinned.
+>
+> #stanleyhotel #theshining
+
+Pinned comment: the source list from QUALITY_CONTROL/HAUNT-02/FACTCHECK.md (H1, H3, H8, H10, H11, H14).
+
+## HAUNT-03 — Don't Stop for Her on Archer Avenue
+
+- Video: `FINAL_VIDEOS/HAUNT-03.mp4` (31 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-03.srt` (19 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/HAUNT-03/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/HAUNT-03/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Why |
+|---|---|---|---|
+| A | Resurrection Mary: Drivers Say She Asks for a Ride | 50 | Searchable legend name first; "Say" is the honest claim framing; the ride is the curiosity gap. |
+| B | Archer Avenue's Hitchhiker Vanished at the Gates | 48 | Place-first for Chicago searches; promises the vanish beat the Short pays off. |
+| C | The Cemetery Blamed a Truck. The Bars Were Bent. | 48 | Sceptic-framing variant: documented explanation vs reported marks. Good for a later re-angle post. |
+
+Avoid: "REAL GHOST", "CAUGHT ON CAMERA", anything implying footage of Mary exists.
+
+### Description
+
+> Since the 1930s, drivers on Archer Avenue near Chicago have told the same story: a young woman, a ride, and a cemetery gate. Every claim here is labelled DOCUMENTED, EYEWITNESS CLAIM, FOLKLORE, DISPUTED or DRAMATISATION.
+>
+> Sources: Chicago History Museum; Wikipedia "Resurrection Mary"; WBEZ; Brunvand, *The Vanishing Hitchhiker* (1981). Full list pinned in comments.
+>
+> #resurrectionmary #chicagoghosts
+
+Pinned comment: source list (R1, R2, R3, R8, R10) from QUALITY_CONTROL/HAUNT-03/FACTCHECK.md, plus the question "Would you have stopped?" (content-tied comment driver).
+
+### Check before upload
+
+- Checked 2026-11-27. Method: WebSearch (7 searches for this video; the session's shared search budget then ran out). WebFetch could not reach `en.wikipedia.org` (DNS blocked in this container), so verification rests on **search-result snippets** of the pages below, not full-page reads. Before publishing, a human should open R1 and R2 and confirm the items marked (snippet). Labels: DOCUMENTED FACT /
+
+## HAUNT-04 — The Ghost on the Raynham Hall Staircase
+
+- Video: `FINAL_VIDEOS/HAUNT-04.mp4` (38 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-04.srt` (19 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/HAUNT-04/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/HAUNT-04/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Why |
+|---|---|---|---|
+| A | The Brown Lady Photo: What the Assistant Said He Saw | 52 | Searchable name first; "Said" is the honest framing; the gap is his account. |
+| B | 1936: Country Life Printed a Ghost on the Stairs | 48 | Documented fact as the hook (the magazine did print it); year front-loads the vintage angle. |
+| C | Brown Lady of Raynham: Ghost or Double Exposure? | 48 | Sceptic-framing variant (honest either/or; matches the Short's payoff). |
+
+Avoid: "REAL GHOST CAUGHT ON CAMERA", "PROOF", or any wording implying we show the original photograph.
+
+### Description
+
+> On 19 September 1936, two photographers shooting Raynham Hall in Norfolk for Country Life said a figure came down the staircase. The image was printed that December and in Life magazine. Every claim here is labelled; the real photo is described, not shown.
+>
+> Sources: Country Life; Museum of Hoaxes; Norfolk Record Office; Joe Nickell (double-exposure analysis). Full list pinned in comments.
+>
+> #brownlady #ghostphoto
+
+Pinned comment: source list (B1, B2, B3, B4) from QUALITY_CONTROL/HAUNT-04/FACTCHECK.md, plus "Ghost, double exposure, or grease on the lens? Pick one." (content-tied comment driver).
+
+### Check before upload
+
+- Checked 2026-11-27. Method: WebSearch (6 searches for this video; the session's shared search budget then ran out). WebFetch could not reach `en.wikipedia.org`, `countrylife.co.uk`, `hoaxes.org` or `norfolkrecordofficeblog.org` (DNS blocked in this container), so verification rests on **search-result snippets** of the pages below, not full-page reads. Before publishing, a human should open B1, B2 
+
+## HAUNT-05 — The Tunnel Built to Hide the Dead
+
+- Video: `FINAL_VIDEOS/HAUNT-05.mp4` (32 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-05.srt` (18 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/HAUNT-05/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/HAUNT-05/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Why |
+|---|---|---|---|
+| A | Waverly Hills: The Tunnel Built to Hide the Dead | 48 | Searchable place name first. The concrete artefact (a tunnel) and its purpose are the gap. The hook line itself carries "reportedly". |
+| B | Waverly Hills' "Body Chute": 63,000 Dead? Not Even Close | 56 | Myth-busting framing (sceptic trend). The quote marks signal a nickname; the question mark carries the correction. |
+| C | Why a TB Hospital Reportedly Built a 500-Foot Body Tunnel | 57 | "Why" curiosity gap. "Reportedly" keeps it honest. |
+
+Avoid: "TRUE", "63,000 DEAD" stated as fact, "REAL GHOST", any patient imagery.
+
+### Description
+
+> Waverly Hills Sanatorium, Louisville, Kentucky: a TB hospital (1910–1961) with a 500-foot tunnel that, by most accounts, carried the dead out of patients' sight. Every claim is labelled DOCUMENTED FACT, EYEWITNESS CLAIM, FOLKLORE, THEORY or DRAMATISATION. No, it wasn't 63,000 deaths.
+>
+> Sources: Kentucky Historic Institutions; Board of Tuberculosis Hospitals report (1915); historians' estimates via LiveScience/Grunge. Full list pinned in comments.
+>
+> #waverlyhills #haunted
+
+Pinned comment: the source list from QUALITY_CONTROL/HAUNT-05/FACTCHECK.md (W1, W2, W4, W5, W6, W8), plus the question "Echoes and draughts, or something else? What would you need to see?" (a comment driver tied to the sceptic beat).
+
+### Check before upload
+
+- Checked 2026-11-27. Method: WebSearch (6 searches), building on the concepts fact-check v2 pass (dates confirmed; death toll set to ~6,000–8,000 against the 63,000 myth; "body chute" downgraded to *reported*). As with HAUNT-01, verification rests on **search-result snippets**; no page was opened in full. Before publishing, a human should open W1, W2 and W4 and confirm the items marked (snippet).
+- Pending (not needed for the narration, recommended before upload): open the NRHP nomination (npgallery.nps.gov asset 391d9b96…) or the Filson Historical Society resource list for a primary description of the tunnel; confirm the LiveScience article that Grunge cites.
+
+## HAUNT-06 — The Woman on the Gravestone (1991)
+
+- Video: `FINAL_VIDEOS/HAUNT-06.mp4` (31 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-06.srt` (19 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/HAUNT-06/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/HAUNT-06/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Why |
+|---|---|---|---|
+| A | Bachelor's Grove: The Woman on the Gravestone (1991) | 52 | Searchable cemetery name first, then the one artefact. The year signals a real, dated event. |
+| B | The Bachelor's Grove Photo: Nobody Saw Her There | 48 | "The [Place] Photo…" template. The group's own claim is the gap; "saw" frames it as testimony. |
+| C | A 1991 Infrared Photo Sceptics Call a Double Exposure | 53 | Sceptic framing (2026 trend). Promises both sides. |
+
+Avoid: "REAL GHOST CAUGHT", "PROOF", the photographer's name, or anything implying we show the original photo.
+
+### Description
+
+> On 10 August 1991, the Ghost Research Society photographed a gravestone at Bachelor's Grove Cemetery, near Chicago, on infrared film. The group says nobody was sitting there. This is a 3D recreation: the original photo is described, not shown. Every claim is labelled.
+>
+> Sources: Ghost Research Society investigation notes; Mental Floss; Wikipedia (Bachelor's Grove Cemetery). Full list pinned in comments.
+>
+> #bachelorsgrove #haunted
+
+Pinned comment: the source list from QUALITY_CONTROL/HAUNT-06/FACTCHECK.md (B1, B2, B3, B4, B5, B11), plus "Double exposure or not? Tell us what would convince you." (comment driver tied to the sceptic beat).
+
+### Check before upload
+
+- Checked 2026-11-27. Method: WebSearch (6 searches). Verification rests on **search-result snippets**; no page was opened in full. The most primary source reached is the Ghost Research Society's own investigation page (B4) and the About.com write-up archived by The Black Vault (B1). Before publishing, a human should open B1, B4 and B5 and confirm the items marked (snippet).
 
 ## MURDER-01 — Nine Hikers Cut Their Tent Open From the Inside
 
@@ -124,6 +321,95 @@ Hashtags (max 2): #SomertonMan #unsolvedmysteries
 - Action before upload:** search "Somerton Man coroner finding" / Coroners Court of SA. If a finding has been published, rewrite L18 + S18 (and title variant B) accordingly. On-screen stamp in S18 reads "status checked Nov 2026".
 - Status can change any day (police report to coroner "very soon" in July 2026). Re-verify before publish.
 
+## MURDER-04 — The Zodiac's Cipher Was Cracked After 51 Years
+
+- Video: `FINAL_VIDEOS/MURDER-04.mp4` (48 MB) · Subtitles: `FINAL_VIDEOS/MURDER-04.srt` (33 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/MURDER-04/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/MURDER-04/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Use |
+|---|---|---|---|
+| A (primary) | Zodiac Cipher: Cracked After 51 Years. It Was a Taunt | 53 | Leads with the search noun and pays off honestly: the message is an anticlimax. |
+| B | The Zodiac's Cipher Was Cracked After 51 Years | 46 | The concept title. Clean and searchable. |
+| C | Three Amateurs Solved the Zodiac's 340 Cipher | 45 | Solver-led angle for puzzle and coding audiences. |
+
+Rejected:
+- "Zodiac Killer IDENTIFIED by Cipher": false. The cipher contained no name.
+- "FBI Confirms Zodiac Code": overstates the FBI's statement. The FBI acknowledged the solution; it did not verify it.
+- "Zodiac's Name Hidden in Code": only true of the unsolved Z13, so it would mislead.
+
+### Description
+
+In November 1969, the Zodiac Killer mailed a 340-symbol cipher to the San Francisco Chronicle. For 51 years no one could read it. In December 2020, three amateur codebreakers cracked it: David Oranchak (USA), Sam Blake (Australia) and Jarl Van Eycke (Belgium, author of AZdecrypt). The trick was a diagonal reading order. The message contains no name, and the killer has never been identified. Two shorter Zodiac ciphers are still unsolved. Can you read them?
+
+Sources: the solvers' published write-up (Wolfram blog, March 2021) · FBI San Francisco statement, Dec 2020 · Rolling Stone, Dec 2020 · Popular Science. Cipher symbols are illustrative stand-ins. Animated; no real footage. In memory of the Zodiac's victims.
+
+Hashtags (max 2): #Zodiac #unsolvedmysteries
+
+### Check before upload
+
+- STATUS: VERIFIED.** Every narrated claim has at least 2 reputable sources. Two claims failed to reach 2 sources and were rewritten using the fallback wording; see "Changes after re-check".
+- Re-check run 2026-11-27, after the search budget reset: 10 web searches (8 queued and 2 follow-ups). Pages were read from search-indexed text and snippets, because direct fetches of fbi.gov and wikipedia.org are blocked by DNS in this container. AP copy is cited through syndication: CBS SF, KIRO 7 / WSB-TV (Cox), and the Arkansas Democrat-Gazette print edition via PressReader.
+- ## Changes after re-check (applied to script.json, SCRIPT.md and STORYBOARD.md)
+
+## MURDER-05 — Footprints Led to the Farm. None Led Away.
+
+- Video: `FINAL_VIDEOS/MURDER-05.mp4` (44 MB) · Subtitles: `FINAL_VIDEOS/MURDER-05.srt` (29 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/MURDER-05/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/MURDER-05/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Use |
+|---|---|---|---|
+| A (primary) | Hinterkaifeck: Footprints In, None Out | 38 | Search noun first + the one-way-tracks anomaly. |
+| B | Footprints Led to the Farm. None Led Away. | 42 | Concept title; pure curiosity gap for feed/related links. |
+| C | Hinterkaifeck: Who Fed the Cattle for Days? | 43 | Mid-point twist as a question; sourced as witness claim. |
+
+Rejected: "Someone Lived in Their Attic" (not established by the record); Thoughty2-style sensational titles (RESEARCH_REPORT §5 rule).
+
+### Description
+
+In March 1922, the farmer at Hinterkaifeck in Upper Bavaria reportedly told neighbours about footprints in the snow that led to his farm, and none that led away. Days later, all six people living there were killed. Witnesses later said someone kept the chimney smoking and the cattle fed. A century on, the case is still officially unsolved. Why would anyone stay?
+
+Pre-crime details are neighbours' reported accounts; theories labelled on screen. Sources: Wikipedia "Hinterkaifeck murders" (with its German-language references) · Mental Floss · Bavarian archive school exhibition catalogue (gda.bayern.de). Animated dramatisation; no real footage.
+
+In memory of Andreas and Cäzilia Gruber, Viktoria Gabriel, Cäzilia and Josef, and Maria Baumgartner.
+
+Hashtags (max 2): #Hinterkaifeck #unsolvedmysteries
+
+### Check before upload
+
+- ## Director re-check (2026-11-27)
+
+## MURDER-06 — The Ghost Ship's Creepiest Detail Was Fiction
+
+- Video: `FINAL_VIDEOS/MURDER-06.mp4` (49 MB) · Subtitles: `FINAL_VIDEOS/MURDER-06.srt` (34 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/MURDER-06/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/MURDER-06/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Use |
+|---|---|---|---|
+| A (primary) | Mary Celeste: The Creepiest Detail Was Fiction | 46 | Search noun + myth-busting promise. |
+| B | The Ghost Ship's Creepiest Detail Was Fiction | 45 | Concept title for feed/related links. |
+| C | Mary Celeste: How Conan Doyle Made the Legend | 45 | Twist-led; Doyle name as second search hook. |
+
+Rejected: "Sherlock Holmes' Creator Faked the Mary Celeste" (overstates: the story was fiction, published as such, which readers mistook for fact); "Mary Celeste Mystery SOLVED" (theories only).
+
+### Description
+
+In December 1872 the brigantine Mary Celeste was found drifting east of the Azores with nobody aboard: lifeboat gone, six months of food left, 1,701 barrels of alcohol in the hold. The famous warm tea and half-eaten breakfast came from later retellings. In 1884 a young Arthur Conan Doyle published an anonymous story that renamed her "Marie Celeste," and many readers took it as fact. What really happened is still unknown. Would you have left the ship?
+
+Sources: Royal Museums Greenwich · Smithsonian Magazine · Wikipedia "Mary Celeste" and "J. Habakuk Jephson's Statement" · UCL (2006 alcohol-vapour experiment). Theories labelled on screen. Animated dramatisation; no real footage.
+
+In memory of Benjamin, Sarah and Sophia Briggs and the seven crew of the Mary Celeste.
+
+Hashtags (max 2): #MaryCeleste #ghostship
+
 ## SCUBA-01 — He Survived 60 Hours Inside a Sunken Ship
 
 - Video: `FINAL_VIDEOS/SCUBA-01.mp4` (34 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-01.srt` (23 cues)
@@ -165,4 +451,76 @@ No title claims a cause of death or an exact miscount (both uncertain — see FA
 In January 1998, Americans Tom and Eileen Lonergan were left behind on a dive trip at St Crispin's Reef, Great Barrier Reef. They were never found; their story later inspired the film Open Water (2003). Animated reconstruction; no likenesses used. Some details (the head count, the dive slate) are disputed and labelled as such. Sources in the pinned comment.
 
 #scubadiving #greatbarrierreef
+
+## SCUBA-03 — His Lifeline Snapped 100 m Under the North Sea
+
+- Video: `FINAL_VIDEOS/SCUBA-03.mp4` (33 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-03.srt` (20 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/SCUBA-03/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/SCUBA-03/FACTCHECK.md`
+
+### Titles
+
+1. **Diver Cut Off From Air for 30 Minutes Survived** (46) — primary (topic + number; hook covers the moment)
+2. His Lifeline Snapped 100 m Under the North Sea (46)
+3. The Saturation Diver Who Came Back After 30 Minutes (51)
+4. 5 Minutes of Gas. Rescue Took Half an Hour. (44) — twist-led variant for a later re-share, never re-upload
+
+All are supported by FACTCHECK.md (L01, L02, L04, L11). "30 minutes" = "around half an hour" (reported 29–40 min); do not use "40 minutes" or "no oxygen for 40 minutes" in any title.
+
+### Description
+
+September 2012, North Sea: saturation diver Chris Lemons' umbilical parted when his support ship's positioning system failed. He had about five minutes of emergency gas; it took around half an hour to get him back to the diving bell, where he was revived. Why he survived is still debated (cold is the leading theory). Animated reconstruction; no real footage or likeness used. Sources in the pinned comment.
+
+#saturationdiving #survival
+
+### Check before upload
+
+- Recheck before upload (budget-limited):** L09 "back to the structure" rests on Lemons' own account (LADbible) + the ROV/rescue description of him lying on the structure (Nautilus, Wikipedia-film). Good enough to narrate, but one more primary source (BBC 2019 or the documentary) would strengthen it.
+- | L09 | In total darkness, he pulled himself back to the structure | VERIFIED (see recheck note) | B (complete darkness), C (Lemons: used 2–3 min getting back onto the structure), I/E (found lying on top of the structure) | Paraphrase of his own account; no quote. |
+
+## SCUBA-04 — A Humpback Closed Its Mouth Around Him
+
+- Video: `FINAL_VIDEOS/SCUBA-04.mp4` (32 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-04.srt` (23 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/SCUBA-04/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/SCUBA-04/FACTCHECK.md`
+
+### Titles
+
+1. **Diver Trapped Inside a Humpback Whale's Mouth** (45) — primary (searchable nouns: diver, humpback, whale)
+2. A Humpback Closed Its Mouth Around Him (38)
+3. Can a Whale Swallow a Diver? This One Tried… Almost (51) — avoid if it reads as intent; experts call it an accident. Prefer variant 4.
+4. Inside a Whale's Mouth for 30 Seconds, 45 ft Down (49)
+
+All supported by FACTCHECK.md (L03, L06, L12). Do **not** use "swallowed" as a factual claim in any title (experts: engulfed, not swallowed). "30 seconds" = lower end of his own 30–40 s estimate.
+
+### Description
+
+June 2021, off Provincetown, Cape Cod: lobster diver Michael Packard was briefly caught in a feeding humpback whale's mouth — by his estimate for 30–40 seconds — before it surfaced and spat him out. Humpbacks physically can't swallow a person; experts think it was an accident. Animated reconstruction; no real footage or likeness used. Sources in the pinned comment.
+
+#whale #scubadiving
+
+## SCUBA-06 — 462 Stitches, Then He Went Back In
+
+- Video: `FINAL_VIDEOS/SCUBA-06.mp4` (38 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-06.srt` (21 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/SCUBA-06/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/SCUBA-06/FACTCHECK.md`
+
+### Titles
+
+1. **462 Stitches, Then He Went Back In** (34), primary.
+2. He Survived a Great White, Then Built the Cage (46): searchable noun plus payoff.
+3. The Shark Attack Survivor Who Defended Sharks (45)
+4. Great White Attack Survivor: Rodney Fox's Story (47): search-optimised variant for the channel grid.
+
+All are factually supported (FACTCHECK.md L01, L10–L17). None uses "nearly bitten in half" or any gore wording.
+
+### Description
+
+On 8 December 1963, during a spearfishing championship at Aldinga Beach, South Australia, Rodney Fox was seized by a great white shark. He needed 462 stitches. He then built a shark cage, helped Ron Taylor capture some of the first underwater footage of great whites, ran cage-diving trips for decades and co-founded a foundation to study and protect the species. Animated reconstruction; no real footage, likeness or injury imagery used. Sources are in the pinned comment.
+
+#sharks #greatwhite
+
+### Check before upload
+
+- ## Director re-check (2026-11-27)
 

@@ -1,0 +1,131 @@
+1
+00:00:00,180 --> 00:00:01,870
+The Zodiac Killer mailed this.
+
+2
+00:00:01,890 --> 00:00:04,440
+For fifty-one years, nobody could read it.
+
+3
+00:00:04,870 --> 00:00:06,360
+Three hundred forty symbols.
+
+4
+00:00:06,580 --> 00:00:10,540
+Mailed to the San Francisco Chronicle in 1969.
+
+5
+00:00:10,890 --> 00:00:14,310
+The Zodiac killed at least five people in Northern California.
+
+6
+00:00:14,730 --> 00:00:16,770
+His first cipher fell in about a week.
+
+7
+00:00:16,980 --> 00:00:17,980
+This one didn't.
+
+8
+00:00:18,270 --> 00:00:21,830
+Then, in December 2020, three amateurs broke it.
+
+9
+00:00:22,170 --> 00:00:24,210
+A software developer in Virginia.
+
+10
+00:00:24,390 --> 00:00:26,150
+A mathematician in Australia.
+
+11
+00:00:26,330 --> 00:00:27,770
+A programmer in Belgium.
+
+12
+00:00:28,210 --> 00:00:29,080
+Their key insight:
+
+13
+00:00:29,100 --> 00:00:30,890
+it wasn't written left to right.
+
+14
+00:00:31,270 --> 00:00:32,880
+Most of it ran diagonally.
+
+15
+00:00:32,900 --> 00:00:34,590
+Down one row, across two.
+
+16
+00:00:34,990 --> 00:00:38,830
+The mathematician tested hundreds of thousands of reading orders.
+
+17
+00:00:39,170 --> 00:00:41,290
+The Belgian's program attacked each one.
+
+18
+00:00:41,620 --> 00:00:43,350
+Then, real English surfaced.
+
+19
+00:00:43,720 --> 00:00:46,360
+The FBI acknowledged the cipher had been solved.
+
+20
+00:00:46,710 --> 00:00:47,760
+So what did it say?
+
+21
+00:00:48,290 --> 00:00:50,710
+I hope you are having lots of fun in trying to catch
+
+22
+00:00:50,730 --> 00:00:51,030
+me.
+
+23
+00:00:51,380 --> 00:00:52,990
+That wasn't me on the TV show.
+
+24
+00:00:53,440 --> 00:00:57,760
+Probably a 1969 TV caller who claimed to be him.
+
+25
+00:00:58,140 --> 00:00:59,580
+Fifty-one years of waiting.
+
+26
+00:00:59,600 --> 00:01:00,520
+For a taunt.
+
+27
+00:01:01,070 --> 00:01:01,660
+No name.
+
+28
+00:01:01,680 --> 00:01:03,760
+The killer has never been identified.
+
+29
+00:01:04,140 --> 00:01:07,000
+And two shorter Zodiac ciphers remain unsolved.
+
+30
+00:01:07,370 --> 00:01:09,180
+One is just thirteen symbols.
+
+31
+00:01:09,200 --> 00:01:10,610
+Right before it, he wrote:
+
+32
+00:01:10,630 --> 00:01:11,550
+my name is.
+
+33
+00:01:12,170 --> 00:01:13,230
+Think you can read it?

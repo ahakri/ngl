@@ -319,7 +319,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 120
+      "y": 1420
      }
     }
    ],
@@ -605,14 +605,6 @@
    ],
    "overlay": [
     {
-     "type": "card",
-     "text": "A road-ghost story told\nworldwide (folklorists)",
-     "params": {
-      "header": "WHAT SCEPTICS SAY",
-      "y": 820
-     }
-    },
-    {
      "type": "label",
      "text": "FOLKLORE",
      "params": {
@@ -656,7 +648,7 @@
      "type": "label",
      "text": "DISPUTED",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],

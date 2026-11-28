@@ -433,26 +433,18 @@
    ],
    "overlay": [
     {
-     "type": "counter",
-     "text": "CAVE DIVES LOGGED",
-     "params": {
-      "from": 0,
-      "to": 1000,
-      "y": 380
-     }
-    },
-    {
      "type": "text",
      "text": "FIRST EVER",
      "params": {
-      "y": 800,
+      "y": 1450,
       "size": 90,
       "color": [
        64,
        224,
        208
       ]
-     }
+     },
+     "start": 2.0
     }
    ],
    "sfx": [
@@ -581,6 +573,13 @@
       "fmt": "int",
       "y": 330,
       "danger": true
+     }
+    },
+    {
+     "type": "label",
+     "text": "DRAMATISATION",
+     "params": {
+      "y": 200
      }
     }
    ],
@@ -772,7 +771,8 @@
       "title": "INCIDENT",
       "rot": 2,
       "size": 44,
-      "y": 100
+      "y": 100,
+      "cps": 100
      }
     }
    ],
