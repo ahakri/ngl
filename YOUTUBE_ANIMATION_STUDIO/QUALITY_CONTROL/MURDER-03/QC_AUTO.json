@@ -1,0 +1,24 @@
+{
+ "id": "MURDER-03",
+ "checks": {
+  "resolution": "1080x1920",
+  "fps": "24/1",
+  "duration_s": 74.08,
+  "has_audio": true,
+  "integrated_lufs": -14.6,
+  "true_peak_dbfs": -1.3,
+  "black_segments": [
+   [
+    "28.375",
+    "29.208333"
+   ]
+  ],
+  "frozen_starts": [],
+  "silences": [],
+  "missing_frames": []
+ },
+ "fail": [
+  "black segments mid-video: [('28.375', '29.208333')]"
+ ],
+ "auto_verdict": "FAIL"
+}
