@@ -1,0 +1,17 @@
+{
+ "id": "MURDER-06",
+ "checks": {
+  "resolution": "1080x1920",
+  "fps": "24/1",
+  "duration_s": 75.04,
+  "has_audio": true,
+  "integrated_lufs": -14.5,
+  "true_peak_dbfs": -1.1,
+  "black_segments": [],
+  "frozen_starts": [],
+  "silences": [],
+  "missing_frames": []
+ },
+ "fail": [],
+ "auto_verdict": "PASS"
+}
