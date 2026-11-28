@@ -124,3 +124,24 @@ Hashtags (max 2): #SomertonMan #unsolvedmysteries
 - Action before upload:** search "Somerton Man coroner finding" / Coroners Court of SA. If a finding has been published, rewrite L18 + S18 (and title variant B) accordingly. On-screen stamp in S18 reads "status checked Nov 2026".
 - Status can change any day (police report to coroner "very soon" in July 2026). Re-verify before publish.
 
+## SCUBA-01 — He Survived 60 Hours Inside a Sunken Ship
+
+- Video: `FINAL_VIDEOS/SCUBA-01.mp4` (34 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-01.srt` (23 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/SCUBA-01/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/SCUBA-01/FACTCHECK.md`
+
+### Titles
+
+1. **He Survived 60 Hours Inside a Sunken Ship** (41) — primary
+2. The Cook Who Breathed at the Bottom of the Sea (46)
+3. Divers Came for Bodies. One Grabbed Back. (41) — twist-led variant; use only if the first two underperform in a later re-share, never re-upload
+4. Trapped 30 m Down in an Air Pocket for 60 Hours (47)
+
+All are factually supported (FACTCHECK.md L01, L04, L06, L10–L13).
+
+### Description
+
+A tug capsized off Nigeria in May 2013. The cook, Harrison Okene, survived about 60 hours in an air pocket 30 m down, until a dive team sent to recover bodies found him alive. Animated reconstruction; no real footage or likeness used. Sources: ABC News, Reuters/SCMP, AP, National Geographic (full list in the pinned comment).
+
+#scubadiving #survival
+
