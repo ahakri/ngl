@@ -1,0 +1,14 @@
+{
+ "id": "HAUNT-10",
+ "run_id": "46091494223",
+ "sha": "057f7f9cdcfa64416565f88e0d8f131762ba440a",
+ "render_seconds": 3928,
+ "assemble_qc_seconds": 559,
+ "frames": 1178,
+ "seconds_per_frame": 3.33,
+ "auto_verdict": "PASS",
+ "fail": [],
+ "duration_s": 47.75,
+ "lufs": -14.6,
+ "true_peak": -1.8
+}
