@@ -546,7 +546,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "Country Life, Dec 1936; Life, 4 Jan 1937"
      }
     },
@@ -555,7 +555,8 @@
      "text": "A ghost photographed on the\nstaircase at Raynham Hall.\n\nReprinted: Life, 4 January 1937.",
      "params": {
       "title": "COUNTRY LIFE - DECEMBER 1936",
-      "style": "paper"
+      "style": "paper",
+      "cps": 45
      }
     }
    ],
@@ -637,14 +638,6 @@
      "params": {
       "y": 200,
       "sub": "double exposure (e.g. Joe Nickell)"
-     }
-    },
-    {
-     "type": "card",
-     "text": "Double exposure:\ntwo images on one plate",
-     "params": {
-      "header": "WHAT SCEPTICS SAY",
-      "y": 1150
      }
     }
    ],
