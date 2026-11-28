@@ -156,12 +156,12 @@ def _wide(L, n, cam_keys, dim=None):
 
 def S11(L, n):
     """Wide reveal: the whole ship upright on the seabed, lamp light travelling along the hull."""
-    _wide(L, n, [(1, (41.0, -17.0, 10.0), (4.0, 0.0, 6.5)), (n, (36.0, -23.0, 9.0), (2.0, 0.0, 6.5))])
+    _wide(L, n, [(1, (43.0, -19.0, 10.0), (11.0, 0.0, 6.0)), (n, (38.0, -26.0, 9.0), (9.0, 0.0, 6.0))])
 
 
 def S13(L, n):
     """The lamps pull away and up; the ship sinks back into the dark, untouched."""
-    _wide(L, n, [(1, (36.0, -23.0, 9.0), (2.0, 0.0, 7.5)), (n, (52.0, -34.0, 21.0), (2.0, 0.0, 9.0))],
+    _wide(L, n, [(1, (38.0, -26.0, 9.0), (9.0, 0.0, 7.0)), (n, (54.0, -37.0, 21.0), (8.0, 0.0, 9.0))],
           dim=[(1, 1.0), (int(n * 0.35), 0.8), (n, 0.07)])
 
 

@@ -541,19 +541,7 @@
     "particle_cloud",
     "bubbles_stream (burst)"
    ],
-   "overlay": [
-    {
-     "type": "depth",
-     "text": "RECORD DEPTH",
-     "params": {
-      "unit": "m",
-      "from": 300,
-      "to": 332,
-      "max": 340,
-      "speed": 0.6
-     }
-    }
-   ],
+   "overlay": [],
    "sfx": [
     {
      "name": "hit",
@@ -626,14 +614,6 @@
     "bar grow animation"
    ],
    "overlay": [
-    {
-     "type": "card",
-     "text": "2005  318.25 m\n2014  332.35 m",
-     "params": {
-      "header": "DEEPEST SCUBA DIVE",
-      "y": 1420
-     }
-    },
     {
      "type": "label",
      "text": "DOCUMENTED FACT",
@@ -766,7 +746,7 @@
        ],
        [
         "SURFACE",
-        "~15 h"
+        "nearly 15 h"
        ]
       ],
       "y": 1560
@@ -812,11 +792,11 @@
    "overlay": [
     {
      "type": "timer",
-     "text": "TOTAL",
+     "text": "NEARLY",
      "params": {
       "fmt": "hours",
       "from": 0,
-      "to": 14,
+      "to": 15,
       "y": 380
      }
     }
@@ -858,7 +838,9 @@
     {
      "type": "stamp",
      "text": "2020",
-     "params": {}
+     "params": {
+      "y": 1530
+     }
     },
     {
      "type": "document",
@@ -873,7 +855,7 @@
      "type": "label",
      "text": "DISPUTED",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],
@@ -940,9 +922,9 @@
    "overlay": [
     {
      "type": "card",
-     "text": "332.35 m\nCONFIRMED",
+     "text": "Record upheld",
      "params": {
-      "header": "REVIEW CONCLUDED",
+      "header": "GUINNESS REVIEW",
       "y": 1420
      }
     },

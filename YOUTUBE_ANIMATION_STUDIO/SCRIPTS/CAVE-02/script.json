@@ -535,7 +535,7 @@
    "overlay": [
     {
      "type": "map",
-     "text": "THAM LUANG\n~4 KM: ENTRANCE TO LEDGE",
+     "text": "THAM LUANG\nABOUT 4 KM: ENTRANCE TO LEDGE",
      "params": {
       "points": [
        [
@@ -608,7 +608,7 @@
      "type": "stamp",
      "text": "2 JULY 2018\nJOHN VOLANTHEN + RICK STANTON (UK)",
      "params": {
-      "y": 170
+      "y": 1420
      }
     }
    ],
