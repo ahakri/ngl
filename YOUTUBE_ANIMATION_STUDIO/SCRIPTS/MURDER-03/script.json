@@ -897,7 +897,7 @@
    "overlay": [
     {
      "type": "card",
-     "text": "~$5,800 in $20 bills\nSerials on the 1971 ransom list",
+     "text": "About $5,800 in $20 bills\nSerials on the 1971 ransom list",
      "params": {
       "header": "FBI: MATCH",
       "y": 1250
@@ -1031,26 +1031,6 @@
     },
     {
      "type": "text",
-     "text": "WASHED DOWNSTREAM?",
-     "start": 0.1,
-     "duration": 1.2,
-     "params": {
-      "size": 90,
-      "y": 700
-     }
-    },
-    {
-     "type": "text",
-     "text": "BURIED?",
-     "start": 1.3,
-     "duration": 1.0,
-     "params": {
-      "size": 100,
-      "y": 900
-     }
-    },
-    {
-     "type": "text",
      "text": "UNPROVEN",
      "start": 2.4,
      "params": {
@@ -1140,7 +1120,7 @@
      "type": "card",
      "text": "Spring-loaded vane blocks the\nrear stairs from opening in flight",
      "params": {
-      "header": "FAA ORDER, 1972",
+      "header": "FAA ORDER",
       "y": 1250
      }
     },
@@ -1216,14 +1196,15 @@
      "text": "CASE: NORJAK (Northwest hijacking)\nStatus: active investigation ended,\nJuly 2016\nEvidence preserved for history",
      "params": {
       "style": "paper",
-      "title": "CASE FILE (recreation)"
+      "title": "CASE FILE (recreation)",
+      "cps": 50
      }
     },
     {
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],

@@ -110,7 +110,7 @@ def street(L, n, lamp_e=800.0, fog=0.028, opposite=False, moon_e=0.1, fill=70.0,
         O["obj"].location = (0, -9.4, 0)
         H.box_mesh("pavement2", [(0.0, -8.6, 0.06, 24.0, 0.8, 0.06)], flag)
     T = M.chalk_text(TEXT_LINES, loc=TEXT_TOP, height=0.2, seed=4, name="question")
-    M.sandbags((-4.3, -0.17, 0.12), cols=5, rows=7, depth=2, taper=False, seed=4, name="sandbags")
+    M.sandbags((-3.2, -0.17, 0.12), cols=4, rows=7, depth=2, taper=False, seed=4, name="sandbags")
     M.sandbags((3.7, -0.2, 0.12), cols=3, rows=3, depth=1, taper=True, seed=6, name="sandbags2")
     lamp = M.hooded_lamp(LAMP_AT, energy=lamp_e)
     if fill:
@@ -120,7 +120,7 @@ def street(L, n, lamp_e=800.0, fog=0.028, opposite=False, moon_e=0.1, fill=70.0,
 
 
 S01_P0, S01_T0 = (0.15, -4.15, 0.95), (0.02, 0.0, 1.2)
-S01_P1, S01_T1 = (-0.05, -3.6, 0.98), (-0.08, 0.0, 1.28)
+S01_P1, S01_T1 = (-0.03, -3.8, 0.97), (-0.04, 0.0, 1.25)
 S01_N = 51
 
 
@@ -151,10 +151,10 @@ def S20(L, n):
 
 def S02(L, n):
     # wider: the empty boarded building, taped windows, sandbags, deserted wet street
-    S = street(L, n, fog=0.03, moon_e=0.16, fill=110.0)
+    S = street(L, n, fog=0.03, moon_e=0.5, fill=320.0)
     lamp_buzz(S["lamp"], n, 800.0, dips=((40, 43, 0.45),))
     c = cam_shot(n, (-2.4, -5.6, 1.5), (0.2, 0.0, 1.7), (-3.9, -8.8, 1.7), (0.3, 0.0, 2.1), lens=28)
-    aimed_area((-9.0, -7.0, 9.0), (-2.0, 0.0, 5.5), 900.0, 8.0, (0.4, 0.5, 0.95), "moonwash")
+    aimed_area((-9.0, -7.0, 9.0), (-2.0, 0.0, 5.5), 3200.0, 8.0, (0.4, 0.5, 0.95), "moonwash")
     b = S["text"]["bounds"]
     mark(text_top=(0, 0, TEXT_TOP[2] + b[3]), text_bot=(0, 0, TEXT_TOP[2] + b[2]), lamp=(LAMP_AT[0], -0.9, LAMP_AT[2] - 0.2),
          win_up=(0, 0, 5.45), parapet=(0, 0, 7.7), bags=(-4.3, -0.4, 0.6), door=(3.7, 0, 1.2))
@@ -163,8 +163,9 @@ def S02(L, n):
 
 def S13(L, n):
     # the constable's torch sweeps the empty street and finds only the chalk; nobody in sight
-    S = street(L, n, lamp_e=70.0, fog=0.04, opposite=True, moon_e=0.14, fill=30.0)
-    lamp_buzz(S["lamp"], n, 70.0)
+    S = street(L, n, lamp_e=160.0, fog=0.026, opposite=True, moon_e=0.3, fill=130.0)
+    lamp_buzz(S["lamp"], n, 160.0)
+    aimed_area((-2.0, -8.0, 9.0), (2.0, 0.0, 3.0), 900.0, 8.0, (0.4, 0.5, 0.95), "moonwash13")
     far = M.hooded_lamp((19.0, 0.0, 3.6), energy=600.0, name="farlamp")
     M.chalk_text(["HAGLEY WOOD", ("BELLA", 1.3)], loc=(-6.3, 0.0, 2.25), height=0.2, seed=9, name="second")
     pc = H.figure("pc", height=1.83, coat=True, color=(0.012, 0.013, 0.018))
@@ -181,7 +182,7 @@ def S13(L, n):
         H.pose_hold(pc, "R", shoulder=(R(64), 0, R(az)), elbow=(R(14), 0, 0), frame=f)
     c = cam_shot(n, (-13.6, -3.7, 1.6), (-5.5, 0.0, 1.55), (-12.9, -3.55, 1.6), (6.0, -1.0, 1.5), lens=28, ease=True)
     H.handheld(c, n, amp=0.008, rate=0.5, rot_amp=0.002)
-    aimed_area((-16.0, -6.0, 4.0), (-10.0, -3.5, 1.2), 60.0, 3.0, (0.45, 0.55, 0.95), "pcrim")
+    aimed_area((-8.0, -1.0, 4.0), (-10.2, -3.75, 1.3), 700.0, 2.0, (0.45, 0.55, 0.95), "pcrim")
     mark(pc_head=(-10.3, -3.75, 1.83), pc_feet=(-10.3, -3.75, 0.0), text=(0, 0, 1.75), second=(-6.3, 0, 2.0), far_lamp=(19, -0.9, 3.4),
          door=(3.7, 0, 1.2))
     L.bake_static()
@@ -264,7 +265,7 @@ def boys(spots, heights=(1.42, 1.34, 1.48, 1.38)):
 
 def S03(L, n):
     # blue dusk: glide through the mist toward the squat old elm and its dark hollow
-    W = wood(L, fog=0.034, sun_e=1.0, sky_s=0.9, fill=520.0)
+    W = wood(L, fog=0.017, sun_e=1.3, sky_s=0.9, fill=1500.0)
     c = cam_shot(n, (2.2, -24.0, 1.45), (0.0, 0.0, 1.5), (0.9, -10.6, 1.5), (0.0, 0.0, 1.75), lens=35)
     H.handheld(c, n, amp=0.01, rate=0.4, rot_amp=0.002)
     M.falling_leaves([(-2.2, -5.0, 4.2), (1.8, -3.5, 5.0), (3.0, -1.0, 4.5), (-1.0, -1.8, 5.5), (-3.2, -0.5, 3.8), (0.8, -6.0, 3.6)], 1, n,
@@ -289,13 +290,13 @@ def S04(L, n):
     L.bake_static()
 
 
-CLIMB_A = R(-50)  # where the climber stands on the bole (angle in XY; the cleft faces -90 deg)
+CLIMB_A = R(-64)  # where the climber stands on the bole (angle in XY; the cleft faces -90 deg)
 
 
 def S05(L, n):
     # one climbs the bole and looks down into the hollow; the other three watch from below. All from behind, far.
-    W = wood(L, fog=0.03, sun_e=3.0, sun_col=(1.0, 0.8, 0.55), sun_rot=(R(-78), 0, R(-24)),
-             sky=dict(hor=(0.6, 0.52, 0.44), mid=(0.34, 0.36, 0.42), zen=(0.11, 0.15, 0.25)), sky_s=1.0, fill=650.0, fill_col=(0.6, 0.66, 0.85))
+    W = wood(L, fog=0.015, sun_e=3.0, sun_col=(1.0, 0.8, 0.55), sun_rot=(R(-78), 0, R(-24)),
+             sky=dict(hor=(0.6, 0.52, 0.44), mid=(0.34, 0.36, 0.42), zen=(0.11, 0.15, 0.25)), sky_s=1.0, fill=1300.0, fill_col=(0.6, 0.66, 0.85))
     elm = W["elm"]
     B = boys([(-1.15, -2.9, R(-14)), (0.15, -3.4, R(4)), (1.25, -2.7, R(22))])
     for i, p in enumerate(B):  # they look up at the climber
@@ -311,7 +312,7 @@ def S05(L, n):
     k = H.figure("climber", height=1.4, cap=True, color=(0.014, 0.014, 0.018))
     heading = math.atan2(cx, -cy)  # face the centre of the trunk
     kr = k["root"]
-    for f, z, lean in ((1, 1.0, 6), (30, 1.68, 10), (52, 1.75, 28), (n, 1.75, 32)):
+    for f, z, lean in ((1, 0.9, 6), (30, 1.5, 10), (52, 1.58, 24), (n, 1.58, 27)):
         kr.location = (cx, cy, z)
         kr.rotation_euler = (R(-lean), 0, heading)
         kr.keyframe_insert("location", frame=f)
@@ -327,7 +328,7 @@ def S05(L, n):
     for f, nk in ((1, 10), (50, 5), (66, -38), (n, -40)):
         k["neck"].rotation_euler = (R(nk), 0, 0)
         k["neck"].keyframe_insert("rotation_euler", frame=f)
-    burr = L.prim("ico", loc=(cx * 0.9, cy * 0.9, 1.52), subdivisions=2, radius=0.24)
+    burr = L.prim("ico", loc=(cx * 0.9, cy * 0.9, 1.35), subdivisions=2, radius=0.24)
     burr.scale = (1.0, 1.0, 0.7)
     L.assign(burr, elm["trunk"].data.materials[0])
     L.smooth(burr)
@@ -470,8 +471,8 @@ def S06(L, n):
     L.assign(sky, m)
     sky.visible_shadow = False
     # daylight falling into the hollow lights only the upper wall; it dies away to black toward the lens
-    L.area((0, 0, rz + 0.25), (0, 0, 0), energy=95.0, size=0.8, color=(0.75, 0.82, 1.0), name="skylight")
-    L.point((0, 0.0, rz - 0.55), energy=6.0, color=(0.7, 0.78, 1.0), radius=0.2, name="bounce")
+    L.area((0, 0, rz + 0.25), (0, 0, 0), energy=7.0, size=0.8, color=(0.75, 0.82, 1.0), name="skylight")
+    L.point((0, 0.0, rz - 0.55), energy=0.8, color=(0.7, 0.78, 1.0), radius=0.2, name="bounce")
     boy = H.figure("boy_top", height=1.4, cap=True, color=(0.01, 0.01, 0.012))
     br = boy["root"]
     by = ro + 0.42
@@ -510,9 +511,9 @@ def S09(L, n):
     H.box_mesh("dado9", [(0, -0.006, 0.4, 5.0, 0.007, 0.4), (0, -0.02, 0.82, 5.0, 0.02, 0.025)],
                L.mat_noise_surface("stdado", (0.016, 0.034, 0.026), (0.035, 0.066, 0.05), scale=4, bump=0.1, voronoi=False, rough=0.5))
     H.ground_box("floor9", -5, 5, -8, 0, z=0.0, mat=M.mat_planks("floor9_m", c1=(0.03, 0.022, 0.015), c2=(0.085, 0.06, 0.04), width=0.14, axis="X"))
-    H.box_mesh("panel9", [(0, -0.004, 1.5, 1.0, 0.004, 0.66)], L.mat_noise_surface("panel9_m", (0.3, 0.29, 0.25), (0.44, 0.43, 0.37), scale=6,
+    H.box_mesh("panel9", [(0, -0.004, 1.5, 1.0, 0.004, 0.66)], L.mat_noise_surface("panel9_m", (0.035, 0.045, 0.045), (0.06, 0.075, 0.07), scale=6,
                                                                              bump=0.08, voronoi=False, rough=0.85))
-    ink = L.mat_principled("chart_ink", (0.02, 0.02, 0.022), rough=0.8)
+    ink = L.mat_principled("chart_ink", (0.6, 0.58, 0.5), rough=0.8, emit=(0.6, 0.58, 0.5), emit_strength=0.25)
     lines = []
     k = 6
     while k * FT / 2 <= 2.1:
@@ -525,7 +526,7 @@ def S09(L, n):
     for ft in (4, 5, 6):
         t = L.text3d(f"{ft} FT", loc=(-0.93, -0.011, ft * FT + 0.02), size=0.085, extrude=0.0, mat=ink, name=f"ft{ft}", align="LEFT")
         t.data.font = M._font(M.F_ANTON) or t.data.font
-    fig = M.flat_figure(5 * FT, color=(0.11, 0.11, 0.12))
+    fig = M.flat_figure(5 * FT, color=(0.34, 0.34, 0.36))
     fig.location = (2.1, -0.045, 0.0)
     fig.keyframe_insert("location", frame=1)
     fig.location = (0.14, -0.045, 0.0)
@@ -534,7 +535,7 @@ def S09(L, n):
     bar = H.box_mesh("mark5", [(0.12, -0.02, 5 * FT, 0.86, 0.003, 0.009), (-0.7, -0.02, 5 * FT, 0.05, 0.003, 0.03), (0.95, -0.02, 5 * FT, 0.05, 0.003, 0.03)], red)
     bar.visible_shadow = False
     M.hide_until(bar, 24)
-    aimed_spot((0.7, -2.7, 3.3), (0.1, 0.0, 1.35), 950.0, 62, (0.85, 0.9, 1.0), "overhead", blend=0.7, radius=0.12)
+    aimed_spot((0.7, -2.7, 3.3), (0.1, 0.0, 1.35), 520.0, 62, (0.85, 0.9, 1.0), "overhead", blend=0.7, radius=0.12)
     aimed_area((-2.5, -3.0, 1.6), (0, 0, 1.3), 40.0, 2.0, (0.5, 0.6, 0.9), "fill9")
     c = cam_shot(n, (0.25, -5.2, 1.25), (0.1, 0.0, 1.02), (0.2, -4.5, 1.28), (0.1, 0.0, 1.05), lens=50)
     mark(head=(0.14, 0, 5 * FT), feet=(0.14, 0, 0), six=(0.14, 0, 6 * FT), four=(0.14, 0, 4 * FT), panel_l=(-1.0, 0, 1.5), panel_r=(1.0, 0, 1.5))
@@ -576,7 +577,7 @@ def S11(L, n):
     M.desk(size=(1.6, 1.3))
     fd = M.case_folder((-0.03, 0.03, 0.0), rot_z=R(-3), size=(0.5, 0.36), label="")
     fd["cover"].rotation_euler = (0, R(-178), 0)
-    sheet = M.empty("sheet", (0.0, 0.07, 0.046))
+    sheet = M.empty("sheet", (0.0, 0.035, 0.046))
     sheet.rotation_euler = (0, 0, R(2))
     pg = L.prim("plane", loc=(0, 0, 0), size=1)
     pg.scale = (0.21, 0.297, 1)
@@ -599,7 +600,7 @@ def S11(L, n):
     t = L.text3d("NAME", loc=(-0.086, 0.076, 0.0008), rot=(0, 0, 0), size=0.013, extrude=0.0, mat=ink, name="name_lbl", align="LEFT")
     t.data.font = M._font(M.F_SERIF_B) or t.data.font
     t.parent = sheet
-    tw = M.box_typewriter((0.02, 0.45, 0.0), rot_z=R(3))
+    tw = M.box_typewriter((0.02, 0.46, 0.0), rot_z=R(3))
     car = M.empty("carriage", (0.0, 0.0, 0.0), tw)
     H.box_mesh("car_bar", [(0, 0.15, 0.205, 0.27, 0.012, 0.012), (-0.26, 0.15, 0.225, 0.012, 0.02, 0.03), (0.26, 0.15, 0.225, 0.012, 0.02, 0.03)],
                L.mat_principled("car_m", (0.09, 0.095, 0.09), rough=0.3, metal=0.8), parent=car)
@@ -619,10 +620,10 @@ def S11(L, n):
             kk.keyframe_insert("location", index=2, frame=ff)
         kk.location.z = z0
         f += 3
-    M.desk_lamp((0.4, 0.3, 0.0), (0.0, 0.1, 0.0), energy=45.0, rot_z=R(-60))
-    no_shadow(L.area((-0.7, 0.2, 0.7), (0, R(-55), 0), energy=7.0, size=0.7, color=(0.5, 0.62, 0.95), name="window11"))
-    c = cam_shot(n, (0.0, -0.45, 0.72), (0.0, 0.1, 0.0), (0.0, -0.4, 0.64), (0.0, 0.105, 0.0), lens=50)
-    mark(name_line=(0.02, 0.146, 0.046), sheet_top=(0, 0.218, 0.046), sheet_bot=(0, -0.078, 0.046), keys=(0.02, 0.37, 0.15),
+    M.desk_lamp((0.4, 0.3, 0.0), (0.0, 0.1, 0.0), energy=9.0, rot_z=R(-60))
+    no_shadow(L.area((-0.7, 0.2, 0.7), (0, R(-55), 0), energy=2.0, size=0.7, color=(0.5, 0.62, 0.95), name="window11"))
+    c = cam_shot(n, (0.0, -0.5, 0.8), (0.0, 0.1, 0.0), (0.0, -0.45, 0.72), (0.0, 0.1, 0.0), lens=50)
+    mark(name_line=(0.02, 0.11, 0.046), sheet_top=(0, 0.218, 0.046), sheet_bot=(0, -0.078, 0.046), keys=(0.02, 0.37, 0.15),
          carriage=(0.02, 0.6, 0.2))
     L.bake_static()
 
@@ -632,6 +633,8 @@ def S11(L, n):
 CARD_A, CARD_B = (-0.75, 1.08), (0.55, 1.03)
 CARD_SIZE = (1.1, 0.66)
 NEWS_AT = (0.85, 1.66)
+MARK_A = (CARD_A[0] + 0.2, -0.022, CARD_A[1] + 0.17)
+MARK_B = (CARD_B[0] + 0.17, -0.022, CARD_B[1] - 0.2)
 QMARKS = [(-1.27, 2.05), (-0.42, 2.14), (0.12, 1.9), (-1.3, 0.12), (-0.5, -0.02), (0.22, 0.14), (1.3, 0.22), (1.28, 2.25), (-0.9, -0.85),
           (0.5, -0.8)]
 
@@ -649,7 +652,7 @@ def board(L, n, stage):
         M.slam_in(a, 8, lead=6)
         M.hide_until(a, 2)
     if stage >= 16:
-        out["markA"] = M.stamp_mark("DISMISSED", (CARD_A[0] + 0.03, -0.022, CARD_A[1] - 0.04), size=0.2, rot=-0.16, name="markA")
+        out["markA"] = M.stamp_mark("DISMISSED", MARK_A, size=0.13, rot=-0.16, name="markA")
         b = M.paper_card("SPY RING?", (CARD_B[0], -0.012, CARD_B[1]), size=CARD_SIZE, rot_y=0.035, badge="THEORY", name="cardB", text_size=0.175)
         out["b"] = b
         nw = M.newspaper((NEWS_AT[0], -0.014, NEWS_AT[1]), size=(0.46, 0.32), name="clipping", masthead="")
@@ -680,7 +683,7 @@ def stamp_hit(n, target, f_hit, side=1, name="stamp", tilt=-0.16):
     """Rubber stamp comes in from the camera side, hits the card at f_hit (pad flat on the board, tilted like the mark it
     leaves) and lifts away."""
     st = SC.rubber_stamp((0, 0, 0), size=0.12, name=name)
-    st.scale = (4.3, 4.3, 4.3)
+    st.scale = (3.4, 3.4, 3.4)
     tx, tz = target
     keys = ((1, (tx + side * 0.9, -1.9, tz + 0.75), (R(70), tilt, R(side * 18))), (f_hit, (tx, -0.03, tz), (R(90), tilt, 0)),
             (f_hit + 3, (tx, -0.03, tz), (R(90), tilt, 0)), (f_hit + 12, (tx + side * 0.75, -1.5, tz + 0.95), (R(72), tilt, R(side * 14))),
@@ -712,8 +715,8 @@ def S15(L, n):
     # macro: the red stamp comes down on the card: DISMISSED
     board(L, n, 15)
     hit = 7
-    stamp_hit(n, (CARD_A[0] + 0.03, CARD_A[1] - 0.04), hit, side=1)
-    M.stamp_mark("DISMISSED", (CARD_A[0] + 0.03, -0.022, CARD_A[1] - 0.04), size=0.2, rot=-0.16, name="markA", frame=hit + 1)
+    stamp_hit(n, (MARK_A[0], MARK_A[2]), hit, side=1)
+    M.stamp_mark("DISMISSED", MARK_A, size=0.13, rot=-0.16, name="markA", frame=hit + 1)
     p0, t0 = (-2.35, -5.2, 0.55), (-0.72, 0.0, 0.965)
     p1 = tuple(p0[i] + (t0[i] - p0[i]) * 0.05 for i in range(3))
     c = cam_shot(n, p0, t0, p1, t0, lens=85)
@@ -726,8 +729,8 @@ def S15(L, n):
 def S16(L, n):
     # THEORY 2: SPY RING? slams in beside the dismissed card; red string to a generic newspaper cutting (no masthead)
     board(L, n, 16)
-    c = H.cam((-0.05, -4.6, 0.6), (-0.05, 0.0, 0.45), lens=50)
-    H.cam_move(c, [(1, (-0.05, -4.6, 0.6), (-0.05, 0.0, 0.45)), (12, (-0.03, -4.6, 0.6), (-0.03, 0.0, 0.45)), (46, (0.55, -4.6, 0.6), (0.55, 0.0, 0.45)),
+    c = H.cam((0.12, -4.6, 0.6), (0.12, 0.0, 0.45), lens=50)
+    H.cam_move(c, [(1, (0.12, -4.6, 0.6), (0.12, 0.0, 0.45)), (12, (0.14, -4.6, 0.6), (0.14, 0.0, 0.45)), (46, (0.55, -4.6, 0.6), (0.55, 0.0, 0.45)),
                    (n, (0.6, -4.3, 0.58), (0.6, 0.0, 0.47))], ease=True)
     M.shake(c, [8], amp=0.014, decay=7)
     mark(cardB=(CARD_B[0], 0, CARD_B[1]), cardB_top=(CARD_B[0], 0, CARD_B[1] + 0.33), cardB_bot=(CARD_B[0], 0, CARD_B[1] - 0.33),
@@ -740,8 +743,8 @@ def S17(L, n):
     # the stamp again: NEVER PROVEN; the lamp swings a little
     O = board(L, n, 17)
     hit = 6
-    stamp_hit(n, (CARD_B[0] - 0.02, CARD_B[1] - 0.04), hit, side=-1, tilt=0.14)
-    M.stamp_mark("NEVER PROVEN", (CARD_B[0] - 0.02, -0.022, CARD_B[1] - 0.04), size=0.17, rot=0.14, name="markB", frame=hit + 1)
+    stamp_hit(n, (MARK_B[0], MARK_B[2]), hit, side=-1, tilt=0.14)
+    M.stamp_mark("NEVER PROVEN", MARK_B, size=0.12, rot=0.14, name="markB", frame=hit + 1)
     lamp = O["B"]["lamp"]
     for f in range(1, n + 1, 2):
         a = 7.0 * math.exp(-max(0, f - hit) / 40.0) * math.sin((f - hit) * 0.42) if f >= hit else 0.0
@@ -806,11 +809,11 @@ def hill(x, y):
 
 def S19(L, n):
     bg = M.dawn_sky(hor=(0.4, 0.3, 0.36), mid=(0.15, 0.2, 0.36), zen=(0.025, 0.045, 0.13), strength=1.0)
-    L.sun(rot=(R(84), 0, R(-27)), energy=3.0, color=(1.0, 0.56, 0.26), angle=2.0, name="lastlight")
+    L.sun(rot=(R(84), 0, R(-27)), energy=1.5, color=(1.0, 0.56, 0.26), angle=2.0, name="lastlight")
     grass = L.mat_noise_surface("hillgrass", (0.02, 0.03, 0.012), (0.075, 0.085, 0.035), scale=2.5, bump=0.3, voronoi=False, rough=1.0)
     M.heightfield("hill", -260, 260, -260, 260, 131, 131, hill, mat=grass)
     far = H.ground_box("valley", -3000, 3000, -3000, 3000, z=-95.0, mat=L.mat_principled("valley_m", (0.012, 0.018, 0.025), rough=1.0))
-    O = M.obelisk(loc=(0, 0, -0.05), height=25.0, base=3.0)
+    O = M.obelisk(loc=(0, 0, -0.05), height=25.0, base=3.0, mat=L.mat_noise_surface("ob_stone", (0.07, 0.065, 0.055), (0.2, 0.185, 0.155), scale=1.6, bump=0.35, voronoi=True, rough=0.9))
     paint = M.mat_chalk("paint", color=(0.82, 0.82, 0.78), under=(0.3, 0.27, 0.22), skip=0.18, emit=0.06, scale=60.0)
     zt = O["ped_z1"] - 0.5
     P = M.chalk_text(["WHO PUT", "BELLA", "IN THE", "WITCH ELM"], loc=(0.0, O["ped_y"], zt), height=0.45, line_gap=0.36, width=0.03, seed=12,
@@ -824,11 +827,11 @@ def S19(L, n):
             continue
         spots.append((x, y, hill(x, y) - 0.3, rnd.uniform(9, 17)))
     M.fast_conifers("woods", spots, mat=L.mat_principled("woods_m", (0.008, 0.012, 0.012), rough=1.0), seed=4)
-    M.wind_grass("blades", -9, 9, -13, 3, zf=hill, count=5200, seed=4, h=(0.2, 0.5), wind=0.07, speed=0.3,
+    M.wind_grass("blades", -9, 9, -6.2, 3, zf=hill, count=6000, seed=4, h=(0.12, 0.3), wind=0.05, speed=0.3,
                  avoid=lambda x, y: abs(x) < 3.6 and abs(y) < 3.6, mat=L.mat_principled("blade_m", (0.09, 0.085, 0.035), rough=1.0))
     M.fog((0, 60, -32), (700, 700, 44), density=0.012, color=(0.5, 0.58, 0.8))
     bpy.context.scene.eevee.volumetric_end = 300
-    aimed_area((-6.0, -12.0, 3.0), (0, O["ped_y"], 2.6), 420.0, 5.0, (0.55, 0.62, 0.9), "skyfill")
+    aimed_area((-6.0, -12.0, 3.0), (0, O["ped_y"], 2.6), 250.0, 5.0, (0.55, 0.62, 0.9), "skyfill")
     b = P["bounds"]
     zc = zt + (b[2] + b[3]) / 2
     c = H.cam((0.8, -7.9, 1.0), (0.0, O["ped_y"], 1.4), lens=24)

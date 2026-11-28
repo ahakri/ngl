@@ -145,3 +145,24 @@ A tug capsized off Nigeria in May 2013. The cook, Harrison Okene, survived about
 
 #scubadiving #survival
 
+## SCUBA-02 — The Dive Boat Left Without Them
+
+- Video: `FINAL_VIDEOS/SCUBA-02.mp4` (41 MB) · Subtitles: `FINAL_VIDEOS/SCUBA-02.srt` (26 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/SCUBA-02/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/SCUBA-02/FACTCHECK.md`
+
+### Titles
+
+1. **The Dive Boat Left Without Them** (31) — primary
+2. Left Behind on the Great Barrier Reef (37) — search-led ("Great Barrier Reef")
+3. The True Story Behind Open Water (32) — recognition-led (film link supported by Grunge, Ranker, Wikipedia; mention it in the description)
+4. Two Divers Surfaced. The Boat Was Gone. (39)
+
+No title claims a cause of death or an exact miscount (both uncertain — see FACTCHECK.md L04, L05, L15).
+
+### Description
+
+In January 1998, Americans Tom and Eileen Lonergan were left behind on a dive trip at St Crispin's Reef, Great Barrier Reef. They were never found; their story later inspired the film Open Water (2003). Animated reconstruction; no likenesses used. Some details (the head count, the dive slate) are disputed and labelled as such. Sources in the pinned comment.
+
+#scubadiving #greatbarrierreef
+

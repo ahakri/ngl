@@ -805,7 +805,8 @@
               40,
               40
             ]
-          }
+          },
+          "start": 0.3
         }
       ],
       "sfx": [
@@ -882,7 +883,8 @@
               40,
               40
             ]
-          }
+          },
+          "start": 0.25
         }
       ],
       "sfx": [
@@ -918,13 +920,14 @@
             "rot": 2,
             "size": 44,
             "y": 70
-          }
+          },
+          "start": 1.5
         },
         {
           "type": "label",
           "text": "DOCUMENTED FACT",
           "params": {
-            "y": 200
+            "y": 1430
           }
         }
       ],
@@ -968,7 +971,7 @@
           "type": "text",
           "text": "UNIDENTIFIED WOMAN\nFOUND 18 APRIL 1943",
           "params": {
-            "y": 880,
+            "y": 1025,
             "size": 54
           }
         }

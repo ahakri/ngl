@@ -4702,3 +4702,1345 @@ def pose_keys(parts, frame, names=("pelvis", "hipL", "hipR", "kneeL", "kneeR", "
     for k in names:
         parts[k].keyframe_insert("rotation_euler", frame=frame)
     parts["pelvis"].keyframe_insert("location", frame=frame)
+
+
+# ============================================================================ MURDER-08 (Bella in the Wych Elm, 1943) builders
+# Appended; nothing above changed. Sooty brick, wet setts, single-stroke chalk / paint lettering (static or written on stroke by
+# stroke), blackout wall lamp, sandbags, boarded and taped street front, hollow pollarded wych elm (the hollow is darkness only),
+# look-up interior of a hollow trunk, keyable season ground, obelisk, archive racking, flat height-chart figure, stamp
+# impression, ladder, canvas screen, generic evidence-table props.
+
+def _bx(bm, c, h, ry=0.0, rz=0.0, mi=0):
+    """Box centred at c with half sizes h, optional rotation about Y then Z; its faces get material index mi. Appends to bm."""
+    mtx = Matrix.Translation(c) @ Matrix.Rotation(rz, 4, "Z") @ Matrix.Rotation(ry, 4, "Y") @ Matrix.Diagonal((h[0] * 2, h[1] * 2, h[2] * 2, 1))
+    r = bmesh.ops.create_cube(bm, size=1.0, matrix=mtx)
+    if mi:
+        for v in r["verts"]:
+            for f in v.link_faces:
+                f.material_index = mi
+    return r
+
+
+def _taper_tube(bm, pts, radii, sides=5, mi=0):
+    """Tube through pts (Vectors) with one radius per point (parallel-transported frame, no twisting). Appends to bm."""
+    rings = []
+    n = len(pts)
+    prev_u = None
+    for i, p in enumerate(pts):
+        a, b = pts[max(0, i - 1)], pts[min(n - 1, i + 1)]
+        d = (b - a).normalized()
+        if prev_u is None:
+            ref = Vector((0, 0, 1)) if abs(d.z) < 0.9 else Vector((1, 0, 0))
+            u = d.cross(ref).normalized()
+        else:
+            u = prev_u - d * prev_u.dot(d)
+            u = u.normalized() if u.length > 1e-6 else d.orthogonal().normalized()
+        v = d.cross(u).normalized()
+        prev_u = u
+        r = radii[i]
+        rings.append([bm.verts.new(p + (u * math.cos(k * 2 * math.pi / sides) + v * math.sin(k * 2 * math.pi / sides)) * r)
+                      for k in range(sides)])
+    for j in range(n - 1):
+        for k in range(sides):
+            f = bm.faces.new((rings[j][k], rings[j][(k + 1) % sides], rings[j + 1][(k + 1) % sides], rings[j + 1][k]))
+            f.material_index = mi
+    return rings
+
+
+def _wall_uv_nodes(n, l):
+    """(along-wall, up) coordinate from world position, for patterns on walls that run along X or along Y."""
+    g = n.new("ShaderNodeNewGeometry")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(g.outputs["Position"], sep.inputs[0])
+    u = _mathn(n, l, "ADD", sep.outputs["X"], sep.outputs["Y"])
+    comb = n.new("ShaderNodeCombineXYZ")
+    l.new(u, comb.inputs[0])
+    l.new(sep.outputs["Z"], comb.inputs[1])
+    return comb.outputs[0], g.outputs["Position"]
+
+
+def mat_sooty_brick(name="sootbrick", c1=(0.085, 0.036, 0.026), c2=(0.14, 0.06, 0.04), mortar=(0.07, 0.066, 0.06), soot=0.6,
+                    wet=0.0, bump=0.6):
+    """Sooty city brick in real proportions (225 x 75 mm stretcher bond), world space, for walls along X or Y.
+    soot 0..1 darkens it in large blotches; wet 0..1 lowers the roughness."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    uv, pos = _wall_uv_nodes(n, l)
+    b = n.new("ShaderNodeTexBrick")
+    b.offset = 0.5
+    b.inputs["Color1"].default_value = (*c1, 1)
+    b.inputs["Color2"].default_value = (*c2, 1)
+    b.inputs["Mortar"].default_value = (*mortar, 1)
+    b.inputs["Scale"].default_value = 1.0
+    b.inputs["Mortar Size"].default_value = 0.009
+    b.inputs["Mortar Smooth"].default_value = 0.3
+    b.inputs["Bias"].default_value = 0.0
+    b.inputs["Brick Width"].default_value = 0.225
+    b.inputs["Row Height"].default_value = 0.075
+    l.new(uv, b.inputs["Vector"])
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 0.7
+    nz.inputs["Detail"].default_value = 6.0
+    l.new(pos, nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    lo = 1.0 - soot
+    ramp.color_ramp.elements[0].position = 0.35
+    ramp.color_ramp.elements[0].color = (lo, lo, lo, 1)
+    ramp.color_ramp.elements[1].position = 0.7
+    ramp.color_ramp.elements[1].color = (1, 1, 1, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    mix.blend_type = "MULTIPLY"
+    mix.inputs[0].default_value = 1.0
+    l.new(b.outputs["Color"], mix.inputs[6])
+    l.new(ramp.outputs["Color"], mix.inputs[7])
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.9 - 0.5 * wet
+    fine = n.new("ShaderNodeTexNoise")
+    fine.inputs["Scale"].default_value = 60.0
+    fine.inputs["Detail"].default_value = 2.0
+    l.new(pos, fine.inputs["Vector"])
+    hgt = _mathn(n, l, "ADD", _mathn(n, l, "SUBTRACT", 1.0, b.outputs["Fac"]), _mathn(n, l, "MULTIPLY", fine.outputs["Fac"], 0.25))
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = bump
+    bp.inputs["Distance"].default_value = 0.02
+    l.new(hgt, bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def mat_cobbles(name="cobbles", c1=(0.018, 0.018, 0.02), c2=(0.075, 0.072, 0.07), scale=8.5, wet=0.75):
+    """Wet granite setts on the ground (world XY): Voronoi stones with dark joints; low roughness with drier patches so a
+    street lamp streaks across them."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    g = n.new("ShaderNodeNewGeometry")
+    mp = n.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (1.0, 0.62, 1.0)
+    l.new(g.outputs["Position"], mp.inputs["Vector"])
+    ve = n.new("ShaderNodeTexVoronoi")
+    ve.feature = "DISTANCE_TO_EDGE"
+    ve.inputs["Scale"].default_value = scale
+    ve.inputs["Randomness"].default_value = 0.5
+    l.new(mp.outputs[0], ve.inputs["Vector"])
+    vc = n.new("ShaderNodeTexVoronoi")
+    vc.inputs["Scale"].default_value = scale
+    vc.inputs["Randomness"].default_value = 0.5
+    l.new(mp.outputs[0], vc.inputs["Vector"])
+    bw = n.new("ShaderNodeRGBToBW")
+    l.new(vc.outputs["Color"], bw.inputs[0])
+    tone = n.new("ShaderNodeValToRGB")
+    tone.color_ramp.elements[0].color = (*c1, 1)
+    tone.color_ramp.elements[1].color = (*c2, 1)
+    l.new(bw.outputs[0], tone.inputs["Fac"])
+    joint = n.new("ShaderNodeValToRGB")
+    joint.color_ramp.elements[0].position = 0.0
+    joint.color_ramp.elements[0].color = (0.12, 0.12, 0.12, 1)
+    joint.color_ramp.elements[1].position = 0.07
+    joint.color_ramp.elements[1].color = (1, 1, 1, 1)
+    l.new(ve.outputs["Distance"], joint.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    mix.blend_type = "MULTIPLY"
+    mix.inputs[0].default_value = 1.0
+    l.new(tone.outputs["Color"], mix.inputs[6])
+    l.new(joint.outputs["Color"], mix.inputs[7])
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    big = n.new("ShaderNodeTexNoise")
+    big.inputs["Scale"].default_value = 0.55
+    big.inputs["Detail"].default_value = 3.0
+    l.new(g.outputs["Position"], big.inputs["Vector"])
+    rr = n.new("ShaderNodeValToRGB")
+    r_wet = 0.6 - 0.48 * wet
+    rr.color_ramp.elements[0].position = 0.42
+    rr.color_ramp.elements[0].color = (r_wet, r_wet, r_wet, 1)
+    rr.color_ramp.elements[1].position = 0.68
+    rr.color_ramp.elements[1].color = (0.6, 0.6, 0.6, 1)
+    l.new(big.outputs["Fac"], rr.inputs["Fac"])
+    l.new(rr.outputs["Color"], p.inputs["Roughness"])
+    dome = _mathn(n, l, "MINIMUM", ve.outputs["Distance"], 0.22)
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.7
+    bp.inputs["Distance"].default_value = 0.05
+    l.new(dome, bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def mat_chalk(name="chalk", color=(0.78, 0.77, 0.72), under=(0.16, 0.1, 0.08), skip=0.3, emit=0.1, scale=140.0):
+    """Dusty chalk line: off-white with dark specks where the stick skipped over the brick; faint self-glow so it reads in
+    dim light. skip 0..1 = how broken the line is."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    g = n.new("ShaderNodeNewGeometry")
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale
+    nz.inputs["Detail"].default_value = 3.0
+    l.new(g.outputs["Position"], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    th = 0.3 + 0.4 * skip
+    ramp.color_ramp.elements[0].position = max(0.0, th - 0.04)
+    ramp.color_ramp.elements[0].color = (*under, 1)
+    ramp.color_ramp.elements[1].position = th + 0.04
+    ramp.color_ramp.elements[1].color = (*color, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(ramp.outputs["Color"], p.inputs["Base Color"])
+    l.new(ramp.outputs["Color"], p.inputs["Emission Color"])
+    p.inputs["Emission Strength"].default_value = emit
+    p.inputs["Roughness"].default_value = 1.0
+    return m
+
+
+def _arc2(cx, cy, rx, ry, a0, a1, n=10):
+    return [(cx + rx * math.cos(math.radians(a0 + (a1 - a0) * k / n)), cy + ry * math.sin(math.radians(a0 + (a1 - a0) * k / n)))
+            for k in range(n + 1)]
+
+
+_STROKES = {}
+
+
+def _stroke_font():
+    """Single-stroke capitals, unit cap height: {char: (advance, [polyline, ...])} in writing order."""
+    if _STROKES:
+        return _STROKES
+    A = _arc2
+    bowl_p = [(0, 1), (0.30, 1)] + A(0.30, 0.74, 0.27, 0.26, 90, -90, 8) + [(0, 0.48)]
+    ring_o = A(0.36, 0.5, 0.36, 0.5, 100, 460, 18)
+    f = {
+        "A": (0.70, [[(0, 0), (0.35, 1), (0.70, 0)], [(0.14, 0.36), (0.56, 0.36)]]),
+        "B": (0.60, [[(0, 1), (0, 0)], [(0, 1), (0.30, 1)] + A(0.30, 0.76, 0.24, 0.24, 90, -90, 8) + [(0, 0.52)],
+                     [(0, 0.52), (0.33, 0.52)] + A(0.33, 0.26, 0.27, 0.26, 90, -90, 8) + [(0, 0)]]),
+        "C": (0.64, [A(0.36, 0.5, 0.36, 0.5, 50, 310, 14)]),
+        "D": (0.66, [[(0, 1), (0, 0)], [(0, 1), (0.26, 1)] + A(0.26, 0.5, 0.40, 0.5, 90, -90, 12) + [(0, 0)]]),
+        "E": (0.54, [[(0.54, 1), (0, 1), (0, 0), (0.54, 0)], [(0, 0.52), (0.40, 0.52)]]),
+        "F": (0.52, [[(0.52, 1), (0, 1), (0, 0)], [(0, 0.52), (0.38, 0.52)]]),
+        "G": (0.70, [A(0.36, 0.5, 0.36, 0.5, 50, 340, 14) + [(0.70, 0.46), (0.40, 0.46)]]),
+        "H": (0.64, [[(0, 1), (0, 0)], [(0.64, 1), (0.64, 0)], [(0, 0.52), (0.64, 0.52)]]),
+        "I": (0.10, [[(0.05, 1), (0.05, 0)]]),
+        "J": (0.48, [[(0.48, 1), (0.48, 0.24)] + A(0.24, 0.24, 0.24, 0.24, 0, -180, 8)]),
+        "K": (0.60, [[(0, 1), (0, 0)], [(0.58, 1), (0, 0.42)], [(0.20, 0.60), (0.60, 0)]]),
+        "L": (0.50, [[(0, 1), (0, 0), (0.50, 0)]]),
+        "M": (0.82, [[(0, 0), (0, 1), (0.41, 0.28), (0.82, 1), (0.82, 0)]]),
+        "N": (0.66, [[(0, 0), (0, 1), (0.66, 0), (0.66, 1)]]),
+        "O": (0.72, [ring_o]),
+        "P": (0.58, [[(0, 1), (0, 0)], bowl_p]),
+        "Q": (0.74, [ring_o, [(0.42, 0.28), (0.76, -0.06)]]),
+        "R": (0.60, [[(0, 1), (0, 0)], bowl_p, [(0.22, 0.48), (0.60, 0)]]),
+        "S": (0.56, [A(0.28, 0.75, 0.26, 0.25, 20, 270, 10) + A(0.28, 0.25, 0.28, 0.25, 90, -160, 10)[1:]]),
+        "T": (0.64, [[(0, 1), (0.64, 1)], [(0.32, 1), (0.32, 0)]]),
+        "U": (0.64, [[(0, 1), (0, 0.3)] + A(0.32, 0.3, 0.32, 0.3, 180, 360, 10) + [(0.64, 1)]]),
+        "V": (0.66, [[(0, 1), (0.33, 0), (0.66, 1)]]),
+        "W": (0.92, [[(0, 1), (0.22, 0), (0.46, 0.7), (0.70, 0), (0.92, 1)]]),
+        "X": (0.62, [[(0, 1), (0.62, 0)], [(0.62, 1), (0, 0)]]),
+        "Y": (0.64, [[(0, 1), (0.32, 0.48)], [(0.64, 1), (0.32, 0.48), (0.32, 0)]]),
+        "Z": (0.60, [[(0, 1), (0.60, 1), (0, 0), (0.60, 0)]]),
+        "?": (0.48, [A(0.24, 0.74, 0.24, 0.26, 170, -70, 10) + [(0.24, 0.42), (0.24, 0.27)], [(0.24, 0.06), (0.24, 0.0)]]),
+        "-": (0.36, [[(0, 0.46), (0.36, 0.46)]]),
+        ".": (0.08, [[(0.04, 0.06), (0.04, 0.0)]]),
+        "0": (0.56, [A(0.28, 0.5, 0.28, 0.5, 100, 460, 16)]),
+        "1": (0.28, [[(0.02, 0.78), (0.24, 1), (0.24, 0)]]),
+        "3": (0.54, [A(0.26, 0.75, 0.26, 0.25, 150, -90, 8) + A(0.26, 0.25, 0.28, 0.25, 90, -150, 8)[1:]]),
+        "4": (0.60, [[(0.44, 0), (0.44, 1), (0, 0.32), (0.60, 0.32)]]),
+        "9": (0.56, [A(0.28, 0.72, 0.26, 0.28, 0, 360, 14) + [(0.54, 0.4), (0.44, 0)]]),
+    }
+    _STROKES.update(f)
+    return _STROKES
+
+
+def stroke_text(text, height=0.2, seed=1, jitter=1.0, gap=0.16, space=0.42):
+    """Lay out single-stroke hand capitals. Returns (strokes, width): strokes = [{"pts": [(x, z)], "letter": i, "word": j}]
+    in writing order, x from 0 to width, baseline z=0. jitter varies size, slope and baseline letter by letter."""
+    rnd = random.Random(seed)
+    font = _stroke_font()
+    out = []
+    x = 0.0
+    word = 0
+    li = 0
+    for ch in text.upper():
+        if ch == " ":
+            x += space * height
+            word += 1
+            continue
+        g = font.get(ch)
+        if not g:
+            continue
+        adv, strokes = g
+        sc = height * (1 + rnd.uniform(-0.07, 0.07) * jitter)
+        sx = 1 + rnd.uniform(-0.06, 0.06) * jitter
+        rot = math.radians(rnd.uniform(-4, 4)) * jitter
+        dz = rnd.uniform(-0.04, 0.04) * height * jitter
+        cx, cz = adv / 2, 0.5
+        c, s = math.cos(rot), math.sin(rot)
+        for st in strokes:
+            pts = []
+            for (px, pz) in st:
+                ux, uz = (px - cx) * sx, pz - cz
+                pts.append((x + (cx * sx + ux * c - uz * s) * sc, dz + (cz + ux * s + uz * c) * sc))
+            out.append({"pts": pts, "letter": li, "word": word})
+        x += (adv * sx + gap) * sc
+        li += 1
+    return out, max(0.0, x - gap * height)
+
+
+def _densify2(pts, step, wob, ph):
+    out = [Vector((pts[0][0], pts[0][1]))]
+    for a, b in zip(pts[:-1], pts[1:]):
+        a, b = Vector(a), Vector(b)
+        k = max(1, int((b - a).length / step))
+        for i in range(1, k + 1):
+            out.append(a.lerp(b, i / k))
+    return [(p.x + wob * noise.noise(Vector((p.x * 9 + ph, p.y * 9, 0.3))), p.y + wob * noise.noise(Vector((p.x * 9, p.y * 9 + ph, 5.1))))
+            for p in out]
+
+
+def _chalk_curve(name, strokes, width, mat, rnd):
+    cu = bpy.data.curves.new(name, "CURVE")
+    cu.dimensions = "3D"
+    for pts in strokes:
+        sp = cu.splines.new("POLY")
+        sp.points.add(len(pts) - 1)
+        ph = rnd.uniform(0, 50)
+        last = len(pts) - 1
+        for k, (x, z) in enumerate(pts):
+            sp.points[k].co = (x, 0.0, z, 1.0)
+            r = 0.9 + 0.3 * noise.noise(Vector((k * 0.35 + ph, 0.0, 0.0)))
+            if k == 0 or k == last:
+                r *= 0.7
+            sp.points[k].radius = r
+    cu.bevel_depth = width
+    cu.bevel_resolution = 1
+    cu.use_fill_caps = True
+    o = L.link(bpy.data.objects.new(name, cu))
+    o.data.materials.append(mat)
+    o.visible_shadow = False
+    return o
+
+
+def chalk_text(lines, loc=(0, 0, 0), height=0.2, line_gap=0.4, width=0.011, seed=1, jitter=1.0, mat=None, name="chalk",
+               write=None, flat=0.22, slope=0.03):
+    """Hand-chalked (or painted) capitals on a wall in the XZ plane facing -Y, built from single strokes.
+    lines: list of str or (str, height_scale[, x_offset]); loc = top centre of the text block on the wall surface.
+    write=None  -> one static curve object.
+    write=(f0, f1) or a list of one (f0, f1) per line -> every stroke is its own curve and draws on in writing order
+    (time in proportion to its length); use chalk_follow() / chalk_dust() with the returned schedule.
+    Returns {"root", "objs", "sched": [{"obj", "f0", "f1", "pts": [world Vector]}], "bounds": (x0, x1, z0, z1) local to root}."""
+    rnd = random.Random(seed)
+    mat = mat or mat_chalk(name + "_m")
+    root = empty(name, loc)
+    off = width * flat + 0.0015
+    z = 0.0
+    per_line = []
+    bx0 = bz0 = 1e9
+    bx1 = bz1 = -1e9
+    for i, ln in enumerate(lines):
+        if isinstance(ln, str):
+            txt, hs, xo = ln, 1.0, 0.0
+        else:
+            txt, hs, xo = ln[0], ln[1], (ln[2] if len(ln) > 2 else 0.0)
+        h = height * hs
+        strokes, w = stroke_text(txt, h, seed=seed * 31 + i, jitter=jitter)
+        z -= h
+        ox = -w / 2 + xo
+        sl = rnd.uniform(-0.4, 1.0) * slope
+        ls = []
+        for s in strokes:
+            pts = [(ox + px, z + pz + sl * (px - w / 2)) for (px, pz) in s["pts"]]
+            pts = _densify2(pts, max(0.012, h * 0.16), 0.02 * h * jitter, rnd.uniform(0, 99))
+            for (px, pz) in pts:
+                bx0, bx1, bz0, bz1 = min(bx0, px), max(bx1, px), min(bz0, pz), max(bz1, pz)
+            ls.append({"pts": pts, "letter": s["letter"], "word": s["word"], "h": h})
+        per_line.append(ls)
+        z -= line_gap * height
+    out = {"root": root, "objs": [], "sched": [], "bounds": (bx0, bx1, bz0, bz1)}
+
+    def place(o):
+        o.parent = root
+        o.location = (0, -off, 0)
+        o.scale = (1, flat, 1)
+        out["objs"].append(o)
+
+    if write is None:
+        place(_chalk_curve(name + "_c", [s["pts"] for ls in per_line for s in ls], width, mat, rnd))
+        return out
+    wins = write if isinstance(write, list) else [write] * len(per_line)
+    if not isinstance(write, list):  # one window for the whole text: split it over the lines by stroke length
+        tot = [sum(_poly_len(s["pts"]) for s in ls) + 1e-6 for ls in per_line]
+        f0, f1 = write
+        acc = 0.0
+        wins = []
+        for t in tot:
+            wins.append((f0 + (f1 - f0) * acc / sum(tot), f0 + (f1 - f0) * (acc + t * 0.94) / sum(tot)))
+            acc += t
+    base = Vector(loc)
+    k = 0
+    for ls, (f0, f1) in zip(per_line, wins):
+        cost = []
+        for j, s in enumerate(ls):
+            pen = 0.0
+            if j > 0:
+                pen = s["h"] * (0.9 if s["word"] != ls[j - 1]["word"] else (0.35 if s["letter"] != ls[j - 1]["letter"] else 0.15))
+            cost.append((pen, _poly_len(s["pts"])))
+        total = sum(a + b for a, b in cost) or 1.0
+        acc = 0.0
+        for s, (pen, ln_) in zip(ls, cost):
+            acc += pen
+            fa = f0 + (f1 - f0) * acc / total
+            acc += ln_
+            fb = f0 + (f1 - f0) * acc / total
+            o = _chalk_curve(f"{name}_s{k}", [s["pts"]], width, mat, rnd)
+            place(o)
+            cu = o.data
+            cu.bevel_factor_end = 0.0
+            cu.keyframe_insert("bevel_factor_end", frame=fa)
+            cu.bevel_factor_end = 1.0
+            cu.keyframe_insert("bevel_factor_end", frame=max(fa + 0.5, fb))
+            for fc in L._fcurves(cu.animation_data.action):
+                for kp in fc.keyframe_points:
+                    kp.interpolation = "LINEAR"
+            if fa > 1.5:
+                hide_until(o, int(math.floor(fa)))
+            out["sched"].append({"obj": o, "f0": fa, "f1": max(fa + 0.5, fb),
+                                 "pts": [base + Vector((px, -off, pz)) for (px, pz) in s["pts"]]})
+            k += 1
+    return out
+
+
+def _poly_len(pts):
+    return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(pts[:-1], pts[1:]))
+
+
+def chalk_follow(sched, name="chalkstick", length=0.075, radius=0.009, drop=True):
+    """A stick of chalk whose tip follows a chalk_text(write=...) schedule, as if an unseen hand were writing.
+    Returns the pivot empty (tip position)."""
+    m = L.mat_principled(name + "_m", (0.85, 0.84, 0.8), rough=0.9, emit=(0.85, 0.84, 0.8), emit_strength=0.2)
+    piv = empty(name, sched[0]["pts"][0])
+    st = L.prim("cyl", loc=(0, 0, 0), vertices=10, radius=radius, depth=length)
+    L.assign(st, m)
+    st.parent = piv
+    axis = Vector((0.28, -0.84, 0.46)).normalized()
+    st.rotation_euler = axis.to_track_quat("Z", "Y").to_euler()
+    st.location = axis * (length / 2)
+    last = -1e9
+    for s in sched:
+        pts = s["pts"]
+        cum = [0.0]
+        for a, b in zip(pts[:-1], pts[1:]):
+            cum.append(cum[-1] + (b - a).length)
+        tot = cum[-1] or 1.0
+        step = max(1, len(pts) // 6)
+        idx = list(range(0, len(pts), step))
+        if idx[-1] != len(pts) - 1:
+            idx.append(len(pts) - 1)
+        for i in idx:
+            f = s["f0"] + (s["f1"] - s["f0"]) * cum[i] / tot
+            if f <= last + 0.02:
+                f = last + 0.02
+            piv.location = pts[i]
+            piv.keyframe_insert("location", frame=f)
+            last = f
+    if drop:  # the chalk falls away when the last letter is done
+        end = piv.location.copy()
+        piv.keyframe_insert("location", frame=last + 3)
+        piv.location = (end.x + 0.12, end.y - 0.25, end.z - 2.2)
+        piv.keyframe_insert("location", frame=last + 17)
+    L.linear_fcurves(piv)
+    f_in = int(math.floor(sched[0]["f0"])) - 1
+    if f_in > 1:
+        hide_until(piv, f_in)
+    return piv
+
+
+def chalk_dust(sched, name="chalkdust", every=2, count=9, radius=0.0022, fall=0.45, life=22, seed=3):
+    """Small puffs of chalk dust that drop from finished strokes (tiny particles, well away from the camera)."""
+    rnd = random.Random(seed)
+    m = L.mat_principled(name + "_m", (0.9, 0.88, 0.82), rough=1.0, emit=(0.9, 0.88, 0.82), emit_strength=0.5)
+    out = []
+    for i, s in enumerate(sched):
+        if i % every:
+            continue
+        pts = []
+        for _ in range(count):
+            p = rnd.choice(s["pts"])
+            pts.append((p.x + rnd.uniform(-0.01, 0.01), p.y - rnd.uniform(0.012, 0.035), p.z - rnd.uniform(0.0, 0.05)))
+        o = cloud_points(pts, radius=radius, name=f"{name}{i}", mat=m, seed=seed + i)
+        f = int(round(s["f1"]))
+        o.location = (0, 0, 0)
+        o.scale = (1, 1, 1)
+        o.keyframe_insert("location", frame=f)
+        o.keyframe_insert("scale", frame=f + life - 6)
+        o.location = (rnd.uniform(-0.02, 0.03), 0, -fall)
+        o.keyframe_insert("location", frame=f + life)
+        o.scale = (0.001,) * 3
+        o.keyframe_insert("scale", frame=f + life)
+        if f > 1:
+            hide_until(o, f)
+        out.append(o)
+    return out
+
+
+def hooded_lamp(loc, energy=700.0, color=(1.0, 0.62, 0.3), reach=0.9, name="hlamp8", size_deg=105.0, tilt_deg=16.0):
+    """Wartime wall-bracket street lamp with a blackout hood. Bracket plate on a wall at loc (the wall faces -Y), lantern hangs
+    `reach` m out from it; light only goes downward. Returns {"root", "spot", "glow", "bulb_mat"}."""
+    root = empty(name, loc)
+    iron = L.mat_principled(name + "_iron", (0.018, 0.02, 0.018), rough=0.5, metal=0.7)
+    bm = bmesh.new()
+    _bx(bm, (0, -0.02, 0.0), (0.05, 0.02, 0.2))
+    _bx(bm, (0, -reach / 2, 0.12), (0.018, reach / 2, 0.018))
+    _taper_tube(bm, [Vector((0, -0.03, -0.16)), Vector((0, -reach * 0.72, 0.1))], [0.012, 0.012], sides=5)
+    _taper_tube(bm, [Vector((0, -reach, 0.12)), Vector((0, -reach, 0.0))], [0.012, 0.012], sides=5)
+    bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=20, radius1=0.27, radius2=0.05, depth=0.2,
+                          matrix=Matrix.Translation((0, -reach, -0.08)))
+    o = L.mesh_from_bm(name + "_iron", bm)
+    L.assign(o, iron)
+    o.parent = root
+    bm_ = L.mat_emission(name + "_bulb", (1.0, 0.66, 0.32), 14.0)
+    b = L.prim("sphere", loc=(0, -reach, -0.2), radius=0.045, segments=12, ring_count=8)
+    L.assign(b, bm_)
+    b.visible_shadow = False
+    b.parent = root
+    sp = L.spot((0, 0, 0), (math.radians(tilt_deg), 0, 0), energy=energy, size_deg=size_deg, blend=0.7, color=color, name=name + "_l",
+                radius=0.06)
+    sp.parent = root
+    sp.location = (0, -reach, -0.24)
+    pt = L.point((0, 0, 0), energy=energy * 0.03, color=color, radius=0.1, name=name + "_glow")
+    pt.parent = root
+    pt.location = (0, -reach, -0.3)
+    return {"root": root, "spot": sp, "glow": pt, "bulb_mat": bm_}
+
+
+def sandbags(loc, cols=5, rows=4, depth=2, size=(0.62, 0.3, 0.17), seed=4, name="sandbags", rot_z=0.0, taper=True, mat=None):
+    """Stack of filled sandbags as one mesh: rows along local X, `depth` bags thick toward -Y, base centred at loc.
+    taper: each row is one bag shorter than the row below."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    for r in range(rows):
+        nb = cols - (r if taper else 0)
+        if nb < 1:
+            break
+        for d in range(depth):
+            for c in range(nb):
+                x = (c - (nb - 1) / 2) * size[0] * 0.93 + (0.5 * size[0] * 0.93 if (r % 2 and not taper) else 0.0)
+                mtx = (Matrix.Translation((x + rnd.uniform(-0.03, 0.03), -d * size[1] * 0.9 + rnd.uniform(-0.02, 0.02),
+                                           (r + 0.5) * size[2] * 0.86))
+                       @ Matrix.Rotation(rnd.uniform(-0.09, 0.09), 4, "Z")
+                       @ Matrix.Diagonal((size[0] / 2, size[1] / 2, size[2] / 2 * rnd.uniform(0.9, 1.12), 1)))
+                res = bmesh.ops.create_icosphere(bm, subdivisions=2, radius=1.0)
+                for v in res["verts"]:
+                    co = v.co
+                    v.co = mtx @ Vector((math.copysign(abs(co.x) ** 0.55, co.x), math.copysign(abs(co.y) ** 0.55, co.y),
+                                         math.copysign(abs(co.z) ** 0.7, co.z)))
+    o = L.mesh_from_bm(name, bm)
+    L.smooth(o)
+    L.assign(o, mat or L.mat_noise_surface(name + "_m", (0.085, 0.07, 0.045), (0.21, 0.175, 0.12), scale=55, bump=0.35, voronoi=False,
+                                           rough=0.95))
+    o.location = loc
+    o.rotation_euler = (0, 0, rot_z)
+    return o
+
+
+def blackout_facade(name="facade", x0=-7.0, x1=7.0, h=7.6, y=0.0, up=((-4.3, 1.3), (0.0, 1.3), (4.3, 1.3)), down=((-4.3, 1.5),),
+                    door=(3.7, 1.1), floor_h=3.8, brick=None, seed=3, pipe_x=None, roof=True):
+    """Empty two-storey brick street front in the XZ plane at y, facing -Y. Upper sash windows are dark and taped with paper
+    crosses, ground-floor windows and the door are boarded over. Stone sills and lintels, string course, parapet, drainpipe,
+    slate roof slope and chimneys. One mesh. up / down: [(centre_x, width)], door: (centre_x, width) or None.
+    Returns {"obj", "up": [(x, w, z0, z1)], "down": [...], "door": (x, w, z1) or None}."""
+    rnd = random.Random(seed)
+    brick = brick or mat_sooty_brick(name + "_brick")
+    stone = L.mat_noise_surface(name + "_stone", (0.04, 0.04, 0.038), (0.12, 0.115, 0.105), scale=7, bump=0.3, voronoi=False, rough=0.85)
+    glass = L.mat_principled(name + "_glass", (0.004, 0.006, 0.01), rough=0.1, metal=0.2)
+    board = mat_planks(name + "_board", c1=(0.035, 0.025, 0.016), c2=(0.12, 0.085, 0.05), width=0.6, axis="X")
+    tape = L.mat_principled(name + "_tape", (0.4, 0.38, 0.31), rough=0.9)
+    frame = L.mat_principled(name + "_frame", (0.035, 0.04, 0.036), rough=0.6)
+    T = 0.32
+    bm = bmesh.new()
+    ups = [(x, w, floor_h + 0.75, floor_h + 2.55) for x, w in up]
+    dns = [(x, w, 0.95, 2.6) for x, w in down]
+    dr = (door[0], door[1], 0.0, 2.3) if door else None
+
+    def seg(a0, a1, b, t):
+        if a1 - a0 > 1e-4 and t - b > 1e-4:
+            _bx(bm, ((a0 + a1) / 2, y + T / 2, (b + t) / 2), ((a1 - a0) / 2, T / 2, (t - b) / 2), mi=0)
+
+    def band(z0, z1, openings):
+        cur = x0
+        for (x, w, b, t) in sorted(openings):
+            a0, a1 = x - w / 2, x + w / 2
+            seg(cur, a0, z0, z1)
+            seg(a0, a1, z0, b)
+            seg(a0, a1, t, z1)
+            cur = a1
+        seg(cur, x1, z0, z1)
+
+    band(0.0, floor_h, dns + ([dr] if dr else []))
+    band(floor_h, h, ups)
+    xc, hl = (x0 + x1) / 2, (x1 - x0) / 2
+    _bx(bm, (xc, y - 0.02, 0.22), (hl, 0.02, 0.22), mi=1)                      # plinth band
+    _bx(bm, (xc, y - 0.03, floor_h), (hl, 0.04, 0.09), mi=1)                   # string course
+    _bx(bm, (xc, y + T / 2 - 0.04, h + 0.1), (hl + 0.04, T / 2 + 0.09, 0.1), mi=1)  # coping
+    for (x, w, b, t) in ups:                                                   # taped sash windows
+        zc, hz = (b + t) / 2, (t - b) / 2
+        _bx(bm, (x, y + 0.2, zc), (w / 2, 0.01, hz), mi=2)
+        for sx in (-1, 1):
+            _bx(bm, (x + sx * (w / 2 - 0.03), y + 0.17, zc), (0.03, 0.03, hz), mi=5)
+        for zz in (b + 0.03, t - 0.03, zc):
+            _bx(bm, (x, y + 0.17, zz), (w / 2, 0.03, 0.03), mi=5)
+        _bx(bm, (x, y + 0.175, zc), (0.012, 0.02, hz), mi=5)
+        for sz in (-0.5, 0.5):
+            ang = math.atan2(hz - 0.06, w - 0.12)
+            dg = math.hypot(hz - 0.06, w - 0.12) / 2
+            for sg in (-1, 1):
+                _bx(bm, (x, y + 0.187, zc + sz * hz), (dg, 0.002, 0.022), ry=sg * ang, mi=4)
+        _bx(bm, (x, y - 0.03, b - 0.05), (w / 2 + 0.1, 0.09, 0.05), mi=1)
+        _bx(bm, (x, y - 0.012, t + 0.11), (w / 2 + 0.12, 0.03, 0.11), mi=1)
+    for (x, w, b, t) in dns + ([dr] if dr else []):                            # boarded openings
+        zc, hz = (b + t) / 2, (t - b) / 2
+        _bx(bm, (x, y + 0.26, zc), (w / 2, 0.01, hz), mi=2)
+        zz = b + 0.14
+        while zz < t - 0.05:
+            ph = rnd.uniform(0.09, 0.115)
+            _bx(bm, (x + rnd.uniform(-0.04, 0.04), y - 0.016, zz), (w / 2 + rnd.uniform(0.1, 0.2), 0.014, ph), ry=rnd.uniform(-0.035, 0.035), mi=3)
+            zz += ph * 2 + rnd.uniform(0.02, 0.09)
+        _bx(bm, (x, y - 0.04, zc), (math.hypot(w, 2 * hz) / 2 * 0.92, 0.012, 0.085), ry=math.atan2(2 * hz, w) * rnd.choice((-1, 1)), mi=3)
+        if b > 0.1:
+            _bx(bm, (x, y - 0.03, b - 0.05), (w / 2 + 0.1, 0.09, 0.05), mi=1)
+        else:
+            _bx(bm, (x, y - 0.18, 0.07), (w / 2 + 0.15, 0.2, 0.07), mi=1)        # door step
+        _bx(bm, (x, y - 0.012, t + 0.11), (w / 2 + 0.12, 0.03, 0.11), mi=1)
+    px = pipe_x if pipe_x is not None else x1 - 0.55
+    _taper_tube(bm, [Vector((px, y - 0.1, 0.0)), Vector((px, y - 0.1, h * 0.5)), Vector((px, y - 0.1, h + 0.05))], [0.055] * 3, sides=8, mi=5)
+    for zz in (0.9, h * 0.45, h - 0.6):
+        _bx(bm, (px, y - 0.07, zz), (0.08, 0.07, 0.03), mi=5)
+    if roof:
+        v = [bm.verts.new(p) for p in ((x0, y + T, h + 0.15), (x1, y + T, h + 0.15), (x1, y + 4.5, h + 2.6), (x0, y + 4.5, h + 2.6))]
+        f = bm.faces.new(v)
+        f.material_index = 1
+        for cx_ in (x0 + 1.6, x1 - 2.2):
+            _bx(bm, (cx_, y + 3.4, h + 2.6), (0.5, 0.35, 1.1), mi=0)
+            _bx(bm, (cx_, y + 3.4, h + 3.75), (0.56, 0.41, 0.06), mi=1)
+            for k in (-0.22, 0.22):
+                _taper_tube(bm, [Vector((cx_ + k, y + 3.4, h + 3.8)), Vector((cx_ + k, y + 3.4, h + 4.15))], [0.1, 0.08], sides=8, mi=1)
+    o = L.mesh_from_bm(name, bm)
+    o.data.materials.clear()
+    for mt in (brick, stone, glass, board, tape, frame):
+        o.data.materials.append(mt)
+    return {"obj": o, "up": ups, "down": dns, "door": (dr[0], dr[1], dr[3]) if dr else None}
+
+
+def mat_bark_old(name="oldbark", c1=(0.02, 0.018, 0.015), c2=(0.115, 0.1, 0.085), moss=(0.03, 0.045, 0.018), moss_amt=0.35):
+    """Deeply furrowed grey bark of an old tree: noise and Voronoi stretched along Z, mossy green in big patches."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    mp = n.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (7.0, 7.0, 0.9)
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 2.2
+    nz.inputs["Detail"].default_value = 8.0
+    nz.inputs["Roughness"].default_value = 0.65
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    vr = n.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = 3.0
+    l.new(mp.outputs[0], vr.inputs["Vector"])
+    hs = _mathn(n, l, "ADD", nz.outputs["Fac"], _mathn(n, l, "MULTIPLY", vr.outputs["Distance"], 0.6))
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.42
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].position = 0.95
+    ramp.color_ramp.elements[1].color = (*c2, 1)
+    l.new(hs, ramp.inputs["Fac"])
+    big = n.new("ShaderNodeTexNoise")
+    big.inputs["Scale"].default_value = 0.9
+    big.inputs["Detail"].default_value = 3.0
+    l.new(tc.outputs["Object"], big.inputs["Vector"])
+    mr = n.new("ShaderNodeValToRGB")
+    mr.color_ramp.elements[0].position = 0.5
+    mr.color_ramp.elements[0].color = (0, 0, 0, 1)
+    mr.color_ramp.elements[1].position = 0.68
+    mr.color_ramp.elements[1].color = (moss_amt, moss_amt, moss_amt, 1)
+    l.new(big.outputs["Fac"], mr.inputs["Fac"])
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    l.new(mr.outputs["Color"], mix.inputs[0])
+    l.new(ramp.outputs["Color"], mix.inputs[6])
+    mix.inputs[7].default_value = (*moss, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.95
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 1.0
+    bp.inputs["Distance"].default_value = 0.05
+    l.new(hs, bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def wych_elm(loc=(0, 0, 0), height=2.7, radius=0.8, seed=8, shoots=56, shoot_len=(2.2, 4.4), cleft=True, open_dir=-math.pi / 2,
+             leaves=False, name="elm", bark=None):
+    """Old pollarded wych elm: a short, very wide gnarled bole with root flares and a knuckled pollard head, an open hollow top
+    with a jagged rim, a dark cleft in the side facing open_dir (angle in the XY plane; default faces -Y) and a crown of thin
+    straight shoots. The hollow is modelled as darkness only (unlit black inner wall): nothing is inside it.
+    Returns {"root", "trunk", "shoots", "leaves", "rim_z", "r_rim", "r_in", "cleft": Vector (world), "rim": f(angle) -> z}."""
+    rnd = random.Random(seed)
+    root = empty(name, loc)
+    bark = bark or mat_bark_old(name + "_bark")
+    dark = L.mat_principled(name + "_void", (0.0, 0.0, 0.0), rough=1.0)
+    try:
+        dark.node_tree.nodes["Principled BSDF"].inputs["Specular IOR Level"].default_value = 0.0
+    except Exception:
+        pass
+    NA, NR = 72, 34
+    Hh, Rr = height, radius
+    ph = [rnd.uniform(0, 6.28) for _ in range(6)]
+    zc, zh, aw = 0.55 * Hh, 0.34 * Hh, 0.36
+
+    def adiff(a, b):
+        return (a - b + math.pi) % (2 * math.pi) - math.pi
+
+    def prof(t):
+        flare = 0.55 * (1 - smoothstep(0.0, 0.22, t)) ** 2
+        waist = -0.08 * math.sin(math.pi * min(1.0, t / 0.75))
+        head = 0.2 * smoothstep(0.6, 0.9, t) - 0.12 * smoothstep(0.93, 1.0, t)
+        return 1.0 + flare + waist + head
+
+    def rad(a, t):
+        lobes = 0.2 * (1 - smoothstep(0.0, 0.3, t)) * max(0.0, math.cos(5 * a + ph[0])) ** 2
+        ridges = 0.04 * math.sin(11 * a + ph[1] + 2.5 * t) + 0.025 * math.sin(23 * a + ph[2] - 4 * t)
+        lump = 0.1 * noise.noise(Vector((math.cos(a) * 1.6, math.sin(a) * 1.6, t * 2.2 + seed)))
+        knuckle = 0.1 * smoothstep(0.6, 0.9, t) * max(0.0, math.sin(7 * a + ph[3]))
+        return Rr * (prof(t) + lobes + ridges + lump + knuckle)
+
+    def rim(a):
+        return Hh * (1.0 + 0.05 * math.sin(3 * a + ph[4]) + 0.07 * noise.noise(Vector((math.cos(a) * 3, math.sin(a) * 3, seed * 1.7)))
+                     - (0.12 * max(0.0, math.cos(adiff(a, open_dir))) ** 6 if cleft else 0.0))
+
+    def opening(a, z):
+        if not cleft:
+            return 0.0
+        d = math.hypot(adiff(a, open_dir) / aw, (z - zc) / zh)
+        d *= 1 + 0.18 * noise.noise(Vector((a * 4, z * 3, seed + 3.3)))
+        return 1 - smoothstep(0.7, 1.05, d)
+
+    bm = bmesh.new()
+    Z0 = -0.3
+    rows, ofac = [], []
+    for j in range(NR + 1):
+        t = j / NR
+        row, orow = [], []
+        for k in range(NA):
+            a = 2 * math.pi * k / NA
+            z = Z0 + t * (rim(a) - Z0)
+            o_ = opening(a, z)
+            r = rad(a, t) * (1 - 0.62 * o_)
+            row.append(bm.verts.new((r * math.cos(a), r * math.sin(a), z)))
+            orow.append(o_)
+        rows.append(row)
+        ofac.append(orow)
+    for j in range(NR):
+        for k in range(NA):
+            k2 = (k + 1) % NA
+            f = bm.faces.new((rows[j][k], rows[j][k2], rows[j + 1][k2], rows[j + 1][k]))
+            if (ofac[j][k] + ofac[j][k2] + ofac[j + 1][k2] + ofac[j + 1][k]) / 4 > 0.5:
+                f.material_index = 1
+    # rim top, black inner wall and floor of the hollow
+    in1, in2 = [], []
+    for k in range(NA):
+        a = 2 * math.pi * k / NA
+        r = rad(a, 1.0)
+        in1.append(bm.verts.new((0.74 * r * math.cos(a), 0.74 * r * math.sin(a), rim(a) - 0.03)))
+        in2.append(bm.verts.new((0.7 * r * math.cos(a), 0.7 * r * math.sin(a), rim(a) - 1.5)))
+    cv = bm.verts.new((0, 0, Hh - 1.5))
+    top = rows[NR]
+    for k in range(NA):
+        k2 = (k + 1) % NA
+        bm.faces.new((top[k], top[k2], in1[k2], in1[k]))
+        f = bm.faces.new((in1[k], in1[k2], in2[k2], in2[k]))
+        f.material_index = 1
+        f = bm.faces.new((in2[k], in2[k2], cv))
+        f.material_index = 1
+    # burrs on the pollard head
+    for i in range(9):
+        a = open_dir + math.pi * (0.35 + 1.3 * i / 8) + rnd.uniform(-0.15, 0.15)
+        t = rnd.uniform(0.74, 0.93)
+        r = rad(a, t) * 0.96
+        rr = rnd.uniform(0.14, 0.26)
+        mtx = Matrix.Translation((r * math.cos(a), r * math.sin(a), Z0 + t * (rim(a) - Z0))) @ Matrix.Diagonal((rr, rr, rr * rnd.uniform(0.7, 1.0), 1))
+        bmesh.ops.create_icosphere(bm, subdivisions=2, radius=1.0, matrix=mtx)
+    trunk = L.mesh_from_bm(name + "_trunk", bm)
+    trunk.data.materials.clear()
+    trunk.data.materials.append(bark)
+    trunk.data.materials.append(dark)
+    L.smooth(trunk)
+    trunk.parent = root
+    # crown of thin shoots from the pollard head
+    bm = bmesh.new()
+    leaf_pts = []
+
+    def shoot(base, d0, ln, r0, twigs=True):
+        up = Vector((0, 0, 1))
+        p1 = base + d0 * ln * 0.3 + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * 0.04 * ln
+        p2 = base + d0 * ln * 0.65 + up * 0.06 * ln + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * 0.05 * ln
+        p3 = base + d0 * ln + up * 0.16 * ln + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * 0.05 * ln
+        _taper_tube(bm, [base, p1, p2, p3], [r0, r0 * 0.7, r0 * 0.42, 0.006], sides=5)
+        for q0, q1 in ((p1, p2), (p2, p3)):
+            for s in (0.25, 0.6, 0.95):
+                leaf_pts.append(q0.lerp(q1, s))
+            if twigs and rnd.random() < 0.6:
+                tb = q0.lerp(q1, rnd.uniform(0.2, 0.8))
+                td = (d0 + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(0.2, 0.9)))).normalized()
+                tl = rnd.uniform(0.35, 0.9)
+                _taper_tube(bm, [tb, tb + td * tl * 0.5, tb + td * tl + up * 0.08], [0.011, 0.007, 0.004], sides=3)
+                leaf_pts.append(tb + td * tl)
+
+    for i in range(shoots):
+        a = 2 * math.pi * (i + rnd.uniform(-0.4, 0.4)) / shoots
+        rb = rad(a, 1.0) * rnd.uniform(0.78, 0.97)
+        base = Vector((rb * math.cos(a), rb * math.sin(a), rim(a) - rnd.uniform(0.03, 0.22)))
+        tilt = rnd.uniform(0.05, 0.5) ** 1.0
+        az = a + rnd.uniform(-0.5, 0.5)
+        d0 = Vector((math.sin(tilt) * math.cos(az), math.sin(tilt) * math.sin(az), math.cos(tilt)))
+        shoot(base, d0, rnd.uniform(*shoot_len), rnd.uniform(0.026, 0.05))
+    for i in range(10):  # a few whippy shoots from the burrs lower down
+        a = open_dir + math.pi * rnd.uniform(0.3, 1.7)
+        t = rnd.uniform(0.5, 0.86)
+        rb = rad(a, t) * 0.98
+        base = Vector((rb * math.cos(a), rb * math.sin(a), Z0 + t * (rim(a) - Z0)))
+        d0 = Vector((math.cos(a) * 0.75, math.sin(a) * 0.75, 0.66)).normalized()
+        shoot(base, d0, rnd.uniform(0.9, 1.9), rnd.uniform(0.014, 0.024), twigs=False)
+    sh = L.mesh_from_bm(name + "_shoots", bm)
+    L.assign(sh, bark)
+    sh.parent = root
+    lv = None
+    if leaves:
+        bm = bmesh.new()
+        for p in leaf_pts:
+            for _ in range(rnd.randint(2, 4)):
+                c = p + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1))) * 0.16
+                mtx = (Matrix.Translation(c) @ Euler((rnd.uniform(0, 3.1), rnd.uniform(0, 3.1), rnd.uniform(0, 3.1))).to_matrix().to_4x4()
+                       @ Matrix.Diagonal((rnd.uniform(0.08, 0.13), rnd.uniform(0.05, 0.08), 1, 1)))
+                bmesh.ops.create_grid(bm, x_segments=1, y_segments=1, size=0.5, matrix=mtx)
+        lv = L.mesh_from_bm(name + "_leaves", bm)
+        L.assign(lv, L.mat_principled(name + "_leaf", (0.045, 0.1, 0.028), rough=0.9))
+        lv.visible_shadow = False
+        lv.parent = root
+    od = Vector((math.cos(open_dir), math.sin(open_dir), 0))
+    return {"root": root, "trunk": trunk, "shoots": sh, "leaves": lv, "rim_z": loc[2] + Hh, "r_rim": rad(open_dir + math.pi, 1.0),
+            "r_in": 0.74 * Rr, "cleft": Vector(loc) + od * (rad(open_dir, 0.5) * 0.9) + Vector((0, 0, zc)), "rim": rim, "rad": rad}
+
+
+def hollow_interior(height=1.9, radius=0.62, seed=5, name="hollow", shoots=24, r_top=0.8, mat=None):
+    """The inside of a hollow trunk for a straight-up POV: an inward-facing tube of rough dead wood (base z=0) that narrows to a
+    jagged open top at z~height, with a ring of thin shoots outside the rim. No floor and no contents are modelled.
+    Returns {"tube", "shoots", "rim_z", "r_open"}."""
+    rnd = random.Random(seed)
+    mat = mat or mat_bark_old(name + "_wood", c1=(0.03, 0.026, 0.02), c2=(0.2, 0.17, 0.13), moss_amt=0.15)
+    NA, NR = 64, 30
+    ph = [rnd.uniform(0, 6.28) for _ in range(4)]
+
+    def rim(a):
+        return height * (1.0 + 0.05 * math.sin(4 * a + ph[0]) + 0.07 * noise.noise(Vector((math.cos(a) * 3.5, math.sin(a) * 3.5, seed))))
+
+    def rad(a, t):
+        nar = 1.0 - (1.0 - r_top) * smoothstep(0.45, 1.0, t)
+        return radius * nar * (1 + 0.1 * noise.noise(Vector((math.cos(a) * 2, math.sin(a) * 2, t * 3 + seed))) + 0.04 * math.sin(9 * a + ph[1] + 3 * t)
+                               + 0.025 * math.sin(21 * a + ph[2]))
+
+    bm = bmesh.new()
+    rows = []
+    for j in range(NR + 1):
+        t = j / NR
+        rows.append([bm.verts.new((rad(2 * math.pi * k / NA, t) * math.cos(2 * math.pi * k / NA),
+                                   rad(2 * math.pi * k / NA, t) * math.sin(2 * math.pi * k / NA), -0.6 + t * (rim(2 * math.pi * k / NA) + 0.6)))
+                     for k in range(NA)])
+    for j in range(NR):
+        for k in range(NA):
+            k2 = (k + 1) % NA
+            bm.faces.new((rows[j][k], rows[j + 1][k], rows[j + 1][k2], rows[j][k2]))
+    # thick broken lip: turn the wall outwards at the top so the rim has an edge
+    lip = [bm.verts.new((rows[NR][k].co.x * 1.3, rows[NR][k].co.y * 1.3, rows[NR][k].co.z - 0.03)) for k in range(NA)]
+    for k in range(NA):
+        k2 = (k + 1) % NA
+        bm.faces.new((rows[NR][k], lip[k], lip[k2], rows[NR][k2]))
+    tube = L.mesh_from_bm(name + "_tube", bm)
+    L.assign(tube, mat)
+    L.smooth(tube)
+    bm = bmesh.new()
+    for i in range(shoots):
+        a = 2 * math.pi * (i + rnd.uniform(-0.4, 0.4)) / shoots
+        rb = rad(a, 1.0) * rnd.uniform(1.12, 1.3)
+        base = Vector((rb * math.cos(a), rb * math.sin(a), rim(a) - 0.1))
+        tilt = rnd.uniform(0.08, 0.42)
+        az = a + rnd.uniform(-0.4, 0.4)
+        d0 = Vector((math.sin(tilt) * math.cos(az), math.sin(tilt) * math.sin(az), math.cos(tilt)))
+        ln = rnd.uniform(2.2, 4.2)
+        r0 = rnd.uniform(0.022, 0.042)
+        p1 = base + d0 * ln * 0.4 + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0)) * 0.05 * ln
+        p2 = base + d0 * ln + Vector((0, 0, 0.12 * ln))
+        _taper_tube(bm, [base, p1, p2], [r0, r0 * 0.6, 0.006], sides=5)
+        if rnd.random() < 0.5:
+            td = (d0 + Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), 0.5))).normalized()
+            _taper_tube(bm, [p1, p1 + td * 0.7], [0.01, 0.004], sides=3)
+    sh = L.mesh_from_bm(name + "_shoots", bm)
+    L.assign(sh, L.mat_principled(name + "_shm", (0.01, 0.009, 0.008), rough=0.9))
+    return {"tube": tube, "shoots": sh, "rim_z": height, "r_open": radius * r_top}
+
+
+def mat_season_ground(name="seasonground", litter=((0.03, 0.019, 0.01), (0.1, 0.06, 0.028), (0.19, 0.125, 0.055)),
+                      green=((0.012, 0.03, 0.008), (0.06, 0.12, 0.03)), snow=(0.72, 0.78, 0.9), green_amt=0.0, snow_amt=0.0):
+    """Woodland floor whose season can be keyed: a dead-leaf carpet that blends to spring green and to snow.
+    Returns (material, {"green": socket, "snow": socket}); key socket.default_value 0..1."""
+    m, n, l = L._mat(name)
+    p = n["Principled BSDF"]
+    g = n.new("ShaderNodeNewGeometry")
+    big = n.new("ShaderNodeTexNoise")
+    big.inputs["Scale"].default_value = 0.35
+    big.inputs["Detail"].default_value = 5.0
+    l.new(g.outputs["Position"], big.inputs["Vector"])
+    fine = n.new("ShaderNodeTexNoise")
+    fine.inputs["Scale"].default_value = 14.0
+    fine.inputs["Detail"].default_value = 4.0
+    l.new(g.outputs["Position"], fine.inputs["Vector"])
+    vr = n.new("ShaderNodeTexVoronoi")
+    vr.inputs["Scale"].default_value = 26.0
+    l.new(g.outputs["Position"], vr.inputs["Vector"])
+    lr = n.new("ShaderNodeValToRGB")
+    lr.color_ramp.elements[0].position = 0.3
+    lr.color_ramp.elements[0].color = (*litter[0], 1)
+    lr.color_ramp.elements[1].position = 0.72
+    lr.color_ramp.elements[1].color = (*litter[2], 1)
+    e = lr.color_ramp.elements.new(0.5)
+    e.color = (*litter[1], 1)
+    l.new(_mathn(n, l, "ADD", _mathn(n, l, "MULTIPLY", fine.outputs["Fac"], 0.7), _mathn(n, l, "MULTIPLY", vr.outputs["Distance"], 0.5)),
+          lr.inputs["Fac"])
+    gr = n.new("ShaderNodeValToRGB")
+    gr.color_ramp.elements[0].position = 0.3
+    gr.color_ramp.elements[0].color = (*green[0], 1)
+    gr.color_ramp.elements[1].position = 0.7
+    gr.color_ramp.elements[1].color = (*green[1], 1)
+    l.new(fine.outputs["Fac"], gr.inputs["Fac"])
+    vg = n.new("ShaderNodeValue")
+    vg.outputs[0].default_value = green_amt
+    vs = n.new("ShaderNodeValue")
+    vs.outputs[0].default_value = snow_amt
+    gf = _mathn(n, l, "SUBTRACT", _mathn(n, l, "MULTIPLY", vg.outputs[0], 1.7), _mathn(n, l, "MULTIPLY", big.outputs["Fac"], 0.7), clamp=True)
+    m1 = n.new("ShaderNodeMix")
+    m1.data_type = "RGBA"
+    l.new(gf, m1.inputs[0])
+    l.new(lr.outputs["Color"], m1.inputs[6])
+    l.new(gr.outputs["Color"], m1.inputs[7])
+    sf = _mathn(n, l, "SUBTRACT", _mathn(n, l, "MULTIPLY", vs.outputs[0], 1.9), _mathn(n, l, "MULTIPLY", fine.outputs["Fac"], 0.9), clamp=True)
+    m2 = n.new("ShaderNodeMix")
+    m2.data_type = "RGBA"
+    l.new(sf, m2.inputs[0])
+    l.new(m1.outputs[2], m2.inputs[6])
+    m2.inputs[7].default_value = (*snow, 1)
+    l.new(m2.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.95
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.5
+    bp.inputs["Distance"].default_value = 0.04
+    l.new(_mathn(n, l, "ADD", fine.outputs["Fac"], _mathn(n, l, "MULTIPLY", vr.outputs["Distance"], 0.6)), bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m, {"green": vg.outputs[0], "snow": vs.outputs[0]}
+
+
+def key_socket(sock, pairs, interp="LINEAR"):
+    """Keyframe a node socket's default_value: pairs [(frame, value)]."""
+    for f, v in pairs:
+        sock.default_value = v
+        sock.keyframe_insert("default_value", frame=f)
+    nt = sock.id_data
+    if nt.animation_data and nt.animation_data.action:
+        for fc in L._fcurves(nt.animation_data.action):
+            for kp in fc.keyframe_points:
+                kp.interpolation = interp
+
+
+def obelisk(loc=(0, 0, 0), height=25.0, base=3.0, name="obelisk", mat=None):
+    """Tall stone obelisk: three square steps, a plain pedestal block with blank faces (for painted lettering), cornice, tapered
+    shaft and pyramidion. Faces are axis aligned; the front looks toward -Y.
+    Returns {"obj", "ped_hw", "ped_z0", "ped_z1", "ped_y", "shaft_z0", "top_z"} (z values and ped_y in world space)."""
+    mat = mat or L.mat_noise_surface(name + "_stone", (0.16, 0.145, 0.12), (0.4, 0.37, 0.31), scale=1.6, bump=0.35, voronoi=True, rough=0.9)
+    bm = bmesh.new()
+    z = 0.0
+    for hw, hh in ((base * 1.15, 0.3), (base * 0.98, 0.3), (base * 0.82, 0.3)):
+        _bx(bm, (0, 0, z + hh / 2), (hw, hw, hh / 2))
+        z += hh
+    ped_hw, ped_h = base * 0.62, base * 1.15
+    _bx(bm, (0, 0, z + ped_h / 2), (ped_hw, ped_hw, ped_h / 2))
+    ped_z0, ped_z1 = z, z + ped_h
+    z += ped_h
+    _bx(bm, (0, 0, z + 0.14), (ped_hw + 0.16, ped_hw + 0.16, 0.14))
+    z += 0.28
+    _bx(bm, (0, 0, z + 0.1), (ped_hw * 0.8, ped_hw * 0.8, 0.1))
+    z += 0.2
+    shaft_z0 = z
+    hw0, hw1 = base * 0.4, base * 0.24
+    zt = height - base * 0.45
+    vs = []
+    for zz, hw in ((z, hw0), (zt, hw1)):
+        vs.append([bm.verts.new((sx * hw, sy * hw, zz)) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+    apex = bm.verts.new((0, 0, height))
+    for k in range(4):
+        k2 = (k + 1) % 4
+        bm.faces.new((vs[0][k], vs[0][k2], vs[1][k2], vs[1][k]))
+        bm.faces.new((vs[1][k], vs[1][k2], apex))
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat)
+    o.location = loc
+    return {"obj": o, "ped_hw": ped_hw, "ped_z0": loc[2] + ped_z0, "ped_z1": loc[2] + ped_z1, "ped_y": loc[1] - ped_hw,
+            "shaft_z0": loc[2] + shaft_z0, "top_z": loc[2] + height}
+
+
+def archive_shelves(x0=-5.0, x1=5.0, y=0.0, levels=5, bay=1.05, depth=0.42, level_h=0.44, z0=0.12, seed=7, gap=None, name="arch",
+                    per_bay=3):
+    """Steel archive racking along X (front faces -Y) filled with lidded record boxes. Every box carries a blank paper label
+    with grey bars (no text). gap=(level, bay_index, slot) leaves one box missing and hangs its label from the shelf edge.
+    Returns {"gap": Vector (centre of the empty slot) or None, "tag": swinging label root or None, "top_z"}."""
+    rnd = random.Random(seed)
+    steel = L.mat_principled(name + "_steel", (0.08, 0.09, 0.09), rough=0.45, metal=0.8)
+    card = [L.mat_noise_surface(f"{name}_card{i}", tuple(c * 0.7 for c in col), col, scale=30, bump=0.1, voronoi=False, rough=0.9)
+            for i, col in enumerate(((0.3, 0.24, 0.16), (0.22, 0.2, 0.17), (0.26, 0.2, 0.12)))]
+    lid = L.mat_principled(name + "_lid", (0.075, 0.07, 0.06), rough=0.8)
+    paper = mat_paper(name + "_label", (0.72, 0.69, 0.58))
+    ink = L.mat_principled(name + "_ink", (0.12, 0.11, 0.1), rough=0.9)
+    bm = bmesh.new()
+    nb = int(round((x1 - x0) / bay))
+    top = z0 + levels * level_h
+    for i in range(nb + 1):
+        x = x0 + i * bay
+        for yy in (y + 0.02, y + depth - 0.02):
+            _bx(bm, (x, yy, top / 2 + 0.05), (0.022, 0.022, top / 2 + 0.05), mi=0)
+    for lv in range(levels + 1):
+        _bx(bm, ((x0 + x1) / 2, y + depth / 2, z0 + lv * level_h - 0.012), ((x1 - x0) / 2, depth / 2, 0.012), mi=0)
+    bw = (bay - 0.07) / per_bay
+    gap_c = None
+    for lv in range(levels):
+        for i in range(nb):
+            for s in range(per_bay):
+                cx = x0 + i * bay + 0.035 + bw * (s + 0.5)
+                zb = z0 + lv * level_h
+                if gap and (lv, i, s) == tuple(gap):
+                    gap_c = Vector((cx, y + 0.02, zb + 0.16))
+                    continue
+                hh = rnd.uniform(0.29, 0.33)
+                hw = bw / 2 - rnd.uniform(0.008, 0.02)
+                yo = rnd.uniform(0.0, 0.035)
+                mi = 1 + rnd.randrange(3)
+                _bx(bm, (cx, y + depth / 2 + yo, zb + hh / 2), (hw, depth / 2 - 0.03, hh / 2), rz=rnd.uniform(-0.02, 0.02), mi=mi)
+                _bx(bm, (cx, y + depth / 2 + yo, zb + hh - 0.03), (hw + 0.006, depth / 2 - 0.024, 0.035), mi=4)
+                yf = y + 0.03 + yo - 0.004
+                lw, lh = hw * 1.1, 0.085
+                _bx(bm, (cx, yf, zb + hh * 0.42), (lw / 2, 0.002, lh / 2), mi=5)
+                for q in range(3):
+                    _bx(bm, (cx - lw * 0.08 * (q % 2), yf - 0.002, zb + hh * 0.42 + 0.024 - q * 0.024), (lw * (0.36 - 0.07 * (q % 2)), 0.001, 0.005), mi=6)
+    o = L.mesh_from_bm(name, bm)
+    o.data.materials.clear()
+    for mt in [steel] + card + [lid, paper, ink]:
+        o.data.materials.append(mt)
+    tag = None
+    if gap_c is not None:
+        zt = gap_c.z - 0.16 + level_h - 0.026
+        tag = empty(name + "_tag", (gap_c.x - 0.05, y - 0.012, zt))
+        bm = bmesh.new()
+        _bx(bm, (0, 0, -0.105), (0.065, 0.0015, 0.045), mi=0)
+        for q in range(3):
+            _bx(bm, (-0.006 * (q % 2), -0.002, -0.085 - q * 0.02), (0.045 - 0.008 * (q % 2), 0.001, 0.0045), mi=1)
+        _taper_tube(bm, [Vector((0, 0, 0)), Vector((0.0, 0, -0.062))], [0.0018, 0.0018], sides=4, mi=1)
+        t = L.mesh_from_bm(name + "_tagm", bm)
+        t.data.materials.clear()
+        t.data.materials.append(paper)
+        t.data.materials.append(ink)
+        t.parent = tag
+    return {"obj": o, "gap": gap_c, "tag": tag, "top_z": top}
+
+
+def flat_figure(height=1.524, name="outline", color=(0.2, 0.2, 0.21), thick=0.012):
+    """Flat, featureless front-view outline of a standing woman (pictogram: head, shoulders, skirt, legs) in the XZ plane,
+    feet at z=0, facing -Y. No face, no features. Returns the object (origin at the feet)."""
+    half = [(0.022, 0.845), (0.125, 0.815), (0.147, 0.76), (0.152, 0.6), (0.142, 0.47), (0.12, 0.45), (0.137, 0.29), (0.068, 0.29),
+            (0.06, 0.07), (0.085, 0.0), (0.014, 0.0), (0.012, 0.29)]
+    pts = half + [(-x, z) for (x, z) in reversed(half)]
+    bm = bmesh.new()
+    vs = [bm.verts.new((x * height, 0, z * height)) for (x, z) in pts]
+    bm.faces.new(vs)
+    hv = [bm.verts.new((0.056 * height * math.cos(2 * math.pi * k / 28), 0, (0.925 + 0.075 * math.sin(2 * math.pi * k / 28)) * height))
+          for k in range(28)]
+    bm.faces.new(hv)
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, L.mat_principled(name + "_m", color, rough=0.95))
+    solidify(o, thick)
+    return o
+
+
+def stamp_mark(text, loc, size=0.26, rot=-0.14, color=(0.6, 0.03, 0.02), name="smark", frame=None, pad=0.14, glow=0.5):
+    """Red rubber-stamp impression on a vertical board (XZ plane, facing -Y): condensed capitals inside a ruled box.
+    frame: hidden before it and popped on at it. Returns the root empty."""
+    ink = L.mat_principled(name + "_ink", color, rough=0.6, emit=color, emit_strength=glow)
+    root = empty(name, loc)
+    t = L.text3d(text, loc=(0, 0, 0), size=size, extrude=0.0, mat=ink, name=name + "_t")
+    t.data.font = _font(F_ANTON) or t.data.font
+    t.data.align_y = "CENTER"
+    t.parent = root
+    bpy.context.view_layer.update()
+    w = t.dimensions.x + pad * 2
+    hh = size * 0.78 + pad * 1.5
+    fr = glow_poly(rect_pts(0, 0, w, hh, y=0.0), color=color, strength=glow, bevel=size * 0.045, closed=True, name=name + "_box")
+    fr.parent = root
+    root.rotation_euler = (0, rot, 0)
+    if frame is not None:
+        root.scale = (1.7,) * 3
+        root.keyframe_insert("scale", frame=max(1, frame - 1))
+        root.scale = (0.96,) * 3
+        root.keyframe_insert("scale", frame=frame + 1)
+        root.scale = (1.0,) * 3
+        root.keyframe_insert("scale", frame=frame + 4)
+        hide_until(root, frame)
+    return root
+
+
+def wood_ladder(base, top, width=0.42, rung=0.28, name="ladder", mat=None):
+    """Wooden ladder leaning from base (x, y, z) up to top (x, y, z): two rails and round rungs, one mesh."""
+    a, b = Vector(base), Vector(top)
+    d = (b - a).normalized()
+    side = d.cross(Vector((0, 0, 1)))
+    side = side.normalized() if side.length > 1e-4 else Vector((1, 0, 0))
+    bm = bmesh.new()
+    for s in (-1, 1):
+        _taper_tube(bm, [a + side * s * width / 2, b + side * s * width / 2], [0.026, 0.024], sides=6)
+    k = 1
+    ln = (b - a).length
+    while k * rung < ln - 0.1:
+        c = a + d * k * rung
+        _taper_tube(bm, [c - side * width / 2, c + side * width / 2], [0.014, 0.014], sides=5)
+        k += 1
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat or L.mat_noise_surface(name + "_m", (0.07, 0.05, 0.03), (0.2, 0.15, 0.09), scale=14, bump=0.2, voronoi=False))
+    return o
+
+
+def canvas_screen(p0, p1, height=1.9, name="screen", color=(0.34, 0.32, 0.25), billow=0.07, seed=2):
+    """Canvas screen stretched between two poles standing at ground points p0 and p1 (x, y, z): one mesh for the poles,
+    one for the cloth. Returns (cloth, poles)."""
+    a, b = Vector(p0), Vector(p1)
+    bm = bmesh.new()
+    for p in (a, b):
+        _taper_tube(bm, [p + Vector((0, 0, -0.1)), p + Vector((0, 0, height + 0.25))], [0.03, 0.026], sides=6)
+    poles = L.mesh_from_bm(name + "_poles", bm)
+    L.assign(poles, L.mat_noise_surface(name + "_pm", (0.06, 0.045, 0.03), (0.17, 0.13, 0.08), scale=14, bump=0.2, voronoi=False))
+    nrm = (b - a).cross(Vector((0, 0, 1))).normalized()
+    bm = bmesh.new()
+    nu, nv = 14, 8
+    grid = []
+    for j in range(nv + 1):
+        row = []
+        for i in range(nu + 1):
+            u, v = i / nu, j / nv
+            p = a.lerp(b, u) + Vector((0, 0, 0.12 + (height - 0.12) * v - 0.05 * math.sin(math.pi * u) * (1 if j == nv else 0.4)))
+            p += nrm * billow * math.sin(math.pi * u) * math.sin(math.pi * v) * (1 + 0.4 * noise.noise(Vector((u * 3, v * 3, seed))))
+            row.append(bm.verts.new(p))
+        grid.append(row)
+    for j in range(nv):
+        for i in range(nu):
+            bm.faces.new((grid[j][i], grid[j][i + 1], grid[j + 1][i + 1], grid[j + 1][i]))
+    cloth = L.mesh_from_bm(name + "_cloth", bm)
+    L.smooth(cloth)
+    L.assign(cloth, L.mat_noise_surface(name + "_cm", tuple(c * 0.7 for c in color), color, scale=30, bump=0.15, voronoi=False, rough=0.95))
+    return cloth, poles
+
+
+def plain_shoe(loc, rot_z=0.0, length=0.245, color=(0.035, 0.06, 0.13), sole=(0.5, 0.45, 0.36), name="shoe"):
+    """Generic low shoe lying on a table (lofted): pale crepe sole, plain dark upper open at the top, low heel.
+    No maker's mark and no wear detail. Root at loc, toe toward local +X."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    Ln = length
+    st = [(0.0, 0.22, 0.86), (0.05, 0.6, 1.0), (0.2, 0.8, 1.0), (0.4, 0.72, 0.84), (0.55, 0.84, 0.6), (0.72, 1.0, 0.48), (0.86, 0.9, 0.4),
+          (0.96, 0.55, 0.3), (1.0, 0.16, 0.2)]
+    hwm, hm, sole_t = Ln * 0.165, Ln * 0.26, Ln * 0.07
+    K = 10
+    bm = bmesh.new()
+    rings = []
+    for (t, w, h) in st:
+        rings.append([bm.verts.new((t * Ln, w * hwm * math.cos(math.pi * k / K), sole_t + h * hm * math.sin(math.pi * k / K) ** 0.8))
+                      for k in range(K + 1)])
+    for j in range(len(st) - 1):
+        t0, t1 = st[j][0], st[j + 1][0]
+        for k in range(K):
+            ang = (k + 0.5) / K
+            if 0.04 < t0 and t1 < 0.6 and 0.24 < ang < 0.76:  # open top
+                continue
+            bm.faces.new((rings[j][k], rings[j + 1][k], rings[j + 1][k + 1], rings[j][k + 1]))
+    for ring in (rings[0], rings[-1]):
+        try:
+            bm.faces.new(ring)
+        except Exception:
+            pass
+    up = L.mesh_from_bm(name + "_upper", bm)
+    L.assign(up, L.mat_principled(name + "_um", color, rough=0.55))
+    L.smooth(up)
+    up.parent = root
+    bm = bmesh.new()
+    outline = [(t * Ln, w * hwm * 1.08) for (t, w, h) in st] + [(t * Ln, -w * hwm * 1.08) for (t, w, h) in reversed(st)]
+    lo = [bm.verts.new((x - 0.004 * (1 if x < Ln / 2 else -1), yy, 0.0)) for x, yy in outline]
+    hi = [bm.verts.new((x - 0.004 * (1 if x < Ln / 2 else -1), yy, sole_t)) for x, yy in outline]
+    bm.faces.new(hi)
+    bm.faces.new(list(reversed(lo)))
+    for k in range(len(outline)):
+        k2 = (k + 1) % len(outline)
+        bm.faces.new((lo[k], lo[k2], hi[k2], hi[k]))
+    so = L.mesh_from_bm(name + "_sole", bm)
+    L.assign(so, L.mat_noise_surface(name + "_sm", tuple(c * 0.75 for c in sole), sole, scale=120, bump=0.3, voronoi=True, rough=0.95))
+    so.parent = root
+    ins = L.prim("plane", loc=(Ln * 0.32, 0, sole_t + 0.002), size=1)
+    ins.scale = (Ln * 0.56, hwm * 1.3, 1)
+    L.assign(ins, L.mat_principled(name + "_in", (0.012, 0.01, 0.009), rough=0.9))
+    ins.parent = root
+    return root
+
+
+def gold_ring(loc, radius=0.0095, name="ring", rot=(0, 0, 0)):
+    """Plain thin gold band lying flat (no stone, no engraving)."""
+    o = L.prim("torus", loc=loc, rot=rot, major_radius=radius, minor_radius=radius * 0.14, major_segments=40, minor_segments=10, name=name)
+    L.assign(o, L.mat_principled(name + "_m", (1.0, 0.72, 0.3), rough=0.22, metal=1.0))
+    L.smooth(o)
+    return o
+
+
+def striped_scrap(loc, size=(0.13, 0.085), rot_z=0.0, name="scrap8", c1=(0.2, 0.18, 0.13), c2=(0.045, 0.05, 0.07), seed=3, stripe=0.012):
+    """Small ragged scrap of striped knitted cloth lying flat: rumpled grid with a torn edge, generic two-tone stripes."""
+    rnd = random.Random(seed)
+    nu, nv = 22, 14
+    bm = bmesh.new()
+    grid = []
+    for j in range(nv + 1):
+        row = []
+        for i in range(nu + 1):
+            u, v = i / nu - 0.5, j / nv - 0.5
+            edge = 1 + 0.16 * noise.noise(Vector((u * 5, v * 5, seed)))
+            row.append(bm.verts.new((u * size[0] * edge, v * size[1] * edge, 0.003 + 0.004 * noise.noise(Vector((u * 7, v * 7, seed + 9))))))
+        grid.append(row)
+    for j in range(nv):
+        for i in range(nu):
+            if (i in (0, nu - 1) or j in (0, nv - 1)) and rnd.random() < 0.35:
+                continue
+            bm.faces.new((grid[j][i], grid[j][i + 1], grid[j + 1][i + 1], grid[j + 1][i]))
+    o = L.mesh_from_bm(name, bm)
+    L.smooth(o)
+    m, n, l = L._mat(name + "_m")
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sep.inputs[0])
+    band = _mathn(n, l, "LESS_THAN", _mathn(n, l, "FRACT", _mathn(n, l, "DIVIDE", sep.outputs["X"], stripe * 2)), 0.5)
+    mix = n.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    l.new(band, mix.inputs[0])
+    mix.inputs[6].default_value = (*c1, 1)
+    mix.inputs[7].default_value = (*c2, 1)
+    l.new(mix.outputs[2], p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 1.0
+    wv = n.new("ShaderNodeTexWave")
+    wv.inputs["Scale"].default_value = 900.0
+    l.new(tc.outputs["Object"], wv.inputs["Vector"])
+    bp = n.new("ShaderNodeBump")
+    bp.inputs["Strength"].default_value = 0.3
+    l.new(wv.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    L.assign(o, m)
+    o.location = loc
+    o.rotation_euler = (0, 0, rot_z)
+    return o
+
+
+def paper_tag(loc, rot_z=0.0, size=(0.055, 0.03), string_to=None, name="tag8"):
+    """Small buff evidence tag lying flat with two grey bars (no text) and an optional string to a point (x, y, z)."""
+    bm = bmesh.new()
+    _bx(bm, (0, 0, 0.0008), (size[0] / 2, size[1] / 2, 0.0008), mi=0)
+    for q in range(2):
+        _bx(bm, (0.004, size[1] * (0.15 - 0.34 * q), 0.0018), (size[0] * (0.3 - 0.06 * q), 0.0018, 0.0003), mi=1)
+    o = L.mesh_from_bm(name, bm)
+    o.data.materials.clear()
+    o.data.materials.append(mat_paper(name + "_p", (0.62, 0.52, 0.34)))
+    o.data.materials.append(L.mat_principled(name + "_i", (0.1, 0.09, 0.08), rough=0.9))
+    o.location = loc
+    o.rotation_euler = (0, 0, rot_z)
+    if string_to is not None:
+        c, s = math.cos(rot_z), math.sin(rot_z)
+        a = Vector((loc[0] - size[0] / 2 * c, loc[1] - size[0] / 2 * s, loc[2] + 0.002))
+        b = Vector(string_to)
+        mid = a.lerp(b, 0.5) + Vector((0.01, 0.012, 0.0))
+        bm = bmesh.new()
+        _taper_tube(bm, [a, mid, b], [0.0007] * 3, sides=4)
+        st = L.mesh_from_bm(name + "_str", bm)
+        L.assign(st, L.mat_principled(name + "_sm", (0.5, 0.45, 0.35), rough=0.9))
+    return o
+
+
+def wind_grass(name, x0, x1, y0, y1, zf=None, count=3000, seed=4, h=(0.22, 0.5), mat=None, wind=0.05, speed=0.25, avoid=None):
+    """Field of grass blades (one mesh of thin triangles) that sways in the wind: a Wave modifier pushes the blade tips
+    sideways (vertex weights rise toward the tip). The object carries a dummy keyframe so studio_lib.bake_static() leaves the
+    modifier live. avoid(x, y) -> True skips a spot."""
+    rnd = random.Random(seed)
+    zf = zf or (lambda x, y: 0.0)
+    bm = bmesh.new()
+    dl = bm.verts.layers.deform.verify()
+    for i in range(count):
+        x, y = rnd.uniform(x0, x1), rnd.uniform(y0, y1)
+        if avoid and avoid(x, y):
+            continue
+        z = zf(x, y) - 0.02
+        hh = rnd.uniform(*h)
+        a = rnd.uniform(0, math.pi)
+        w = hh * rnd.uniform(0.05, 0.09)
+        dx, dy = math.cos(a) * w, math.sin(a) * w
+        v0 = bm.verts.new((x - dx, y - dy, z))
+        v1 = bm.verts.new((x + dx, y + dy, z))
+        v2 = bm.verts.new((x + rnd.uniform(-0.25, 0.25) * hh, y + rnd.uniform(-0.25, 0.25) * hh, z + hh))
+        v0[dl][0] = 0.0
+        v1[dl][0] = 0.0
+        v2[dl][0] = 1.0
+        bm.faces.new((v0, v1, v2))
+    o = L.mesh_from_bm(name, bm)
+    o.vertex_groups.new(name="tip")
+    L.assign(o, mat or L.mat_principled(name + "_m", (0.07, 0.075, 0.03), rough=1.0))
+    o.visible_shadow = False
+    wv = o.modifiers.new("wind", "WAVE")
+    wv.use_normal = True
+    wv.use_x, wv.use_y, wv.use_cyclic = True, False, True
+    wv.height, wv.width, wv.narrowness, wv.speed = wind, 5.0, 0.5, speed
+    wv.time_offset = -300
+    wv.vertex_group = "tip"
+    o.keyframe_insert("location", frame=1)
+    return o
+
+
+def falling_leaves(spots, f0, f1, color=(0.28, 0.14, 0.04), size=0.05, fall=1.6, drift=(0.3, 0.1), seed=1, name="fleaf"):
+    """A few single leaves (thin quads, one object each) tumbling down between frames f0 and f1; hidden outside that window.
+    spots: start points (x, y, z). These are objects, not a particle cloud: keep them some metres from the camera."""
+    rnd = random.Random(seed)
+    m = L.mat_principled(name + "_m", color, rough=0.9)
+    me = bpy.data.meshes.new(name)
+    me.from_pydata([(-0.5, -0.3, 0), (0.5, -0.3, 0), (0.5, 0.3, 0), (-0.5, 0.3, 0)], [], [(0, 1, 2, 3)])
+    me.update()
+    me.materials.append(m)
+    out = []
+    for i, p in enumerate(spots):
+        o = L.link(bpy.data.objects.new(f"{name}{i}", me))
+        o.visible_shadow = False
+        s = size * rnd.uniform(0.7, 1.2)
+        fa = f0 + rnd.uniform(0, 0.25) * (f1 - f0)
+        fb = f1 - rnd.uniform(0, 0.2) * (f1 - f0)
+        sway = rnd.uniform(0.1, 0.25) * rnd.choice((-1, 1))
+        steps = 4
+        for k in range(steps + 1):
+            u = k / steps
+            o.location = (p[0] + drift[0] * u + sway * math.sin(u * math.pi * 2), p[1] + drift[1] * u, p[2] - fall * u)
+            o.rotation_euler = (rnd.uniform(0, 6.3), rnd.uniform(0, 6.3), rnd.uniform(0, 6.3))
+            o.keyframe_insert("location", frame=fa + (fb - fa) * u)
+            o.keyframe_insert("rotation_euler", frame=fa + (fb - fa) * u)
+        for f, sc in ((max(1, int(fa) - 1), 0.0001), (int(fa) + 1, s), (int(fb) - 1, s), (int(fb) + 1, 0.0001)):
+            o.scale = (sc, sc, sc)
+            o.keyframe_insert("scale", frame=f)
+        out.append(o)
+    return out

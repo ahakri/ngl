@@ -291,11 +291,11 @@
       "events": [
        [
         "1910",
-        "small TB hospital, ~50 beds"
+        "TB hospital"
        ],
        [
         "1926",
-        "five-storey building"
+        "five storeys"
        ]
       ]
      }
@@ -432,7 +432,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "closed June 1961; antibiotics cut TB cases"
      }
     },
@@ -626,7 +626,7 @@
      "type": "text",
      "text": "6,000 - 8,000",
      "params": {
-      "y": 1060,
+      "y": 1450,
       "size": 110
      }
     }
@@ -667,14 +667,6 @@
      "params": {
       "y": 200,
       "sub": "tours run by the owners"
-     }
-    },
-    {
-     "type": "card",
-     "text": "The building now sells\nghost tours",
-     "params": {
-      "header": "WHAT SCEPTICS SAY",
-      "y": 1150
      }
     }
    ],

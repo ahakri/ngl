@@ -219,7 +219,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "near Midlothian, Illinois"
      }
     },
@@ -538,7 +538,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "the photo, described, not shown"
      }
     },
@@ -629,14 +629,6 @@
      "params": {
       "y": 200,
       "sub": "sceptics: double exposure"
-     }
-    },
-    {
-     "type": "card",
-     "text": "Double exposure?\nTwo images, one frame",
-     "params": {
-      "header": "WHAT SCEPTICS SAY",
-      "y": 1150
      }
     }
    ],

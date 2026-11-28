@@ -437,7 +437,7 @@
      "start": 1.2,
      "params": {
       "size": 90,
-      "y": 1470
+      "y": 420
      }
     },
     {
@@ -478,7 +478,7 @@
    "overlay": [
     {
      "type": "card",
-     "text": "~6 months of food and water",
+     "text": "6 months of food and water",
      "start": 0.5,
      "params": {
       "header": "FOUND ABOARD",
@@ -616,7 +616,7 @@
      "start": 2.0,
      "params": {
       "size": 80,
-      "y": 1450
+      "y": 1650
      }
     }
    ],
@@ -696,7 +696,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],

@@ -176,7 +176,7 @@ def compose(id_, preview=False, until=None):
     vf = f"ass={ass}:fontsdir={os.path.join(os.path.dirname(__file__), 'fonts')}"
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-i", mix_path, "-vf", vf, "-c:v", "libx264", "-preset", "medium" if not preview else "veryfast", "-crf", "21" if not preview else "28", "-maxrate", "5M" if not preview else "3M", "-bufsize", "10M",
-           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.84:level=disabled", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", tmp_out]
+           "-pix_fmt", "yuv420p", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.80:level=disabled", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-t", f"{nfr / FPS:.3f}", "-shortest", "-movflags", "+faststart", tmp_out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     rng = np.random.default_rng(1)
     cache = {}

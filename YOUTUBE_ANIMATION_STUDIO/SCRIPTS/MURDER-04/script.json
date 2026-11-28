@@ -475,7 +475,8 @@
      "params": {
       "style": "paper",
       "title": "1969 - CIPHER No. 1",
-      "size": 40
+      "size": 40,
+      "cps": 80
      }
     },
     {
@@ -483,7 +484,7 @@
      "text": "DOCUMENTED FACT",
      "duration": 2.3,
      "params": {
-      "y": 200
+      "y": 1420
      }
     },
     {
@@ -989,7 +990,8 @@
      "params": {
       "style": "telegram",
       "title": "FBI SAN FRANCISCO",
-      "size": 30
+      "size": 30,
+      "cps": 60
      }
     },
     {
@@ -1060,7 +1062,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],
@@ -1209,7 +1211,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],
@@ -1330,7 +1332,8 @@
      "text": "In memory of the Zodiac's victims\nSources in description",
      "start": 0.4,
      "params": {
-      "y": 1500
+      "y": 1500,
+      "cps": 50
      }
     }
    ],
