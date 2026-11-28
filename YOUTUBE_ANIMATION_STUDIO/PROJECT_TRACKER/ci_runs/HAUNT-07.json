@@ -1,14 +1,14 @@
 {
  "id": "HAUNT-07",
- "run_id": "46094140957",
- "sha": "f0d41b397f89889278f21ac3c8514b800082114b",
+ "run_id": "46095080662",
+ "sha": "78308f5ccb3db7857178f3e74da9c0d781e77537",
  "render_seconds": 0,
- "assemble_qc_seconds": 374,
+ "assemble_qc_seconds": 355,
  "frames": 1191,
  "seconds_per_frame": 0.0,
  "auto_verdict": "PASS",
  "fail": [],
  "duration_s": 48.33,
  "lufs": -14.7,
- "true_peak": -1.6
+ "true_peak": -1.5
 }
