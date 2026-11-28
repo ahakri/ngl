@@ -1,14 +1,16 @@
 {
  "id": "CAVE-02",
- "run_id": "46079759846",
- "sha": "6f668fbea7a24e7e73843bd5a4b1ccf4db18c72b",
- "render_seconds": 5231,
- "assemble_qc_seconds": 465,
+ "run_id": "46094140957",
+ "sha": "f0d41b397f89889278f21ac3c8514b800082114b",
+ "render_seconds": 0,
+ "assemble_qc_seconds": 368,
  "frames": 1554,
- "seconds_per_frame": 3.37,
- "auto_verdict": "PASS",
- "fail": [],
+ "seconds_per_frame": 0.0,
+ "auto_verdict": "FAIL",
+ "fail": [
+  "true peak -0.8 dBTP above -1 dBTP"
+ ],
  "duration_s": 62.7,
- "lufs": -14.5,
- "true_peak": -1.1
+ "lufs": -14.6,
+ "true_peak": -0.8
 }

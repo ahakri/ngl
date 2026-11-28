@@ -5,13 +5,15 @@
   "fps": "24/1",
   "duration_s": 62.7,
   "has_audio": true,
-  "integrated_lufs": -14.5,
-  "true_peak_dbfs": -1.1,
+  "integrated_lufs": -14.6,
+  "true_peak_dbfs": -0.8,
   "black_segments": [],
   "frozen_starts": [],
   "silences": [],
   "missing_frames": []
  },
- "fail": [],
- "auto_verdict": "PASS"
+ "fail": [
+  "true peak -0.8 dBTP above -1 dBTP"
+ ],
+ "auto_verdict": "FAIL"
 }
