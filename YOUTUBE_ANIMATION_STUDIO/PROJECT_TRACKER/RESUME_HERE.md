@@ -26,3 +26,9 @@ finished videos are updated with `python3 PIPELINE/compose.py <ID>` (no re-rende
 - After a video arrives: look at `QUALITY_CONTROL/<ID>/qc_frames.png`, fix overlay issues in script.json, re-assemble (locally if the frames
   are here, otherwise via a CI request with reuse_frames), then write `QUALITY_CONTROL/<ID>/QC_REPORT.md` with `VERDICT: PASS`.
 - Go easy on agents: each animation agent uses a large share of a 5-hour usage window. Rendering and QC come first.
+
+## PAUSED by the owner — 2026-11-28 02:05 UTC
+- Hourly heartbeat disabled (trigger "Studio overnight heartbeat"), local render queue stopped, no agents running.
+- 20 of 32 Shorts finished (QC PASS). Still pending, already requested on the CI render farm before the pause (results land on the branch by
+  themselves): re-assembly of SCUBA-05, CAVE-02, CAVE-03, CAVE-05, CAVE-07, SCUBA-07, HAUNT-07, SCUBA-08; MURDER-03 S16 re-render;
+  first renders of MURDER-07, MURDER-08, HAUNT-10. On resume: `git pull`, review those with QC, re-enable the heartbeat.
