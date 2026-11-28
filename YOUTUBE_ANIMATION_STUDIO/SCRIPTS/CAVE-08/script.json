@@ -1,1000 +1,1000 @@
 {
-  "id": "CAVE-08",
-  "title": "The Swimming Hole That Hid a Diver for 21 Years",
-  "category": "cave",
-  "voice": "am_adam",
-  "speed": 0.96,
-  "mood": "cave",
-  "target_seconds": 60,
-  "lines": [
+ "id": "CAVE-08",
+ "title": "The Swimming Hole That Hid a Diver for 21 Years",
+ "category": "cave",
+ "voice": "am_adam",
+ "speed": 0.96,
+ "mood": "cave",
+ "target_seconds": 60,
+ "lines": [
+  {
+   "id": "L01",
+   "text": "A diver stayed missing under this swimming hole for 21 years.",
+   "pause_after": 0.2,
+   "shot": "S01",
+   "emphasis": [
+    "missing",
+    "21",
+    "years"
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "Thirty feet down, the well turns into a flooded cave.",
+   "pause_after": 0.2,
+   "shot": "S02",
+   "emphasis": [
+    "Thirty",
+    "cave"
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "The water wells up from an aquifer below.",
+   "pause_after": 0.2,
+   "shot": "S03",
+   "emphasis": [
+    "aquifer"
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "This is Jacob's Well, in Wimberley, Texas.",
+   "pause_after": 0.25,
+   "shot": "S04",
+   "emphasis": [
+    "Jacob's",
+    "Well"
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Its chambers drop more than a hundred feet.",
+   "pause_after": 0.25,
+   "shot": "S05",
+   "emphasis": [
+    "hundred"
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Divers have died in them. Nobody even agrees how many.",
+   "pause_after": 0.35,
+   "shot": "S06",
+   "emphasis": [
+    "died",
+    "Nobody"
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "In 1979, two young divers went in together.",
+   "pause_after": 0.2,
+   "shot": "S07",
+   "emphasis": [
+    "1979",
+    "two"
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Neither came back up.",
+   "pause_after": 0.75,
+   "shot": "S08",
+   "emphasis": [
+    "Neither"
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "Deeper in, the passages squeeze down tight.",
+   "pause_after": 0.15,
+   "shot": "S09",
+   "emphasis": [
+    "tight"
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "And the floor is loose gravel that can slide.",
+   "pause_after": 0.3,
+   "shot": "S10",
+   "emphasis": [
+    "gravel",
+    "slide"
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Recovery divers went in after them, but couldn't bring them out.",
+   "pause_after": 0.3,
+   "shot": "S11",
+   "emphasis": [
+    "couldn't"
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "One of the recovery divers then built a grate to keep others out.",
+   "pause_after": 0.35,
+   "shot": "S12",
+   "emphasis": [
+    "grate"
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "In 1981, a flood carried one of the young divers back out.",
+   "pause_after": 0.35,
+   "shot": "S13",
+   "emphasis": [
+    "1981",
+    "flood"
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "The other stayed lost.",
+   "pause_after": 0.25,
+   "shot": "S14",
+   "emphasis": [
+    "lost"
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "For 21 years.",
+   "pause_after": 0.75,
+   "shot": "S14",
+   "emphasis": [
+    "21",
+    "years"
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "In 2000, a recovery team pushed into the fourth chamber.",
+   "pause_after": 0.25,
+   "shot": "S15",
+   "emphasis": [
+    "2000",
+    "fourth"
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "And there, at last, they found him.",
+   "pause_after": 0.6,
+   "shot": "S16",
+   "emphasis": [
+    "found"
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "Today, scuba diving here is banned, except for one exploration team.",
+   "pause_after": 0.3,
+   "shot": "S17",
+   "emphasis": [
+    "banned"
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "And from up top, it still looks like a swimming hole.",
+   "pause_after": 0.2,
+   "shot": "S18",
+   "emphasis": [
+    "swimming",
+    "hole"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "lines": [
+    "L01"
+   ],
+   "environment": "other:texas_creek_swimming_hole",
+   "description": "COLD OPEN, moving at frame 1. Bright summer day over a shallow limestone creek bed shaded by tall cypress trees. In the middle of a pale rock shelf, a round hole about 4 m across glows deep blue, fading to black at its centre. Two faceless swimmers float at the hole's rim, feet dangling over the dark. The camera is already dropping and tilting toward the mouth.",
+   "camera": "24 mm drone, descending from ~12 m to ~4 m above the water while tilting from 45° to straight down",
+   "characters": [
+    "swimmer_A (red swimsuit, faceless, generic)",
+    "swimmer_B (yellow swimsuit, faceless, generic)"
+   ],
+   "lighting": "hard high sun from upper left, dappled cypress shade; cyan glow inside the hole, black core",
+   "fx": [
+    "sun glints",
+    "ripple rings"
+   ],
+   "overlay": [
     {
-      "id": "L01",
-      "text": "A diver stayed missing under this swimming hole for 21 years.",
-      "pause_after": 0.2,
-      "shot": "S01",
-      "emphasis": [
-        "missing",
-        "21",
-        "years"
+     "type": "text",
+     "text": "21 YEARS",
+     "params": {
+      "y": 420,
+      "size": 120,
+      "color": [
+       64,
+       224,
+       208
       ]
-    },
-    {
-      "id": "L02",
-      "text": "Thirty feet down, the well turns into a flooded cave.",
-      "pause_after": 0.2,
-      "shot": "S02",
-      "emphasis": [
-        "Thirty",
-        "cave"
-      ]
-    },
-    {
-      "id": "L03",
-      "text": "The water wells up from an aquifer below.",
-      "pause_after": 0.2,
-      "shot": "S03",
-      "emphasis": [
-        "aquifer"
-      ]
-    },
-    {
-      "id": "L04",
-      "text": "This is Jacob's Well, in Wimberley, Texas.",
-      "pause_after": 0.25,
-      "shot": "S04",
-      "emphasis": [
-        "Jacob's",
-        "Well"
-      ]
-    },
-    {
-      "id": "L05",
-      "text": "Its chambers drop more than a hundred feet.",
-      "pause_after": 0.25,
-      "shot": "S05",
-      "emphasis": [
-        "hundred"
-      ]
-    },
-    {
-      "id": "L06",
-      "text": "Divers have died in them. Nobody even agrees how many.",
-      "pause_after": 0.35,
-      "shot": "S06",
-      "emphasis": [
-        "died",
-        "Nobody"
-      ]
-    },
-    {
-      "id": "L07",
-      "text": "In 1979, two young divers went in together.",
-      "pause_after": 0.2,
-      "shot": "S07",
-      "emphasis": [
-        "1979",
-        "two"
-      ]
-    },
-    {
-      "id": "L08",
-      "text": "Neither came back up.",
-      "pause_after": 0.75,
-      "shot": "S08",
-      "emphasis": [
-        "Neither"
-      ]
-    },
-    {
-      "id": "L09",
-      "text": "Deeper in, the passages squeeze down tight.",
-      "pause_after": 0.15,
-      "shot": "S09",
-      "emphasis": [
-        "tight"
-      ]
-    },
-    {
-      "id": "L10",
-      "text": "And the floor is loose gravel that can slide.",
-      "pause_after": 0.3,
-      "shot": "S10",
-      "emphasis": [
-        "gravel",
-        "slide"
-      ]
-    },
-    {
-      "id": "L11",
-      "text": "Recovery divers went in after them, but couldn't bring them out.",
-      "pause_after": 0.3,
-      "shot": "S11",
-      "emphasis": [
-        "couldn't"
-      ]
-    },
-    {
-      "id": "L12",
-      "text": "One of the recovery divers then built a grate to keep others out.",
-      "pause_after": 0.35,
-      "shot": "S12",
-      "emphasis": [
-        "grate"
-      ]
-    },
-    {
-      "id": "L13",
-      "text": "In 1981, a flood carried one of the young divers back out.",
-      "pause_after": 0.35,
-      "shot": "S13",
-      "emphasis": [
-        "1981",
-        "flood"
-      ]
-    },
-    {
-      "id": "L14",
-      "text": "The other stayed lost.",
-      "pause_after": 0.25,
-      "shot": "S14",
-      "emphasis": [
-        "lost"
-      ]
-    },
-    {
-      "id": "L15",
-      "text": "For 21 years.",
-      "pause_after": 0.75,
-      "shot": "S14",
-      "emphasis": [
-        "21",
-        "years"
-      ]
-    },
-    {
-      "id": "L16",
-      "text": "In 2000, a recovery team pushed into the fourth chamber.",
-      "pause_after": 0.25,
-      "shot": "S15",
-      "emphasis": [
-        "2000",
-        "fourth"
-      ]
-    },
-    {
-      "id": "L17",
-      "text": "And there, at last, they found him.",
-      "pause_after": 0.6,
-      "shot": "S16",
-      "emphasis": [
-        "found"
-      ]
-    },
-    {
-      "id": "L18",
-      "text": "Today, scuba diving here is banned, except for one exploration team.",
-      "pause_after": 0.3,
-      "shot": "S17",
-      "emphasis": [
-        "banned"
-      ]
-    },
-    {
-      "id": "L19",
-      "text": "And from up top, it still looks like a swimming hole.",
-      "pause_after": 0.2,
-      "shot": "S18",
-      "emphasis": [
-        "swimming",
-        "hole"
-      ]
+     }
     }
-  ],
-  "shots": [
+   ],
+   "sfx": [
     {
-      "id": "S01",
-      "lines": [
-        "L01"
-      ],
-      "environment": "other:texas_creek_swimming_hole",
-      "description": "COLD OPEN, moving at frame 1. Bright summer day over a shallow limestone creek bed shaded by tall cypress trees. In the middle of a pale rock shelf, a round hole about 4 m across glows deep blue, fading to black at its centre. Two faceless swimmers float at the hole's rim, feet dangling over the dark. The camera is already dropping and tilting toward the mouth.",
-      "camera": "24 mm drone, descending from ~12 m to ~4 m above the water while tilting from 45° to straight down",
-      "characters": [
-        "swimmer_A (red swimsuit, faceless, generic)",
-        "swimmer_B (yellow swimsuit, faceless, generic)"
-      ],
-      "lighting": "hard high sun from upper left, dappled cypress shade; cyan glow inside the hole, black core",
-      "fx": [
-        "sun glints",
-        "ripple rings"
-      ],
-      "overlay": [
-        {
-          "type": "text",
-          "text": "21 YEARS",
-          "params": {
-            "y": 420,
-            "size": 120,
-            "color": [
-              64,
-              224,
-              208
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.25
-        },
-        {
-          "name": "sting",
-          "offset": 1.9,
-          "gain": 0.4
-        }
-      ],
-      "transition_in": "cut"
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
     },
     {
-      "id": "S02",
-      "lines": [
-        "L02"
-      ],
-      "environment": "other:vertical_spring_shaft",
-      "description": "Underwater, looking straight down the vertical shaft: bright aqua daylight from the mouth above fades to teal-black below. The two swimmers' legs hang as dark silhouettes against the bright circle at the top of frame. Grey limestone walls slide upward as the camera sinks; at the bottom the shaft bends away into a dark, angled opening.",
-      "camera": "20 mm, straight down, continuous sink; last second pitches toward the bend",
-      "characters": [
-        "swimmer_A / swimmer_B (legs only, silhouettes at the surface)"
-      ],
-      "lighting": "daylight shafts from above (god rays) fading to black; faint cyan fill",
-      "fx": [
-        "volumetric_water",
-        "fine silt",
-        "god rays"
-      ],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "",
-          "params": {
-            "from": 0,
-            "to": 30,
-            "max": 140,
-            "unit": "ft",
-            "speed": 0.9
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.5
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.3,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S03",
-      "lines": [
-        "L03"
-      ],
-      "environment": "other:spring_vent",
-      "description": "At the bend below the shaft: sand grains and fine silt on the floor shiver and lift, carried by clear water flowing up and out of a dark opening deeper down. A steady stream of particles rises past the lens toward the light.",
-      "camera": "28 mm low, slow push toward the dark opening; particles stream toward camera",
-      "characters": [],
-      "lighting": "dim teal from above; black opening; particles catch a soft cyan fill",
-      "fx": [
-        "rising particles (upwelling)",
-        "silt shimmer"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.2,
-          "gain": 0.2
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.8,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S04",
-      "lines": [
-        "L04"
-      ],
-      "environment": "map",
-      "description": "Map card over a slow, wide aerial of the creek and its cypress banks (S01 set from ~60 m, defocused): a simplified Texas outline, a route line drawing in from the north-east toward the Hill Country, a pin dropping on Wimberley.",
-      "camera": "2.5D map card; background aerial drifts slowly",
-      "characters": [],
-      "lighting": "background daylight, map card self-lit",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "map",
-          "text": "JACOB'S WELL",
-          "params": {
-            "points": [
-              [
-                0.66,
-                0.36
-              ],
-              [
-                0.6,
-                0.47
-              ],
-              [
-                0.56,
-                0.55
-              ]
-            ],
-            "pin": -1,
-            "land": [
-              [
-                0.05,
-                0.42
-              ],
-              [
-                0.3,
-                0.42
-              ],
-              [
-                0.3,
-                0.08
-              ],
-              [
-                0.55,
-                0.08
-              ],
-              [
-                0.56,
-                0.3
-              ],
-              [
-                0.78,
-                0.34
-              ],
-              [
-                0.95,
-                0.36
-              ],
-              [
-                0.96,
-                0.62
-              ],
-              [
-                0.84,
-                0.78
-              ],
-              [
-                0.66,
-                0.97
-              ],
-              [
-                0.55,
-                0.9
-              ],
-              [
-                0.46,
-                0.72
-              ],
-              [
-                0.32,
-                0.64
-              ],
-              [
-                0.22,
-                0.7
-              ],
-              [
-                0.12,
-                0.56
-              ]
-            ]
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "whoosh",
-          "offset": 0.0,
-          "gain": 0.35
-        },
-        {
-          "name": "click",
-          "offset": 1.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "whip"
-    },
-    {
-      "id": "S05",
-      "lines": [
-        "L05"
-      ],
-      "environment": "other:cave_cross_section",
-      "description": "Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest; a dashed line continues past chamber 4 (the diagram does not claim the cave ends there). A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.",
-      "camera": "2.5D orthographic, slow pan down following the dot",
-      "characters": [
-        "cyan diver dot (abstract)"
-      ],
-      "lighting": "graphic: emissive outlines on dark rock",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "depth",
-          "text": "AND DEEPER",
-          "params": {
-            "from": 0,
-            "to": 100,
-            "max": 140,
-            "unit": "ft",
-            "speed": 0.9
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sonar",
-          "offset": 0.2,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S06",
-      "lines": [
-        "L06"
-      ],
-      "environment": "document",
-      "description": "A paper note slides up over a wet rock slab lit by a dive torch; the counts are typed, then each is struck through, ending on NO AGREED COUNT. A coil of guideline and a torch lie on the rock.",
-      "camera": "top-down 50 mm, slight rotation",
-      "characters": [],
-      "lighting": "single warm torch beam sweeping the slab",
-      "fx": [
-        "drips"
-      ],
-      "overlay": [
-        {
-          "type": "document",
-          "text": "DIVERS WHO DIED HERE:\n~~9?~~\n~~12?~~\n~~MORE?~~\nNO AGREED COUNT",
-          "params": {
-            "style": "paper",
-            "title": "JACOB'S WELL",
-            "rot": -3,
-            "size": 46,
-            "y": 70
-          }
-        },
-        {
-          "type": "label",
-          "text": "DISPUTED",
-          "params": {
-            "y": 610
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "typewriter",
-          "offset": 0.3,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S07",
-      "lines": [
-        "L07"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Inside the angled passage below the shaft: two faceless divers with single back-mounted tanks and handheld lights glide side by side down the slope; their two beams sweep the walls; fin kicks lift small puffs of silt.",
-      "camera": "35 mm, tracking behind and slightly above the pair",
-      "characters": [
-        "diver_A (blue fins, single tank, handheld light, faceless, generic)",
-        "diver_B (white fins, single tank, handheld light, faceless, generic)"
-      ],
-      "lighting": "their two torches only; very dim teal ambient",
-      "fx": [
-        "silt puffs",
-        "bubbles",
-        "volumetric_water"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "1979",
-          "params": {
-            "y": 300
-          }
-        },
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.2,
-          "gain": 0.4
-        },
-        {
-          "name": "breath",
-          "offset": 0.5,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S08",
-      "lines": [
-        "L08"
-      ],
-      "environment": "cave_tunnel",
-      "description": "Looking down the same passage from above: the two lights shrink away around a bend and disappear. Their glow lingers on the silt for a moment, then the frame is black except for faint teal walls. Nothing comes back.",
-      "camera": "35 mm locked, very slow push",
-      "characters": [
-        "diver_A / diver_B (lights only, receding)"
-      ],
-      "lighting": "two receding torches, then near-black",
-      "fx": [
-        "silt settling",
-        "volumetric_water"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "heartbeat",
-          "offset": 0.2,
-          "gain": 0.3
-        },
-        {
-          "name": "rumble",
-          "offset": 0.6,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S09",
-      "lines": [
-        "L09"
-      ],
-      "environment": "other:gravel_restriction",
-      "description": "POV squeeze: the camera pushes forward through a low, flat slot. The rock ceiling is inches above a floor of pebbles, and the torch beam shows the gap narrowing ahead.",
-      "camera": "POV 18 mm, slow forward push, slight handheld",
-      "characters": [],
-      "lighting": "one torch from the camera position; everything else black",
-      "fx": [
-        "silt",
-        "volumetric_water"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.45
-        },
-        {
-          "name": "creak",
-          "offset": 0.8,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S10",
-      "lines": [
-        "L10"
-      ],
-      "environment": "other:gravel_restriction",
-      "description": "Macro on a steep gravel slope at the mouth of the slot: pebbles tick loose one by one, then a small slide pours down into the gap and throws up a brown silt plume that swallows the torch beam.",
-      "camera": "50 mm macro, locked, slight push",
-      "characters": [],
-      "lighting": "single torch beam raking across the slope",
-      "fx": [
-        "gravel slide",
-        "silt plume"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.3,
-          "gain": 0.45
-        },
-        {
-          "name": "hit",
-          "offset": 1.2,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S11",
-      "lines": [
-        "L11"
-      ],
-      "environment": "other:gravel_restriction",
-      "description": "Two faceless recovery divers with bright lights approach the slope at the slot. Gravel trickles and silt boils up into their beams; after a moment their lights pull back the way they came. No one is shown trapped.",
-      "camera": "35 mm side angle, slow lateral move",
-      "characters": [
-        "recovery_diver_A (black suit, orange fins, faceless)",
-        "recovery_diver_B (black suit, white fins, faceless)"
-      ],
-      "lighting": "their two strong beams; silt glowing in the light",
-      "fx": [
-        "silt",
-        "bubbles",
-        "gravel trickle"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "breath",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.6,
-          "gain": 0.35
-        },
-        {
-          "name": "rumble",
-          "offset": 1.5,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S12",
-      "lines": [
-        "L12"
-      ],
-      "environment": "other:cave_grate",
-      "description": "A dark side opening in the passage wall is blocked by a crude grate of welded rebar bars set in a rough grey concrete collar. A diver's torch beam passes across it; silt drifts through the bars.",
-      "camera": "35 mm, slow push toward the grate, slight handheld",
-      "characters": [
-        "diver hand torch (beam only)"
-      ],
-      "lighting": "one torch beam sweeping; dim teal ambient",
-      "fx": [
-        "silt",
-        "volumetric_water"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "click",
-          "offset": 0.4,
-          "gain": 0.3
-        },
-        {
-          "name": "underwater_amb",
-          "offset": 0.0,
-          "gain": 0.35
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S13",
-      "lines": [
-        "L13"
-      ],
-      "environment": "other:creek_flood",
-      "description": "The creek in flood: fast brown water churns over the limestone shelf, hiding the well's mouth completely; rain lashes the surface and broken branches race past. Nothing else is shown.",
-      "camera": "28 mm low over the water, handheld, slow pan with the current",
-      "characters": [],
-      "lighting": "dark overcast, flat grey light, rain streaks",
-      "fx": [
-        "rain",
-        "turbulent water",
-        "debris"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "1981",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "rumble",
-          "offset": 0.0,
-          "gain": 0.4
-        },
-        {
-          "name": "thunder",
-          "offset": 0.6,
-          "gain": 0.35
-        },
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.3
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S14",
-      "lines": [
-        "L14",
-        "L15"
-      ],
-      "environment": "other:cave_cross_section",
-      "description": "MID-POINT TURN. Back to the side-section: one cyan dot sits motionless in the deepest (fourth) chamber and slowly dims to a faint ember while a counter climbs to 21. Then near-silence.",
-      "camera": "2.5D orthographic, slow push in on the deepest chamber",
-      "characters": [
-        "cyan dot (abstract)"
-      ],
-      "lighting": "graphic; the dot's glow fades",
-      "fx": [],
-      "overlay": [
-        {
-          "type": "counter",
-          "text": "YEARS MISSING",
-          "params": {
-            "from": 0,
-            "to": 21,
-            "y": 380
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.0,
-          "gain": 0.3
-        },
-        {
-          "name": "heartbeat",
-          "offset": 1.8,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S15",
-      "lines": [
-        "L16"
-      ],
-      "environment": "other:fourth_chamber",
-      "description": "Bright modern lights: two faceless recovery divers squeeze through a tight gap into a small chamber with pale, smooth, undisturbed limestone walls; their beams fan across it.",
-      "camera": "28 mm, slow push following the second diver through the gap",
-      "characters": [
-        "recovery_diver_C (black suit, yellow fins, faceless)",
-        "recovery_diver_D (black suit, white fins, faceless)"
-      ],
-      "lighting": "two strong canister lights; pale walls bounce soft light",
-      "fx": [
-        "silt",
-        "bubbles",
-        "volumetric_water"
-      ],
-      "overlay": [
-        {
-          "type": "stamp",
-          "text": "2000",
-          "params": {
-            "y": 300
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "bubbles",
-          "offset": 0.2,
-          "gain": 0.35
-        },
-        {
-          "name": "sonar",
-          "offset": 1.0,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "fade_black"
-    },
-    {
-      "id": "S16",
-      "lines": [
-        "L17"
-      ],
-      "environment": "other:fourth_chamber",
-      "description": "The two beams converge on a narrow dark gap in the chamber floor; silt drifts slowly through the light. One diver rests a gloved hand on the rock beside it. Nothing else is shown. A small memorial line fades in.",
-      "camera": "50 mm, slow push down toward the gap",
-      "characters": [
-        "recovery_diver_C / recovery_diver_D (hands and lights only)"
-      ],
-      "lighting": "two beams pooled on the floor; everything else dark",
-      "fx": [
-        "silt",
-        "volumetric_water"
-      ],
-      "overlay": [
-        {
-          "type": "label",
-          "text": "DOCUMENTED FACT",
-          "params": {
-            "y": 200
-          }
-        },
-        {
-          "type": "text",
-          "text": "KENT MAUPIN  ·  MARK BRASHIER\n1979",
-          "params": {
-            "y": 860,
-            "size": 54
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "sting",
-          "offset": 0.3,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S17",
-      "lines": [
-        "L18"
-      ],
-      "environment": "other:texas_creek_swimming_hole",
-      "description": "Present day, daylight at the rock ledge beside the hole: a plain park sign on a post reads NO SCUBA DIVING; behind it the calm blue mouth. A card slides in.",
-      "camera": "35 mm, slow arc past the sign toward the water",
-      "characters": [],
-      "lighting": "clean midday sun; blue glow from the hole",
-      "fx": [
-        "ripples",
-        "sun glints"
-      ],
-      "overlay": [
-        {
-          "type": "card",
-          "text": "No scuba diving, except\nthe Jacob's Well Exploration Project",
-          "params": {
-            "header": "TODAY",
-            "y": 820
-          }
-        }
-      ],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.25
-        },
-        {
-          "name": "click",
-          "offset": 0.5,
-          "gain": 0.25
-        }
-      ],
-      "transition_in": "cut"
-    },
-    {
-      "id": "S18",
-      "lines": [
-        "L19"
-      ],
-      "environment": "other:texas_creek_swimming_hole",
-      "description": "LOOP FRAME: the camera rises back into the S01 drone position: sunlit creek, cypress shade, the round blue mouth with a swimmer floating at its rim. The final frame matches frame 1, so a replay flows into 'A diver stayed missing under this swimming hole…'.",
-      "camera": "24 mm drone, rising and tilting up; ends on S01's first-frame pose",
-      "characters": [
-        "swimmer_A (red swimsuit, faceless, generic)"
-      ],
-      "lighting": "hard high sun; cyan glow in the hole",
-      "fx": [
-        "sun glints",
-        "ripple rings"
-      ],
-      "overlay": [],
-      "sfx": [
-        {
-          "name": "wind",
-          "offset": 0.0,
-          "gain": 0.25
-        },
-        {
-          "name": "bubbles",
-          "offset": 0.2,
-          "gain": 0.2
-        }
-      ],
-      "transition_in": "cut"
+     "name": "sting",
+     "offset": 1.9,
+     "gain": 0.4
     }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S02",
+   "lines": [
+    "L02"
+   ],
+   "environment": "other:vertical_spring_shaft",
+   "description": "Underwater, looking straight down the vertical shaft: bright aqua daylight from the mouth above fades to teal-black below. The two swimmers' legs hang as dark silhouettes against the bright circle at the top of frame. Grey limestone walls slide upward as the camera sinks; at the bottom the shaft bends away into a dark, angled opening.",
+   "camera": "20 mm, straight down, continuous sink; last second pitches toward the bend",
+   "characters": [
+    "swimmer_A / swimmer_B (legs only, silhouettes at the surface)"
+   ],
+   "lighting": "daylight shafts from above (god rays) fading to black; faint cyan fill",
+   "fx": [
+    "volumetric_water",
+    "fine silt",
+    "god rays"
+   ],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "",
+     "params": {
+      "from": 0,
+      "to": 30,
+      "max": 140,
+      "unit": "ft",
+      "speed": 0.9
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.5
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S03",
+   "lines": [
+    "L03"
+   ],
+   "environment": "other:spring_vent",
+   "description": "At the bend below the shaft: sand grains and fine silt on the floor shiver and lift, carried by clear water flowing up and out of a dark opening deeper down. A steady stream of particles rises past the lens toward the light.",
+   "camera": "28 mm low, slow push toward the dark opening; particles stream toward camera",
+   "characters": [],
+   "lighting": "dim teal from above; black opening; particles catch a soft cyan fill",
+   "fx": [
+    "rising particles (upwelling)",
+    "silt shimmer"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.2,
+     "gain": 0.2
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.8,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S04",
+   "lines": [
+    "L04"
+   ],
+   "environment": "map",
+   "description": "Map card over a slow, wide aerial of the creek and its cypress banks (S01 set from ~60 m, defocused): a simplified Texas outline, a route line drawing in from the north-east toward the Hill Country, a pin dropping on Wimberley.",
+   "camera": "2.5D map card; background aerial drifts slowly",
+   "characters": [],
+   "lighting": "background daylight, map card self-lit",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "map",
+     "text": "JACOB'S WELL",
+     "params": {
+      "points": [
+       [
+        0.66,
+        0.36
+       ],
+       [
+        0.6,
+        0.47
+       ],
+       [
+        0.56,
+        0.55
+       ]
+      ],
+      "pin": -1,
+      "land": [
+       [
+        0.05,
+        0.42
+       ],
+       [
+        0.3,
+        0.42
+       ],
+       [
+        0.3,
+        0.08
+       ],
+       [
+        0.55,
+        0.08
+       ],
+       [
+        0.56,
+        0.3
+       ],
+       [
+        0.78,
+        0.34
+       ],
+       [
+        0.95,
+        0.36
+       ],
+       [
+        0.96,
+        0.62
+       ],
+       [
+        0.84,
+        0.78
+       ],
+       [
+        0.66,
+        0.97
+       ],
+       [
+        0.55,
+        0.9
+       ],
+       [
+        0.46,
+        0.72
+       ],
+       [
+        0.32,
+        0.64
+       ],
+       [
+        0.22,
+        0.7
+       ],
+       [
+        0.12,
+        0.56
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "offset": 0.0,
+     "gain": 0.35
+    },
+    {
+     "name": "click",
+     "offset": 1.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "whip"
+  },
+  {
+   "id": "S05",
+   "lines": [
+    "L05"
+   ],
+   "environment": "other:cave_cross_section",
+   "description": "Pattern interrupt: animated side-section of the cave. A short vertical entrance shaft (~30 ft) drops from the creek surface, then a passage angles down through four chambers that pop in one after another, numbered 1 to 4, the last one deepest; a dashed line continues past chamber 4 (the diagram does not claim the cave ends there). A cyan diver dot travels down the passage; a depth ruler in feet runs on the right.",
+   "camera": "2.5D orthographic, slow pan down following the dot",
+   "characters": [
+    "cyan diver dot (abstract)"
+   ],
+   "lighting": "graphic: emissive outlines on dark rock",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "depth",
+     "text": "AND DEEPER",
+     "params": {
+      "from": 0,
+      "to": 100,
+      "max": 140,
+      "unit": "ft",
+      "speed": 0.9
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sonar",
+     "offset": 0.2,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S06",
+   "lines": [
+    "L06"
+   ],
+   "environment": "document",
+   "description": "A paper note slides up over a wet rock slab lit by a dive torch; the counts are typed, then each is struck through, ending on NO AGREED COUNT. A coil of guideline and a torch lie on the rock.",
+   "camera": "top-down 50 mm, slight rotation",
+   "characters": [],
+   "lighting": "single warm torch beam sweeping the slab",
+   "fx": [
+    "drips"
+   ],
+   "overlay": [
+    {
+     "type": "document",
+     "text": "DIVERS WHO DIED HERE:\n~~9?~~\n~~12?~~\n~~MORE?~~\nNO AGREED COUNT",
+     "params": {
+      "style": "paper",
+      "title": "JACOB'S WELL",
+      "rot": -3,
+      "size": 46,
+      "y": 70
+     }
+    },
+    {
+     "type": "label",
+     "text": "DISPUTED",
+     "params": {
+      "y": 610
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "typewriter",
+     "offset": 0.3,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S07",
+   "lines": [
+    "L07"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Inside the angled passage below the shaft: two faceless divers with single back-mounted tanks and handheld lights glide side by side down the slope; their two beams sweep the walls; fin kicks lift small puffs of silt.",
+   "camera": "35 mm, tracking behind and slightly above the pair",
+   "characters": [
+    "diver_A (blue fins, single tank, handheld light, faceless, generic)",
+    "diver_B (white fins, single tank, handheld light, faceless, generic)"
+   ],
+   "lighting": "their two torches only; very dim teal ambient",
+   "fx": [
+    "silt puffs",
+    "bubbles",
+    "volumetric_water"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "1979",
+     "params": {
+      "y": 300
+     }
+    },
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.2,
+     "gain": 0.4
+    },
+    {
+     "name": "breath",
+     "offset": 0.5,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S08",
+   "lines": [
+    "L08"
+   ],
+   "environment": "cave_tunnel",
+   "description": "Looking down the same passage from above: the two lights shrink away around a bend and disappear. Their glow lingers on the silt for a moment, then the frame is black except for faint teal walls. Nothing comes back.",
+   "camera": "35 mm locked, very slow push",
+   "characters": [
+    "diver_A / diver_B (lights only, receding)"
+   ],
+   "lighting": "two receding torches, then near-black",
+   "fx": [
+    "silt settling",
+    "volumetric_water"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "offset": 0.2,
+     "gain": 0.3
+    },
+    {
+     "name": "rumble",
+     "offset": 0.6,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S09",
+   "lines": [
+    "L09"
+   ],
+   "environment": "other:gravel_restriction",
+   "description": "POV squeeze: the camera pushes forward through a low, flat slot. The rock ceiling is inches above a floor of pebbles, and the torch beam shows the gap narrowing ahead.",
+   "camera": "POV 18 mm, slow forward push, slight handheld",
+   "characters": [],
+   "lighting": "one torch from the camera position; everything else black",
+   "fx": [
+    "silt",
+    "volumetric_water"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.45
+    },
+    {
+     "name": "creak",
+     "offset": 0.8,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S10",
+   "lines": [
+    "L10"
+   ],
+   "environment": "other:gravel_restriction",
+   "description": "Macro on a steep gravel slope at the mouth of the slot: pebbles tick loose one by one, then a small slide pours down into the gap and throws up a brown silt plume that swallows the torch beam.",
+   "camera": "50 mm macro, locked, slight push",
+   "characters": [],
+   "lighting": "single torch beam raking across the slope",
+   "fx": [
+    "gravel slide",
+    "silt plume"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.3,
+     "gain": 0.45
+    },
+    {
+     "name": "hit",
+     "offset": 1.2,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S11",
+   "lines": [
+    "L11"
+   ],
+   "environment": "other:gravel_restriction",
+   "description": "Two faceless recovery divers with bright lights approach the slope at the slot. Gravel trickles and silt boils up into their beams; after a moment their lights pull back the way they came. No one is shown trapped.",
+   "camera": "35 mm side angle, slow lateral move",
+   "characters": [
+    "recovery_diver_A (black suit, orange fins, faceless)",
+    "recovery_diver_B (black suit, white fins, faceless)"
+   ],
+   "lighting": "their two strong beams; silt glowing in the light",
+   "fx": [
+    "silt",
+    "bubbles",
+    "gravel trickle"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "breath",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.6,
+     "gain": 0.35
+    },
+    {
+     "name": "rumble",
+     "offset": 1.5,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S12",
+   "lines": [
+    "L12"
+   ],
+   "environment": "other:cave_grate",
+   "description": "A dark side opening in the passage wall is blocked by a crude grate of welded rebar bars set in a rough grey concrete collar. A diver's torch beam passes across it; silt drifts through the bars.",
+   "camera": "35 mm, slow push toward the grate, slight handheld",
+   "characters": [
+    "diver hand torch (beam only)"
+   ],
+   "lighting": "one torch beam sweeping; dim teal ambient",
+   "fx": [
+    "silt",
+    "volumetric_water"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "click",
+     "offset": 0.4,
+     "gain": 0.3
+    },
+    {
+     "name": "underwater_amb",
+     "offset": 0.0,
+     "gain": 0.35
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S13",
+   "lines": [
+    "L13"
+   ],
+   "environment": "other:creek_flood",
+   "description": "The creek in flood: fast brown water churns over the limestone shelf, hiding the well's mouth completely; rain lashes the surface and broken branches race past. Nothing else is shown.",
+   "camera": "28 mm low over the water, handheld, slow pan with the current",
+   "characters": [],
+   "lighting": "dark overcast, flat grey light, rain streaks",
+   "fx": [
+    "rain",
+    "turbulent water",
+    "debris"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "1981",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rumble",
+     "offset": 0.0,
+     "gain": 0.4
+    },
+    {
+     "name": "thunder",
+     "offset": 0.6,
+     "gain": 0.35
+    },
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.3
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S14",
+   "lines": [
+    "L14",
+    "L15"
+   ],
+   "environment": "other:cave_cross_section",
+   "description": "MID-POINT TURN. Back to the side-section: one cyan dot sits motionless in the deepest (fourth) chamber and slowly dims to a faint ember while a counter climbs to 21. Then near-silence.",
+   "camera": "2.5D orthographic, slow push in on the deepest chamber",
+   "characters": [
+    "cyan dot (abstract)"
+   ],
+   "lighting": "graphic; the dot's glow fades",
+   "fx": [],
+   "overlay": [
+    {
+     "type": "counter",
+     "text": "YEARS MISSING",
+     "params": {
+      "from": 0,
+      "to": 21,
+      "y": 380
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.0,
+     "gain": 0.3
+    },
+    {
+     "name": "heartbeat",
+     "offset": 1.8,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S15",
+   "lines": [
+    "L16"
+   ],
+   "environment": "other:fourth_chamber",
+   "description": "Bright modern lights: two faceless recovery divers squeeze through a tight gap into a small chamber with pale, smooth, undisturbed limestone walls; their beams fan across it.",
+   "camera": "28 mm, slow push following the second diver through the gap",
+   "characters": [
+    "recovery_diver_C (black suit, yellow fins, faceless)",
+    "recovery_diver_D (black suit, white fins, faceless)"
+   ],
+   "lighting": "two strong canister lights; pale walls bounce soft light",
+   "fx": [
+    "silt",
+    "bubbles",
+    "volumetric_water"
+   ],
+   "overlay": [
+    {
+     "type": "stamp",
+     "text": "2000",
+     "params": {
+      "y": 300
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bubbles",
+     "offset": 0.2,
+     "gain": 0.35
+    },
+    {
+     "name": "sonar",
+     "offset": 1.0,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "fade_black"
+  },
+  {
+   "id": "S16",
+   "lines": [
+    "L17"
+   ],
+   "environment": "other:fourth_chamber",
+   "description": "The two beams converge on a narrow dark gap in the chamber floor; silt drifts slowly through the light. One diver rests a gloved hand on the rock beside it. Nothing else is shown. A small memorial line fades in.",
+   "camera": "50 mm, slow push down toward the gap",
+   "characters": [
+    "recovery_diver_C / recovery_diver_D (hands and lights only)"
+   ],
+   "lighting": "two beams pooled on the floor; everything else dark",
+   "fx": [
+    "silt",
+    "volumetric_water"
+   ],
+   "overlay": [
+    {
+     "type": "label",
+     "text": "DOCUMENTED FACT",
+     "params": {
+      "y": 200
+     }
+    },
+    {
+     "type": "text",
+     "text": "KENT MAUPIN  ·  MARK BRASHIER\n1979",
+     "params": {
+      "y": 860,
+      "size": 54
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "sting",
+     "offset": 0.3,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S17",
+   "lines": [
+    "L18"
+   ],
+   "environment": "other:texas_creek_swimming_hole",
+   "description": "Present day, daylight at the rock ledge beside the hole: a plain park sign on a post reads NO SCUBA DIVING; behind it the calm blue mouth. A card slides in.",
+   "camera": "35 mm, slow arc past the sign toward the water",
+   "characters": [],
+   "lighting": "clean midday sun; blue glow from the hole",
+   "fx": [
+    "ripples",
+    "sun glints"
+   ],
+   "overlay": [
+    {
+     "type": "card",
+     "text": "No scuba diving, except\nthe Jacob's Well Exploration Project",
+     "params": {
+      "header": "TODAY",
+      "y": 1430
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "click",
+     "offset": 0.5,
+     "gain": 0.25
+    }
+   ],
+   "transition_in": "cut"
+  },
+  {
+   "id": "S18",
+   "lines": [
+    "L19"
+   ],
+   "environment": "other:texas_creek_swimming_hole",
+   "description": "LOOP FRAME: the camera rises back into the S01 drone position: sunlit creek, cypress shade, the round blue mouth with a swimmer floating at its rim. The final frame matches frame 1, so a replay flows into 'A diver stayed missing under this swimming hole…'.",
+   "camera": "24 mm drone, rising and tilting up; ends on S01's first-frame pose",
+   "characters": [
+    "swimmer_A (red swimsuit, faceless, generic)"
+   ],
+   "lighting": "hard high sun; cyan glow in the hole",
+   "fx": [
+    "sun glints",
+    "ripple rings"
+   ],
+   "overlay": [],
+   "sfx": [
+    {
+     "name": "wind",
+     "offset": 0.0,
+     "gain": 0.25
+    },
+    {
+     "name": "bubbles",
+     "offset": 0.2,
+     "gain": 0.2
+    }
+   ],
+   "transition_in": "cut"
+  }
+ ],
+ "music_curve": [
+  [
+   0,
+   0.45
   ],
-  "music_curve": [
-    [
-      0,
-      0.45
-    ],
-    [
-      9,
-      0.55
-    ],
-    [
-      14.3,
-      0.6
-    ],
-    [
-      21.6,
-      0.4
-    ],
-    [
-      23.5,
-      0.65
-    ],
-    [
-      25.9,
-      0.72
-    ],
-    [
-      36.0,
-      0.78
-    ],
-    [
-      40.4,
-      0.3
-    ],
-    [
-      43.3,
-      0.06
-    ],
-    [
-      44.0,
-      0.3
-    ],
-    [
-      47.7,
-      0.25
-    ],
-    [
-      49.9,
-      0.5
-    ],
-    [
-      54.4,
-      0.45
-    ],
-    [
-      57.8,
-      0.45
-    ]
+  [
+   9,
+   0.55
   ],
-  "loop_line": "And from up top, it still looks like a swimming hole."
+  [
+   14.3,
+   0.6
+  ],
+  [
+   21.6,
+   0.4
+  ],
+  [
+   23.5,
+   0.65
+  ],
+  [
+   25.9,
+   0.72
+  ],
+  [
+   36.0,
+   0.78
+  ],
+  [
+   40.4,
+   0.3
+  ],
+  [
+   43.3,
+   0.06
+  ],
+  [
+   44.0,
+   0.3
+  ],
+  [
+   47.7,
+   0.25
+  ],
+  [
+   49.9,
+   0.5
+  ],
+  [
+   54.4,
+   0.45
+  ],
+  [
+   57.8,
+   0.45
+  ]
+ ],
+ "loop_line": "And from up top, it still looks like a swimming hole."
 }

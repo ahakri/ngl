@@ -82,6 +82,33 @@ Animated place profile. Sources: National Geographic, AP, UPI, Fox News, CBS, AO
 
 **Hashtags (≤2):** #cavediving #eaglesnest
 
+## CAVE-08 — The Swimming Hole That Hid a Diver for 21 Years
+
+- Video: `FINAL_VIDEOS/CAVE-08.mp4` (38 MB) · Subtitles: `FINAL_VIDEOS/CAVE-08.srt` (21 cues)
+- Thumbnails: not made yet
+- QC: `QUALITY_CONTROL/CAVE-08/QC_REPORT.md` · Fact-check: `QUALITY_CONTROL/CAVE-08/FACTCHECK.md`
+
+### Titles
+
+| # | Title | Chars | Angle |
+|---|---|---|---|
+| A (primary) | Jacob's Well: The Diver Missing for 21 Years | 44 | Place name (search) + the reveal number |
+| B | This Texas Swimming Hole Hid a Diver for 21 Years | 49 | Contrast hook, feed-style |
+| C | The Swimming Hole With a Cave Nobody Should Enter | 49 | Danger framing (no false "trap" claim) |
+
+Avoid: "22 years" (wrong), "killed 12 divers" (the toll is disputed), "the tunnel that seals behind you" / "false exit" (unsourced), "what their cameras found at the bottom" (clickbait the video doesn't pay off).
+
+### Description
+
+Jacob's Well, Wimberley, Texas: a swimming hole above a flooded cave. In September 1979 two young divers went in and never came back up. Recovery divers couldn't bring them out; a 1981 flood carried one back out, and the other was found by a recovery team in the fourth chamber in 2000, 21 years later. Today scuba diving there is banned except for the Jacob's Well Exploration Project.
+Animated reconstruction, no real footage. Sources: IUCRR, Louie Bond (Wimberley), Hays County Parks, Jacob's Well Exploration Project, Grunge, ZME Science, Undercurrent, DAN. Full list pinned.
+
+**Hashtags (≤2):** #cavediving #jacobswell
+
+### Check before upload
+
+- Before upload, re-check Hays County's swimming status; the description says swimming is seasonal and has been suspended in drought years.
+
 ## HAUNT-01 — The Voice on the Enfield Tapes
 
 - Video: `FINAL_VIDEOS/HAUNT-01.mp4` (37 MB) · Subtitles: `FINAL_VIDEOS/HAUNT-01.srt` (21 cues)

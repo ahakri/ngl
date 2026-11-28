@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-28T01:50:01Z
+Updated: 2026-11-28T02:03:23Z
 
 ## Concept counts
 
@@ -16,9 +16,9 @@ Updated: 2026-11-28T01:50:01Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 4
+- ANIMATED - in render queue: 3
 - CONCEPT: 68
-- QC PASSED: 19
+- QC PASSED: 20
 - RENDERED - QC pending: 9
 
 ## Videos in production
@@ -32,7 +32,7 @@ Updated: 2026-11-28T01:50:01Z
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | RENDERED - QC pending |
 | CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | QC PASSED |
 | CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | RENDERED - QC pending |
-| CAVE-08 | The Swimming Hole With a Trap at the Bottom | 73 | ANIMATED - in render queue |
+| CAVE-08 | The Swimming Hole With a Trap at the Bottom | 73 | QC PASSED |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | QC PASSED |
 | SCUBA-02 | The Boat Left Without Them | 82 | QC PASSED |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | QC PASSED |
