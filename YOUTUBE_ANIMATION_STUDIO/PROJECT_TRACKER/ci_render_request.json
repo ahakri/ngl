@@ -1,46 +1,42 @@
 {
  "note": "Push a change to this file to start the GitHub Actions render farm (.github/workflows/render-shorts.yml). One job per request. Fields: id; optional reuse_frames (true = start from the frames artifact of the latest earlier run); optional rerender (list of shot ids to render again).",
- "requested_at": "2026-11-28T00:47:31+00:00",
+ "requested_at": "2026-11-28T01:04:02+00:00",
  "requests": [
   {
-   "id": "CAVE-06",
-   "reuse_frames": true
+   "id": "CAVE-04",
+   "reuse_frames": true,
+   "rerender": [
+    "S11"
+   ]
   },
   {
-   "id": "HAUNT-02",
-   "reuse_frames": true
+   "id": "HAUNT-04",
+   "reuse_frames": true,
+   "rerender": [
+    "S11"
+   ]
   },
   {
-   "id": "HAUNT-03",
-   "reuse_frames": true
+   "id": "HAUNT-06",
+   "reuse_frames": true,
+   "rerender": [
+    "S10"
+   ]
   },
   {
-   "id": "HAUNT-05",
-   "reuse_frames": true
+   "id": "MURDER-03",
+   "reuse_frames": true,
+   "rerender": [
+    "S10",
+    "S16"
+   ]
   },
   {
-   "id": "MURDER-04",
-   "reuse_frames": true
-  },
-  {
-   "id": "MURDER-05",
-   "reuse_frames": true
-  },
-  {
-   "id": "MURDER-06",
-   "reuse_frames": true
-  },
-  {
-   "id": "SCUBA-03",
-   "reuse_frames": true
-  },
-  {
-   "id": "SCUBA-05",
-   "reuse_frames": true
-  },
-  {
-   "id": "SCUBA-06",
-   "reuse_frames": true
+   "id": "SCUBA-04",
+   "reuse_frames": true,
+   "rerender": [
+    "S01"
+   ]
   }
  ]
 }

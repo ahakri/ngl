@@ -165,7 +165,7 @@ def S13(L, n):
     # the constable's torch sweeps the empty street and finds only the chalk; nobody in sight
     S = street(L, n, lamp_e=160.0, fog=0.026, opposite=True, moon_e=0.3, fill=130.0)
     lamp_buzz(S["lamp"], n, 160.0)
-    aimed_area((-2.0, -8.0, 9.0), (2.0, 0.0, 3.0), 900.0, 8.0, (0.4, 0.5, 0.95), "moonwash13")
+    aimed_area((-2.0, -8.0, 9.0), (2.0, 0.0, 3.0), 900.0, 8.0, (0.4, 0.5, 0.95), "moonwash13").data.volume_factor = 0.0  # light the fronts, not the fog
     far = M.hooded_lamp((19.0, 0.0, 3.6), energy=600.0, name="farlamp")
     M.chalk_text(["HAGLEY WOOD", ("BELLA", 1.3)], loc=(-6.3, 0.0, 2.25), height=0.2, seed=9, name="second")
     pc = H.figure("pc", height=1.83, coat=True, color=(0.012, 0.013, 0.018))

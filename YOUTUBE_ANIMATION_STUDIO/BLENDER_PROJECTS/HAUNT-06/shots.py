@@ -325,14 +325,19 @@ def S10(L, n):
             x, z = -0.5 + col * 1.0, 0.75 - row * 0.85
             cells[k] = (x, z)
             H.box_mesh(f"ph{k}", [(x, -0.003, z, 0.4, 0.002, 0.28)], hi if k == 5 else grey)
-            t = L.text3d(f"#{k}", loc=(x - 0.36, -0.006, z - 0.38), size=0.07, extrude=0.0, mat=ink, align="LEFT", name=f"num{k}")
+            # v2 (QC fix): labels lie 1 mm off the paper and cast no shadow (the lamp's crisp shadow of text floating
+            # 11 mm off the page printed a second, offset copy of every label).
+            t = L.text3d(f"#{k}", loc=(x - 0.36, 0.004, z - 0.38), size=0.07, extrude=0.0, mat=ink, align="LEFT", name=f"num{k}")
+            t.visible_shadow = False
             if k != 5:
                 H.box_mesh(f"cap{k}", [(x + 0.05, -0.004, z - 0.36, 0.25, 0.002, 0.012)], ink)
             k += 1
     x5, z5 = cells[5]
     H.key_principled(hi, "Emission Strength", [(1, 0.0), (int(n * 0.25), 0.0), (int(n * 0.35), 1.2)])
-    cap = L.text3d("Bachelor's Grove, 1991", loc=(x5 - 0.24, -0.006, z5 - 0.38), size=0.05, extrude=0.0, mat=ink, align="LEFT", name="cap5")
+    cap = L.text3d("Bachelor's Grove, 1991", loc=(x5 - 0.24, 0.004, z5 - 0.38), size=0.05, extrude=0.0, mat=ink, align="LEFT", name="cap5")
+    cap.visible_shadow = False
     occ = H.box_mesh("occluder", [(0.0, 0, 0, 0.36, 0.002, 0.035)], paper)
+    occ.visible_shadow = False
     occ.location = (x5 + 0.16, -0.012, z5 - 0.365)
     occ.keyframe_insert("location", frame=int(n * 0.35))
     occ.location = (x5 + 0.16 + 0.75, -0.012, z5 - 0.365)

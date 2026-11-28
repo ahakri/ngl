@@ -473,10 +473,15 @@ def S11(L, n):
     r = an["root"]
     r.keyframe_insert("location", frame=fail)
     r.keyframe_insert("rotation_euler", frame=fail)
-    r.location = A + Vector((0.05, 0.35, -0.9))
-    r.rotation_euler = (1.2, 0.6, 0.3)
-    r.keyframe_insert("location", frame=fail + 7)
-    r.keyframe_insert("rotation_euler", frame=fail + 7)
+    # v2: slower readable tumble (stays in frame ~15 frames before dropping into the crack)
+    r.location = A + Vector((0.05, 0.18, -0.4))
+    r.rotation_euler = (0.9, 0.4, 0.2)
+    r.keyframe_insert("location", frame=fail + 6)
+    r.keyframe_insert("rotation_euler", frame=fail + 6)
+    r.location = A + Vector((0.05, 0.38, -1.0))
+    r.rotation_euler = (1.8, 0.9, 0.5)
+    r.keyframe_insert("location", frame=fail + 15)
+    r.keyframe_insert("rotation_euler", frame=fail + 15)
     r.location = A + Vector((0.05, 0.55, -1.9))
     r.keyframe_insert("location", frame=n)
     # cracks spreading around the bolt (dark lines on the ceiling)
@@ -501,20 +506,34 @@ def S11(L, n):
     C.hide_from_frame([slack], f_show=fail)
     C.key_loc(slack, [(fail, (0.0, 0.0, 0.25)), (fail + 4, (0.06, 0.03, -0.08)), (fail + 8, (-0.03, 0.0, 0.04)),
                       (fail + 14, (0, 0, 0))])
-    dust = C.cloud(tuple(A + Vector((0, 0.15, -0.3))), (0.6, 0.6, 0.45), count=2500, radius=0.0015, color=(1, 0.9, 0.7),
-                   emit=0.25, shape="sphere", seed=11, name="burst")
-    C.key_scale(dust, [(1, 0.01), (fail - 1, 0.01), (fail + 3, 0.6), (n, 1.0)])
-    C.drift(dust, n, (0.0, 0.05, -0.05))
+    # v2 (QC fix): fine, sparse dust shell kept tight around the tearing bolt (>= 0.55 m from the lens, never between
+    # the lens and the falling anchor) instead of a 0.6 m burst that filled the frame as an oval blob of specks.
+    dust = C.cloud(tuple(A + Vector((0, 0.05, -0.06))), (0.16, 0.16, 0.08), count=700, radius=0.0009, color=(1, 0.9, 0.7),
+                   emit=0.2, shape="sphere", seed=11, name="burst")
+    C.key_scale(dust, [(1, 0.01), (fail - 1, 0.01), (fail + 3, 0.8), (n, 1.25)])
+    C.drift(dust, n, (0.0, 0.02, -0.06))
     lp = L.spot((0.5, -0.9, 0.2), (0, 0, 0), energy=45, size_deg=40, blend=0.7, color=WARM, name="worklamp")
     lp.rotation_mode = "QUATERNION"
     lp.rotation_quaternion = (A - Vector(lp.location)).to_track_quat("-Z", "Y")
-    C.key_energy(lp, [(1, 45), (fail, 45), (fail + 2, 12), (fail + 4, 55), (fail + 7, 18), (fail + 10, 40), (n, 35)])
+    C.key_energy(lp, [(1, 45), (fail, 45), (fail + 2, 20), (fail + 4, 55), (fail + 7, 30), (fail + 10, 45), (n, 40)])
     C.rim_light(tuple(A), (-0.3, 0.6, -0.3), energy=15, color=(1.0, 0.85, 0.6), size_deg=40, name="rim")
-    cam = _anchor_cam(L, n, [(1, tuple(A + Vector((0.2, -0.45, -0.32))), tuple(A + Vector((0, 0, -0.08)))),
-                             (fail, tuple(A + Vector((0.18, -0.4, -0.3))), tuple(A + Vector((0, 0, -0.1)))),
-                             (n, tuple(A + Vector((0.3, -0.6, -0.4))), tuple(A + Vector((0.05, 0.4, -0.8))))],
-                      shake=0.08, shake_keys=[(1, 0.08), (fail - 1, 0.08), (fail, 1.0), (fail + 6, 1.0), (fail + 9, 0.15),
-                                              (n, 0.15)])
+    # v2: a small key light travels with the anchor so the falling bolt/pulley/rock chunk stay lit all the way down,
+    # plus a wide fill on the fall path and the slack rope.
+    kl = L.point((0.0, 0.0, 0.0), energy=6, color=(1.0, 0.88, 0.7), radius=0.05, name="anchorkey")
+    kl.parent = r
+    kl.location = (0.18, -0.22, 0.06)
+    C.rim_light(tuple(A + Vector((0.05, 0.4, -1.2))), (0.7, -0.9, 0.5), energy=60, color=WARM, size_deg=55,
+                name="fallfill")
+    C.rim_light(tuple(A + Vector((0.05, 0.5, -1.2))), (-0.5, 0.9, 0.2), energy=40, color=(1.0, 0.85, 0.6), size_deg=50,
+                name="fallrim")
+    cam = C.camera(lens=30)
+    C.aim_cam(cam, n, [(1, tuple(A + Vector((0.2, -0.45, -0.32))), tuple(A + Vector((0, 0, -0.08)))),
+                       (fail, tuple(A + Vector((0.2, -0.45, -0.32))), tuple(A + Vector((0, 0, -0.12)))),
+                       (fail + 6, tuple(A + Vector((0.25, -0.5, -0.32))), tuple(A + Vector((0.05, 0.12, -0.42)))),
+                       (fail + 15, tuple(A + Vector((0.3, -0.62, -0.58))), tuple(A + Vector((0.05, 0.36, -0.98)))),
+                       (n, tuple(A + Vector((0.35, -0.8, -0.85))), tuple(A + Vector((0.05, 0.5, -1.45))))],
+              shake=0.05, rot_shake=0.015, rate=1.0,
+              shake_keys=[(1, 0.12), (fail - 1, 0.12), (fail, 1.0), (fail + 6, 1.0), (fail + 9, 0.2), (n, 0.2)])
     L.bake_static()
 
 

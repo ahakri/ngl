@@ -420,7 +420,7 @@ def S09(L, n):
 
 def S10(L, n):
     bg = M.storm_sky(zen=(0.005, 0.007, 0.012), hor=(0.02, 0.025, 0.035))
-    L.sun(rot=(R(15), R(10), 0), energy=1.6, color=(0.5, 0.6, 0.9), name="moon")
+    L.sun(rot=(R(15), R(10), 0), energy=4.0, color=(0.5, 0.6, 0.9), name="moon")  # v2: brighter moon on the cloud deck
     # forest far below
     def h(x, y):
         return -420 + 25 * noise.noise(Vector((x * 0.004, y * 0.004, 1))) + 6 * noise.noise(Vector((x * 0.02, y * 0.02, 3)))
@@ -428,7 +428,7 @@ def S10(L, n):
     spots = M.scatter_spots((-260, 260, -260, 260), 2600, h, seed=4, h=(22, 34))
     M.fast_conifers("forest", spots, mat=L.mat_principled("tm", (0.012, 0.03, 0.018), rough=0.9), seed=4, bare_frac=0.0)
     M.cloud_volume((0, 0, -95), (500, 500, 40), density=0.2, scale=0.3, contrast=(0.5, 0.65), drift=(5, 0, 25), n=n,
-                   color=(0.5, 0.55, 0.7), name="clouds")
+                   color=(0.62, 0.68, 0.85), name="clouds")
     fig = L.char_figure("jumper", color=(0.02, 0.02, 0.024), coat=True)
     r = fig["root"]
     for t, s in (("L", 1), ("R", -1)):
@@ -437,7 +437,8 @@ def S10(L, n):
     can_root, can = M.parachute((0, 0, 0), radius=3.2, line_len=5.5, color=(0.85, 0.82, 0.72))
     # figure falls away; canopy opens at f_open and the fall slows
     fo = 22
-    keys = [(1, -6), (fo, -28), (fo + 6, -34), (n, -40)]
+    # v2: slower first drop so the silhouette stays readable under the stair light
+    keys = [(1, -4.5), (fo, -15), (fo + 6, -21), (n, -27)]
     for f, z in keys:
         r.location = (0.3 * (f / n), 0.2 * (f / n), z)
         r.keyframe_insert("location", frame=f)
@@ -450,14 +451,15 @@ def S10(L, n):
         can_root.rotation_euler = (0, 0, rz)
         can_root.keyframe_insert("rotation_euler", frame=f)
     M.rain((0, 0, -20), (30, 8, 8), (0, 0, -16), n, count=600, length=0.6, width=0.008, period=8, seed=2, emit=0.4)
-    M.lightning(n, [fo + 3], rot=(R(10), R(-15), 0), energy=12, world_bg=bg, world_peak=4)
-    cam, ct = L.camera(loc=(0, 0, 0), target=None, lens=24)
+    # v2 (QC fix): an opening flash on frame 2 so the shot never sits under the black-detect threshold
+    M.lightning(n, [2, fo + 3], rot=(R(10), R(-15), 0), energy=12, world_bg=bg, world_peak=4)
+    cam, ct = L.camera(loc=(0, 0, 0), target=None, lens=30)
     cam.data.clip_end = 3000
     cam.rotation_euler = (0, 0, 0)  # looking straight down (-Z)
     cam.keyframe_insert("rotation_euler", frame=1)
     cam.rotation_euler = (0, 0, R(25))
     cam.keyframe_insert("rotation_euler", frame=n)
-    sp = L.spot((0, 0, 0), (0, 0, 0), energy=12000, size_deg=12, blend=0.6, color=(1.0, 0.65, 0.35), name="stairspill")
+    sp = L.spot((0, 0, 0), (0, 0, 0), energy=30000, size_deg=16, blend=0.6, color=(1.0, 0.65, 0.35), name="stairspill")
     L.handheld(cam, n, amp=0.02, rate=1.0, rot_amp=0.01)
     L.bake_static()
 
@@ -698,7 +700,7 @@ def S16(L, n):
     L.set_world(color=(0.0, 0.0, 0.0), strength=0)
     B = M.evidence_board(w=3.2, h=5.0, lamp_energy=220)
     # photo card of the sandbar (white border)
-    pr = M.empty("photo", (0.0, -0.03, 1.45))
+    pr = M.empty("photo", (0.0, -0.03, 1.75))  # v2: layout pulled inward/up so every card is in frame
     bd = L.prim("plane", loc=(0, 0, 0), size=1, rot=(R(90), 0, 0))
     bd.scale = (1.15, 0.85, 1)
     L.assign(bd, M.mat_paper("photoborder", (0.75, 0.72, 0.65)))
@@ -715,16 +717,18 @@ def S16(L, n):
     pin = L.prim("sphere", loc=(0, -0.03, 0.4), radius=0.03, segments=10, ring_count=6)
     L.assign(pin, L.mat_principled("pinm", (0.6, 0.04, 0.03), rough=0.3))
     pin.parent = pr
-    cards = [("WASHED\nDOWNSTREAM?", (-0.9, -0.05, 0.25), 3, 0.08), ("BURIED?", (0.95, -0.05, 0.1), 31, -0.06),
-             ("?", (0.0, -0.05, -0.55), 58, 0.03)]
+    # v2 (QC fix): cards moved inward (were cropped at the frame edges as "ASHED NSTREA" / "BURIE"), above the red
+    # UNPROVEN overlay (y 1100) and the caption band; the "?" card sits below the captions.
+    cards = [("WASHED\nDOWNSTREAM?", (-0.55, -0.05, 0.85), 3, 0.06), ("BURIED?", (0.55, -0.06, 0.75), 31, -0.05),
+             ("?", (0.0, -0.05, -1.4), 58, 0.03)]
     roots = []
     for i, (txt, loc, hit, rot) in enumerate(cards):
         c = M.paper_card(txt, loc, size=(1.0, 0.68), rot_y=rot, badge="THEORY", name=f"card{i}", text_size=0.19 if i == 0 else 0.32)
         M.slam_in(c, hit, frm=(0.0, -1.2, 0.2), rot0=0.25, scale0=1.4, lead=5)
         M.hide_until(c, max(2, hit - 5))
-        s = M.red_string([(loc[0], -0.06, loc[2] + 0.28), (0.0, -0.06, 1.85)], name=f"str{i}")
+        s = M.red_string([(loc[0], -0.07, loc[2] + 0.28), (0.0, -0.06, 2.15)], name=f"str{i}")
         M.curve_draw(s, hit + 2, hit + 12)
-    cam, ct = cam_path(L, n, (0.0, -4.6, 0.9), (0.0, -3.7, 0.95), (0.0, 0, 0.55), (0.0, 0, 0.65), lens=35)
+    cam, ct = cam_path(L, n, (0.0, -4.6, 0.75), (0.0, -3.7, 0.8), (0.0, 0, 0.55), (0.0, 0, 0.6), lens=28)
     L.handheld(cam, n, amp=0.01, rate=0.5)
     L.particle_cloud((0, -1.5, 1.5), (3, 2, 2.5), count=300, radius=0.004, drift=(0.01, 0, -0.01), nframes=n, name="dust")
     L.bake_static()

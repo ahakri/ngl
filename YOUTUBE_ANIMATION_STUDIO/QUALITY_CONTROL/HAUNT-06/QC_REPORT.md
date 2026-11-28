@@ -42,3 +42,11 @@ VERDICT: FAIL (v1, 2026-11-28)
 - S13: the seated figure reads as a mannequin (by design, generic).
 - S04: the vanishing farmhouse is small in the fog.
 - Not machine-checkable here: narration delivery was not auditioned by ear (no audio playback in this container).
+
+## Shot fixes (v2)
+- **S10 doubled "#3" / "#5 Bachelor's Grove, 1991"** — cause: the 3D labels floated 11 mm off the page and the warm lamp's crisp
+  shadow printed a second, offset copy of every label. `BLENDER_PROJECTS/HAUNT-06/shots.py` S10: rank numbers and the #5 caption
+  now lie 1 mm off the paper with `visible_shadow = False`; the sliding paper occluder that reveals the caption casts no shadow either.
+- Verified: frames 20/62/84 at 540 px (/tmp/fix_HAUNT-06_S10): "#2", "#3", "#4", "#5" and "Bachelor's Grove, 1991" each render
+  once, legibly; preview S10 clean. Frame count 84 unchanged.
+- Needs: production re-render of S10, then re-assembly (also picks up the S02/S09/S11 overlay fixes).

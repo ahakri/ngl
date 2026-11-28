@@ -46,3 +46,14 @@ VERDICT: FAIL (v1, 2026-11-28)
 - S19: "COOPER VANE" title sits over the 3D vane; S21 red "CHARGED: 0" on the busy card wall (legible with the stroke).
 - S03/S08/S15 maps are plain dark coast shapes; S11 trees are low-poly cones.
 - Not machine-checkable here: narration delivery was not auditioned by ear (no audio playback in this container).
+
+## Shot fixes (v2)
+- **S10 black frames (auto FAIL)** — `BLENDER_PROJECTS/MURDER-03/shots.py` S10: moon 1.6 -> 4.0 on the cloud deck, brighter cloud
+  colour, an extra lightning flash on frame 2 (plus the existing one at the canopy), stair spill light 12000 -> 30000 W / 16 deg,
+  lens 24 -> 30, and a slower first drop (z -4.5 -> -15 by the canopy, was -6 -> -28) so the lit silhouette reads from frame 1.
+  Rendered frames 1/6/12/18/24/30/36/49: 60-96 % of pixels above luma 30 (was ~0 % in the first second), still a dark night storm.
+- **S16 cropped theory cards** — S16: cards moved inward and up (WASHED DOWNSTREAM? at x -0.55, BURIED? at x +0.55, above the
+  red "UNPROVEN" overlay at y 1100), Tena Bar photo raised to z 1.75, "?" card moved below the caption band; camera lens 35 -> 28
+  and aimed a little lower. Both cards and the photo read in full in frames 2/45/93; no 2D duplicate texts needed.
+- Verified: single frames at 540 px (/tmp/fix_MURDER-03_S10*, /tmp/fix_MURDER-03_S16), previews S10 and S16 clean. Frame counts 49/93 unchanged.
+- Needs: production re-render of S10 and S16, re-assembly, re-run qc_check.

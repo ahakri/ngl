@@ -3720,3 +3720,392 @@ def hand_torch(parts, side="R", energy=900, size_deg=22, color=(1.0, 0.92, 0.78)
     sp.parent = el
     sp.data.volume_factor = 1.0
     return sp
+
+
+# ============================================================================ HAUNT-10 (Winchester Mystery House) builders
+# Appended; nothing above changed. All generic (not a replica of the real house): papered stairwell whose flight runs into the
+# ceiling, rambling Queen-Anne-style mansion made of gabled blocks, turrets and a seven-level tower (levels are separate objects),
+# scaffold lattice, generic rifle rack, seated pose, hats, boxy 1920s car, picket fence, blank ticket booth, pale wisps.
+
+def _hbox(bm, c, h, mi=0, rz=0.0):
+    mtx = Matrix.Translation(c) @ Matrix.Rotation(rz, 4, "Z") @ Matrix.Diagonal((h[0] * 2, h[1] * 2, h[2] * 2, 1))
+    r = bmesh.ops.create_cube(bm, size=1.0, matrix=mtx)
+    if mi:
+        for v in r["verts"]:
+            for f in v.link_faces:
+                f.material_index = mi
+    return r
+
+
+def _mesh_mats(name, bm, mats):
+    o = L.mesh_from_bm(name, bm)
+    for m in mats:
+        o.data.materials.append(m)
+    return o
+
+
+def papered_stairwell(n_steps=15, rise=0.2, go=0.25, width=0.95, hall=3.2, ceiling=True, east_wall=True, lamp=True, name="sw"):
+    """Narrow straight Victorian flight between two papered walls that rises +Y from y=0 and runs straight into a flat plaster
+    ceiling (top tread level = ceiling level): the top steps have nowhere to go. Walls at x = +-width/2, hall floor z=0 from
+    y=-hall. Returns {"ceiling", "east" (objects of the +X wall, omit for a cut-away), "lamp", "top": (y, z), "ceil_z", "rail"}."""
+    oak = mat_oak(name + "_oak")
+    dark = mat_oak(name + "_dark", 0.55)
+    paper = L.mat_noise_surface(name + "_paper", (0.11, 0.085, 0.05), (0.17, 0.13, 0.08), scale=3.0, bump=0.05, voronoi=False, rough=0.9)
+    plaster = L.mat_noise_surface(name + "_pl", (0.3, 0.28, 0.24), (0.46, 0.43, 0.37), scale=3.0, bump=0.08, voronoi=False, rough=0.9)
+    hw = width / 2
+    y1 = n_steps * go
+    cz = n_steps * rise
+    steps = [(0, go * i + go / 2, rise * (i + 1) / 2, hw, go / 2 + 0.01, rise * (i + 1) / 2) for i in range(n_steps)]
+    box_mesh(name + "_steps", steps, oak, bevel=0.008)
+    box_mesh(name + "_nosing", [(0, go * i + 0.005, rise * (i + 1) - 0.012, hw, 0.025, 0.014) for i in range(n_steps)], dark)
+    box_mesh(name + "_runner", [(0, go * i + go / 2 + 0.02, rise * (i + 1) + 0.004, hw * 0.55, go / 2 - 0.02, 0.004) for i in range(n_steps)],
+             mat_carpet(name + "_carpet", (0.07, 0.02, 0.015), (0.16, 0.05, 0.035)))
+    box_mesh(name + "_floor", [(0, (y1 - hall) / 2, -0.02, hw + 0.2, (y1 + hall) / 2 + 0.2, 0.02)], mat_oak(name + "_fl", 0.8))
+    out = {"top": (y1, cz), "ceil_z": cz, "east": []}
+    ang = math.atan2(rise, go)
+    for sx, tag in ((-1, "west"), (1, "east")):
+        if sx == 1 and not east_wall:
+            continue
+        w = box_mesh(f"{name}_{tag}", [(sx * (hw + 0.05), (y1 - hall) / 2, (cz + 0.6) / 2, 0.05, (y1 + hall) / 2 + 0.1, (cz + 0.6) / 2)], paper)
+        bm = bmesh.new()
+        x = sx * (hw - 0.02)
+        _beam(bm, Vector((x, -0.1, 0.12)), Vector((x, y1, cz + 0.12)), 0.02, 0.16)            # stringer / skirting on the rake
+        _beam(bm, Vector((sx * (hw - 0.06), 0.1, rise + 0.92)), Vector((sx * (hw - 0.06), y1 - 0.2, cz + 0.72)), 0.028, 0.03)  # handrail
+        yy = 0.4
+        while yy < y1 - 0.3:
+            zz = rise + 0.92 + (yy - 0.1) * math.tan(ang) * ((cz + 0.72 - rise - 0.92) / (math.tan(ang) * (y1 - 0.3)))
+            _beam(bm, Vector((sx * hw, yy, zz - 0.03)), Vector((sx * (hw - 0.06), yy, zz - 0.03)), 0.012, 0.012)
+            yy += 0.9
+        _beam(bm, Vector((x, -hall, 0.1)), Vector((x, -0.1, 0.1)), 0.02, 0.1)
+        r = L.mesh_from_bm(f"{name}_{tag}_trim", bm)
+        L.assign(r, dark)
+        if sx == 1:
+            out["east"] += [w, r]
+        else:
+            out["rail"] = r
+    box_mesh(name + "_end", [(0, y1 + 0.05, (cz + 0.6) / 2, hw + 0.1, 0.05, (cz + 0.6) / 2)], paper)
+    box_mesh(name + "_back", [(0, -hall - 0.05, (cz + 0.6) / 2, hw + 0.1, 0.05, (cz + 0.6) / 2)], paper)
+    # newel post with a turned cap at the foot of the flight
+    bm = bmesh.new()
+    _lathe(bm, Vector((-hw + 0.09, -0.12, 0.0)), [(0, 0.07), (0.12, 0.07), (0.16, 0.05), (0.8, 0.045), (0.9, 0.065), (1.0, 0.065), (1.04, 0.04),
+                                                   (1.1, 0.07), (1.18, 0.075), (1.26, 0.04), (1.3, 0.0)], sides=10)
+    nw = L.mesh_from_bm(name + "_newel", bm)
+    L.assign(nw, dark)
+    L.smooth(nw)
+    if ceiling:
+        out["ceiling"] = box_mesh(name + "_ceiling", [(0, (y1 - hall) / 2, cz + 0.05, hw + 0.1, (y1 + hall) / 2 + 0.1, 0.05),
+                                                      (0, (y1 - hall) / 2, cz - 0.04, hw, (y1 + hall) / 2, 0.012)], plaster)
+        box_mesh(name + "_cornice", [(sx * (hw - 0.03), (y1 - hall) / 2, cz - 0.05, 0.03, (y1 + hall) / 2, 0.05) for sx in (-1, 1)], plaster)
+    if lamp:
+        out["lamp"] = gas_lamp((-hw, 0.95, 1.95), name=name + "_gas")
+    return out
+
+
+def qa_block(name, x0, x1, y0, y1, wall_h, roof_h=2.6, ridge="X", mats=None, floor_h=3.0, win_step=2.1, lit=(), seed=1, z0=0.0,
+             band=True, front=True):
+    """One gabled block of a Queen-Anne-style house: walls, gable roof with overhang, floor bands, rows of sash windows on the
+    front (-Y) face (ids = (floor, index); ids in `lit` glow). One mesh, origin at the block's base centre (so it can be
+    scaled up from the ground). mats = (siding, roof, trim, glass, lit glass). Returns the object."""
+    rnd = random.Random(seed)
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    hx, hy = (x1 - x0) / 2, (y1 - y0) / 2
+    bm = bmesh.new()
+    _hbox(bm, (0, 0, wall_h / 2), (hx, hy, wall_h / 2), 0)
+    o = 0.35
+    zt = wall_h
+    if ridge == "X":
+        v = [(-hx - o, -hy - o, zt - 0.12), (hx + o, -hy - o, zt - 0.12), (hx + o, 0, zt + roof_h), (-hx - o, 0, zt + roof_h),
+             (-hx - o, hy + o, zt - 0.12), (hx + o, hy + o, zt - 0.12)]
+        fs = [(0, 1, 2, 3), (3, 2, 5, 4)]
+        gs = [((-hx, -hy, zt), (-hx, hy, zt), (-hx, 0, zt + roof_h)), ((hx, hy, zt), (hx, -hy, zt), (hx, 0, zt + roof_h))]
+    else:
+        v = [(-hx - o, -hy - o, zt - 0.12), (0, -hy - o, zt + roof_h), (0, hy + o, zt + roof_h), (-hx - o, hy + o, zt - 0.12),
+             (hx + o, -hy - o, zt - 0.12), (hx + o, hy + o, zt - 0.12)]
+        fs = [(3, 2, 1, 0), (1, 2, 5, 4)]
+        gs = [((-hx, -hy, zt), (hx, -hy, zt), (0, -hy, zt + roof_h)), ((hx, hy, zt), (-hx, hy, zt), (0, hy, zt + roof_h))]
+    vv = [bm.verts.new(p) for p in v]
+    for f in fs:
+        fc = bm.faces.new([vv[i] for i in f])
+        fc.material_index = 1
+    for tri in gs:
+        bm.faces.new([bm.verts.new(p) for p in tri])
+    nf = max(1, int(round(wall_h / floor_h)))
+    if band:
+        for k in range(1, nf):
+            _hbox(bm, (0, 0, k * wall_h / nf), (hx + 0.05, hy + 0.05, 0.07), 2)
+        _hbox(bm, (0, 0, wall_h - 0.1), (hx + 0.08, hy + 0.08, 0.1), 2)
+    if front:
+        nw = max(1, int((2 * hx - 0.8) / win_step))
+        for k in range(nf):
+            for i in range(nw):
+                x = -hx + (2 * hx) * (i + 0.5) / nw + rnd.uniform(-0.1, 0.1)
+                zc = k * wall_h / nf + wall_h / nf * 0.55
+                ww, wh = 0.42, min(0.85, wall_h / nf * 0.3)
+                _hbox(bm, (x, -hy - 0.02, zc), (ww, 0.03, wh), 4 if (k, i) in lit else 3)
+                _hbox(bm, (x, -hy - 0.04, zc + wh + 0.06), (ww + 0.1, 0.05, 0.06), 2)
+                _hbox(bm, (x, -hy - 0.04, zc - wh - 0.05), (ww + 0.1, 0.06, 0.05), 2)
+                _hbox(bm, (x, -hy - 0.045, zc), (0.02, 0.02, wh), 2)
+        if ridge == "Y" and roof_h > 1.5:   # attic window in the front gable
+            _hbox(bm, (0, -hy - 0.02, zt + roof_h * 0.38), (0.32, 0.03, 0.42), 4 if "attic" in lit else 3)
+    ob = _mesh_mats(name, bm, mats)
+    ob.location = (cx, cy, z0)
+    return ob
+
+
+def qa_turret(name, x, y, r, h, mats, roof_h=None, z0=0.0, lit=False):
+    """Round corner turret with a witch's-hat roof and finial. One mesh, origin at its base. Returns the object."""
+    bm = bmesh.new()
+    bmesh.ops.create_cone(bm, cap_ends=True, segments=14, radius1=r, radius2=r, depth=h, matrix=Matrix.Translation((0, 0, h / 2)))
+    rh = roof_h or r * 2.4
+    res = bmesh.ops.create_cone(bm, cap_ends=True, segments=14, radius1=r + 0.3, radius2=0.03, depth=rh, matrix=Matrix.Translation((0, 0, h + rh / 2)))
+    for v in res["verts"]:
+        for f in v.link_faces:
+            f.material_index = 1
+    bmesh.ops.create_cone(bm, cap_ends=True, segments=6, radius1=0.05, radius2=0.01, depth=0.9, matrix=Matrix.Translation((0, 0, h + rh + 0.4)))
+    for k in range(int(h // 3.0)):
+        for a in (-0.6, 0.0, 0.6):
+            _hbox(bm, (math.sin(a) * (r + 0.01), -math.cos(a) * (r + 0.01), k * 3.0 + 1.7), (0.26, 0.04, 0.6), 4 if lit and k == 1 and a == 0.0 else 3, rz=a)
+        _hbox(bm, (0, 0, (k + 1) * 3.0 - 0.05), (r + 0.06, r + 0.06, 0.06), 2)
+    o = _mesh_mats(name, bm, mats)
+    o.location = (x, y, z0)
+    return o
+
+
+def mansion_mats(name="qa", day=False, lit_strength=3.0):
+    side = L.mat_noise_surface(name + "_siding", (0.3, 0.27, 0.19), (0.4, 0.36, 0.26), scale=7.0, bump=0.12, voronoi=False, rough=0.8)
+    roof = L.mat_noise_surface(name + "_roof", (0.07, 0.03, 0.025), (0.17, 0.07, 0.05), scale=7, bump=0.3, voronoi=False, rough=0.7)
+    trim = L.mat_principled(name + "_trim", (0.5, 0.47, 0.38), rough=0.6)
+    glass = L.mat_principled(name + "_glass", (0.012, 0.014, 0.02), rough=0.08, metal=0.3)
+    lit = L.mat_emission(name + "_lit", (1.0, 0.62, 0.26), lit_strength)
+    return (side, roof, trim, glass, lit)
+
+
+def rambling_mansion(mats=None, lit=True, tower_levels=7, name="qa", parts=None):
+    """Generic sprawling Queen-Anne-style mansion (NOT a replica): a small farmhouse core and a tangle of later gabled wings,
+    turrets, bays, dormers, porch and chimneys, plus a square tower of `tower_levels` storeys whose levels are separate objects.
+    Front faces -Y, about 46 m wide. parts: iterable of part keys to build (default all), so a time-lapse can add them in order.
+    Returns {"order": [key...], "objs": {key: [objects]}, "tower": [level objects bottom->top], "tower_cap", "mats", "tower_xy"}."""
+    mats = mats or mansion_mats(name)
+    L_ = (lambda *ids: ids) if lit else (lambda *ids: ())
+    spec = [
+        ("core", lambda: [qa_block(name + "_core", -5, 3, 0, 8, 6.0, 3.0, "Y", mats, lit=L_((0, 1), "attic"), seed=1),
+                          box_mesh(name + "_porch", [(-1, -1.0, 2.9, 4.2, 1.1, 0.07)] + [(x, -1.95, 1.45, 0.07, 0.07, 1.45) for x in (-5, -3, -1, 1, 3)], mats[2])]),
+        ("wingL1", lambda: [qa_block(name + "_wl1", -15, -5, 1, 9, 6.0, 2.6, "X", mats, lit=L_((1, 2)), seed=2),
+                            qa_block(name + "_dl1", -12.5, -9.5, 0.6, 4, 7.4, 1.6, "Y", mats, floor_h=7.4, lit=L_(), seed=3, band=False)]),
+        ("wingR1", lambda: [qa_block(name + "_wr1", 3, 12, 0.5, 8, 9.0, 2.8, "X", mats, lit=L_((0, 0), (2, 3)), seed=4),
+                            qa_block(name + "_bay1", 5.5, 8.5, -0.9, 0.6, 6.0, 1.2, "Y", mats, lit=L_((1, 0)), seed=5, win_step=1.2)]),
+        ("back", lambda: [qa_block(name + "_back", -10, 14, 8, 16, 12.0, 3.2, "X", mats, lit=L_((3, 2), (3, 8)), seed=6),
+                          qa_block(name + "_bd1", -6, -2.5, 7.6, 11, 13.2, 1.8, "Y", mats, floor_h=13.2, seed=7, band=False),
+                          qa_block(name + "_bd2", 8, 11.5, 7.6, 11, 13.2, 1.8, "Y", mats, floor_h=13.2, seed=8, band=False)]),
+        ("wingL2", lambda: [qa_block(name + "_wl2", -23, -15, -1, 7, 9.0, 3.0, "Y", mats, lit=L_((2, 1)), seed=9),
+                            qa_turret(name + "_t1", -15.0, 0.6, 1.6, 11.5, mats, lit=lit)]),
+        ("wingR2", lambda: [qa_block(name + "_wr2", 12, 21, -2, 6, 6.0, 2.8, "Y", mats, lit=L_((1, 1)), seed=10),
+                            qa_turret(name + "_t2", 12.0, -1.6, 1.4, 9.5, mats),
+                            qa_block(name + "_wr3", 21, 26, 0, 6, 3.2, 2.0, "X", mats, floor_h=3.2, seed=11)]),
+        ("extras", lambda: [qa_turret(name + "_t3", 21.2, -2.2, 1.1, 7.5, mats, lit=lit),
+                            qa_block(name + "_wl3", -27, -23, 1, 6, 6.0, 2.2, "X", mats, seed=12),
+                            box_mesh(name + "_chim", [(x, y, z, 0.4, 0.4, 1.3) for x, y, z in ((-8, 5, 9.4), (8, 4, 12.6), (-18, 3, 12.8), (16, 2, 9.6),
+                                                                                             (-3, 12, 15.8), (11, 12, 15.8), (-25, 3.5, 8.6))], mats[1])]),
+    ]
+    want = [k for k, _ in spec] if parts is None else list(parts)
+    out = {"order": [], "objs": {}, "mats": mats, "tower": [], "tower_xy": (0.5, 8.0)}
+    for k, fn in spec:
+        if k in want:
+            out["order"].append(k)
+            out["objs"][k] = fn()
+    if tower_levels and (parts is None or "tower" in want):
+        tx, ty = out["tower_xy"]
+        for i in range(tower_levels):
+            lv = qa_block(f"{name}_tw{i}", tx - 2.1, tx + 2.1, ty - 2.1, ty + 2.1, 3.0, 0.0, "X", mats, win_step=1.6,
+                          lit=((0, 1),) if lit and i in (2, 5) else (), seed=20 + i, z0=i * 3.0)
+            out["tower"].append(lv)
+        bm = bmesh.new()
+        res = bmesh.ops.create_cone(bm, cap_ends=True, segments=4, radius1=3.4, radius2=0.05, depth=3.4,
+                                    matrix=Matrix.Translation((0, 0, 1.7)) @ Matrix.Rotation(math.pi / 4, 4, "Z"))
+        bmesh.ops.create_cone(bm, cap_ends=True, segments=6, radius1=0.06, radius2=0.01, depth=1.4, matrix=Matrix.Translation((0, 0, 3.9)))
+        cap = _mesh_mats(name + "_twcap", bm, (mats[1],))
+        cap.location = (tx, ty, tower_levels * 3.0)
+        out["tower_cap"] = cap
+        out["order"].append("tower")
+        out["objs"]["tower"] = out["tower"] + [cap]
+    return out
+
+
+def grow_in(objs, f, dur=5):
+    """Pop a building part up out of the ground at frame f (scale z 0 -> 1 with a small overshoot); hidden before."""
+    for o in objs:
+        for ff, sz in ((max(1, f - 1), 0.001), (f + dur, 1.06), (f + dur + 3, 1.0)):
+            o.scale = (1, 1, sz)
+            o.keyframe_insert("scale", frame=ff)
+        if f > 1:
+            key_vis(o, [(1, False), (f, True)])
+
+
+def scaffold(name, x0, x1, y, z1, bay=2.0, lift=2.0, depth=1.1, mat=None, z0=0.0, planks=True):
+    """Timber scaffold lattice along X in front of a wall at y (stands at y - depth .. y): poles, ledgers, braces, plank decks."""
+    mat = mat or L.mat_noise_surface(name + "_m", (0.09, 0.06, 0.035), (0.24, 0.17, 0.1), scale=10, bump=0.2, voronoi=False)
+    bm = bmesh.new()
+    nx = max(1, int(round((x1 - x0) / bay)))
+    nz = max(1, int(round((z1 - z0) / lift)))
+    for i in range(nx + 1):
+        x = x0 + (x1 - x0) * i / nx
+        for yy in (y - depth, y - 0.1):
+            _beam(bm, Vector((x, yy, z0)), Vector((x, yy, z1 + 1.0)), 0.04, 0.04)
+        for k in range(1, nz + 1):
+            _beam(bm, Vector((x, y - depth, z0 + k * lift)), Vector((x, y - 0.1, z0 + k * lift)), 0.03, 0.03)
+    for k in range(1, nz + 1):
+        z = z0 + k * lift
+        _beam(bm, Vector((x0, y - depth, z)), Vector((x1, y - depth, z)), 0.03, 0.03)
+        _beam(bm, Vector((x0, y - depth, z + 1.0)), Vector((x1, y - depth, z + 1.0)), 0.02, 0.02)
+        if planks:
+            _beam(bm, Vector((x0, y - depth / 2, z + 0.04)), Vector((x1, y - depth / 2, z + 0.04)), depth / 2 - 0.08, 0.025)
+    for i in range(nx):
+        xa, xb = x0 + (x1 - x0) * i / nx, x0 + (x1 - x0) * (i + 1) / nx
+        _beam(bm, Vector((xa, y - depth - 0.03, z0)), Vector((xb, y - depth - 0.03, z0 + lift)) if i % 2 == 0 else Vector((xb, y - depth - 0.03, z0)), 0.02, 0.02)
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, mat)
+    return o
+
+
+def lever_rifle_rack(loc, count=5, width=1.9, name="rack"):
+    """Wall rack (XZ plane, facing -Y) of generic lever-action rifles lying horizontally: no maker's marks, no detail."""
+    root = empty(name, loc)
+    wood = mat_oak(name + "_w", 0.8)
+    steel = L.mat_principled(name + "_s", (0.05, 0.05, 0.055), rough=0.35, metal=0.9)
+    boxes_w = [(-width / 2 + 0.25, -0.03, 0.14 * count, 0.03, 0.03, 0.17 * count + 0.1), (width / 2 - 0.25, -0.03, 0.14 * count, 0.03, 0.03, 0.17 * count + 0.1)]
+    boxes_s = []
+    for i in range(count):
+        z = 0.1 + i * 0.3
+        s = 1 if i % 2 == 0 else -1
+        boxes_w += [(s * -0.55, -0.09, z - 0.02, 0.24, 0.02, 0.05), (s * -0.14, -0.09, z - 0.005, 0.2, 0.022, 0.03)]      # butt, fore-end
+        boxes_s += [(s * 0.3, -0.09, z + 0.015, 0.5, 0.012, 0.012), (s * 0.3, -0.09, z - 0.012, 0.42, 0.01, 0.01),          # barrel, magazine tube
+                    (s * -0.27, -0.09, z, 0.09, 0.018, 0.04), (s * -0.3, -0.09, z - 0.06, 0.05, 0.008, 0.03)]               # receiver, lever loop
+        boxes_w += [(sx * (width / 2 - 0.25), -0.07, z - 0.07, 0.03, 0.06, 0.012) for sx in (-1, 1)]
+    box_mesh(name + "_wood", boxes_w, wood, parent=root)
+    box_mesh(name + "_steel", boxes_s, steel, parent=root)
+    return root
+
+
+def seat_pose(parts, seat_z=0.47, lean=0.06, hands_on_table=True):
+    """Seat a char_figure-type rig on a chair (root stays on the floor; faces +Y local)."""
+    s = parts["torso"].scale.z / 0.33 if "torso" in parts else 1.0
+    parts["pelvis"].location.z = seat_z + 0.07 * s
+    parts["pelvis"].rotation_euler = (-lean, 0, 0)
+    for tag, sx in (("L", -1), ("R", 1)):
+        parts[f"hip{tag}"].rotation_euler = (math.radians(88) + lean, 0, sx * math.radians(5))
+        parts[f"knee{tag}"].rotation_euler = (-math.radians(88), 0, 0)
+        parts[f"shoulder{tag}"].rotation_euler = (math.radians(42 if hands_on_table else 20), 0, sx * math.radians(-6))
+        parts[f"elbow{tag}"].rotation_euler = (math.radians(60), 0, sx * math.radians(-14))
+    if "dress" in parts:
+        parts["dress"].scale = (1.05, 1.3, 0.5)
+        parts["dress"].location.z += 0.25 * s
+        parts["dress"].location.y += 0.14 * s
+    return parts
+
+
+def hat_on(parts, kind="cloche", color=None):
+    """1920s hat on a figure: 'cloche' (bell), 'fedora' (brim + crown) or 'boater' (flat brim, low crown)."""
+    s = parts["torso"].scale.z / 0.33 if "torso" in parts else 1.0
+    m = L.mat_principled(parts["root"].name + "_hat", color or (0.02, 0.02, 0.022), rough=0.7)
+    objs = []
+    if kind == "cloche":
+        h = L.prim("sphere", loc=(0, 0, 0.17 * s), segments=14, ring_count=8)
+        h.scale = (0.125 * s, 0.135 * s, 0.11 * s)
+        objs.append(h)
+        b = L.prim("cyl", loc=(0, 0.01 * s, 0.12 * s), vertices=14, radius=0.145 * s, depth=0.02 * s)
+        objs.append(b)
+    else:
+        b = L.prim("cyl", loc=(0, 0, 0.2 * s), vertices=18, radius=(0.17 if kind == "fedora" else 0.16) * s, depth=0.015 * s)
+        c = L.prim("cyl", loc=(0, 0, (0.26 if kind == "fedora" else 0.235) * s), vertices=18, radius=0.105 * s, depth=(0.12 if kind == "fedora" else 0.07) * s)
+        objs += [b, c]
+    for o in objs:
+        L.assign(o, m)
+        L.smooth(o)
+        o.parent = parts["neck"]
+    return objs
+
+
+def vintage_car(name="vcar", loc=(0, 0, 0), rot_z=0.0, body=(0.03, 0.03, 0.035)):
+    """Boxy generic 1920s tourer facing +Y local: upright cabin, long bonnet, running boards, spoked-look wheels. No badge."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    pm = L.mat_principled(name + "_p", body, rough=0.3, metal=0.3)
+    tm = L.mat_principled(name + "_t", (0.012, 0.012, 0.012), rough=0.8)
+    gm = L.mat_principled(name + "_g", (0.02, 0.025, 0.03), rough=0.06)
+    box_mesh(name + "_body", [(0, -0.5, 1.15, 0.72, 1.1, 0.62), (0, 1.25, 0.92, 0.52, 0.75, 0.33), (0, -0.5, 1.8, 0.75, 1.15, 0.04),
+                              (0, 0.3, 0.52, 0.85, 1.9, 0.05), (0, 2.02, 0.95, 0.42, 0.04, 0.3)], pm, parent=root, bevel=0.03)
+    box_mesh(name + "_glass", [(0, 0.61, 1.42, 0.66, 0.01, 0.28), (0.725, -0.5, 1.42, 0.005, 0.85, 0.24), (-0.725, -0.5, 1.42, 0.005, 0.85, 0.24)],
+             gm, parent=root)
+    for sx in (-1, 1):
+        for y in (-1.15, 1.45):
+            w = L.prim("cyl", loc=(sx * 0.82, y, 0.4), vertices=18, radius=0.4, depth=0.14, rot=(0, math.pi / 2, 0))
+            L.assign(w, tm)
+            w.parent = root
+            fd = box_mesh(f"{name}_f{sx}{int(y)}", [(sx * 0.82, y, 0.86, 0.12, 0.5, 0.03)], pm, parent=root)
+        lp = L.prim("sphere", loc=(sx * 0.42, 2.1, 1.0), segments=10, ring_count=6, radius=0.1)
+        L.assign(lp, L.mat_principled(name + "_l", (0.5, 0.48, 0.4), rough=0.2, metal=0.8))
+        lp.parent = root
+    return root
+
+
+def picket_fence(name, x0, x1, y, h=1.0, step=0.16, gate=None, mat=None):
+    """White picket fence along X at y. gate=(x, half_width) leaves an opening with two taller posts. One mesh."""
+    mat = mat or L.mat_principled(name + "_m", (0.5, 0.48, 0.42), rough=0.7)
+    boxes = []
+    x = x0
+    while x <= x1:
+        if not (gate and abs(x - gate[0]) < gate[1]):
+            boxes.append((x, y, h / 2, 0.035, 0.012, h / 2))
+        x += step
+    segs = [(x0, x1)] if not gate else [(x0, gate[0] - gate[1]), (gate[0] + gate[1], x1)]
+    for a, b in segs:
+        for z in (0.3, h - 0.2):
+            boxes.append(((a + b) / 2, y + 0.02, z, (b - a) / 2, 0.015, 0.035))
+    if gate:
+        for sx in (-1, 1):
+            boxes.append((gate[0] + sx * gate[1], y, (h + 0.3) / 2, 0.06, 0.06, (h + 0.3) / 2))
+    return box_mesh(name, boxes, mat)
+
+
+def ticket_booth(loc, rot_z=0.0, name="booth"):
+    """Small wooden ticket booth with a counter window, striped awning and a BLANK signboard (no name, no logo)."""
+    root = empty(name, loc)
+    root.rotation_euler = (0, 0, rot_z)
+    wood = L.mat_noise_surface(name + "_w", (0.2, 0.18, 0.13), (0.36, 0.33, 0.25), scale=6, bump=0.15, voronoi=False, rough=0.7)
+    dark = L.mat_principled(name + "_d", (0.01, 0.01, 0.012), rough=0.5)
+    box_mesh(name + "_body", [(0, 0.6, 1.2, 0.8, 0.6, 1.2), (0, 0.6, 2.45, 0.95, 0.75, 0.06), (0, -0.12, 1.02, 0.6, 0.14, 0.03),
+                              (0, -0.05, 2.75, 0.75, 0.04, 0.22)], wood, parent=root)
+    box_mesh(name + "_win", [(0, -0.01, 1.5, 0.5, 0.02, 0.42)], dark, parent=root)
+    bm = bmesh.new()
+    for i in range(6):
+        xa = -0.9 + 0.3 * i
+        f = bm.faces.new([bm.verts.new(p) for p in ((xa, 0.0, 2.38), (xa + 0.3, 0.0, 2.38), (xa + 0.3, -0.7, 2.05), (xa, -0.7, 2.05))])
+        f.material_index = i % 2
+    aw = _mesh_mats(name + "_awning", bm, (L.mat_principled(name + "_a1", (0.45, 0.42, 0.35), rough=0.9), L.mat_principled(name + "_a2", (0.25, 0.06, 0.05), rough=0.9)))
+    aw.parent = root
+    return root
+
+
+def wisp(name, loc, n, f0=1, f1=None, seed=1, size=(0.12, 0.5), drift=(0.2, 0.0, 0.35), peak=0.35, color=(0.8, 0.82, 0.78)):
+    """Pale soft wisp that drifts out of the dark and fades (stretched translucent blob, alpha keyed 0 -> peak -> 0).
+    A legend device: keep it abstract (no face, no figure)."""
+    f1 = f1 or n
+    m = L.mat_principled(name + "_m", color, rough=1.0, emit=color, emit_strength=0.7, alpha=0.0)
+    try:
+        m.surface_render_method = "BLENDED"
+    except Exception:
+        pass
+    o = L.prim("sphere", loc=loc, segments=14, ring_count=10, radius=1.0, name=name)
+    o.scale = (size[0], size[0] * 0.8, size[1])
+    L.assign(o, m)
+    L.smooth(o)
+    o.visible_shadow = False
+    L.add_displace(o, strength=0.35, scale=0.5, name=name + "_d")
+    o.keyframe_insert("location", frame=f0)
+    o.keyframe_insert("rotation_euler", frame=f0)
+    o.location = (loc[0] + drift[0], loc[1] + drift[1], loc[2] + drift[2])
+    o.rotation_euler = (0, 0.5 * (1 if seed % 2 else -1), 1.5)
+    o.keyframe_insert("location", frame=f1)
+    o.keyframe_insert("rotation_euler", frame=f1)
+    key_principled(m, "Alpha", [(max(1, f0 - 1), 0.0), (f0 + (f1 - f0) * 0.4, peak), (f1, 0.0)])
+    return o

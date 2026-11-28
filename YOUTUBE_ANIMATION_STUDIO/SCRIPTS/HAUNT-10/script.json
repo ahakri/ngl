@@ -318,7 +318,7 @@
                 "her death"
               ]
             ],
-            "y": 900
+            "y": 980
           }
         },
         {
@@ -495,7 +495,7 @@
           "text": "Stairs left over from\nremodeling (likely)",
           "params": {
             "header": "THE PRACTICAL ANSWER",
-            "y": 820
+            "y": 1420
           }
         },
         {
@@ -541,13 +541,14 @@
             "rot": -2,
             "size": 42,
             "y": 70
-          }
+          },
+          "start": 0.5
         },
         {
           "type": "label",
           "text": "DOCUMENTED FACT",
           "params": {
-            "y": 200
+            "y": 1430
           }
         }
       ],
@@ -625,7 +626,7 @@
           "type": "text",
           "text": "THE DOOR TO NOWHERE",
           "params": {
-            "y": 420,
+            "y": 330,
             "size": 70
           }
         },

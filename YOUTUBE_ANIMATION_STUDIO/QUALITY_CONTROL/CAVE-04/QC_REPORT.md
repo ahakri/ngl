@@ -39,3 +39,14 @@ VERDICT: FAIL (v1, 2026-11-28)
 - S15 (0:40.7-0:43.8): very dark; the crawling rescuer reads as a pale mannequin shape.
 - S04: the cave opening barely reads in the night shot; the stamp carries the beat.
 - Not machine-checkable here: narration delivery was not auditioned by ear (no audio playback in this container).
+
+## Shot fixes (v2)
+- **S11 (anchor gives way)** — `BLENDER_PROJECTS/CAVE-04/shots.py` S11:
+  - Dust burst replaced: 700 fine specks (radius 0.0009, was 2500 x 0.0015 in a 0.6 m sphere) in a tight 0.16 m shell at the bolt,
+    growing to 1.25x only; it stays >= 0.55 m from the lens and never sits between the lens and the falling anchor. No blob.
+  - Anchor fall slowed into a readable tumble (A -> -0.4 m at fail+6, -1.0 m at fail+15, into the crack by the end).
+  - Lighting: a small key light parented to the anchor (bolt/pulley/rock chunk stay lit all the way down), plus a fill and a rim on
+    the fall path / slack rope; the work lamp no longer dips to near-dark after the failure.
+  - Camera (lens 30): holds on the bolt until the failure, then tilts/pulls back to follow the falling anchor into the crack; hard shake kept.
+  - Verified: single frames 20/32/33/36/40/45/50/52/61 at 540 px (/tmp/fix_CAVE-04_S11*), preview S11 clean (no error log). Frame count 61 unchanged.
+- Needs: production re-render of S11, then re-assembly (also picks up the S14 timer overlay).

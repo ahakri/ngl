@@ -389,6 +389,10 @@ def S11(L, n):
                                  (-0.48, -0.05, 0.35, 0.02, 0.003, 0.6), (0.48, -0.05, 0.35, 0.02, 0.003, 0.6)], red)
     tx = L.text3d("ONE PLATE", loc=(0, -0.05, -0.42), size=0.13, extrude=0.002, mat=red, name="oneplate")
     H.key_vis([fr, tx], [(1, False), (52, True)])
+    # v2 (QC fix): the desk lamp cast a crisp black copy of the raised red text/frame onto the board, which read as a
+    # second, misregistered "ONE PLATE". The red frame + its label cast no shadow now, so the label renders once.
+    for o in (fr, tx):
+        o.visible_shadow = False
     lamp = L.spot((-1.6, -2.2, 2.6), (0, 0, 0), energy=900, size_deg=60, blend=0.8, color=(1.0, 0.78, 0.5), name="desklamp")
     H.aim(lamp, (-1.6, -2.2, 2.6), (0.0, 0, 0.5))
     c = H.cam((0.0, -4.4, 0.85), (0.0, 0, 0.78), lens=50)

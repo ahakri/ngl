@@ -42,3 +42,10 @@ VERDICT: FAIL (v1, 2026-11-28)
 - S10/S12: the cards (THE CHECK / OTHER THEORIES) restate the narration; S12's greasy lens reads as a blurred blob.
 - S14: the figure close to camera is bright and large for the loop flash.
 - Not machine-checkable here: narration delivery was not auditioned by ear (no audio playback in this container).
+
+## Shot fixes (v2)
+- **S11 "ONE PLATE" doubled** — cause: the raised red text/frame (5 cm off the board) cast a crisp black shadow from the desk
+  lamp, which read as a second, offset black "ONE PLATE". `BLENDER_PROJECTS/HAUNT-04/shots.py` S11: the red frame and its
+  "ONE PLATE" label now have `visible_shadow = False`, so the label renders once (red, just under the frame). Nothing else changed.
+- Verified: frames 60/90 at 540 px (/tmp/fix_HAUNT-04_S11) show one clean red "ONE PLATE"; preview S11 clean. Frame count 99 unchanged.
+- Needs: production re-render of S11, then re-assembly (also picks up the S09/S11 overlay fixes).

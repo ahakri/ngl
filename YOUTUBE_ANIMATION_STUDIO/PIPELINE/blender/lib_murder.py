@@ -5321,7 +5321,6 @@ def blackout_facade(name="facade", x0=-7.0, x1=7.0, h=7.6, y=0.0, up=((-4.3, 1.3
             for k in (-0.22, 0.22):
                 _taper_tube(bm, [Vector((cx_ + k, y + 3.4, h + 3.8)), Vector((cx_ + k, y + 3.4, h + 4.15))], [0.1, 0.08], sides=8, mi=1)
     o = L.mesh_from_bm(name, bm)
-    o.data.materials.clear()
     for mt in (brick, stone, glass, board, tape, frame):
         o.data.materials.append(mt)
     return {"obj": o, "up": ups, "down": dns, "door": (dr[0], dr[1], dr[3]) if dr else None}
@@ -5467,7 +5466,6 @@ def wych_elm(loc=(0, 0, 0), height=2.7, radius=0.8, seed=8, shoots=56, shoot_len
         mtx = Matrix.Translation((r * math.cos(a), r * math.sin(a), Z0 + t * (rim(a) - Z0))) @ Matrix.Diagonal((rr, rr, rr * rnd.uniform(0.7, 1.0), 1))
         bmesh.ops.create_icosphere(bm, subdivisions=2, radius=1.0, matrix=mtx)
     trunk = L.mesh_from_bm(name + "_trunk", bm)
-    trunk.data.materials.clear()
     trunk.data.materials.append(bark)
     trunk.data.materials.append(dark)
     L.smooth(trunk)
@@ -5735,7 +5733,6 @@ def archive_shelves(x0=-5.0, x1=5.0, y=0.0, levels=5, bay=1.05, depth=0.42, leve
                 for q in range(3):
                     _bx(bm, (cx - lw * 0.08 * (q % 2), yf - 0.002, zb + hh * 0.42 + 0.024 - q * 0.024), (lw * (0.36 - 0.07 * (q % 2)), 0.001, 0.005), mi=6)
     o = L.mesh_from_bm(name, bm)
-    o.data.materials.clear()
     for mt in [steel] + card + [lid, paper, ink]:
         o.data.materials.append(mt)
     tag = None
@@ -5748,7 +5745,6 @@ def archive_shelves(x0=-5.0, x1=5.0, y=0.0, levels=5, bay=1.05, depth=0.42, leve
             _bx(bm, (-0.006 * (q % 2), -0.002, -0.085 - q * 0.02), (0.045 - 0.008 * (q % 2), 0.001, 0.0045), mi=1)
         _taper_tube(bm, [Vector((0, 0, 0)), Vector((0.0, 0, -0.062))], [0.0018, 0.0018], sides=4, mi=1)
         t = L.mesh_from_bm(name + "_tagm", bm)
-        t.data.materials.clear()
         t.data.materials.append(paper)
         t.data.materials.append(ink)
         t.parent = tag
@@ -5960,7 +5956,6 @@ def paper_tag(loc, rot_z=0.0, size=(0.055, 0.03), string_to=None, name="tag8"):
     for q in range(2):
         _bx(bm, (0.004, size[1] * (0.15 - 0.34 * q), 0.0018), (size[0] * (0.3 - 0.06 * q), 0.0018, 0.0003), mi=1)
     o = L.mesh_from_bm(name, bm)
-    o.data.materials.clear()
     o.data.materials.append(mat_paper(name + "_p", (0.62, 0.52, 0.34)))
     o.data.materials.append(L.mat_principled(name + "_i", (0.1, 0.09, 0.08), rough=0.9))
     o.location = loc

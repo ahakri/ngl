@@ -281,8 +281,74 @@ def seabed_shot(L, n, cam_a, cam_b, whale_from=None, blackout=None, shadow=None)
 
 # ----------------------------------------------------------------------------- S01 / S17 (loop pair)
 
+def _blackout_mat(L, n, b, center=(0.0, 0.06), radius=(0.05, 0.085), peak=0.1):
+    """Near-black card shader: black everywhere except a faint, flickering teal leak (the light through the bubbles)
+    so the blackout reads as black but is not a dead frame (keeps qc_check's black/freeze detectors honest)."""
+    m, nd, lk = L._mat("blackcard_m")
+    for x in list(nd):
+        if x.type == "BSDF_PRINCIPLED":
+            nd.remove(x)
+    tc = nd.new("ShaderNodeTexCoord")
+    mp = nd.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (1 / radius[0], 1 / radius[1], 1)
+    mp.inputs["Location"].default_value = (-center[0] / radius[0], -center[1] / radius[1], 0)
+    lk.new(tc.outputs["Object"], mp.inputs["Vector"])
+    loc = mp.inputs["Location"]
+    for f, dx, dy in ((b, 0.0, 0.0), (b + (n - b) // 2, 0.25, 0.35), (n, -0.1, 0.7)):
+        loc.default_value = (-center[0] / radius[0] - dx, -center[1] / radius[1] - dy, 0)
+        loc.keyframe_insert("default_value", frame=f)
+    gr = nd.new("ShaderNodeTexGradient")
+    gr.gradient_type = "SPHERICAL"
+    lk.new(mp.outputs[0], gr.inputs["Vector"])
+    nz = nd.new("ShaderNodeTexNoise")
+    nz.noise_dimensions = "4D"
+    nz.inputs["Scale"].default_value = 3.0
+    lk.new(mp.outputs[0], nz.inputs["Vector"])
+    w = nz.inputs["W"]
+    w.default_value = 0.0
+    w.keyframe_insert("default_value", frame=b)
+    w.default_value = (n - b) / 24 * 8.0
+    w.keyframe_insert("default_value", frame=n)
+    mul = nd.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY"
+    lk.new(gr.outputs["Fac"], mul.inputs[0])
+    mr = nd.new("ShaderNodeMapRange")
+    mr.inputs["To Min"].default_value = 0.1
+    mr.inputs["To Max"].default_value = 1.8
+    lk.new(nz.outputs["Fac"], mr.inputs["Value"])
+    lk.new(mr.outputs["Result"], mul.inputs[1])
+    e = nd.new("ShaderNodeEmission")
+    e.inputs["Color"].default_value = (0.25, 0.9, 0.8, 1)
+    mul2 = nd.new("ShaderNodeMath")
+    mul2.operation = "MULTIPLY"
+    mul2.inputs[1].default_value = peak
+    lk.new(mul.outputs[0], mul2.inputs[0])
+    lk.new(mul2.outputs[0], e.inputs["Strength"])
+    lk.new(e.outputs[0], nd["Material Output"].inputs["Surface"])
+    return m
+
+
 def S01(L, n):
-    seabed_shot(L, n, CAM01_A, CAM01_B, whale_from=(30, 64), blackout=65)
+    blackout = 65
+    P, cam = seabed_shot(L, n, CAM01_A, CAM01_B, whale_from=(30, 64), blackout=blackout)
+    # v2 (QC fix): the occluder sphere never killed the world/volume light, so sand, rock and diver stayed lit after the
+    # f65 blackout. A near-black card parented to the lens (hidden before f65, so frame 1 / the loop target is
+    # untouched) cuts hard to black on "everything went black" and holds to the end of the shot.
+    card = L.prim("plane", loc=(0, 0, 0), size=1, name="blackcard")
+    L.assign(card, _blackout_mat(L, n, blackout))
+    card.parent = cam
+    card.location = (0, 0, -0.08)
+    card.rotation_euler = (0, 0, 0)
+    card.scale = (0.3, 0.3, 0.3)
+    card.visible_shadow = False
+    card.hide_render = True
+    card.keyframe_insert("hide_render", frame=1)
+    card.keyframe_insert("hide_render", frame=blackout - 1)
+    card.hide_render = False
+    card.keyframe_insert("hide_render", frame=blackout)
+    for fc in L._fcurves(card.animation_data.action):
+        for kp in fc.keyframe_points:
+            kp.interpolation = "CONSTANT"
 
 
 def S17(L, n):

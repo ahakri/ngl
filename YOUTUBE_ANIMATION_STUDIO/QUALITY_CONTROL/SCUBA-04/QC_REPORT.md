@@ -42,3 +42,14 @@ VERDICT: FAIL (v1, 2026-11-28)
 - S07: the fish school is faint; S03 diver small in the wide.
 - S11: the fist icon is blocky.
 - Not machine-checkable here: narration delivery was not auditioned by ear (no audio playback in this container).
+
+## Shot fixes (v2)
+- **S01 blackout never went black** — cause: the occluder sphere could not kill the world/volume light, so sand, rock and diver
+  stayed lit after f65. `BLENDER_PROJECTS/SCUBA-04/shots.py` S01 (seabed_shot untouched, S17 unaffected): a near-black card
+  parented to the lens, render-hidden until frame 64 and shown from frame 65 to the end (constant keys). Its shader is black
+  except a faint, slowly drifting/flickering teal leak (the light through the bubbles), mean luma ~4/255, so the frame reads as
+  black on "everything went black" while not tripping qc_check's black/freeze detectors.
+- Frame 1 (loop target) is pixel-identical to the v1 build (max diff 0 vs a render of the HEAD shots.py).
+- Verified: frames 50-115 at 540 px encoded to H.264 and run through qc_check's `blackdetect=d=0.5:pix_th=0.06,freezedetect=n=0.002:d=1.5`:
+  no black or frozen segment reported; preview S01 clean. Frame count 115 unchanged.
+- Needs: production re-render of S01, then re-assembly (also picks up the S02/S11 overlay fixes).
