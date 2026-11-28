@@ -1,12 +1,14 @@
 {
  "note": "Push a change to this file to start the GitHub Actions render farm (.github/workflows/render-shorts.yml). One job per request. Fields: id; optional reuse_frames (true = start from the frames artifact of the latest earlier run); optional rerender (list of shot ids to render again).",
- "requested_at": "2026-11-28T01:07:24+00:00",
+ "requested_at": "2026-11-28T01:38:41+00:00",
  "requests": [
   {
-   "id": "MURDER-08"
+   "id": "CAVE-02",
+   "reuse_frames": true
   },
   {
-   "id": "HAUNT-10"
+   "id": "HAUNT-07",
+   "reuse_frames": true
   }
  ]
 }
