@@ -1,0 +1,14 @@
+{
+ "id": "HAUNT-04",
+ "run_id": "46079759846",
+ "sha": "6f668fbea7a24e7e73843bd5a4b1ccf4db18c72b",
+ "render_seconds": 5265,
+ "assemble_qc_seconds": 457,
+ "frames": 1410,
+ "seconds_per_frame": 3.73,
+ "auto_verdict": "PASS",
+ "fail": [],
+ "duration_s": 57.33,
+ "lufs": -14.6,
+ "true_peak": -1.3
+}
