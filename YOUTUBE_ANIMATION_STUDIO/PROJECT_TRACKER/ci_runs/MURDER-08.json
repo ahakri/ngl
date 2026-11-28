@@ -1,0 +1,14 @@
+{
+ "id": "MURDER-08",
+ "run_id": "46091494223",
+ "sha": "057f7f9cdcfa64416565f88e0d8f131762ba440a",
+ "render_seconds": 5585,
+ "assemble_qc_seconds": 746,
+ "frames": 1651,
+ "seconds_per_frame": 3.38,
+ "auto_verdict": "PASS",
+ "fail": [],
+ "duration_s": 66.83,
+ "lufs": -14.6,
+ "true_peak": -1.7
+}
