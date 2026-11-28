@@ -2757,7 +2757,7 @@ def gravel_mat(name="gravel_m", c1=(0.2, 0.18, 0.14), c2=(0.5, 0.46, 0.38), c3=(
     ramp.color_ramp.elements[1].color = (*c3, 1)
     e = ramp.color_ramp.elements.new(0.5)
     e.color = (*c2, 1)
-    l.new(at.outputs["Fac"], ramp.inputs["Fac"])
+    l.new(at.outputs["Color"], ramp.inputs["Fac"])
     l.new(ramp.outputs["Color"], p.inputs["Base Color"])
     p.inputs["Roughness"].default_value = rough
     tc = n.new("ShaderNodeTexCoord")
@@ -2841,7 +2841,7 @@ def gravel_field(fn, center=(0.0, 0.0), size=(2.0, 2.0), count=2000, psize=(0.01
     cx, cy = center
     org = Vector(origin) if origin is not None else Vector((cx, cy, fn(cx, cy)))
     bm = bmesh.new()
-    cl = bm.loops.layers.color.new("pcol")
+    cl = bm.loops.layers.float_color.new("pcol")
     made = tries = 0
     while made < count and tries < count * 6:
         tries += 1

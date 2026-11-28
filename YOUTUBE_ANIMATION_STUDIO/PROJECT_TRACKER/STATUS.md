@@ -1,6 +1,6 @@
 # STATUS (auto-generated from disk by update_tracker.py)
 
-Updated: 2026-11-28T00:16:18Z
+Updated: 2026-11-28T00:28:41Z
 
 ## Concept counts
 
@@ -16,11 +16,11 @@ Updated: 2026-11-28T00:16:18Z
 
 ## Pipeline status
 
-- ANIMATED - in render queue: 18
-- ANIMATING: 2
+- ANIMATED - in render queue: 16
+- ANIMATING: 1
 - CONCEPT: 68
 - QC PASSED: 5
-- RENDERED - QC pending: 5
+- RENDERED - QC pending: 8
 - SCRIPTED: 2
 
 ## Videos in production
@@ -32,9 +32,9 @@ Updated: 2026-11-28T00:16:18Z
 | CAVE-03 | Under the Ice, the Only Way Out Was Deeper | 76 | ANIMATED - in render queue |
 | CAVE-04 | Stuck Upside Down With No Way to Back Out | 75 | RENDERED - QC pending |
 | CAVE-05 | 60 Hours in an Air Bubble Under Mallorca | 75 | ANIMATED - in render queue |
-| CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | ANIMATED - in render queue |
+| CAVE-06 | It Looks Like a Pond. It's Killed More Than 10 Divers. | 73 | RENDERED - QC pending |
 | CAVE-07 | The Greatest Cave Diver Ever Tried to Reach 1,000 ft | 73 | ANIMATED - in render queue |
-| CAVE-08 | The Swimming Hole With a Trap at the Bottom | 73 | ANIMATING |
+| CAVE-08 | The Swimming Hole With a Trap at the Bottom | 73 | ANIMATED - in render queue |
 | SCUBA-01 | He Lived 60 Hours at the Bottom of the Sea | 84 | QC PASSED |
 | SCUBA-02 | The Boat Left Without Them | 82 | ANIMATED - in render queue |
 | SCUBA-03 | 30 Minutes With No Air, 100 m Down | 82 | RENDERED - QC pending |
@@ -52,8 +52,8 @@ Updated: 2026-11-28T00:16:18Z
 | MURDER-07 | The Oldest Cold Case: Shot in the Back 5,300 Years Ago | 77 | ANIMATED - in render queue |
 | MURDER-08 | 'Who Put Bella in the Wych Elm?' | 76 | ANIMATING |
 | HAUNT-01 | The Voice on the Enfield Tapes | 78 | QC PASSED |
-| HAUNT-02 | The Real Room 217 | 77 | ANIMATED - in render queue |
-| HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | ANIMATED - in render queue |
+| HAUNT-02 | The Real Room 217 | 77 | RENDERED - QC pending |
+| HAUNT-03 | Don't Pick Her Up on Archer Avenue | 76 | RENDERED - QC pending |
 | HAUNT-05 | The Tunnel Built to Hide the Dead | 75 | ANIMATED - in render queue |
 | HAUNT-04 | The Ghost Photo Country Life Published | 75 | ANIMATED - in render queue |
 | HAUNT-06 | The Woman on the Gravestone (1991) | 73 | ANIMATED - in render queue |

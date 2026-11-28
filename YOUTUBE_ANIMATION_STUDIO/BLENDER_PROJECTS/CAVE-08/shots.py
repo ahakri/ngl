@@ -18,8 +18,8 @@ HR = 1.9                                  # radius of the well mouth (m)
 SUN = C.sun_dir(58, 300)                  # hard high sun from the upper left
 CYAN_RIM = (0.35, 0.85, 1.0)
 TEAL = (0.3, 0.7, 0.68)
-P0, T0 = (0.0, -9.0, 10.5), (0.0, -2.05, 0.0)     # S01 frame-1 drone pose == S18 last frame (loop)
-P1, T1 = (0.0, -1.2, 6.5), (0.0, -0.75, 0.0)
+P0, T0 = (0.0, -11.0, 8.5), (0.0, -0.5, 0.0)     # S01 frame-1 drone pose == S18 last frame (loop)
+P1, T1 = (0.0, -1.2, 7.5), (0.0, -0.7, 0.0)
 
 
 # ============================================================================ helpers
@@ -73,7 +73,7 @@ def creek_z(x, y):
     nz = 0.07 * noise.noise(Vector((x * 0.22, y * 0.22, 0.3))) + 0.03 * noise.noise(Vector((x * 0.8, y * 0.8, 1.7)))
     bed = -0.34 + nz - 0.1 * C.sm((3.5 - d) / 3.5)
     bank = 1.5 + 0.7 * noise.noise(Vector((x * 0.05, y * 0.05, 2.2))) + 0.03 * max(0.0, d - 12.0)
-    z = C.lerp(bed, bank, C.sm((d - 6.0) / 5.0))
+    z = C.lerp(bed, bank, C.sm((d - 4.6) / 4.5))
     lg = C.sm((x - 3.3) / 0.35) * C.sm((8.5 - x) / 1.5) * C.sm((5.5 - abs(y + 0.5)) / 1.2)   # rock ledge, east side
     return max(z, C.lerp(z, 0.38 + 0.4 * nz, lg))
 
@@ -88,9 +88,10 @@ def _creek(L, n, trees=120, t0=0.0, hole=True, flood=False, y_range=(-40.0, 95.0
                                 grass=(0.05, 0.08, 0.03))
     else:
         bg = C.sky_world(top=(0.16, 0.38, 0.8), horizon=(0.7, 0.82, 0.95), ground=(0.2, 0.2, 0.17), sun_dir=tuple(SUN),
-                         sun_color=(1.0, 0.95, 0.85), sun_glow=1.5, strength=1.15)
-        sun = C.sun_from(SUN, energy=4.6, color=(1.0, 0.96, 0.88), angle=1.2)
-        rock = C.creek_rock_mat("creekrock")
+                         sun_color=(1.0, 0.95, 0.85), sun_glow=1.5, strength=0.8)
+        sun = C.sun_from(SUN, energy=3.0, color=(1.0, 0.96, 0.88), angle=1.2)
+        rock = C.creek_rock_mat("creekrock", dark=(0.3, 0.27, 0.2), light=(0.6, 0.55, 0.43), grass=(0.06, 0.13, 0.03),
+                                grass_z=(0.12, 0.7), shallow=(0.6, 0.92, 0.78), deep_range=(0.6, 3.2), glow_strength=0.7)
 
     def coarse(x, y):
         if hole and abs(x) < 10.5 and -12.5 < y < 18.5:      # sits under the fine patch: drop it out of the shaft
@@ -116,7 +117,7 @@ def _creek(L, n, trees=120, t0=0.0, hole=True, flood=False, y_range=(-40.0, 95.0
     while len(pts) < trees and tries < trees * 30:
         tries += 1
         y = rnd.uniform(*y_range)
-        x = creek_cx(y) + rnd.choice((-1, 1)) * (8.2 + abs(rnd.gauss(0, 7.0)))
+        x = creek_cx(y) + rnd.choice((-1, 1)) * (6.8 + abs(rnd.gauss(0, 6.0)))
         if abs(x) > 62:
             continue
         if not flood and ((Vector((x, y)) + sdir * 6.8).length < 5.5 or math.hypot(x, y) < 7.5):
@@ -125,18 +126,26 @@ def _creek(L, n, trees=120, t0=0.0, hole=True, flood=False, y_range=(-40.0, 95.0
     lf = ((0.02, 0.04, 0.015), (0.07, 0.12, 0.045)) if flood else ((0.03, 0.07, 0.02), (0.13, 0.24, 0.07))
     C.florida_woods(pts, seed=4, height=(9.0, 15.0), crown=(2.2, 3.6), trunk=(0.16, 0.13, 0.1), c1=lf[0], c2=lf[1],
                     name="cyp")
+    bpts = []
+    for i in range(90):
+        y = rnd.uniform(max(y_range[0], -30.0), min(y_range[1], 60.0))
+        x = creek_cx(y) + rnd.choice((-1, 1)) * rnd.uniform(5.2, 8.0)
+        if 2.8 < x < 9.0 and abs(y + 0.5) < 6.0:
+            continue
+        bpts.append((x, y, creek_z(x, y)))
+    C.jungle(bpts, size=(0.6, 1.5), seed=6, c1=lf[0], c2=(lf[1][0] * 1.2, lf[1][1] * 1.2, lf[1][2]), name="bush")
     wat = None
     if not flood:
         wat = L.prim("plane", loc=(0, 45, 0.0), size=1, name="creekwater")
         wat.scale = (70, 220, 1)
         L.apply_scale(wat)
-        wm, _ = C.clear_water_mat("clearwater", n=n, t0=t0)
+        wm, _ = C.clear_water_mat("clearwater", n=n, t0=t0, alpha=0.18, glint=1.2, glint_scale=26.0, glint_cut=(0.82, 0.86))
         L.assign(wat, wm)
         wat.visible_shadow = False
     return {"sun": sun, "bg": bg, "rock": rock, "water": wat}
 
 
-SWIM = {"A": dict(suit=(0.85, 0.07, 0.05), ang=205.0, ph=0.0), "B": dict(suit=(0.95, 0.75, 0.08), ang=-22.0, ph=1.7)}
+SWIM = {"A": dict(suit=(0.85, 0.07, 0.05), ang=165.0, ph=0.0), "B": dict(suit=(0.95, 0.75, 0.08), ang=40.0, ph=1.7)}
 
 
 def _swimmers(L, n, t0=0.0, which=("A", "B"), rings=True):
@@ -162,7 +171,7 @@ def _swimmers(L, n, t0=0.0, which=("A", "B"), rings=True):
         mid = out * (HR + 0.1) - out * 0.35
         pts.append((mid.x, mid.y, 0.012))
     if rings:
-        C.time_rings(pts, n, t0=t0, period=1.9, rmax=0.85, strength=2.2, seed=5, name="ripple")
+        C.time_rings(pts, n, t0=t0, period=2.2, rmax=0.5, strength=1.1, seed=5, name="ripple", minor=0.006)
     return pts
 
 
@@ -200,15 +209,18 @@ def S04(L, n):
 def S17(L, n):
     """Present day: plain NO SCUBA DIVING sign on the ledge, the calm blue mouth behind it."""
     _creek(L, n, trees=120, t0=0.0)
-    sp = (4.7, -1.5)
-    c0 = Vector((7.2, -3.0, 1.95))
+    sp = (4.9, -0.95)
+    c0 = Vector((7.2, -0.7, 1.95))
     d = (Vector((c0.x, c0.y)) - Vector(sp)).normalized()
-    C.park_sign(loc=(sp[0], sp[1], creek_z(*sp) - 0.05), rot_z=math.atan2(d.x, -d.y), w=0.66, h=0.52, post=1.02,
-                lines=("NO", "SCUBA", "DIVING"), name="psign")
-    C.time_rings([(0.9, 0.5, 0.012), (-0.7, -0.9, 0.012), (-2.6, 2.2, 0.012)], n, period=2.6, rmax=0.7, strength=1.8,
+    sg = C.park_sign(loc=(sp[0], sp[1], creek_z(*sp) - 0.05), rot_z=math.atan2(d.x, -d.y), w=0.8, h=0.64, post=1.05,
+                     lines=("NO", "SCUBA", "DIVING"), name="psign")
+    bp = sg["board"].active_material.node_tree.nodes["Principled BSDF"]
+    bp.inputs["Emission Color"].default_value = (0.88, 0.86, 0.78, 1)
+    bp.inputs["Emission Strength"].default_value = 0.55
+    C.time_rings([(0.9, 0.5, 0.012), (-0.7, -0.9, 0.012), (-2.6, 2.2, 0.012)], n, period=2.6, rmax=0.5, strength=1.0,
                  seed=9, name="ripple", per_point=1)
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, tuple(c0), (4.7, -1.5, 1.32)), (n, (6.7, -0.2, 1.85), (3.3, -0.9, 0.85))], shake=0.02,
+    C.aim_cam(cam, n, [(1, tuple(c0), (2.6, -1.0, 0.95)), (n, (7.2, -0.3, 1.9), (2.45, -0.9, 0.9))], shake=0.02,
               rot_shake=0.002, rate=0.4, seed=5, fn=C.sm)
     L.bake_static()
 
@@ -273,20 +285,20 @@ def _shaft_zc(y):
 
 
 def _sand_z(x, y):
-    base = _shaft_zc(max(y, 1.5)) - 1.02 + (0.38 * (1.5 - y) if y < 1.5 else 0.0)
-    return base + 0.22 * (x / 1.4) ** 2 + 0.03 * noise.noise(Vector((x * 2.0, y * 2.0, 0.5)))
+    base = _shaft_zc(max(y, 1.5)) - 1.02 + (0.9 * (1.5 - y) if y < 1.5 else 0.0)
+    return base + 0.55 * (x / 1.4) ** 2 + 0.03 * noise.noise(Vector((x * 2.0, y * 2.0, 0.5)))
 
 
 def _shaft_set(L, n):
     """~30 ft vertical shaft that bends into an inclined passage (one tube), sand at the bend."""
     _uw(26.0)
-    rock = C.rock_mat("shaftrock", (0.05, 0.055, 0.055), (0.44, 0.44, 0.4), scale=0.9, bump=0.9)
+    rock = C.rock_mat("shaftrock", (0.035, 0.04, 0.04), (0.36, 0.36, 0.32), scale=2.2, bump=1.0)
     C.tube_along(SP, ring=36, seg=8, seed=4, rough=0.16,
                  radius_fn=lambda t, a: C.lerp(2.05, 1.6, C.sm((t - 0.4) / 0.25)),
                  squash_fn=lambda t: (1.0, C.lerp(1.0, 0.72, C.sm((t - 0.45) / 0.2))), mat=rock, name="shaft",
                  disp=(0.3, 0.08))
-    sand = L.mat_noise_surface("vent_sand", (0.3, 0.27, 0.2), (0.62, 0.58, 0.47), scale=14, bump=0.25, voronoi=False)
-    C.heightfield(size=(3.6, 10.5), center=(0, 3.6, 0), res=0.12, fn=_sand_z, mat=sand, name="sand", disp=(0, 0))
+    sand = L.mat_noise_surface("vent_sand", (0.2, 0.18, 0.13), (0.42, 0.38, 0.29), scale=14, bump=0.3, voronoi=False)
+    C.heightfield(size=(7.0, 17.0), center=(0, 5.5, 0), res=0.12, fn=_sand_z, mat=sand, name="sand", disp=(0, 0))
 
 
 def _surface_from_below(L, n):
@@ -310,7 +322,7 @@ def _surface_from_below(L, n):
     ramp.color_ramp.elements[1].color = (0.85, 1.0, 0.97, 1)
     l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
     em = nd.new("ShaderNodeEmission")
-    em.inputs[1].default_value = 5.0
+    em.inputs[1].default_value = 2.0
     l.new(ramp.outputs["Color"], em.inputs[0])
     l.new(em.outputs[0], nd["Material Output"].inputs["Surface"])
     C.key_input(mp.inputs["Location"], [(1, (0, 0, 0)), (n, (0.3, 0.2, 0.5))])
@@ -323,43 +335,43 @@ def S02(L, n):
     _shaft_set(L, n)
     _surface_from_below(L, n)
     _swimmers(L, n, t0=0.0, rings=False)                       # dark legs against the bright circle
-    for k, (x, y, tx, ty, deg, e) in enumerate(((0.5, 0.3, 0.1, 0.9, 13, 9000), (-0.6, -0.2, -0.9, 0.3, 10, 7000),
-                                                (0.1, 0.8, 0.5, 1.4, 16, 9000), (-0.2, -0.7, 0.3, -0.5, 9, 6000))):
+    for k, (x, y, tx, ty, deg, e) in enumerate(((0.5, 0.3, 0.1, 0.9, 13, 2600), (-0.6, -0.2, -0.9, 0.3, 10, 2000),
+                                                (0.1, 0.8, 0.5, 1.4, 16, 2600), (-0.2, -0.7, 0.3, -0.5, 9, 1800))):
         sp = L.spot((x, y, 3.0), (0, 0, 0), energy=e, size_deg=deg, blend=0.5, color=(0.75, 1.0, 0.95), name=f"ray{k}")
         _aim(sp, (x, y, 3.0), (tx, ty, -9.0))
-    L.spot((0, 0, 2.2), (0, 0, 0), energy=5000, size_deg=75, blend=0.8, color=(0.55, 0.95, 0.9), name="daylight")
-    C.water(center=(0, 2.5, -8.0), size=(7, 14, 19), color=(0.3, 0.75, 0.72), density=0.03, name="uw")
-    s = C.cloud((0, 0.9, -5.5), (3.0, 1.6, 8.0), count=500, radius=0.004, color=(0.8, 0.95, 0.9), emit=0.25, seed=3)
+    L.spot((0, 0, 2.2), (0, 0, 0), energy=1800, size_deg=75, blend=0.8, color=(0.55, 0.95, 0.9), name="daylight")
+    C.water(center=(0, 2.5, -8.0), size=(7, 14, 19), color=(0.3, 0.75, 0.72), density=0.012, name="uw")
+    s = C.cloud((0, 0.9, -5.5), (3.0, 1.6, 8.0), count=240, radius=0.003, color=(0.8, 0.95, 0.9), emit=0.08, seed=3)
     C.drift(s, n, (0.0, 0.0, 0.06))
     cam = C.camera(lens=20)
     C.aim_cam(cam, n, [(1, (0, -1.15, -2.2), (0, 1.2, -0.6)), (int(n * 0.55), (0, -1.1, -4.9), (0, 2.2, -6.0)),
                        (n, (0, -0.95, -6.9), (0, 2.6, -10.9))], shake=0.03, rot_shake=0.004, fn=lambda x: x)
-    C.cam_fill(cam, energy=60, color=(0.5, 0.9, 0.9))
+    C.cam_fill(cam, energy=130, color=(0.5, 0.9, 0.9))
     L.bake_static()
 
 
 def S03(L, n):
     """At the bend: sand and silt lifted by water welling up out of the dark opening."""
     _shaft_set(L, n)
-    L.spot((0, 0.3, -3.0), (0, 0, 0), energy=5000, size_deg=50, blend=0.9, color=(0.45, 0.9, 0.85), name="daylight")
-    C.water(center=(0, 3.0, -11.0), size=(6, 15, 13), color=(0.3, 0.7, 0.68), density=0.03, name="uw")
+    L.spot((0, 0.3, -3.0), (0, 0, 0), energy=1500, size_deg=50, blend=0.9, color=(0.45, 0.9, 0.85), name="daylight")
+    C.water(center=(0, 3.0, -11.0), size=(6, 15, 13), color=(0.3, 0.7, 0.68), density=0.012, name="uw")
     T = Vector((0, 0.86, -0.51)).normalized()                 # down the passage
     U = Vector((0, 0.51, 0.86)).normalized()                  # passage 'up'
-    c0 = Vector((0.1, 0.5, _sand_z(0.1, 0.5) + 0.42))
+    c0 = Vector((0.1, 0.3, _sand_z(0.1, 0.3) + 1.0))
     tilt = math.atan2(T.z, T.y)
-    grain = L.mat_principled("grain_m", (0.9, 0.85, 0.7), rough=1, emit=(0.8, 0.9, 0.85), emit_strength=0.5)
-    for k, (lat, up, cnt) in enumerate(((-1.0, 0.25, 520), (1.0, 0.3, 520), (0.0, 0.95, 420))):
+    grain = L.mat_principled("grain_m", (0.9, 0.85, 0.7), rough=1, emit=(0.8, 0.9, 0.85), emit_strength=0.25)
+    for k, (lat, up, cnt) in enumerate(((-1.0, -0.2, 260), (1.0, -0.15, 260), (0.0, 0.75, 200))):
         cen = c0 + T * 3.6 + Vector((lat, 0, 0)) + U * up
-        s = C.cloud(tuple(cen), (0.75, 6.0, 0.75), count=cnt, radius=0.004, seed=20 + k, mat=grain, name=f"up{k}")
+        s = C.cloud(tuple(cen), (0.75, 6.0, 0.75), count=cnt, radius=0.003, seed=20 + k, mat=grain, name=f"up{k}")
         s.rotation_euler = (tilt, 0, 0)
         C.drift(s, n, tuple(-T * 0.9 + U * 0.12))
-    lay = C.cloud(tuple(c0 + T * 3.9 - U * 0.3), (1.5, 4.6, 0.14), count=600, radius=0.0035, seed=31, mat=grain, name="lift")
+    lay = C.cloud(tuple(c0 + T * 4.2 - U * 0.85), (1.5, 4.6, 0.14), count=400, radius=0.003, seed=31, mat=grain, name="lift")
     lay.rotation_euler = (tilt, 0, 0)
     C.drift(lay, n, tuple(-T * 0.35 + U * 0.28))
     cam = C.camera(lens=28)
     C.aim_cam(cam, n, [(1, tuple(c0), tuple(c0 + T * 6.5 - U * 0.55)), (n, tuple(c0 + T * 0.7), tuple(c0 + T * 7.2 - U * 0.55))],
               shake=0.015, rot_shake=0.003, fn=lambda x: x)
-    C.cam_fill(cam, energy=55, color=(0.45, 0.85, 0.9))
+    C.cam_fill(cam, energy=170, color=(0.45, 0.85, 0.9))
     L.bake_static()
 
 
@@ -465,8 +477,8 @@ def S05(L, n):
         cov = C.flat_poly(ring, -0.435, sec["rock"], name=f"cover{k}")
         cov.visible_shadow = False
         C.hide_from_frame([cov], f_hide=fpop)
-        num = C.text(str(k + 1), (cx, -0.5, cz), size=0.5, color=(1, 1, 1), strength=3.5, name=f"num{k}")
-        C.pop_in([num], [fpop], dur=5)
+        num = C.text(str(k + 1), (cx - 0.75, -0.5, cz + 0.42), size=0.62, color=(1, 1, 1), strength=3.5, name=f"num{k}")
+        C.hide_from_frame([num], f_show=max(2, fpop))
     tail = C.dotted_path([(x, -0.46, -ft * KFT) for x, ft in TAIL_FT], spacing=0.16, r=0.03, color=C.CYAN, strength=2.5,
                          name="tail")
     C.pop_in(tail, [n - 13 + 2 * i for i in range(len(tail))], dur=3, overshoot=1.2)
@@ -544,8 +556,8 @@ def S06(L, n):
             for i in range(130)]
     coil += [(cx + 0.21, cy + 0.12, 0.05), (cx + 0.1, cy + 0.42, 0.045), (cx - 0.25, cy + 0.6, 0.05), (cx - 0.5, cy + 1.3, 0.05)]
     C.curve(coil, thickness=0.006, mat=lm, name="coil", smooth_pts=True)
-    C.dive_torch((0.3, -0.7, 0.085), (-0.3, 0.5, 0.06), energy=260, size_deg=34, beam_len=1.5, beam_strength=0.22)
-    key = L.spot((-0.9, -1.3, 1.9), (0, 0, 0), energy=520, size_deg=40, blend=0.7, color=(1.0, 0.86, 0.62), name="sweep")
+    C.dive_torch((0.3, -0.7, 0.085), (-0.3, 0.5, 0.06), energy=120, size_deg=34, beam_len=1.2, beam_strength=0.07)
+    key = L.spot((-0.9, -1.3, 1.9), (0, 0, 0), energy=260, size_deg=40, blend=0.7, color=(1.0, 0.86, 0.62), name="sweep")
     tg = _track(key, (-0.5, 0.2, 0.0), "sweep_tgt")
     C.key_loc(tg, [(1, (-0.55, 0.3, 0.0)), (n // 2, (0.2, -0.45, 0.0)), (n, (0.4, -0.75, 0.0))])
     C.drip_rings([(-0.4, -0.2, 0.05), (0.38, -0.42, 0.045), (0.02, -0.85, 0.045), (0.42, 0.5, 0.05)], n, period=28, seed=2,
@@ -597,7 +609,7 @@ def _pair(L, n, y_fn, energy=1500, beam_len=5.0, bubbles=True):
     """The 1979 pair: generic single-tank divers, blue / white fins, handheld lights, side by side."""
     out = []
     for name, fins, dx, dz, ph in (("dvA", (0.1, 0.3, 0.95), -0.55, -0.25, 0.0), ("dvB", (0.92, 0.92, 0.9), 0.55, -0.38, 1.4)):
-        d = C.diver(name, fins=fins, tanks="single", rebreather=False, light_energy=energy, beam_len=beam_len,
+        d = C.diver(name, fins=fins, suit=(0.1, 0.11, 0.13), tanks="single", rebreather=False, light_energy=energy, beam_len=beam_len,
                     beam_strength=0.5, beam_deg=20)
         _hand_torch(d)
         r = d["root"]
@@ -629,7 +641,7 @@ def S07(L, n):
     info = _slope_passage(L, n)
     yf = lambda f: 2.0 + 5.2 * (f - 1) / (n - 1)
     pair = _pair(L, n, yf)
-    rim = L.spot((-0.3, 3.8, 1.1), (0, 0, 0), energy=1100, size_deg=45, blend=0.7, color=CYAN_RIM, parent=pair[0]["root"],
+    rim = L.spot((-0.3, 3.8, 1.1), (0, 0, 0), energy=450, size_deg=45, blend=0.7, color=CYAN_RIM, parent=pair[0]["root"],
                  name="rim")
     rim.rotation_mode = "QUATERNION"
     rim.rotation_quaternion = Vector((0.6, -3.8, -1.2)).to_track_quat("-Z", "Y")
@@ -639,18 +651,18 @@ def S07(L, n):
         p = d["pos"](f0)
         y = p.y - 1.25
         c = (p.x, y, info["floor"](y) + 0.3)
-        s = C.cloud(c, (0.55, 0.55, 0.3), count=200, radius=0.004, color=(0.75, 0.68, 0.5), emit=0.12, shape="sphere",
+        s = C.cloud(c, (0.5, 0.5, 0.25), count=160, radius=0.003, color=(0.75, 0.68, 0.5), emit=0.1, shape="sphere",
                     seed=40 + k, name=f"puff{k}")
-        C.hide_from_frame([s], f_show=max(2, f0))
-        C.key_scale(s, [(max(1, f0 - 1), 0.05), (f0 + 10, 1.0), (f0 + 44, 1.9)])
+        C.hide_from_frame([s], f_show=max(2, f0), f_hide=f0 + 26)
+        C.key_scale(s, [(max(1, f0 - 1), 0.05), (f0 + 10, 1.0), (f0 + 44, 1.5)])
         C.key_loc(s, [(f0, c), (f0 + 44, (c[0], c[1], c[2] + 0.22))])
     cam = C.camera(lens=35)
     keys = []
     for f in (1, n // 2, n):
         yd = yf(f)
-        keys.append((f, (_px(yd - 3.4) * 0.6, yd - 3.4, _pz(yd - 3.4) + 0.85), (_px(yd - 0.5) * 0.8, yd - 0.5, _pz(yd - 0.5) - 1.0)))
+        keys.append((f, (_px(yd - 4.0) * 0.6, yd - 4.0, _pz(yd - 4.0) + 0.75), (_px(yd - 0.6) * 0.8, yd - 0.6, _pz(yd - 0.6) - 0.95)))
     C.aim_cam(cam, n, keys, shake=0.03, rot_shake=0.004, rate=0.6, seed=2, fn=lambda x: x)
-    C.cam_fill(cam, energy=45, color=(0.5, 0.85, 0.9))
+    C.cam_fill(cam, energy=300, color=(0.65, 0.88, 0.92))
     L.bake_static()
 
 
@@ -658,7 +670,7 @@ def S08(L, n):
     """The two lights shrink away around the bend and go out. Nothing comes back."""
     _slope_passage(L, n, density=0.04)
     f_out = int(n * 0.62)
-    yf = lambda f: 11.5 + 7.2 * min(1.0, (f - 1) / (f_out + 4.0)) + 0.02 * f
+    yf = lambda f: 10.0 + 8.7 * min(1.0, (f - 1) / (f_out + 4.0)) + 0.02 * f
     pair = _pair(L, n, yf, energy=2200, beam_len=4.0, bubbles=False)
     for d in pair:
         C.key_energy(d["torch"], [(1, 2200), (f_out - 8, 2200), (f_out, 0.0), (n, 0.0)])
@@ -695,13 +707,13 @@ def S09(L, n):
     _uw(12.0)
     rock = C.rock_mat("slotrock", (0.05, 0.05, 0.048), (0.4, 0.38, 0.33), scale=2.2, bump=1.0)
     C.heightfield(size=(3.4, 9.5), center=(0, 3.4, 0), res=0.06, fn=_slot_floor,
-                  mat=C.pebble_floor_mat("slotbed"), name="slotfloor", disp=(0, 0))
+                  mat=C.pebble_floor_mat("slotbed", scale=70.0), name="slotfloor", disp=(0, 0))
     C.heightfield(size=(3.4, 9.5), center=(0, 3.4, 0), res=0.07, fn=lambda x, y: _slot_floor(x, y) + _slot_gap(x, y),
                   mat=rock, name="slotceil", disp=(0, 0))
     gm = C.gravel_mat("gravel_m")
-    C.gravel_field(_slot_floor, center=(0, 1.2), size=(2.6, 3.6), count=7000, psize=(0.012, 0.05), seed=3, subdiv=1, mat=gm,
+    C.gravel_field(_slot_floor, center=(0, 1.2), size=(2.6, 3.6), count=9000, psize=(0.008, 0.03), seed=3, subdiv=1, mat=gm,
                    name="gravel_near")
-    C.gravel_field(_slot_floor, center=(0, 5.2), size=(2.6, 4.6), count=3200, psize=(0.02, 0.06), seed=4, subdiv=1, mat=gm,
+    C.gravel_field(_slot_floor, center=(0, 5.2), size=(2.6, 4.6), count=5000, psize=(0.012, 0.04), seed=4, subdiv=1, mat=gm,
                    name="gravel_far")
     C.water(center=(0, 3.5, 0.2), size=(4, 10, 2), color=(0.32, 0.6, 0.58), density=0.05, name="uw")
     s = C.cloud((0, 3.2, 0.2), (1.6, 3.4, 0.22), count=260, radius=0.003, color=(0.85, 0.8, 0.65), emit=0.15, seed=6)
@@ -710,7 +722,7 @@ def S09(L, n):
     C.aim_cam(cam, n, [(1, (0.0, -0.35, _slot_floor(0, -0.35) + 0.3), (0.0, 5.0, -0.42)),
                        (n, (0.05, 0.95, _slot_floor(0, 0.95) + 0.25), (0.0, 6.3, -0.46))], shake=0.012, rot_shake=0.006,
               rate=0.8, seed=5, fn=lambda x: x)
-    torch = L.spot((0.1, -0.06, 0.02), (0, 0, 0), energy=95, size_deg=62, blend=0.65, color=C.TORCH, parent=cam, name="pov_torch")
+    torch = L.spot((0.1, -0.06, 0.02), (0, 0, 0), energy=45, size_deg=80, blend=0.8, color=C.TORCH, parent=cam, name="pov_torch")
     for f in range(1, n + 1, 5):
         torch.rotation_euler = (0.05 + 0.03 * math.sin(f * 0.21), 0.04 * math.sin(f * 0.13), 0)
         torch.keyframe_insert("rotation_euler", frame=f)
@@ -748,13 +760,13 @@ def _gravel_set(L, n, dense=True):
     rock = C.rock_mat("restr", (0.045, 0.045, 0.045), (0.38, 0.36, 0.31), scale=1.4, bump=1.0)
     C.passage(length=15, y0=-9, half_w=2.4, seed=9, rough=0.1, floor_flat=ff, mat=rock, disp=(0.12, 0.04),
               w_fn=lambda y: C.lerp(2.4, 1.5, C.sm((y + 0.5) / 2.5)), h_fn=H, z_fn=lambda y: _gc(y) - H(y), name="restr")
-    C.heightfield(size=(5.4, 15), center=(0, -1.5, 0), res=0.09, fn=_gfloor, mat=C.pebble_floor_mat("slopebed", scale=22.0),
+    C.heightfield(size=(5.4, 15), center=(0, -1.5, 0), res=0.09, fn=_gfloor, mat=C.pebble_floor_mat("slopebed", scale=55.0),
                   name="slopebed", disp=(0, 0))
     gm = C.gravel_mat("gravel_m")
-    C.gravel_field(_gfloor, center=(0, 0.4), size=(3.4, 4.2), count=9000 if dense else 6000, psize=(0.014, 0.055), seed=3,
+    C.gravel_field(_gfloor, center=(0, 0.4), size=(3.4, 4.2), count=14000 if dense else 9000, psize=(0.01, 0.04), seed=3,
                    subdiv=1, mat=gm, name="gravel")
     if dense:
-        C.gravel_field(_gfloor, center=(0.1, 0.9), size=(1.5, 1.9), count=1600, psize=(0.02, 0.06), seed=5, subdiv=2, mat=gm,
+        C.gravel_field(_gfloor, center=(0.1, 0.9), size=(1.5, 1.9), count=2200, psize=(0.012, 0.04), seed=5, subdiv=2, mat=gm,
                        name="gravel_hero")
     return gm
 
@@ -792,14 +804,14 @@ def S10(L, n):
     rnd = random.Random(8)
     f_slide = int(n * 0.4)
     for k, (x, y, f0) in enumerate(((0.28, 0.5, 3), (-0.1, 0.95, 8), (0.42, 0.85, 13), (0.05, 0.6, 17), (0.3, 1.1, 21))):
-        _roll(L, gm, k, x, y, f0, rnd.uniform(0.25, 0.5), rnd.randint(9, 13), rnd.uniform(0.022, 0.04), n)
+        _roll(L, gm, k, x, y, f0, rnd.uniform(0.25, 0.5), rnd.randint(9, 13), rnd.uniform(0.03, 0.05), n)
     for k in range(34):
         x, y = rnd.uniform(-0.35, 0.6), rnd.uniform(0.35, 1.25)
         _roll(L, gm, 10 + k, x, y, f_slide + rnd.randint(0, 9), min(1.9 - y, rnd.uniform(0.5, 1.2)) + 0.25,
-              rnd.randint(11, 17), rnd.uniform(0.02, 0.05), n)
+              rnd.randint(11, 17), rnd.uniform(0.025, 0.05), n)
     c = (0.12, 0.8)
     sheet = C.gravel_field(lambda x, y: _gfloor(x, y) + 0.05 * max(0.0, 1 - ((x - c[0]) / 0.42) ** 2 - ((y - c[1]) / 0.36) ** 2),
-                           center=c, size=(0.84, 0.7), count=620, psize=(0.016, 0.046), seed=7, subdiv=2, mat=gm, name="slump",
+                           center=c, size=(0.84, 0.7), count=900, psize=(0.012, 0.04), seed=7, subdiv=2, mat=gm, name="slump",
                            keep=lambda x, y: ((x - c[0]) / 0.42) ** 2 + ((y - c[1]) / 0.35) ** 2 < 1.0)
     p0 = Vector(sheet.location)
     for f, t, sc in ((1, 0.0, (1, 1, 1)), (f_slide - 1, 0.0, (1, 1, 1)), (f_slide + 4, 0.1, (1.03, 1.06, 0.97)),
@@ -808,20 +820,20 @@ def S10(L, n):
         sheet.scale = sc
         sheet.keyframe_insert("location", frame=f)
         sheet.keyframe_insert("scale", frame=f)
-    _plume(L, n, (0.1, 1.55, -2.55), (1.5, 1.7, 1.2), [(1, 0.0), (f_slide + 4, 0.0), (f_slide + 14, 1.4), (n, 2.6)],
+    _plume(L, n, (0.1, 1.2, -2.25), (1.6, 1.8, 1.3), [(1, 0.0), (f_slide + 4, 0.0), (f_slide + 14, 3.0), (n, 7.0)],
            [(1, 0.25), (f_slide + 4, 0.25), (f_slide + 16, 0.8), (n, 1.55)])
-    tp = C.dive_torch((-1.25, 0.15, -1.05), (0.25, 1.3, -2.52), energy=750, size_deg=30, beam_len=2.4, beam_strength=0.42)
+    tp = C.dive_torch((-1.25, 0.15, -1.05), (0.25, 1.3, -2.52), energy=420, size_deg=46, beam_len=2.4, beam_strength=0.3)
     q0 = tp["root"].rotation_quaternion.copy()
     for f, aim in ((1, (0.35, 1.2, -2.45)), (f_slide, (0.15, 1.35, -2.55)), (n, (0.0, 1.5, -2.6))):
         tp["root"].rotation_quaternion = (Vector(aim) - Vector((-1.25, 0.15, -1.05))).to_track_quat("-Z", "Y")
         tp["root"].keyframe_insert("rotation_quaternion", frame=f)
-    C.key_energy(tp["spot"], [(1, 750), (f_slide + 8, 750), (n, 260)])
+    C.key_energy(tp["spot"], [(1, 420), (f_slide + 8, 420), (n, 300)])
     C.key_input(tp["beam_sock"], [(1, 0.42), (f_slide + 8, 0.42), (n, 0.1)])
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0.34, 0.2, _gfloor(0.34, 0.2) + 0.55), (0.08, 1.45, -2.78)),
-                       (n, (0.31, 0.32, _gfloor(0.31, 0.32) + 0.52), (0.08, 1.5, -2.8))], shake=0.004, rot_shake=0.0015,
+    C.aim_cam(cam, n, [(1, (0.5, -0.95, _gfloor(0.5, -0.95) + 0.8), (0.05, 0.9, -2.3)),
+                       (n, (0.45, -0.75, _gfloor(0.45, -0.75) + 0.75), (0.05, 0.95, -2.3))], shake=0.004, rot_shake=0.0015,
               shake_keys=[(1, 0.2), (f_slide, 0.3), (f_slide + 6, 1.0), (n, 0.5)], rate=2.0, seed=3, fn=C.sm)
-    C.cam_fill(cam, energy=9, color=(0.5, 0.8, 0.85))
+    C.cam_fill(cam, energy=70, color=(0.7, 0.8, 0.8))
     L.bake_static()
 
 
@@ -830,9 +842,9 @@ def S11(L, n):
     gm = _gravel_set(L, n, dense=False)
     aim = Vector((0.0, 1.35, -2.5))
     f_in, f_back = int(n * 0.4), int(n * 0.62)
-    for name, fins, a, b, c, lag in (("recA", C.ORANGE, (0.6, -6.9, -0.25), (0.42, -2.2, -0.5), (0.5, -4.7, -0.3), 0),
-                                     ("recB", (0.92, 0.92, 0.9), (-0.5, -8.0, -0.15), (-0.55, -3.5, -0.4), (-0.45, -5.9, -0.25), 4)):
-        d = C.diver(name, fins=fins, tanks="doubles", rebreather=False, light_energy=2600, beam_len=4.5, beam_strength=0.5,
+    for name, fins, a, b, c, lag in (("recA", C.ORANGE, (0.6, -5.6, -0.25), (0.42, -2.2, -0.5), (0.5, -3.2, -0.4), 0),
+                                     ("recB", (0.92, 0.92, 0.9), (-0.4, -6.2, -0.15), (-0.55, -3.5, -0.4), (-0.45, -4.3, -0.3), 4)):
+        d = C.diver(name, fins=fins, suit=(0.1, 0.11, 0.13), tanks="doubles", rebreather=False, light_energy=1100, beam_len=4.5, beam_strength=0.5,
                     beam_deg=22)
         r = d["root"]
         for f, p in ((1, a), (f_in + lag, b), (f_back + lag, b), (n, c)):
@@ -848,13 +860,15 @@ def S11(L, n):
     for k in range(12):
         _roll(L, gm, k, rnd.uniform(-0.7, 0.8), rnd.uniform(-0.3, 1.2), int(n * 0.28) + rnd.randint(0, 34),
               rnd.uniform(0.4, 1.0), rnd.randint(11, 17), rnd.uniform(0.03, 0.06), n)
-    _plume(L, n, (0.05, 1.2, -2.2), (2.4, 2.4, 1.9), [(1, 0.0), (int(n * 0.3), 0.0), (int(n * 0.55), 1.3), (n, 2.2)],
+    _plume(L, n, (0.05, 1.2, -2.2), (2.4, 2.4, 1.9), [(1, 0.0), (int(n * 0.3), 0.0), (int(n * 0.55), 3.0), (n, 5.0)],
            [(1, 0.3), (int(n * 0.3), 0.3), (int(n * 0.6), 0.85), (n, 1.3)], color=(0.55, 0.46, 0.32))
-    C.rim_light((0.0, -2.8, -0.4), (0.4, 4.2, 0.3), energy=1300, color=CYAN_RIM, size_deg=55, name="rim")
+    L.point((1.6, -3.4, 0.5), energy=260, color=(0.45, 0.85, 0.9), radius=0.8, name="amb1")
+    L.point((-1.7, -4.6, 0.5), energy=200, color=(0.45, 0.85, 0.9), radius=0.8, name="amb2")
+    C.rim_light((0.0, -2.8, -0.4), (0.4, 4.2, 0.3), energy=700, color=CYAN_RIM, size_deg=55, name="rim")
     cam = C.camera(lens=35)
-    C.aim_cam(cam, n, [(1, (-1.55, -5.5, -0.05), (0.15, 0.4, -1.75)), (n, (-1.05, -5.9, -0.1), (0.2, 0.4, -1.75))],
+    C.aim_cam(cam, n, [(1, (-1.5, -7.2, 0.25), (0.0, -1.5, -0.85)), (n, (-1.0, -7.5, 0.25), (0.05, -1.5, -0.85))],
               shake=0.02, rot_shake=0.003, rate=0.6, seed=6, fn=C.sm)
-    C.cam_fill(cam, energy=40, color=(0.5, 0.82, 0.88))
+    C.cam_fill(cam, energy=150, color=(0.55, 0.82, 0.88))
     L.bake_static()
 
 
@@ -878,11 +892,11 @@ def S12(L, n):
     C.rebar_grate(loc=(0, -0.2, 0.0), w=1.0, h=0.8, nx=6, nz=5, collar=0.2, depth=0.34, name="grate")
     C.water(center=(0, -1.6, 0.2), size=(9, 8, 5), color=TEAL, density=0.045, name="uw")
     tl = Vector((-1.2, -2.5, 0.42))
-    tp = C.dive_torch(tuple(tl), (-0.6, 0.0, 0.1), energy=1700, size_deg=26, beam_len=3.4, beam_strength=0.38)
+    tp = C.dive_torch(tuple(tl), (-0.6, 0.0, 0.1), energy=520, size_deg=26, beam_len=3.4, beam_strength=0.38)
     for f, a in ((1, (-1.05, 0.0, 0.3)), (int(n * 0.55), (0.25, 0.0, -0.05)), (n, (0.02, 0.6, 0.02))):
         tp["root"].rotation_quaternion = (Vector(a) - tl).to_track_quat("-Z", "Y")
         tp["root"].keyframe_insert("rotation_quaternion", frame=f)
-    s = C.cloud((0.0, -0.35, 0.05), (1.5, 0.9, 1.1), count=420, radius=0.004, color=(0.85, 0.82, 0.7), emit=0.2, seed=5)
+    s = C.cloud((0.0, -0.35, 0.05), (1.5, 0.9, 1.1), count=200, radius=0.003, color=(0.85, 0.82, 0.7), emit=0.08, seed=5)
     C.drift(s, n, (0.012, 0.06, 0.012))
     cam = C.camera(lens=35)
     C.aim_cam(cam, n, [(1, (0.3, -2.75, 0.02), (0.0, 0.0, -0.3)), (n, (0.12, -1.95, 0.05), (0.0, 0.0, -0.22))], shake=0.02,
@@ -915,7 +929,7 @@ def S15(L, n):
     # diver D pushes through the gap ahead of the lens
     d = C.diver("recD", fins=(0.92, 0.92, 0.9), tanks="doubles", rebreather=False, light_energy=2200, beam_len=3.0,
                 beam_strength=0.35, beam_deg=26)
-    C.key_loc(d["root"], [(1, (0.05, -5.7, -0.3)), (n, (0.0, -2.9, -0.22))])
+    C.key_loc(d["root"], [(1, (0.05, -5.3, -0.3)), (n, (0.0, -2.9, -0.22))])
     L.linear_fcurves(d["root"])
     L.anim_swim(d, n, kick_rate=0.8, amp=0.13)
     C.bubble_trail(lambda f: Vector((0.05, -5.2 + 2.8 * (f - 1) / (n - 1), -0.1)), n, count=16, rise=0.5, size=0.018, seed=4,
@@ -923,9 +937,9 @@ def S15(L, n):
     L.point((0.0, 0.6, 0.9), energy=160, color=(1.0, 0.95, 0.85), radius=1.5, name="bounce")
     C.rim_light((0.0, -4.2, -0.2), (0.25, 3.8, 0.55), energy=1000, color=CYAN_RIM, size_deg=40, name="rim")
     cam = C.camera(lens=28)
-    C.aim_cam(cam, n, [(1, (0.05, -7.75, -0.24), (0.1, 0.5, 0.3)), (n, (0.0, -5.75, -0.2), (0.1, 0.5, 0.3))], shake=0.012,
+    C.aim_cam(cam, n, [(1, (0.05, -8.25, -0.12), (0.1, 0.5, 0.2)), (n, (0.0, -6.5, -0.1), (0.1, 0.5, 0.2))], shake=0.012,
               rot_shake=0.003, rate=0.6, seed=4, fn=lambda x: x)
-    C.cam_fill(cam, energy=22, color=(0.5, 0.82, 0.88))
+    C.cam_fill(cam, energy=70, color=(0.5, 0.82, 0.88))
     L.bake_static()
 
 
@@ -933,7 +947,7 @@ def _chfloor(x, y):
     z = -0.95 + 0.05 * noise.noise(Vector((x * 0.8, y * 0.8, 0.7))) + 0.015 * noise.noise(Vector((x * 4.0, y * 4.0, 1.3)))
     u = x * 0.94 + (y - 0.45) * 0.34
     v = -x * 0.34 + (y - 0.45) * 0.94
-    w = 0.11 * max(0.0, 1 - (u / 0.55) ** 2) ** 0.6
+    w = 0.085 * max(0.0, 1 - (u / 0.5) ** 2) ** 0.6
     if abs(v) < w:
         z -= min(1.6, 16.0 * (w - abs(v)))
     return z
@@ -947,17 +961,17 @@ def S16(L, n):
     C.rock_room(R=(3.0, 2.7), H=2.1, below=1.3, seed=5, mat=pale, name="chamber")
     C.heightfield(size=(4.4, 4.4), center=(0, 0.3, 0), res=0.03, fn=_chfloor, mat=pale, name="chfloor", disp=(0, 0))
     C.water(center=(0, 0, 0), size=(6.5, 6, 4), color=(0.34, 0.7, 0.68), density=0.03, name="uw")
-    for k, (loc, aim, e) in enumerate((((-1.3, -0.8, 0.2), (-0.12, 0.42, -0.97), 1500), ((1.2, -1.0, 0.1), (0.12, 0.5, -0.97), 1300))):
-        tp = C.dive_torch(loc, aim, energy=e, size_deg=24, beam_len=1.9, beam_strength=0.4, name=f"torch{k}")
+    for k, (loc, aim, e) in enumerate((((-1.3, -0.8, 0.2), (-0.12, 0.42, -0.97), 230), ((1.2, -1.0, 0.1), (0.12, 0.5, -0.97), 200))):
+        tp = C.dive_torch(loc, aim, energy=e, size_deg=24, beam_len=1.9, beam_strength=0.22, name=f"torch{k}")
         a0, a1 = Vector(aim) + Vector(((-0.35 if k == 0 else 0.4), -0.25, 0)), Vector(aim)
         for f, a in ((1, a0), (int(n * 0.6), a1), (n, a1)):
             tp["root"].rotation_quaternion = (a - Vector(loc)).to_track_quat("-Z", "Y")
             tp["root"].keyframe_insert("rotation_quaternion", frame=f)
     # gloved hand resting on the rock beside the gap
     h = S.hand("glove", color=(0.02, 0.02, 0.024), scale=1.5, glove=True)
-    hx, hy = 0.5, 0.02
+    hx, hy = 0.3, 0.2
     hz = _chfloor(hx, hy) + 0.03
-    h["root"].rotation_euler = (0.08, 0, 0.95)
+    h["root"].rotation_euler = (0.08, 0, 0.6)
     C.key_loc(h["root"], [(1, (hx + 0.08, hy - 0.1, hz + 0.09)), (16, (hx, hy, hz)), (n, (hx, hy, hz))])
     S.curl(h, 1, 0.05)
     S.curl(h, 18, 0.22)
@@ -969,7 +983,7 @@ def S16(L, n):
                     name=f"silt{k}")
         C.drift(s, n, (0.01 * (1 if k else -1), 0.005, 0.015))
     cam = C.camera(lens=50)
-    C.aim_cam(cam, n, [(1, (0.1, -1.95, 0.72), (0.02, 0.2, -1.05)), (n, (0.07, -1.62, 0.5), (0.02, 0.22, -1.05))],
+    C.aim_cam(cam, n, [(1, (0.1, -1.55, 0.4), (0.03, 0.3, -1.08)), (n, (0.08, -1.3, 0.25), (0.03, 0.32, -1.08))],
               shake=0.008, rot_shake=0.002, rate=0.5, seed=8, fn=C.sm)
-    C.cam_fill(cam, energy=10, color=(0.5, 0.82, 0.88))
+    C.cam_fill(cam, energy=28, color=(0.5, 0.82, 0.88))
     L.bake_static()
