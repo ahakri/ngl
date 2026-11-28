@@ -3591,3 +3591,348 @@ def air_pump(loc=(0, 0, 0), rot_z=0.0, name="pump", wood=(0.35, 0.22, 0.12), bra
         hd.parent = sp
         wheels.append(sp)
     return {"root": root, "wheels": wheels}
+
+
+# ============================================================================= SCUBA-08 additions (Endurance)
+# Added by the SCUBA-08 director. New functions only; nothing above was changed.
+
+BQ_HL = 22.0          # barquentine half length (bow +X)
+BQ_HB = 3.8           # half beam
+
+
+def bq_hw(t):
+    f = 0.6 + 0.4 * min(1.0, t / 0.12) if t < 0.12 else (1.0 if t < 0.55 else max(0.02, 1 - ((t - 0.55) / 0.45) ** 2.2) ** 0.7)
+    return BQ_HB * f
+
+
+def bq_top(t):
+    return 2.6 + 1.2 * (2 * t - 1) ** 2 * (1.0 if t > 0.5 else 0.7)
+
+
+def mat_ship_wood(name="shipwood", c1=(0.035, 0.025, 0.015), c2=(0.2, 0.14, 0.08), seam=0.24, silt=0.0):
+    """Planked hull wood: streaky noise + dark horizontal seams by object Z; silt > 0 dusts upward faces grey."""
+    m, n, l = _m(name)
+    p = n["Principled BSDF"]
+    tc = n.new("ShaderNodeTexCoord")
+    mp = n.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (0.25, 0.25, 4.0)
+    l.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = n.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = 3.0
+    nz.inputs["Detail"].default_value = 6
+    l.new(mp.outputs[0], nz.inputs["Vector"])
+    ramp = n.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].position = 0.3
+    ramp.color_ramp.elements[0].color = (*c1, 1)
+    ramp.color_ramp.elements[1].position = 0.7
+    ramp.color_ramp.elements[1].color = (*c2, 1)
+    l.new(nz.outputs["Fac"], ramp.inputs["Fac"])
+    sep = n.new("ShaderNodeSeparateXYZ")
+    l.new(tc.outputs["Object"], sep.inputs[0])
+    dv = n.new("ShaderNodeMath"); dv.operation = "DIVIDE"; dv.inputs[1].default_value = seam
+    l.new(sep.outputs["Z"], dv.inputs[0])
+    fr = n.new("ShaderNodeMath"); fr.operation = "FRACT"
+    l.new(dv.outputs[0], fr.inputs[0])
+    lt = n.new("ShaderNodeMath"); lt.operation = "LESS_THAN"; lt.inputs[1].default_value = 0.1
+    l.new(fr.outputs[0], lt.inputs[0])
+    mx = n.new("ShaderNodeMix"); mx.data_type = "RGBA"
+    mx.inputs["B"].default_value = (0.004, 0.003, 0.002, 1)
+    sc = n.new("ShaderNodeMath"); sc.operation = "MULTIPLY"; sc.inputs[1].default_value = 0.75
+    l.new(lt.outputs[0], sc.inputs[0])
+    l.new(sc.outputs[0], mx.inputs["Factor"])
+    l.new(ramp.outputs["Color"], mx.inputs["A"])
+    out = mx.outputs["Result"]
+    if silt:
+        geo = n.new("ShaderNodeNewGeometry")
+        s2 = n.new("ShaderNodeSeparateXYZ")
+        l.new(geo.outputs["Normal"], s2.inputs[0])
+        mr = n.new("ShaderNodeMapRange")
+        mr.inputs["From Min"].default_value = 0.5
+        mr.inputs["From Max"].default_value = 0.95
+        mr.inputs["To Max"].default_value = silt
+        l.new(s2.outputs["Z"], mr.inputs["Value"])
+        m2 = n.new("ShaderNodeMix"); m2.data_type = "RGBA"
+        m2.inputs["B"].default_value = (0.3, 0.3, 0.27, 1)
+        l.new(mr.outputs["Result"], m2.inputs["Factor"])
+        l.new(out, m2.inputs["A"])
+        out = m2.outputs["Result"]
+    l.new(out, p.inputs["Base Color"])
+    p.inputs["Roughness"].default_value = 0.7
+    bp = n.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = 0.4
+    l.new(nz.outputs["Fac"], bp.inputs["Height"])
+    l.new(bp.outputs["Normal"], p.inputs["Normal"])
+    return m
+
+
+def _cyl_between(a, b, r, mat, name, parent=None, r2=None, verts=10):
+    a, b = Vector(a), Vector(b)
+    d = b - a
+    o = L.prim("cone", loc=(a + b) / 2, vertices=verts, radius1=r, radius2=r if r2 is None else r2, depth=d.length, name=name)
+    o.rotation_euler = d.to_track_quat("Z", "Y").to_euler()
+    L.assign(o, mat)
+    if parent:
+        o.parent = parent
+    return o
+
+
+def anemone(loc, scale=1.0, color=(0.95, 0.8, 0.75), parent=None, name="anem", seed=1):
+    """Small pale sea anemone: stalk + crown of short tentacles (generic)."""
+    rnd = random.Random(seed)
+    m = L.mat_principled(name + "_m", color, rough=0.6, emit=color, emit_strength=0.12)
+    root = L.link(bpy.data.objects.new(name, None))
+    root.location = loc
+    root.scale = (scale,) * 3
+    st = L.prim("cyl", loc=(0, 0, 0.06), vertices=8, radius=0.035, depth=0.12, name=name + "_s")
+    L.assign(st, m); st.parent = root
+    for k in range(14):
+        a = 2 * math.pi * k / 14
+        tl = 0.95 if k % 2 else 0.6
+        t = L.prim("cone", loc=(0.05 * tl * math.cos(a), 0.05 * tl * math.sin(a), 0.13 + 0.03 * (1 - tl)), vertices=5, radius1=0.009,
+                   radius2=0.002, depth=0.1, name=name + "_t")
+        t.rotation_euler = (-tl * math.sin(a) + rnd.uniform(-0.1, 0.1), tl * math.cos(a), 0)
+        L.assign(t, m); t.parent = root
+    if parent:
+        root.parent = parent
+    return root
+
+
+def stern_name(text="ENDURANCE", size=0.5, radius=4.5, star=0.46, gold=(0.85, 0.62, 0.2), name="sternname"):
+    """Arc of raised capital letters with a five-pointed star beneath, in the local XY plane of the returned empty
+    (letters face local +Z). Returns (root, material)."""
+    m = L.mat_principled(name + "_gold", gold, rough=0.35, metal=0.8, emit=gold, emit_strength=0.25)
+    root = L.link(bpy.data.objects.new(name, None))
+    fp = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
+    step = size * 0.86 / radius
+    k0 = (len(text) - 1) / 2
+    import os
+    for i, ch in enumerate(text):
+        th = (i - k0) * step
+        t = L.text3d(ch, loc=(radius * math.sin(th), radius * math.cos(th) - radius, 0), rot=(0, 0, -th), size=size,
+                     extrude=0.025, mat=m, font=fp if os.path.exists(fp) else None, name=f"{name}_{i}")
+        t.data.align_y = "CENTER"
+        t.parent = root
+    bm = bmesh.new()
+    vs = []
+    for k in range(10):
+        a = math.pi / 2 + k * math.pi / 5
+        r = star if k % 2 == 0 else star * 0.4
+        vs.append(bm.verts.new((r * math.cos(a), r * math.sin(a) - size * 2.3, 0)))
+    bm.faces.new(vs)
+    st = L.mesh_from_bm(name + "_star", bm)
+    so = st.modifiers.new("solid", "SOLIDIFY"); so.thickness = 0.05; so.offset = 1.0
+    L.assign(st, m)
+    st.parent = root
+    return root, m
+
+
+def barquentine(name="bq", wreck=False, silt=0.0, anemones=0, seed=3):
+    """Simple three-masted wooden barquentine, ~44 m, bow +X, root at the waterline centre (keel z = -3.4, deck ~+1.9).
+    wreck=False: standing masts, yards on the foremast, gaffs, bowsprit, rigging. wreck=True: mast stumps, spars
+    fallen across the deck, draped lines. The flat stern carries ENDURANCE in an arc with a star beneath.
+    Returns dict(root, hull, yard (a foremast yard to key), masts, name_root, stern_x, deck_z)."""
+    rnd = random.Random(seed)
+    root = L.link(bpy.data.objects.new(name, None))
+    P = {"root": root, "masts": []}
+    wood = mat_ship_wood(name + "_wood", silt=silt)
+    sec = [(1.0, 1.0), (1.0, 0.5), (0.98, 0.0), (0.92, -0.35), (0.76, -0.65), (0.48, -0.88), (0.16, -1.0), (0.0, -1.0)]
+    N = 36
+    sts = []
+    for i in range(N + 1):
+        t = i / N
+        x = -BQ_HL + 2 * BQ_HL * t
+        hw, top = bq_hw(t), bq_top(t)
+        kz = 3.4 * (1 - 0.6 * max(0.0, (t - 0.85) / 0.15) ** 1.5) * (1 - 0.5 * max(0.0, (0.1 - t) / 0.1))
+        ring = [(fy, top * fz if fz > 0 else kz * fz) for fy, fz in sec]
+        full = [(x, hw * fy, z) for fy, z in ring] + [(x, -hw * fy, z) for fy, z in reversed(ring[:-1])]
+        sts.append(full)
+    hull = _loft(name + "_hull", sts)
+    L.smooth(hull)
+    L.assign(hull, wood)
+    hull.parent = root
+    P["hull"] = hull
+    bm = bmesh.new()
+    prev = None
+    for i in range(N + 1):
+        t = i / N
+        x = -BQ_HL + 2 * BQ_HL * t
+        hw = bq_hw(t) * 0.97
+        a, b = bm.verts.new((x, -hw, bq_top(t) - 0.9)), bm.verts.new((x, hw, bq_top(t) - 0.9))
+        if prev:
+            bm.faces.new((prev[0], a, b, prev[1]))
+        prev = (a, b)
+    deck = L.mesh_from_bm(name + "_deck", bm)
+    L.assign(deck, L.mat_noise_surface(name + "_deckm", (0.1, 0.08, 0.055), (0.3 if not silt else 0.26, 0.25, 0.2), scale=5, bump=0.3,
+                                       voronoi=False))
+    deck.parent = root
+    dz = bq_top(0.5) - 0.9
+    P["deck_z"] = dz
+    dark = L.mat_principled(name + "_dark", (0.05, 0.04, 0.03), rough=0.7)
+    for (x, sx, sy, sz) in ((-9.0, 3.2, 1.9, 0.9), (2.5, 1.6, 1.2, 0.35), (10.5, 1.2, 1.0, 0.3)):
+        b = L.prim("cube", loc=(x, 0, dz + sz), name=name + "_house")
+        b.scale = (sx, sy, sz)
+        L.assign(b, wood if sz > 0.5 else dark)
+        b.parent = root
+    spar = L.mat_noise_surface(name + "_spar", (0.1, 0.07, 0.04), (0.3, 0.22, 0.13), scale=8, bump=0.2, voronoi=False)
+    rope = L.mat_principled(name + "_rope", (0.12, 0.1, 0.07), rough=0.9)
+    mast_x = ((9.0, 24.0), (-2.0, 25.0), (-12.5, 20.0))
+    bow = Vector((BQ_HL - 0.5, 0, bq_top(1.0) - 0.2))
+    tip = bow + Vector((8.0, 0, 2.2))
+    if not wreck:
+        _cyl_between(bow - Vector((3, 0, 0.4)), tip, 0.2, spar, name + "_bowsprit", root, r2=0.08)
+        lines = []
+        for k, (mx, ht) in enumerate(mast_x):
+            top = Vector((mx, 0, dz + ht))
+            P["masts"].append(_cyl_between((mx, 0, dz - 0.5), top, 0.24, spar, f"{name}_mast{k}", root, r2=0.08))
+            for sy in (-1, 1):
+                for dx in (-1.6, -0.6, 0.5):
+                    t = (mx + dx + BQ_HL) / (2 * BQ_HL)
+                    lines.append([(mx, sy * 0.1, dz + ht * 0.78), (mx + dx, sy * bq_hw(t), bq_top(t))])
+            if k == 0:
+                for j, (z, ln) in enumerate(((7.5, 13.0), (12.5, 10.5), (17.0, 8.0))):
+                    y = _cyl_between((mx + 0.3, -ln / 2, dz + z), (mx + 0.3, ln / 2, dz + z), 0.1, spar, f"{name}_yard{j}", root)
+                    f = _cyl_between((mx + 0.45, -ln * 0.42, dz + z - 0.2), (mx + 0.45, ln * 0.42, dz + z - 0.2), 0.2,
+                                     L.mat_principled(name + "_furl", (0.5, 0.48, 0.42), rough=0.9), f"{name}_furl{j}", root)
+                    if j == 1:
+                        piv = L.link(bpy.data.objects.new(name + "_yardpiv", None))
+                        piv.parent = root
+                        piv.location = (mx + 0.3, 0, dz + z)
+                        for o in (y, f):
+                            o.parent = piv
+                            o.location = Vector(o.location) - Vector(piv.location)
+                        P["yard"] = piv
+                lines.append([tuple(top), tuple(tip)])
+                lines.append([(mx, 0, dz + ht * 0.6), tuple(tip - Vector((2, 0, 0.5)))])
+            else:
+                _cyl_between((mx - 0.3, 0, dz + 3.0), (mx - 8.0, 0, dz + 3.5), 0.1, spar, f"{name}_boom{k}", root)
+                _cyl_between((mx - 0.3, 0, dz + ht * 0.55), (mx - 6.0, 0, dz + ht * 0.72), 0.09, spar, f"{name}_gaff{k}", root)
+                lines.append([tuple(top), (mast_x[k - 1][0], 0, dz + mast_x[k - 1][1] * 0.8)])
+        for i, ln in enumerate(lines):
+            polyline(ln, rope, width=0.025, name=f"{name}_rig{i}").parent = root
+    else:
+        for k, (mx, ht) in enumerate(mast_x):
+            sh = rnd.uniform(1.8, 4.0)
+            P["masts"].append(_cyl_between((mx, 0, dz - 0.5), (mx + rnd.uniform(-0.3, 0.3), rnd.uniform(-0.2, 0.2), dz + sh), 0.24,
+                                           spar, f"{name}_stump{k}", root, r2=0.2))
+            ang = rnd.uniform(-0.5, 0.5)
+            ln = ht * 0.55
+            a = Vector((mx + 1.0, -math.copysign(1.5, ang or 1), dz + 0.5))
+            b = a + Vector((math.cos(ang) * ln * -0.9, math.sin(ang) * ln + (3.5 if k % 2 else -3.5), 1.4))
+            _cyl_between(a, b, 0.2, spar, f"{name}_fallen{k}", root, r2=0.1)
+            c = Vector((mx - 2.5, 0, dz + 0.6))
+            _cyl_between(c + Vector((0, -4.5, 0.2)), c + Vector((1.0, 4.8, 0.9)), 0.1, spar, f"{name}_spar{k}", root)
+            t = (mx + BQ_HL) / (2 * BQ_HL)
+            for sy in (-1, 1):
+                polyline([(mx, 0, dz + sh), (mx + 1.0, sy * bq_hw(t) * 0.6, dz + 0.9), (mx + 2.5, sy * bq_hw(t), bq_top(t) + 0.05),
+                          (mx + 3.0, sy * (bq_hw(t) + 0.15), bq_top(t) - 1.6)], rope, width=0.03, name=f"{name}_drape{k}").parent = root
+        _cyl_between(bow - Vector((3, 0, 0.4)), bow + Vector((2.5, 0.3, 0.5)), 0.2, spar, name + "_bowstump", root, r2=0.16)
+    nr, nm = stern_name(name=name + "_name")
+    nr.parent = root
+    nr.location = (-BQ_HL - 0.03, 0, 2.55)
+    nr.rotation_euler = (math.pi / 2, 0, -math.pi / 2)
+    P["name_root"], P["name_mat"] = nr, nm
+    P["stern_x"] = -BQ_HL
+    for k in range(anemones):
+        t = rnd.uniform(0.0, 0.95)
+        sy = rnd.choice((-1, 1))
+        x = -BQ_HL + 2 * BQ_HL * t
+        if rnd.random() < 0.3:
+            loc = (-BQ_HL + rnd.uniform(0.2, 1.5), rnd.uniform(-2.0, 2.0), bq_top(0.02) + 0.0)
+        else:
+            loc = (x, sy * bq_hw(t) * 0.99, bq_top(t) + 0.02)
+        anemone(loc, scale=rnd.uniform(1.0, 1.8), color=rnd.choice(((0.8, 0.62, 0.56), (0.85, 0.5, 0.42), (0.75, 0.7, 0.62))),
+                parent=root, name=f"{name}_an{k}", seed=k)
+    return P
+
+
+def auv_torpedo(name="auv", length=3.5, color=(0.95, 0.7, 0.05), lamp=900):
+    """Generic torpedo-shaped survey robot (nose +Y): cylinder body, rounded nose, cross tail fins, prop, nose lamp."""
+    root = L.link(bpy.data.objects.new(name, None))
+    yel = mat_paint(name + "_yel", color, rough=0.4)
+    dark = L.mat_principled(name + "_dk", (0.03, 0.03, 0.035), rough=0.5)
+    r = length * 0.075
+    b = L.prim("cyl", loc=(0, 0, 0), rot=(math.pi / 2, 0, 0), vertices=20, radius=r, depth=length * 0.8, name=name + "_body")
+    n = L.prim("sphere", loc=(0, length * 0.4, 0), segments=20, ring_count=10, radius=r, name=name + "_nose")
+    n.scale = (1, 1.8, 1)
+    t = L.prim("cone", loc=(0, -length * 0.47, 0), rot=(math.pi / 2, 0, 0), vertices=20, radius1=r * 0.35, radius2=r, depth=length * 0.14,
+               name=name + "_tail")
+    for o in (b, n, t):
+        L.assign(o, yel); L.smooth(o); o.parent = root
+    for k in range(4):
+        f = L.prim("cube", loc=(0, -length * 0.45, 0), name=name + "_fin")
+        f.scale = (0.012, length * 0.06, r * 1.9)
+        f.rotation_euler = (0, k * math.pi / 4 * 2, 0) if k < 2 else (0, math.pi / 4 + k * math.pi / 2, 0)
+        L.assign(f, dark); f.parent = root
+    bd = L.prim("cyl", loc=(0, length * 0.1, 0), rot=(math.pi / 2, 0, 0), vertices=20, radius=r * 1.02, depth=length * 0.06, name=name + "_band")
+    L.assign(bd, dark); bd.parent = root
+    P = {"root": root}
+    lens = L.prim("sphere", loc=(0, length * 0.4 + r * 1.7, 0), segments=10, ring_count=6, radius=r * 0.3, name=name + "_lens")
+    lm = L.mat_emission(name + "_lensm", (0.85, 0.95, 1.0), 20)
+    L.assign(lens, lm); lens.parent = root
+    sp = L.spot((0, length * 0.4 + r * 2, 0), (math.pi / 2, 0, 0), energy=lamp, size_deg=40, blend=0.5, color=(0.85, 0.95, 1.0),
+                parent=root, name=name + "_lamp")
+    P.update({"lamp": sp, "lens_mat": lm})
+    return P
+
+
+def rov_drone(name="rov", color=(0.95, 0.68, 0.05), lamp=1500):
+    """Generic hybrid underwater drone (nose +Y): flat rounded yellow body 3.5 x 1.1 x 0.6 m, four thruster pods,
+    sensor dome, two forward/down lamps with fake beam cones. Returns dict(root, lamps, cones, lens_mat)."""
+    root = L.link(bpy.data.objects.new(name, None))
+    yel = mat_paint(name + "_yel", color, rough=0.4)
+    dark = L.mat_principled(name + "_dk", (0.03, 0.03, 0.035), rough=0.5)
+    b = L.prim("cube", loc=(0, 0, 0), name=name + "_body")
+    b.scale = (0.55, 1.75, 0.3)
+    L.bevel(b, 0.18, 3)
+    L.assign(b, yel); b.parent = root
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            p = L.prim("cyl", loc=(sx * 0.68, sy * 1.0, 0), rot=(math.pi / 2, 0, 0), vertices=14, radius=0.17, depth=0.5, name=name + "_pod")
+            L.assign(p, dark); p.parent = root
+            a = L.prim("cube", loc=(sx * 0.58, sy * 1.0, 0), name=name + "_arm")
+            a.scale = (0.08, 0.08, 0.05)
+            L.assign(a, dark); a.parent = root
+    dm = L.prim("sphere", loc=(0, 0.6, 0.3), segments=14, ring_count=8, radius=0.2, name=name + "_dome")
+    L.assign(dm, dark); dm.parent = root
+    sk = L.prim("cube", loc=(0, 0, -0.36), name=name + "_skid")
+    sk.scale = (0.5, 1.2, 0.04)
+    L.assign(sk, dark); sk.parent = root
+    P = {"root": root, "lamps": [], "cones": []}
+    lm = L.mat_emission(name + "_lensm", (0.85, 0.95, 1.0), 25)
+    P["lens_mat"] = lm
+    for sx in (-1, 1):
+        ln = L.prim("sphere", loc=(sx * 0.3, 1.72, -0.12), segments=10, ring_count=6, radius=0.09, name=name + "_lens")
+        L.assign(ln, lm); ln.parent = root
+        d = Vector((sx * 0.08, 0.55, -0.83)).normalized()
+        sp = L.spot((sx * 0.3, 1.8, -0.15), (0, 0, 0), energy=lamp, size_deg=38, blend=0.5, color=(0.85, 0.95, 1.0), parent=root,
+                    name=name + "_lamp")
+        sp.rotation_euler = d.to_track_quat("-Z", "Y").to_euler()
+        P["lamps"].append(sp)
+        P["cones"].append(beam_cone((sx * 0.3, 1.8, -0.15), tuple(d), length=7, radius=2.2, color=(0.8, 0.93, 1.0), strength=1.4,
+                                    alpha=0.3, name=name + "_cone", parent=root))
+    return P
+
+
+def ice_floes(size=(400, 600), cell=14.0, seed=2, gap=0.8, z=0.0, thick=0.6, keep=None, name="floes", jitter=0.35):
+    """Broken sea ice as ONE mesh: an irregular polygon per jittered grid cell with dark leads between (lay it over a
+    dark water plane). keep(x, y) -> bool drops floes (e.g. a ship's lane). Returns the object."""
+    rnd = random.Random(seed)
+    bm = bmesh.new()
+    nx, ny = int(size[0] / cell), int(size[1] / cell)
+    for i in range(nx):
+        for j in range(ny):
+            cx = -size[0] / 2 + (i + 0.5 + rnd.uniform(-jitter, jitter) * 0.5) * cell
+            cy = -size[1] / 2 + (j + 0.5 + rnd.uniform(-jitter, jitter) * 0.5) * cell
+            if keep and not keep(cx, cy):
+                continue
+            k = rnd.randint(6, 9)
+            a0 = rnd.uniform(0, 6.28)
+            rr = (cell - gap) * 0.56
+            top = [bm.verts.new((cx + math.cos(a0 + 2 * math.pi * q / k) * rr * rnd.uniform(0.72, 1.0),
+                                 cy + math.sin(a0 + 2 * math.pi * q / k) * rr * rnd.uniform(0.72, 1.0), z + thick * 0.4)) for q in range(k)]
+            bot = [bm.verts.new((v.co.x, v.co.y, z - thick * 0.6)) for v in top]
+            bm.faces.new(top)
+            for q in range(k):
+                bm.faces.new((top[q], bot[q], bot[(q + 1) % k], top[(q + 1) % k]))
+    o = L.mesh_from_bm(name, bm)
+    L.assign(o, L.mat_noise_surface(name + "_m", (0.62, 0.68, 0.74), (0.92, 0.94, 0.96), scale=0.12, bump=0.25, voronoi=False, rough=0.6))
+    return o

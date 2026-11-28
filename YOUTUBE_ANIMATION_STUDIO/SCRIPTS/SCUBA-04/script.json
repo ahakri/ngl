@@ -320,9 +320,9 @@
     },
     {
      "type": "stamp",
-     "text": "PROVINCETOWN, MA\n11 JUN 2021",
+     "text": "11 JUNE 2021",
      "params": {
-      "y": 300
+      "y": 1420
      }
     }
    ],
@@ -709,7 +709,7 @@
    "overlay": [
     {
      "type": "text",
-     "text": "THROAT ~ FIST-SIZED\n(EXPERT ESTIMATE)",
+     "text": "THROAT ABOUT FIST-SIZED\n(EXPERT ESTIMATE)",
      "params": {
       "y": 1420,
       "size": 70,

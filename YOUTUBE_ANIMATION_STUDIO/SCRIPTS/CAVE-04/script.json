@@ -709,7 +709,7 @@
    "overlay": [
     {
      "type": "timer",
-     "text": "ABOUT",
+     "text": "MORE THAN",
      "params": {
       "from": 27,
       "to": 27,

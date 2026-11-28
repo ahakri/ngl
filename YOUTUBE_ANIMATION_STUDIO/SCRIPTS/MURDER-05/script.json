@@ -438,7 +438,7 @@
      "type": "label",
      "text": "EYEWITNESS CLAIM",
      "params": {
-      "y": 200
+      "y": 1420
      }
     }
    ],
@@ -859,20 +859,6 @@
      "params": {
       "from": 0,
       "to": 100
-     }
-    },
-    {
-     "type": "text",
-     "text": "NO ONE CONVICTED",
-     "start": 1.8,
-     "params": {
-      "size": 90,
-      "y": 1450,
-      "color": [
-       230,
-       40,
-       40
-      ]
      }
     }
    ],

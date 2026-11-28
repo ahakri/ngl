@@ -228,7 +228,7 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "Archer Ave, Justice, Illinois"
      }
     },
@@ -697,10 +697,10 @@
     },
     {
      "type": "card",
-     "text": "A truck backed into the fence.\nNo evidence of a ghost.",
+     "text": "No evidence of a ghost.",
      "params": {
       "header": "THE CEMETERY'S ANSWER",
-      "y": 1150
+      "y": 1450
      }
     }
    ],
@@ -738,7 +738,7 @@
      "type": "label",
      "text": "FOLKLORE",
      "params": {
-      "y": 200,
+      "y": 1420,
       "sub": "a recognised legend type"
      }
     },
@@ -747,7 +747,9 @@
      "text": "A driver gives a stranger a lift.\nThe passenger vanishes.\nThey turn out to be dead.\nTold across many countries.",
      "params": {
       "title": "THE VANISHING HITCHHIKER",
-      "style": "paper"
+      "style": "paper",
+      "size": 42,
+      "cps": 45
      }
     }
    ],

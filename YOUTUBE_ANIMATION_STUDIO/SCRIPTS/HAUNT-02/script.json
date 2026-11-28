@@ -595,16 +595,8 @@
      "type": "label",
      "text": "DOCUMENTED FACT",
      "params": {
-      "y": 200,
+      "y": 900,
       "sub": "survived; returned to work (reported)"
-     }
-    },
-    {
-     "type": "card",
-     "text": "Survived the 1911 blast\nTwo broken ankles\nReturned to work (years)",
-     "params": {
-      "header": "WHAT THE RECORD SAYS",
-      "y": 1150
      }
     }
    ],
@@ -692,7 +684,7 @@
      "type": "text",
      "text": "SHE DIDN'T\nDIE HERE",
      "params": {
-      "y": 520,
+      "y": 1450,
       "size": 110
      }
     }

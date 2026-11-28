@@ -364,9 +364,9 @@
     },
     {
      "type": "stamp",
-     "text": "NORTH SEA\n18 SEP 2012",
+     "text": "18 SEPTEMBER 2012",
      "params": {
-      "y": 300
+      "y": 1420
      }
     }
    ],
@@ -1032,7 +1032,7 @@
    "overlay": [
     {
      "type": "stamp",
-     "text": "~3 WEEKS LATER",
+     "text": "ABOUT 3 WEEKS LATER",
      "params": {
       "y": 300
      }
