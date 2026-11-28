@@ -1,0 +1,17 @@
+{
+ "id": "HAUNT-02",
+ "checks": {
+  "resolution": "1080x1920",
+  "fps": "24/1",
+  "duration_s": 50.79,
+  "has_audio": true,
+  "integrated_lufs": -14.5,
+  "true_peak_dbfs": -1.3,
+  "black_segments": [],
+  "frozen_starts": [],
+  "silences": [],
+  "missing_frames": []
+ },
+ "fail": [],
+ "auto_verdict": "PASS"
+}
